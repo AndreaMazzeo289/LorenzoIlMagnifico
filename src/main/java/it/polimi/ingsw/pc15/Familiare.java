@@ -1,6 +1,7 @@
 package it.polimi.ingsw.pc15;
 
 public class Familiare {
+<<<<<<< HEAD
 	
 	private final ColoreFamiliare coloreFamiliare;
 	private int valore;
@@ -32,4 +33,7 @@ public class Familiare {
 	public boolean disponibile() {
 		return this.disponibilità;
 	}
+=======
+
+>>>>>>> ed083f8375661e60fcb92f3891297b0c717304d8
 }

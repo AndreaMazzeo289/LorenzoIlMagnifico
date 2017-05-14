@@ -1,0 +1,48 @@
+<effetti>
+	<effetto tipo="aggiuntaRisorse">
+		<effettoAggiuntaRisorse id="1">
+			<tipoRisorsa></tipoRisorsa>
+			<quantita></quantita>
+		</effettoAggiuntaRisorse>
+	</effetto>
+	<effetto tipo="azione">
+		<effettoAzione tipoAzione="raccolto">
+			<azioneRaccolto>
+				<valoreDado></valoreDado>
+			</azioneRaccolto>
+		</effettoAzione>
+		<effettoAzione tipoAzione="produzione">
+			<azioneProduzione>
+				<valoreDado></valoreDado>
+			</azioneProduzione>
+		</effettoAzione>
+		<effettoAzione tipoAzione="carta">
+			<azioneCarta>
+				<valoreDado></valoreDado>
+				<coloreCarta></coloreCarta>
+			</azioneCarta>
+		</effettoAzione>
+	</effetto>
+	<effetto tipo="moltiplicazione">
+		<effettoMoltiplicazione id="1">
+			<fattore1></fattore1>
+			<fattore2></fattore2>
+		</effettoMoltiplicazione>
+	</effetto>
+	<effetto tipo="scambio">
+		<effettoScambio id="1">
+			<pagamento></pagamento>
+			<guadagno></guadagno>
+		</effettoScambio>
+	</effetto>
+	<effetto tipo="bonus">
+		<effettoBonus tipoBonus="raccolta">
+		</effettoBonus>
+		<effettoBonus tipoBonus="produzione">
+		</effettoBonus>
+		<effettoBonus tipoBonus="dadoCarte">
+		</effettoBonus>
+		<effettoBonus tipoBonus="dadi">
+		</effettoBonus>
+	</effetto>
+</effetti>
