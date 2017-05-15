@@ -77,7 +77,7 @@ public class Moltiplicazione implements Effetto{
 						 
 		case PERSONAGGI: Iterator<Personaggio> personaggio = player.getPersonaggi().iterator();
 		
-					      while(territorio.hasNext()){
+					      while(personaggio.hasNext()){
 								 
 						  player.getSetRisorse().aggiungi(this.setRisorse);
 							 
@@ -93,7 +93,7 @@ public class Moltiplicazione implements Effetto{
 		 
 		case IMPRESE : Iterator<Impresa> impresa = player.getImprese().iterator();
 		
-		               while(imprese.hasNext()){
+		               while(impresa.hasNext()){
 			 
 		               player.getSetRisorse().aggiungi(this.setRisorse);
 		 

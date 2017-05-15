@@ -9,7 +9,7 @@ public class BonusRaccolta extends Bonus {
 	@Override
 	public void attiva(Player player){
 		
-		player.getEffettiAttivi().incrementaBonusRaccolta(this.valore);
+		player.getEffettiAttivi().incrementaBonusRaccolta(getValore());
 	}
 	
 }

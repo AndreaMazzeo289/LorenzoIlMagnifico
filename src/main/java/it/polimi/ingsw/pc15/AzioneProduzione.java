@@ -11,11 +11,11 @@ public class AzioneProduzione extends Azione{
 	@Override
 	public void attiva(Player player){
 		
-		Iterator<Edificio> edificio= this.player.getEdifici().iterator();
+		Iterator<Edificio> edificio= player.getEdifici().iterator();
 		
 		while(edificio.hasNext()){
-			if (this.valoreDado >= edificio.getRequisitoProduz())
-				edificio.getEffettoProduz().attiva(this.player);
+			if (getValoreDado() >= edificio.getRequisitoProduz())
+				edificio.getEffettoProduz().attiva(player);
 		}
 	}
 }

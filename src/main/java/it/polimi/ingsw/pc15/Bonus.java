@@ -14,4 +14,8 @@ public abstract class Bonus implements Effetto{
 		// TODO Auto-generated method stub
 		
 	}
+	
+	public int getValore(){
+		return this.valore;
+	}
 }

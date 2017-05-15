@@ -10,4 +10,8 @@ public abstract class Azione implements Effetto {
 	
 	@Override
 	public void attiva(Player player){}
+	
+	public int getValoreDado(){
+		return this.valoreDado;
+	}
 }
