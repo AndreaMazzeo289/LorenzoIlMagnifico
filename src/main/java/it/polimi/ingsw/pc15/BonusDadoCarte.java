@@ -14,7 +14,7 @@ public class BonusDadoCarte extends Bonus{
 	@Override
 	public void attiva(Player player){
 		
-		switch(coloreCarta){
+		switch(this.coloreCarta){
 		
 		case VERDE : player.getEffettiAttivi().incrementaBonusDadoCarte(0,this.valore); break;
 		case BLU : player.getEffettiAttivi().incrementaBonusDadoCarte(1,this.valore); break;

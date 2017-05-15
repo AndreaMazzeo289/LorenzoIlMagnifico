@@ -19,49 +19,49 @@ public class Moltiplicazione implements Effetto{
 		
 		switch(this.tipoRisorsa) {
 		
-		case ORO : for(int i = 1:(player.getSetRisorse().getOro().getQuantità())/numRisorsa){
+		case ORO : for(int i = 1; i<=(player.getSetRisorse().getOro().getQuantità()/this.numRisorsa); i++){
 			
 			       player.getSetRisorse().aggiungi(this.setRisorse);
 		
 		           };break;
 		
-		case LEGNA : for(int i = 1:(player.getSetRisorse().getLegna().getQuantità())/numRisorsa){
+		case LEGNA : for(int i = 1; i<=(player.getSetRisorse().getLegna().getQuantità()/this.numRisorsa); i++){
 			
 			         player.getSetRisorse().aggiungi(this.setRisorse);
 		
 		             };break;
 		
-		case SERVITORI : for(int i = 1:(player.getSetRisorse().getServitori().getQuantità())/numRisorsa){
+		case SERVITORI : for(int i = 1; i<=(player.getSetRisorse().getServitori().getQuantità()/this.numRisorsa); i++){
 			
 			             player.getSetRisorse().aggiungi(this.setRisorse);
 		
 		                 };break;
 		
-		case PUNTIVITTORIA : for(int i = 1:(player.getSetRisorse().getPuntiVittoria().getQuantità())/numRisorsa){
+		case PUNTIVITTORIA : for(int i = 1; i<=(player.getSetRisorse().getPuntiVittoria().getQuantità()/this.numRisorsa); i++){
 			
 			                 player.getSetRisorse().aggiungi(this.setRisorse);
 		
 		                     };break;
 		
-		case PIETRA : for(int i = 1:(player.getSetRisorse().getPietra().getQuantità())/numRisorsa){
+		case PIETRA : for(int i = 1; i<=(player.getSetRisorse().getPietra().getQuantità()/this.numRisorsa); i++){
 			          
 			          player.getSetRisorse().aggiungi(this.setRisorse);
 		       
 		              };break;
 		
-		case PUNTIMILITARI : for(int i = 1:(player.getSetRisorse().getPuntiMilitari().getQuantità())/numRisorsa){
+		case PUNTIMILITARI : for(int i = 1; i<=(player.getSetRisorse().getPuntiMilitari().getQuantità()/this.numRisorsa); i++){
 			
 			                 player.getSetRisorse().aggiungi(this.setRisorse);
 		
 		                     };break;
 		
-		case PUNTIFEDE : for(int i = 1:(player.getSetRisorse().getPuntiFede().getQuantità())/numRisorsa){
+		case PUNTIFEDE : for(int i = 1; i<=(player.getSetRisorse().getPuntiFede().getQuantità()/this.numRisorsa); i++){
 			
 			             player.getSetRisorse().aggiungi(this.setRisorse);
 		
 		                 };break;
 		
-		case PRIVILEGI : for(int i = 1:(player.getSetRisorse().getPrivilegi().getQuantità())/numRisorsa){
+		case PRIVILEGI : for(int i = 1; i<=(player.getSetRisorse().getPrivilegi().getQuantità()/this.numRisorsa); i++){
 						
 			             player.getSetRisorse().aggiungi(this.setRisorse);
 		                 
@@ -69,7 +69,7 @@ public class Moltiplicazione implements Effetto{
 		
 		case TERRITORI : Iterator<Territorio> territorio = this.player.getTerritori().iterator();
 		
-						 while(territorio.hasnext()){
+						 while(territorio.hasNext()){
 							 
 						 player.getSetRisorse().aggiungi(this.setRisorse);
 						 
@@ -77,7 +77,7 @@ public class Moltiplicazione implements Effetto{
 						 
 		case PERSONAGGI: Iterator<Personaggio> personaggio = this.player.getPersonaggi().iterator();
 		
-					      while(territorio.hasnext()){
+					      while(territorio.hasNext()){
 								 
 						  player.getSetRisorse().aggiungi(this.setRisorse);
 							 
@@ -85,7 +85,7 @@ public class Moltiplicazione implements Effetto{
 						  
 		case EDIFICI : Iterator<Edificio> edificio = this.player.getEdifici().iterator();
 		
-		               while(edificio.hasnext()){
+		               while(edificio.hasNext()){
 			 
 		               player.getSetRisorse().aggiungi(this.setRisorse);
 		 

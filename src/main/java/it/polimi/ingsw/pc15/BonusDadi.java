@@ -14,7 +14,7 @@ public class BonusDadi extends Bonus{
 		@Override
 		public void attiva (Player player){
 			
-			switch(coloreFamiliare){
+			switch(this.coloreFamiliare){
 			
 			case BIANCO : player.getEffettiAttivi().incrementaBonusDadi(0,this.valore); break;
 			case NERO : player.getEffettiAttivi().incrementaBonusDadi(1,this.valore); break;
