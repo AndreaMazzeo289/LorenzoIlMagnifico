@@ -33,7 +33,7 @@ public class Edificio extends Carta {
 		return this.requisitoProduzione;
 	}
 	
-	public Effetto getEffettoRaccolta() {
+	public Effetto getEffettoProduzione() {
 		return this.effettoProduzione;
 	}
 
