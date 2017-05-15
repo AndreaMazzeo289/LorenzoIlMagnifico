@@ -7,8 +7,8 @@ public class Territorio extends Carta {
 	private int requisitoRaccolta;
 	private Effetto effettoRaccolta;
 	
-	public Territorio (String nome, int id, int periodo, Set<Effetto> effettoIstantaneo, int requisitoRaccolta, Effetto effettoRaccolta) {
-		super(nome, id, periodo, effettoIstantaneo);
+	public Territorio (String nome, int id, int periodo, Set<Effetto> effettoIstantaneo, int requisitoRaccolta, Effetto effettoRaccolta, SpazioTorre spazio) {
+		super(nome, id, periodo, null, effettoIstantaneo, spazio);
 		this.requisitoRaccolta = requisitoRaccolta;
 		this.effettoRaccolta = effettoRaccolta;
 	}

@@ -2,7 +2,7 @@ package it.polimi.ingsw.pc15;
 
 public class AzioneProduzione extends Azione{
 	
-	public AzioneRaccolto(int valoreDado){
+	public AzioneProduzione(int valoreDado){
 		super(valoreDado);
 	}
 	

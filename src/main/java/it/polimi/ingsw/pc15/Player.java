@@ -46,6 +46,18 @@ public class Player {
 		return this.territori;
 	}
 	
+	Set<Personaggio> getPersonaggi() {
+		return this.personaggi;
+	}
+	
+	Set<Edificio> getEdifici() {
+		return this.edifici;
+	}
+	
+	Set<Impresa> getImprese() {
+		return this.imprese;
+	}
+	
 	void occupaSpazio (Spazio spazio, Familiare familiare) {
 		
 		if (familiare.disponibile()) {

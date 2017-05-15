@@ -15,9 +15,9 @@ public class SpazioRaccolta extends Spazio {
 	@Override
 	public void occupa(Familiare familiare) {
 		listaFamiliari.add(familiare);
-		
-		
-		
+
+		Effetto effetto = new AzioneRaccolto (familiare.getValore());
+		effetto.attiva(familiare.getPlayer());
 	}
 
 	@Override

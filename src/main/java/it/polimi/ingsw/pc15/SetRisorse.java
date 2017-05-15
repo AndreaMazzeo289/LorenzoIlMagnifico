@@ -12,8 +12,16 @@ public class SetRisorse {
 	private Privilegi privilegi;
 	
 	
-	public SetRisorse (Oro oro, Legna legna, Pietra pietra, Servitori servitori, PuntiVittoria puntiVittoria, 
-			            PuntiMilitari puntiMilitari, PuntiFede puntiFede, Privilegi privilegi) {
+	public SetRisorse (int numOro, int numLegna, int numPietra, int numServitori, int numPuntiVittoria, int numPuntiMilitari, int numPuntiFede, int numPrivilegi) {
+		
+		Oro oro = new Oro(numOro);
+		Legna legna = new Legna(numLegna);
+		Pietra pietra = new Pietra(numPietra);
+		Servitori servitori = new Servitori(numServitori);
+		PuntiVittoria puntiVittoria = new PuntiVittoria(numPuntiVittoria);
+		PuntiMilitari puntiMilitari = new PuntiMilitari(numPuntiMilitari);
+		PuntiFede puntiFede = new PuntiFede(numPuntiFede);
+		Privilegi privilegi = new Privilegi(numPrivilegi);
 		
 		this.oro = oro;
 		this.legna = legna;
