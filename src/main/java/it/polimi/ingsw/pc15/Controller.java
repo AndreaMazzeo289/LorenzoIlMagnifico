@@ -10,7 +10,7 @@ public class Controller implements Observer {
 	
 	public Controller (Model gioco, View view) {
 		this.gioco = gioco;
-		view.registerObserver(this);
+		view.addObserver(this);
 		
 	}
 
