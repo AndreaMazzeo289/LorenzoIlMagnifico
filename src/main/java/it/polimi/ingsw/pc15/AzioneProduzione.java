@@ -1,5 +1,7 @@
 package it.polimi.ingsw.pc15;
 
+import java.util.Iterator;
+
 public class AzioneProduzione extends Azione{
 	
 	public AzioneProduzione(int valoreDado){
@@ -9,9 +11,9 @@ public class AzioneProduzione extends Azione{
 	@Override
 	public void attiva(Player player){
 		
-		iterator<Edificio> edificio= this.player.getEdifici().iterator();
+		Iterator<Edificio> edificio= this.player.getEdifici().iterator();
 		
-		while(edificio.hasnext()){
+		while(edificio.hasNext()){
 			if (this.valoreDado >= edificio.getRequisitoProduz())
 				edificio.getEffettoProduz().attiva(this.player);
 		}

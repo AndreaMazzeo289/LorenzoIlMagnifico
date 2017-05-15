@@ -11,7 +11,7 @@ public class AzioneRaccolto extends Azione{
 	@Override
 	public void attiva(Player player){
 		
-		Iterator<Territorio> territorio = this.player.getTerritori().iterator();
+		Iterator<Territorio> territorio = player.getTerritori().iterator();
 		
 		while(territorio.hasnext()){
 			if (this.valoreDado >= territorio.getRequisitoRaccolta())
