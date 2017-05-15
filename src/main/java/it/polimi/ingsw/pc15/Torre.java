@@ -2,6 +2,7 @@ package it.polimi.ingsw.pc15;
 
 public class Torre {
 	private SpazioTorre[] spazioTorre;
+	private boolean occupata;
 	
 	public Torre (){
 		this.spazioTorre = new SpazioTorre[4];
@@ -15,4 +16,7 @@ public class Torre {
 		return this.spazioTorre;
 	}
 		
+	public boolean getOccupata() {
+		return occupata;
+	}
 }
