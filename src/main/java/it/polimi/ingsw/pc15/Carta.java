@@ -10,14 +10,31 @@ public abstract class Carta {
 	private final int periodo;
 	private final SetRisorse costo;
 	private final Set<Effetto> effettoIstantaneo;
+	private Player player;
+	private SpazioTorre spazio;
 	
-	public Carta (String nome, int id, int periodo, Set<Effetto> effettoIstantaneo) {
+	public Carta (String nome, int id, int periodo, SetRisorse costo, Set<Effetto> effettoIstantaneo, SpazioTorre spazio) {
 		this.nome = nome;
 		this.id = id;
 		this.periodo = periodo;
+		this.costo = costo;
 		this.effettoIstantaneo = effettoIstantaneo;
+		this.player = null;
+		this.spazio = spazio;
 	}
 	
+	public SetRisorse getCosto() {
+		return this.costo;
+	}
 	
+	public SpazioTorre getSpazio() {
+		return this.spazio;
+	}
+	
+	public Player getPlayer() {
+		return this.player;
+	}
+	
+	public abstract boolean acquistabile(Player player);
 
 }

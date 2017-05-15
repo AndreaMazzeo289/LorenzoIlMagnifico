@@ -28,7 +28,6 @@ public class Player {
 		familiari.add(familiareArancione);
 		familiari.add(familiareNeutro);
 		
-		
 	}
 	
 	public SetRisorse getRisorse() {
@@ -43,6 +42,22 @@ public class Player {
 		return this.setRisorse;
 	}
 	
+	Set<Territorio> getTerritori() {
+		return this.territori;
+	}
+	
+	Set<Personaggio> getPersonaggi() {
+		return this.personaggi;
+	}
+	
+	Set<Edificio> getEdifici() {
+		return this.edifici;
+	}
+	
+	Set<Impresa> getImprese() {
+		return this.imprese;
+	}
+	
 	void occupaSpazio (Spazio spazio, Familiare familiare) {
 		
 		if (familiare.disponibile()) {
@@ -51,8 +66,11 @@ public class Player {
 		
 			//chiedi quanti servitori vuoi
 		
-			if (spazio.occupabile(familiare, servitoriAggiuntivi) )
+			if (spazio.occupabile(familiare, servitoriAggiuntivi) ) {
+				
+				this.setRisorse.getServitori().aggiungi(-servitoriAggiuntivi);
 				spazio.occupa(familiare);
+			}
 		}
 		
 	}
