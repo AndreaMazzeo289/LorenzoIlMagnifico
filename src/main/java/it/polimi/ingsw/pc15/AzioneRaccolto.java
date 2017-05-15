@@ -15,7 +15,7 @@ public class AzioneRaccolto extends Azione{
 		
 		while(territorio.hasNext()){
 			if (getValoreDado() >= territorio.getRequisitoRaccolta())
-				territorio.getEffettoRaccolta().attiva(this.player);
+				territorio.getEffettoRaccolta().attiva(player);
 		}
 	}
 }
