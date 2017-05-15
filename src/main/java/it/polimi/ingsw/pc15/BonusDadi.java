@@ -16,10 +16,10 @@ public class BonusDadi extends Bonus{
 			
 			switch(this.coloreFamiliare){
 			
-			case BIANCO : player.getEffettiAttivi().incrementaBonusDadi(0,this.valore); break;
-			case NERO : player.getEffettiAttivi().incrementaBonusDadi(1,this.valore); break;
-			case ARANCIONE : player.getEffettiAttivi().incrementaBonusDadi(2,this.valore); break;
-			case NEUTRO : player.getEffettiAttivi().incrementaBonusDadi(3,this.valore); break;
+			case BIANCO : player.getEffettiAttivi().incrementaBonusDadi(0,getValore()); break;
+			case NERO : player.getEffettiAttivi().incrementaBonusDadi(1,getValore()); break;
+			case ARANCIONE : player.getEffettiAttivi().incrementaBonusDadi(2,getValore()); break;
+			case NEUTRO : player.getEffettiAttivi().incrementaBonusDadi(3,getValore()); break;
 			
 			}
 			
