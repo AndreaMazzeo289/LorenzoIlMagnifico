@@ -15,7 +15,7 @@ public class AzioneProduzione extends Azione{
 		
 		while(edificio.hasNext()){
 			if (getValoreDado() >= edificio.next().getRequisitoProduzione())
-				edificio.getEffettoProduzione().attiva(player);
+				edificio.next().getEffettoProduzione().attiva(player);
 		}
 	}
 }
