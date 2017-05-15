@@ -37,5 +37,8 @@ public class Familiare {
 	public boolean disponibile() {
 		return this.disponibilità;
 	}
+<<<<<<< HEAD
 
+=======
+>>>>>>> ea41d019654ae2bfd295694a2a84321c7d2c8ce5
 }
