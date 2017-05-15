@@ -5,7 +5,7 @@ import java.util.Queue;
 
 public class SpazioProduzione extends Spazio{
 
-private Queue<Familiare> listaFamiliari;
+	private Queue<Familiare> listaFamiliari;
 	
 	public SpazioProduzione(int valoreMin) {
 		super(valoreMin);

@@ -15,7 +15,9 @@ public class SpazioRaccolta extends Spazio {
 	@Override
 	public void occupa(Familiare familiare) {
 		listaFamiliari.add(familiare);
-		//azione raccolta
+		
+		
+		
 	}
 
 	@Override

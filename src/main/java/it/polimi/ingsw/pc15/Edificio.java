@@ -12,5 +12,7 @@ public class Edificio extends Carta {
 		this.requisitoProduz = requisitoProduz;
 		this.effettoProduz = effettoProduz;
 	}
+	
+	public 
 
 }

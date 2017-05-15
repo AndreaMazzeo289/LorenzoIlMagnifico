@@ -19,9 +19,15 @@ public class SpazioMercato extends Spazio {
 	
 	@Override
 	public boolean occupabile(Familiare familiare, int servitoriAggiuntivi){
-		if(familiare.getValore()+servitoriAggiuntivi >= getValoreMin())
-			return true;
-		return false;
+		if(familiare.getValore()+servitoriAggiuntivi >= getValoreMin() )  {
+			return false;
+		}
+		
+		if (!isEmpty() ) {
+			return false;
+		}
+		
+		return true;
 	}
 
 	@Override
