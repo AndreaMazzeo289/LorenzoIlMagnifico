@@ -27,7 +27,6 @@ public class Edificio extends Carta {
 		
 		return true;
 		
-		
 	}
 
 }

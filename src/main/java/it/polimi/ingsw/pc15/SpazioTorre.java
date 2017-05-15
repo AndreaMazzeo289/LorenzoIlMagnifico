@@ -28,7 +28,9 @@ public class SpazioTorre extends Spazio {
 	@Override
 	public void occupa(Familiare familiare) {
 		this.familiare=familiare;
-		effetto.attiva(familiare.getPlayer());
+		effetto.attiva(familiare.getPlayer()); // attivazione dell'effetto aggiuntaRisorse per ottenere le risorse bonus relative allo spazio torre
+		getTorre().setOccupata(true);			// Settaggio flag di occupazione della torre
+		//getCarta().attiva();
 	}
 
 	@Override
