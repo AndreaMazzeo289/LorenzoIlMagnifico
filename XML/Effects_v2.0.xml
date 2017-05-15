@@ -1,0 +1,948 @@
+<effetti>
+	<!--*********************************************************************************************
+			                    _                   _        _                         
+			   __ _  __ _  __ _(_)_   _ _ __   __ _(_)  _ __(_)___  ___  _ __ ___  ___ 
+			  / _` |/ _` |/ _` | | | | | '_ \ / _` | | | '__| / __|/ _ \| '__/ __|/ _ \
+			 | (_| | (_| | (_| | | |_| | | | | (_| | | | |  | \__ \ (_) | |  \__ \  __/
+			  \__,_|\__, |\__, |_|\__,_|_| |_|\__, |_| |_|  |_|___/\___/|_|  |___/\___|
+			        |___/ |___/               |___/                                    
+
+	***********************************************************************************************-->
+	<effetto tipo="aggiuntaRisorse">
+
+		<!--***************************************************************************
+
+		Tipo risorsa: LEGNA
+
+		****************************************************************************-->
+
+		<effettoAggiuntaRisorse nome="aggiungiRisorse1L">
+			<tipoRisorsa>legna</tipoRisorsa>
+			<quantita>1</quantita>
+		</effettoAggiuntaRisorse>
+		<effettoAggiuntaRisorse nome="aggiungiRisorse2L">
+			<tipoRisorsa>legna</tipoRisorsa>
+			<quantita>2</quantita>
+		</effettoAggiuntaRisorse>
+		<effettoAggiuntaRisorse nome="aggiungiRisorse3L">
+			<tipoRisorsa>legna</tipoRisorsa>
+			<quantita>3</quantita>
+		</effettoAggiuntaRisorse>
+
+		<!--***************************************************************************
+
+		Tipo risorsa: PIETRA
+
+		****************************************************************************-->
+
+		<effettoAggiuntaRisorse nome="aggiungiRisorse1P">
+			<tipoRisorsa>pietra</tipoRisorsa>
+			<quantita>1</quantita>
+		</effettoAggiuntaRisorse>
+		<effettoAggiuntaRisorse nome="aggiungiRisorse2P">
+			<tipoRisorsa>pietra</tipoRisorsa>
+			<quantita>2</quantita>
+		</effettoAggiuntaRisorse>
+		<effettoAggiuntaRisorse nome="aggiungiRisorse3P">
+			<tipoRisorsa>pietra</tipoRisorsa>
+			<quantita>3</quantita>
+		</effettoAggiuntaRisorse>
+
+		<!--***************************************************************************
+
+		Tipo risorsa: ORO
+
+		****************************************************************************-->
+
+		<effettoAggiuntaRisorse nome="aggiungiRisorse1O">
+			<tipoRisorsa>oro</tipoRisorsa>
+			<quantita>1</quantita>
+		</effettoAggiuntaRisorse>
+		<effettoAggiuntaRisorse nome="aggiungiRisorse2O">
+			<tipoRisorsa>oro</tipoRisorsa>
+			<quantita>2</quantita>
+		</effettoAggiuntaRisorse>
+		<effettoAggiuntaRisorse nome="aggiungiRisorse3O">
+			<tipoRisorsa>oro</tipoRisorsa>
+			<quantita>3</quantita>
+		</effettoAggiuntaRisorse>
+		<effettoAggiuntaRisorse nome="aggiungiRisorse4O">
+			<tipoRisorsa>oro</tipoRisorsa>
+			<quantita>4</quantita>
+		</effettoAggiuntaRisorse>
+		<effettoAggiuntaRisorse nome="aggiungiRisorse5O">
+			<tipoRisorsa>oro</tipoRisorsa>
+			<quantita>5</quantita>
+		</effettoAggiuntaRisorse>
+
+		<!--***************************************************************************
+
+		Tipo risorsa: SERVITORI
+
+		****************************************************************************-->
+
+		<effettoAggiuntaRisorse nome="aggiungiRisorse1S">
+			<tipoRisorsa>servitori</tipoRisorsa>
+			<quantita>1</quantita>
+		</effettoAggiuntaRisorse>
+		<effettoAggiuntaRisorse nome="aggiungiRisorse2S">
+			<tipoRisorsa>servitori</tipoRisorsa>
+			<quantita>2</quantita>
+		</effettoAggiuntaRisorse>
+		<effettoAggiuntaRisorse nome="aggiungiRisorse3S">
+			<tipoRisorsa>servitori</tipoRisorsa>
+			<quantita>3</quantita>
+		</effettoAggiuntaRisorse>
+		<effettoAggiuntaRisorse nome="aggiungiRisorse4S">
+			<tipoRisorsa>servitori</tipoRisorsa>
+			<quantita>4</quantita>
+		</effettoAggiuntaRisorse>
+		<effettoAggiuntaRisorse nome="aggiungiRisorse5S">
+			<tipoRisorsa>servitori</tipoRisorsa>
+			<quantita>5</quantita>
+		</effettoAggiuntaRisorse>
+
+		<!--***************************************************************************
+
+		Tipo risorsa: PUNTI VITTORIA
+
+		****************************************************************************-->
+		
+		<effettoAggiuntaRisorse nome="aggiungiRisorse1V">
+			<tipoRisorsa>puntiVittoria</tipoRisorsa>
+			<quantita>1</quantita>
+		</effettoAggiuntaRisorse>
+		<effettoAggiuntaRisorse nome="aggiungiRisorse2V">
+			<tipoRisorsa>puntiVittoria</tipoRisorsa>
+			<quantita>2</quantita>
+		</effettoAggiuntaRisorse>
+		<effettoAggiuntaRisorse nome="aggiungiRisorse3V">
+			<tipoRisorsa>puntiVittoria</tipoRisorsa>
+			<quantita>3</quantita>
+		</effettoAggiuntaRisorse>
+		<effettoAggiuntaRisorse nome="aggiungiRisorse4V">
+			<tipoRisorsa>puntiVittoria</tipoRisorsa>
+			<quantita>4</quantita>
+		</effettoAggiuntaRisorse>
+		<effettoAggiuntaRisorse nome="aggiungiRisorse5V">
+			<tipoRisorsa>puntiVittoria</tipoRisorsa>
+			<quantita>5</quantita>
+		</effettoAggiuntaRisorse>
+		<effettoAggiuntaRisorse nome="aggiungiRisorse6V">
+			<tipoRisorsa>puntiVittoria</tipoRisorsa>
+			<quantita>6</quantita>
+		</effettoAggiuntaRisorse>
+		<effettoAggiuntaRisorse nome="aggiungiRisorse7V">
+			<tipoRisorsa>puntiVittoria</tipoRisorsa>
+			<quantita>7</quantita>
+		</effettoAggiuntaRisorse>
+		<effettoAggiuntaRisorse nome="aggiungiRisorse8V">
+			<tipoRisorsa>puntiVittoria</tipoRisorsa>
+			<quantita>8</quantita>
+		</effettoAggiuntaRisorse>
+		<effettoAggiuntaRisorse nome="aggiungiRisorse9V">
+			<tipoRisorsa>puntiVittoria</tipoRisorsa>
+			<quantita>9</quantita>
+		</effettoAggiuntaRisorse>
+		<effettoAggiuntaRisorse nome="aggiungiRisorse10V">
+			<tipoRisorsa>puntiVittoria</tipoRisorsa>
+			<quantita>10</quantita>
+		</effettoAggiuntaRisorse>
+
+		<!--***************************************************************************
+
+		Tipo risorsa: PUNTI MILITARI
+
+		****************************************************************************-->
+
+		<effettoAggiuntaRisorse nome="aggiungiRisorse2PM">
+			<tipoRisorsa>puntiMilitari</tipoRisorsa>
+			<quantita>2</quantita>
+		</effettoAggiuntaRisorse>
+		<effettoAggiuntaRisorse nome="aggiungiRisorse3PM">
+			<tipoRisorsa>puntiMilitari</tipoRisorsa>
+			<quantita>3</quantita>
+		</effettoAggiuntaRisorse>
+		<effettoAggiuntaRisorse nome="aggiungiRisorse4PM">
+			<tipoRisorsa>puntiMilitari</tipoRisorsa>
+			<quantita>4</quantita>
+		</effettoAggiuntaRisorse>
+		<effettoAggiuntaRisorse nome="aggiungiRisorse5PM">
+			<tipoRisorsa>puntiMilitari</tipoRisorsa>
+			<quantita>5</quantita>
+		</effettoAggiuntaRisorse>
+		<effettoAggiuntaRisorse nome="aggiungiRisorse6PM">
+			<tipoRisorsa>puntiMilitari</tipoRisorsa>
+			<quantita>6</quantita>
+		</effettoAggiuntaRisorse>
+		<effettoAggiuntaRisorse nome="aggiungiRisorse7PM">
+			<tipoRisorsa>puntiMilitari</tipoRisorsa>
+			<quantita>7</quantita>
+		</effettoAggiuntaRisorse>
+
+		<!--***************************************************************************
+
+		Tipo risorsa: PUNTI FEDE
+
+		****************************************************************************-->
+
+		<effettoAggiuntaRisorse nome="aggiungiRisorse1F">
+			<tipoRisorsa>puntiFede</tipoRisorsa>
+			<quantita>1</quantita>
+		</effettoAggiuntaRisorse>
+		<effettoAggiuntaRisorse nome="aggiungiRisorse2F">
+			<tipoRisorsa>puntiFede</tipoRisorsa>
+			<quantita>2</quantita>
+		</effettoAggiuntaRisorse>
+		<effettoAggiuntaRisorse nome="aggiungiRisorse3F">
+			<tipoRisorsa>puntiFede</tipoRisorsa>
+			<quantita>3</quantita>
+		</effettoAggiuntaRisorse>
+		<effettoAggiuntaRisorse nome="aggiungiRisorse4F">
+			<tipoRisorsa>puntiFede</tipoRisorsa>
+			<quantita>4</quantita>
+		</effettoAggiuntaRisorse>
+
+		<!--***************************************************************************
+
+		Tipo risorsa: PRIVILEGI
+
+		****************************************************************************-->
+
+		<effettoAggiuntaRisorse nome="aggiungiRisorse1Pr">
+			<tipoRisorsa>privilegi</tipoRisorsa>
+			<quantita>1</quantita>
+		</effettoAggiuntaRisorse>
+		<effettoAggiuntaRisorse nome="aggiungiRisorse2PrDiv">
+			<tipoRisorsa>privilegi</tipoRisorsa>
+			<quantita>2</quantita>
+		</effettoAggiuntaRisorse>
+		<effettoAggiuntaRisorse nome="aggiungiRisorse3PrDiv">
+			<tipoRisorsa>privilegi</tipoRisorsa>
+			<quantita>3</quantita>
+		</effettoAggiuntaRisorse>
+	</effetto>
+
+	<!--*********************************************************************************************
+								     _    ________ ___  _   _ _____ 
+								    / \  |__  /_ _/ _ \| \ | | ____|
+								   / _ \   / / | | | | |  \| |  _|  
+								  / ___ \ / /_ | | |_| | |\  | |___ 
+								 /_/   \_\____|___\___/|_| \_|_____|
+                                    
+	***********************************************************************************************-->
+
+	<effetto tipo="azione">
+		<!--***************************************************************************
+
+		Tipo azione: RACCOLTA
+
+		****************************************************************************-->
+		<effettoAzione tipoAzione="raccolta">
+			<azioneRaccolto nome="azioneRaccolta1">
+				<valoreDado>1</valoreDado>
+			</azioneRaccolto>
+			<azioneRaccolto nome="azioneRaccolta2">
+				<valoreDado>2</valoreDado>
+			</azioneRaccolto>
+			<azioneRaccolto nome="azioneRaccolta3">
+				<valoreDado>3</valoreDado>
+			</azioneRaccolto>
+			<azioneRaccolto nome="azioneRaccolta4">
+				<valoreDado>4</valoreDado>
+			</azioneRaccolto>
+			<azioneRaccolto nome="azioneRaccolta5">
+				<valoreDado>5</valoreDado>
+			</azioneRaccolto>
+			<azioneRaccolto nome="azioneRaccolta6">
+				<valoreDado>6</valoreDado>
+			</azioneRaccolto>
+		</effettoAzione>
+		<!--***************************************************************************
+
+		Tipo azione: PRODUZIONE
+
+		****************************************************************************-->
+		<effettoAzione tipoAzione="produzione">
+			<azioneProduzione nome="azioneProduzione1">
+				<valoreDado>1</valoreDado>
+			</azioneProduzione>
+			<azioneProduzione nome="azioneProduzione2">
+				<valoreDado>2</valoreDado>
+			</azioneProduzione>
+			<azioneProduzione nome="azioneProduzione3">
+				<valoreDado>3</valoreDado>
+			</azioneProduzione>
+			<azioneProduzione nome="azioneProduzione4">
+				<valoreDado>4</valoreDado>
+			</azioneProduzione>
+			<azioneProduzione nome="azioneProduzione5">
+				<valoreDado>5</valoreDado>
+			</azioneProduzione>
+			<azioneProduzione nome="azioneProduzione6">
+				<valoreDado>6</valoreDado>
+			</azioneProduzione>
+		</effettoAzione>
+		<!--***************************************************************************
+
+		Tipo azione: CARTA
+
+		****************************************************************************-->
+
+		<!--****************************CARTE VERDI*********************************-->
+
+		<effettoAzione tipoAzione="carta">
+			<azioneCarta nome="azioneCartaVerde1">
+				<valoreDado>1</valoreDado>
+				<coloreCarta>verde</coloreCarta>
+			</azioneCarta>
+			<azioneCarta nome="azioneCartaVerde2">
+				<valoreDado>2</valoreDado>
+				<coloreCarta>verde</coloreCarta>
+			</azioneCarta>
+			<azioneCarta nome="azioneCartaVerde3">
+				<valoreDado>3</valoreDado>
+				<coloreCarta>verde</coloreCarta>
+			</azioneCarta>
+			<azioneCarta nome="azioneCartaVerde4">
+				<valoreDado>4</valoreDado>
+				<coloreCarta>verde</coloreCarta>
+			</azioneCarta>
+			<azioneCarta nome="azioneCartaVerde5">
+				<valoreDado>5</valoreDado>
+				<coloreCarta>verde</coloreCarta>
+			</azioneCarta>
+			<azioneCarta nome="azioneCartaVerde6">
+				<valoreDado>6</valoreDado>
+				<coloreCarta>verde</coloreCarta>
+			</azioneCarta>
+
+			<!--****************************CARTE GIALLE*********************************-->
+
+			<azioneCarta nome="azioneCartaGialla1">
+				<valoreDado>1</valoreDado>
+				<coloreCarta>gialla</coloreCarta>
+			</azioneCarta>
+			<azioneCarta nome="azioneCartaGialla2">
+				<valoreDado>2</valoreDado>
+				<coloreCarta>gialla</coloreCarta>
+			</azioneCarta>
+			<azioneCarta nome="azioneCartaGialla3">
+				<valoreDado>3</valoreDado>
+				<coloreCarta>gialla</coloreCarta>
+			</azioneCarta>
+			<azioneCarta nome="azioneCartaGialla4">
+				<valoreDado>4</valoreDado>
+				<coloreCarta>gialla</coloreCarta>
+			</azioneCarta>
+			<azioneCarta nome="azioneCartaGialla5">
+				<valoreDado>5</valoreDado>
+				<coloreCarta>gialla</coloreCarta>
+			</azioneCarta>
+			<azioneCarta nome="azioneCartaGialla6">
+				<valoreDado>6</valoreDado>
+				<coloreCarta>gialla</coloreCarta>
+			</azioneCarta>
+
+			<!--****************************CARTE BLU*********************************-->
+
+			<azioneCarta nome="azioneCartaBlu1">
+				<valoreDado>1</valoreDado>
+				<coloreCarta>blu</coloreCarta>
+			</azioneCarta>
+			<azioneCarta nome="azioneCartaBlu2">
+				<valoreDado>2</valoreDado>
+				<coloreCarta>blu</coloreCarta>
+			</azioneCarta>
+			<azioneCarta nome="azioneCartaBlu3">
+				<valoreDado>3</valoreDado>
+				<coloreCarta>blu</coloreCarta>
+			</azioneCarta>
+			<azioneCarta nome="azioneCartaBlu4">
+				<valoreDado>4</valoreDado>
+				<coloreCarta>blu</coloreCarta>
+			</azioneCarta>
+			<azioneCarta nome="azioneCartaBlu5">
+				<valoreDado>5</valoreDado>
+				<coloreCarta>blu</coloreCarta>
+			</azioneCarta>
+			<azioneCarta nome="azioneCartaBlu6">
+				<valoreDado>6</valoreDado>
+				<coloreCarta>blu</coloreCarta>
+			</azioneCarta>
+
+			<!--****************************CARTE VIOLA*********************************-->
+
+			<azioneCarta nome="azioneCartaViola1">
+				<valoreDado>1</valoreDado>
+				<coloreCarta>viola</coloreCarta>
+			</azioneCarta>
+			<azioneCarta nome="azioneCartaViola2">
+				<valoreDado>2</valoreDado>
+				<coloreCarta>viola</coloreCarta>
+			</azioneCarta>
+			<azioneCarta nome="azioneCartaViola3">
+				<valoreDado>3</valoreDado>
+				<coloreCarta>viola</coloreCarta>
+			</azioneCarta>
+			<azioneCarta nome="azioneCartaViola4">
+				<valoreDado>4</valoreDado>
+				<coloreCarta>viola</coloreCarta>
+			</azioneCarta>
+			<azioneCarta nome="azioneCartaViola5">
+				<valoreDado>5</valoreDado>
+				<coloreCarta>viola</coloreCarta>
+			</azioneCarta>
+			<azioneCarta nome="azioneCartaViola6">
+				<valoreDado>6</valoreDado>
+				<coloreCarta>viola</coloreCarta>
+			</azioneCarta>
+
+			<!--****************************CARTE ALL*********************************-->
+
+			<azioneCarta nome="azioneCartaQualsiasi1">
+				<valoreDado>1</valoreDado>
+				<coloreCarta>all</coloreCarta>
+			</azioneCarta>
+			<azioneCarta nome="azioneCartaQualsiasi2">
+				<valoreDado>2</valoreDado>
+				<coloreCarta>all</coloreCarta>
+			</azioneCarta>
+			<azioneCarta nome="azioneCartaQualsiasi3">
+				<valoreDado>3</valoreDado>
+				<coloreCarta>all</coloreCarta>
+			</azioneCarta>
+			<azioneCarta nome="azioneCartaQualsiasi4">
+				<valoreDado>4</valoreDado>
+				<coloreCarta>all</coloreCarta>
+			</azioneCarta>
+			<azioneCarta nome="azioneCartaQualsiasi5">
+				<valoreDado>5</valoreDado>
+				<coloreCarta>all</coloreCarta>
+			</azioneCarta>
+			<azioneCarta nome="azioneCartaQualsiasi6">
+				<valoreDado>6</valoreDado>
+				<coloreCarta>all</coloreCarta>
+			</azioneCarta>
+
+		</effettoAzione>
+	</effetto>
+
+	<!--*********************************************************************************************
+					  __  __       _ _   _       _ _               _                  
+					 |  \/  | ___ | | |_(_)_ __ | (_) ___ __ _ _____) ___  _ __   ___ 
+					 | |\/| |/ _ \| | __| | '_ \| | |/ __/ _` |_  / |/ _ \| '_ \ / _ \
+					 | |  | | (_) | | |_| | |_) | | | (__ (_| |/ /| | (_) | | | |  __/
+					 |_|  |_|\___/|_|\__|_| .__/|_|_|\___\__,_/___|_|\___/|_| |_|\___|
+					                      |_|                                         
+	***********************************************************************************************-->
+
+	<effetto tipo="moltiplicazione">
+		<effettoMoltiplicazione nome="moltiplicatore2VxGialla">
+			<fattore1>puntiVittoria</fattore1>
+			<quantita1>2</quantita1>
+			<fattore2>gialla</fattore2>
+			<quantita2>1</quantita2>
+		</effettoMoltiplicazione>
+		<effettoMoltiplicazione nome="moltiplicatore2VxVerde">
+			<fattore1>puntiVittoria</fattore1>
+			<quantita1>2</quantita1>
+			<fattore2>verde</fattore2>
+			<quantita2>1</quantita2>
+		</effettoMoltiplicazione>
+		<effettoMoltiplicazione nome="moltiplicatore2VxBlu">
+			<fattore1>puntiVittoria</fattore1>
+			<quantita1>2</quantita1>
+			<fattore2>blu</fattore2>
+			<quantita2>1</quantita2>
+		</effettoMoltiplicazione>
+		<effettoMoltiplicazione nome="moltiplicatore2VxViola">
+			<fattore1>puntiVittoria</fattore1>
+			<quantita1>2</quantita1>
+			<fattore2>viola</fattore2>
+			<quantita2>1</quantita2>
+		</effettoMoltiplicazione>
+		<effettoMoltiplicazione nome="moltiplicatore1Vx2PM">
+			<fattore1>puntiVittoria</fattore1>
+			<quantita1>1</quantita1>
+			<fattore2>puntiMilitari</fattore2>
+			<quantita2>2</quantita2>
+		</effettoMoltiplicazione>
+		<effettoMoltiplicazione nome="moltiplicatore1OxGialla">
+			<fattore1>oro</fattore1>
+			<quantita1>1</quantita1>
+			<fattore2>gialla</fattore2>
+			<quantita2>1</quantita2>
+		</effettoMoltiplicazione>
+		<effettoMoltiplicazione nome="moltiplicatore1OxVerde">
+			<fattore1>oro</fattore1>
+			<quantita1>1</quantita1>
+			<fattore2>verde</fattore2>
+			<quantita2>1</quantita2>
+		</effettoMoltiplicazione>
+		<effettoMoltiplicazione nome="moltiplicatore1VxBlu">
+			<fattore1>puntiVittoria</fattore1>
+			<quantita1>1</quantita1>
+			<fattore2>blu</fattore2>
+			<quantita2>1</quantita2>
+		</effettoMoltiplicazione>
+		<effettoMoltiplicazione nome="moltiplicatore1VxViola">
+			<fattore1>puntiVittoria</fattore1>
+			<quantita1>1</quantita1>
+			<fattore2>viola</fattore2>
+			<quantita2>1</quantita2>
+		</effettoMoltiplicazione>
+	</effetto>
+
+	<!--*********************************************************************************************
+								  ____                      _     _       
+								 / ___|  ___ __ _ _ __ ___ | |__ (_) ___  
+								 \___ \ / __/ _` | '_ ` _ \| '_ \| |/ _ \ 
+								  ___) | (__ (_| | | | | | | |_) | | (_) |
+								 |____/ \___\__,_|_| |_| |_|_.__/|_|\___/ 
+                                          
+	***********************************************************************************************-->
+
+	<effetto tipo="scambio">
+		<effettoScambio nome="scambio1Lto3O">
+			<pagamento>
+				<risorsa1>legna</risorsa1>
+				<quantita1>1</quantita1>
+			</pagamento>
+			<guadagno>
+				<risorsa1>oro</risorsa1>
+				<quantita1>3</quantita1>
+			</guadagno>
+		</effettoScambio>
+		<effettoScambio nome="scambio2Lto5O">
+			<pagamento>
+				<risorsa1>legna</risorsa1>
+				<quantita1>2</quantita1>
+			</pagamento>
+			<guadagno>
+				<risorsa1>oro</risorsa1>
+				<quantita1>5</quantita1>
+			</guadagno>
+		</effettoScambio>
+		<effettoScambio nome="scambio1Pto3O">
+			<pagamento>
+				<risorsa1>pietra</risorsa1>
+				<quantita1>1</quantita1>
+			</pagamento>
+			<guadagno>
+				<risorsa1>oro</risorsa1>
+				<quantita1>3</quantita1>
+			</guadagno>
+		</effettoScambio>
+		<effettoScambio nome="scambio2Pto5O">
+			<pagamento>
+				<risorsa1>pietra</risorsa1>
+				<quantita1>2</quantita1>
+			</pagamento>
+			<guadagno>
+				<risorsa1>oro</risorsa1>
+				<quantita1>5</quantita1>
+			</guadagno>
+		</effettoScambio>
+		<effettoScambio nome="scambio1Oto1F">
+			<pagamento>
+				<risorsa1>oro</risorsa1>
+				<quantita1>1</quantita1>
+			</pagamento>
+			<guadagno>
+				<risorsa1>puntiFede</risorsa1>
+				<quantita1>1</quantita1>
+			</guadagno>
+		</effettoScambio>
+		<effettoScambio nome="scambio1Oto1Pr">
+			<pagamento>
+				<risorsa1>oro</risorsa1>
+				<quantita1>1</quantita1>
+			</pagamento>
+			<guadagno>
+				<risorsa1>privilegio</risorsa1>
+				<quantita1>1</quantita1>
+			</guadagno>
+		</effettoScambio>
+		<effettoScambio nome="scambio3Oto2Land2P">
+			<pagamento>
+				<risorsa1>oro</risorsa1>
+				<quantita1>3</quantita1>
+			</pagamento>
+			<guadagno>
+				<risorsa1>legna</risorsa1>
+				<quantita1>2</quantita1>
+				<risorsa2>pietra</risorsa2>
+				<quantita2>2</quantita2>
+			</guadagno>
+		</effettoScambio>
+		<effettoScambio nome="scambio1Oto3V">
+			<pagamento>
+				<risorsa1>oro</risorsa1>
+				<quantita1>1</quantita1>
+			</pagamento>
+			<guadagno>
+				<risorsa1>puntiVittoria</risorsa1>
+				<quantita1>3</quantita1>
+			</guadagno>
+		</effettoScambio>
+		<effettoScambio nome="scambio2Oto5V">
+			<pagamento>
+				<risorsa1>oro</risorsa1>
+				<quantita1>2</quantita1>
+			</pagamento>
+			<guadagno>
+				<risorsa1>puntiVittoria</risorsa1>
+				<quantita1>5</quantita1>
+			</guadagno>
+		</effettoScambio>
+		<effettoScambio nome="scambio1Lto3V">
+			<pagamento>
+				<risorsa1>legna</risorsa1>
+				<quantita1>1</quantita1>
+			</pagamento>
+			<guadagno>
+				<risorsa1>puntiVittoria</risorsa1>
+				<quantita1>3</quantita1>
+			</guadagno>
+		</effettoScambio>
+		<effettoScambio nome="scambio3Lto7V">
+			<pagamento>
+				<risorsa1>legna</risorsa1>
+				<quantita1>3</quantita1>
+			</pagamento>
+			<guadagno>
+				<risorsa1>puntiVittoria</risorsa1>
+				<quantita1>7</quantita1>
+			</guadagno>
+		</effettoScambio>
+		<effettoScambio nome="scambio1Pto3V">
+			<pagamento>
+				<risorsa1>pietra</risorsa1>
+				<quantita1>1</quantita1>
+			</pagamento>
+			<guadagno>
+				<risorsa1>puntiVittoria</risorsa1>
+				<quantita1>3</quantita1>
+			</guadagno>
+		</effettoScambio>
+		<effettoScambio nome="scambio3Pto7V">
+			<pagamento>
+				<risorsa1>pietra</risorsa1>
+				<quantita1>3</quantita1>
+			</pagamento>
+			<guadagno>
+				<risorsa1>puntiVittoria</risorsa1>
+				<quantita1>7</quantita1>
+			</guadagno>
+		</effettoScambio>
+		<effettoScambio nome="scambio1Sand1Pand1Lto6V">
+			<pagamento>
+				<risorsa1>legna</risorsa1>
+				<quantita1>1</quantita1>
+				<risorsa2>servitori</risorsa2>
+				<quantita2>1</quantita2>
+				<risorsa3>pietra</risorsa3>
+				<quantita3>1</quantita3>
+			</pagamento>
+			<guadagno>
+				<risorsa1>puntiVittoria</risorsa1>
+				<quantita1>6</quantita1>
+			</guadagno>
+		</effettoScambio>
+		<effettoScambio nome="scambio1Fto2Oand2V">
+			<pagamento>
+				<risorsa1>puntiFede</risorsa1>
+				<quantita1>1</quantita1>
+			</pagamento>
+			<guadagno>
+				<risorsa1>oro</risorsa1>
+				<quantita1>2</quantita1>
+				<risorsa2>puntiVittoria</risorsa2>
+				<quantita2>2</quantita2>
+			</guadagno>
+		</effettoScambio>
+		<effettoScambio nome="scambio1Sto3PM">
+			<pagamento>
+				<risorsa1>servitori</risorsa1>
+				<quantita1>1</quantita1>
+			</pagamento>
+			<guadagno>
+				<risorsa1>puntiMilitari</risorsa1>
+				<quantita1>3</quantita1>
+			</guadagno>
+		</effettoScambio>
+		<effettoScambio nome="scambio4Oto3Pand3L">
+			<pagamento>
+				<risorsa1>oro</risorsa1>
+				<quantita1>4</quantita1>
+			</pagamento>
+			<guadagno>
+				<risorsa1>pietra</risorsa1>
+				<quantita1>3</quantita1>
+				<risorsa2>legno</risorsa2>
+				<quantita2>3</quantita2>
+			</guadagno>
+		</effettoScambio>
+		<effettoScambio nome="scambio1Oto2Sand4V">
+			<pagamento>
+				<risorsa1>oro</risorsa1>
+				<quantita1>1</quantita1>
+			</pagamento>
+			<guadagno>
+				<risorsa1>servitori</risorsa1>
+				<quantita1>2</quantita1>
+				<risorsa2>puntiVittoria</risorsa2>
+				<quantita2>4</quantita2>
+			</guadagno>
+		</effettoScambio>
+		<effettoScambio nome="scambio1Lor1Pto2F">
+			<pagamento>
+				<risorsa1>legna</risorsa1>
+				<quantita1>1</quantita1>
+				<alternativa>
+					<risorsa1>pietra</risorsa1>
+					<quantita1>1</quantita1>
+				</alternativa>
+			</pagamento>
+			<guadagno>
+				<risorsa1>puntiFede</risorsa1>
+				<quantita1>2</quantita1>
+			</guadagno>
+		</effettoScambio>
+		<effettoScambio nome="scambio1Sto3PMand1V">
+			<pagamento>
+				<risorsa1>servitori</risorsa1>
+				<quantita1>1</quantita1>
+			</pagamento>
+			<guadagno>
+				<risorsa1>puntiMilitari</risorsa1>
+				<quantita1>3</quantita1>
+				<risorsa2>puntiVittoria</risorsa2>
+				<quantita2>1</quantita2>
+			</guadagno>
+		</effettoScambio>
+	</effetto>
+
+	<!--*********************************************************************************************
+									  ____   ___  _   _ _   _ ____  
+									 | __ ) / _ \| \ | | | | / ___| 
+									 |  _ \| | | |  \| | | | \___ \ 
+									 | |_) | |_| | |\  | |_| |___) |
+									 |____/ \___/|_| \_|\___/|____/ 
+	                                
+	***********************************************************************************************-->
+
+	<effetto tipo="bonus">
+		<!--***************************************************************************
+
+		Tipo bonus: RACCOLTA
+
+		****************************************************************************-->
+
+		<effettoBonus tipoBonus="raccolta">
+			<bonusRaccolta nome="bonusRaccolta1">
+				<bonusDado>1</bonusDado>
+			</bonusRaccolta>
+			<bonusRaccolta nome="bonusRaccolta2">
+				<bonusDado>2</bonusDado>
+			</bonusRaccolta>
+			<bonusRaccolta nome="bonusRaccolta3">
+				<bonusDado>3</bonusDado>
+			</bonusRaccolta>
+			<bonusRaccolta nome="bonusRaccolta4">
+				<bonusDado>4</bonusDado>
+			</bonusRaccolta>
+			<bonusRaccolta nome="bonusRaccolta5">
+				<bonusDado>5</bonusDado>
+			</bonusRaccolta>
+			<bonusRaccolta nome="bonusRaccolta6">
+				<bonusDado>6</bonusDado>
+			</bonusRaccolta>
+		</effettoBonus>
+
+		<!--***************************************************************************
+
+		Tipo bonus: PRODUZIONE
+
+		****************************************************************************-->
+
+		<effettoBonus tipoBonus="produzione">
+			<bonusProduzione nome="bonusProduzione1">
+				<bonusDado>1</bonusDado>
+			</bonusProduzione>
+			<bonusProduzione nome="bonusProduzione2">
+				<bonusDado>2</bonusDado>
+			</bonusProduzione>
+			<bonusProduzione nome="bonusProduzione3">
+				<bonusDado>3</bonusDado>
+			</bonusProduzione>
+			<bonusProduzione nome="bonusProduzione4">
+				<bonusDado>4</bonusDado>
+			</bonusProduzione>
+			<bonusProduzione nome="bonusProduzione5">
+				<bonusDado>5</bonusDado>
+			</bonusProduzione>
+			<bonusProduzione nome="bonusProduzione6">
+				<bonusDado>6</bonusDado>
+			</bonusProduzione>
+		</effettoBonus>
+
+		<!--***************************************************************************
+
+		Tipo bonus: DADO CARTE
+
+		****************************************************************************-->
+
+		<!--****************************CARTE VERDI*********************************-->
+
+		<effettoBonus tipoBonus="dadoCarte">
+			<bonusDadoCarte nome="bonusCarteVerdi1">
+				<bonusDado>1</bonusDado>
+				<coloreCarta>verde</coloreCarta>
+			</bonusDadoCarte>
+			<bonusDadoCarte nome="bonusCarteVerdi2">
+				<bonusDado>2</bonusDado>
+				<coloreCarta>verde</coloreCarta>
+			</bonusDadoCarte>
+			<bonusDadoCarte nome="bonusCarteVerdi3">
+				<bonusDado>3</bonusDado>
+				<coloreCarta>verde</coloreCarta>
+			</bonusDadoCarte>
+			<bonusDadoCarte nome="bonusCarteVerdi4">
+				<bonusDado>4</bonusDado>
+				<coloreCarta>verde</coloreCarta>
+			</bonusDadoCarte>
+			<bonusDadoCarte nome="bonusCarteVerdi5">
+				<bonusDado>5</bonusDado>
+				<coloreCarta>verde</coloreCarta>
+			</bonusDadoCarte>
+			<bonusDadoCarte nome="bonusCarteVerdi6">
+				<bonusDado>6</bonusDado>
+				<coloreCarta>verde</coloreCarta>
+			</bonusDadoCarte>
+
+			<!--****************************CARTE GIALLE*********************************-->
+
+			<bonusDadoCarte nome="bonusCarteGialle1">
+				<bonusDado>1</bonusDado>
+				<coloreCarta>gialla</coloreCarta>
+			</bonusDadoCarte>
+			<bonusDadoCarte nome="bonusCarteGialle2">
+				<bonusDado>2</bonusDado>
+				<coloreCarta>gialla</coloreCarta>
+			</bonusDadoCarte>
+			<bonusDadoCarte nome="bonusCarteGialle3">
+				<bonusDado>3</bonusDado>
+				<coloreCarta>gialla</coloreCarta>
+			</bonusDadoCarte>
+			<bonusDadoCarte nome="bonusCarteGialle4">
+				<bonusDado>4</bonusDado>
+				<coloreCarta>gialla</coloreCarta>
+			</bonusDadoCarte>
+			<bonusDadoCarte nome="bonusCarteGialle5">
+				<bonusDado>5</bonusDado>
+				<coloreCarta>gialla</coloreCarta>
+			</bonusDadoCarte>
+			<bonusDadoCarte nome="bonusCarteGialle6">
+				<bonusDado>6</bonusDado>
+				<coloreCarta>gialla</coloreCarta>
+			</bonusDadoCarte>
+
+			<!--****************************CARTE BLU*********************************-->
+
+			<bonusDadoCarte nome="bonusCarteBlu1">
+				<bonusDado>1</bonusDado>
+				<coloreCarta>blu</coloreCarta>
+			</bonusDadoCarte>
+			<bonusDadoCarte nome="bonusCarteBlu2">
+				<bonusDado>2</bonusDado>
+				<coloreCarta>blu</coloreCarta>
+			</bonusDadoCarte>
+			<bonusDadoCarte nome="bonusCarteBlu3">
+				<bonusDado>3</bonusDado>
+				<coloreCarta>blu</coloreCarta>
+			</bonusDadoCarte>
+			<bonusDadoCarte nome="bonusCarteBlu4">
+				<bonusDado>4</bonusDado>
+				<coloreCarta>blu</coloreCarta>
+			</bonusDadoCarte>
+			<bonusDadoCarte nome="bonusCarteBlu5">
+				<bonusDado>5</bonusDado>
+				<coloreCarta>blu</coloreCarta>
+			</bonusDadoCarte>
+			<bonusDadoCarte nome="bonusCarteBlu6">
+				<bonusDado>6</bonusDado>
+				<coloreCarta>blu</coloreCarta>
+			</bonusDadoCarte>
+
+			<!--****************************CARTE VIOLA*********************************-->
+
+			<bonusDadoCarte nome="bonusCarteViola1">
+				<bonusDado>1</bonusDado>
+				<coloreCarta>viola</coloreCarta>
+			</bonusDadoCarte>
+			<bonusDadoCarte nome="bonusCarteViola2">
+				<bonusDado>2</bonusDado>
+				<coloreCarta>viola</coloreCarta>
+			</bonusDadoCarte>
+			<bonusDadoCarte nome="bonusCarteViola3">
+				<bonusDado>3</bonusDado>
+				<coloreCarta>viola</coloreCarta>
+			</bonusDadoCarte>
+			<bonusDadoCarte nome="bonusCarteViola4">
+				<bonusDado>4</bonusDado>
+				<coloreCarta>viola</coloreCarta>
+			</bonusDadoCarte>
+			<bonusDadoCarte nome="bonusCarteViola5">
+				<bonusDado>5</bonusDado>
+				<coloreCarta>viola</coloreCarta>
+			</bonusDadoCarte>
+			<bonusDadoCarte nome="bonusCarteViola6">
+				<bonusDado>6</bonusDado>
+				<coloreCarta>viola</coloreCarta>
+			</bonusDadoCarte>
+		</effettoBonus>
+
+		<!--***************************************************************************
+
+		DA SISTEMARE!
+
+		****************************************************************************-->
+
+		<effettoBonus tipoBonus="CarteandSconto">
+			<bonusDadoCarteSconto nome="CarteGialle2andSconto1Lor1P">
+				<bonusDado>2</bonusDado>
+				<coloreCarta>gialla</coloreCarta>
+				<risorsa>legna</risorsa>
+				<quantita>1</quantita>
+				<alternativa>
+					<risorsa>pietra</risorsa>
+					<quantita>1</quantita>
+				</alternativa>
+			</bonusDadoCarteSconto>
+			<bonusDadoCarteSconto nome="CarteBlu2andSconto1O">
+				<bonusDado>2</bonusDado>
+				<coloreCarta>blu</coloreCarta>
+				<risorsa>oro</risorsa>
+				<quantita>1</quantita>
+			</bonusDadoCarteSconto>
+			<bonusDadoCarteSconto nome="azioneCartaBlu6andSconto2O">
+				<bonusDado>6</bonusDado>
+				<coloreCarta>blu</coloreCarta>
+				<risorsa>oro</risorsa>
+				<quantita>2</quantita>
+			</bonusDadoCarteSconto>
+			<bonusDadoCarteSconto nome="azioneCartaGialla6andSconto1Land1P">
+				<bonusDado>6</bonusDado>
+				<coloreCarta>gialla</coloreCarta>
+				<risorsa1>legna</risorsa1>
+				<quantita1>1</quantita1>
+				<risorsa2>pietra</risorsa2>
+				<quantita2>1</quantita2>
+			</bonusDadoCarteSconto>
+		</effettoBonus>
+		<effettoBonus tipoBonus="dadi">
+		</effettoBonus>
+	</effetto>
+</effetti>
