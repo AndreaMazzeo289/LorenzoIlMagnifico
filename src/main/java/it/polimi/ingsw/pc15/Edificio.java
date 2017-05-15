@@ -4,13 +4,13 @@ import java.util.Set;
 
 public class Edificio extends Carta {
 	
-	private int requisitoProduz;
-	private Effetto effettoProduz;
+	private int requisitoProduzione;
+	private Effetto effettoProduzione;
 	
-	public Edificio (String nome, int id, int periodo, SetRisorse costo, Set<Effetto> effettoIstantaneo, int requisitoProduz, Effetto effettoProduz, SpazioTorre spazio) {
+	public Edificio (String nome, int id, int periodo, SetRisorse costo, Set<Effetto> effettoIstantaneo, int requisitoProduz, Effetto effettoProduzione, SpazioTorre spazio) {
 		super(nome, id, periodo, costo, effettoIstantaneo, spazio);
-		this.requisitoProduz = requisitoProduz;
-		this.effettoProduz = effettoProduz;
+		this.requisitoProduzione = requisitoProduz;
+		this.effettoProduzione = effettoProduzione;
 	}
 	
 	@Override
@@ -27,6 +27,14 @@ public class Edificio extends Carta {
 		
 		return true;
 		
+	}
+	
+	public int getRequisitoProduzione() {
+		return this.requisitoProduzione;
+	}
+	
+	public Effetto getEffettoRaccolta() {
+		return this.effettoProduzione;
 	}
 
 }

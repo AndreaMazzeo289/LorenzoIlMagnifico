@@ -14,8 +14,8 @@ public class AzioneRaccolto extends Azione{
 		Iterator<Territorio> territorio = player.getTerritori().iterator();
 		
 		while(territorio.hasNext()){
-			if (getValoreDado() >= territorio.getRequisitoRaccolta())
-				territorio.getEffettoRaccolta().attiva(player);
+			if (getValoreDado() >= territorio.next().getRequisitoRaccolta())
+				territorio.next().getEffettoRaccolta().attiva(player);
 		}
 	}
 }
