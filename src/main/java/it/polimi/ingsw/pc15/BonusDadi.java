@@ -2,7 +2,7 @@ package it.polimi.ingsw.pc15;
 
 public class BonusDadi extends Bonus{
 
-		private ColoreFamilare coloreFamiliare;
+		private ColoreFamiliare coloreFamiliare;
 		
 		public BonusDadi (ColoreFamiliare coloreFamiliare, int valore){
 			
