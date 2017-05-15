@@ -1,5 +1,6 @@
 package it.polimi.ingsw.pc15;
 
+import java.util.LinkedList;
 import java.util.Queue;
 
 public class SpazioConsiglio extends Spazio {
@@ -8,7 +9,7 @@ public class SpazioConsiglio extends Spazio {
 	
 	public SpazioConsiglio(int valoreMin) {
 		super(valoreMin);
-		listaFamiliari = new Queue<Familiare>();
+		listaFamiliari = new LinkedList<Familiare>();
 	}
 	
 	@Override

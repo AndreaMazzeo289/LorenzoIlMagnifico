@@ -1,12 +1,13 @@
 package it.polimi.ingsw.pc15;
 
+import java.util.HashSet;
 import java.util.Set;
 
 public class Player {
 	
 	private final String name;
 	private SetRisorse setRisorse;
-	private Familiare familiari[];
+	private Set<Familiare> familiari;
 	private Set<Territorio> territori;
 	private Set<Personaggio> personaggi;
 	private Set<Edificio> edifici;
@@ -17,11 +18,17 @@ public class Player {
 	public Player (String name, SetRisorse setRisorse) {
 		this.name = name;
 		this.setRisorse = setRisorse;
-		this.familiari = new Familiare[4];
-		this.familiari[1] = new Familiare (ColoreFamiliare.NERO);
-		this.familiari[2] = new Familiare (ColoreFamiliare.BIANCO);
-		this.familiari[3] = new Familiare (ColoreFamiliare.ARANCIONE);
-		this.familiari[4] = new Familiare (ColoreFamiliare.NEUTRO);
+		this.familiari = new HashSet<Familiare>();
+		Familiare familiareNero = new Familiare (ColoreFamiliare.NERO, this);
+		Familiare familiareBianco = new Familiare (ColoreFamiliare.BIANCO, this);
+		Familiare familiareArancione = new Familiare (ColoreFamiliare.ARANCIONE, this);
+		Familiare familiareNeutro = new Familiare (ColoreFamiliare.NEUTRO, this);
+		familiari.add(familiareBianco);
+		familiari.add(familiareNero);
+		familiari.add(familiareArancione);
+		familiari.add(familiareNeutro);
+		
+		
 	}
 	
 	public SetRisorse getRisorse() {

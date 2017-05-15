@@ -1,5 +1,6 @@
 package it.polimi.ingsw.pc15;
 
+import java.util.LinkedList;
 import java.util.Queue;
 
 public class SpazioProduzione extends Spazio{
@@ -8,7 +9,7 @@ private Queue<Familiare> listaFamiliari;
 	
 	public SpazioProduzione(int valoreMin) {
 		super(valoreMin);
-		listaFamiliari = new Queue<Familiare>();
+		listaFamiliari = new LinkedList<Familiare>();
 	}
 
 	@Override
