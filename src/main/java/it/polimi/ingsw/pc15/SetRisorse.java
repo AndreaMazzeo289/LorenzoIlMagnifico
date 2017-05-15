@@ -47,6 +47,19 @@ public class SetRisorse {
 		this.privilegi.aggiungi(setRisorse.getPrivilegi().getQuantità());
 		
 	}
+	
+	public void sottrai (SetRisorse setRisorse) {  //aggiunge al setRisorse corrente le risorse del setRisorse passato come parametro
+		
+		this.oro.aggiungi(-setRisorse.getOro().getQuantità());
+		this.legna.aggiungi(-setRisorse.getLegna().getQuantità());
+		this.pietra.aggiungi(-setRisorse.getPietra().getQuantità());
+		this.servitori.aggiungi(-setRisorse.getServitori().getQuantità());
+		this.puntiVittoria.aggiungi(-setRisorse.getPuntiVittoria().getQuantità());
+		this.puntiMilitari.aggiungi(-setRisorse.getPuntiMilitari().getQuantità());
+		this.puntiFede.aggiungi(-setRisorse.getPuntiFede().getQuantità());
+		this.privilegi.aggiungi(-setRisorse.getPrivilegi().getQuantità());
+		
+	}
 
 	public boolean paragona (SetRisorse setRisorse) { //ritorna TRUE solo se il valore di ogni risorsa in questo setRisorse è >= di quello delle corrispondenti risorse del secondo setRisorse
 		
