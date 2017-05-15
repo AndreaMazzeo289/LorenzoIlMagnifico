@@ -8,8 +8,8 @@ public class Impresa extends Carta {
 	private int requisitoPuntiMilitari;
 	private int costoPuntiMilitari;
 	
-	public Impresa (String nome, int id, int periodo, Set<Effetto> effettoIstantaneo, Effetto aumentoPuntiVittoria) {
-		super(nome, id, periodo, effettoIstantaneo);
+	public Impresa (String nome, int id, int periodo, SetRisorse costo, Set<Effetto> effettoIstantaneo, Effetto aumentoPuntiVittoria, SpazioTorre spazio) {
+		super(nome, id, periodo, costo, effettoIstantaneo, spazio);
 		this.aumentoPuntiVittoria = aumentoPuntiVittoria;
 		this.requisitoPuntiMilitari = requisitoPuntiMilitari;
 		this.costoPuntiMilitari = costoPuntiMilitari;
@@ -22,7 +22,7 @@ public class Impresa extends Carta {
 			return false;
 		}
 		
-		if (player.getImprese().paragona(getCosto()) == false) {
+		if (player.getRisorse().paragona(getCosto()) == false) {
 			return false;
 		}
 		

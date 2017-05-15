@@ -69,6 +69,7 @@ public class Player {
 			if (spazio.occupabile(familiare, servitoriAggiuntivi) ) {
 				
 				this.setRisorse.getServitori().aggiungi(-servitoriAggiuntivi);
+				familiare.setDisponibilità(false);
 				spazio.occupa(familiare);
 			}
 		}

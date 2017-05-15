@@ -46,5 +46,13 @@ public class Territorio extends Carta {
 			
 		}
 	}
+	
+	public int getRequisitoRaccolta() {
+		return this.requisitoRaccolta;
+	}
+	
+	public Effetto getEffettoRaccolta() {
+		return this.effettoRaccolta;
+	}
 
 }
