@@ -1,5 +1,5 @@
 package it.polimi.ingsw.pc15;
 
-public enum Colore {
+public enum ColoreCarta {
 	VERDE,BLU,GIALLO,VIOLA,ALL;
 }

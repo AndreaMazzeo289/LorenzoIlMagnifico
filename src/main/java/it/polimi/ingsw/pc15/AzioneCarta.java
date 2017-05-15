@@ -3,9 +3,9 @@ package it.polimi.ingsw.pc15;
 
 public class AzioneCarta extends Azione{
 	
-	private Colore coloreCarta;
+	private ColoreCarta coloreCarta;
 	
-	public AzioneCarta(int valoreDado, colore coloreCarta){
+	public AzioneCarta(int valoreDado, ColoreCarta coloreCarta){
 		super(valoreDado);
 		this.coloreCarta = coloreCarta;
 	}

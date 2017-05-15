@@ -34,20 +34,36 @@ public class SpazioTorre extends Spazio {
 	}
 
 	@Override
-	public boolean occupabile(Familiare familiare, int servitoriAggiuntivi){							
-		if(this.familiare.getColore() != ColoreFamiliare.NEUTRO){                       					//controllo che il familiare da piazzare non sia NEUTRO
+	public boolean occupabile(Familiare familiare, int servitoriAggiuntivi){
+		
+		if (!isEmpty() ) {
+			return false;		
+		}
+		
+		if (this.familiare.getColore() != ColoreFamiliare.NEUTRO){                       				//controllo che il familiare da piazzare non sia NEUTRO
 				for (SpazioTorre spazioTorre : getTorre().getSpazioTorre())								//per ogni spazio della torre:
 					if ((spazioTorre.getFamiliare().getColore()==ColoreFamiliare.NERO || 				//bisogna controllare che non ci siano altri familiari del
 						spazioTorre.getFamiliare().getColore()==ColoreFamiliare.BIANCO || 				//player che vuole occupare lo spazio torre
 					    spazioTorre.getFamiliare().getColore()==ColoreFamiliare.ARANCIONE) && 
-							this.familiare.getPlayer().equals(spazioTorre.getFamiliare().getPlayer()) )
+							this.familiare.getPlayer().equals(spazioTorre.getFamiliare().getPlayer()) ) {
 							return false;
+					}
 		}
-		else{				
-			if(familiare.getValore()+servitoriAggiuntivi >= getValoreMin())
-				return true;
+					
+		if (familiare.getValore()+servitoriAggiuntivi < getValoreMin()) {
+			return false;
 		}
+		
+		if (!this.getCarta().acquistabile(familiare.getPlayer()) ) {
+			return false;
+			
+		}
+		
 		return true;
+		
+		
+		
+
 	}
 	
 	public void setCarta() {

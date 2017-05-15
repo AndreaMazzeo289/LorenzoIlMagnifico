@@ -67,7 +67,7 @@ public class Moltiplicazione implements Effetto{
 		                 
 		                 };break;
 		
-		case TERRITORI : Iterator<Territorio> territorio = this.player.getTerritori().iterator();
+		case TERRITORI : Iterator<Territorio> territorio = player.getTerritori().iterator();
 		
 						 while(territorio.hasNext()){
 							 
@@ -75,15 +75,15 @@ public class Moltiplicazione implements Effetto{
 						 
 						 }; break;
 						 
-		case PERSONAGGI: Iterator<Personaggio> personaggio = this.player.getPersonaggi().iterator();
+		case PERSONAGGI: Iterator<Personaggio> personaggio = player.getPersonaggi().iterator();
 		
-					      while(territorio.hasNext()){
+					      while(personaggio.hasNext()){
 								 
 						  player.getSetRisorse().aggiungi(this.setRisorse);
 							 
 						  }; break;
 						  
-		case EDIFICI : Iterator<Edificio> edificio = this.player.getEdifici().iterator();
+		case EDIFICI : Iterator<Edificio> edificio = player.getEdifici().iterator();
 		
 		               while(edificio.hasNext()){
 			 
@@ -91,9 +91,9 @@ public class Moltiplicazione implements Effetto{
 		 
 		               }; break;
 		 
-		case IMPRESE : Iterator<Impresa> impresa = this.player.getImprese().iterator();
+		case IMPRESE : Iterator<Impresa> impresa = player.getImprese().iterator();
 		
-		               while(imprese.hasnext()){
+		               while(impresa.hasNext()){
 			 
 		               player.getSetRisorse().aggiungi(this.setRisorse);
 		 
