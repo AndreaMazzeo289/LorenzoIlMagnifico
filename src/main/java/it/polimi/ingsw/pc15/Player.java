@@ -58,7 +58,7 @@ public class Player {
 		return this.imprese;
 	}
 	
-	void occupaSpazio (Spazio spazio, Familiare familiare) {
+	public void occupaSpazio (Spazio spazio, Familiare familiare) {
 		
 		if (familiare.disponibile()) {
 		
