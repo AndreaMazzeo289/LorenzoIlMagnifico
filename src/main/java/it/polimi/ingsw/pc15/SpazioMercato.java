@@ -5,16 +5,18 @@ import java.util.Queue;
 public class SpazioMercato extends Spazio {
 
 	private Familiare familiare;
+	private Effetto effetto;
 	
-	public SpazioMercato(int valoreMin,Familiare familiare) {
+	public SpazioMercato(int valoreMin,Familiare familiare, SetRisorse risorseBonus) {
 		super(valoreMin);
 		this.familiare=familiare;
+		effetto = new AggiuntaRisorse (risorseBonus);
 	}
 	
 	@Override
 	public void occupa (Familiare familiare){
 		this.familiare = familiare;
-		//azione mercato
+		effetto.attiva(this.familiare.getPlayer());
 	}
 	
 	@Override

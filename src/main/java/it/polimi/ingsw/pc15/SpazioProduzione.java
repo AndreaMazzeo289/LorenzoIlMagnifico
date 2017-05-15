@@ -15,7 +15,8 @@ private Queue<Familiare> listaFamiliari;
 	@Override
 	public void occupa(Familiare familiare) {
 		listaFamiliari.add(familiare);
-		//azione produzione
+		Effetto effetto = new AzioneProduzione(familiare.getValore());
+		effetto.attiva(familiare.getPlayer());
 	}
 
 	@Override

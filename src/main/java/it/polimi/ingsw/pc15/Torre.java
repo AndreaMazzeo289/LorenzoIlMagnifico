@@ -19,4 +19,9 @@ public class Torre {
 	public boolean getOccupata() {
 		return occupata;
 	}
+	
+	public void setOccupata(boolean par) {
+		this.occupata=par;
+	}
+	
 }

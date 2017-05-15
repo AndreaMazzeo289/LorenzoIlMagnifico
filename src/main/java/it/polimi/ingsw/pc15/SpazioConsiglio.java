@@ -6,15 +6,18 @@ import java.util.Queue;
 public class SpazioConsiglio extends Spazio {
 	
 	private Queue<Familiare> listaFamiliari;
+	private Effetto effetto;
 	
-	public SpazioConsiglio(int valoreMin) {
+	public SpazioConsiglio(int valoreMin, SetRisorse risorseBonus) {
 		super(valoreMin);
 		listaFamiliari = new LinkedList<Familiare>();
+		effetto = new AggiuntaRisorse (risorseBonus);
 	}
 	
 	@Override
 	public void occupa (Familiare familiare){
 		listaFamiliari.add(familiare);
+		effetto.attiva(familiare.getPlayer());
 	}
 	
 	@Override

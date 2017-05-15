@@ -30,8 +30,11 @@ public class ParseXML {
 					Element carta = (Element)nodo;
 					
 					String nome = carta.getElementsByTagName("nome").item(0).getFirstChild().getNodeValue();
+					String colore = carta.getElementsByTagName("colore").item(0).getFirstChild().getNodeValue();
 					
 					System.out.println("Nome: " + nome);
+					System.out.println("Colore: " + colore);
+					
 				}
 			}
 		}catch(Exception e){
