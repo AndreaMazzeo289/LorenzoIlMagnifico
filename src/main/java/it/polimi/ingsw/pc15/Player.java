@@ -12,6 +12,7 @@ public class Player {
 	private Set<Personaggio> personaggi;
 	private Set<Edificio> edifici;
 	private Set<Impresa> imprese;
+	private EffettiAttivi effettiAttivi;
 	
 	
 	
@@ -27,7 +28,7 @@ public class Player {
 		familiari.add(familiareNero);
 		familiari.add(familiareArancione);
 		familiari.add(familiareNeutro);
-		
+		effettiAttivi = new EffettiAttivi();
 	}
 	
 	public SetRisorse getRisorse() {
@@ -75,6 +76,14 @@ public class Player {
 		}
 		
 	}
+	
+	public EffettiAttivi getEffettiAttivi(){
+		return effettiAttivi;
+	}
+	
+	
+	
+	
 	
 	
 	

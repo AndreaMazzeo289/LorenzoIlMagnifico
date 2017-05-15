@@ -10,15 +10,15 @@ public class EffettiAttivi {
 	private boolean spazioTorri;
 	private int bonusDadi[];
 	
-	public EffettiAttivi (int[] bonusDadoCarte, int[] bonusDadi, int bonusRaccolta, int bonusProduzione, int bonusPersonaggi){
+	public EffettiAttivi (){
 		
 		this.bonusDadoCarte = new int[5];
-		this.bonusDadoCarte = bonusDadoCarte;
+		for(int i = 0; i<=4; i++){this.bonusDadoCarte[i]=0;}
 		this.bonusDadi = new int[4];
-		this.bonusDadi = bonusDadi;
-		this.bonusRaccolta = bonusRaccolta;
-		this.bonusProduzione = bonusProduzione;
-		this.bonusPersonaggi = bonusPersonaggi;
+		for(int i = 0; i<=4; i++){this.bonusDadi[i]=0;}
+		this.bonusRaccolta = 0;
+		this.bonusProduzione = 0;
+		this.bonusPersonaggi = 0;
 	
 		this.mercato = false;
 		this.spazioTorri = false;
