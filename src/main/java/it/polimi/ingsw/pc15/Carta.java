@@ -13,14 +13,14 @@ public abstract class Carta {
 	private Player player;
 	private SpazioTorre spazio;
 	
-	public Carta (String nome, int id, int periodo, SetRisorse costo, Set<Effetto> effettoIstantaneo, SpazioTorre spazio) {
+	public Carta (String nome, int id, int periodo, SetRisorse costo, Set<Effetto> effettoIstantaneo) {
 		this.nome = nome;
 		this.id = id;
 		this.periodo = periodo;
 		this.costo = costo;
 		this.effettoIstantaneo = effettoIstantaneo;
 		this.player = null;
-		this.spazio = spazio;
+		this.spazio = null;
 	}
 	
 	public SetRisorse getCosto() {
