@@ -7,21 +7,21 @@ public class SpazioMercato extends Spazio {
 	private Familiare familiare;
 	private Effetto effetto;
 	
-	public SpazioMercato(int valoreMin,Familiare familiare, SetRisorse risorseBonus) {
+	public SpazioMercato(int valoreMin,Familiare familiare, int numOro, int numLegna, int numPietra, int numServitori, int numPuntiVittoria, int numPuntiMilitari, int numPuntiFede, int numPrivilegi) {
 		super(valoreMin);
 		this.familiare=familiare;
-		effetto = new AggiuntaRisorse (risorseBonus);
+		this.effetto = new AggiuntaRisorse (numOro, numLegna, numPietra, numServitori, numPuntiVittoria, numPuntiMilitari, numPuntiFede, numPrivilegi);
 	}
 	
 	@Override
 	public void occupa (Familiare familiare){
 		this.familiare = familiare;
-		effetto.attiva(this.familiare.getPlayer());
+		this.effetto.attiva(this.familiare.getPlayer());
 	}
 	
 	@Override
-	public boolean occupabile(Familiare familiare, int servitoriAggiuntivi){
-		if(familiare.getValore()+servitoriAggiuntivi >= getValoreMin() )  {
+	public boolean occupabile (Familiare familiare) {
+		if(familiare.getValore() >= getValoreMin() )  {
 			return false;
 		}
 		
@@ -34,12 +34,12 @@ public class SpazioMercato extends Spazio {
 
 	@Override
 	public void rimuoviFamiliari() {
-		familiare=null;
+		this.familiare=null;
 	}
 
 	@Override
 	public boolean isEmpty() {
-		if(familiare==null)
+		if(this.familiare==null)
 			return true;
 		return false;
 	}

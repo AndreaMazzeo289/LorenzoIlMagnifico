@@ -4,7 +4,8 @@ public class Torre {
 	private SpazioTorre[] spazioTorre;
 	private boolean occupata;
 	
-	public Torre (SetRisorse spazio1, SetRisorse spazio2, SetRisorse spazio3, SetRisorse spazio4){
+	public Torre (SetRisorse spazio1, SetRisorse spazio2, SetRisorse spazio3, SetRisorse spazio4) {
+		
 		this.spazioTorre = new SpazioTorre[4];
 		this.spazioTorre[1]= new SpazioTorre(1,spazio1);
 		this.spazioTorre[2]= new SpazioTorre(3,spazio2);

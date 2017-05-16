@@ -15,7 +15,10 @@ public abstract class Spazio {
 	}
 	
 	public abstract void rimuoviFamiliari();	
+	
 	public abstract boolean isEmpty();
+	
 	public abstract void occupa (Familiare familiare);
-	public abstract boolean occupabile (Familiare familiare, int servitoriAggiuntivi);
+	
+	public abstract boolean occupabile (Familiare familiare);
 }

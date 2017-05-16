@@ -12,13 +12,15 @@ public class Personaggio extends Carta {
 		}
 	
 	@Override
-	public boolean acquistabile(Player player) {
+	public boolean prendibile (Player player) {
 		
-		if (player.getPersonaggi().size() == 6) {
+		if (player.getPersonaggi().size() == 6) {  //limite carte blu
+			//messaggio
 			return false;
 		}
 		
-		if (player.getRisorse().paragona(getCosto()) == false) {
+		if (this.risorseSufficienti(player) == false) {
+			//messaggio
 			return false;
 		}
 		

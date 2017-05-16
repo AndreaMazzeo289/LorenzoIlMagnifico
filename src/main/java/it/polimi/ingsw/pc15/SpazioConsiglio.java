@@ -8,28 +8,28 @@ public class SpazioConsiglio extends Spazio {
 	private Queue<Familiare> listaFamiliari;
 	private Effetto effetto;
 	
-	public SpazioConsiglio(int valoreMin, SetRisorse risorseBonus) {
+	public SpazioConsiglio(int valoreMin, int numOro, int numLegna, int numPietra, int numServitori, int numPuntiVittoria, int numPuntiMilitari, int numPuntiFede, int numPrivilegi) {
 		super(valoreMin);
-		listaFamiliari = new LinkedList<Familiare>();
-		effetto = new AggiuntaRisorse (risorseBonus);
+		this.listaFamiliari = new LinkedList<Familiare>();
+		this.effetto = new AggiuntaRisorse (numOro, numLegna, numPietra, numServitori, numPuntiVittoria, numPuntiMilitari, numPuntiFede, numPrivilegi);
 	}
 	
 	@Override
 	public void occupa (Familiare familiare){
-		listaFamiliari.add(familiare);
-		effetto.attiva(familiare.getPlayer());
+		this.listaFamiliari.add(familiare);
+		this.effetto.attiva(familiare.getPlayer());
 	}
 	
 	@Override
-	public boolean occupabile(Familiare familiare, int servitoriAggiuntivi){
-		if(familiare.getValore()+servitoriAggiuntivi >= getValoreMin())
+	public boolean occupabile(Familiare familiare){
+		if(familiare.getValore() >= getValoreMin())
 			return true;
 		return false;
 	}
 
 	@Override
 	public void rimuoviFamiliari() {
-		listaFamiliari.clear();
+		this.listaFamiliari.clear();
 	}
 
 	@Override

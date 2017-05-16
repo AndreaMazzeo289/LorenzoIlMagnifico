@@ -16,13 +16,15 @@ public class Impresa extends Carta {
 		}
 	
 	@Override
-	public boolean acquistabile(Player player) {
+	public boolean prendibile (Player player) {
 		
-		if (player.getImprese().size() == 6) {
+		if (player.getImprese().size() == 6) {  //limite carte viola
+			//messaggio
 			return false;
 		}
 		
-		if (player.getRisorse().paragona(getCosto()) == false) {
+		if (risorseSufficienti(player) == false) {
+			//messaggio
 			return false;
 		}
 		

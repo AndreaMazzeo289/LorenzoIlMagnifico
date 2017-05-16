@@ -14,21 +14,28 @@ public class Edificio extends Carta {
 	}
 	
 	@Override
-	public boolean acquistabile(Player player) {
+	public boolean prendibile (Player player) {
 		
 		if (player.getEdifici().size() == 6) {
+			//messaggio
 			return false;
 		}
 		
-		if (player.getRisorse().paragona(getCosto()) == false) {
+		if (this.risorseSufficienti(player) == false) {
+			//messaggio
 			return false;
 		}
-		
+			
+			
+		if (player.getSetRisorse().paragona(getCosto()) == false) {
+			//messaggio
+			return false;
+		}
 		
 		return true;
 		
 	}
-	
+
 	public int getRequisitoProduzione() {
 		return this.requisitoProduzione;
 	}

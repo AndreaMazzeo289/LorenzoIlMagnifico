@@ -31,10 +31,6 @@ public class Player {
 		effettiAttivi = new EffettiAttivi();
 	}
 	
-	public SetRisorse getRisorse() {
-		return this.setRisorse;
-	}
-	
 	String getName() {
 		return this.name;
 	}
@@ -63,13 +59,10 @@ public class Player {
 		
 		if (familiare.disponibile()) {
 		
-			int servitoriAggiuntivi = 0;
+			familiare.aggiungiServitori();
 		
-			//chiedi quanti servitori vuoi
-		
-			if (spazio.occupabile(familiare, servitoriAggiuntivi) ) {
+			if (spazio.occupabile(familiare) ) {
 				
-				this.setRisorse.getServitori().aggiungi(-servitoriAggiuntivi);
 				familiare.setDisponibilità(false);
 				spazio.occupa(familiare);
 			}

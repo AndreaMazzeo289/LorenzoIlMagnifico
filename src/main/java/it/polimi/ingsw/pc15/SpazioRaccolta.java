@@ -9,34 +9,37 @@ public class SpazioRaccolta extends Spazio {
 	
 	public SpazioRaccolta(int valoreMin) {
 		super(valoreMin);
-		listaFamiliari = new LinkedList<Familiare>();
+		this.listaFamiliari = new LinkedList<Familiare>();
 	}
 
 	@Override
 	public void occupa(Familiare familiare) {
-		listaFamiliari.add(familiare);
+		this.listaFamiliari.add(familiare);
 
 		Effetto effetto = new AzioneRaccolto (familiare.getValore());
 		effetto.attiva(familiare.getPlayer());
 	}
 
 	@Override
-	public boolean occupabile(Familiare familiare, int servitoriAggiuntivi){
-		if(listaFamiliari.isEmpty())
-			if(familiare.getValore()+servitoriAggiuntivi >= getValoreMin())
+	public boolean occupabile (Familiare familiare){
+		
+		if(this.listaFamiliari.isEmpty()) 
+			
+			if(familiare.getValore() >= getValoreMin())
 				return true;
 			else
 				return false;
 		else
-			if(familiare.getValore()+servitoriAggiuntivi >= getValoreMin()+3)
+			if(familiare.getValore() >= getValoreMin()+3)
 				return true;
 			else
 				return false;
+		
 	}
 
 	@Override
 	public void rimuoviFamiliari() {
-		listaFamiliari.clear();
+		this.listaFamiliari.clear();
 	}
 
 	@Override

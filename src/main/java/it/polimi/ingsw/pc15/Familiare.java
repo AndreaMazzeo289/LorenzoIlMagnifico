@@ -37,5 +37,13 @@ public class Familiare {
 	public boolean disponibile() {
 		return this.disponibilità;
 	}
+	
+	public void aggiungiServitori() {
+		
+		int servitoriAggiuntivi = 0;
+		//chiedi al player
+		this.getPlayer().getSetRisorse().getServitori().aggiungi(-servitoriAggiuntivi);
+		
+	}
 
 }

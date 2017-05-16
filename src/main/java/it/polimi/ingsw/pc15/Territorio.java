@@ -14,37 +14,41 @@ public class Territorio extends Carta {
 	}
 
 	@Override
-	public boolean acquistabile(Player player) {
-		
-		if (this.getSpazio().getTorre().occupata())
-			if (this.getPlayer().getRisorse().getOro().getQuantità() <3) {
-				return false;
-			}
-		
+	public boolean prendibile (Player player) {		
 		
 		switch (player.getTerritori().size()) {
-		case 2: if (player.getSetRisorse().getPuntiMilitari().getQuantità()<3) 
-					return false;
-				return true;
+			case 2: if (player.getSetRisorse().getPuntiMilitari().getQuantità()<3) 
+						//messaggio
+						return false;
+					return true;
 
-		case 3: if (player.getSetRisorse().getPuntiMilitari().getQuantità()<7) 
-					return false;
-				return true;
+			case 3: if (player.getSetRisorse().getPuntiMilitari().getQuantità()<7) 
+						//messaggio
+						return false;
+					return true;
 				
-		case 4: if (player.getSetRisorse().getPuntiMilitari().getQuantità()<12) 
-					return false;
-				return true;
+			case 4: if (player.getSetRisorse().getPuntiMilitari().getQuantità()<12) 
+						//messaggio
+						return false;
+					return true;
 				
-		case 5: if (player.getSetRisorse().getPuntiMilitari().getQuantità()<18) 
-					return false;
-				return true;
+			case 5: if (player.getSetRisorse().getPuntiMilitari().getQuantità()<18) 
+						//messaggio
+						return false;
+					return true;
 				
-		case 6: return false;
+			case 6: return false;
 		
-		default: return true;
-			
-			
+			default: break;
 		}
+		
+		if (this.risorseSufficienti(player) == false) {
+			//messaggio
+			return false;
+		}
+		
+		return true;
+
 	}
 	
 	public int getRequisitoRaccolta() {

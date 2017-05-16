@@ -8,60 +8,56 @@ public class SpazioTorre extends Spazio {
 	private Torre torre;
 	private Effetto effetto;
 	
-	public SpazioTorre(int valoreMin, SetRisorse risorseBonus) {
+	public SpazioTorre(int valoreMin, int numOro, int numLegna, int numPietra, int numServitori, int numPuntiVittoria, int numPuntiMilitari, int numPuntiFede, int numPrivilegi) {
 		super(valoreMin);
-		effetto = new AggiuntaRisorse(risorseBonus);
+		this.effetto = new AggiuntaRisorse(numOro, numLegna, numPietra, numServitori, numPuntiVittoria, numPuntiMilitari, numPuntiFede, numPrivilegi);
 	}
 
 	@Override
 	public void rimuoviFamiliari() {
-		familiare=null;
+		this.familiare=null;
 	}
 
 	@Override
 	public boolean isEmpty() {
-		if(familiare==null)
+		if(this.familiare==null)
 			return true;
 		return false;
 	}
 	
 	@Override
-	public void occupa(Familiare familiare) {
+	public void occupa (Familiare familiare) {
 		this.familiare=familiare;
-		effetto.attiva(familiare.getPlayer()); // attivazione dell'effetto aggiuntaRisorse per ottenere le risorse bonus relative allo spazio torre
+		this.effetto.attiva(familiare.getPlayer()); // attivazione dell'effetto aggiuntaRisorse per ottenere le risorse bonus relative allo spazio torre
 		getTorre().setOccupata(true);			// Settaggio flag di occupazione della torre
 		//getCarta().attiva();
 	}
 
 	@Override
-	public boolean occupabile(Familiare familiare, int servitoriAggiuntivi){
+	public boolean occupabile (Familiare familiare) {
 		
 		if (!isEmpty() ) {
+			//messaggio
 			return false;		
 		}
 		
-		if (this.familiare.getColore() != ColoreFamiliare.NEUTRO){                       				//controllo che il familiare da piazzare non sia NEUTRO
-				for (SpazioTorre spazioTorre : getTorre().getSpazioTorre())								//per ogni spazio della torre:
-					if ((spazioTorre.getFamiliare().getColore()==ColoreFamiliare.NERO || 				//bisogna controllare che non ci siano altri familiari del
-						spazioTorre.getFamiliare().getColore()==ColoreFamiliare.BIANCO || 				//player che vuole occupare lo spazio torre
-					    spazioTorre.getFamiliare().getColore()==ColoreFamiliare.ARANCIONE) && 
-							this.familiare.getPlayer().equals(spazioTorre.getFamiliare().getPlayer()) ) {
-							return false;
-					}
+		if (!controlloFamiliariTorre() ) {
+			//messaggio		}
+			return false;
 		}
 					
-		if (familiare.getValore()+servitoriAggiuntivi < getValoreMin()) {
+		if ( familiare.getValore() < getValoreMin() ) {
+			//messaggio
 			return false;
 		}
 		
-		if (!this.getCarta().acquistabile(familiare.getPlayer()) ) {
+		if (!this.getCarta().prendibile(familiare.getPlayer()) ) {
+			//messaggio
 			return false;
 			
 		}
 		
 		return true;
-		
-		
 		
 
 	}
@@ -84,5 +80,22 @@ public class SpazioTorre extends Spazio {
 	
 	public Torre getTorre() {
 		return this.torre;
+	}
+	
+	public boolean controlloFamiliariTorre() {
+		
+		if (this.familiare.getColore() != ColoreFamiliare.NEUTRO) {                       			//controllo che il familiare da piazzare non sia NEUTRO
+			for (SpazioTorre spazioTorre : getTorre().getSpazioTorre())								//per ogni spazio della torre:
+				if ((spazioTorre.getFamiliare().getColore()==ColoreFamiliare.NERO || 				//bisogna controllare che non ci siano altri familiari del
+					spazioTorre.getFamiliare().getColore()==ColoreFamiliare.BIANCO || 				//player che vuole occupare lo spazio torre
+				    spazioTorre.getFamiliare().getColore()==ColoreFamiliare.ARANCIONE) && 
+						this.familiare.getPlayer().equals(spazioTorre.getFamiliare().getPlayer()) ) {
+						return false;
+				}
+		}
+		
+		
+		return true;
+		
 	}
 }
