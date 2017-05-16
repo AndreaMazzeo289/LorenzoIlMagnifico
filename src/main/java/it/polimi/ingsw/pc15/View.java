@@ -6,7 +6,7 @@ import java.util.Observer;
 public class View extends Observable implements Observer {
 	
 	public View (Model gioco) {
-		gioco.registerObserver(this);
+		gioco.addObserver(this);
 		
 	}
 
