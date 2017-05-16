@@ -1,6 +1,6 @@
 package it.polimi.ingsw.pc15;
 
-public class SetRisorse {
+public class SetRisorse {   //mappa
 	
 	private Oro oro;
 	private Legna legna;

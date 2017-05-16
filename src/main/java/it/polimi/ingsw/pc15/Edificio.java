@@ -12,23 +12,6 @@ public class Edificio extends Carta {
 		this.requisitoProduzione = requisitoProduz;
 		this.effettoProduzione = effettoProduzione;
 	}
-	
-	@Override
-	public boolean prendibile (Player player) {
-		
-		if (player.getEdifici().size() == 6) {    //limite carte Edificio
-			System.out.println("Hai raggiunto il limite massimo di carte Edificio!");
-			return false;
-		}
-		
-		if (this.risorseSufficienti(player) == false) {
-			System.out.println("Non hai risorse sufficienti!");
-			return false;
-		}
-		
-		return true;
-		
-	}
 
 	public int getRequisitoProduzione() {
 		return this.requisitoProduzione;
@@ -36,15 +19,6 @@ public class Edificio extends Carta {
 	
 	public Effetto getEffettoProduzione() {
 		return this.effettoProduzione;
-	}
-
-
-	@Override
-	public void daiA(Player player) {
-		this.setSpazio(null);
-		player.getEdifici().add(this);
-		this.setPlayer(player);
-		
 	}
 
 }

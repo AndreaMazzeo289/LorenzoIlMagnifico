@@ -10,31 +10,5 @@ public class Personaggio extends Carta {
 		super(nome, id, periodo, costo, effettoIstantaneo);
 		this.effettoPermanente = effettoPermanente;
 		}
-	
-	@Override
-	public boolean prendibile (Player player) {
-		
-		if (player.getPersonaggi().size() == 6) {  //limite carte Personaggo
-			System.out.println("Hai raggiunto il limite massimo di carte Personaggio!");
-			return false;
-		}
-		
-		if (this.risorseSufficienti(player) == false) { 
-			System.out.println("Non hai risorse sufficienti!");
-			return false;
-		}
-		
-		return true;
-		
-	}
-
-	@Override
-	public void daiA(Player player) {
-		this.setSpazio(null);
-		player.getPersonaggi().add(this);
-		this.setPlayer(player);
-		
-		
-	}
 
 }
