@@ -1401,7 +1401,7 @@
 			<effettoImm>aggiungiRisorse5PM</effettoImm>
 		</effettiImmediati>
 		<effettiPermanenti>
-			<effettoPerm>aggiungiPuntiVittoria4</effettoPerm>
+			<effettoPerm>aggiungiRisorse4V</effettoPerm>
 		</effettiPermanenti>
 	</carta>
 	<carta id="74">
@@ -1428,7 +1428,7 @@
 			<effettoImm>aggiungiRisorse1F</effettoImm>
 		</effettiImmediati>
 		<effettiPermanenti>
-			<effettoPerm>aggiungiPuntiVittoria5</effettoPerm>
+			<effettoPerm>aggiungiRisorse5V</effettoPerm>
 		</effettiPermanenti>
 	</carta>
 	<carta id="75">
@@ -1448,7 +1448,7 @@
 			<effettoImm>aggiungiRisorse1Pr</effettoImm>
 		</effettiImmediati>
 		<effettiPermanenti>
-			<effettoPerm>aggiungiPuntiVittoria3</effettoPerm>
+			<effettoPerm>aggiungiRisorse3V</effettoPerm>
 		</effettiPermanenti>
 	</carta>
 	<carta id="76">
@@ -1471,7 +1471,7 @@
 			<effettoImm>aggiungiRisorse2PrDiv</effettoImm>
 		</effettiImmediati>
 		<effettiPermanenti>
-			<effettoPerm>aggiungiPuntiVittoria4</effettoPerm>
+			<effettoPerm>aggiungiRisorse4V</effettoPerm>
 		</effettiPermanenti>
 	</carta>
 	<carta id="77">
@@ -1491,7 +1491,7 @@
 			<effettoImm>aggiungiRisorse3O</effettoImm>
 		</effettiImmediati>
 		<effettiPermanenti>
-			<effettoPerm>aggiungiPuntiVittoria5</effettoPerm>
+			<effettoPerm>aggiungiRisorse5V</effettoPerm>
 		</effettiPermanenti>
 	</carta>
 	<carta id="78">
@@ -1510,7 +1510,7 @@
 			<effettoImm>aggiungiRisorse4S</effettoImm>
 		</effettiImmediati>
 		<effettiPermanenti>
-			<effettoPerm>aggiungiPuntiVittoria4</effettoPerm>
+			<effettoPerm>aggiungiRisorse4V</effettoPerm>
 		</effettiPermanenti>
 	</carta>
 	<carta id="79">
@@ -1530,7 +1530,7 @@
 			<effettoImm>aggiungiRisorse2F</effettoImm>
 		</effettiImmediati>
 		<effettiPermanenti>
-			<effettoPerm>aggiungiPuntiVittoria5</effettoPerm>
+			<effettoPerm>aggiungiRisorse5V</effettoPerm>
 		</effettiPermanenti>
 	</carta>
 	<carta id="80">
@@ -1562,7 +1562,7 @@
 			<effettoImm>aggiungiRisorse3F</effettoImm>
 		</effettiImmediati>
 		<effettiPermanenti>
-			<effettoPerm>aggiungiPuntiVittoria1</effettoPerm>
+			<effettoPerm>aggiungiRisorse1V</effettoPerm>
 		</effettiPermanenti>
 	</carta>
 
@@ -1592,7 +1592,7 @@
 			<effettoImm>aggiungiRisorse6PM</effettoImm>
 		</effettiImmediati>
 		<effettiPermanenti>
-			<effettoPerm>aggiungiPuntiVittoria5</effettoPerm>
+			<effettoPerm>aggiungiRisorse5V</effettoPerm>
 		</effettiPermanenti>
 	</carta>
 	<carta id="82">
@@ -1619,7 +1619,7 @@
 			<effettoImm>aggiungiRisorse2F</effettoImm>
 		</effettiImmediati>
 		<effettiPermanenti>
-			<effettoPerm>aggiungiPuntiVittoria6</effettoPerm>
+			<effettoPerm>aggiungiRisorse6V</effettoPerm>
 		</effettiPermanenti>
 	</carta>
 	<carta id="83">
@@ -1639,7 +1639,7 @@
 			<effettoImm>aggiungiRisorse1Pr</effettoImm>
 		</effettiImmediati>
 		<effettiPermanenti>
-			<effettoPerm>aggiungiPuntiVittoria2</effettoPerm>
+			<effettoPerm>aggiungiRisorse2V</effettoPerm>
 		</effettiPermanenti>
 	</carta>
 	<carta id="84">
@@ -1660,7 +1660,7 @@
 			<effettoImm>aggiungiRisorse1Pr</effettoImm>
 		</effettiImmediati>
 		<effettiPermanenti>
-			<effettoPerm>aggiungiPuntiVittoria3</effettoPerm>
+			<effettoPerm>aggiungiRisorse3V</effettoPerm>
 		</effettiPermanenti>
 	</carta>
 	<carta id="85">
@@ -1683,7 +1683,7 @@
 			<effettoImm>azioneRaccolta4</effettoImm>
 		</effettiImmediati>
 		<effettiPermanenti>
-			<effettoPerm>aggiungiPuntiVittoria5</effettoPerm>
+			<effettoPerm>aggiungiRisorse5V</effettoPerm>
 		</effettiPermanenti>
 	</carta>
 	<carta id="86">
@@ -1702,7 +1702,7 @@
 			<effettoImm>aggiungiRisorse5S</effettoImm>
 		</effettiImmediati>
 		<effettiPermanenti>
-			<effettoPerm>aggiungiPuntiVittoria4</effettoPerm>
+			<effettoPerm>aggiungiRisorse4V</effettoPerm>
 		</effettiPermanenti>
 	</carta>
 	<carta id="87">
@@ -1723,7 +1723,7 @@
 			<effettoImm>aggiungiRisorse1F</effettoImm>
 		</effettiImmediati>
 		<effettiPermanenti>
-			<effettoPerm>aggiungiPuntiVittoria5</effettoPerm>
+			<effettoPerm>aggiungiRisorse5V</effettoPerm>
 		</effettiPermanenti>
 	</carta>
 	<carta id="88">
@@ -1755,7 +1755,7 @@
 			<effettoImm>aggiungiRisorse3F</effettoImm>
 		</effettiImmediati>
 		<effettiPermanenti>
-			<effettoPerm>aggiungiPuntiVittoria4</effettoPerm>
+			<effettoPerm>aggiungiRisorse4V</effettoPerm>
 		</effettiPermanenti>
 	</carta>
 
@@ -1785,7 +1785,7 @@
 			<effettoImm>aggiungiRisorse7PM</effettoImm>
 		</effettiImmediati>
 		<effettiPermanenti>
-			<effettoPerm>aggiungiPuntiVittoria6</effettoPerm>
+			<effettoPerm>aggiungiRisorse6V</effettoPerm>
 		</effettiPermanenti>
 	</carta>
 	<carta id="90">
@@ -1813,7 +1813,7 @@
 			<effettoImm>azioneCartaQualsiasi7</effettoImm>
 		</effettiImmediati>
 		<effettiPermanenti>
-			<effettoPerm>aggiungiPuntiVittoria5</effettoPerm>
+			<effettoPerm>aggiungiRisorse5V</effettoPerm>
 		</effettiPermanenti>
 	</carta>
 	<carta id="91">
@@ -1833,7 +1833,7 @@
 			<effettoImm>aggiungiRisorse1Pr</effettoImm>
 		</effettiImmediati>
 		<effettiPermanenti>
-			<effettoPerm>aggiungiPuntiVittoria4</effettoPerm>
+			<effettoPerm>aggiungiRisorse4V</effettoPerm>
 		</effettiPermanenti>
 	</carta>
 	<carta id="92">
@@ -1852,7 +1852,7 @@
 			<effettoImm>aggiungiRisorse3F</effettoImm>
 		</effettiImmediati>
 		<effettiPermanenti>
-			<effettoPerm>aggiungiPuntiVittoria3</effettoPerm>
+			<effettoPerm>aggiungiRisorse3V</effettoPerm>
 		</effettiPermanenti>
 	</carta>
 	<carta id="93">
@@ -1874,7 +1874,7 @@
 			<effettoImm>aggiungiRisorse3O</effettoImm>
 		</effettiImmediati>
 		<effettiPermanenti>
-			<effettoPerm>aggiungiPuntiVittoria7</effettoPerm>
+			<effettoPerm>aggiungiRisorse7V</effettoPerm>
 		</effettiPermanenti>
 	</carta>
 	<carta id="94">
@@ -1897,7 +1897,7 @@
 			<effettoImm>azioneProduzione3</effettoImm>
 		</effettiImmediati>
 		<effettiPermanenti>
-			<effettoPerm>aggiungiPuntiVittoria5</effettoPerm>
+			<effettoPerm>aggiungiRisorse5V</effettoPerm>
 		</effettiPermanenti>
 	</carta>
 	<carta id="95">
@@ -1917,7 +1917,7 @@
 			<effettoImm>aggiungiRisorse4F</effettoImm>
 		</effettiImmediati>
 		<effettiPermanenti>
-			<effettoPerm>aggiungiPuntiVittoria8</effettoPerm>
+			<effettoPerm>aggiungiRisorse8V</effettoPerm>
 		</effettiPermanenti>
 	</carta>
 	<carta id="96">
@@ -1949,7 +1949,7 @@
 			<effettoImm>aggiungiRisorse2F</effettoImm>
 		</effettiImmediati>
 		<effettiPermanenti>
-			<effettoPerm>aggiungiPuntiVittoria10</effettoPerm>
+			<effettoPerm>aggiungiRisorse1V0</effettoPerm>
 		</effettiPermanenti>
 	</carta>
 
