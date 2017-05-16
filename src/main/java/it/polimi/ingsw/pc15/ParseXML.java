@@ -14,7 +14,7 @@ public class ParseXML {
 
 	public static void main(String[] args){
 		
-		LeggiEffetto("moltiplicatore2VxGialla");
+		LeggiEffetto("scambio4Oto3Pand3L");
 		
 		
 	}
@@ -124,7 +124,21 @@ public class ParseXML {
 
 	private static void leggiEffettoAzione(Element effetto) {
 
+		String tipoAzione = effetto.getAttribute("idAzione");
 		
+		switch(tipoAzione){
+		case "raccolta": 
+			int valoreDadoRaccolta = Integer.parseInt(effetto.getElementsByTagName("valoreDado").item(0).getFirstChild().getNodeValue());
+			break;
+		case "produzione": 
+			int valoreDadoProduzione = Integer.parseInt(effetto.getElementsByTagName("valoreDado").item(0).getFirstChild().getNodeValue());
+			break;
+		case "carta": 
+			int valoreDadoCarta = Integer.parseInt(effetto.getElementsByTagName("valoreDado").item(0).getFirstChild().getNodeValue());
+			String coloreCarta = effetto.getElementsByTagName("coloreCarta").item(0).getFirstChild().getNodeValue();
+			break;
+		default:
+		}
 	}
 
 	private static void leggiEffettoMoltiplicazione(Element effetto) {
@@ -142,11 +156,10 @@ public class ParseXML {
 
 	private static void leggiEffettoScambio(Element effetto) {
 		
-		NodeList listaPagamenti = effetto.getElementsByTagName("pagamento");
+		NodeList listaPagamenti = effetto.getElementsByTagName("insiemePagamenti");
 		System.out.println("Lista pagamenti:");
-		int listaPagamentiInt = listaPagamenti.getLength();
 		
-        for (int j = 0; j < listaPagamentiInt; j++) {
+        for (int j = 0; j < listaPagamenti.getLength(); j++) {
             Element pagamento = (Element) listaPagamenti.item(j);
             String risorsa = pagamento.getElementsByTagName("risorsa").item(0).getFirstChild().getNodeValue();
             String quantita = pagamento.getElementsByTagName("quantita").item(0).getFirstChild().getNodeValue();
@@ -168,7 +181,21 @@ public class ParseXML {
 
 	private static void leggiEffettoBonus(Element effetto) {
 		
+		String tipoAzione = effetto.getAttribute("idAzione");
 		
+		switch(tipoAzione){
+		case "raccolta": 
+			int valoreDadoRaccolta = Integer.parseInt(effetto.getElementsByTagName("bonusDado").item(0).getFirstChild().getNodeValue());
+			break;
+		case "produzione": 
+			int valoreDadoProduzione = Integer.parseInt(effetto.getElementsByTagName("bonusDado").item(0).getFirstChild().getNodeValue());
+			break;
+		case "carta": 
+			int valoreDadoCarta = Integer.parseInt(effetto.getElementsByTagName("bonusDado").item(0).getFirstChild().getNodeValue());
+			String coloreCarta = effetto.getElementsByTagName("coloreCarta").item(0).getFirstChild().getNodeValue();
+			break;
+		default:
+		}
 	}
 
 	public static void leggiCartaVerde (Element carta){
