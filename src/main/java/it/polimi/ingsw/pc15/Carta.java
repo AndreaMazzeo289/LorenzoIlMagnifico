@@ -31,9 +31,19 @@ public abstract class Carta {
 		return this.spazio;
 	}
 	
+	public void setSpazio(SpazioTorre spazio) {
+		this.spazio = spazio;
+	}
+	
 	public Player getPlayer() {
 		return this.player;
 	}
+	
+	public void setPlayer(Player player) {
+		this.player = player;
+	}
+	
+	public abstract void daiA (Player player);
 	
 	public abstract boolean prendibile (Player player);
 	
@@ -48,6 +58,6 @@ public abstract class Carta {
 	return (player.getSetRisorse().paragona(costo) &&                                                    // paragona sia il costo totale che
 			player.getSetRisorse().getOro().paragona(costo.getOro().getQuantità() + oroAggiuntivo));     // il costo in oro + (eventualmente) 3
 	
-	}                                                                                         //
+	}                                                                                         
 
 }

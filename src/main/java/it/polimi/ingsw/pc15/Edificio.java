@@ -16,18 +16,12 @@ public class Edificio extends Carta {
 	@Override
 	public boolean prendibile (Player player) {
 		
-		if (player.getEdifici().size() == 6) {
+		if (player.getEdifici().size() == 6) {    //limite carte gialle
 			//messaggio
 			return false;
 		}
 		
 		if (this.risorseSufficienti(player) == false) {
-			//messaggio
-			return false;
-		}
-			
-			
-		if (player.getSetRisorse().paragona(getCosto()) == false) {
 			//messaggio
 			return false;
 		}
@@ -42,6 +36,15 @@ public class Edificio extends Carta {
 	
 	public Effetto getEffettoProduzione() {
 		return this.effettoProduzione;
+	}
+
+
+	@Override
+	public void daiA(Player player) {
+		this.setSpazio(null);
+		player.getEdifici().add(this);
+		this.setPlayer(player);
+		
 	}
 
 }

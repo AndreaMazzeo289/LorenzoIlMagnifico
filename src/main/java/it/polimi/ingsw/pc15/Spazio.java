@@ -5,6 +5,7 @@ import java.util.Queue;
 public abstract class Spazio {
 	
 	private int valoreMin;
+	private boolean disponibilità;
 	
 	public Spazio(int valoreMin) {
 		this.valoreMin=valoreMin;
@@ -14,7 +15,15 @@ public abstract class Spazio {
 		return this.valoreMin;
 	}
 	
+	public void setDisponibilità (boolean disponibilità) {
+		this.disponibilità = disponibilità;
+	}
+	
 	public abstract void rimuoviFamiliari();	
+	
+	public boolean disponibile() {
+		return this.disponibilità;
+	}
 	
 	public abstract boolean isEmpty();
 	

@@ -31,27 +31,27 @@ public class Player {
 		effettiAttivi = new EffettiAttivi();
 	}
 	
-	String getName() {
+	public String getName() {
 		return this.name;
 	}
 	
-	SetRisorse getSetRisorse() {
+	public SetRisorse getSetRisorse() {
 		return this.setRisorse;
 	}
 	
-	Set<Territorio> getTerritori() {
+	public Set<Territorio> getTerritori() {
 		return this.territori;
 	}
 	
-	Set<Personaggio> getPersonaggi() {
+	public Set<Personaggio> getPersonaggi() {
 		return this.personaggi;
 	}
 	
-	Set<Edificio> getEdifici() {
+	public Set<Edificio> getEdifici() {
 		return this.edifici;
 	}
 	
-	Set<Impresa> getImprese() {
+	public Set<Impresa> getImprese() {
 		return this.imprese;
 	}
 	

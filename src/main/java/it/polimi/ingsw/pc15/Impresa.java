@@ -33,4 +33,14 @@ public class Impresa extends Carta {
 		
 	}
 
+	@Override
+	public void daiA(Player player) {
+		this.setSpazio(null);
+		player.getImprese().add(this);
+		this.setPlayer(player);
+		
+	}
+	
+	
+
 }

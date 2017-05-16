@@ -59,4 +59,12 @@ public class Territorio extends Carta {
 		return this.effettoRaccolta;
 	}
 
+	@Override
+	public void daiA(Player player) {
+		this.setSpazio(null);
+		player.getTerritori().add(this);
+		this.setPlayer(player);
+		
+	}
+
 }

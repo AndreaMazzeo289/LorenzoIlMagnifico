@@ -19,12 +19,21 @@ public class Personaggio extends Carta {
 			return false;
 		}
 		
-		if (this.risorseSufficienti(player) == false) {
+		if (this.risorseSufficienti(player) == false) { 
 			//messaggio
 			return false;
 		}
 		
 		return true;
+		
+	}
+
+	@Override
+	public void daiA(Player player) {
+		this.setSpazio(null);
+		player.getPersonaggi().add(this);
+		this.setPlayer(player);
+		
 		
 	}
 
