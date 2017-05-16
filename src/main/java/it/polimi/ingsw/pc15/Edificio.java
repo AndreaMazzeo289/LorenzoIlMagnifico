@@ -8,7 +8,7 @@ public class Edificio extends Carta {
 	private Effetto effettoProduzione;
 	
 	public Edificio (String nome, int id, int periodo, SetRisorse costo, Set<Effetto> effettoIstantaneo, int requisitoProduz, Effetto effettoProduzione, SpazioTorre spazio) {
-		super(nome, id, periodo, costo, effettoIstantaneo, spazio);
+		super(nome, id, periodo, costo, effettoIstantaneo);
 		this.requisitoProduzione = requisitoProduz;
 		this.effettoProduzione = effettoProduzione;
 	}
