@@ -41,23 +41,6 @@ public abstract class Carta {
 	
 	public void setPlayer(Player player) {
 		this.player = player;
-	}
-	
-	public abstract void daiA (Player player);
-	
-	public abstract boolean prendibile (Player player);
-	
-	public boolean risorseSufficienti (Player player) {
-		
-	int oroAggiuntivo = 0;								 //
-														 //    se la torre è già occupata, il costo in oro della carta
-		if (this.getSpazio().getTorre().occupata() ) {   //    aumenta di 3;
-			oroAggiuntivo = 3;							 // 
-		}
-		
-	return (player.getSetRisorse().paragona(costo) &&                                                    // paragona sia il costo totale che
-			player.getSetRisorse().getOro().paragona(costo.getOro().getQuantità() + oroAggiuntivo));     // il costo in oro + (eventualmente) 3
-	
-	}                                                                                         
+	}                                                                                  
 
 }
