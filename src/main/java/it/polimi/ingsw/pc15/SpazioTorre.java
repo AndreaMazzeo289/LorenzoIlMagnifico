@@ -30,6 +30,7 @@ public class SpazioTorre extends Spazio {
 		this.familiare=familiare;
 		this.effetto.attiva(familiare.getPlayer()); // attivazione dell'effetto aggiuntaRisorse per ottenere le risorse bonus relative allo spazio torre
 		this.getTorre().setOccupata(true);			    // Settaggio flag di occupazione della torre
+		this.setDisponibilità(false);
 		carta.daiA(familiare.getPlayer());
 		//attiva effetti carta
 	}
@@ -37,18 +38,18 @@ public class SpazioTorre extends Spazio {
 	@Override
 	public boolean occupabile (Familiare familiare) {
 		
-		if (isEmpty() == false) {
-			//messaggio
+		if (!this.disponibile()) {
+			System.out.println("Lo spazio è già occupato!");
 			return false;		
 		}
 		
 		if (controlloFamiliariTorre() == false) {
-			//messaggio		}
+			//messaggio		
 			return false;
 		}
 					
 		if ( familiare.getValore() < getValoreMin() ) {
-			//messaggio
+			System.out.println("Il valore del tuo familiare è troppo basso!");
 			return false;
 		}
 		
@@ -89,8 +90,8 @@ public class SpazioTorre extends Spazio {
 					spazioTorre.getFamiliare().getColore()==ColoreFamiliare.BIANCO || 				//player che vuole occupare lo spazio torre
 				    spazioTorre.getFamiliare().getColore()==ColoreFamiliare.ARANCIONE) && 
 					this.familiare.getPlayer().equals(spazioTorre.getFamiliare().getPlayer()) ) {
-						
-					    //messaggio
+					
+						System.out.println("Non puoi avere due familiari di colori diversi nella stessa torre!");
 						return false;
 				}
 		}

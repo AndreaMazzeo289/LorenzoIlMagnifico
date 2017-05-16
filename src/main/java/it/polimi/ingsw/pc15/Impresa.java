@@ -18,13 +18,13 @@ public class Impresa extends Carta {
 	@Override
 	public boolean prendibile (Player player) {
 		
-		if (player.getImprese().size() == 6) {  //limite carte viola
-			//messaggio
+		if (player.getImprese().size() == 6) {  //limite carte Impresa
+			System.out.println("Hai raggiunto il limite massimo di carte Impresa!");
 			return false;
 		}
 		
 		if (risorseSufficienti(player) == false) {
-			//messaggio
+			System.out.println("Non hai risorse sufficienti!");
 			return false;
 		}
 		

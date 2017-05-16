@@ -14,13 +14,13 @@ public class Personaggio extends Carta {
 	@Override
 	public boolean prendibile (Player player) {
 		
-		if (player.getPersonaggi().size() == 6) {  //limite carte blu
-			//messaggio
+		if (player.getPersonaggi().size() == 6) {  //limite carte Personaggo
+			System.out.println("Hai raggiunto il limite massimo di carte Personaggio!");
 			return false;
 		}
 		
 		if (this.risorseSufficienti(player) == false) { 
-			//messaggio
+			System.out.println("Non hai risorse sufficienti!");
 			return false;
 		}
 		

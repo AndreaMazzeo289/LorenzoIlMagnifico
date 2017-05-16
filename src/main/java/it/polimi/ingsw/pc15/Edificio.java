@@ -16,13 +16,13 @@ public class Edificio extends Carta {
 	@Override
 	public boolean prendibile (Player player) {
 		
-		if (player.getEdifici().size() == 6) {    //limite carte gialle
-			//messaggio
+		if (player.getEdifici().size() == 6) {    //limite carte Edificio
+			System.out.println("Hai raggiunto il limite massimo di carte Edificio!");
 			return false;
 		}
 		
 		if (this.risorseSufficienti(player) == false) {
-			//messaggio
+			System.out.println("Non hai risorse sufficienti!");
 			return false;
 		}
 		

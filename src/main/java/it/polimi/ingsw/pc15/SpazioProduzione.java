@@ -21,16 +21,21 @@ public class SpazioProduzione extends Spazio{
 
 	@Override
 	public boolean occupabile(Familiare familiare){
+		
 		if(this.listaFamiliari.isEmpty())
 			if(familiare.getValore() >= getValoreMin())
 				return true;
-			else
+			else {
+				System.out.println("Il valore del tuo familiare è troppo basso!");
 				return false;
+			}
 		else
 			if(familiare.getValore() >= getValoreMin()+3)
 				return true;
-			else
+			else {
+				System.out.println("Il valore del tuo familiare è troppo basso!");
 				return false;
+			}
 	}
 
 	@Override
