@@ -14,10 +14,7 @@ public class ParseXML {
 
 	public static void main(String[] args){
 		
-		LeggiCarta(ColoreCarta.VERDE);
-		LeggiCarta(ColoreCarta.GIALLO);
-		LeggiCarta(ColoreCarta.BLU);
-		LeggiCarta(ColoreCarta.VIOLA);
+		LeggiEffetto("moltiplicatore2VxGialla");
 		
 		
 	}
@@ -67,6 +64,113 @@ public class ParseXML {
 		
 	}
 	
+	public static void LeggiEffetto (String nomeEffetto){
+		
+		try{
+			
+			DocumentBuilderFactory documentFactory = DocumentBuilderFactory.newInstance();
+			
+			DocumentBuilder builder = documentFactory.newDocumentBuilder();
+			Document document = builder.parse(new File("/Users/andre/LaboratorioProvaFinale/prova-finale-template/XML/Effects_v2.1.xml"));
+			
+			NodeList effetti = document.getElementsByTagName("effetto");
+			
+			for(int i=0; i<effetti.getLength(); i++){
+				
+				Element effetto = (Element) effetti.item(i);
+				
+				String nome = effetto.getAttribute("nome");
+				if(nome.equals(nomeEffetto)){
+					
+					String tipoEffetto = effetto.getAttribute("idEffetto");
+					
+					System.out.println("Effetto di tipo "+ tipoEffetto + " di nome " + nome);
+					
+					switch(tipoEffetto){
+					 	case "addRisorsa":
+					 		leggiEffettoAddRisorsa(effetto);
+					 		break;
+					 	case "azione":
+					 		leggiEffettoAzione(effetto);
+					 		break;
+					 	case "moltiplicazione":
+					 		leggiEffettoMoltiplicazione(effetto);
+					 		break;
+					 	case "scambio":
+					 		leggiEffettoScambio(effetto);
+					 		break;
+					 	case "bonus":
+					 		leggiEffettoBonus(effetto);
+					 		break;
+					 	default:
+					 		System.out.println("Errore: effetto non presente");
+					}
+				}
+			}
+		
+		}catch(Exception e){
+			e.printStackTrace();
+		}
+	}
+	
+	private static void leggiEffettoAddRisorsa(Element effetto) {
+		
+		String risorsa = effetto.getElementsByTagName("tipoRisorsa").item(0).getFirstChild().getNodeValue();
+		String quantita = effetto.getElementsByTagName("quantita").item(0).getFirstChild().getNodeValue();
+		
+		System.out.println("Risorsa: " + risorsa);
+		System.out.println("Quantita:" + quantita);
+	}
+
+	private static void leggiEffettoAzione(Element effetto) {
+
+		
+	}
+
+	private static void leggiEffettoMoltiplicazione(Element effetto) {
+
+		String fattore1 = effetto.getElementsByTagName("fattore1").item(0).getFirstChild().getNodeValue();
+		String quantita1 = effetto.getElementsByTagName("quantita1").item(0).getFirstChild().getNodeValue();
+		String fattore2 = effetto.getElementsByTagName("fattore2").item(0).getFirstChild().getNodeValue();
+		String quantita2 = effetto.getElementsByTagName("quantita2").item(0).getFirstChild().getNodeValue();
+		
+		System.out.println("Primo elemento della moltiplicazione: " + fattore1);
+		System.out.println("Quantita: " + quantita1);
+		System.out.println("Secondo elemento della moltiplicazione: " + fattore2);
+		System.out.println("Quantita: " + quantita2);
+	}
+
+	private static void leggiEffettoScambio(Element effetto) {
+		
+		NodeList listaPagamenti = effetto.getElementsByTagName("pagamento");
+		System.out.println("Lista pagamenti:");
+		int listaPagamentiInt = listaPagamenti.getLength();
+		
+        for (int j = 0; j < listaPagamentiInt; j++) {
+            Element pagamento = (Element) listaPagamenti.item(j);
+            String risorsa = pagamento.getElementsByTagName("risorsa").item(0).getFirstChild().getNodeValue();
+            String quantita = pagamento.getElementsByTagName("quantita").item(0).getFirstChild().getNodeValue();
+            System.out.println("RisorsaAlt["+j+"]:" +risorsa);
+            System.out.println("QuantitaAlt["+j+"]:" +quantita);
+        }
+        
+        NodeList listaGuadagni = effetto.getElementsByTagName("guadagno");
+		System.out.println("Lista guadagni:");
+		
+        for (int j = 0; j < listaGuadagni.getLength(); j++) {
+            Element guadagno = (Element) listaGuadagni.item(j);
+            String risorsa = guadagno.getElementsByTagName("risorsa").item(0).getFirstChild().getNodeValue();
+            String quantita = guadagno.getElementsByTagName("quantita").item(0).getFirstChild().getNodeValue();
+            System.out.println("RisorsaAlt["+j+"]:" +risorsa);
+            System.out.println("QuantitaAlt["+j+"]:" +quantita);
+        }
+	}
+
+	private static void leggiEffettoBonus(Element effetto) {
+		
+		
+	}
+
 	public static void leggiCartaVerde (Element carta){
 		String ID = carta.getAttribute("id");
 		String nome = carta.getElementsByTagName("nome").item(0).getFirstChild().getNodeValue();
