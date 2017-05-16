@@ -22,8 +22,12 @@ public class SpazioConsiglio extends Spazio {
 	
 	@Override
 	public boolean occupabile(Familiare familiare){
-		if(familiare.getValore() >= getValoreMin())
-			return true;
+		if(familiare.getValore() < getValoreMin()) {
+			System.out.println("Il valore del tuo familiare è troppo basso!");
+			return false;
+		}
+		
+		
 		return false;
 	}
 

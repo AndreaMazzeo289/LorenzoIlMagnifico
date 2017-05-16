@@ -16,16 +16,20 @@ public class SpazioMercato extends Spazio {
 	@Override
 	public void occupa (Familiare familiare){
 		this.familiare = familiare;
+		this.setDisponibilità(false);
 		this.effetto.attiva(this.familiare.getPlayer());
 	}
 	
 	@Override
 	public boolean occupabile (Familiare familiare) {
-		if(familiare.getValore() >= getValoreMin() )  {
+		
+		if(familiare.getValore() < getValoreMin() )  {
+			System.out.println("Il valore del tuo familiare è troppo basso!");
 			return false;
 		}
 		
-		if (!isEmpty() ) {
+		if (!this.disponibile() ) {
+			System.out.println("Lo spazio è già occupato!");
 			return false;
 		}
 		

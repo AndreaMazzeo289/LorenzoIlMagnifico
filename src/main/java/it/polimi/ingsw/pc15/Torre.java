@@ -17,7 +17,6 @@ public class Torre {
 		return this.spazioTorre;
 	}
 		
-
 	public boolean occupata() {
 		return occupata;
 	}
