@@ -384,6 +384,7 @@
 		<dadoProduzione>5</dadoProduzione>
 		<effettiImmediati>
 			<effettoImm>aggiungiRisorse5V</effettoImm>
+			<effettoImm>aggiungiRisorse5P</effettoImm>
 		</effettiImmediati>
 		<effettiPermanenti>
 			<effettoPerm>moltiplicatore1OxG</effettoPerm>
