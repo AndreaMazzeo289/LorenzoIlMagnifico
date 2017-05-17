@@ -8,6 +8,7 @@ public class AzionePrendiCartaImpresa extends AzionePrendiCarta {
 
 	@Override
 	public void daiCarta() {
+		carta.setSpazio(null);
 		carta.setPlayer(player);	
 		player.getImprese().add((Impresa) carta);
 	}
@@ -27,7 +28,6 @@ public class AzionePrendiCartaImpresa extends AzionePrendiCarta {
 
 		if (requisitiSoddisfatti() && risorseSufficienti(carta.getCosto()) ) {
 			paga(carta.getCosto());
-			carta.setSpazio(null);
 			daiCarta();
 			carta.attivaEffettoIstantaneo();
 			

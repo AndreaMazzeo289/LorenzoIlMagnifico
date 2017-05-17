@@ -8,9 +8,9 @@ public class SpazioTorre extends Spazio {
 	private Torre torre;
 	private Effetto effetto;
 	
-	public SpazioTorre(int valoreMin, int numOro, int numLegna, int numPietra, int numServitori, int numPuntiVittoria, int numPuntiMilitari, int numPuntiFede, int numPrivilegi) {
+	public SpazioTorre(int valoreMin) {
 		super(valoreMin);
-		this.effetto = new AggiuntaRisorse(numOro, numLegna, numPietra, numServitori, numPuntiVittoria, numPuntiMilitari, numPuntiFede, numPrivilegi);
+		//this.effetto = new AggiuntaRisorse(numOro, numLegna, numPietra, numServitori, numPuntiVittoria, numPuntiMilitari, numPuntiFede, numPrivilegi);
 	}
 
 	@Override
@@ -79,7 +79,7 @@ public class SpazioTorre extends Spazio {
 	
 	public boolean controlloFamiliariTorre() {
 		
-		if (this.familiare.getColore() != ColoreFamiliare.NEUTRO) {                       			//controllo che il familiare da piazzare non sia NEUTRO
+		/*if (this.familiare.getColore() != ColoreFamiliare.NEUTRO) {                       			//controllo che il familiare da piazzare non sia NEUTRO
 			for (SpazioTorre spazioTorre : getTorre().getSpazioTorre())								//per ogni spazio della torre:
 				if ((spazioTorre.getFamiliare().getColore()==ColoreFamiliare.NERO || 				//bisogna controllare che non ci siano altri familiari del
 					spazioTorre.getFamiliare().getColore()==ColoreFamiliare.BIANCO || 				//player che vuole occupare lo spazio torre
@@ -89,12 +89,12 @@ public class SpazioTorre extends Spazio {
 						System.out.println("Non puoi avere due familiari di colori diversi nella stessa torre!");
 						return false;
 				}
-		}
+		}*/
 		
 		
 		return true;
 		
-	}
+	} 
 
 	
 }
