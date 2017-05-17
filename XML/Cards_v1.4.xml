@@ -561,7 +561,7 @@
 		<effettiImmediati>
 			<effettoImm>aggiungiRisorse5V</effettoImm>
 		</effettiImmediati>
-		<effetto>moltiplicatore1OxG</effetto>
+		<effetto>moltiplicatore1OxGialla</effetto>
 	</carta>
 	<carta id="26">
 		<nome>Esattoria</nome>
@@ -581,7 +581,7 @@
 		<effettiImmediati>
 			<effettoImm>aggiungiRisorse5V</effettoImm>
 		</effettiImmediati>
-		<effetto>moltiplicatore1OxV</effetto>
+		<effetto>moltiplicatore1OxVerde</effetto>
 	</carta>
 	<carta id="27">
 		<nome>Arco di trionfo</nome>
@@ -601,7 +601,7 @@
 		<effettiImmediati>
 			<effettoImm>aggiungiRisorse6V</effettoImm>
 		</effettiImmediati>
-		<effetto>moltiplicatore1VxV</effetto>
+		<effetto>moltiplicatore1VxViola</effetto>
 	</carta>
 	<carta id="28">
 		<nome>Teatro</nome>
@@ -621,7 +621,7 @@
 		<effettiImmediati>
 			<effettoImm>aggiungiRisorse6V</effettoImm>
 		</effettiImmediati>
-		<effetto>moltiplicatore1VxB</effetto>
+		<effetto>moltiplicatore1VxBlu</effetto>
 	</carta>
 	<carta id="29">
 		<nome>Falegnameria</nome>
