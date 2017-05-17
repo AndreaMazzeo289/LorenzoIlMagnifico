@@ -7,14 +7,13 @@ public class AzionePrendiCartaTerritorio extends AzionePrendiCarta {
 	}
 
 	@Override
-	public void daiCarta() {
-		carta.setSpazio(null);
-		player.getTerritori().add((Territorio) carta);
+	public void daiCarta() {	
 		carta.setPlayer(player);	
+		player.getTerritori().add((Territorio) carta);
 	}
 	
 	@Override
-	public boolean controllaRequisiti() {
+	public boolean requisitiSoddisfatti() {
 		
 		switch (player.getTerritori().size()) {
 		case 2: if (player.getSetRisorse().getPuntiMilitari().getQuantità()<3) {
@@ -46,6 +45,22 @@ public class AzionePrendiCartaTerritorio extends AzionePrendiCarta {
 		
 		return true;
 		
+	}
+
+
+	@Override
+	public boolean attiva() {
+
+		if (requisitiSoddisfatti() && risorseSufficienti(carta.getCosto()) ) {
+			paga(carta.getCosto());
+			carta.setSpazio(null);
+			daiCarta();
+			carta.attivaEffettoIstantaneo();
+			
+			return true;
+		}
+		
+		else return false;
 	}
 
 }

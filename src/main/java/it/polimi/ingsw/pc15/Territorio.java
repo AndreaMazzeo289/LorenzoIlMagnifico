@@ -7,7 +7,7 @@ public class Territorio extends Carta {
 	private int requisitoRaccolta;
 	private Effetto effettoRaccolta;
 	
-	public Territorio (String nome, int id, int periodo, Set<Effetto> effettoIstantaneo, int requisitoRaccolta, Effetto effettoRaccolta, SpazioTorre spazio) {
+	public Territorio (String nome, int id, int periodo, Set<Effetto> effettoIstantaneo, int requisitoRaccolta, Effetto effettoRaccolta) {
 		super(nome, id, periodo, null, effettoIstantaneo);
 		this.requisitoRaccolta = requisitoRaccolta;
 		this.effettoRaccolta = effettoRaccolta;
@@ -19,6 +19,13 @@ public class Territorio extends Carta {
 	
 	public Effetto getEffettoRaccolta() {
 		return this.effettoRaccolta;
+	}
+
+	@Override
+	public AzionePrendiCarta azionePrendiCarta(Player player) {
+		
+		AzionePrendiCarta azionePrendiCarta = new AzionePrendiCartaTerritorio (player, this);
+		return azionePrendiCarta;
 	}
 
 }
