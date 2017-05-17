@@ -6,9 +6,16 @@ public class Personaggio extends Carta {
 	
 	private Effetto effettoPermanente;
 	
-	public Personaggio (String nome, int id, int periodo, SetRisorse costo, Set<Effetto> effettoIstantaneo, Effetto effettoPermanente, SpazioTorre spazio) {
+	public Personaggio (String nome, int id, int periodo, SetRisorse costo, Set<Effetto> effettoIstantaneo, Effetto effettoPermanente) {
 		super(nome, id, periodo, costo, effettoIstantaneo);
 		this.effettoPermanente = effettoPermanente;
 		}
+
+	@Override
+	public AzionePrendiCarta azionePrendiCarta(Player player) {
+		
+		AzionePrendiCarta azionePrendiCarta = new AzionePrendiCartaPersonaggio(player, this);
+		return azionePrendiCarta;
+	}
 
 }

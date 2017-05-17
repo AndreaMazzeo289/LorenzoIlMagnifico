@@ -42,7 +42,7 @@ public class SpazioTorre extends Spazio {
 		}
 		
 		if (controlloFamiliariTorre() == false) {
-			//messaggio		
+			System.out.println("Non puoi posizionare altri familiari in questa torre!");
 			return false;
 		}
 					
@@ -51,7 +51,9 @@ public class SpazioTorre extends Spazio {
 			return false;
 		}
 		
-		return true;
+		AzionePrendiCarta azionePrendiCarta = this.carta.azionePrendiCarta(familiare.getPlayer());
+		
+		return (azionePrendiCarta.attiva() );
 		
 	}
 	

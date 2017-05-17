@@ -1,5 +1,6 @@
 package it.polimi.ingsw.pc15;
 
+import java.util.Iterator;
 import java.util.Observable;
 import java.util.Set;
 
@@ -41,6 +42,15 @@ public abstract class Carta {
 	
 	public void setPlayer(Player player) {
 		this.player = player;
-	}                                                                                  
+	}      
+	
+	public void attivaEffettoIstantaneo() {
+		
+		Iterator<Effetto> effetto = effettoIstantaneo.iterator();
+		while(effetto.hasNext()) 
+			effetto.next().attiva(player);
+	}
+	
+	public abstract AzionePrendiCarta azionePrendiCarta (Player player);
 
 }

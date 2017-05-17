@@ -24,5 +24,7 @@ public abstract class Risorsa {
 		
 		return true;
 	}
+	
+	public abstract TipoRisorsa getTipoRisorsa();
 
 }

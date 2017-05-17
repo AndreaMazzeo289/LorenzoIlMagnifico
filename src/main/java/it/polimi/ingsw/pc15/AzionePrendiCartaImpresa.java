@@ -8,13 +8,12 @@ public class AzionePrendiCartaImpresa extends AzionePrendiCarta {
 
 	@Override
 	public void daiCarta() {
-		carta.setSpazio(null);
-		player.getImprese().add((Impresa) carta);
 		carta.setPlayer(player);	
+		player.getImprese().add((Impresa) carta);
 	}
 
 	@Override
-	public boolean controllaRequisiti() {
+	public boolean requisitiSoddisfatti() {
 		if (player.getImprese().size() == 6) {  //limite carte Impresa
 			System.out.println("Hai raggiunto il limite massimo di carte Impresa!");
 			return false;
@@ -22,5 +21,22 @@ public class AzionePrendiCartaImpresa extends AzionePrendiCarta {
 		
 		return true;
 	}
+
+	@Override
+	public boolean attiva() {
+
+		if (requisitiSoddisfatti() && risorseSufficienti(carta.getCosto()) ) {
+			paga(carta.getCosto());
+			carta.setSpazio(null);
+			daiCarta();
+			carta.attivaEffettoIstantaneo();
+			
+			return true;
+		}
+		
+		else return false;
+	}
+
 }
+
 

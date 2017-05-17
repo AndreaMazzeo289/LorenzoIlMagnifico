@@ -7,4 +7,10 @@ public class PuntiVittoria extends Risorsa {
 		
 	}
 
+	@Override
+	public TipoRisorsa getTipoRisorsa() {
+		// TODO Auto-generated method stub
+		return TipoRisorsa.PUNTIVITTORIA;
+	}
+
 }

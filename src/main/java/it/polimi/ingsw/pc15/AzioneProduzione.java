@@ -14,7 +14,7 @@ public class AzioneProduzione extends Azione{
 		Iterator<Edificio> edificio= player.getEdifici().iterator();
 		
 		while(edificio.hasNext()){
-			if (getValoreDado() >= edificio.next().getRequisitoProduzione())
+			if (valoreDado >= edificio.next().getRequisitoProduzione())
 				edificio.next().getEffettoProduzione().attiva(player);
 		}
 	}

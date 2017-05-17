@@ -14,25 +14,20 @@ public abstract class AzionePrendiCarta {
 		
 	int oroAggiuntivo = 0;								 //
 														 //    se la torre è già occupata, il costo in oro della carta
-		if (carta.getSpazio().getTorre().occupata() ) {   //    aumenta di 3;
+		if (carta.getSpazio().getTorre().occupata() ) {  //    aumenta di 3;
 			oroAggiuntivo = 3;							 // 
 		}
 		
 	return (player.getSetRisorse().paragona(costo) &&                                                    // paragona sia il costo totale che
 			player.getSetRisorse().getOro().paragona(costo.getOro().getQuantità() + oroAggiuntivo));     // il costo in oro + (eventualmente) 3
-	
 	}    
-	
-	public abstract void daiCarta();
-	
-	public abstract boolean controllaRequisiti();
-	
-	/*public Player getPlayer() {
-		return this.player;
+
+	public void paga(SetRisorse costo) {
+		player.getSetRisorse().sottrai(costo);
 	}
 	
-	public Carta getCarta() {
-		return this.carta;
-	}*/
+	public abstract boolean attiva();
+	public abstract void daiCarta();
+	public abstract boolean requisitiSoddisfatti();
 	
 }
