@@ -8,10 +8,10 @@ public class SpazioConsiglio extends Spazio {
 	private Queue<Familiare> listaFamiliari;
 	private Effetto effetto;
 	
-	public SpazioConsiglio(int valoreMin, int numOro, int numLegna, int numPietra, int numServitori, int numPuntiVittoria, int numPuntiMilitari, int numPuntiFede, int numPrivilegi) {
+	public SpazioConsiglio(int valoreMin, SetRisorse setRisorse) {
 		super(valoreMin);
 		this.listaFamiliari = new LinkedList<Familiare>();
-		this.effetto = new AggiuntaRisorse (numOro, numLegna, numPietra, numServitori, numPuntiVittoria, numPuntiMilitari, numPuntiFede, numPrivilegi);
+		this.effetto = new AggiuntaRisorse (setRisorse);
 	}
 	
 	@Override

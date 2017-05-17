@@ -16,22 +16,22 @@ public class AzionePrendiCartaTerritorio extends AzionePrendiCarta {
 	public boolean requisitiSoddisfatti() {
 		
 		switch (player.getTerritori().size()) {
-		case 2: if (player.getSetRisorse().getPuntiMilitari().getQuantità()<3) {
+		case 2: if (player.getSetRisorse().getRisorsa(TipoRisorsa.PUNTIMILITARI).getQuantità()<3) {
 					System.out.println("Hai bisogno di 3 Punti Militari per aggiungere un altra carta Territorio!");
 					return false;
 				}
 
-		case 3: if (player.getSetRisorse().getPuntiMilitari().getQuantità()<7) {
+		case 3: if (player.getSetRisorse().getRisorsa(TipoRisorsa.PUNTIMILITARI).getQuantità()<7) {
 					System.out.println("Hai bisogno di 7 Punti Militari per aggiungere un altra carta Territorio!");
 					return false;
 				}
 			
-		case 4: if (player.getSetRisorse().getPuntiMilitari().getQuantità()<12) {
+		case 4: if (player.getSetRisorse().getRisorsa(TipoRisorsa.PUNTIMILITARI).getQuantità()<12) {
 					System.out.println("Hai bisogno di 12 Punti Militari per aggiungere un altra carta Territorio!");
 					return false;
 				}
 			
-		case 5: if (player.getSetRisorse().getPuntiMilitari().getQuantità()<18) {
+		case 5: if (player.getSetRisorse().getRisorsa(TipoRisorsa.PUNTIMILITARI).getQuantità()<18) {
 					System.out.println("Hai bisogno di 18 Punti Militari per aggiungere un altra carta Territorio!");
 					return false;
 				}

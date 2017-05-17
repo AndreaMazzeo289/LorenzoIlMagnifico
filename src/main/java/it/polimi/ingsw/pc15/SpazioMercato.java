@@ -7,10 +7,10 @@ public class SpazioMercato extends Spazio {
 	private Familiare familiare;
 	private Effetto effetto;
 	
-	public SpazioMercato(int valoreMin,Familiare familiare, int numOro, int numLegna, int numPietra, int numServitori, int numPuntiVittoria, int numPuntiMilitari, int numPuntiFede, int numPrivilegi) {
+	public SpazioMercato(int valoreMin,Familiare familiare, SetRisorse setRisorse) {
 		super(valoreMin);
 		this.familiare=familiare;
-		this.effetto = new AggiuntaRisorse (numOro, numLegna, numPietra, numServitori, numPuntiVittoria, numPuntiMilitari, numPuntiFede, numPrivilegi);
+		this.effetto = new AggiuntaRisorse (setRisorse);
 	}
 	
 	@Override

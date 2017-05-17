@@ -19,7 +19,7 @@ public abstract class AzionePrendiCarta {
 		}
 		
 	return (player.getSetRisorse().paragona(costo) &&                                                    // paragona sia il costo totale che
-			player.getSetRisorse().getOro().paragona(costo.getOro().getQuantità() + oroAggiuntivo));     // il costo in oro + (eventualmente) 3
+			player.getSetRisorse().getRisorsa(TipoRisorsa.ORO).paragona(costo.getRisorsa(TipoRisorsa.ORO).getQuantità() + oroAggiuntivo));     // il costo in oro + (eventualmente) 3
 	}    
 
 	public void paga(SetRisorse costo) {

@@ -42,7 +42,7 @@ public class Familiare {
 		
 		int servitoriAggiuntivi = 0;
 		//chiedi al player
-		this.getPlayer().getSetRisorse().getServitori().aggiungi(-servitoriAggiuntivi);
+		this.getPlayer().getSetRisorse().getRisorsa(TipoRisorsa.SERVITORI).aggiungi(-servitoriAggiuntivi);
 		
 	}
 

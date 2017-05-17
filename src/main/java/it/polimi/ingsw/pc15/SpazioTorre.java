@@ -2,15 +2,15 @@ package it.polimi.ingsw.pc15;
 
 public class SpazioTorre extends Spazio {
 
-	private SetRisorse risorseBonus;
+
 	private Familiare familiare;
 	private Carta carta;
 	private Torre torre;
 	private Effetto effetto;
 	
-	public SpazioTorre(int valoreMin, int numOro, int numLegna, int numPietra, int numServitori, int numPuntiVittoria, int numPuntiMilitari, int numPuntiFede, int numPrivilegi) {
+	public SpazioTorre(int valoreMin, SetRisorse setRisorse) {
 		super(valoreMin);
-		this.effetto = new AggiuntaRisorse(numOro, numLegna, numPietra, numServitori, numPuntiVittoria, numPuntiMilitari, numPuntiFede, numPrivilegi);
+		this.effetto = new AggiuntaRisorse(setRisorse);
 	}
 
 	@Override
