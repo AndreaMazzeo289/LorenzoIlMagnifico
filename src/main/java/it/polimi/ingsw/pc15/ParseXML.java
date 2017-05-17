@@ -1,6 +1,7 @@
 package it.polimi.ingsw.pc15;
 
 import java.io.File;
+import java.util.HashSet;
 
 import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
@@ -13,7 +14,7 @@ import org.w3c.dom.NodeList;
 public class ParseXML {
 
 	public static void main(String[] args){
-		ColoreCarta coloreCarta = ColoreCarta.VERDE;
+		ColoreCarta coloreCarta = ColoreCarta.GIALLO;
 		GetCartaXML(coloreCarta);
 	}
 	
@@ -30,7 +31,7 @@ public class ParseXML {
 			DocumentBuilderFactory documentFactory = DocumentBuilderFactory.newInstance();
 			
 			DocumentBuilder builder = documentFactory.newDocumentBuilder();
-			Document document = builder.parse(new File("/Users/andre/LaboratorioProvaFinale/prova-finale-template/XML/Cards_v1.3.xml"));
+			Document document = builder.parse(new File("/Users/andre/LaboratorioProvaFinale/prova-finale-template/XML/Cards_v1.4.xml"));
 			
 			NodeList carte = document.getElementsByTagName("carta");
 			
@@ -43,7 +44,7 @@ public class ParseXML {
 				if(colore.toUpperCase().equals(coloreCarta.toString())) {
 					switch(coloreCarta.toString()){
 						case "VERDE":
-							leggiCartaVecio(carta);
+							leggiCartaVerde(carta);
 							break;
 							
 						case "GIALLO":
@@ -73,14 +74,14 @@ public class ParseXML {
 	// Descrizione:				Metodo che gestisce l'estrazione degli effetti dal relativo file XML chiamando 
 	//							opportuni metodi per ogni tipologia di effetto
 	//--------------------------------------------------------------------------------------------------------------//	
-	public static void GetEffettoXML (String nomeEffetto){
+	public static void getEffettoXML (String nomeEffetto){
 		
 		try{
 			
 			DocumentBuilderFactory documentFactory = DocumentBuilderFactory.newInstance();
 			
 			DocumentBuilder builder = documentFactory.newDocumentBuilder();
-			Document document = builder.parse(new File("/Users/andre/LaboratorioProvaFinale/prova-finale-template/XML/Effects_v2.2.xml"));
+			Document document = builder.parse(new File("/Users/andre/LaboratorioProvaFinale/prova-finale-template/XML/Effects_v2.3.xml"));
 			
 			NodeList effetti = document.getElementsByTagName("effetto");
 			
@@ -156,12 +157,25 @@ public class ParseXML {
 	// Descrizione:				Metodo che permette di estrarre gli effetti di tipo AddRisorsa dal file XML
 	//--------------------------------------------------------------------------------------------------------------//
 	public static void leggiEffettoAddRisorsa(Element effetto) {
+				
+		int numLegno = Integer.parseInt(effetto.getElementsByTagName("legno").item(0).getFirstChild().getNodeValue());
+		int numPietra = Integer.parseInt(effetto.getElementsByTagName("pietra").item(0).getFirstChild().getNodeValue());
+		int numOro = Integer.parseInt(effetto.getElementsByTagName("oro").item(0).getFirstChild().getNodeValue());
+		int numServitori = Integer.parseInt(effetto.getElementsByTagName("servitori").item(0).getFirstChild().getNodeValue());
+		int numPuntiFede = Integer.parseInt(effetto.getElementsByTagName("puntiFede").item(0).getFirstChild().getNodeValue());
+		int numPuntiMilitari = Integer.parseInt(effetto.getElementsByTagName("puntiMilitari").item(0).getFirstChild().getNodeValue());
+		int numPuntiVittoria = Integer.parseInt(effetto.getElementsByTagName("puntiVittoria").item(0).getFirstChild().getNodeValue());
+		int numPrivilegi = Integer.parseInt(effetto.getElementsByTagName("privilegi").item(0).getFirstChild().getNodeValue());
 		
-		String risorsa = effetto.getElementsByTagName("tipoRisorsa").item(0).getFirstChild().getNodeValue();
-		int quantita = Integer.parseInt(effetto.getElementsByTagName("quantita").item(0).getFirstChild().getNodeValue());
 		
-		System.out.println("Risorsa: " + risorsa);
-		System.out.println("Quantita:" + quantita);
+		System.out.println("Legno: " + numLegno);
+		System.out.println("Pietra: " + numPietra);
+		System.out.println("Oro: " + numOro);
+		System.out.println("Servitori: " + numServitori);
+		System.out.println("Punti fede: " + numPuntiFede);
+		System.out.println("Punti militari: " + numPuntiMilitari);
+		System.out.println("Punti vittoria: " + numPuntiVittoria);
+		System.out.println("Privilegi: " + numPrivilegi);
 		
 		/*SetRisorse setRisorse = new SetRisorse(risorsa,quantita);*/
 		
@@ -176,32 +190,32 @@ public class ParseXML {
 	// Parametri di uscita:   	Istanza dell'effetto estratto (Classe azioneRaccolto)
 	// Descrizione:				Metodo che permette di estrarre gli effetti di tipo azione dal file XML
 	//--------------------------------------------------------------------------------------------------------------//
-	public static AzioneRaccolto leggiEffettoAzioneRaccolto (Element effetto) {
+	public static void leggiEffettoAzioneRaccolto (Element effetto) {
 		
 		int valoreDadoRaccolta = Integer.parseInt(effetto.getElementsByTagName("valoreDado").item(0).getFirstChild().getNodeValue());
-		//System.out.println("Valore dado raccolta: " + valoreDadoRaccolta);
+		System.out.println("Valore dado raccolta: " + valoreDadoRaccolta);
 		
-		AzioneRaccolto azioneRaccolto = new AzioneRaccolto (valoreDadoRaccolta);
-		return azioneRaccolto;
+		/*AzioneRaccolto azioneRaccolto = new AzioneRaccolto (valoreDadoRaccolta);
+		return azioneRaccolto;*/
 	}
 	
-	public static AzioneProduzione leggiEffettoAzioneProduzione (Element effetto) {
+	public static void leggiEffettoAzioneProduzione (Element effetto) {
 			
 		int valoreDadoProduzione = Integer.parseInt(effetto.getElementsByTagName("valoreDado").item(0).getFirstChild().getNodeValue());
-		//System.out.println("Valore dado produzione: " + valoreDadoProduzione);
+		System.out.println("Valore dado produzione: " + valoreDadoProduzione);
 			
-		AzioneProduzione azioneProduzione = new AzioneProduzione (valoreDadoProduzione);
-		return azioneProduzione;
+		/*AzioneProduzione azioneProduzione = new AzioneProduzione (valoreDadoProduzione);
+		return azioneProduzione;*/
 	}
 
-	public static AzioneCarta leggiEffettoAzioneCarta (Element effetto) {
+	public static void leggiEffettoAzioneCarta (Element effetto) {
 		
 		int valoreDadoCarta = Integer.parseInt(effetto.getElementsByTagName("valoreDado").item(0).getFirstChild().getNodeValue());
 		String coloreCarta = effetto.getElementsByTagName("coloreCarta").item(0).getFirstChild().getNodeValue();
-		//System.out.println("Valore dado carta: " + valoreDadoCarta);
-		//System.out.println("Colore carta: " + coloreCarta);
+		System.out.println("Valore dado carta: " + valoreDadoCarta);
+		System.out.println("Colore carta: " + coloreCarta);
 		
-		ColoreCarta coloreCartaEnum;
+		/*ColoreCarta coloreCartaEnum;
 		switch(coloreCarta.toUpperCase()){
 			case "VERDE": 
 				coloreCartaEnum = ColoreCarta.VERDE;
@@ -222,7 +236,7 @@ public class ParseXML {
 		}
 		
 		AzioneCarta azioneCarta = new AzioneCarta (valoreDadoCarta, coloreCartaEnum);
-		return azioneCarta;
+		return azioneCarta;*/
 	}
 
 	//--------------------------------------------------------------------------------------------------------------//
@@ -240,7 +254,7 @@ public class ParseXML {
 		
 		System.out.println("Primo elemento della moltiplicazione: " + fattore1);
 		System.out.println("Quantita: " + quantita1);
-		System.out.println("Secondo elemento della moltiplicazione: " + fattore2);    //<------------------------------------PROBLEMA DA RISOLVERE (funz Molt)
+		System.out.println("Secondo elemento della moltiplicazione: " + fattore2);
 		System.out.println("Quantita: " + quantita2);
 		
 		
@@ -254,46 +268,60 @@ public class ParseXML {
 	//--------------------------------------------------------------------------------------------------------------//
 	public static void leggiEffettoScambio(Element effetto) {
 		
-		NodeList listaPagamenti = effetto.getElementsByTagName("insiemePagamenti");
-		System.out.println("Lista pagamenti:");
-		
-		//SetRisorse setRisorsePagamento = new SetRisorse ();  //<------------------------------------ PROBLEMA DA RISOLVERE (COSTRUTTORE)
-		
-        for (int j = 0; j < listaPagamenti.getLength(); j++) {
-            Element pagamento = (Element) listaPagamenti.item(j);
-            String risorsa = pagamento.getElementsByTagName("risorsa").item(0).getFirstChild().getNodeValue();
-            String quantita = pagamento.getElementsByTagName("quantita").item(0).getFirstChild().getNodeValue();
-            System.out.println("Risorsa["+j+"]:" +risorsa);
-            System.out.println("Quantita["+j+"]:" +quantita);
-        }
-        
-        try{
-        	
-        	NodeList listaPagamentiAlt = effetto.getElementsByTagName("insiemePagamentiAlt");
-    		System.out.println("Lista pagamenti alternativi:");    //<------------------------------------PROBLEMA DA RISOLVERE (NON PREVISTE ALTERNATIVE)
-    		
-            for (int j = 0; j < listaPagamentiAlt.getLength(); j++) {
-                Element pagamentoAlt = (Element) listaPagamentiAlt.item(j);
-                String risorsa = pagamentoAlt.getElementsByTagName("risorsa").item(0).getFirstChild().getNodeValue();
-                String quantita = pagamentoAlt.getElementsByTagName("quantita").item(0).getFirstChild().getNodeValue();
-                System.out.println("Risorsa["+j+"]:" +risorsa);
-                System.out.println("Quantita["+j+"]:" +quantita);
-            }
-        	
-        }catch(NullPointerException e){
-        	
-        }
-        
-        NodeList listaGuadagni = effetto.getElementsByTagName("guadagno");
-		System.out.println("Lista guadagni:");			//<------------------------------------PROBLEMA DA RISOLVERE (COSTRUTTORE)
-		
-        for (int j = 0; j < listaGuadagni.getLength(); j++) {
-            Element guadagno = (Element) listaGuadagni.item(j);
-            String risorsa = guadagno.getElementsByTagName("risorsa").item(0).getFirstChild().getNodeValue();
-            String quantita = guadagno.getElementsByTagName("quantita").item(0).getFirstChild().getNodeValue();
-            System.out.println("Risorsa["+j+"]:" +risorsa);
-            System.out.println("Quantita["+j+"]:" +quantita);
-        }
+		if (Integer.parseInt(effetto.getAttribute("num")) == 1) {
+			
+			NodeList setRisorse = effetto.getElementsByTagName("setRisorse");
+			for(int i=0; i<setRisorse.getLength(); ++i) {
+				Element SingoloCosto = (Element) setRisorse.item(i);
+				
+				switch(SingoloCosto.getAttribute("id")){
+					case "pagamento":
+						
+						int numLegnoPag = Integer.parseInt(SingoloCosto.getElementsByTagName("legno").item(0).getFirstChild().getNodeValue());
+						int numPietraPag = Integer.parseInt(SingoloCosto.getElementsByTagName("pietra").item(0).getFirstChild().getNodeValue());
+						int numOroPag = Integer.parseInt(SingoloCosto.getElementsByTagName("oro").item(0).getFirstChild().getNodeValue());
+						int numServitoriPag = Integer.parseInt(SingoloCosto.getElementsByTagName("servitori").item(0).getFirstChild().getNodeValue());
+						int numPuntiFedePag = Integer.parseInt(SingoloCosto.getElementsByTagName("puntiFede").item(0).getFirstChild().getNodeValue());
+						int numPuntiMilitariPag = Integer.parseInt(SingoloCosto.getElementsByTagName("puntiMilitari").item(0).getFirstChild().getNodeValue());
+						int numPuntiVittoriaPag = Integer.parseInt(SingoloCosto.getElementsByTagName("puntiVittoria").item(0).getFirstChild().getNodeValue());
+						int numPrivilegiPag = Integer.parseInt(SingoloCosto.getElementsByTagName("privilegi").item(0).getFirstChild().getNodeValue());
+						
+						System.out.println("COSA DEVI PAGARE :");
+						System.out.println("Legno: " + numLegnoPag);
+						System.out.println("Pietra: " + numPietraPag);
+						System.out.println("Oro: " + numOroPag);
+						System.out.println("Servitori: " + numServitoriPag);
+						System.out.println("Punti fede: " + numPuntiFedePag);
+						System.out.println("Punti militari: " + numPuntiMilitariPag);
+						System.out.println("Punti vittoria: " + numPuntiVittoriaPag);
+						System.out.println("Privilegi: " + numPrivilegiPag);	
+						break;
+						
+					case "guadagno":
+						
+						int numLegnoGuad = Integer.parseInt(SingoloCosto.getElementsByTagName("legno").item(0).getFirstChild().getNodeValue());
+						int numPietraGuad = Integer.parseInt(SingoloCosto.getElementsByTagName("pietra").item(0).getFirstChild().getNodeValue());
+						int numOroGuad = Integer.parseInt(SingoloCosto.getElementsByTagName("oro").item(0).getFirstChild().getNodeValue());
+						int numServitoriGuad = Integer.parseInt(SingoloCosto.getElementsByTagName("servitori").item(0).getFirstChild().getNodeValue());
+						int numPuntiFedeGuad = Integer.parseInt(SingoloCosto.getElementsByTagName("puntiFede").item(0).getFirstChild().getNodeValue());
+						int numPuntiMilitariGuad = Integer.parseInt(SingoloCosto.getElementsByTagName("puntiMilitari").item(0).getFirstChild().getNodeValue());
+						int numPuntiVittoriaGuad = Integer.parseInt(SingoloCosto.getElementsByTagName("puntiVittoria").item(0).getFirstChild().getNodeValue());
+						int numPrivilegiGuad = Integer.parseInt(SingoloCosto.getElementsByTagName("privilegi").item(0).getFirstChild().getNodeValue());
+						
+						System.out.println("COSA DEVI PAGARE :");
+						System.out.println("Legno: " + numLegnoGuad);
+						System.out.println("Pietra: " + numPietraGuad);
+						System.out.println("Oro: " + numOroGuad);
+						System.out.println("Servitori: " + numServitoriGuad);
+						System.out.println("Punti fede: " + numPuntiFedeGuad);
+						System.out.println("Punti militari: " + numPuntiMilitariGuad);
+						System.out.println("Punti vittoria: " + numPuntiVittoriaGuad);
+						System.out.println("Privilegi: " + numPrivilegiGuad);	
+						break;
+					default:
+				}
+			}	
+		}
 	}
 
 	//--------------------------------------------------------------------------------------------------------------//
@@ -302,32 +330,32 @@ public class ParseXML {
 	// Parametri di uscita:   	Istanza dell'effetto estratto (Classe effetto)
 	// Descrizione:				Metodo che permette di estrarre gli effetti di tipo bonus dal file XML
 	//--------------------------------------------------------------------------------------------------------------//	
-	public static BonusRaccolta leggiEffettoBonusRaccolta (Element effetto)
+	public static void leggiEffettoBonusRaccolta (Element effetto)
 	{
 		int valoreDadoRaccolta = Integer.parseInt(effetto.getElementsByTagName("bonusDado").item(0).getFirstChild().getNodeValue());
-		//System.out.println("Valore bonus raccolta: " + valoreDadoRaccolta);
+		System.out.println("Valore bonus raccolta: " + valoreDadoRaccolta);
 		
-		BonusRaccolta bonusRaccolta = new BonusRaccolta (valoreDadoRaccolta);
-		return bonusRaccolta;
+		/*BonusRaccolta bonusRaccolta = new BonusRaccolta (valoreDadoRaccolta);
+		return bonusRaccolta;*/
 	}
 	
-	public static BonusProduzione leggiEffettoBonusProduzione (Element effetto)
+	public static void leggiEffettoBonusProduzione (Element effetto)
 	{
 		int valoreDadoProduzione = Integer.parseInt(effetto.getElementsByTagName("bonusDado").item(0).getFirstChild().getNodeValue());
-		//System.out.println("Valore bonus raccolta: " + valoreDadoProduzione);
+		System.out.println("Valore bonus raccolta: " + valoreDadoProduzione);
 		
-		BonusProduzione bonusProduzione = new BonusProduzione (valoreDadoProduzione);
-		return bonusProduzione;
+		/*BonusProduzione bonusProduzione = new BonusProduzione (valoreDadoProduzione);
+		return bonusProduzione;*/
 	}
 	
-	public static BonusDadoCarte leggiEffettoBonusDadoCarta (Element effetto)
+	public static void leggiEffettoBonusDadoCarta (Element effetto)
 	{
 		int valoreDadoCarta = Integer.parseInt(effetto.getElementsByTagName("bonusDado").item(0).getFirstChild().getNodeValue());
 		String coloreCarta = effetto.getElementsByTagName("coloreCarta").item(0).getFirstChild().getNodeValue();
 		System.out.println("Valore bonus carta: " + valoreDadoCarta);
 		System.out.println("Colore carta: " + coloreCarta);
 		
-		ColoreCarta coloreCartaEnum;
+		/*ColoreCarta coloreCartaEnum;
 		switch(coloreCarta.toUpperCase()){
 			case "VERDE": 
 				coloreCartaEnum = ColoreCarta.VERDE;
@@ -348,34 +376,7 @@ public class ParseXML {
 		}
 		
 		BonusDadoCarte bonusDadoCarte = new BonusDadoCarte(coloreCartaEnum, valoreDadoCarta);
-		return bonusDadoCarte;
-	}
-	
-	public static void leggiCartaVecio (Element carta){
-		String ID = carta.getAttribute("id");
-		String nome = carta.getElementsByTagName("nome").item(0).getFirstChild().getNodeValue();
-		String colore = carta.getElementsByTagName("colore").item(0).getFirstChild().getNodeValue();
-		int periodo = Integer.parseInt(carta.getElementsByTagName("periodo").item(0).getFirstChild().getNodeValue());
-		String dado = carta.getElementsByTagName("dadoRaccolto").item(0).getFirstChild().getNodeValue();
-		String effettoRaccolta = carta.getElementsByTagName("effetto").item(0).getFirstChild().getNodeValue();
-		
-		int numOro = Integer.parseInt(carta.getElementsByTagName("oro").item(0).getFirstChild().getNodeValue());
-		int numPietra = Integer.parseInt(carta.getElementsByTagName("pietra").item(0).getFirstChild().getNodeValue());
-		int numLegno = Integer.parseInt(carta.getElementsByTagName("legno").item(0).getFirstChild().getNodeValue());
-		
-		System.out.println("ID: " + ID);
-		System.out.println("Nome:" + nome);
-		System.out.println("Periodo:" + periodo);
-		System.out.println("Dado raccolto:" + dado);
-		System.out.println("costi--> Oro:" + numOro + "  Legno:" + numLegno + "  Pietra:" + numPietra);
-		
-		System.out.println("Lista effetti immediati: ");
-		NodeList listaEffettiImm = carta.getElementsByTagName("effettoImm");
-        for (int j = 0; j < listaEffettiImm.getLength(); ++j) {
-            Element effetto = (Element) listaEffettiImm.item(j);
-            String effettoTipo = effetto.getFirstChild().getNodeValue();
-            System.out.println("Effetto: " +effettoTipo);
-        }
+		return bonusDadoCarte;*/
 	}
 
 	//--------------------------------------------------------------------------------------------------------------//
@@ -385,34 +386,62 @@ public class ParseXML {
 	// Descrizione:				Metodo che permette di estrarre le carte verdi dal file XML
 	//--------------------------------------------------------------------------------------------------------------//
 	public static void leggiCartaVerde (Element carta){
+		
+		//---------------------------------------------------//
+		//	FASE 1: ACQUISIZIONE DEI DATI
+		//---------------------------------------------------//
 		String ID = carta.getAttribute("id");
 		String nome = carta.getElementsByTagName("nome").item(0).getFirstChild().getNodeValue();
-		String periodo = carta.getElementsByTagName("periodo").item(0).getFirstChild().getNodeValue();
-		String dado = carta.getElementsByTagName("dadoRaccolto").item(0).getFirstChild().getNodeValue();
-		int periodoInt = Integer.parseInt(periodo);
+		String colore = carta.getElementsByTagName("colore").item(0).getFirstChild().getNodeValue();
+		int periodo = Integer.parseInt(carta.getElementsByTagName("periodo").item(0).getFirstChild().getNodeValue());
+		String dadoRaccolta = carta.getElementsByTagName("dadoRaccolto").item(0).getFirstChild().getNodeValue();
+		String effettoRaccolta = carta.getElementsByTagName("effetto").item(0).getFirstChild().getNodeValue();
+		int numLegna = Integer.parseInt(carta.getElementsByTagName("legno").item(0).getFirstChild().getNodeValue());
+		int numPietra = Integer.parseInt(carta.getElementsByTagName("pietra").item(0).getFirstChild().getNodeValue());
+		int numOro = Integer.parseInt(carta.getElementsByTagName("oro").item(0).getFirstChild().getNodeValue());
+		int numServitori = Integer.parseInt(carta.getElementsByTagName("servitori").item(0).getFirstChild().getNodeValue());
+		int numPuntiMilitari = Integer.parseInt(carta.getElementsByTagName("puntiMilitari").item(0).getFirstChild().getNodeValue());
+		int numPuntiVittoria = Integer.parseInt(carta.getElementsByTagName("puntiVittoria").item(0).getFirstChild().getNodeValue());
+		int numPuntiFede = Integer.parseInt(carta.getElementsByTagName("puntiFede").item(0).getFirstChild().getNodeValue());
+		int numPrivilegi = Integer.parseInt(carta.getElementsByTagName("privilegi").item(0).getFirstChild().getNodeValue());
 		
-		//System.out.println("ID: " + ID); //<------------------------------------PROBLEMA DA RISOLVERE (DUBBIO DISTINZIONE EFFETTI IMM E PERM SE SONO TUTTI UGUALI)
-		//System.out.println("Nome:" + nome);
-		//System.out.println("Periodo:" + periodoInt);
-		//System.out.println("Dado raccolto:" + dado);
 		
+		//---------------------------------------------------//
+		//	FASE 2: SCRITTURA SU CONSOLE DEI DATI
+		//---------------------------------------------------//S
+		System.out.println("\n********************************************************************************************");
+		System.out.println("*   Nome carta               |   " + nome);
+		System.out.println("*   ID carta                 |   " + ID);
+		System.out.println("*   Colore carta             |   " + colore);
+		System.out.println("*   Periodo                  |   " + periodo);
+		System.out.println("*   Dado raccolto            |   " + dadoRaccolta);
+		System.out.println("*   Effetto di raccolta      |   " + effettoRaccolta);
+		
+		// Estrazione e stampa della lista di effetti immediati
+		//-------------------------------------------------------
 		NodeList listaEffettiImm = carta.getElementsByTagName("effettoImm");
-		
         for (int j = 0; j < listaEffettiImm.getLength(); ++j) {
             Element effetto = (Element) listaEffettiImm.item(j);
             String effettoTipo = effetto.getFirstChild().getNodeValue();
-            //System.out.println("Effetto immediato: " +effettoTipo);
+            System.out.println("*   Effetto immediato " + j + "      |   " + effettoTipo);
         }
+        System.out.println("*------------------------------------------------------------------------------------------*");
+		System.out.println("* Legna | Pietra | Oro | Servitori | PuntiMilitari | PuntiVittoria | PuntiFede | Privilegi *");
+		System.out.println("*   " + numLegna + "   |   " + numPietra + "    |  " + numOro + "  |     " +numServitori + "     |       " + numPuntiMilitari 
+							+ "       |       " + numPuntiVittoria + "       |     " + numPuntiFede + "     |     " + numPrivilegi + "     *");
+		System.out.println("********************************************************************************************");
+
+		//---------------------------------------------------//
+		//	FASE 3: ESTRAZIONE DEI DATI RELATIVI ALL'EFFETTO
+		//---------------------------------------------------//
+        getEffettoXML(effettoRaccolta);
         
-        NodeList listaEffettiPerm = carta.getElementsByTagName("effettoPerm");
+        /*Oro oro = new Oro (numOro);
+        Legna legna = new Legna (numLegno);
+        HashSet<Risorsa> risorse = new HashSet<>();
+        risorse.add(oro);
         
-        for (int j = 0; j < listaEffettiPerm.getLength(); ++j) {
-            Element effetto = (Element) listaEffettiPerm.item(j);
-            String effettoTipo = effetto.getFirstChild().getNodeValue();
-            GetEffettoXML(effettoTipo);
-        }
-        
-        System.out.println("--------------------------------------------------");
+        SetRisorse setRisorse = new SetRisorse (risorse); */
 	}
 	
 	//--------------------------------------------------------------------------------------------------------------//
@@ -423,48 +452,54 @@ public class ParseXML {
 	//--------------------------------------------------------------------------------------------------------------//
 	public static void leggiCartaGialla (Element carta){
 		
+		//---------------------------------------------------//
+		//	FASE 1: ACQUISIZIONE DEI DATI
+		//---------------------------------------------------//
 		String ID = carta.getAttribute("id");
 		String nome = carta.getElementsByTagName("nome").item(0).getFirstChild().getNodeValue();
-		String periodo = carta.getElementsByTagName("periodo").item(0).getFirstChild().getNodeValue();
-		String dado = carta.getElementsByTagName("dadoProduzione").item(0).getFirstChild().getNodeValue();
-		int periodoInt = Integer.parseInt(periodo);
+		String colore = carta.getElementsByTagName("colore").item(0).getFirstChild().getNodeValue();
+		int periodo = Integer.parseInt(carta.getElementsByTagName("periodo").item(0).getFirstChild().getNodeValue());
+		String dadoProduzione = carta.getElementsByTagName("dadoProduzione").item(0).getFirstChild().getNodeValue();
+		String effettoProduzione = carta.getElementsByTagName("effetto").item(0).getFirstChild().getNodeValue();
+		int numLegna = Integer.parseInt(carta.getElementsByTagName("legno").item(0).getFirstChild().getNodeValue());
+		int numPietra = Integer.parseInt(carta.getElementsByTagName("pietra").item(0).getFirstChild().getNodeValue());
+		int numOro = Integer.parseInt(carta.getElementsByTagName("oro").item(0).getFirstChild().getNodeValue());
+		int numServitori = Integer.parseInt(carta.getElementsByTagName("servitori").item(0).getFirstChild().getNodeValue());
+		int numPuntiMilitari = Integer.parseInt(carta.getElementsByTagName("puntiMilitari").item(0).getFirstChild().getNodeValue());
+		int numPuntiVittoria = Integer.parseInt(carta.getElementsByTagName("puntiVittoria").item(0).getFirstChild().getNodeValue());
+		int numPuntiFede = Integer.parseInt(carta.getElementsByTagName("puntiFede").item(0).getFirstChild().getNodeValue());
+		int numPrivilegi = Integer.parseInt(carta.getElementsByTagName("privilegi").item(0).getFirstChild().getNodeValue());
 		
-		System.out.println("ID: " + ID);
-		System.out.println("Nome:" + nome);
-		System.out.println("Periodo:" + periodoInt);
-		System.out.println("Dado produzione:" + dado);
+		//---------------------------------------------------//
+		//	FASE 2: SCRITTURA SU CONSOLE DEI DATI
+		//---------------------------------------------------//S
+		System.out.println("\n********************************************************************************************");
+		System.out.println("*   Nome carta               |   " + nome);
+		System.out.println("*   ID carta                 |   " + ID);
+		System.out.println("*   Colore carta             |   " + colore);
+		System.out.println("*   Periodo                  |   " + periodo);
+		System.out.println("*   Dado raccolto            |   " + dadoProduzione);
+		System.out.println("*   Effetto di produzione    |   " + effettoProduzione);
 		
-		NodeList listaCosti = carta.getElementsByTagName("costo");
-		System.out.println("Lista costi:");
-		int listaCostiInt = listaCosti.getLength();
-		
-        for (int j = 0; j < listaCostiInt; j++) {
-            Element costo = (Element) listaCosti.item(j);
-            String risorsa = costo.getElementsByTagName("risorsa").item(0).getFirstChild().getNodeValue();
-            String quantita = costo.getElementsByTagName("quantita").item(0).getFirstChild().getNodeValue();
-            System.out.println("Risorsa["+j+"]:" +risorsa);
-            System.out.println("Quantita["+j+"]:" +quantita);
-        }
-		
+		// Estrazione e stampa della lista di effetti immediati
+		//-------------------------------------------------------
 		NodeList listaEffettiImm = carta.getElementsByTagName("effettoImm");
-		int listaEffettiImmInt = listaEffettiImm.getLength();
-		
-        for (int j = 0; j < listaEffettiImmInt; ++j) {
+        for (int j = 0; j < listaEffettiImm.getLength(); ++j) {
             Element effetto = (Element) listaEffettiImm.item(j);
             String effettoTipo = effetto.getFirstChild().getNodeValue();
-            System.out.println("Effetto immediato: " +effettoTipo);
+            System.out.println("*   Effetto immediato " + j + "      |   " + effettoTipo);
         }
         
-        NodeList listaEffettiPerm = carta.getElementsByTagName("effettoPerm");
-        
-        
-        for (int j = 0; j < listaEffettiPerm.getLength(); ++j) {
-            Element effetto = (Element) listaEffettiPerm.item(j);
-            String effettoTipo = effetto.getFirstChild().getNodeValue();
-            System.out.println("Effetto permanente: " +effettoTipo);
-        }
-        
-        System.out.println("--------------------------------------------------");
+        System.out.println("*------------------------------------------------------------------------------------------*");
+		System.out.println("* Legna | Pietra | Oro | Servitori | PuntiMilitari | PuntiVittoria | PuntiFede | Privilegi *");
+		System.out.println("*   " + numLegna + "   |   " + numPietra + "    |  " + numOro + "  |     " +numServitori + "     |       " + numPuntiMilitari 
+							+ "       |       " + numPuntiVittoria + "       |     " + numPuntiFede + "     |     " + numPrivilegi + "     *");
+		System.out.println("********************************************************************************************");
+
+		//---------------------------------------------------//
+		//	FASE 3: ESTRAZIONE DEI DATI RELATIVI ALL'EFFETTO
+		//---------------------------------------------------//
+        getEffettoXML(effettoProduzione);
 	}
 	
 	//--------------------------------------------------------------------------------------------------------------//
@@ -473,48 +508,63 @@ public class ParseXML {
 	// Parametri di uscita:   	Istanza della carta che si vuole estrarre (Classe carta)
 	// Descrizione:				Metodo che permette di estrarre le carte blu dal file XML
 	//--------------------------------------------------------------------------------------------------------------//
-	public static void leggiCartaBlu (Element carta){
+	public static void leggiCartaBlu(Element carta){
 		
+		//---------------------------------------------------//
+		//	FASE 1: ACQUISIZIONE DEI DATI
+		//---------------------------------------------------//
 		String ID = carta.getAttribute("id");
 		String nome = carta.getElementsByTagName("nome").item(0).getFirstChild().getNodeValue();
-		String periodo = carta.getElementsByTagName("periodo").item(0).getFirstChild().getNodeValue();
-		int periodoInt = Integer.parseInt(periodo);
+		String colore = carta.getElementsByTagName("colore").item(0).getFirstChild().getNodeValue();
+		int periodo = Integer.parseInt(carta.getElementsByTagName("periodo").item(0).getFirstChild().getNodeValue());
+		String effettoPersonaggio = "NULL";
+		int numLegna = Integer.parseInt(carta.getElementsByTagName("legno").item(0).getFirstChild().getNodeValue());
+		int numPietra = Integer.parseInt(carta.getElementsByTagName("pietra").item(0).getFirstChild().getNodeValue());
+		int numOro = Integer.parseInt(carta.getElementsByTagName("oro").item(0).getFirstChild().getNodeValue());
+		int numServitori = Integer.parseInt(carta.getElementsByTagName("servitori").item(0).getFirstChild().getNodeValue());
+		int numPuntiMilitari = Integer.parseInt(carta.getElementsByTagName("puntiMilitari").item(0).getFirstChild().getNodeValue());
+		int numPuntiVittoria = Integer.parseInt(carta.getElementsByTagName("puntiVittoria").item(0).getFirstChild().getNodeValue());
+		int numPuntiFede = Integer.parseInt(carta.getElementsByTagName("puntiFede").item(0).getFirstChild().getNodeValue());
+		int numPrivilegi = Integer.parseInt(carta.getElementsByTagName("privilegi").item(0).getFirstChild().getNodeValue());
 		
-		System.out.println("ID: " + ID);
-		System.out.println("Nome:" + nome);
-		System.out.println("Periodo:" + periodoInt);
+		//---------------------------------------------------//
+		//	FASE 2: SCRITTURA SU CONSOLE DEI DATI
+		//---------------------------------------------------//S
+		System.out.println("\n********************************************************************************************");
+		System.out.println("*   Nome carta               |   " + nome);
+		System.out.println("*   ID carta                 |   " + ID);
+		System.out.println("*   Colore carta             |   " + colore);
+		System.out.println("*   Periodo                  |   " + periodo);
 		
-		NodeList listaCosti = carta.getElementsByTagName("costo");
-		System.out.println("Lista costi:");
-		int listaCostiInt = listaCosti.getLength();
+		// Estrazione e stampa dell'effetto del personaggio (può non esistere)
+		//---------------------------------------------------------------------
+		try{
+			effettoPersonaggio = carta.getElementsByTagName("effetto").item(0).getFirstChild().getNodeValue();
+			System.out.println("*   Effetto del personaggio  |   " + effettoPersonaggio);
+		}catch (NullPointerException e){
+			System.out.println("*   Effetto del personaggio  |   Nessun effetto per questo personaggio");
+		}
 		
-        for (int j = 0; j < listaCostiInt; j++) {
-            Element costo = (Element) listaCosti.item(j);
-            String risorsa = costo.getElementsByTagName("risorsa").item(0).getFirstChild().getNodeValue();
-            String quantita = costo.getElementsByTagName("quantita").item(0).getFirstChild().getNodeValue();
-            System.out.println("Risorsa["+j+"]:" +risorsa);
-            System.out.println("Quantita["+j+"]:" +quantita);
-        }
-		
+		// Estrazione e stampa della lista di effetti immediati
+		//------------------------------------------------------
 		NodeList listaEffettiImm = carta.getElementsByTagName("effettoImm");
-		int listaEffettiImmInt = listaEffettiImm.getLength();
-		
-        for (int j = 0; j < listaEffettiImmInt; ++j) {
+        for (int j = 0; j < listaEffettiImm.getLength(); ++j) {
             Element effetto = (Element) listaEffettiImm.item(j);
             String effettoTipo = effetto.getFirstChild().getNodeValue();
-            System.out.println("Effetto immediato: " +effettoTipo);
+            System.out.println("*   Effetto immediato " + j + "      |   " + effettoTipo);
         }
         
-        NodeList listaEffettiPerm = carta.getElementsByTagName("effettoPerm");
-        
-        
-        for (int j = 0; j < listaEffettiPerm.getLength(); ++j) {
-            Element effetto = (Element) listaEffettiPerm.item(j);
-            String effettoTipo = effetto.getFirstChild().getNodeValue();
-            System.out.println("Effetto permanente: " +effettoTipo);
-        }
-        
-        System.out.println("--------------------------------------------------");
+        System.out.println("*------------------------------------------------------------------------------------------*");
+		System.out.println("* Legna | Pietra | Oro | Servitori | PuntiMilitari | PuntiVittoria | PuntiFede | Privilegi *");
+		System.out.println("*   " + numLegna + "   |   " + numPietra + "    |  " + numOro + "  |     " +numServitori + "     |       " + numPuntiMilitari 
+							+ "       |       " + numPuntiVittoria + "       |     " + numPuntiFede + "     |     " + numPrivilegi + "     *");
+		System.out.println("********************************************************************************************");
+		
+		//---------------------------------------------------//
+		//	FASE 3: ESTRAZIONE DEI DATI RELATIVI ALL'EFFETTO
+		//---------------------------------------------------//
+		if (!effettoPersonaggio.equals("NULL"))
+			getEffettoXML(effettoPersonaggio);
 	}
 	
 	//--------------------------------------------------------------------------------------------------------------//
@@ -523,67 +573,76 @@ public class ParseXML {
 	// Parametri di uscita:   	Istanza della carta che si vuole estrarre (Classe carta)
 	// Descrizione:				Metodo che permette di estrarre le carte viola dal file XML
 	//--------------------------------------------------------------------------------------------------------------//
-	public static void leggiCartaViola(Element carta) {
+	public static void leggiCartaViola (Element carta){
 		
+		//---------------------------------------------------//
+		//	FASE 1: ACQUISIZIONE DEI DATI
+		//---------------------------------------------------//
 		String ID = carta.getAttribute("id");
 		String nome = carta.getElementsByTagName("nome").item(0).getFirstChild().getNodeValue();
-		String periodo = carta.getElementsByTagName("periodo").item(0).getFirstChild().getNodeValue();
-		int periodoInt = Integer.parseInt(periodo);
+		String colore = carta.getElementsByTagName("colore").item(0).getFirstChild().getNodeValue();
+		int periodo = Integer.parseInt(carta.getElementsByTagName("periodo").item(0).getFirstChild().getNodeValue());
+		String effettoImpresa = carta.getElementsByTagName("effetto").item(0).getFirstChild().getNodeValue();
 		
-		System.out.println("ID: " + ID);
-		System.out.println("Nome:" + nome);
-		System.out.println("Periodo:" + periodoInt);
 		
-		NodeList listaCosti = carta.getElementsByTagName("costo");
-		System.out.println("Lista costi:");
-		int listaCostiInt = listaCosti.getLength();
+		//---------------------------------------------------//
+		//	FASE 2: SCRITTURA SU CONSOLE DEI DATI
+		//---------------------------------------------------//S
+		System.out.println("\n********************************************************************************************");
+		System.out.println("*   Nome carta               |   " + nome);
+		System.out.println("*   ID carta                 |   " + ID);
+		System.out.println("*   Colore carta             |   " + colore);
+		System.out.println("*   Periodo                  |   " + periodo);
+		System.out.println("*   Effetto impresa          |   " + effettoImpresa);
 		
-        for (int j = 0; j < listaCostiInt; j++) {
-            Element costo = (Element) listaCosti.item(j);
-            String risorsa = costo.getElementsByTagName("risorsa").item(0).getFirstChild().getNodeValue();
-            String quantita = costo.getElementsByTagName("quantita").item(0).getFirstChild().getNodeValue();
-            System.out.println("Risorsa["+j+"]:" +risorsa);
-            System.out.println("Quantita["+j+"]:" +quantita);
-            try {
-            	String requisito = costo.getElementsByTagName("requisito").item(0).getFirstChild().getNodeValue(); 
-            	System.out.println("Requisito["+j+"]:" +requisito);
-            }catch(NullPointerException e){
-            	
-            }
-           
-        }
-        
-        NodeList listaCostiAlt = carta.getElementsByTagName("costoAlt");
-		System.out.println("Lista costi alternativi:");
-		int listaCostiAltInt = listaCostiAlt.getLength();
-		
-        for (int j = 0; j < listaCostiAltInt; j++) {
-            Element costoAlt = (Element) listaCostiAlt.item(j);
-            String risorsa = costoAlt.getElementsByTagName("risorsa").item(0).getFirstChild().getNodeValue();
-            String quantita = costoAlt.getElementsByTagName("quantita").item(0).getFirstChild().getNodeValue();
-            System.out.println("RisorsaAlt["+j+"]:" +risorsa);
-            System.out.println("QuantitaAlt["+j+"]:" +quantita);
-        }
-		
+		// Estrazione e stampa della lista di effetti immediati
+		//------------------------------------------------------
 		NodeList listaEffettiImm = carta.getElementsByTagName("effettoImm");
-		int listaEffettiImmInt = listaEffettiImm.getLength();
-		
-        for (int j = 0; j < listaEffettiImmInt; ++j) {
+        for (int j = 0; j < listaEffettiImm.getLength(); ++j) {
             Element effetto = (Element) listaEffettiImm.item(j);
             String effettoTipo = effetto.getFirstChild().getNodeValue();
-            System.out.println("Effetto immediato: " +effettoTipo);
+            System.out.println("*   Effetto immediato " + j + "      |   " + effettoTipo);
         }
         
-        NodeList listaEffettiPerm = carta.getElementsByTagName("effettoPerm");
         
+        // Estrazione e stampa della lista delle risorse da pagare (può non esistere)
+     	//----------------------------------------------------------------------------
         
-        for (int j = 0; j < listaEffettiPerm.getLength(); ++j) {
-            Element effetto = (Element) listaEffettiPerm.item(j);
-            String effettoTipo = effetto.getFirstChild().getNodeValue();
-            System.out.println("Effetto permanente: " +effettoTipo);
-        }
+        System.out.println("*------------------------------------------------------------------------------------------*");
+        try{
+        	int numLegna = Integer.parseInt(carta.getElementsByTagName("legno").item(0).getFirstChild().getNodeValue());
+    		int numPietra = Integer.parseInt(carta.getElementsByTagName("pietra").item(0).getFirstChild().getNodeValue());
+    		int numOro = Integer.parseInt(carta.getElementsByTagName("oro").item(0).getFirstChild().getNodeValue());
+    		int numServitori = Integer.parseInt(carta.getElementsByTagName("servitori").item(0).getFirstChild().getNodeValue());
+    		int numPuntiMilitari = Integer.parseInt(carta.getElementsByTagName("puntiMilitari").item(0).getFirstChild().getNodeValue());
+    		int numPuntiVittoria = Integer.parseInt(carta.getElementsByTagName("puntiVittoria").item(0).getFirstChild().getNodeValue());
+    		int numPuntiFede = Integer.parseInt(carta.getElementsByTagName("puntiFede").item(0).getFirstChild().getNodeValue());
+    		int numPrivilegi = Integer.parseInt(carta.getElementsByTagName("privilegi").item(0).getFirstChild().getNodeValue());
+
+    		System.out.println("* Legna | Pietra | Oro | Servitori | PuntiMilitari | PuntiVittoria | PuntiFede | Privilegi *");
+    		System.out.println("*   " + numLegna + "   |   " + numPietra + "    |  " + numOro + "  |     " +numServitori + "     |       " + numPuntiMilitari 
+    							+ "       |       " + numPuntiVittoria + "       |     " + numPuntiFede + "     |     " + numPrivilegi + "     *");
+		}catch(NullPointerException e){
+			System.out.println("*   Per questa carta non è ammesso un pagamento in risorse                                 *");
+		}
+        System.out.println("*------------------------------------------------------------------------------------------*");
         
-        System.out.println("--------------------------------------------------");
+        // Estrazione e stampa dell'alternativa di acquisto con i punti militari (se esiste)
+     	//-----------------------------------------------------------------------------------
+        try{
+			String costoPt = carta.getElementsByTagName("costoPt").item(0).getFirstChild().getNodeValue();
+			String requisito = carta.getElementsByTagName("requisito").item(0).getFirstChild().getNodeValue();
+			System.out.println("*  Costo di punti militari -> " + costoPt);
+			System.out.println("*  Ma devi avere almeno " + requisito + " punti militari");
+			
+		}catch(NullPointerException e){
+			System.out.println("*   Per questa carta non è ammesso un pagamento con i punti militari                       *");
+		}
+		System.out.println("********************************************************************************************");
+		
+		//---------------------------------------------------//
+		//	FASE 3: ESTRAZIONE DEI DATI RELATIVI ALL'EFFETTO
+		//---------------------------------------------------//
+		getEffettoXML(effettoImpresa);
 	}
-	
 }
