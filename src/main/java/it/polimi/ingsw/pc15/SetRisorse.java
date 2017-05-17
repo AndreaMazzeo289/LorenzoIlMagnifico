@@ -34,7 +34,6 @@ public class SetRisorse {   //mappa
 		
 	}
 	
-	
 	public void aggiungi (SetRisorse setRisorse) {  //aggiunge al setRisorse corrente le risorse del setRisorse passato come parametro
 		
 		this.oro.aggiungi(setRisorse.getOro().getQuantità());
