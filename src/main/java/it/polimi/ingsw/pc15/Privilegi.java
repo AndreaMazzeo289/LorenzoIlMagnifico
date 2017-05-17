@@ -12,4 +12,10 @@ public class Privilegi extends Risorsa {
 		
 	}
 
+	@Override
+	public TipoRisorsa getTipoRisorsa() {
+		// TODO Auto-generated method stub
+		return TipoRisorsa.PRIVILEGI;
+	}
+
 }

@@ -7,4 +7,10 @@ public class Pietra extends Risorsa{
 		
 	}
 
+	@Override
+	public TipoRisorsa getTipoRisorsa() {
+		// TODO Auto-generated method stub
+		return TipoRisorsa.PIETRA;
+	}
+
 }

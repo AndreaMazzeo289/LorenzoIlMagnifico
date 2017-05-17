@@ -17,6 +17,12 @@ public class Moltiplicazione implements Effetto{
 	@Override
 	public void attiva(Player player) {
 		
+		for(int i = 1; i<=(player.getSetRisorse().getRisorsa(tipoRisorsa).getQuantità()/this.numRisorsa); i++){
+			
+		       player.getSetRisorse().aggiungi(this.setRisorse);
+	
+	           }
+		
 		switch(this.tipoRisorsa) {
 		
 		case ORO : for(int i = 1; i<=(player.getSetRisorse().getOro().getQuantità()/this.numRisorsa); i++){

@@ -19,6 +19,5 @@ public class Scambio implements Effetto{
 			player.getSetRisorse().aggiungi(guadagno);
 		
 	}
-	
-	
+		
 }

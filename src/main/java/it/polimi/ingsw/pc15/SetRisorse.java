@@ -1,107 +1,94 @@
 package it.polimi.ingsw.pc15;
 
+import java.util.HashMap;
+import java.util.HashSet;
+import java.util.Iterator;
+import java.util.Map;
+
 public class SetRisorse {
 	
-	private Oro oro;
-	private Legna legna;
-	private Pietra pietra;
-	private Servitori servitori;
-	private PuntiVittoria puntiVittoria;
-	private PuntiMilitari puntiMilitari;
-	private PuntiFede puntiFede;
-	private Privilegi privilegi;
 	
+	HashMap<TipoRisorsa,Risorsa> risorse;
 	
-	public SetRisorse (int numOro, int numLegna, int numPietra, int numServitori, int numPuntiVittoria, int numPuntiMilitari, int numPuntiFede, int numPrivilegi) {
+	public SetRisorse (HashSet<Risorsa> risorse) {
 		
-		Oro oro = new Oro(numOro);
-		Legna legna = new Legna(numLegna);
-		Pietra pietra = new Pietra(numPietra);
-		Servitori servitori = new Servitori(numServitori);
-		PuntiVittoria puntiVittoria = new PuntiVittoria(numPuntiVittoria);
-		PuntiMilitari puntiMilitari = new PuntiMilitari(numPuntiMilitari);
-		PuntiFede puntiFede = new PuntiFede(numPuntiFede);
-		Privilegi privilegi = new Privilegi(numPrivilegi);
+		this.risorse = new HashMap<TipoRisorsa, Risorsa>();
+		Iterator<Risorsa> risorsa = risorse.iterator();	
 		
-		this.oro = oro;
-		this.legna = legna;
-		this.pietra = pietra;
-		this.servitori = servitori;
-		this.puntiVittoria = puntiVittoria;
-		this.puntiMilitari = puntiMilitari;
-		this.puntiFede = puntiFede;
-		this.privilegi = privilegi;
-		
+		while(risorsa.hasNext()){		
+			this.risorse.put(risorsa.next().getTipoRisorsa(), risorsa.next());
+		}
+
 	}
 	
 	
 	public void aggiungi (SetRisorse setRisorse) {  //aggiunge al setRisorse corrente le risorse del setRisorse passato come parametro
 		
-		this.oro.aggiungi(setRisorse.getOro().getQuantità());
-		this.legna.aggiungi(setRisorse.getLegna().getQuantità());
-		this.pietra.aggiungi(setRisorse.getPietra().getQuantità());
-		this.servitori.aggiungi(setRisorse.getServitori().getQuantità());
-		this.puntiVittoria.aggiungi(setRisorse.getPuntiVittoria().getQuantità());
-		this.puntiMilitari.aggiungi(setRisorse.getPuntiMilitari().getQuantità());
-		this.puntiFede.aggiungi(setRisorse.getPuntiFede().getQuantità());
-		this.privilegi.aggiungi(setRisorse.getPrivilegi().getQuantità());
 		
+		Iterator<Map.Entry<TipoRisorsa, Risorsa>> it1 = this.risorse.entrySet().iterator();
+		
+		while(it1.hasNext()){
+			
+			Iterator<Map.Entry<TipoRisorsa, Risorsa>> it2 = setRisorse.getRisorse().entrySet().iterator();
+			
+			while(it2.hasNext()){
+				
+				if(it1.next().getKey().equals(it2.next().getKey())) {
+					
+					it1.next().getValue().aggiungi(it2.next().getValue().getQuantità());
+				}
+			}
+		}
 	}
 	
 	public void sottrai (SetRisorse setRisorse) {  //aggiunge al setRisorse corrente le risorse del setRisorse passato come parametro
 		
-		this.oro.aggiungi(-setRisorse.getOro().getQuantità());
-		this.legna.aggiungi(-setRisorse.getLegna().getQuantità());
-		this.pietra.aggiungi(-setRisorse.getPietra().getQuantità());
-		this.servitori.aggiungi(-setRisorse.getServitori().getQuantità());
-		this.puntiVittoria.aggiungi(-setRisorse.getPuntiVittoria().getQuantità());
-		this.puntiMilitari.aggiungi(-setRisorse.getPuntiMilitari().getQuantità());
-		this.puntiFede.aggiungi(-setRisorse.getPuntiFede().getQuantità());
-		this.privilegi.aggiungi(-setRisorse.getPrivilegi().getQuantità());
+		Iterator<Map.Entry<TipoRisorsa, Risorsa>> it1 = this.risorse.entrySet().iterator();
+				
+		while(it1.hasNext()){
+					
+			Iterator<Map.Entry<TipoRisorsa, Risorsa>> it2 = setRisorse.getRisorse().entrySet().iterator();
+					
+			while(it2.hasNext()){
+						
+				if(it1.next().getKey().equals(it2.next().getKey())) {
+							
+					it1.next().getValue().aggiungi(-it2.next().getValue().getQuantità());
+				}
+			}
+		}
 		
 	}
 
 	public boolean paragona (SetRisorse setRisorse) { //ritorna TRUE solo se il valore di ogni risorsa in questo setRisorse è >= di quello delle corrispondenti risorse del secondo setRisorse
 		
-		if (    this.oro.paragona(setRisorse.getOro().getQuantità()) && this.legna.paragona(setRisorse.getLegna().getQuantità()) && this.pietra.paragona(setRisorse.getPietra().getQuantità()) 
-				&& this.servitori.paragona(setRisorse.getServitori().getQuantità()) && this.puntiVittoria.paragona(setRisorse.getPuntiVittoria().getQuantità()) && this.puntiMilitari.paragona(setRisorse.getPuntiMilitari().getQuantità())
-				&& this.puntiFede.paragona(setRisorse.getPuntiFede().getQuantità()) && this.privilegi.paragona(setRisorse.getPrivilegi().getQuantità())  ) 
-			
-			return true;
+		Iterator<Map.Entry<TipoRisorsa, Risorsa>> it1 = this.risorse.entrySet().iterator();
 		
-		return false;
+		while(it1.hasNext()){
+					
+			Iterator<Map.Entry<TipoRisorsa, Risorsa>> it2 = setRisorse.getRisorse().entrySet().iterator();
+					
+			while(it2.hasNext()){
+						
+				if(it1.next().getKey().equals(it2.next().getKey())) {
+							
+					if (it1.next().getValue().paragona(it2.next().getValue().getQuantità()));
+					else return false;
+				}
+			}
+		}
+		return true;
 	}
 	
-	public Oro getOro() {
-		return this.oro;
-	}
+	public Risorsa getRisorsa(TipoRisorsa tipoRisorsa){
 	
-	public Legna getLegna() {
-		return this.legna;
+		return risorse.get(tipoRisorsa);
+		
 	}
-	
-	public Pietra getPietra() {
-		return this.pietra;
-	}
-	
-	public Servitori getServitori() {
-		return this.servitori;
-	}
-	
-	public PuntiVittoria getPuntiVittoria() {
-		return this.puntiVittoria;
-	}
-	
-	public PuntiMilitari getPuntiMilitari() {
-		return this.puntiMilitari;
-	}
-	
-	public PuntiFede getPuntiFede() {
-		return this.puntiFede;
-	}
-	
-	public Privilegi getPrivilegi() {
-		return this.privilegi;
+	public HashMap<TipoRisorsa,Risorsa> getRisorse(){
+		
+		return this.risorse;
+		
 	}
 
 }
