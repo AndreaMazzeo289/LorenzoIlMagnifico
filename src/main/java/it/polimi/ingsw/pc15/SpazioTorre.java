@@ -8,15 +8,10 @@ public class SpazioTorre extends Spazio {
 	private Torre torre;
 	private Effetto effetto;
 	
-<<<<<<< HEAD
+
 	public SpazioTorre(int valoreMin, SetRisorse setRisorse) {
 		super(valoreMin);
 		this.effetto = new AggiuntaRisorse(setRisorse);
-=======
-	public SpazioTorre(int valoreMin) {
-		super(valoreMin);
-		//this.effetto = new AggiuntaRisorse(numOro, numLegna, numPietra, numServitori, numPuntiVittoria, numPuntiMilitari, numPuntiFede, numPrivilegi);
->>>>>>> fab5060b6d66d5b023697f3be7d4cede6fe340f8
 	}
 
 	@Override
