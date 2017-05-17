@@ -7,53 +7,10 @@ public class Territorio extends Carta {
 	private int requisitoRaccolta;
 	private Effetto effettoRaccolta;
 	
-	public Territorio (String nome, int id, int periodo, Set<Effetto> effettoIstantaneo, int requisitoRaccolta, Effetto effettoRaccolta, SpazioTorre spazio) {
+	public Territorio (String nome, int id, int periodo, Set<Effetto> effettoIstantaneo, int requisitoRaccolta, Effetto effettoRaccolta) {
 		super(nome, id, periodo, null, effettoIstantaneo);
 		this.requisitoRaccolta = requisitoRaccolta;
 		this.effettoRaccolta = effettoRaccolta;
-	}
-
-	@Override
-	public boolean prendibile (Player player) {		
-		
-		switch (player.getTerritori().size()) {
-			case 2: if (player.getSetRisorse().getPuntiMilitari().getQuantità()<3) {
-						System.out.println("Hai bisogno di 3 Punti Militari per aggiungere un altra carta Territorio!");
-						return false;
-					}
-					return true;
-
-			case 3: if (player.getSetRisorse().getPuntiMilitari().getQuantità()<7) {
-						System.out.println("Hai bisogno di 7 Punti Militari per aggiungere un altra carta Territorio!");
-						return false;
-					}
-					return true;
-				
-			case 4: if (player.getSetRisorse().getPuntiMilitari().getQuantità()<12) {
-						System.out.println("Hai bisogno di 12 Punti Militari per aggiungere un altra carta Territorio!");
-						return false;
-					}
-					return true;
-				
-			case 5: if (player.getSetRisorse().getPuntiMilitari().getQuantità()<18) {
-						System.out.println("Hai bisogno di 18 Punti Militari per aggiungere un altra carta Territorio!");
-						return false;
-					}
-					return true;
-				
-			case 6: System.out.println("Hai raggiunto il limite massimo di carte Territori!");
-					return false;
-		
-			default: break;
-		}
-		
-		if (this.risorseSufficienti(player) == false) {
-			System.out.println("Non hai risorse sufficienti!");
-			return false;
-		}
-		
-		return true;
-
 	}
 	
 	public int getRequisitoRaccolta() {
@@ -65,11 +22,10 @@ public class Territorio extends Carta {
 	}
 
 	@Override
-	public void daiA(Player player) {
-		this.setSpazio(null);
-		player.getTerritori().add(this);
-		this.setPlayer(player);
+	public AzionePrendiCarta azionePrendiCarta(Player player) {
 		
+		AzionePrendiCarta azionePrendiCarta = new AzionePrendiCartaTerritorio (player, this);
+		return azionePrendiCarta;
 	}
 
 }

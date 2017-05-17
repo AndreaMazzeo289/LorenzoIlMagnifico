@@ -3,6 +3,7 @@ package it.polimi.ingsw.pc15;
 public class Torre {
 	private SpazioTorre[] spazioTorre;
 	private boolean occupata;
+	private ColoreCarta coloreTorre;
 	
 	public Torre (SetRisorse spazio1, SetRisorse spazio2, SetRisorse spazio3, SetRisorse spazio4) {
 		
@@ -23,6 +24,10 @@ public class Torre {
 	
 	public void setOccupata(boolean par) {
 		this.occupata=par;
+	}
+	
+	public ColoreCarta getColoreTorre() {
+		return this.coloreTorre;
 	}
 	
 }

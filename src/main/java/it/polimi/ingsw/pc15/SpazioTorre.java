@@ -28,11 +28,9 @@ public class SpazioTorre extends Spazio {
 	@Override
 	public void occupa (Familiare familiare) {
 		this.familiare=familiare;
-		this.effetto.attiva(familiare.getPlayer()); // attivazione dell'effetto aggiuntaRisorse per ottenere le risorse bonus relative allo spazio torre
+		this.effetto.attiva(familiare.getPlayer());     // attivazione dell'effetto aggiuntaRisorse per ottenere le risorse bonus relative allo spazio torre
 		this.getTorre().setOccupata(true);			    // Settaggio flag di occupazione della torre
 		this.setDisponibilità(false);
-		carta.daiA(familiare.getPlayer());
-		//attiva effetti carta
 	}
 
 	@Override
@@ -44,7 +42,7 @@ public class SpazioTorre extends Spazio {
 		}
 		
 		if (controlloFamiliariTorre() == false) {
-			//messaggio		
+			System.out.println("Non puoi posizionare altri familiari in questa torre!");
 			return false;
 		}
 					
@@ -53,12 +51,9 @@ public class SpazioTorre extends Spazio {
 			return false;
 		}
 		
-		if (carta.prendibile(familiare.getPlayer()) == false) {
-			//messaggio
-			return false;
-		}
+		AzionePrendiCarta azionePrendiCarta = this.carta.azionePrendiCarta(familiare.getPlayer());
 		
-		return true;
+		return (azionePrendiCarta.attiva() );
 		
 	}
 	

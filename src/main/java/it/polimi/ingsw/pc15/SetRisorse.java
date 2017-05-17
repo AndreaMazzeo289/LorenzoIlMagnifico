@@ -1,11 +1,15 @@
 package it.polimi.ingsw.pc15;
 
+<<<<<<< HEAD
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.Iterator;
 import java.util.Map;
 
 public class SetRisorse {
+=======
+public class SetRisorse {   //mappa
+>>>>>>> 8622c27cf4a484fd5a1f9ca998aca4b40f28c3b3
 	
 	
 	HashMap<TipoRisorsa,Risorsa> risorse;
