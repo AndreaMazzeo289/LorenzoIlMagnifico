@@ -24,7 +24,6 @@ public class SetRisorse {
 
 	}
 	
-	
 	public void aggiungi (SetRisorse setRisorse) {  //aggiunge al setRisorse corrente le risorse del setRisorse passato come parametro
 		
 		
