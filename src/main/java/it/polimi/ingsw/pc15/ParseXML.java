@@ -70,9 +70,9 @@ public class ParseXML {
 	// Descrizione:				Metodo che gestisce l'estrazione degli effetti dal relativo file XML chiamando 
 	//							opportuni metodi per ogni tipologia di effetto
 	//--------------------------------------------------------------------------------------------------------------//	
-	public Set<Effetto> getEffettoXML (String nomeEffetto){
+	public Effetto getEffettoXML (String nomeEffetto){
 		
-		Set<Effetto> effettoLetto = new HashSet<Effetto>();
+		Effetto effettoLetto = new Effetto();
 		
 		try{
 			
@@ -96,7 +96,7 @@ public class ParseXML {
 					
 					switch(tipoEffetto){
 					 	case "addRisorsa":
-					 		effettoLetto.add(leggiEffettoAddRisorsa(effetto));
+					 		effettoLetto = leggiEffettoAddRisorsa(effetto);
 					 		break;
 					 		
 					 	case "azione":
@@ -104,35 +104,35 @@ public class ParseXML {
 					 		String tipoAzione = effetto.getAttribute("idAzione");
 							switch(tipoAzione){
 								case "raccolta": 
-									effettoLetto.add(leggiEffettoAzioneRaccolto(effetto));
+									effettoLetto = leggiEffettoAzioneRaccolto(effetto);
 									break;
 								case "produzione": 
-									effettoLetto.add(leggiEffettoAzioneProduzione(effetto));
+									effettoLetto = leggiEffettoAzioneProduzione(effetto);
 									break;
 								case "carta": 
-									effettoLetto.add(leggiEffettoAzioneCarta(effetto));
+									effettoLetto = leggiEffettoAzioneCarta(effetto);
 									break;
 							}
 							break;
 							
 					 	case "moltiplicazione":
-					 		effettoLetto.add(leggiEffettoMoltiplicazione(effetto));
+					 		effettoLetto = leggiEffettoMoltiplicazione(effetto);
 					 		break;
 					 	case "scambio":
-					 		effettoLetto.add(leggiEffettoScambio(effetto));
+					 		effettoLetto = leggiEffettoScambio(effetto);
 					 		break;
 					 	case "bonus":
 					 		
 					 		String tipoBonus = effetto.getAttribute("idAzione");
 							switch(tipoBonus){
 								case "raccolta": 
-									effettoLetto.add(leggiEffettoBonusRaccolta(effetto));
+									effettoLetto = leggiEffettoBonusRaccolta(effetto);
 									break;
 								case "produzione": 
-									effettoLetto.add(leggiEffettoBonusProduzione(effetto));
+									effettoLetto = leggiEffettoBonusProduzione(effetto);
 									break;
 								case "carta": 
-									effettoLetto.add(leggiEffettoBonusDadoCarta(effetto));
+									effettoLetto = leggiEffettoBonusDadoCarta(effetto);
 									break;
 							}
 							break;
@@ -254,7 +254,7 @@ public class ParseXML {
 		String fattore2 = effetto.getElementsByTagName("fattore2").item(0).getFirstChild().getNodeValue();
 		String quantita2 = effetto.getElementsByTagName("quantita2").item(0).getFirstChild().getNodeValue();
 		
-		TipoRisorsa tipoRisorsa;
+		TipoRisorsa tipoRisorsa = null;
 		switch(fattore1.toUpperCase()){
 			case "LEGNA": tipoRisorsa = tipoRisorsa.LEGNA;
 				break;
@@ -274,7 +274,8 @@ public class ParseXML {
 				break;
 		}
 		
-		Moltiplicazione moltiplicazione = new Moltiplicazione (quantita1,tipoRisorsa);
+		Moltiplicazione moltiplicazione = null;
+		//Moltiplicazione moltiplicazione = new Moltiplicazione (quantita1,tipoRisorsa);
 		return moltiplicazione;
 	}
 
@@ -483,7 +484,7 @@ public class ParseXML {
 		String colore = carta.getElementsByTagName("colore").item(0).getFirstChild().getNodeValue();
 		String effettoProduzione = carta.getElementsByTagName("effetto").item(0).getFirstChild().getNodeValue();
 		
-		Set<Set<Effetto>> effettiImmediati = new HashSet<Set<Effetto>>();
+		Set<Effetto> effettiImmediati = new HashSet<Effetto>();
 		
 		//------------------------------------------------------//
 		//	FASE 2: CICLIO DI ACQUISIZIONE DEGLI EFFETTI IMMEDIATI
@@ -492,14 +493,14 @@ public class ParseXML {
         for (int j = 0; j < listaEffettiImm.getLength(); ++j) {
             Element effetto = (Element) listaEffettiImm.item(j);
             String effettoTipo = effetto.getFirstChild().getNodeValue();
-            Set<Effetto> effettoImm = getEffettoXML(effettoTipo);
+            Effetto effettoImm = getEffettoXML(effettoTipo);
             effettiImmediati.add(effettoImm);
         }
 
 		//------------------------------------------------------//
 		//	FASE 3: ESTRAZIONE DEI DATI RELATIVI ALL'EFFETTO
 		//------------------------------------------------------//
-        Set<Effetto> effettoProd = getEffettoXML(effettoProduzione);
+        Effetto effettoProd = getEffettoXML(effettoProduzione);
         
         //------------------------------------------------------//
 		//	FASE 4: ISTANZIAZIONE DEL SET RISORSE (COSTO)
@@ -652,7 +653,6 @@ public class ParseXML {
         for (int j = 0; j < listaEffettiImm.getLength(); ++j) {
             Element effetto = (Element) listaEffettiImm.item(j);
             String effettoTipo = effetto.getFirstChild().getNodeValue();
-            System.out.println("*   Effetto immediato " + j + "      |   " + effettoTipo);
             Effetto effettoImm = getEffettoXML(effettoTipo);
             effettiImmediati.add(effettoImm);
         }
@@ -709,8 +709,6 @@ public class ParseXML {
         try{
 			String costoPt = carta.getElementsByTagName("costoPt").item(0).getFirstChild().getNodeValue();
 			String requisito = carta.getElementsByTagName("requisito").item(0).getFirstChild().getNodeValue();
-			System.out.println("*  Costo di punti militari -> " + costoPt);
-			System.out.println("*  Ma devi avere almeno " + requisito + " punti militari");
 		}catch(NullPointerException e){
 		}
 		
