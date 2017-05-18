@@ -1,6 +1,6 @@
 package it.polimi.ingsw.pc15;
 
-public interface Effetto {
+public abstract class Effetto {
 
-	public void attiva(Player player);
+	public abstract void attiva(Player player);
 }

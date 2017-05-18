@@ -1,7 +1,7 @@
 package it.polimi.ingsw.pc15;
 
 
-public class AggiuntaRisorse implements Effetto {
+public class AggiuntaRisorse extends Effetto {
 
 	private SetRisorse setRisorse;
 	

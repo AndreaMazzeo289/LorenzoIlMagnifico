@@ -6,12 +6,12 @@ public class SpazioTorre extends Spazio {
 	private Familiare familiare;
 	private Carta carta;
 	private Torre torre;
-	private Effetto effetto;
+	private Effetto bonusRisorse;
 	
 
 	public SpazioTorre(int valoreMin, SetRisorse setRisorse) {
 		super(valoreMin);
-		this.effetto = new AggiuntaRisorse(setRisorse);
+		bonusRisorse = new AggiuntaRisorse(setRisorse);
 	}
 
 	@Override
@@ -29,8 +29,8 @@ public class SpazioTorre extends Spazio {
 	@Override
 	public void occupa (Familiare familiare) {
 		this.familiare=familiare;
-		this.effetto.attiva(familiare.getPlayer());     // attivazione dell'effetto aggiuntaRisorse per ottenere le risorse bonus relative allo spazio torre
-		this.getTorre().setOccupata(true);			    // Settaggio flag di occupazione della torre
+		this.bonusRisorse.attiva(familiare.getPlayer());     // attiva l'effetto aggiuntaRisorse per ottenere le risorse bonus relative allo spazio torre
+		this.getTorre().setOccupata(true);			         
 		this.setDisponibilità(false);
 	}
 
@@ -58,8 +58,8 @@ public class SpazioTorre extends Spazio {
 		
 	}
 	
-	public void setCarta() {
-		//XML
+	public void setCarta(Carta carta) {
+		this.carta = carta;
 	}
 	
 	public void removeCarta() {

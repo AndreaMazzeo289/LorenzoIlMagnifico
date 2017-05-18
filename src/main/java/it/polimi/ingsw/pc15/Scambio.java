@@ -1,6 +1,6 @@
 package it.polimi.ingsw.pc15;
 
-public class Scambio implements Effetto{
+public class Scambio extends Effetto{
 	
 	private SetRisorse pagamento;
 	private SetRisorse guadagno;

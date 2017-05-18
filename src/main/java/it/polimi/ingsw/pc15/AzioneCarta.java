@@ -12,7 +12,7 @@ public class AzioneCarta extends Azione{
 	
 	@Override
 	public void attiva(Player player){  
-		xdxd
+		
 	}
 
 }
