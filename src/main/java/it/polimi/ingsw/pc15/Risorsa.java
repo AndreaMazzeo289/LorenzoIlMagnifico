@@ -3,8 +3,7 @@ package it.polimi.ingsw.pc15;
 public abstract class Risorsa {
 	
 	private int quantità;
-	
-	
+		
 	public Risorsa (int quantità) { //costruttore
 		this.quantità = quantità;
 	}

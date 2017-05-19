@@ -1,6 +1,6 @@
 package it.polimi.ingsw.pc15;
 
-public abstract class Bonus implements Effetto{
+public abstract class Bonus extends Effetto{
 	
 	private int valore;
 	
