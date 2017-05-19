@@ -2,7 +2,7 @@ package it.polimi.ingsw.pc15;
 
 import java.util.Iterator;
 
-public class Moltiplicazione implements Effetto{
+public class Moltiplicazione extends Effetto{
 	
 	private TipoRisorsa tipoRisorsa;
 	private int numRisorsa;

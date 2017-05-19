@@ -1,6 +1,6 @@
 package it.polimi.ingsw.pc15;
 
-public class AnnullaGuadagno implements Effetto {
+public class AnnullaGuadagno extends Effetto {
 	
 	private ColoreCarta coloreCarta;
 	
