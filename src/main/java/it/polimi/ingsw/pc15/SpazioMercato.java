@@ -7,9 +7,9 @@ public class SpazioMercato extends Spazio {
 	private Familiare familiare;
 	private Effetto effetto;
 	
-	public SpazioMercato(int valoreMin,Familiare familiare, SetRisorse setRisorse) {
+	public SpazioMercato(int valoreMin, SetRisorse setRisorse) {
 		super(valoreMin);
-		this.familiare=familiare;
+		this.familiare= null;
 		this.effetto = new AggiuntaRisorse (setRisorse);
 	}
 	

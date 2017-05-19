@@ -20,15 +20,29 @@ public class Player {
 		this.name = name;
 		this.setRisorse = setRisorse;
 		this.familiari = new HashSet<Familiare>();
+		
 		Familiare familiareNero = new Familiare (ColoreFamiliare.NERO, this);
 		Familiare familiareBianco = new Familiare (ColoreFamiliare.BIANCO, this);
 		Familiare familiareArancione = new Familiare (ColoreFamiliare.ARANCIONE, this);
 		Familiare familiareNeutro = new Familiare (ColoreFamiliare.NEUTRO, this);
-		familiari.add(familiareBianco);
-		familiari.add(familiareNero);
-		familiari.add(familiareArancione);
-		familiari.add(familiareNeutro);
-		effettiAttivi = new EffettiAttivi();
+		
+		this.familiari.add(familiareBianco);
+		this.familiari.add(familiareNero);
+		this.familiari.add(familiareArancione);
+		this.familiari.add(familiareNeutro);
+		
+		this.territori = new HashSet<Territorio>();
+		this.personaggi = new HashSet<Personaggio>();
+		this.edifici = new HashSet<Edificio>();
+		this.imprese = new HashSet<Impresa>();
+		
+		this.effettiAttivi = new EffettiAttivi();
+		
+		
+		
+		
+		
+		
 	}
 	
 	public String getName() {

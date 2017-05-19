@@ -2,7 +2,6 @@ package it.polimi.ingsw.pc15;
 
 public class SpazioTorre extends Spazio {
 
-
 	private Familiare familiare;
 	private Carta carta;
 	private Torre torre;
@@ -82,7 +81,7 @@ public class SpazioTorre extends Spazio {
 	
 	public boolean controlloFamiliariTorre() {
 		
-		/*if (this.familiare.getColore() != ColoreFamiliare.NEUTRO) {                       			//controllo che il familiare da piazzare non sia NEUTRO
+		/*if (this.familiare.getColore() != ColoreFamiliare.NEUTRO) {                       		//controllo che il familiare da piazzare non sia NEUTRO
 			for (SpazioTorre spazioTorre : getTorre().getSpazioTorre())								//per ogni spazio della torre:
 				if ((spazioTorre.getFamiliare().getColore()==ColoreFamiliare.NERO || 				//bisogna controllare che non ci siano altri familiari del
 					spazioTorre.getFamiliare().getColore()==ColoreFamiliare.BIANCO || 				//player che vuole occupare lo spazio torre
