@@ -21,7 +21,9 @@ public class ParseXML {
 	// Descrizione:				Metodo che gestisce l'estrazione delle carte dal relativo file XML chiamando 
 	//							opportuni metodi per ogni tipologia di carta
 	//--------------------------------------------------------------------------------------------------------------//	
-	public void GetCartaXML (ColoreCarta coloreCarta){
+	public Carta GetCartaXML (ColoreCarta coloreCarta){
+		
+		Carta cartaSelezionata = null;
 		
 		try{
 			DocumentBuilderFactory documentFactory = DocumentBuilderFactory.newInstance();
@@ -40,19 +42,19 @@ public class ParseXML {
 				if(colore.toUpperCase().equals(coloreCarta.toString())) {
 					switch(coloreCarta.toString()){
 						case "VERDE":
-							leggiCartaVerde(carta);
+							cartaSelezionata = leggiCartaVerde(carta);
 							break;
 							
 						case "GIALLO":
-							leggiCartaGialla(carta);
+							cartaSelezionata = leggiCartaGialla(carta);
 							break;
 							
 						case "BLU":
-							leggiCartaBlu(carta);
+							cartaSelezionata = leggiCartaBlu(carta);
 							break;
 							
 						case "VIOLA":
-							leggiCartaViola(carta);
+							cartaSelezionata = leggiCartaViola(carta);
 							break;
 						default: System.out.println("ERRORE NELLA SCRITTURA DEL FILE!");
 					}
@@ -61,6 +63,8 @@ public class ParseXML {
 		}catch(Exception e){
 			e.printStackTrace();
 		}	
+		
+		return cartaSelezionata;
 	}
 	
 	//--------------------------------------------------------------------------------------------------------------//
@@ -72,7 +76,7 @@ public class ParseXML {
 	//--------------------------------------------------------------------------------------------------------------//	
 	public Effetto getEffettoXML (String nomeEffetto){
 		
-		Effetto effettoLetto = new Effetto();
+		Effetto effettoLetto = null;
 		
 		try{
 			
@@ -248,34 +252,62 @@ public class ParseXML {
 	// Descrizione:				Metodo che permette di estrarre gli effetti di tipo moltiplicazione dal file XML
 	//--------------------------------------------------------------------------------------------------------------//
 	public Moltiplicazione leggiEffettoMoltiplicazione(Element effetto) {
-
-		String fattore1 = effetto.getElementsByTagName("fattore1").item(0).getFirstChild().getNodeValue();
-		String quantita1 = effetto.getElementsByTagName("quantita").item(0).getFirstChild().getNodeValue();
-		String fattore2 = effetto.getElementsByTagName("fattore2").item(0).getFirstChild().getNodeValue();
-		String quantita2 = effetto.getElementsByTagName("quantita2").item(0).getFirstChild().getNodeValue();
 		
-		TipoRisorsa tipoRisorsa = null;
-		switch(fattore1.toUpperCase()){
-			case "LEGNA": tipoRisorsa = tipoRisorsa.LEGNA;
-				break;
-			case "PIETRA": tipoRisorsa = tipoRisorsa.PIETRA;
-				break;
-			case "ORO": tipoRisorsa = tipoRisorsa.ORO;
-				break;
-			case "SERVITORI": tipoRisorsa = tipoRisorsa.SERVITORI;
-				break;
-			case "PUNTIMILITARI": tipoRisorsa = tipoRisorsa.PUNTIMILITARI;
-				break;
-			case "PUNTIFEDE": tipoRisorsa = tipoRisorsa.PUNTIFEDE;
-				break;
-			case "PUNTIVITTORIA": tipoRisorsa = tipoRisorsa.PUNTIVITTORIA;
-				break;
-			case "PRIVILEGI": tipoRisorsa = tipoRisorsa.PRIVILEGI;
-				break;
-		}
+		String tipoRisorsa = effetto.getElementsByTagName("tipoRisorsa").item(0).getFirstChild().getNodeValue();
 		
-		Moltiplicazione moltiplicazione = null;
-		//Moltiplicazione moltiplicazione = new Moltiplicazione (quantita1,tipoRisorsa);
+		int quantita = Integer.parseInt(effetto.getElementsByTagName("quantita").item(0).getFirstChild().getNodeValue());
+		int numLegno = Integer.parseInt(effetto.getElementsByTagName("legno").item(0).getFirstChild().getNodeValue());
+		int numPietra = Integer.parseInt(effetto.getElementsByTagName("pietra").item(0).getFirstChild().getNodeValue());
+		int numOro = Integer.parseInt(effetto.getElementsByTagName("oro").item(0).getFirstChild().getNodeValue());
+		int numServitori = Integer.parseInt(effetto.getElementsByTagName("servitori").item(0).getFirstChild().getNodeValue());
+		int numPuntiFede = Integer.parseInt(effetto.getElementsByTagName("puntiFede").item(0).getFirstChild().getNodeValue());
+		int numPuntiMilitari = Integer.parseInt(effetto.getElementsByTagName("puntiMilitari").item(0).getFirstChild().getNodeValue());
+		int numPuntiVittoria = Integer.parseInt(effetto.getElementsByTagName("puntiVittoria").item(0).getFirstChild().getNodeValue());
+		int numPrivilegi = Integer.parseInt(effetto.getElementsByTagName("privilegi").item(0).getFirstChild().getNodeValue());
+		
+		Legna legna = new Legna (numLegno);
+		Pietra pietra = new Pietra (numPietra);
+		Oro oro = new Oro (numOro);
+		Servitori servitori = new Servitori (numServitori);
+		PuntiFede puntiFede = new PuntiFede (numPuntiFede);
+		PuntiMilitari puntiMilitari = new PuntiMilitari (numPuntiMilitari);
+		PuntiVittoria puntiVittoria = new PuntiVittoria (numPuntiVittoria);
+		Privilegi privilegi = new Privilegi (numPrivilegi);
+        
+        HashSet<Risorsa> risorse = new HashSet<>();
+        
+        risorse.add(legna);
+        risorse.add(pietra);
+        risorse.add(oro);
+        risorse.add(servitori);
+        risorse.add(puntiFede);
+        risorse.add(puntiMilitari);
+        risorse.add(puntiVittoria);
+        risorse.add(privilegi);
+               
+        SetRisorse setRisorse = new SetRisorse (risorse);
+        
+        TipoRisorsa tipoRisorsaEnum = null;
+        switch(tipoRisorsa.toUpperCase()){
+	        case "LEGNA": tipoRisorsaEnum = TipoRisorsa.LEGNA;
+	        	break;
+	        case "PIETRA": tipoRisorsaEnum = TipoRisorsa.PIETRA;
+	    		break;
+	        case "ORO": tipoRisorsaEnum = TipoRisorsa.ORO;
+	    		break;
+	        case "SERVITORI": tipoRisorsaEnum = TipoRisorsa.SERVITORI;
+	    		break;
+	        case "PUNTIFEDE": tipoRisorsaEnum = TipoRisorsa.PUNTIFEDE;
+	    		break;
+	        case "PUNTIMILITARI": tipoRisorsaEnum = TipoRisorsa.PUNTIMILITARI;
+	    		break;
+	        case "PUNTIVITTORIA": tipoRisorsaEnum = TipoRisorsa.PUNTIVITTORIA;
+	    		break;
+	        case "PRIVILEGI": tipoRisorsaEnum = TipoRisorsa.PRIVILEGI;
+	    		break;
+        }
+        
+		Moltiplicazione moltiplicazione = new Moltiplicazione (quantita,tipoRisorsaEnum,setRisorse);
 		return moltiplicazione;
 	}
 
@@ -342,7 +374,7 @@ public class ParseXML {
             }
 		}
 		
-		Scambio scambio = new Scambio (pagamento, guadagno);
+		Scambio scambio = new Scambio (pagamento, guadagno, pagamento2, guadagno2);
 		return scambio;
 	}
 
@@ -451,9 +483,34 @@ public class ParseXML {
         Effetto effettoRac = getEffettoXML(effettoRaccolta);
         
         //------------------------------------------------------//
-		//	FASE 4 [FINALE]: ISTANZA DELLA CARTA VERDE
+		//	FASE 4: ISTANZIAZIONE DEL SET RISORSE (COSTO)
 		//------------------------------------------------------//
-        Territorio territorio = new Territorio (nome, id, periodo, effettiImmediati, dadoRaccolta, effettoRac);
+		Legna legna = new Legna (numLegna);
+		Pietra pietra = new Pietra (numPietra);
+		Oro oro = new Oro (numOro);
+		Servitori servitori = new Servitori (numServitori);
+		PuntiFede puntiFede = new PuntiFede (numPuntiFede);
+		PuntiMilitari puntiMilitari = new PuntiMilitari (numPuntiMilitari);
+		PuntiVittoria puntiVittoria = new PuntiVittoria (numPuntiVittoria);
+		Privilegi privilegi = new Privilegi (numPrivilegi);
+        
+        HashSet<Risorsa> risorse = new HashSet<>();
+        
+        risorse.add(legna);
+        risorse.add(pietra);
+        risorse.add(oro);
+        risorse.add(servitori);
+        risorse.add(puntiFede);
+        risorse.add(puntiMilitari);
+        risorse.add(puntiVittoria);
+        risorse.add(privilegi);
+               
+        SetRisorse costo = new SetRisorse (risorse);
+        
+        //------------------------------------------------------//
+		//	FASE 5 [FINALE]: ISTANZA DELLA CARTA VERDE
+		//------------------------------------------------------//
+        Territorio territorio = new Territorio (nome, id, periodo, costo, effettiImmediati, dadoRaccolta, effettoRac);
         return territorio;
 	}
 	
@@ -706,10 +763,14 @@ public class ParseXML {
         //------------------------------------------------------//
   		//	FASE 3: ESTRAZIONE DEL COSTO IN PUNTI MILITARI [se esiste]
   		//------------------------------------------------------//
+        int costoPt;
+        int requisito;
         try{
-			String costoPt = carta.getElementsByTagName("costoPt").item(0).getFirstChild().getNodeValue();
-			String requisito = carta.getElementsByTagName("requisito").item(0).getFirstChild().getNodeValue();
-		}catch(NullPointerException e){
+			costoPt = Integer.parseInt(carta.getElementsByTagName("costoPt").item(0).getFirstChild().getNodeValue());
+			requisito = Integer.parseInt(carta.getElementsByTagName("requisito").item(0).getFirstChild().getNodeValue());
+        }catch(NullPointerException e){
+        	costoPt = 0;
+        	requisito = 0;
 		}
 		
   		//------------------------------------------------------//
@@ -720,7 +781,7 @@ public class ParseXML {
 		//------------------------------------------------------//
   		//	FASE 5 [FINALE]: ISTANZA DELLA CARTA VIOLA
   		//------------------------------------------------------//
-		Impresa impresa = new Impresa (nome, id, periodo, costo, effettiImmediati, effettoImpr);
+		Impresa impresa = new Impresa (nome, id, periodo, costo, effettiImmediati, effettoImpr, requisito, costoPt);
 		return impresa;
 	}
 }
