@@ -1,6 +1,7 @@
 package it.polimi.ingsw.pc15;
 
 import java.io.File;
+import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.Set;
 
@@ -440,9 +441,6 @@ public class ParseXML {
 	// Parametri di uscita:   	Istanza della carta che si vuole estrarre (Classe carta)
 	// Descrizione:				Metodo che permette di estrarre le carte verdi dal file XML
 	//--------------------------------------------------------------------------------------------------------------//
-	// NOTA: IO NELLE CARTE VERDI HO INSERITO UN COSTO PER MIGLIORARE L'ESTENDIBILITA, NEL COSTRUTTORE DI TERRITORIO
-	// 		 NON é PREVISTO
-	//--------------------------------------------------------------------------------------------------------------//
 	public Territorio leggiCartaVerde (Element carta){
 		
 		//------------------------------------------------------//
@@ -687,8 +685,6 @@ public class ParseXML {
 	// Parametri di uscita:   	Istanza della carta che si vuole estrarre (Classe carta)
 	// Descrizione:				Metodo che permette di estrarre le carte viola dal file XML
 	//--------------------------------------------------------------------------------------------------------------//
-	// PROBLEMA: IMPLEMENTAZIONE NEL COSTRUTTORE DEL REQUISITO MILITARE DELLE CARTE VIOLA
-	//--------------------------------------------------------------------------------------------------------------//
 	public Impresa leggiCartaViola (Element carta){
 		
 		//------------------------------------------------------//
@@ -784,4 +780,71 @@ public class ParseXML {
 		Impresa impresa = new Impresa (nome, id, periodo, costo, effettiImmediati, effettoImpr, requisito, costoPt);
 		return impresa;
 	}
+	
+	//--------------------------------------------------------------------------------------------------------------//
+	// Nome metodo: 			leggiSpazioTorre
+	// Parametri di ingresso: 	Void
+	// Parametri di uscita:   	ArrayList che contiene i quattro SpazioTorre della torre desiderata
+	// Descrizione:				Metodo che permette di estrarre le informazioni riguardo gli spazi della torre
+	//--------------------------------------------------------------------------------------------------------------//
+	public SpazioTorre leggiSpazioTorre (ColoreCarta coloreTorre,int numeroSpazio){
+		
+		SpazioTorre spazioTorre = null;
+		
+		try{
+			DocumentBuilderFactory documentFactory = DocumentBuilderFactory.newInstance();
+			
+			DocumentBuilder builder = documentFactory.newDocumentBuilder();
+			Document document = builder.parse(new File("/Users/andre/LaboratorioProvaFinale/prova-finale-template/XML/SetRisorseSpazioTorre.xml"));
+			
+			NodeList spazi = document.getElementsByTagName("spazio");
+			
+			for(int i=0; i<spazi.getLength(); i++){
+				
+				Element spazio = (Element) spazi.item(i);
+					
+				String colore = spazio.getAttribute("coloreTorre");
+				int numero = Integer.parseInt(spazio.getAttribute("numeroSpazio"));
+				
+				if(colore.toUpperCase().equals(coloreTorre.toString()) && numero==numeroSpazio) {
+					
+					int numLegna = Integer.parseInt(spazio.getElementsByTagName("legno").item(0).getFirstChild().getNodeValue());
+		    		int numPietra = Integer.parseInt(spazio.getElementsByTagName("pietra").item(0).getFirstChild().getNodeValue());
+		    		int numOro = Integer.parseInt(spazio.getElementsByTagName("oro").item(0).getFirstChild().getNodeValue());
+		    		int numServitori = Integer.parseInt(spazio.getElementsByTagName("servitori").item(0).getFirstChild().getNodeValue());
+		    		int numPuntiMilitari = Integer.parseInt(spazio.getElementsByTagName("puntiMilitari").item(0).getFirstChild().getNodeValue());
+		    		int numPuntiVittoria = Integer.parseInt(spazio.getElementsByTagName("puntiVittoria").item(0).getFirstChild().getNodeValue());
+		    		int numPuntiFede = Integer.parseInt(spazio.getElementsByTagName("puntiFede").item(0).getFirstChild().getNodeValue());
+		    		int numPrivilegi = Integer.parseInt(spazio.getElementsByTagName("privilegi").item(0).getFirstChild().getNodeValue());
+					
+		    		Legna legna = new Legna (numLegna);
+		    		Pietra pietra = new Pietra (numPietra);
+		    		Oro oro = new Oro (numOro);
+		    		Servitori servitori = new Servitori (numServitori);
+		    		PuntiFede puntiFede = new PuntiFede (numPuntiFede);
+		    		PuntiMilitari puntiMilitari = new PuntiMilitari (numPuntiMilitari);
+		    		PuntiVittoria puntiVittoria = new PuntiVittoria (numPuntiVittoria);
+		    		Privilegi privilegi = new Privilegi (numPrivilegi);
+		            
+		            HashSet<Risorsa> risorse = new HashSet<>();
+		            
+		            risorse.add(legna);
+		            risorse.add(pietra);
+		            risorse.add(oro);
+		            risorse.add(servitori);
+		            risorse.add(puntiFede);
+		            risorse.add(puntiMilitari);
+		            risorse.add(puntiVittoria);
+		            risorse.add(privilegi);
+		                   
+		            SetRisorse setRisorse = new SetRisorse (risorse);
+				}
+			}
+		}catch(Exception e){
+			e.printStackTrace();
+		}	
+		
+		return spazioTorre;
+	}
+		
 }
