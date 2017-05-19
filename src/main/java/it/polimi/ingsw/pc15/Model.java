@@ -30,23 +30,28 @@ public class Model extends Observable {
 	
 	public void iniziaPartita(){
 		
-		//istanzio carte territorio
-		
+		// Istanziazione carte territorio :
+		//----------------------------------	
 		for(int i = 0; i<NUMCARTE; i++){
-			
-			setCarteTerritorio.add(parseXML.getCartaXML("VERDE"));	
+			setCarteTerritorio.add(parseXML.getCartaXML(ColoreCarta.VERDE));	
 		}
 		
+		// Istanziazione carte personaggio :
+		//----------------------------------
 		for(int i = 0; i<NUMCARTE; i++){
-			setCartePersonaggio.add(parseXML.getCartaXML("BLU"));
+			setCartePersonaggio.add(parseXML.getCartaXML(ColoreCarta.BLU));
 		}
 		
+		// Istanziazione carte edicio :
+		//----------------------------------
 		for(int i = 0; i<NUMCARTE; i++){
-			setCarteEdificio.add(parseXML.getCartaXML("GIALLO"));
+			setCarteEdificio.add(parseXML.getCartaXML(ColoreCarta.GIALLO));
 		}
 		
+		// Istanziazione carte impresa :
+		//----------------------------------
 		for (int i = 0; i<NUMCARTE; i++){
-			setCarteImpresa.add(parseXML.getCartaXML("VIOLA"));
+			setCarteImpresa.add(parseXML.getCartaXML(ColoreCarta.VIOLA));
 		}
 		
 	}

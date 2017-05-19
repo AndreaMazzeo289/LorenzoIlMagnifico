@@ -21,7 +21,7 @@ public class ParseXML {
 	// Descrizione:				Metodo che gestisce l'estrazione delle carte dal relativo file XML chiamando 
 	//							opportuni metodi per ogni tipologia di carta
 	//--------------------------------------------------------------------------------------------------------------//	
-	public Carta GetCartaXML (ColoreCarta coloreCarta){
+	public Carta getCartaXML (ColoreCarta coloreCarta){
 		
 		Carta cartaSelezionata = null;
 		
