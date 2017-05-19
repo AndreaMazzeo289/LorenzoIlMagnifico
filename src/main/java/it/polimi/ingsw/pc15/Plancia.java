@@ -16,6 +16,8 @@ public class Plancia {
 	private SpazioConsiglio spazioConsiglio;
 	private Set<SpazioMercato> spaziMercato;
 	
+	private ParseXML parseXML;
+	
 	public Plancia () {
 		
 		int numeroSpaziTorre = 0; //da cambiare con XML
@@ -25,10 +27,17 @@ public class Plancia {
 		ArrayList risorseTorreGialla = new ArrayList(numeroSpaziTorre);
 		ArrayList risorseTorreViola = new ArrayList(numeroSpaziTorre);
 		
-		risorseTorreVerde = null;    //
+		for(int i=0; i<numeroSpaziTorre; i++){
+			risorseTorreVerde.add(parseXML.leggiSpazioTorre(ColoreCarta.VERDE,i));
+			risorseTorreBlu.add(parseXML.leggiSpazioTorre(ColoreCarta.BLU,i));
+			risorseTorreGialla.add(parseXML.leggiSpazioTorre(ColoreCarta.GIALLO,i));
+			risorseTorreViola.add(parseXML.leggiSpazioTorre(ColoreCarta.VIOLA,i));
+		}
+		
+		/*risorseTorreVerde = null;    //
 		risorseTorreBlu = null;      //   da cambiare
 		risorseTorreGialla = null;   //     con XML
-		risorseTorreViola = null;    //
+		risorseTorreViola = null;    //*/
 		
 		torreVerde = new Torre (numeroSpaziTorre, risorseTorreVerde);
 		torreBlu = new Torre (numeroSpaziTorre, risorseTorreBlu);

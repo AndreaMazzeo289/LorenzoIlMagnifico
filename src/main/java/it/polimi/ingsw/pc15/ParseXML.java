@@ -790,6 +790,8 @@ public class ParseXML {
 	public SpazioTorre leggiSpazioTorre (ColoreCarta coloreTorre,int numeroSpazio){
 		
 		SpazioTorre spazioTorre = null;
+		int dadoAttivazione = 0;
+		SetRisorse setRisorse = null;
 		
 		try{
 			DocumentBuilderFactory documentFactory = DocumentBuilderFactory.newInstance();
@@ -816,6 +818,8 @@ public class ParseXML {
 		    		int numPuntiVittoria = Integer.parseInt(spazio.getElementsByTagName("puntiVittoria").item(0).getFirstChild().getNodeValue());
 		    		int numPuntiFede = Integer.parseInt(spazio.getElementsByTagName("puntiFede").item(0).getFirstChild().getNodeValue());
 		    		int numPrivilegi = Integer.parseInt(spazio.getElementsByTagName("privilegi").item(0).getFirstChild().getNodeValue());
+		    		
+		    		dadoAttivazione = Integer.parseInt(spazio.getElementsByTagName("dadoAttivazione").item(0).getFirstChild().getNodeValue());
 					
 		    		Legna legna = new Legna (numLegna);
 		    		Pietra pietra = new Pietra (numPietra);
@@ -837,7 +841,9 @@ public class ParseXML {
 		            risorse.add(puntiVittoria);
 		            risorse.add(privilegi);
 		                   
-		            SetRisorse setRisorse = new SetRisorse (risorse);
+		            setRisorse = new SetRisorse (risorse);
+		            
+		            spazioTorre = new SpazioTorre (dadoAttivazione, setRisorse);
 				}
 			}
 		}catch(Exception e){
