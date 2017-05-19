@@ -4,16 +4,16 @@ import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.Set;
 
-public class Torre {
+public abstract class Torre {
 	
 	private ArrayList spaziTorre;
 	private boolean occupata;
 	
-	public Torre (int numeroSpazi, ArrayList setRisorse) {
+	public Torre (int numeroSpazi) {
 		
 		this.spaziTorre = new ArrayList(numeroSpazi);
 		for (int i=0; i<numeroSpazi; i++) {
-			spaziTorre.add(i, new SpazioTorre(2*i+1, (SetRisorse) setRisorse.get(i)));	
+			spaziTorre.add(i, new SpazioTorre(2*i+1));	
 		}
 	}
 		
@@ -21,8 +21,8 @@ public class Torre {
 		return occupata;
 	}
 	
-	public void setOccupata(boolean par) {
-		this.occupata=par;
+	public void setOccupata(boolean val) {
+		this.occupata=val;
 	}
 	
 	public void setTorre(Set<Carta> carte) {

@@ -11,6 +11,8 @@ public class SpazioTorre extends Spazio {
 
 	public SpazioTorre(int valoreMin, SetRisorse setRisorse) {
 		super(valoreMin);
+		this.carta = null;
+		this.familiare = null;
 		bonusRisorse = new AggiuntaRisorse(setRisorse);
 	}
 
