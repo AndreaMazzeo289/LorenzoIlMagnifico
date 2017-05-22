@@ -735,7 +735,7 @@ public class ParseXML {
 	// Parametri di uscita:   	ArrayList che contiene i quattro SpazioTorre della torre desiderata
 	// Descrizione:				Metodo che permette di estrarre le informazioni riguardo gli spazi della torre
 	//--------------------------------------------------------------------------------------------------------------//
-	public SetRisorse leggiSpazioTorre (ColoreCarta coloreTorre,int numeroSpazio){
+	public SetRisorse leggiSetRisorseSpazio (String tipoSpazio){
 		
 		SetRisorse setRisorse = null;
 		
@@ -743,18 +743,15 @@ public class ParseXML {
 			DocumentBuilderFactory documentFactory = DocumentBuilderFactory.newInstance();
 			
 			DocumentBuilder builder = documentFactory.newDocumentBuilder();
-			Document document = builder.parse(new File("/Users/andre/LaboratorioProvaFinale/prova-finale-template/XML/SetRisorseSpazioTorre.xml"));
+			Document document = builder.parse(new File("/Users/andre/LaboratorioProvaFinale/prova-finale-template/XML/SetRisorseSpazi.xml"));
 			
-			NodeList spazi = document.getElementsByTagName("spazio");
+			NodeList spazi = document.getElementsByTagName("tipoSpazio");
 			
-			for(int i=0; i<spazi.getLength(); i++){
+			for(int i=0; i<spazi.getLength(); i++){	
 				
 				Element spazio = (Element) spazi.item(i);
-					
-				String colore = spazio.getAttribute("coloreTorre");
-				int numero = Integer.parseInt(spazio.getAttribute("numeroSpazio"));
 				
-				if(colore.toUpperCase().equals(coloreTorre.toString()) && numero==numeroSpazio) {
+				if(spazio.getAttribute("tipo").equals(tipoSpazio)) {
 					
 		    		Legna legna = new Legna (Integer.parseInt(spazio.getElementsByTagName("legno").item(0).getFirstChild().getNodeValue()));
 		    		Pietra pietra = new Pietra (Integer.parseInt(spazio.getElementsByTagName("pietra").item(0).getFirstChild().getNodeValue()));
@@ -787,12 +784,12 @@ public class ParseXML {
 	}
 
 	//--------------------------------------------------------------------------------------------------------------//
-	// Nome metodo: 			leggiValoreMinimo
+	// Nome metodo: 			leggiValore
 	// Parametri di ingresso: 	Tipologia di spazio di cui si vuole sapere il valore minimo di attivazione (Stringa)
 	// Parametri di uscita:   	Intero
 	// Descrizione:				Metodo che permette di estrarre i valori minimi per l'attivazione degli spazi
 	//--------------------------------------------------------------------------------------------------------------//
-	public int leggiValoreMinimo (String tipoSpazio){
+	public static int leggiValore (String tipoValore){
 		
 		int valore=1;
 		
@@ -802,14 +799,14 @@ public class ParseXML {
 			DocumentBuilder builder = documentFactory.newDocumentBuilder();
 			Document document = builder.parse(new File("/Users/andre/LaboratorioProvaFinale/prova-finale-template/XML/DatiGenerali.xml"));
 			
-			NodeList spazi = document.getElementsByTagName("tipoSpazio");
+			NodeList nomeValore = document.getElementsByTagName("nomeValore");
 			
-			for(int i=0; i<spazi.getLength(); i++){
+			for(int i=0; i<nomeValore.getLength(); i++){
 				
-				Element spazio = (Element) spazi.item(i);
+				Element valoreElemento = (Element) nomeValore.item(i);
 					
-				if(tipoSpazio.toUpperCase().equals(spazio.getAttribute("tipo").toUpperCase()))
-					valore = Integer.parseInt(spazio.getElementsByTagName("valoreMinimo").item(0).getFirstChild().getNodeValue());
+				if(tipoValore.toUpperCase().equals(valoreElemento.getAttribute("nome").toUpperCase()))
+					valore = Integer.parseInt(valoreElemento.getElementsByTagName("valore").item(0).getFirstChild().getNodeValue());
 			}
 		}catch(Exception e){
 			e.printStackTrace();
