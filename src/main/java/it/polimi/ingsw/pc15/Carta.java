@@ -32,6 +32,10 @@ public abstract class Carta {
 		return this.spazio;
 	}
 	
+	public int getPeriodo() {
+		return this.periodo;
+	}
+	
 	public void setSpazio(SpazioTorre spazio) {
 		this.spazio = spazio;
 	}

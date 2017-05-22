@@ -12,7 +12,7 @@ public class SpazioTorre extends Spazio {
 		super(valoreMin);
 		this.carta = null;
 		this.familiare = null;
-		bonusRisorse = new AggiuntaRisorse(setRisorse);
+		this.bonusRisorse = new AggiuntaRisorse(setRisorse);
 	}
 
 	@Override
