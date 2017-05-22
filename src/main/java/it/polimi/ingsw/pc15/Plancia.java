@@ -1,7 +1,9 @@
 package it.polimi.ingsw.pc15;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.HashSet;
+import java.util.Iterator;
 import java.util.Set;
 
 public class Plancia {
@@ -10,6 +12,8 @@ public class Plancia {
 	private Torre torreBlu;
 	private Torre torreGialla;
 	private Torre torreViola;
+	
+	private int numeroSpaziTorre;
 	
 	private SpazioProduzione spazioProduzione;
 	private SpazioRaccolta spazioRaccolta;
@@ -20,7 +24,7 @@ public class Plancia {
 	
 	public Plancia () {
 		
-		int numeroSpaziTorre = 0; //da cambiare con XML
+		numeroSpaziTorre = 0; //da cambiare con XML
 		
 		ArrayList risorseTorreVerde = new ArrayList(numeroSpaziTorre);
 		ArrayList risorseTorreBlu = new ArrayList(numeroSpaziTorre);
@@ -33,11 +37,6 @@ public class Plancia {
 			risorseTorreGialla.add(parseXML.leggiSpazioTorre(ColoreCarta.GIALLO,i));
 			risorseTorreViola.add(parseXML.leggiSpazioTorre(ColoreCarta.VIOLA,i));
 		}
-		
-		/*risorseTorreVerde = null;    //
-		risorseTorreBlu = null;      //   da cambiare
-		risorseTorreGialla = null;   //     con XML
-		risorseTorreViola = null;    //*/
 		
 		torreVerde = new Torre (numeroSpaziTorre, risorseTorreVerde);
 		torreBlu = new Torre (numeroSpaziTorre, risorseTorreBlu);
@@ -57,10 +56,74 @@ public class Plancia {
 		
 	}
 	
-	public void resetTurno (int periodo){
+	public void setTurno (int periodo, Set<Territorio> territori, Set<Personaggio> personaggi, Set<Edificio> edifici, Set<Impresa> imprese){
+		
+		ArrayList arrayTerritori = new ArrayList();
+		ArrayList arrayPersonaggi = new ArrayList();
+		ArrayList arrayEdifici = new ArrayList();
+		ArrayList arrayImprese = new ArrayList();
+		
+		Iterator<Territorio> territorio = territori.iterator();
+		Iterator<Personaggio> personaggio = personaggi.iterator();
+		Iterator<Edificio> edificio = edifici.iterator();
+		Iterator<Impresa> impresa = imprese.iterator();
+		
+		int n = 0;
+		
+		while (territorio.hasNext() && n < numeroSpaziTorre) {
+			
+			if (territorio.next().getPeriodo() == periodo) {
+				arrayTerritori.add(territorio.next());
+				territori.remove(territorio.next());
+				n++;
+			}
+				
+		}
+		
+		n=0;
+		while (personaggio.hasNext() && n < numeroSpaziTorre) {
+			
+			if (personaggio.next().getPeriodo() == periodo) {
+				arrayPersonaggi.add(personaggio.next());
+				personaggi.remove(personaggio.next());
+				n++;
+			}
+				
+		}
+		
+		n=0;
+		while (edificio.hasNext() && n < numeroSpaziTorre) {
+			
+			if (edificio.next().getPeriodo() == periodo) {
+				arrayEdifici.add(edificio.next());
+				edifici.remove(edificio.next());
+				n++;
+			}
+				
+		}
+		
+		n=0;
+		while (impresa.hasNext() && n < numeroSpaziTorre) {
+			
+			if (impresa.next().getPeriodo() == periodo) {
+				arrayImprese.add(impresa.next());
+				imprese.remove(impresa.next());
+				n++;
+			}
+				
+		}
+ 		
+ 		Collections.shuffle(arrayTerritori);
+ 		Collections.shuffle(arrayPersonaggi);
+ 		Collections.shuffle(arrayEdifici);
+ 		Collections.shuffle(arrayImprese);
+ 		
+ 		this.torreVerde.setTorre(arrayTerritori);
+ 		this.torreBlu.setTorre(arrayPersonaggi);
+ 		this.torreGialla.setTorre(arrayEdifici);
+ 		this.torreViola.setTorre(arrayImprese);
 		
 	}
-	
 	
 	
 	public SpazioProduzione getSpazioProduzione() {
