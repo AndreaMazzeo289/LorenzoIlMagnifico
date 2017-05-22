@@ -21,7 +21,7 @@ public class Model extends Observable {
 	
 	public Model(){
 		
-		this.plancia = new Plancia();
+		this.plancia = new Plancia(3);
 		this.parseXML = new ParseXML();
 		this.turno = 0;
 		this.periodo = 0;
