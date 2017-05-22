@@ -735,7 +735,7 @@ public class ParseXML {
 	// Parametri di uscita:   	ArrayList che contiene i quattro SpazioTorre della torre desiderata
 	// Descrizione:				Metodo che permette di estrarre le informazioni riguardo gli spazi della torre
 	//--------------------------------------------------------------------------------------------------------------//
-	public SetRisorse leggiSetRisorseSpazio (String tipoSpazio){
+	public static SetRisorse leggiSetRisorseSpazio (String tipoSpazio){
 		
 		SetRisorse setRisorse = null;
 		
