@@ -6,8 +6,8 @@ public class EffettiAttivi {
 	private int bonusRaccolta;
 	private int bonusProduzione;
 	private int bonusPersonaggi;
-	private boolean mercato;
-	private boolean spazioTorri;
+	private boolean disponibilitàMercato;
+	private boolean bonusSpazioTorri;
 	private int bonusDadi[];
 	
 	public EffettiAttivi (){
@@ -20,8 +20,8 @@ public class EffettiAttivi {
 		this.bonusProduzione = 0;
 		this.bonusPersonaggi = 0;
 	
-		this.mercato = false;
-		this.spazioTorri = false;
+		this.disponibilitàMercato = true;
+		this.bonusSpazioTorri = true;
 		
 	}
 	
@@ -37,12 +37,12 @@ public class EffettiAttivi {
 		this.bonusPersonaggi += incremento;
 	}
 	
-	public void setMercato(){
-		this.mercato = true;
+	public void annullaDisponibilitàMercato(){
+		this.disponibilitàMercato = false;
 	}
 	
-	public void setSpazioTorre(){
-		this.spazioTorri = true;
+	public void annullaBonusSpazioTorre(){
+		this.bonusSpazioTorri = false;
 	}
 	
 	public void incrementaBonusDadi(int familiare, int bonusDado){
@@ -51,5 +51,13 @@ public class EffettiAttivi {
 	
 	public void incrementaBonusDadoCarte(int carta, int bonusDado){
 		this.bonusDadoCarte[carta] += bonusDado;
+	}
+	
+	public boolean disponibilitàMercato() {
+		return this.disponibilitàMercato;
+	}
+	
+	public boolean disponibilitàBonusSpazioTorri() {
+		return this.bonusSpazioTorri;
 	}
 }

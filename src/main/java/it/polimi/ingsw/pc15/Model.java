@@ -25,12 +25,19 @@ public class Model extends Observable {
 	private Set<Personaggio> setCartePersonaggio;
 	private Set<Edificio> setCarteEdificio;
 	private Set<Impresa> setCarteImpresa;
+<<<<<<< HEAD
 	
 	
 	public Model(int numGiocatori){
 		
 		this.numGiocatori = numGiocatori;
 		this.plancia = new Plancia(numGiocatori);
+=======
+
+	public Model(){
+		
+		this.plancia = new Plancia(3);
+>>>>>>> 37e5bedd17577ff9b1808c2e327f64159fca0918
 		this.parseXML = new ParseXML();
 		this.turno = 0;
 		this.periodo = 0;
@@ -41,25 +48,41 @@ public class Model extends Observable {
 		
 		// Istanziazione carte territorio :
 		//----------------------------------	
+<<<<<<< HEAD
 		for(int i = 0; i<this.parseXML.getNumeroCarte(ColoreCarta.VERDE); i++){
+=======
+		for(int i = 0; i<ParseXML.leggiValore("numeroCarteVerdi"); i++){
+>>>>>>> 37e5bedd17577ff9b1808c2e327f64159fca0918
 			setCarteTerritorio.add((Territorio) parseXML.getCartaXML(ColoreCarta.VERDE));	
 		}
 		
 		// Istanziazione carte personaggio :
 		//----------------------------------
+<<<<<<< HEAD
 		for(int i = 0; i<this.parseXML.getNumeroCarte(ColoreCarta.BLU); i++){
+=======
+		for(int i = 0; i<ParseXML.leggiValore("numeroCarteBlu"); i++){
+>>>>>>> 37e5bedd17577ff9b1808c2e327f64159fca0918
 			setCartePersonaggio.add((Personaggio) parseXML.getCartaXML(ColoreCarta.BLU));
 		}
 		
 		// Istanziazione carte edicio :
 		//----------------------------------
+<<<<<<< HEAD
 		for(int i = 0; i<this.parseXML.getNumeroCarte(ColoreCarta.GIALLO); i++){
+=======
+		for(int i = 0; i<ParseXML.leggiValore("numeroCarteGialle"); i++){
+>>>>>>> 37e5bedd17577ff9b1808c2e327f64159fca0918
 			setCarteEdificio.add((Edificio) parseXML.getCartaXML(ColoreCarta.GIALLO));
 		}
 		
 		// Istanziazione carte impresa :
 		//----------------------------------
+<<<<<<< HEAD
 		for (int i = 0; i<this.parseXML.getNumeroCarte(ColoreCarta.VIOLA); i++){
+=======
+		for (int i = 0; i<ParseXML.leggiValore("numeroCarteViola"); i++){
+>>>>>>> 37e5bedd17577ff9b1808c2e327f64159fca0918
 			setCarteImpresa.add((Impresa) parseXML.getCartaXML(ColoreCarta.VIOLA));
 		}
 		

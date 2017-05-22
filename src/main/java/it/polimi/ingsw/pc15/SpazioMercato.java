@@ -23,6 +23,12 @@ public class SpazioMercato extends Spazio {
 	@Override
 	public boolean occupabile (Familiare familiare) {
 		
+		if (familiare.getPlayer().getEffettiAttivi().disponibilitàMercato() == false) {
+			System.out.println("Non ti è permesso posizionare un familiare negli spazi del mercato!");
+			return false;
+		}
+
+		
 		if(familiare.getValore() < getValoreMin() )  {
 			System.out.println("Il valore del tuo familiare è troppo basso!");
 			return false;
