@@ -783,14 +783,12 @@ public class ParseXML {
 	
 	//--------------------------------------------------------------------------------------------------------------//
 	// Nome metodo: 			leggiSpazioTorre
-	// Parametri di ingresso: 	Void
+	// Parametri di ingresso: 	ColoreTorre (enum), numeroSpazio
 	// Parametri di uscita:   	ArrayList che contiene i quattro SpazioTorre della torre desiderata
 	// Descrizione:				Metodo che permette di estrarre le informazioni riguardo gli spazi della torre
 	//--------------------------------------------------------------------------------------------------------------//
-	public SpazioTorre leggiSpazioTorre (ColoreCarta coloreTorre,int numeroSpazio){
+	public SetRisorse leggiSpazioTorre (ColoreCarta coloreTorre,int numeroSpazio){
 		
-		SpazioTorre spazioTorre = null;
-		int dadoAttivazione = 0;
 		SetRisorse setRisorse = null;
 		
 		try{
@@ -818,8 +816,6 @@ public class ParseXML {
 		    		int numPuntiVittoria = Integer.parseInt(spazio.getElementsByTagName("puntiVittoria").item(0).getFirstChild().getNodeValue());
 		    		int numPuntiFede = Integer.parseInt(spazio.getElementsByTagName("puntiFede").item(0).getFirstChild().getNodeValue());
 		    		int numPrivilegi = Integer.parseInt(spazio.getElementsByTagName("privilegi").item(0).getFirstChild().getNodeValue());
-		    		
-		    		dadoAttivazione = Integer.parseInt(spazio.getElementsByTagName("dadoAttivazione").item(0).getFirstChild().getNodeValue());
 					
 		    		Legna legna = new Legna (numLegna);
 		    		Pietra pietra = new Pietra (numPietra);
@@ -842,15 +838,13 @@ public class ParseXML {
 		            risorse.add(privilegi);
 		                   
 		            setRisorse = new SetRisorse (risorse);
-		            
-		            spazioTorre = new SpazioTorre (dadoAttivazione, setRisorse);
 				}
 			}
 		}catch(Exception e){
 			e.printStackTrace();
 		}	
 		
-		return spazioTorre;
+		return setRisorse;
 	}
 		
 }
