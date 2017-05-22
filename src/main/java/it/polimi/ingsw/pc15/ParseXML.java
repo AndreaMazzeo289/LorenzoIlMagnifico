@@ -13,7 +13,6 @@ import org.w3c.dom.Element;
 import org.w3c.dom.Node;
 import org.w3c.dom.NodeList;
 
-import it.polimi.ingsw.pc15.carte.AzioneCarta;
 import it.polimi.ingsw.pc15.carte.Carta;
 import it.polimi.ingsw.pc15.carte.ColoreCarta;
 import it.polimi.ingsw.pc15.carte.Edificio;
@@ -21,6 +20,7 @@ import it.polimi.ingsw.pc15.carte.Impresa;
 import it.polimi.ingsw.pc15.carte.Personaggio;
 import it.polimi.ingsw.pc15.carte.Territorio;
 import it.polimi.ingsw.pc15.effetti.AggiuntaRisorse;
+import it.polimi.ingsw.pc15.effetti.AzioneCarta;
 import it.polimi.ingsw.pc15.effetti.AzioneProduzione;
 import it.polimi.ingsw.pc15.effetti.AzioneRaccolto;
 import it.polimi.ingsw.pc15.effetti.BonusDadoCarte;

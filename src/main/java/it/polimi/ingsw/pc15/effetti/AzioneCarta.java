@@ -1,6 +1,6 @@
-package it.polimi.ingsw.pc15.carte;
+package it.polimi.ingsw.pc15.effetti;
 
-import it.polimi.ingsw.pc15.effetti.Azione;
+import it.polimi.ingsw.pc15.carte.ColoreCarta;
 import it.polimi.ingsw.pc15.player.Player;
 
 public class AzioneCarta extends Azione{
