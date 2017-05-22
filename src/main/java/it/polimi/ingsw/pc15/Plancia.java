@@ -13,29 +13,29 @@ public class Plancia {
 	private Torre torreGialla;
 	private Torre torreViola;
 	
-	private int numeroSpaziTorre;
-	
 	private SpazioProduzione spazioProduzione;
 	private SpazioRaccolta spazioRaccolta;
 	private SpazioConsiglio spazioConsiglio;
 	private Set<SpazioMercato> spaziMercato;
 	
-	private ParseXML parseXML;
-	
 	public Plancia (int numeroGiocatori) {
 		
-		numeroSpaziTorre = 0; //da cambiare con XML
+		//-----------------------------------------------------------------------------------------------------------//
+		//          SPAZI TORRE                                                                                      //
+		//-----------------------------------------------------------------------------------------------------------//
 		
-		ArrayList risorseTorreVerde = new ArrayList(numeroSpaziTorre);
-		ArrayList risorseTorreBlu = new ArrayList(numeroSpaziTorre);
-		ArrayList risorseTorreGialla = new ArrayList(numeroSpaziTorre);
-		ArrayList risorseTorreViola = new ArrayList(numeroSpaziTorre);
+		int numeroSpaziTorre = ParseXML.leggiValore("numeroSpaziTorri");
+
+		ArrayList risorseTorreVerde = new ArrayList(ParseXML.leggiValore("numeroSpaziTorri"));
+		ArrayList risorseTorreBlu = new ArrayList(ParseXML.leggiValore("numeroSpaziTorri"));
+		ArrayList risorseTorreGialla = new ArrayList(ParseXML.leggiValore("numeroSpaziTorri"));
+		ArrayList risorseTorreViola = new ArrayList(ParseXML.leggiValore("numeroSpaziTorri"));
 		
 		for(int i=0; i<numeroSpaziTorre; i++){
-			risorseTorreVerde.add(parseXML.leggiSpazioTorre(ColoreCarta.VERDE,i));
-			risorseTorreBlu.add(parseXML.leggiSpazioTorre(ColoreCarta.BLU,i));
-			risorseTorreGialla.add(parseXML.leggiSpazioTorre(ColoreCarta.GIALLO,i));
-			risorseTorreViola.add(parseXML.leggiSpazioTorre(ColoreCarta.VIOLA,i));
+			risorseTorreVerde.add(ParseXML.leggiSpazioTorre(ColoreCarta.VERDE,i));
+			risorseTorreBlu.add(ParseXML.leggiSpazioTorre(ColoreCarta.BLU,i));
+			risorseTorreGialla.add(ParseXML.leggiSpazioTorre(ColoreCarta.GIALLO,i));
+			risorseTorreViola.add(ParseXML.leggiSpazioTorre(ColoreCarta.VIOLA,i));
 		}
 		
 		torreVerde = new Torre (numeroSpaziTorre, risorseTorreVerde);
@@ -43,33 +43,33 @@ public class Plancia {
 		torreGialla = new Torre (numeroSpaziTorre, risorseTorreGialla);
 		torreViola = new Torre (numeroSpaziTorre, risorseTorreViola);
 		
-		spazioProduzione = new SpazioProduzione(parseXML.leggiValoreMinimo("produzione")); 
-		spazioRaccolta = new SpazioRaccolta(parseXML.leggiValoreMinimo("raccolta"));       
 		
-		SetRisorse risorseConsiglio = null; //XML
-		spazioConsiglio = new SpazioConsiglio(parseXML.leggiValoreMinimo("consiglio"), risorseConsiglio);   
+		//-----------------------------------------------------------------------------------------------------------//
+		//          SPAZI PRODUZIONE/RACCOLTA/CONSIGLIO                                                              //
+		//-----------------------------------------------------------------------------------------------------------//
+		
+		spazioProduzione = new SpazioProduzione(ParseXML.leggiValore("valoreMinProduzione")); 
+		spazioRaccolta = new SpazioRaccolta(ParseXML.leggiValore("valoreMinRaccolta"));       
+		spazioConsiglio = new SpazioConsiglio(ParseXML.leggiValore("valoreMinConsiglio"), ParseXML.leggiRisorse("consiglio"));   
+		
 		  
+		//-----------------------------------------------------------------------------------------------------------//
+		//           SPAZI MERCATO                                                                                   //
+		//-----------------------------------------------------------------------------------------------------------//
 		
 		spaziMercato = new HashSet<SpazioMercato>();
-		int valoreMinMercato = parseXML.leggiValoreMinimo("mercato");
-		
-		SpazioMercato spazioMercato1 = new SpazioMercato(valoreMinMercato, null);
-		SpazioMercato spazioMercato2 = new SpazioMercato(valoreMinMercato, null);
-		SpazioMercato spazioMercato3 = new SpazioMercato(valoreMinMercato, null);
-		SpazioMercato spazioMercato4 = new SpazioMercato(valoreMinMercato, null);
-		
-		spaziMercato.add(spazioMercato1);
-		spaziMercato.add(spazioMercato2);
-		spaziMercato.add(spazioMercato3);
-		spaziMercato.add(spazioMercato4);
-		
+		int valoreMinMercato = ParseXML.leggiValore("valoreMinMercato");
 		
 		switch (numeroGiocatori) {
 		
-			case 4: //SpazioMercato spazio4 = XML;
-			case 3: //SpazioMercato spazio3 = XML;
-			case 2: //SpazioMercato spazio2 = XML;
-					//SpazioMercato spazio1 = XML;
+			case 4: SpazioMercato spazioMercato4 = new SpazioMercato(valoreMinMercato, ParseXML.leggiRisorse("mercato4"));
+					spaziMercato.add(spazioMercato4);
+			case 3: SpazioMercato spazioMercato3 = new SpazioMercato(valoreMinMercato, ParseXML.leggiRisorse("mercato3"));
+					spaziMercato.add(spazioMercato3);
+			case 2: SpazioMercato spazioMercato2 = new SpazioMercato(valoreMinMercato, ParseXML.leggiRisorse("mercato2"));
+					SpazioMercato spazioMercato1 = new SpazioMercato(valoreMinMercato, ParseXML.leggiRisorse("mercato1"));
+					spaziMercato.add(spazioMercato2);
+					spaziMercato.add(spazioMercato1);
 					break;
 		}
 		
@@ -88,6 +88,7 @@ public class Plancia {
 		Iterator<Impresa> impresa = imprese.iterator();
 		
 		int n = 0;
+		int numeroSpaziTorre = ParseXML.leggiValore("numeroSpaziTorri");
 		
 		while (territorio.hasNext() && n < numeroSpaziTorre) {
 			

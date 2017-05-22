@@ -30,7 +30,11 @@ public class SpazioTorre extends Spazio {
 	@Override
 	public void occupa (Familiare familiare) {
 		this.familiare=familiare;
-		this.bonusRisorse.attiva(familiare.getPlayer());     // attiva l'effetto aggiuntaRisorse per ottenere le risorse bonus relative allo spazio torre
+		
+		if (this.familiare.getPlayer().getEffettiAttivi().disponibilitàBonusSpazioTorri())
+			this.bonusRisorse.attiva(familiare.getPlayer());   
+		else System.out.println("Non puoi ricevere risorse bonus dallo spazio occupato!");
+			
 		this.getTorre().setOccupata(true);			         
 		this.setDisponibilità(false);
 	}
