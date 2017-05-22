@@ -1,0 +1,29 @@
+<datiGenerali>
+    <nomeValore nome="numeroCarteVerdi">
+        <valore>24</valore>
+    </nomeValore>
+    <nomeValore nome="numeroCarteGialle">
+        <valore>24</valore>
+    </nomeValore>
+    <nomeValore nome="numeroCarteBlu">
+        <valore>24</valore>
+    </nomeValore>
+    <nomeValore nome="numeroCarteViola">
+        <valore>24</valore>
+    </nomeValore>
+    <nomeValore nome="valoreMinMercato">
+        <valore>1</valore>
+    </nomeValore>
+    <nomeValore nome="valoreMinConsiglio">
+        <valore>1</valore>
+    </nomeValore>
+    <nomeValore nome="valoreMinRaccolta">
+        <valore>1</valore>
+    </nomeValore>
+    <nomeValore nome="valoreMinProduzione">
+        <valore>1</valore>
+    </nomeValore>
+    <nomeValore nome="numeroSpaziTorre">
+        <valore>4</valore>
+    </nomeValore>
+</datiGenerali>

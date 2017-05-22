@@ -1,0 +1,253 @@
+<SetRisorseSpazi>
+    <!---------------------------------------------------------------------------
+
+                                    TORRE VERDE
+
+    ---------------------------------------------------------------------------->
+    <tipoSpazio tipo="verde1">
+        <legno>0</legno>
+        <pietra>0</pietra>
+        <oro>0</oro>
+        <servitori>0</servitori>
+        <puntiFede>0</puntiFede>
+        <puntiMilitari>0</puntiMilitari>
+        <puntiVittoria>0</puntiVittoria>
+        <privilegi>0</privilegi>
+    </tipoSpazio>
+    <tipoSpazio tipo="verde2">
+        <legno>0</legno>
+        <pietra>0</pietra>
+        <oro>0</oro>
+        <servitori>0</servitori>
+        <puntiFede>0</puntiFede>
+        <puntiMilitari>0</puntiMilitari>
+        <puntiVittoria>0</puntiVittoria>
+        <privilegi>0</privilegi>
+    </tipoSpazio>
+    <tipoSpazio tipo="verde3">
+        <legno>1</legno>
+        <pietra>0</pietra>
+        <oro>0</oro>
+        <servitori>0</servitori>
+        <puntiFede>0</puntiFede>
+        <puntiMilitari>0</puntiMilitari>
+        <puntiVittoria>0</puntiVittoria>
+        <privilegi>0</privilegi>
+    </tipoSpazio>
+    <tipoSpazio tipo="verde4">
+        <legno>2</legno>
+        <pietra>0</pietra>
+        <oro>0</oro>
+        <servitori>0</servitori>
+        <puntiFede>0</puntiFede>
+        <puntiMilitari>0</puntiMilitari>
+        <puntiVittoria>0</puntiVittoria>
+        <privilegi>0</privilegi>
+    </tipoSpazio>
+    
+     <!---------------------------------------------------------------------------
+
+                                    TORRE GIALLA
+
+    ---------------------------------------------------------------------------->
+    
+     <tipoSpazio tipo="giallo1">
+        <legno>0</legno>
+        <pietra>0</pietra>
+        <oro>0</oro>
+        <servitori>0</servitori>
+        <puntiFede>0</puntiFede>
+        <puntiMilitari>0</puntiMilitari>
+        <puntiVittoria>0</puntiVittoria>
+        <privilegi>0</privilegi>
+    </tipoSpazio>
+    <tipoSpazio tipo="giallo2">
+        <legno>0</legno>
+        <pietra>0</pietra>
+        <oro>0</oro>
+        <servitori>0</servitori>
+        <puntiFede>0</puntiFede>
+        <puntiMilitari>0</puntiMilitari>
+        <puntiVittoria>0</puntiVittoria>
+        <privilegi>0</privilegi>
+    </tipoSpazio>
+    <tipoSpazio tipo="giallo3">
+        <legno>0</legno>
+        <pietra>0</pietra>
+        <oro>0</oro>
+        <servitori>0</servitori>
+        <puntiFede>0</puntiFede>
+        <puntiMilitari>1</puntiMilitari>
+        <puntiVittoria>0</puntiVittoria>
+        <privilegi>0</privilegi>
+    </tipoSpazio>
+    <tipoSpazio tipo="giallo4">
+        <legno>0</legno>
+        <pietra>0</pietra>
+        <oro>0</oro>
+        <servitori>0</servitori>
+        <puntiFede>0</puntiFede>
+        <puntiMilitari>2</puntiMilitari>
+        <puntiVittoria>0</puntiVittoria>
+        <privilegi>0</privilegi>
+    </tipoSpazio>
+    
+     <!---------------------------------------------------------------------------
+
+                                    TORRE BLU
+
+    ---------------------------------------------------------------------------->
+    
+    <tipoSpazio tipo="blu1">
+            <legno>0</legno>
+            <pietra>0</pietra>
+            <oro>0</oro>
+            <servitori>0</servitori>
+            <puntiFede>0</puntiFede>
+            <puntiMilitari>0</puntiMilitari>
+            <puntiVittoria>0</puntiVittoria>
+            <privilegi>0</privilegi>
+    </tipoSpazio>
+    <tipoSpazio tipo="blu2">
+            <legno>0</legno>
+            <pietra>0</pietra>
+            <oro>0</oro>
+            <servitori>0</servitori>
+            <puntiFede>0</puntiFede>
+            <puntiMilitari>0</puntiMilitari>
+            <puntiVittoria>0</puntiVittoria>
+            <privilegi>0</privilegi>
+    </tipoSpazio>
+    <tipoSpazio tipo="blu3">
+            <legno>0</legno>
+            <pietra>1</pietra>
+            <oro>0</oro>
+            <servitori>0</servitori>
+            <puntiFede>0</puntiFede>
+            <puntiMilitari>0</puntiMilitari>
+            <puntiVittoria>0</puntiVittoria>
+            <privilegi>0</privilegi>
+    </tipoSpazio>
+    <tipoSpazio tipo="blu4">
+            <legno>0</legno>
+            <pietra>2</pietra>
+            <oro>0</oro>
+            <servitori>0</servitori>
+            <puntiFede>0</puntiFede>
+            <puntiMilitari>0</puntiMilitari>
+            <puntiVittoria>0</puntiVittoria>
+            <privilegi>0</privilegi>
+    </tipoSpazio>
+    
+     <!---------------------------------------------------------------------------
+
+                                    TORRE VIOLA
+
+    ---------------------------------------------------------------------------->
+    
+    <tipoSpazio tipo="viola1">
+        <legno>0</legno>
+        <pietra>0</pietra>
+        <oro>0</oro>
+        <servitori>0</servitori>
+        <puntiFede>0</puntiFede>
+        <puntiMilitari>0</puntiMilitari>
+        <puntiVittoria>0</puntiVittoria>
+        <privilegi>0</privilegi>
+    </tipoSpazio>
+    <tipoSpazio tipo="viola2">
+        <legno>0</legno>
+        <pietra>0</pietra>
+        <oro>0</oro>
+        <servitori>0</servitori>
+        <puntiFede>0</puntiFede>
+        <puntiMilitari>0</puntiMilitari>
+        <puntiVittoria>0</puntiVittoria>
+        <privilegi>0</privilegi>
+    </tipoSpazio>
+    <tipoSpazio tipo="viola3">
+        <legno>0</legno>
+        <pietra>0</pietra>
+        <oro>1</oro>
+        <servitori>0</servitori>
+        <puntiFede>0</puntiFede>
+        <puntiMilitari>0</puntiMilitari>
+        <puntiVittoria>0</puntiVittoria>
+        <privilegi>0</privilegi>
+    </tipoSpazio>
+    <tipoSpazio tipo="viola4">
+        <legno>0</legno>
+        <pietra>0</pietra>
+        <oro>2</oro>
+        <servitori>0</servitori>
+        <puntiFede>0</puntiFede>
+        <puntiMilitari>0</puntiMilitari>
+        <puntiVittoria>0</puntiVittoria>
+        <privilegi>0</privilegi>
+    </tipoSpazio>
+    
+    <!---------------------------------------------------------------------------
+
+                                     CONSIGLIO
+
+    ---------------------------------------------------------------------------->
+    <tipoSpazio tipo="consiglio">
+        <legno>0</legno>
+        <pietra>0</pietra>
+        <oro>2</oro>
+        <servitori>0</servitori>
+        <puntiFede>0</puntiFede>
+        <puntiMilitari>0</puntiMilitari>
+        <puntiVittoria>0</puntiVittoria>
+        <privilegi>1</privilegi>
+    </tipoSpazio>
+    
+    <!---------------------------------------------------------------------------
+
+                                      MERCATO
+
+    ---------------------------------------------------------------------------->
+    <tipoSpazio tipo="mercato1">
+        <legno>0</legno>
+        <pietra>0</pietra>
+        <oro>0</oro>
+        <servitori>5</servitori>
+        <puntiFede>0</puntiFede>
+        <puntiMilitari>0</puntiMilitari>
+        <puntiVittoria>0</puntiVittoria>
+        <privilegi>0</privilegi>
+    </tipoSpazio>
+    <tipoSpazio tipo="mercato2">
+        <legno>0</legno>
+        <pietra>0</pietra>
+        <oro>5</oro>
+        <servitori>0</servitori>
+        <puntiFede>0</puntiFede>
+        <puntiMilitari>0</puntiMilitari>
+        <puntiVittoria>0</puntiVittoria>
+        <privilegi>0</privilegi>
+    </tipoSpazio>
+    <tipoSpazio tipo="mercato3">
+        <legno>0</legno>
+        <pietra>0</pietra>
+        <oro>2</oro>
+        <servitori>0</servitori>
+        <puntiFede>0</puntiFede>
+        <puntiMilitari>3</puntiMilitari>
+        <puntiVittoria>0</puntiVittoria>
+        <privilegi>0</privilegi>
+    </tipoSpazio>
+    <tipoSpazio tipo="mercato4">
+        <legno>0</legno>
+        <pietra>0</pietra>
+        <oro>2</oro>
+        <servitori>0</servitori>
+        <puntiFede>0</puntiFede>
+        <puntiMilitari>3</puntiMilitari>
+        <puntiVittoria>0</puntiVittoria>
+        <privilegi>0</privilegi>
+    </tipoSpazio>
+    
+    <!-------------------------------------------------------------------------->
+    
+</SetRisorseSpazi>
