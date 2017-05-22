@@ -22,7 +22,7 @@ public class Plancia {
 	
 	private ParseXML parseXML;
 	
-	public Plancia () {
+	public Plancia (int numeroGiocatori) {
 		
 		numeroSpaziTorre = 0; //da cambiare con XML
 		
@@ -43,16 +43,35 @@ public class Plancia {
 		torreGialla = new Torre (numeroSpaziTorre, risorseTorreGialla);
 		torreViola = new Torre (numeroSpaziTorre, risorseTorreViola);
 		
-		spazioProduzione = new SpazioProduzione(1);   //  da cambiare
-		spazioRaccolta = new SpazioRaccolta(1);       //    con XML
+		spazioProduzione = new SpazioProduzione(parseXML.leggiValoreMinimo("produzione")); 
+		spazioRaccolta = new SpazioRaccolta(parseXML.leggiValoreMinimo("raccolta"));       
 		
-		SetRisorse risorseConsiglio = null;                                    //   da cambiare
-		spazioConsiglio = new SpazioConsiglio(1, risorseConsiglio);            //     con XML
+		SetRisorse risorseConsiglio = null; //XML
+		spazioConsiglio = new SpazioConsiglio(parseXML.leggiValoreMinimo("consiglio"), risorseConsiglio);   
 		  
+		
 		spaziMercato = new HashSet<SpazioMercato>();
-		int numeroSpaziMercato = 4; 
-			for(int i=0; i<numeroSpaziMercato; i++) 
-				spaziMercato.add(new SpazioMercato(1, risorseConsiglio)); //il secondo argomento è XMLRicercaRisorseMercato(i)	
+		int valoreMinMercato = parseXML.leggiValoreMinimo("mercato");
+		
+		SpazioMercato spazioMercato1 = new SpazioMercato(valoreMinMercato, null);
+		SpazioMercato spazioMercato2 = new SpazioMercato(valoreMinMercato, null);
+		SpazioMercato spazioMercato3 = new SpazioMercato(valoreMinMercato, null);
+		SpazioMercato spazioMercato4 = new SpazioMercato(valoreMinMercato, null);
+		
+		spaziMercato.add(spazioMercato1);
+		spaziMercato.add(spazioMercato2);
+		spaziMercato.add(spazioMercato3);
+		spaziMercato.add(spazioMercato4);
+		
+		
+		switch (numeroGiocatori) {
+		
+			case 4: //SpazioMercato spazio4 = XML;
+			case 3: //SpazioMercato spazio3 = XML;
+			case 2: //SpazioMercato spazio2 = XML;
+					//SpazioMercato spazio1 = XML;
+					break;
+		}
 		
 	}
 	
@@ -77,7 +96,6 @@ public class Plancia {
 				territori.remove(territorio.next());
 				n++;
 			}
-				
 		}
 		
 		n=0;
@@ -87,8 +105,7 @@ public class Plancia {
 				arrayPersonaggi.add(personaggio.next());
 				personaggi.remove(personaggio.next());
 				n++;
-			}
-				
+			}			
 		}
 		
 		n=0;
@@ -98,8 +115,7 @@ public class Plancia {
 				arrayEdifici.add(edificio.next());
 				edifici.remove(edificio.next());
 				n++;
-			}
-				
+			}			
 		}
 		
 		n=0;
@@ -109,8 +125,7 @@ public class Plancia {
 				arrayImprese.add(impresa.next());
 				imprese.remove(impresa.next());
 				n++;
-			}
-				
+			}			
 		}
  		
  		Collections.shuffle(arrayTerritori);
