@@ -97,8 +97,6 @@ public class ParseXML {
 					
 					String tipoEffetto = effetto.getAttribute("idEffetto");
 					
-					System.out.println("Effetto di tipo "+ tipoEffetto + " di nome " + nome);
-					
 					switch(tipoEffetto){
 					 	case "addRisorsa":
 					 		effettoLetto = leggiEffettoAddRisorsa(effetto);
@@ -161,24 +159,15 @@ public class ParseXML {
 	// Descrizione:				Metodo che permette di estrarre gli effetti di tipo AddRisorsa dal file XML
 	//--------------------------------------------------------------------------------------------------------------//
 	public AggiuntaRisorse leggiEffettoAddRisorsa(Element effetto) {
-				
-		int numLegno = Integer.parseInt(effetto.getElementsByTagName("legno").item(0).getFirstChild().getNodeValue());
-		int numPietra = Integer.parseInt(effetto.getElementsByTagName("pietra").item(0).getFirstChild().getNodeValue());
-		int numOro = Integer.parseInt(effetto.getElementsByTagName("oro").item(0).getFirstChild().getNodeValue());
-		int numServitori = Integer.parseInt(effetto.getElementsByTagName("servitori").item(0).getFirstChild().getNodeValue());
-		int numPuntiFede = Integer.parseInt(effetto.getElementsByTagName("puntiFede").item(0).getFirstChild().getNodeValue());
-		int numPuntiMilitari = Integer.parseInt(effetto.getElementsByTagName("puntiMilitari").item(0).getFirstChild().getNodeValue());
-		int numPuntiVittoria = Integer.parseInt(effetto.getElementsByTagName("puntiVittoria").item(0).getFirstChild().getNodeValue());
-		int numPrivilegi = Integer.parseInt(effetto.getElementsByTagName("privilegi").item(0).getFirstChild().getNodeValue());
 		
-		Legna legna = new Legna (numLegno);
-		Pietra pietra = new Pietra (numPietra);
-		Oro oro = new Oro (numOro);
-		Servitori servitori = new Servitori (numServitori);
-		PuntiFede puntiFede = new PuntiFede (numPuntiFede);
-		PuntiMilitari puntiMilitari = new PuntiMilitari (numPuntiMilitari);
-		PuntiVittoria puntiVittoria = new PuntiVittoria (numPuntiVittoria);
-		Privilegi privilegi = new Privilegi (numPrivilegi);
+		Legna legna = new Legna (Integer.parseInt(effetto.getElementsByTagName("legno").item(0).getFirstChild().getNodeValue()));
+		Pietra pietra = new Pietra (Integer.parseInt(effetto.getElementsByTagName("pietra").item(0).getFirstChild().getNodeValue()));
+		Oro oro = new Oro (Integer.parseInt(effetto.getElementsByTagName("oro").item(0).getFirstChild().getNodeValue()));
+		Servitori servitori = new Servitori (Integer.parseInt(effetto.getElementsByTagName("servitori").item(0).getFirstChild().getNodeValue()));
+		PuntiFede puntiFede = new PuntiFede (Integer.parseInt(effetto.getElementsByTagName("puntiFede").item(0).getFirstChild().getNodeValue()));
+		PuntiMilitari puntiMilitari = new PuntiMilitari (Integer.parseInt(effetto.getElementsByTagName("puntiMilitari").item(0).getFirstChild().getNodeValue()));
+		PuntiVittoria puntiVittoria = new PuntiVittoria (Integer.parseInt(effetto.getElementsByTagName("puntiVittoria").item(0).getFirstChild().getNodeValue()));
+		Privilegi privilegi = new Privilegi (Integer.parseInt(effetto.getElementsByTagName("privilegi").item(0).getFirstChild().getNodeValue()));
         
         HashSet<Risorsa> risorse = new HashSet<>();
         
@@ -329,23 +318,14 @@ public class ParseXML {
 		for(int i=0; i<setRisorse.getLength(); ++i) {
 			Element SingoloCosto = (Element) setRisorse.item(i);
 			
-			int numLegno = Integer.parseInt(SingoloCosto.getElementsByTagName("legno").item(0).getFirstChild().getNodeValue());
-			int numPietra = Integer.parseInt(SingoloCosto.getElementsByTagName("pietra").item(0).getFirstChild().getNodeValue());
-			int numOro = Integer.parseInt(SingoloCosto.getElementsByTagName("oro").item(0).getFirstChild().getNodeValue());
-			int numServitori = Integer.parseInt(SingoloCosto.getElementsByTagName("servitori").item(0).getFirstChild().getNodeValue());
-			int numPuntiFede = Integer.parseInt(SingoloCosto.getElementsByTagName("puntiFede").item(0).getFirstChild().getNodeValue());
-			int numPuntiMilitari = Integer.parseInt(SingoloCosto.getElementsByTagName("puntiMilitari").item(0).getFirstChild().getNodeValue());
-			int numPuntiVittoria = Integer.parseInt(SingoloCosto.getElementsByTagName("puntiVittoria").item(0).getFirstChild().getNodeValue());
-			int numPrivilegi = Integer.parseInt(SingoloCosto.getElementsByTagName("privilegi").item(0).getFirstChild().getNodeValue());
-			
-			Legna legna = new Legna (numLegno);
-    		Pietra pietra = new Pietra (numPietra);
-    		Oro oro = new Oro (numOro);
-    		Servitori servitori = new Servitori (numServitori);
-    		PuntiFede puntiFede = new PuntiFede (numPuntiFede);
-    		PuntiMilitari puntiMilitari = new PuntiMilitari (numPuntiMilitari);
-    		PuntiVittoria puntiVittoria = new PuntiVittoria (numPuntiVittoria);
-    		Privilegi privilegi = new Privilegi (numPrivilegi);
+			Legna legna = new Legna (Integer.parseInt(effetto.getElementsByTagName("legno").item(0).getFirstChild().getNodeValue()));
+			Pietra pietra = new Pietra (Integer.parseInt(effetto.getElementsByTagName("pietra").item(0).getFirstChild().getNodeValue()));
+			Oro oro = new Oro (Integer.parseInt(effetto.getElementsByTagName("oro").item(0).getFirstChild().getNodeValue()));
+			Servitori servitori = new Servitori (Integer.parseInt(effetto.getElementsByTagName("servitori").item(0).getFirstChild().getNodeValue()));
+			PuntiFede puntiFede = new PuntiFede (Integer.parseInt(effetto.getElementsByTagName("puntiFede").item(0).getFirstChild().getNodeValue()));
+			PuntiMilitari puntiMilitari = new PuntiMilitari (Integer.parseInt(effetto.getElementsByTagName("puntiMilitari").item(0).getFirstChild().getNodeValue()));
+			PuntiVittoria puntiVittoria = new PuntiVittoria (Integer.parseInt(effetto.getElementsByTagName("puntiVittoria").item(0).getFirstChild().getNodeValue()));
+			Privilegi privilegi = new Privilegi (Integer.parseInt(effetto.getElementsByTagName("privilegi").item(0).getFirstChild().getNodeValue()));
             
             HashSet<Risorsa> risorse = new HashSet<>();
             
@@ -449,14 +429,6 @@ public class ParseXML {
 		int id = Integer.parseInt(carta.getAttribute("id"));
 		int periodo = Integer.parseInt(carta.getElementsByTagName("periodo").item(0).getFirstChild().getNodeValue());
 		int dadoRaccolta = Integer.parseInt(carta.getElementsByTagName("dadoRaccolto").item(0).getFirstChild().getNodeValue());
-		int numLegna = Integer.parseInt(carta.getElementsByTagName("legno").item(0).getFirstChild().getNodeValue());
-		int numPietra = Integer.parseInt(carta.getElementsByTagName("pietra").item(0).getFirstChild().getNodeValue());
-		int numOro = Integer.parseInt(carta.getElementsByTagName("oro").item(0).getFirstChild().getNodeValue());
-		int numServitori = Integer.parseInt(carta.getElementsByTagName("servitori").item(0).getFirstChild().getNodeValue());
-		int numPuntiMilitari = Integer.parseInt(carta.getElementsByTagName("puntiMilitari").item(0).getFirstChild().getNodeValue());
-		int numPuntiVittoria = Integer.parseInt(carta.getElementsByTagName("puntiVittoria").item(0).getFirstChild().getNodeValue());
-		int numPuntiFede = Integer.parseInt(carta.getElementsByTagName("puntiFede").item(0).getFirstChild().getNodeValue());
-		int numPrivilegi = Integer.parseInt(carta.getElementsByTagName("privilegi").item(0).getFirstChild().getNodeValue());
 		
 		String nome = carta.getElementsByTagName("nome").item(0).getFirstChild().getNodeValue();
 		String colore = carta.getElementsByTagName("colore").item(0).getFirstChild().getNodeValue();
@@ -483,14 +455,14 @@ public class ParseXML {
         //------------------------------------------------------//
 		//	FASE 4: ISTANZIAZIONE DEL SET RISORSE (COSTO)
 		//------------------------------------------------------//
-		Legna legna = new Legna (numLegna);
-		Pietra pietra = new Pietra (numPietra);
-		Oro oro = new Oro (numOro);
-		Servitori servitori = new Servitori (numServitori);
-		PuntiFede puntiFede = new PuntiFede (numPuntiFede);
-		PuntiMilitari puntiMilitari = new PuntiMilitari (numPuntiMilitari);
-		PuntiVittoria puntiVittoria = new PuntiVittoria (numPuntiVittoria);
-		Privilegi privilegi = new Privilegi (numPrivilegi);
+        Legna legna = new Legna (Integer.parseInt(carta.getElementsByTagName("legno").item(0).getFirstChild().getNodeValue()));
+		Pietra pietra = new Pietra (Integer.parseInt(carta.getElementsByTagName("pietra").item(0).getFirstChild().getNodeValue()));
+		Oro oro = new Oro (Integer.parseInt(carta.getElementsByTagName("oro").item(0).getFirstChild().getNodeValue()));
+		Servitori servitori = new Servitori (Integer.parseInt(carta.getElementsByTagName("servitori").item(0).getFirstChild().getNodeValue()));
+		PuntiFede puntiFede = new PuntiFede (Integer.parseInt(carta.getElementsByTagName("puntiFede").item(0).getFirstChild().getNodeValue()));
+		PuntiMilitari puntiMilitari = new PuntiMilitari (Integer.parseInt(carta.getElementsByTagName("puntiMilitari").item(0).getFirstChild().getNodeValue()));
+		PuntiVittoria puntiVittoria = new PuntiVittoria (Integer.parseInt(carta.getElementsByTagName("puntiVittoria").item(0).getFirstChild().getNodeValue()));
+		Privilegi privilegi = new Privilegi (Integer.parseInt(carta.getElementsByTagName("privilegi").item(0).getFirstChild().getNodeValue()));
         
         HashSet<Risorsa> risorse = new HashSet<>();
         
@@ -526,14 +498,6 @@ public class ParseXML {
 		int id = Integer.parseInt(carta.getAttribute("id"));
 		int periodo = Integer.parseInt(carta.getElementsByTagName("periodo").item(0).getFirstChild().getNodeValue());
 		int dadoProduzione = Integer.parseInt(carta.getElementsByTagName("dadoProduzione").item(0).getFirstChild().getNodeValue());
-		int numLegna = Integer.parseInt(carta.getElementsByTagName("legno").item(0).getFirstChild().getNodeValue());
-		int numPietra = Integer.parseInt(carta.getElementsByTagName("pietra").item(0).getFirstChild().getNodeValue());
-		int numOro = Integer.parseInt(carta.getElementsByTagName("oro").item(0).getFirstChild().getNodeValue());
-		int numServitori = Integer.parseInt(carta.getElementsByTagName("servitori").item(0).getFirstChild().getNodeValue());
-		int numPuntiMilitari = Integer.parseInt(carta.getElementsByTagName("puntiMilitari").item(0).getFirstChild().getNodeValue());
-		int numPuntiVittoria = Integer.parseInt(carta.getElementsByTagName("puntiVittoria").item(0).getFirstChild().getNodeValue());
-		int numPuntiFede = Integer.parseInt(carta.getElementsByTagName("puntiFede").item(0).getFirstChild().getNodeValue());
-		int numPrivilegi = Integer.parseInt(carta.getElementsByTagName("privilegi").item(0).getFirstChild().getNodeValue());
 		
 		String nome = carta.getElementsByTagName("nome").item(0).getFirstChild().getNodeValue();
 		String colore = carta.getElementsByTagName("colore").item(0).getFirstChild().getNodeValue();
@@ -560,14 +524,14 @@ public class ParseXML {
         //------------------------------------------------------//
 		//	FASE 4: ISTANZIAZIONE DEL SET RISORSE (COSTO)
 		//------------------------------------------------------//
-		Legna legna = new Legna (numLegna);
-		Pietra pietra = new Pietra (numPietra);
-		Oro oro = new Oro (numOro);
-		Servitori servitori = new Servitori (numServitori);
-		PuntiFede puntiFede = new PuntiFede (numPuntiFede);
-		PuntiMilitari puntiMilitari = new PuntiMilitari (numPuntiMilitari);
-		PuntiVittoria puntiVittoria = new PuntiVittoria (numPuntiVittoria);
-		Privilegi privilegi = new Privilegi (numPrivilegi);
+        Legna legna = new Legna (Integer.parseInt(carta.getElementsByTagName("legno").item(0).getFirstChild().getNodeValue()));
+		Pietra pietra = new Pietra (Integer.parseInt(carta.getElementsByTagName("pietra").item(0).getFirstChild().getNodeValue()));
+		Oro oro = new Oro (Integer.parseInt(carta.getElementsByTagName("oro").item(0).getFirstChild().getNodeValue()));
+		Servitori servitori = new Servitori (Integer.parseInt(carta.getElementsByTagName("servitori").item(0).getFirstChild().getNodeValue()));
+		PuntiFede puntiFede = new PuntiFede (Integer.parseInt(carta.getElementsByTagName("puntiFede").item(0).getFirstChild().getNodeValue()));
+		PuntiMilitari puntiMilitari = new PuntiMilitari (Integer.parseInt(carta.getElementsByTagName("puntiMilitari").item(0).getFirstChild().getNodeValue()));
+		PuntiVittoria puntiVittoria = new PuntiVittoria (Integer.parseInt(carta.getElementsByTagName("puntiVittoria").item(0).getFirstChild().getNodeValue()));
+		Privilegi privilegi = new Privilegi (Integer.parseInt(carta.getElementsByTagName("privilegi").item(0).getFirstChild().getNodeValue()));
         
         HashSet<Risorsa> risorse = new HashSet<>();
         
@@ -603,14 +567,6 @@ public class ParseXML {
 		//------------------------------------------------------//
 		int id = Integer.parseInt(carta.getAttribute("id"));
 		int periodo = Integer.parseInt(carta.getElementsByTagName("periodo").item(0).getFirstChild().getNodeValue());
-		int numLegna = Integer.parseInt(carta.getElementsByTagName("legno").item(0).getFirstChild().getNodeValue());
-		int numPietra = Integer.parseInt(carta.getElementsByTagName("pietra").item(0).getFirstChild().getNodeValue());
-		int numOro = Integer.parseInt(carta.getElementsByTagName("oro").item(0).getFirstChild().getNodeValue());
-		int numServitori = Integer.parseInt(carta.getElementsByTagName("servitori").item(0).getFirstChild().getNodeValue());
-		int numPuntiMilitari = Integer.parseInt(carta.getElementsByTagName("puntiMilitari").item(0).getFirstChild().getNodeValue());
-		int numPuntiVittoria = Integer.parseInt(carta.getElementsByTagName("puntiVittoria").item(0).getFirstChild().getNodeValue());
-		int numPuntiFede = Integer.parseInt(carta.getElementsByTagName("puntiFede").item(0).getFirstChild().getNodeValue());
-		int numPrivilegi = Integer.parseInt(carta.getElementsByTagName("privilegi").item(0).getFirstChild().getNodeValue());
 		
 		String nome = carta.getElementsByTagName("nome").item(0).getFirstChild().getNodeValue();
 		String colore = carta.getElementsByTagName("colore").item(0).getFirstChild().getNodeValue();
@@ -650,14 +606,14 @@ public class ParseXML {
 		//------------------------------------------------------//
 		//	FASE 5: ISTANZIAZIONE DEL SET RISORSE (COSTO)
 		//------------------------------------------------------//
-		Legna legna = new Legna (numLegna);
-		Pietra pietra = new Pietra (numPietra);
-		Oro oro = new Oro (numOro);
-		Servitori servitori = new Servitori (numServitori);
-		PuntiFede puntiFede = new PuntiFede (numPuntiFede);
-		PuntiMilitari puntiMilitari = new PuntiMilitari (numPuntiMilitari);
-		PuntiVittoria puntiVittoria = new PuntiVittoria (numPuntiVittoria);
-		Privilegi privilegi = new Privilegi (numPrivilegi);
+		Legna legna = new Legna (Integer.parseInt(carta.getElementsByTagName("legno").item(0).getFirstChild().getNodeValue()));
+		Pietra pietra = new Pietra (Integer.parseInt(carta.getElementsByTagName("pietra").item(0).getFirstChild().getNodeValue()));
+		Oro oro = new Oro (Integer.parseInt(carta.getElementsByTagName("oro").item(0).getFirstChild().getNodeValue()));
+		Servitori servitori = new Servitori (Integer.parseInt(carta.getElementsByTagName("servitori").item(0).getFirstChild().getNodeValue()));
+		PuntiFede puntiFede = new PuntiFede (Integer.parseInt(carta.getElementsByTagName("puntiFede").item(0).getFirstChild().getNodeValue()));
+		PuntiMilitari puntiMilitari = new PuntiMilitari (Integer.parseInt(carta.getElementsByTagName("puntiMilitari").item(0).getFirstChild().getNodeValue()));
+		PuntiVittoria puntiVittoria = new PuntiVittoria (Integer.parseInt(carta.getElementsByTagName("puntiVittoria").item(0).getFirstChild().getNodeValue()));
+		Privilegi privilegi = new Privilegi (Integer.parseInt(carta.getElementsByTagName("privilegi").item(0).getFirstChild().getNodeValue()));
         
         HashSet<Risorsa> risorse = new HashSet<>();
         
@@ -715,26 +671,18 @@ public class ParseXML {
   		//------------------------------------------------------//
         SetRisorse costo;
         try{
-        	int numLegna = Integer.parseInt(carta.getElementsByTagName("legno").item(0).getFirstChild().getNodeValue());
-    		int numPietra = Integer.parseInt(carta.getElementsByTagName("pietra").item(0).getFirstChild().getNodeValue());
-    		int numOro = Integer.parseInt(carta.getElementsByTagName("oro").item(0).getFirstChild().getNodeValue());
-    		int numServitori = Integer.parseInt(carta.getElementsByTagName("servitori").item(0).getFirstChild().getNodeValue());
-    		int numPuntiMilitari = Integer.parseInt(carta.getElementsByTagName("puntiMilitari").item(0).getFirstChild().getNodeValue());
-    		int numPuntiVittoria = Integer.parseInt(carta.getElementsByTagName("puntiVittoria").item(0).getFirstChild().getNodeValue());
-    		int numPuntiFede = Integer.parseInt(carta.getElementsByTagName("puntiFede").item(0).getFirstChild().getNodeValue());
-    		int numPrivilegi = Integer.parseInt(carta.getElementsByTagName("privilegi").item(0).getFirstChild().getNodeValue());
-
+        	
     		//------------------------------------------------------//
       		//	FASE 2.1: ISTANZIAZIONE DEL SET RISORSE (COSTO)
       		//------------------------------------------------------//
-    		Legna legna = new Legna (numLegna);
-    		Pietra pietra = new Pietra (numPietra);
-    		Oro oro = new Oro (numOro);
-    		Servitori servitori = new Servitori (numServitori);
-    		PuntiFede puntiFede = new PuntiFede (numPuntiFede);
-    		PuntiMilitari puntiMilitari = new PuntiMilitari (numPuntiMilitari);
-    		PuntiVittoria puntiVittoria = new PuntiVittoria (numPuntiVittoria);
-    		Privilegi privilegi = new Privilegi (numPrivilegi);
+    		Legna legna = new Legna (Integer.parseInt(carta.getElementsByTagName("legno").item(0).getFirstChild().getNodeValue()));
+    		Pietra pietra = new Pietra (Integer.parseInt(carta.getElementsByTagName("pietra").item(0).getFirstChild().getNodeValue()));
+    		Oro oro = new Oro (Integer.parseInt(carta.getElementsByTagName("oro").item(0).getFirstChild().getNodeValue()));
+    		Servitori servitori = new Servitori (Integer.parseInt(carta.getElementsByTagName("servitori").item(0).getFirstChild().getNodeValue()));
+    		PuntiFede puntiFede = new PuntiFede (Integer.parseInt(carta.getElementsByTagName("puntiFede").item(0).getFirstChild().getNodeValue()));
+    		PuntiMilitari puntiMilitari = new PuntiMilitari (Integer.parseInt(carta.getElementsByTagName("puntiMilitari").item(0).getFirstChild().getNodeValue()));
+    		PuntiVittoria puntiVittoria = new PuntiVittoria (Integer.parseInt(carta.getElementsByTagName("puntiVittoria").item(0).getFirstChild().getNodeValue()));
+    		Privilegi privilegi = new Privilegi (Integer.parseInt(carta.getElementsByTagName("privilegi").item(0).getFirstChild().getNodeValue()));
             
             HashSet<Risorsa> risorse = new HashSet<>();
             
@@ -808,23 +756,14 @@ public class ParseXML {
 				
 				if(colore.toUpperCase().equals(coloreTorre.toString()) && numero==numeroSpazio) {
 					
-					int numLegna = Integer.parseInt(spazio.getElementsByTagName("legno").item(0).getFirstChild().getNodeValue());
-		    		int numPietra = Integer.parseInt(spazio.getElementsByTagName("pietra").item(0).getFirstChild().getNodeValue());
-		    		int numOro = Integer.parseInt(spazio.getElementsByTagName("oro").item(0).getFirstChild().getNodeValue());
-		    		int numServitori = Integer.parseInt(spazio.getElementsByTagName("servitori").item(0).getFirstChild().getNodeValue());
-		    		int numPuntiMilitari = Integer.parseInt(spazio.getElementsByTagName("puntiMilitari").item(0).getFirstChild().getNodeValue());
-		    		int numPuntiVittoria = Integer.parseInt(spazio.getElementsByTagName("puntiVittoria").item(0).getFirstChild().getNodeValue());
-		    		int numPuntiFede = Integer.parseInt(spazio.getElementsByTagName("puntiFede").item(0).getFirstChild().getNodeValue());
-		    		int numPrivilegi = Integer.parseInt(spazio.getElementsByTagName("privilegi").item(0).getFirstChild().getNodeValue());
-					
-		    		Legna legna = new Legna (numLegna);
-		    		Pietra pietra = new Pietra (numPietra);
-		    		Oro oro = new Oro (numOro);
-		    		Servitori servitori = new Servitori (numServitori);
-		    		PuntiFede puntiFede = new PuntiFede (numPuntiFede);
-		    		PuntiMilitari puntiMilitari = new PuntiMilitari (numPuntiMilitari);
-		    		PuntiVittoria puntiVittoria = new PuntiVittoria (numPuntiVittoria);
-		    		Privilegi privilegi = new Privilegi (numPrivilegi);
+		    		Legna legna = new Legna (Integer.parseInt(spazio.getElementsByTagName("legno").item(0).getFirstChild().getNodeValue()));
+		    		Pietra pietra = new Pietra (Integer.parseInt(spazio.getElementsByTagName("pietra").item(0).getFirstChild().getNodeValue()));
+		    		Oro oro = new Oro (Integer.parseInt(spazio.getElementsByTagName("oro").item(0).getFirstChild().getNodeValue()));
+		    		Servitori servitori = new Servitori (Integer.parseInt(spazio.getElementsByTagName("servitori").item(0).getFirstChild().getNodeValue()));
+		    		PuntiFede puntiFede = new PuntiFede (Integer.parseInt(spazio.getElementsByTagName("puntiFede").item(0).getFirstChild().getNodeValue()));
+		    		PuntiMilitari puntiMilitari = new PuntiMilitari (Integer.parseInt(spazio.getElementsByTagName("puntiMilitari").item(0).getFirstChild().getNodeValue()));
+		    		PuntiVittoria puntiVittoria = new PuntiVittoria (Integer.parseInt(spazio.getElementsByTagName("puntiVittoria").item(0).getFirstChild().getNodeValue()));
+		    		Privilegi privilegi = new Privilegi (Integer.parseInt(spazio.getElementsByTagName("privilegi").item(0).getFirstChild().getNodeValue()));
 		            
 		            HashSet<Risorsa> risorse = new HashSet<>();
 		            
