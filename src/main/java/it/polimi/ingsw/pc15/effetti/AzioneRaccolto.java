@@ -1,0 +1,24 @@
+package it.polimi.ingsw.pc15.effetti;
+
+import java.util.Iterator;
+
+import it.polimi.ingsw.pc15.carte.Territorio;
+import it.polimi.ingsw.pc15.player.Player;
+
+public class AzioneRaccolto extends Azione{
+	
+	public AzioneRaccolto(int valoreDado){
+		super(valoreDado);
+	}
+	
+	@Override
+	public void attiva(Player player){
+		
+		Iterator<Territorio> territorio = player.getTerritori().iterator();
+		
+		while(territorio.hasNext()){
+			if (valoreDado >= territorio.next().getRequisitoRaccolta())
+				territorio.next().getEffettoRaccolta().attiva(player);
+		}
+	}
+}

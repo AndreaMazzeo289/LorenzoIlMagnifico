@@ -13,6 +13,34 @@ import org.w3c.dom.Element;
 import org.w3c.dom.Node;
 import org.w3c.dom.NodeList;
 
+import it.polimi.ingsw.pc15.carte.AzioneCarta;
+import it.polimi.ingsw.pc15.carte.Carta;
+import it.polimi.ingsw.pc15.carte.ColoreCarta;
+import it.polimi.ingsw.pc15.carte.Edificio;
+import it.polimi.ingsw.pc15.carte.Impresa;
+import it.polimi.ingsw.pc15.carte.Personaggio;
+import it.polimi.ingsw.pc15.carte.Territorio;
+import it.polimi.ingsw.pc15.effetti.AggiuntaRisorse;
+import it.polimi.ingsw.pc15.effetti.AzioneProduzione;
+import it.polimi.ingsw.pc15.effetti.AzioneRaccolto;
+import it.polimi.ingsw.pc15.effetti.BonusDadoCarte;
+import it.polimi.ingsw.pc15.effetti.BonusProduzione;
+import it.polimi.ingsw.pc15.effetti.BonusRaccolta;
+import it.polimi.ingsw.pc15.effetti.Effetto;
+import it.polimi.ingsw.pc15.effetti.Moltiplicazione;
+import it.polimi.ingsw.pc15.effetti.Scambio;
+import it.polimi.ingsw.pc15.risorse.Legna;
+import it.polimi.ingsw.pc15.risorse.Oro;
+import it.polimi.ingsw.pc15.risorse.Pietra;
+import it.polimi.ingsw.pc15.risorse.Privilegi;
+import it.polimi.ingsw.pc15.risorse.PuntiFede;
+import it.polimi.ingsw.pc15.risorse.PuntiMilitari;
+import it.polimi.ingsw.pc15.risorse.PuntiVittoria;
+import it.polimi.ingsw.pc15.risorse.Risorsa;
+import it.polimi.ingsw.pc15.risorse.Servitori;
+import it.polimi.ingsw.pc15.risorse.SetRisorse;
+import it.polimi.ingsw.pc15.risorse.TipoRisorsa;
+
 public class ParseXML {
 	
 	//--------------------------------------------------------------------------------------------------------------//
