@@ -32,10 +32,10 @@ public class Plancia {
 		ArrayList risorseTorreViola = new ArrayList(ParseXML.leggiValore("numeroSpaziTorri"));
 		
 		for(int i=0; i<numeroSpaziTorre; i++){
-			risorseTorreVerde.add(ParseXML.leggiSpazioTorre(ColoreCarta.VERDE,i));
-			risorseTorreBlu.add(ParseXML.leggiSpazioTorre(ColoreCarta.BLU,i));
-			risorseTorreGialla.add(ParseXML.leggiSpazioTorre(ColoreCarta.GIALLO,i));
-			risorseTorreViola.add(ParseXML.leggiSpazioTorre(ColoreCarta.VIOLA,i));
+			risorseTorreVerde.add(ParseXML.leggiSetRisorseSpazio("verde"+Integer.toString(i))); 
+			risorseTorreBlu.add(ParseXML.leggiSetRisorseSpazio("blu"+Integer.toString(i))); 
+			risorseTorreGialla.add(ParseXML.leggiSetRisorseSpazio("giallo"+Integer.toString(i))); 
+			risorseTorreViola.add(ParseXML.leggiSetRisorseSpazio("viola"+Integer.toString(i))); 
 		}
 		
 		torreVerde = new Torre (numeroSpaziTorre, risorseTorreVerde);
@@ -50,7 +50,7 @@ public class Plancia {
 		
 		spazioProduzione = new SpazioProduzione(ParseXML.leggiValore("valoreMinProduzione")); 
 		spazioRaccolta = new SpazioRaccolta(ParseXML.leggiValore("valoreMinRaccolta"));       
-		spazioConsiglio = new SpazioConsiglio(ParseXML.leggiValore("valoreMinConsiglio"), ParseXML.leggiRisorse("consiglio"));   
+		spazioConsiglio = new SpazioConsiglio(ParseXML.leggiValore("valoreMinConsiglio"), ParseXML.leggiSetRisorseSpazio("consiglio"));   
 		
 		  
 		//-----------------------------------------------------------------------------------------------------------//
@@ -62,12 +62,12 @@ public class Plancia {
 		
 		switch (numeroGiocatori) {
 		
-			case 4: SpazioMercato spazioMercato4 = new SpazioMercato(valoreMinMercato, ParseXML.leggiRisorse("mercato4"));
+			case 4: SpazioMercato spazioMercato4 = new SpazioMercato(valoreMinMercato, ParseXML.leggiSetRisorseSpazio("mercato4"));
 					spaziMercato.add(spazioMercato4);
-			case 3: SpazioMercato spazioMercato3 = new SpazioMercato(valoreMinMercato, ParseXML.leggiRisorse("mercato3"));
+			case 3: SpazioMercato spazioMercato3 = new SpazioMercato(valoreMinMercato, ParseXML.leggiSetRisorseSpazio("mercato3"));
 					spaziMercato.add(spazioMercato3);
-			case 2: SpazioMercato spazioMercato2 = new SpazioMercato(valoreMinMercato, ParseXML.leggiRisorse("mercato2"));
-					SpazioMercato spazioMercato1 = new SpazioMercato(valoreMinMercato, ParseXML.leggiRisorse("mercato1"));
+			case 2: SpazioMercato spazioMercato2 = new SpazioMercato(valoreMinMercato, ParseXML.leggiSetRisorseSpazio("mercato2"));
+					SpazioMercato spazioMercato1 = new SpazioMercato(valoreMinMercato, ParseXML.leggiSetRisorseSpazio("mercato1"));
 					spaziMercato.add(spazioMercato2);
 					spaziMercato.add(spazioMercato1);
 					break;
