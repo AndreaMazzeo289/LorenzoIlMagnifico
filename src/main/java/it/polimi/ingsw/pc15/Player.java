@@ -1,6 +1,7 @@
 package it.polimi.ingsw.pc15;
 
 import java.util.HashSet;
+import java.util.Iterator;
 import java.util.Set;
 
 public class Player {
@@ -67,6 +68,19 @@ public class Player {
 	
 	public Set<Impresa> getImprese() {
 		return this.imprese;
+	}
+	
+	public Familiare getFamiliare(ColoreFamiliare coloreFamiliare){
+		
+		Familiare familiareReturn = null;
+		
+		Iterator<Familiare> itrFamiliari = familiari.iterator();
+		while(itrFamiliari.hasNext()){
+			if(itrFamiliari.next().getColore().equals(coloreFamiliare))
+				familiareReturn = itrFamiliari.next();
+		}
+		
+		return familiareReturn;
 	}
 	
 	public void occupaSpazio (Spazio spazio, Familiare familiare) {
