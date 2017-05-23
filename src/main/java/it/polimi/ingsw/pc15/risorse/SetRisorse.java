@@ -24,8 +24,14 @@ public class SetRisorse {
 	
 	public void aggiungi (SetRisorse setRisorse) {  //aggiunge al setRisorse corrente le risorse del setRisorse passato come parametro
 		
+		for(Map.Entry<TipoRisorsa, Risorsa> risorsa1 : risorse.entrySet()) {
+			for(Map.Entry<TipoRisorsa, Risorsa> risorsa2 : setRisorse.getRisorse().entrySet()) {
+				if(risorsa1.getKey().equals(risorsa2.getKey()))
+					risorsa1.getValue().aggiungi(risorsa2.getValue().getQuantità());
+			}
+		}
 		
-		Iterator<Map.Entry<TipoRisorsa, Risorsa>> it1 = this.risorse.entrySet().iterator();
+		/*Iterator<Map.Entry<TipoRisorsa, Risorsa>> it1 = this.risorse.entrySet().iterator();
 		
 		while(it1.hasNext()){
 			
@@ -38,7 +44,7 @@ public class SetRisorse {
 					it1.next().getValue().aggiungi(it2.next().getValue().getQuantità());
 				}
 			}
-		}
+		}*/
 	}
 	
 	public void sottrai (SetRisorse setRisorse) {  //aggiunge al setRisorse corrente le risorse del setRisorse passato come parametro

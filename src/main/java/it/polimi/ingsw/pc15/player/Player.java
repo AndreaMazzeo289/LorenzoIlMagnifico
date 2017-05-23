@@ -76,10 +76,9 @@ public class Player {
 		
 		Familiare familiareReturn = null;
 		
-		Iterator<Familiare> itrFamiliari = familiari.iterator();
-		while(itrFamiliari.hasNext()){
-			if(itrFamiliari.next().getColore().equals(coloreFamiliare))
-				familiareReturn = itrFamiliari.next();
+		for(Familiare familiare : familiari) {
+			if(familiare.getColore().equals(coloreFamiliare))
+				familiareReturn = familiare;
 		}
 		
 		return familiareReturn;
@@ -89,7 +88,7 @@ public class Player {
 		
 		if (familiare.disponibile()) {
 		
-			familiare.aggiungiServitori();
+			//familiare.aggiungiServitori();
 		
 			if (spazio.occupabile(familiare) ) {
 				

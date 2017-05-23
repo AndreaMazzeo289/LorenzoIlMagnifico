@@ -118,39 +118,16 @@ public class Model extends Observable {
 		
 		Random random = new Random();
 		
-		//Imposto i familiari neri del player ad un valore random
-		valoreDado = random.nextInt(5) + 1;
-		Iterator<Player> itrGiocatoriNero = giocatori.iterator();
-		while(itrGiocatoriNero.hasNext()){
-			
-			itrGiocatoriNero.next().getFamiliare(ColoreFamiliare.NERO).setValore(valoreDado);
-			
-		}
+		int valoreDadoNero = random.nextInt(5) + 1;
+		int valoreDadoBianco = random.nextInt(5) + 1;
+		int valoreDadoArancione = random.nextInt(5) + 1;
 		
-		//Imposto i familiari bianchi del player ad un valore random
-		valoreDado = random.nextInt(5) + 1;
-		Iterator<Player> itrGiocatoriBianco = giocatori.iterator();
-		while(itrGiocatoriBianco.hasNext()){
-			
-			itrGiocatoriBianco.next().getFamiliare(ColoreFamiliare.BIANCO).setValore(valoreDado);
-			
-		}
-		
-		//Imposto i familiari arancioni del player ad un valore random
-		valoreDado = random.nextInt(5) + 1;
-		Iterator<Player> itrGiocatoriArancione = giocatori.iterator();
-		while(itrGiocatoriArancione.hasNext()){
-			
-			itrGiocatoriArancione.next().getFamiliare(ColoreFamiliare.ARANCIONE).setValore(valoreDado);
-			
-		}
-		
-		//Imposto il familiare neutro
-		Iterator<Player> itrGiocatoriNeutro = giocatori.iterator();
-		while(itrGiocatoriNeutro.hasNext()){
-			
-			itrGiocatoriNeutro.next().getFamiliare(ColoreFamiliare.NEUTRO).setValore(0);
-			
+		for(Player player : giocatori) {
+			player.getFamiliare(ColoreFamiliare.NEUTRO).setValore(0);	
+			player.getFamiliare(ColoreFamiliare.NERO).setValore(valoreDadoNero);
+			player.getFamiliare(ColoreFamiliare.BIANCO).setValore(valoreDadoBianco);
+			player.getFamiliare(ColoreFamiliare.ARANCIONE).setValore(valoreDadoArancione);
+					
 		}
 
 	}
