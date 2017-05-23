@@ -36,7 +36,6 @@ public class Model extends Observable {
 	private HashSet<Risorsa> risorse;
 	private SetRisorse setRisorse;
 	private int valoreDado;
-	private Player player;
 	private Plancia plancia;
 	private int turno;
 	private int periodo;
@@ -115,7 +114,8 @@ public class Model extends Observable {
 			
 			SetRisorse setRisorse = new SetRisorse(risorse);
 			
-			giocatori.add(this.player = new Player("noName", setRisorse));
+			Player player;
+			giocatori.add(player = new Player("noName", setRisorse));
 			
 		}
 		
