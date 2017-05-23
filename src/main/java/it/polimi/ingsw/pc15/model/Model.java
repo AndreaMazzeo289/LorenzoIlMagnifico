@@ -34,7 +34,8 @@ public class Model extends Observable {
 	private int numGiocatori;
 	private ArrayList<Player> giocatori;
 	private int valoreDado;
-	private Player player;
+	private Player player1;
+	private Player player2;
 	private Plancia plancia;
 	private int turno;
 	private int periodo;
@@ -75,14 +76,19 @@ public class Model extends Observable {
 		
 		SetRisorse setRisorse = new SetRisorse(risorse); 
 			
-		for(int i = 0; i<numGiocatori; i++){
-			giocatori.add(this.player = new Player("noName", setRisorse));
-			
-	}
+		player1 = new Player("noName", setRisorse);
+		player2 = new Player("noName", setRisorse);
+		giocatori = new ArrayList();
+		giocatori.add(player1);
+		giocatori.add(player2);
+		
+		/*for(int i = 0; i<numGiocatori; i++){
+			giocatori.add(this.player = new Player("noName", setRisorse));*/
+		
 		
 		
 		//imposta randomicamente l'ordine dei giocatori;
-		Collections.shuffle(giocatori);
+		/*Collections.shuffle(giocatori);*/
 		
 	}
 

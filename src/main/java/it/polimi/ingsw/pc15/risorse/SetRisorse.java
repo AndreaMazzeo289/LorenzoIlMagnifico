@@ -81,7 +81,8 @@ public class SetRisorse {
 	}
 	
 	public Risorsa getRisorsa(TipoRisorsa tipoRisorsa){
-	
+		//Risorsa prova = risorse.get(tipoRisorsa);
+		//System.out.println(prova);
 		return risorse.get(tipoRisorsa);
 		
 	}

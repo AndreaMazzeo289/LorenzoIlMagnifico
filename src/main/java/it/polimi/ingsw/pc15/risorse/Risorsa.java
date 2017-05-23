@@ -13,7 +13,6 @@ public abstract class Risorsa {
 	}
 	
 	public void aggiungi (int quantità) {
-		
 		this.quantità += quantità;
 	}
 	

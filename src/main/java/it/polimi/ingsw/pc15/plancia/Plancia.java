@@ -30,12 +30,12 @@ public class Plancia {
 		//          SPAZI TORRE                                                                                      //
 		//-----------------------------------------------------------------------------------------------------------//
 		
-		int numeroSpaziTorre = ParseXML.leggiValore("numeroSpaziTorri");
+		int numeroSpaziTorre = ParseXML.leggiValore("numeroSpaziTorre");
 
-		ArrayList risorseTorreVerde = new ArrayList(ParseXML.leggiValore("numeroSpaziTorri"));
-		ArrayList risorseTorreBlu = new ArrayList(ParseXML.leggiValore("numeroSpaziTorri"));
-		ArrayList risorseTorreGialla = new ArrayList(ParseXML.leggiValore("numeroSpaziTorri"));
-		ArrayList risorseTorreViola = new ArrayList(ParseXML.leggiValore("numeroSpaziTorri"));
+		ArrayList risorseTorreVerde = new ArrayList(numeroSpaziTorre);
+		ArrayList risorseTorreBlu = new ArrayList(numeroSpaziTorre);
+		ArrayList risorseTorreGialla = new ArrayList(numeroSpaziTorre);
+		ArrayList risorseTorreViola = new ArrayList(numeroSpaziTorre);
 		
 		for(int i=0; i<numeroSpaziTorre; i++){
 			risorseTorreVerde.add(ParseXML.leggiSetRisorseSpazio("verde"+Integer.toString(i))); 

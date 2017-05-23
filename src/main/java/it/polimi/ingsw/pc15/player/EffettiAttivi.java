@@ -15,7 +15,7 @@ public class EffettiAttivi {
 		this.bonusDadoCarte = new int[5];
 		for(int i = 0; i<=4; i++){this.bonusDadoCarte[i]=0;}
 		this.bonusDadi = new int[4];
-		for(int i = 0; i<=4; i++){this.bonusDadi[i]=0;}
+		for(int i = 0; i<4; i++){this.bonusDadi[i]=0;}
 		this.bonusRaccolta = 0;
 		this.bonusProduzione = 0;
 		this.bonusPersonaggi = 0;

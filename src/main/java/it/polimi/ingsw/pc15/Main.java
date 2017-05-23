@@ -20,7 +20,7 @@ public class Main {
 		
 		Player player = new Player ("Maffe", null );
 		
-		Model gioco = new Model(4);
+		Model gioco = new Model(2);
 		View view = new View (gioco);
 		Controller controller = new Controller (gioco, view);
 		
