@@ -272,13 +272,10 @@ public class ParseXML {
 	// Descrizione:				Metodo che permette di estrarre gli effetti di tipo moltiplicazione dal file XML
 	//--------------------------------------------------------------------------------------------------------------//
 	public Moltiplicazione leggiEffettoMoltiplicazione(Element effetto) {
-		System.out.println("ciao");
 		
-		int quantita = Integer.parseInt(effetto.getElementsByTagName("quantita").item(0).getFirstChild().getNodeValue());
 		String tipoRisorsa = effetto.getElementsByTagName("tipoRisorsa").item(0).getFirstChild().getNodeValue();
 		
-		
-		
+		int quantita = Integer.parseInt(effetto.getElementsByTagName("quantita").item(0).getFirstChild().getNodeValue());
 		int numLegno = Integer.parseInt(effetto.getElementsByTagName("legno").item(0).getFirstChild().getNodeValue());
 		int numPietra = Integer.parseInt(effetto.getElementsByTagName("pietra").item(0).getFirstChild().getNodeValue());
 		int numOro = Integer.parseInt(effetto.getElementsByTagName("oro").item(0).getFirstChild().getNodeValue());

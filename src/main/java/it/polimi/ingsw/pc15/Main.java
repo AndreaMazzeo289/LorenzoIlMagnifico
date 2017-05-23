@@ -19,11 +19,6 @@ public class Main {
 		//Thread[] threads = new Thread[numeroGiocatori];
 
 		
-		ParseXML parseXML = new ParseXML();
-		
-		parseXML.getEffettoXML("azioneCartaVerde2");
-		Effetto effetto = parseXML.getEffettoXML("moltiplicatore2VxViola");
-		
 		Player player = new Player ("Maffe", null );
 		
 		Model gioco = new Model(2);
