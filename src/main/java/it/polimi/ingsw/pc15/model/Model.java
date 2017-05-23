@@ -165,6 +165,13 @@ public class Model extends Observable {
 
 	}
 	
+	public ArrayList getPlayers() {
+		return this.giocatori;
+	}
+	
+	public Plancia getPlancia() {
+		return this.plancia;
+	}
 	
 	
 

@@ -22,7 +22,7 @@ public class Plancia {
 	private SpazioProduzione spazioProduzione;
 	private SpazioRaccolta spazioRaccolta;
 	private SpazioConsiglio spazioConsiglio;
-	private Set<SpazioMercato> spaziMercato;
+	private ArrayList spaziMercato;
 	
 	public Plancia (int numeroGiocatori) {
 		
@@ -63,7 +63,7 @@ public class Plancia {
 		//           SPAZI MERCATO                                                                                   //
 		//-----------------------------------------------------------------------------------------------------------//
 		
-		spaziMercato = new HashSet<SpazioMercato>();
+		spaziMercato = new ArrayList();
 		int valoreMinMercato = ParseXML.leggiValore("valoreMinMercato");
 		
 		switch (numeroGiocatori) {
@@ -160,7 +160,7 @@ public class Plancia {
 		return this.spazioConsiglio;
 	}
 	
-	public Set<SpazioMercato> getSpaziMercato() {
+	public ArrayList getSpaziMercato() {
 		return this.spaziMercato;
 	}
 
