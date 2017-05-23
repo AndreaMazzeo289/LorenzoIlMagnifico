@@ -4,6 +4,7 @@ import java.io.IOException;
 import java.util.Scanner;
 
 import it.polimi.ingsw.pc15.controller.Controller;
+import it.polimi.ingsw.pc15.effetti.Effetto;
 import it.polimi.ingsw.pc15.model.Model;
 import it.polimi.ingsw.pc15.plancia.Spazio;
 import it.polimi.ingsw.pc15.player.ColoreFamiliare;
@@ -18,11 +19,17 @@ public class Main {
 		//Thread[] threads = new Thread[numeroGiocatori];
 
 		
+		ParseXML parseXML = new ParseXML();
+		
+		parseXML.getEffettoXML("azioneCartaVerde2");
+		Effetto effetto = parseXML.getEffettoXML("moltiplicatore2VxViola");
+		
 		Player player = new Player ("Maffe", null );
 		
 		Model gioco = new Model(2);
 		View view = new View (gioco);
 		Controller controller = new Controller (gioco, view);
+		gioco.iniziaPartita();
 		
 		Scanner in = new Scanner(System.in);
 		

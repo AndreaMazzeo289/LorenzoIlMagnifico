@@ -7,6 +7,7 @@ import java.util.Iterator;
 import java.util.Set;
 
 import it.polimi.ingsw.pc15.ParseXML;
+import it.polimi.ingsw.pc15.carte.Carta;
 import it.polimi.ingsw.pc15.carte.Edificio;
 import it.polimi.ingsw.pc15.carte.Impresa;
 import it.polimi.ingsw.pc15.carte.Personaggio;
@@ -81,17 +82,17 @@ public class Plancia {
 		
 	}
 	
-	public void setTurno (int periodo, Set<Territorio> territori, Set<Personaggio> personaggi, Set<Edificio> edifici, Set<Impresa> imprese){
+	public void setTurno (int periodo, Set<Carta> setCarteTerritorio, Set<Carta> setCartePersonaggio, Set<Carta> setCarteEdificio, Set<Carta> setCarteImpresa){
 		
 		ArrayList arrayTerritori = new ArrayList();
 		ArrayList arrayPersonaggi = new ArrayList();
 		ArrayList arrayEdifici = new ArrayList();
 		ArrayList arrayImprese = new ArrayList();
 		
-		Iterator<Territorio> territorio = territori.iterator();
-		Iterator<Personaggio> personaggio = personaggi.iterator();
-		Iterator<Edificio> edificio = edifici.iterator();
-		Iterator<Impresa> impresa = imprese.iterator();
+		Iterator<Carta> territorio = setCarteTerritorio.iterator();
+		Iterator<Carta> personaggio = setCartePersonaggio.iterator();
+		Iterator<Carta> edificio = setCarteEdificio.iterator();
+		Iterator<Carta> impresa = setCarteImpresa.iterator();
 		
 		int n = 0;
 		int numeroSpaziTorre = ParseXML.leggiValore("numeroSpaziTorri");
@@ -100,7 +101,7 @@ public class Plancia {
 			
 			if (territorio.next().getPeriodo() == periodo) {
 				arrayTerritori.add(territorio.next());
-				territori.remove(territorio.next());
+				setCarteTerritorio.remove(territorio.next());
 				n++;
 			}
 		}
@@ -110,7 +111,7 @@ public class Plancia {
 			
 			if (personaggio.next().getPeriodo() == periodo) {
 				arrayPersonaggi.add(personaggio.next());
-				personaggi.remove(personaggio.next());
+				setCartePersonaggio.remove(personaggio.next());
 				n++;
 			}			
 		}
@@ -120,7 +121,7 @@ public class Plancia {
 			
 			if (edificio.next().getPeriodo() == periodo) {
 				arrayEdifici.add(edificio.next());
-				edifici.remove(edificio.next());
+				setCarteEdificio.remove(edificio.next());
 				n++;
 			}			
 		}
@@ -130,7 +131,7 @@ public class Plancia {
 			
 			if (impresa.next().getPeriodo() == periodo) {
 				arrayImprese.add(impresa.next());
-				imprese.remove(impresa.next());
+				setCarteImpresa.remove(impresa.next());
 				n++;
 			}			
 		}

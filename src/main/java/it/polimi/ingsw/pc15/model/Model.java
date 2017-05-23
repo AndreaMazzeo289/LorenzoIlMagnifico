@@ -9,6 +9,7 @@ import java.util.Random;
 import java.util.Set;
 
 import it.polimi.ingsw.pc15.ParseXML;
+import it.polimi.ingsw.pc15.carte.Carta;
 import it.polimi.ingsw.pc15.carte.ColoreCarta;
 import it.polimi.ingsw.pc15.carte.Edificio;
 import it.polimi.ingsw.pc15.carte.Impresa;
@@ -40,10 +41,10 @@ public class Model extends Observable {
 	private int turno;
 	private int periodo;
 	private ParseXML parseXML;
-	private Set<Territorio> setCarteTerritorio;
-	private Set<Personaggio> setCartePersonaggio;
-	private Set<Edificio> setCarteEdificio;
-	private Set<Impresa> setCarteImpresa;
+	private Set<Carta> setCarteTerritorio;
+	private Set<Carta> setCartePersonaggio;
+	private Set<Carta> setCarteEdificio;
+	private Set<Carta> setCarteImpresa;
 	
 	
 	public Model(int numGiocatori){
@@ -92,37 +93,13 @@ public class Model extends Observable {
 		
 	}
 
-	public void iniziaPartita(){
+	public void iniziaPartita() {
 		
-		// Istanziazione carte territorio :
-		//----------------------------------	
-
-		for(int i = 0; i<ParseXML.leggiValore("numeroCarteVerdi"); i++){
-
-			setCarteTerritorio.add((Territorio) parseXML.getCartaXML(ColoreCarta.VERDE));	
-		}
+		setCarteTerritorio= parseXML.getCartaXML(ColoreCarta.VERDE);
+		setCarteEdificio= parseXML.getCartaXML(ColoreCarta.GIALLO);
+		setCartePersonaggio= parseXML.getCartaXML(ColoreCarta.BLU);
+		setCarteImpresa= parseXML.getCartaXML(ColoreCarta.VIOLA);
 		
-		// Istanziazione carte personaggio :
-		//----------------------------------
-
-		for(int i = 0; i<ParseXML.leggiValore("numeroCarteBlu"); i++){
-			setCartePersonaggio.add((Personaggio) parseXML.getCartaXML(ColoreCarta.BLU));
-		}
-		
-		// Istanziazione carte edicio :
-		//----------------------------------
-		
-		for(int i = 0; i<ParseXML.leggiValore("numeroCarteGialle"); i++){
-
-			setCarteEdificio.add((Edificio) parseXML.getCartaXML(ColoreCarta.GIALLO));
-		}
-		
-		// Istanziazione carte impresa :
-		//----------------------------------
-
-		for (int i = 0; i<ParseXML.leggiValore("numeroCarteViola"); i++){
-			setCarteImpresa.add((Impresa) parseXML.getCartaXML(ColoreCarta.VIOLA));
-		}
 		
 	}
 	
