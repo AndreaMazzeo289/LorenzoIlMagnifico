@@ -1,0 +1,1683 @@
+<effetti>
+	<!--*********************************************************************************************
+			                    _                   _        _                         
+			   __ _  __ _  __ _(_)_   _ _ __   __ _(_)  _ __(_)___  ___  _ __ ___  ___ 
+			  / _` |/ _` |/ _` | | | | | '_ \ / _` | | | '__| / __|/ _ \| '__/ __|/ _ \
+			 | (_| | (_| | (_| | | |_| | | | | (_| | | | |  | \__ \ (_) | |  \__ \  __/
+			  \__,_|\__, |\__, |_|\__,_|_| |_|\__, |_| |_|  |_|___/\___/|_|  |___/\___|
+			        |___/ |___/               |___/                                    
+
+	***********************************************************************************************-->
+
+	<!--***************************************************************************
+
+	Effetti permanenti combinati
+
+	****************************************************************************-->
+	<effetto nome="aggiungiRisorse2Vand1Pr" idEffetto="addRisorsa">
+		<legno>0</legno>
+		<pietra>0</pietra>
+		<oro>0</oro>
+		<servitori>0</servitori>
+		<puntiFede>0</puntiFede>
+		<puntiMilitari>0</puntiMilitari>
+		<puntiVittoria>2</puntiVittoria>
+		<privilegi>1</privilegi>
+	</effetto>
+
+	<effetto nome="aggiungiRisorse2PMand2V" idEffetto="addRisorsa">
+		<legno>0</legno>
+		<pietra>0</pietra>
+		<oro>0</oro>
+		<servitori>0</servitori>
+		<puntiFede>0</puntiFede>
+		<puntiMilitari>2</puntiMilitari>
+		<puntiVittoria>2</puntiVittoria>
+		<privilegi>0</privilegi>
+	</effetto>
+
+	<effetto nome="aggiungiRisorse1Oand1S" idEffetto="addRisorsa">
+		<legno>0</legno>
+		<pietra>0</pietra>
+		<oro>1</oro>
+		<servitori>1</servitori>
+		<puntiFede>0</puntiFede>
+		<puntiMilitari>0</puntiMilitari>
+		<puntiVittoria>0</puntiVittoria>
+		<privilegi>0</privilegi>
+	</effetto>
+
+	<effetto nome="aggiungiRisorse1Fand1P" idEffetto="addRisorsa">
+		<legno>0</legno>
+		<pietra>1</pietra>
+		<oro>0</oro>
+		<servitori>0</servitori>
+		<puntiFede>1</puntiFede>
+		<puntiMilitari>0</puntiMilitari>
+		<puntiVittoria>0</puntiVittoria>
+		<privilegi>0</privilegi>
+	</effetto>
+
+	<effetto nome="aggiungiRisorse2PMand1P" idEffetto="addRisorsa">
+		<legno>0</legno>
+		<pietra>1</pietra>
+		<oro>0</oro>
+		<servitori>0</servitori>
+		<puntiFede>0</puntiFede>
+		<puntiMilitari>2</puntiMilitari>
+		<puntiVittoria>0</puntiVittoria>
+		<privilegi>0</privilegi>
+	</effetto>
+
+	<effetto nome="aggiungiRisorse1Pr" idEffetto="addRisorsa">
+		<legno>0</legno>
+		<pietra>0</pietra>
+		<oro>0</oro>
+		<servitori>0</servitori>
+		<puntiFede>0</puntiFede>
+		<puntiMilitari>0</puntiMilitari>
+		<puntiVittoria>0</puntiVittoria>
+		<privilegi>1</privilegi>
+	</effetto>
+
+	<effetto nome="aggiungiRisorse1PMand2L" idEffetto="addRisorsa">
+		<legno>2</legno>
+		<pietra>0</pietra>
+		<oro>0</oro>
+		<servitori>0</servitori>
+		<puntiFede>0</puntiFede>
+		<puntiMilitari>1</puntiMilitari>
+		<puntiVittoria>0</puntiVittoria>
+		<privilegi>0</privilegi>
+	</effetto>
+
+	<effetto nome="aggiungiRisorse1Sand2P" idEffetto="addRisorsa">
+		<legno>0</legno>
+		<pietra>2</pietra>
+		<oro>0</oro>
+		<servitori>1</servitori>
+		<puntiFede>0</puntiFede>
+		<puntiMilitari>0</puntiMilitari>
+		<puntiVittoria>0</puntiVittoria>
+		<privilegi>0</privilegi>
+	</effetto>
+
+	<effetto nome="aggiungiRisorse1Oand2L" idEffetto="addRisorsa">
+		<legno>2</legno>
+		<pietra>0</pietra>
+		<oro>1</oro>
+		<servitori>0</servitori>
+		<puntiFede>0</puntiFede>
+		<puntiMilitari>0</puntiMilitari>
+		<puntiVittoria>0</puntiVittoria>
+		<privilegi>0</privilegi>
+	</effetto>
+
+	<effetto nome="aggiungiRisorse2PMand2S" idEffetto="addRisorsa">
+		<legno>0</legno>
+		<pietra>0</pietra>
+		<oro>0</oro>
+		<servitori>2</servitori>
+		<puntiFede>0</puntiFede>
+		<puntiMilitari>2</puntiMilitari>
+		<puntiVittoria>0</puntiVittoria>
+		<privilegi>0</privilegi>
+	</effetto>
+
+	<effetto nome="aggiungiRisorse1Oand1Pand2L" idEffetto="addRisorsa">
+		<legno>2</legno>
+		<pietra>1</pietra>
+		<oro>1</oro>
+		<servitori>0</servitori>
+		<puntiFede>0</puntiFede>
+		<puntiMilitari>0</puntiMilitari>
+		<puntiVittoria>0</puntiVittoria>
+		<privilegi>0</privilegi>
+	</effetto>
+
+	<effetto nome="aggiungiRisorse2Vand2L" idEffetto="addRisorsa">
+		<legno>2</legno>
+		<pietra>0</pietra>
+		<oro>0</oro>
+		<servitori>0</servitori>
+		<puntiFede>0</puntiFede>
+		<puntiMilitari>0</puntiMilitari>
+		<puntiVittoria>2</puntiVittoria>
+		<privilegi>0</privilegi>
+	</effetto>
+
+	<effetto nome="aggiungiRisorse4Vand1L" idEffetto="addRisorsa">
+		<legno>1</legno>
+		<pietra>0</pietra>
+		<oro>0</oro>
+		<servitori>0</servitori>
+		<puntiFede>0</puntiFede>
+		<puntiMilitari>0</puntiMilitari>
+		<puntiVittoria>4</puntiVittoria>
+		<privilegi>0</privilegi>
+	</effetto>
+
+	<effetto nome="aggiungiRisorse1Vand2P" idEffetto="addRisorsa">
+		<legno>0</legno>
+		<pietra>2</pietra>
+		<oro>0</oro>
+		<servitori>0</servitori>
+		<puntiFede>0</puntiFede>
+		<puntiMilitari>0</puntiMilitari>
+		<puntiVittoria>1</puntiVittoria>
+		<privilegi>0</privilegi>
+	</effetto>
+
+	<effetto nome="aggiungiRisorse4Vand1P" idEffetto="addRisorsa">
+		<legno>0</legno>
+		<pietra>1</pietra>
+		<oro>0</oro>
+		<servitori>0</servitori>
+		<puntiFede>0</puntiFede>
+		<puntiMilitari>0</puntiMilitari>
+		<puntiVittoria>4</puntiVittoria>
+		<privilegi>0</privilegi>
+	</effetto>
+
+	<effetto nome="aggiungiRisorse1Oand1F" idEffetto="addRisorsa">
+		<legno>0</legno>
+		<pietra>0</pietra>
+		<oro>1</oro>
+		<servitori>0</servitori>
+		<puntiFede>1</puntiFede>
+		<puntiMilitari>0</puntiMilitari>
+		<puntiVittoria>0</puntiVittoria>
+		<privilegi>0</privilegi>
+	</effetto>
+
+	<effetto nome="aggiungiRisorse3PMand1S" idEffetto="addRisorsa">
+		<legno>0</legno>
+		<pietra>0</pietra>
+		<oro>0</oro>
+		<servitori>1</servitori>
+		<puntiFede>0</puntiFede>
+		<puntiMilitari>3</puntiMilitari>
+		<puntiVittoria>0</puntiVittoria>
+		<privilegi>0</privilegi>
+	</effetto>
+
+	<effetto nome="aggiungiRisorse1PMand2S" idEffetto="addRisorsa">
+		<legno>0</legno>
+		<pietra>0</pietra>
+		<oro>0</oro>
+		<servitori>2</servitori>
+		<puntiFede>0</puntiFede>
+		<puntiMilitari>1</puntiMilitari>
+		<puntiVittoria>0</puntiVittoria>
+		<privilegi>0</privilegi>
+	</effetto>
+
+	<!--***************************************************************************
+
+	Tipo risorsa: LEGNA
+
+	****************************************************************************-->
+	<effetto nome="aggiungiRisorse1L" idEffetto="addRisorsa">
+		<legno>1</legno>
+		<pietra>0</pietra>
+		<oro>0</oro>
+		<servitori>0</servitori>
+		<puntiFede>0</puntiFede>
+		<puntiMilitari>0</puntiMilitari>
+		<puntiVittoria>0</puntiVittoria>
+		<privilegi>0</privilegi>
+	</effetto>
+	<effetto nome="aggiungiRisorse2L" idEffetto="addRisorsa">
+		<legno>2</legno>
+		<pietra>0</pietra>
+		<oro>0</oro>
+		<servitori>0</servitori>
+		<puntiFede>0</puntiFede>
+		<puntiMilitari>0</puntiMilitari>
+		<puntiVittoria>0</puntiVittoria>
+		<privilegi>0</privilegi>
+	</effetto>
+	<effetto nome="aggiungiRisorse3L" idEffetto="addRisorsa">
+		<legno>3</legno>
+		<pietra>0</pietra>
+		<oro>0</oro>
+		<servitori>0</servitori>
+		<puntiFede>0</puntiFede>
+		<puntiMilitari>0</puntiMilitari>
+		<puntiVittoria>0</puntiVittoria>
+		<privilegi>0</privilegi>
+	</effetto>
+
+	<!--***************************************************************************
+
+	Tipo risorsa: PIETRA
+
+	****************************************************************************-->
+
+	<effetto nome="aggiungiRisorse1P" idEffetto="addRisorsa">
+		<legno>0</legno>
+		<pietra>1</pietra>
+		<oro>0</oro>
+		<servitori>0</servitori>
+		<puntiFede>0</puntiFede>
+		<puntiMilitari>0</puntiMilitari>
+		<puntiVittoria>0</puntiVittoria>
+		<privilegi>0</privilegi>
+	</effetto>
+	<effetto nome="aggiungiRisorse2P" idEffetto="addRisorsa">
+		<legno>0</legno>
+		<pietra>2</pietra>
+		<oro>0</oro>
+		<servitori>0</servitori>
+		<puntiFede>0</puntiFede>
+		<puntiMilitari>0</puntiMilitari>
+		<puntiVittoria>0</puntiVittoria>
+		<privilegi>0</privilegi>
+	</effetto>
+	<effetto nome="aggiungiRisorse3P" idEffetto="addRisorsa">
+		<legno>0</legno>
+		<pietra>3</pietra>
+		<oro>0</oro>
+		<servitori>0</servitori>
+		<puntiFede>0</puntiFede>
+		<puntiMilitari>0</puntiMilitari>
+		<puntiVittoria>0</puntiVittoria>
+		<privilegi>0</privilegi>
+	</effetto>
+
+	<!--***************************************************************************
+
+	Tipo risorsa: ORO
+
+	****************************************************************************-->
+
+	<effetto nome="aggiungiRisorse1O" idEffetto="addRisorsa">
+		<legno>0</legno>
+		<pietra>0</pietra>
+		<oro>1</oro>
+		<servitori>0</servitori>
+		<puntiFede>0</puntiFede>
+		<puntiMilitari>0</puntiMilitari>
+		<puntiVittoria>0</puntiVittoria>
+		<privilegi>0</privilegi>
+	</effetto>
+	<effetto nome="aggiungiRisorse2O" idEffetto="addRisorsa">
+		<legno>0</legno>
+		<pietra>0</pietra>
+		<oro>2</oro>
+		<servitori>0</servitori>
+		<puntiFede>0</puntiFede>
+		<puntiMilitari>0</puntiMilitari>
+		<puntiVittoria>0</puntiVittoria>
+		<privilegi>0</privilegi>
+	</effetto>
+	<effetto nome="aggiungiRisorse3O" idEffetto="addRisorsa">
+		<legno>0</legno>
+		<pietra>0</pietra>
+		<oro>3</oro>
+		<servitori>0</servitori>
+		<puntiFede>0</puntiFede>
+		<puntiMilitari>0</puntiMilitari>
+		<puntiVittoria>0</puntiVittoria>
+		<privilegi>0</privilegi>
+	</effetto>
+	<effetto nome="aggiungiRisorse4O" idEffetto="addRisorsa">
+		<legno>0</legno>
+		<pietra>0</pietra>
+		<oro>4</oro>
+		<servitori>0</servitori>
+		<puntiFede>0</puntiFede>
+		<puntiMilitari>0</puntiMilitari>
+		<puntiVittoria>0</puntiVittoria>
+		<privilegi>0</privilegi>
+	</effetto>
+	<effetto nome="aggiungiRisorse5O" idEffetto="addRisorsa">
+		<legno>0</legno>
+		<pietra>0</pietra>
+		<oro>5</oro>
+		<servitori>0</servitori>
+		<puntiFede>0</puntiFede>
+		<puntiMilitari>0</puntiMilitari>
+		<puntiVittoria>0</puntiVittoria>
+		<privilegi>0</privilegi>
+	</effetto>
+
+	<!--***************************************************************************
+
+	Tipo risorsa: SERVITORI
+
+	****************************************************************************-->
+
+	<effetto nome="aggiungiRisorse1S" idEffetto="addRisorsa">
+		<legno>0</legno>
+		<pietra>0</pietra>
+		<oro>0</oro>
+		<servitori>1</servitori>
+		<puntiFede>0</puntiFede>
+		<puntiMilitari>0</puntiMilitari>
+		<puntiVittoria>0</puntiVittoria>
+		<privilegi>0</privilegi>
+	</effetto>
+	<effetto nome="aggiungiRisorse2S" idEffetto="addRisorsa">
+		<legno>0</legno>
+		<pietra>0</pietra>
+		<oro>0</oro>
+		<servitori>2</servitori>
+		<puntiFede>0</puntiFede>
+		<puntiMilitari>0</puntiMilitari>
+		<puntiVittoria>0</puntiVittoria>
+		<privilegi>0</privilegi>
+	</effetto>
+	<effetto nome="aggiungiRisorse3S" idEffetto="addRisorsa">
+		<legno>0</legno>
+		<pietra>0</pietra>
+		<oro>0</oro>
+		<servitori>3</servitori>
+		<puntiFede>0</puntiFede>
+		<puntiMilitari>0</puntiMilitari>
+		<puntiVittoria>0</puntiVittoria>
+		<privilegi>0</privilegi>
+	</effetto>
+	<effetto nome="aggiungiRisorse4S" idEffetto="addRisorsa">
+		<legno>0</legno>
+		<pietra>0</pietra>
+		<oro>0</oro>
+		<servitori>4</servitori>
+		<puntiFede>0</puntiFede>
+		<puntiMilitari>0</puntiMilitari>
+		<puntiVittoria>0</puntiVittoria>
+		<privilegi>0</privilegi>
+	</effetto>
+	<effetto nome="aggiungiRisorse5S" idEffetto="addRisorsa">
+		<legno>0</legno>
+		<pietra>0</pietra>
+		<oro>0</oro>
+		<servitori>5</servitori>
+		<puntiFede>0</puntiFede>
+		<puntiMilitari>0</puntiMilitari>
+		<puntiVittoria>0</puntiVittoria>
+		<privilegi>0</privilegi>
+	</effetto>
+
+	<!--***************************************************************************
+
+	Tipo risorsa: PUNTI VITTORIA
+
+	****************************************************************************-->
+	
+	<effetto nome="aggiungiRisorse1V" idEffetto="addRisorsa">
+		<legno>0</legno>
+		<pietra>0</pietra>
+		<oro>0</oro>
+		<servitori>0</servitori>
+		<puntiFede>0</puntiFede>
+		<puntiMilitari>0</puntiMilitari>
+		<puntiVittoria>1</puntiVittoria>
+		<privilegi>0</privilegi>
+	</effetto>
+	<effetto nome="aggiungiRisorse2V" idEffetto="addRisorsa">
+		<legno>0</legno>
+		<pietra>0</pietra>
+		<oro>0</oro>
+		<servitori>0</servitori>
+		<puntiFede>0</puntiFede>
+		<puntiMilitari>0</puntiMilitari>
+		<puntiVittoria>2</puntiVittoria>
+		<privilegi>0</privilegi>
+	</effetto>
+	<effetto nome="aggiungiRisorse3V" idEffetto="addRisorsa">
+		<legno>0</legno>
+		<pietra>0</pietra>
+		<oro>0</oro>
+		<servitori>0</servitori>
+		<puntiFede>0</puntiFede>
+		<puntiMilitari>0</puntiMilitari>
+		<puntiVittoria>3</puntiVittoria>
+		<privilegi>0</privilegi>
+	</effetto>
+	<effetto nome="aggiungiRisorse4V" idEffetto="addRisorsa">
+		<legno>0</legno>
+		<pietra>0</pietra>
+		<oro>0</oro>
+		<servitori>0</servitori>
+		<puntiFede>0</puntiFede>
+		<puntiMilitari>0</puntiMilitari>
+		<puntiVittoria>4</puntiVittoria>
+		<privilegi>0</privilegi>
+	</effetto>
+	<effetto nome="aggiungiRisorse5V" idEffetto="addRisorsa">
+		<legno>0</legno>
+		<pietra>0</pietra>
+		<oro>0</oro>
+		<servitori>0</servitori>
+		<puntiFede>0</puntiFede>
+		<puntiMilitari>0</puntiMilitari>
+		<puntiVittoria>5</puntiVittoria>
+		<privilegi>0</privilegi>
+	</effetto>
+	<effetto nome="aggiungiRisorse6V" idEffetto="addRisorsa">
+		<legno>0</legno>
+		<pietra>0</pietra>
+		<oro>0</oro>
+		<servitori>0</servitori>
+		<puntiFede>0</puntiFede>
+		<puntiMilitari>0</puntiMilitari>
+		<puntiVittoria>6</puntiVittoria>
+		<privilegi>0</privilegi>
+	</effetto>
+	<effetto nome="aggiungiRisorse7V" idEffetto="addRisorsa">
+		<legno>0</legno>
+		<pietra>0</pietra>
+		<oro>0</oro>
+		<servitori>0</servitori>
+		<puntiFede>0</puntiFede>
+		<puntiMilitari>0</puntiMilitari>
+		<puntiVittoria>7</puntiVittoria>
+		<privilegi>0</privilegi>
+	</effetto>
+	<effetto nome="aggiungiRisorse8V" idEffetto="addRisorsa">
+		<legno>0</legno>
+		<pietra>0</pietra>
+		<oro>0</oro>
+		<servitori>0</servitori>
+		<puntiFede>0</puntiFede>
+		<puntiMilitari>0</puntiMilitari>
+		<puntiVittoria>8</puntiVittoria>
+		<privilegi>0</privilegi>
+	</effetto>
+	<effetto nome="aggiungiRisorse9V" idEffetto="addRisorsa">
+		<legno>0</legno>
+		<pietra>0</pietra>
+		<oro>0</oro>
+		<servitori>0</servitori>
+		<puntiFede>0</puntiFede>
+		<puntiMilitari>0</puntiMilitari>
+		<puntiVittoria>9</puntiVittoria>
+		<privilegi>0</privilegi>
+	</effetto>
+	<effetto nome="aggiungiRisorse10V" idEffetto="addRisorsa">
+		<legno>0</legno>
+		<pietra>0</pietra>
+		<oro>0</oro>
+		<servitori>0</servitori>
+		<puntiFede>0</puntiFede>
+		<puntiMilitari>0</puntiMilitari>
+		<puntiVittoria>10</puntiVittoria>
+		<privilegi>0</privilegi>
+	</effetto>
+
+	<!--***************************************************************************
+
+	Tipo risorsa: PUNTI MILITARI
+
+	****************************************************************************-->
+
+	<effetto nome="aggiungiRisorse2PM" idEffetto="addRisorsa">
+		<legno>0</legno>
+		<pietra>0</pietra>
+		<oro>0</oro>
+		<servitori>0</servitori>
+		<puntiFede>0</puntiFede>
+		<puntiMilitari>2</puntiMilitari>
+		<puntiVittoria>0</puntiVittoria>
+		<privilegi>0</privilegi>
+	</effetto>
+	<effetto nome="aggiungiRisorse3PM" idEffetto="addRisorsa">
+		<legno>0</legno>
+		<pietra>0</pietra>
+		<oro>0</oro>
+		<servitori>0</servitori>
+		<puntiFede>0</puntiFede>
+		<puntiMilitari>3</puntiMilitari>
+		<puntiVittoria>0</puntiVittoria>
+		<privilegi>0</privilegi>
+	</effetto>
+	<effetto nome="aggiungiRisorse4PM" idEffetto="addRisorsa">
+		<legno>0</legno>
+		<pietra>0</pietra>
+		<oro>0</oro>
+		<servitori>0</servitori>
+		<puntiFede>0</puntiFede>
+		<puntiMilitari>4</puntiMilitari>
+		<puntiVittoria>0</puntiVittoria>
+		<privilegi>0</privilegi>
+	</effetto>
+	<effetto nome="aggiungiRisorse5PM" idEffetto="addRisorsa">
+		<legno>0</legno>
+		<pietra>0</pietra>
+		<oro>0</oro>
+		<servitori>0</servitori>
+		<puntiFede>0</puntiFede>
+		<puntiMilitari>5</puntiMilitari>
+		<puntiVittoria>0</puntiVittoria>
+		<privilegi>0</privilegi>
+	</effetto>
+	<effetto nome="aggiungiRisorse6PM" idEffetto="addRisorsa">
+		<legno>0</legno>
+		<pietra>0</pietra>
+		<oro>0</oro>
+		<servitori>0</servitori>
+		<puntiFede>0</puntiFede>
+		<puntiMilitari>6</puntiMilitari>
+		<puntiVittoria>0</puntiVittoria>
+		<privilegi>0</privilegi>
+	</effetto>
+	<effetto nome="aggiungiRisorse7PM" idEffetto="addRisorsa">
+		<legno>0</legno>
+		<pietra>0</pietra>
+		<oro>0</oro>
+		<servitori>0</servitori>
+		<puntiFede>0</puntiFede>
+		<puntiMilitari>7</puntiMilitari>
+		<puntiVittoria>0</puntiVittoria>
+		<privilegi>0</privilegi>
+	</effetto>
+
+	<!--***************************************************************************
+
+	Tipo risorsa: PUNTI FEDE
+
+	****************************************************************************-->
+
+	<effetto nome="aggiungiRisorse1F" idEffetto="addRisorsa">
+		<legno>0</legno>
+		<pietra>0</pietra>
+		<oro>0</oro>
+		<servitori>0</servitori>
+		<puntiFede>1</puntiFede>
+		<puntiMilitari>0</puntiMilitari>
+		<puntiVittoria>0</puntiVittoria>
+		<privilegi>0</privilegi>
+	</effetto>
+	<effetto nome="aggiungiRisorse2F" idEffetto="addRisorsa">
+		<legno>0</legno>
+		<pietra>0</pietra>
+		<oro>0</oro>
+		<servitori>0</servitori>
+		<puntiFede>2</puntiFede>
+		<puntiMilitari>0</puntiMilitari>
+		<puntiVittoria>0</puntiVittoria>
+		<privilegi>0</privilegi>
+	</effetto>
+	<effetto nome="aggiungiRisorse3F" idEffetto="addRisorsa">
+		<legno>0</legno>
+		<pietra>0</pietra>
+		<oro>0</oro>
+		<servitori>0</servitori>
+		<puntiFede>3</puntiFede>
+		<puntiMilitari>0</puntiMilitari>
+		<puntiVittoria>0</puntiVittoria>
+		<privilegi>0</privilegi>
+	</effetto>
+	<effetto nome="aggiungiRisorse4F" idEffetto="addRisorsa">
+		<legno>0</legno>
+		<pietra>0</pietra>
+		<oro>0</oro>
+		<servitori>0</servitori>
+		<puntiFede>4</puntiFede>
+		<puntiMilitari>0</puntiMilitari>
+		<puntiVittoria>0</puntiVittoria>
+		<privilegi>0</privilegi>
+	</effetto>
+
+	<!--***************************************************************************
+
+	Tipo risorsa: PRIVILEGI
+
+	****************************************************************************-->
+
+	<effetto nome="aggiungiRisorse1Pr" idEffetto="addRisorsa">
+		<legno>0</legno>
+		<pietra>0</pietra>
+		<oro>0</oro>
+		<servitori>0</servitori>
+		<puntiFede>0</puntiFede>
+		<puntiMilitari>0</puntiMilitari>
+		<puntiVittoria>0</puntiVittoria>
+		<privilegi>1</privilegi>
+	</effetto>
+	<effetto nome="aggiungiRisorse2PrDiv" idEffetto="addRisorsa">
+		<legno>0</legno>
+		<pietra>0</pietra>
+		<oro>0</oro>
+		<servitori>0</servitori>
+		<puntiFede>0</puntiFede>
+		<puntiMilitari>0</puntiMilitari>
+		<puntiVittoria>0</puntiVittoria>
+		<privilegi>2</privilegi>
+	</effetto>
+	<effetto nome="aggiungiRisorse3PrDiv" idEffetto="addRisorsa">
+		<legno>0</legno>
+		<pietra>0</pietra>
+		<oro>0</oro>
+		<servitori>0</servitori>
+		<puntiFede>0</puntiFede>
+		<puntiMilitari>0</puntiMilitari>
+		<puntiVittoria>0</puntiVittoria>
+		<privilegi>3</privilegi>
+	</effetto>
+
+	<!--*********************************************************************************************
+								     _    ________ ___  _   _ _____ 
+								    / \  |__  /_ _/ _ \| \ | | ____|
+								   / _ \   / / | | | | |  \| |  _|  
+								  / ___ \ / /_ | | |_| | |\  | |___ 
+								 /_/   \_\____|___\___/|_| \_|_____|
+                                    
+	***********************************************************************************************-->
+
+	<!--***************************************************************************
+
+	Tipo azione: RACCOLTA
+
+	****************************************************************************-->
+	
+	<effetto nome="azioneRaccolta1" idEffetto="azione" idAzione="RACCOLTA">
+		<valoreDado>1</valoreDado>
+	</effetto>
+	<effetto nome="azioneRaccolta2" idEffetto="azione" idAzione="raccolta">
+		<valoreDado>2</valoreDado>
+	</effetto>
+	<effetto nome="azioneRaccolta3" idEffetto="azione" idAzione="raccolta">
+		<valoreDado>3</valoreDado>
+	</effetto>
+	<effetto nome="azioneRaccolta4" idEffetto="azione" idAzione="raccolta">
+		<valoreDado>4</valoreDado>
+	</effetto>
+	<effetto nome="azioneRaccolta5" idEffetto="azione" idAzione="raccolta">
+		<valoreDado>5</valoreDado>
+	</effetto>
+	<effetto nome="azioneRaccolta6" idEffetto="azione" idAzione="raccolta">
+		<valoreDado>6</valoreDado>
+	</effetto>
+
+	<!--***************************************************************************
+
+	Tipo azione: PRODUZIONE
+
+	****************************************************************************-->
+	
+	<effetto nome="azioneProduzione1" idEffetto="azione" idAzione="produzione">
+		<valoreDado>1</valoreDado>
+	</effetto>
+	<effetto nome="azioneProduzione2" idEffetto="azione" idAzione="produzione">
+		<valoreDado>2</valoreDado>
+	</effetto>
+	<effetto nome="azioneProduzione3" idEffetto="azione" idAzione="produzione">
+		<valoreDado>3</valoreDado>
+	</effetto>
+	<effetto nome="azioneProduzione4" idEffetto="azione" idAzione="produzione">
+		<valoreDado>4</valoreDado>
+	</effetto>
+	<effetto nome="azioneProduzione5" idEffetto="azione" idAzione="produzione">
+		<valoreDado>5</valoreDado>
+	</effetto>
+	<effetto nome="azioneProduzione6" idEffetto="azione" idAzione="produzione">
+		<valoreDado>6</valoreDado>
+	</effetto>
+	
+	<!--***************************************************************************
+
+	Tipo azione: CARTA
+
+	****************************************************************************-->
+
+	<!--****************************CARTE VERDI*********************************-->
+
+	<effetto nome="azioneCartaVerde1" idEffetto="azione" idAzione="carta">
+		<valoreDado>1</valoreDado>
+		<coloreCarta>verde</coloreCarta>
+	</effetto>
+	<effetto nome="azioneCartaVerde2" idEffetto="azione" idAzione="carta">
+		<valoreDado>2</valoreDado>
+		<coloreCarta>verde</coloreCarta>
+	</effetto>
+	<effetto nome="azioneCartaVerde3" idEffetto="azione" idAzione="carta">
+		<valoreDado>3</valoreDado>
+		<coloreCarta>verde</coloreCarta>
+	</effetto>
+	<effetto nome="azioneCartaVerde4" idEffetto="azione" idAzione="carta">
+		<valoreDado>4</valoreDado>
+		<coloreCarta>verde</coloreCarta>
+	</effetto>
+	<effetto nome="azioneCartaVerde5" idEffetto="azione" idAzione="carta">
+		<valoreDado>5</valoreDado>
+		<coloreCarta>verde</coloreCarta>
+	</effetto>
+	<effetto nome="azioneCartaVerde6" idEffetto="azione" idAzione="carta">
+		<valoreDado>6</valoreDado>
+		<coloreCarta>verde</coloreCarta>
+	</effetto>
+
+	<!--****************************CARTE GIALLE*********************************-->
+
+	<effetto nome="azioneCartaGialla1" idEffetto="azione" idAzione="carta">
+		<valoreDado>1</valoreDado>
+		<coloreCarta>giallo</coloreCarta>
+	</effetto>
+	<effetto nome="azioneCartaGialla2" idEffetto="azione" idAzione="carta">
+		<valoreDado>2</valoreDado>
+		<coloreCarta>giallo</coloreCarta>
+	</effetto>
+	<effetto nome="azioneCartaGialla3" idEffetto="azione" idAzione="carta">
+		<valoreDado>3</valoreDado>
+		<coloreCarta>giallo</coloreCarta>
+	</effetto>
+	<effetto nome="azioneCartaGialla4" idEffetto="azione" idAzione="carta">
+		<valoreDado>4</valoreDado>
+		<coloreCarta>giallo</coloreCarta>
+	</effetto>
+	<effetto nome="azioneCartaGialla5" idEffetto="azione" idAzione="carta">
+		<valoreDado>5</valoreDado>
+		<coloreCarta>giallo</coloreCarta>
+	</effetto>
+	<effetto nome="azioneCartaGialla6" idEffetto="azione" idAzione="carta">
+		<valoreDado>6</valoreDado>
+		<coloreCarta>giallo</coloreCarta>
+	</effetto>
+
+	<!--****************************CARTE BLU*********************************-->
+
+	<effetto nome="azioneCartaBlu1" idEffetto="azione" idAzione="carta">
+		<valoreDado>1</valoreDado>
+		<coloreCarta>blu</coloreCarta>
+	</effetto>
+	<effetto nome="azioneCartaBlu2" idEffetto="azione" idAzione="carta">
+		<valoreDado>2</valoreDado>
+		<coloreCarta>blu</coloreCarta>
+	</effetto>
+	<effetto nome="azioneCartaBlu3" idEffetto="azione" idAzione="carta">
+		<valoreDado>3</valoreDado>
+		<coloreCarta>blu</coloreCarta>
+	</effetto>
+	<effetto nome="azioneCartaBlu4" idEffetto="azione" idAzione="carta">
+		<valoreDado>4</valoreDado>
+		<coloreCarta>blu</coloreCarta>
+	</effetto>
+	<effetto nome="azioneCartaBlu5" idEffetto="azione" idAzione="carta">
+		<valoreDado>5</valoreDado>
+		<coloreCarta>blu</coloreCarta>
+	</effetto>
+	<effetto nome="azioneCartaBlu6" idEffetto="azione" idAzione="carta">
+		<valoreDado>6</valoreDado>
+		<coloreCarta>blu</coloreCarta>
+	</effetto>
+
+	<!--****************************CARTE VIOLA*********************************-->
+
+	<effetto nome="azioneCartaViola1" idEffetto="azione" idAzione="carta">
+		<valoreDado>1</valoreDado>
+		<coloreCarta>viola</coloreCarta>
+	</effetto>
+	<effetto nome="azioneCartaViola2" idEffetto="azione" idAzione="carta">
+		<valoreDado>2</valoreDado>
+		<coloreCarta>viola</coloreCarta>
+	</effetto>
+	<effetto nome="azioneCartaViola3" idEffetto="azione" idAzione="carta">
+		<valoreDado>3</valoreDado>
+		<coloreCarta>viola</coloreCarta>
+	</effetto>
+	<effetto nome="azioneCartaViola4" idEffetto="azione" idAzione="carta">
+		<valoreDado>4</valoreDado>
+		<coloreCarta>viola</coloreCarta>
+	</effetto>
+	<effetto nome="azioneCartaViola5" idEffetto="azione" idAzione="carta">
+		<valoreDado>5</valoreDado>
+		<coloreCarta>viola</coloreCarta>
+	</effetto>
+	<effetto nome="azioneCartaViola6" idEffetto="azione" idAzione="carta">
+		<valoreDado>6</valoreDado>
+		<coloreCarta>viola</coloreCarta>
+	</effetto>
+
+	<!--****************************CARTE ALL*********************************-->
+
+	<effetto nome="azioneCartaQualsiasi1" idEffetto="azione" idAzione="carta">
+		<valoreDado>1</valoreDado>
+		<coloreCarta>all</coloreCarta>
+	</effetto>
+	<effetto nome="azioneCartaQualsiasi2" idEffetto="azione" idAzione="carta">
+		<valoreDado>2</valoreDado>
+		<coloreCarta>all</coloreCarta>
+	</effetto>
+	<effetto nome="azioneCartaQualsiasi3" idEffetto="azione" idAzione="carta">
+		<valoreDado>3</valoreDado>
+		<coloreCarta>all</coloreCarta>
+	</effetto>
+	<effetto nome="azioneCartaQualsiasi4" idEffetto="azione" idAzione="carta">
+		<valoreDado>4</valoreDado>
+		<coloreCarta>all</coloreCarta>
+	</effetto>
+	<effetto nome="azioneCartaQualsiasi5" idEffetto="azione" idAzione="carta">
+		<valoreDado>5</valoreDado>
+		<coloreCarta>all</coloreCarta>
+	</effetto>
+	<effetto nome="azioneCartaQualsiasi6" idEffetto="azione" idAzione="carta">
+		<valoreDado>6</valoreDado>
+		<coloreCarta>all</coloreCarta>
+	</effetto>
+
+	<!--*********************************************************************************************
+					  __  __       _ _   _       _ _               _                  
+					 |  \/  | ___ | | |_(_)_ __ | (_) ___ __ _ _____) ___  _ __   ___ 
+					 | |\/| |/ _ \| | __| | '_ \| | |/ __/ _` |_  / |/ _ \| '_ \ / _ \
+					 | |  | | (_) | | |_| | |_) | | | (__ (_| |/ /| | (_) | | | |  __/
+					 |_|  |_|\___/|_|\__|_| .__/|_|_|\___\__,_/___|_|\___/|_| |_|\___|
+					                      |_|                                         
+	***********************************************************************************************-->
+	
+	<effetto nome="moltiplicatore2VxGialla" idEffetto="moltiplicazione">
+		<tipoRisorsa>cartaGialla</tipoRisorsa>
+		<quantita>1</quantita>
+		<setRisorse>
+			<legno>0</legno>
+			<pietra>0</pietra>
+			<oro>0</oro>
+			<servitori>0</servitori>
+			<puntiMilitari>0</puntiMilitari>
+			<puntiFede>0</puntiFede>
+			<puntiVittoria>2</puntiVittoria>
+			<privilegi>0</privilegi>
+		</setRisorse>
+	</effetto>
+	<effetto nome="moltiplicatore2VxVerde" idEffetto="moltiplicazione">
+		<tipoRisorsa>cartaVerde</tipoRisorsa>
+		<quantita>1</quantita>
+		<setRisorse>
+			<legno>0</legno>
+			<pietra>0</pietra>
+			<oro>0</oro>
+			<servitori>0</servitori>
+			<puntiMilitari>0</puntiMilitari>
+			<puntiFede>0</puntiFede>
+			<puntiVittoria>2</puntiVittoria>
+			<privilegi>0</privilegi>
+		</setRisorse>
+	</effetto>
+	<effetto nome="moltiplicatore2VxBlu" idEffetto="moltiplicazione">
+		<tipoRisorsa>cartaBlu</tipoRisorsa>
+		<quantita>1</quantita>
+		<setRisorse>
+			<legno>0</legno>
+			<pietra>0</pietra>
+			<oro>0</oro>
+			<servitori>0</servitori>
+			<puntiMilitari>0</puntiMilitari>
+			<puntiFede>0</puntiFede>
+			<puntiVittoria>2</puntiVittoria>
+			<privilegi>0</privilegi>
+		</setRisorse>
+	</effetto>
+	<effetto nome="moltiplicatore2VxViola" idEffetto="moltiplicazione">
+		<tipoRisorsa>cartaViola</tipoRisorsa>
+		<quantita>1</quantita>
+		<setRisorse>
+			<legno>0</legno>
+			<pietra>0</pietra>
+			<oro>0</oro>
+			<servitori>0</servitori>
+			<puntiMilitari>0</puntiMilitari>
+			<puntiFede>0</puntiFede>
+			<puntiVittoria>2</puntiVittoria>
+			<privilegi>0</privilegi>
+		</setRisorse>
+	</effetto>
+	<effetto nome="moltiplicatore1Vx2PM" idEffetto="moltiplicazione">
+		<tipoRisorsa>puntiMilitari</tipoRisorsa>
+		<quantita>2</quantita>
+		<setRisorse>
+			<legno>0</legno>
+			<pietra>0</pietra>
+			<oro>0</oro>
+			<servitori>0</servitori>
+			<puntiMilitari>0</puntiMilitari>
+			<puntiFede>0</puntiFede>
+			<puntiVittoria>1</puntiVittoria>
+			<privilegi>0</privilegi>
+		</setRisorse>
+	</effetto>
+	<effetto nome="moltiplicatore1OxGialla" idEffetto="moltiplicazione">
+		<tipoRisorsa>cartaGialla</tipoRisorsa>
+		<quantita>1</quantita>
+		<setRisorse>
+			<legno>0</legno>
+			<pietra>0</pietra>
+			<oro>1</oro>
+			<servitori>0</servitori>
+			<puntiMilitari>0</puntiMilitari>
+			<puntiFede>0</puntiFede>
+			<puntiVittoria>0</puntiVittoria>
+			<privilegi>0</privilegi>
+		</setRisorse>
+	</effetto>
+	<effetto nome="moltiplicatore1OxVerde" idEffetto="moltiplicazione">
+		<tipoRisorsa>cartaVerde</tipoRisorsa>
+		<quantita>1</quantita>
+		<setRisorse>
+			<legno>0</legno>
+			<pietra>0</pietra>
+			<oro>1</oro>
+			<servitori>0</servitori>
+			<puntiMilitari>0</puntiMilitari>
+			<puntiFede>0</puntiFede>
+			<puntiVittoria>0</puntiVittoria>
+			<privilegi>0</privilegi>
+		</setRisorse>
+	</effetto>
+	<effetto nome="moltiplicatore1VxBlu" idEffetto="moltiplicazione">
+		<tipoRisorsa>cartaBlu</tipoRisorsa>
+		<quantita>1</quantita>
+		<setRisorse>
+			<legno>0</legno>
+			<pietra>0</pietra>
+			<oro>0</oro>
+			<servitori>0</servitori>
+			<puntiMilitari>0</puntiMilitari>
+			<puntiFede>0</puntiFede>
+			<puntiVittoria>1</puntiVittoria>
+			<privilegi>0</privilegi>
+		</setRisorse>
+	</effetto>
+	<effetto nome="moltiplicatore1VxViola" idEffetto="moltiplicazione">
+		<tipoRisorsa>cartaViola</tipoRisorsa>
+		<quantita>1</quantita>
+		<setRisorse>
+			<legno>0</legno>
+			<pietra>0</pietra>
+			<oro>0</oro>
+			<servitori>0</servitori>
+			<puntiMilitari>0</puntiMilitari>
+			<puntiFede>0</puntiFede>
+			<puntiVittoria>1</puntiVittoria>
+			<privilegi>0</privilegi>
+		</setRisorse>
+	</effetto>
+
+	<!--*********************************************************************************************
+								  ____                      _     _       
+								 / ___|  ___ __ _ _ __ ___ | |__ (_) ___  
+								 \___ \ / __/ _` | '_ ` _ \| '_ \| |/ _ \ 
+								  ___) | (__ (_| | | | | | | |_) | | (_) |
+								 |____/ \___\__,_|_| |_| |_|_.__/|_|\___/ 
+                                          
+	***********************************************************************************************-->
+
+	<!--***************************************************************************
+
+	SCAMBIO SINGOLO
+
+	****************************************************************************-->
+	<effetto nome="scambioResidenza" idEffetto="scambio" num="1">
+		<setRisorse id="pagamento">
+			<legno>0</legno>
+			<pietra>0</pietra>
+			<oro>1</oro>
+			<servitori>0</servitori>
+			<puntiFede>0</puntiFede>
+			<puntiMilitari>0</puntiMilitari>
+			<puntiVittoria>0</puntiVittoria>
+			<privilegi>0</privilegi>
+		</setRisorse>
+		<setRisorse id="guadagno">
+			<legno>0</legno>
+			<pietra>0</pietra>
+			<oro>0</oro>
+			<servitori>0</servitori>
+			<puntiFede>0</puntiFede>
+			<puntiMilitari>0</puntiMilitari>
+			<puntiVittoria>0</puntiVittoria>
+			<privilegi>1</privilegi>
+		</setRisorse>
+	</effetto>
+	<effetto nome="scambioFiera" idEffetto="scambio" num="1">
+		<setRisorse id="pagamento">
+			<legno>0</legno>
+			<pietra>0</pietra>
+			<oro>4</oro>
+			<servitori>0</servitori>
+			<puntiFede>0</puntiFede>
+			<puntiMilitari>0</puntiMilitari>
+			<puntiVittoria>0</puntiVittoria>
+			<privilegi>0</privilegi>
+		</setRisorse>
+		<setRisorse id="guadagno">
+			<legno>3</legno>
+			<pietra>3</pietra>
+			<oro>0</oro>
+			<servitori>0</servitori>
+			<puntiFede>0</puntiFede>
+			<puntiMilitari>0</puntiMilitari>
+			<puntiVittoria>0</puntiVittoria>
+			<privilegi>0</privilegi>
+		</setRisorse>
+	</effetto>
+	<effetto nome="scambioAccademiaMilitare" idEffetto="scambio" num="1">
+		<setRisorse id="pagamento">
+			<legno>0</legno>
+			<pietra>0</pietra>
+			<oro>0</oro>
+			<servitori>1</servitori>
+			<puntiFede>0</puntiFede>
+			<puntiMilitari>0</puntiMilitari>
+			<puntiVittoria>0</puntiVittoria>
+			<privilegi>0</privilegi>
+		</setRisorse>
+		<setRisorse id="guadagno">
+			<legno>0</legno>
+			<pietra>0</pietra>
+			<oro>0</oro>
+			<servitori>0</servitori>
+			<puntiFede>0</puntiFede>
+			<puntiMilitari>3</puntiMilitari>
+			<puntiVittoria>1</puntiVittoria>
+			<privilegi>0</privilegi>
+		</setRisorse>
+	</effetto>
+	<effetto nome="scambioCaserma" idEffetto="scambio" num="1">
+		<setRisorse id="pagamento">
+			<legno>0</legno>
+			<pietra>0</pietra>
+			<oro>0</oro>
+			<servitori>1</servitori>
+			<puntiFede>0</puntiFede>
+			<puntiMilitari>0</puntiMilitari>
+			<puntiVittoria>0</puntiVittoria>
+			<privilegi>0</privilegi>
+		</setRisorse>
+		<setRisorse id="guadagno">
+			<legno>0</legno>
+			<pietra>0</pietra>
+			<oro>0</oro>
+			<servitori>0</servitori>
+			<puntiFede>0</puntiFede>
+			<puntiMilitari>3</puntiMilitari>
+			<puntiVittoria>0</puntiVittoria>
+			<privilegi>0</privilegi>
+		</setRisorse>
+	</effetto>
+	<effetto nome="scambioPalazzo" idEffetto="scambio" num="1">
+		<setRisorse id="pagamento">
+			<legno>0</legno>
+			<pietra>0</pietra>
+			<oro>1</oro>
+			<servitori>0</servitori>
+			<puntiFede>0</puntiFede>
+			<puntiMilitari>0</puntiMilitari>
+			<puntiVittoria>0</puntiVittoria>
+			<privilegi>0</privilegi>
+		</setRisorse>
+		<setRisorse id="guadagno">
+			<legno>0</legno>
+			<pietra>0</pietra>
+			<oro>0</oro>
+			<servitori>2</servitori>
+			<puntiFede>0</puntiFede>
+			<puntiMilitari>0</puntiMilitari>
+			<puntiVittoria>4</puntiVittoria>
+			<privilegi>0</privilegi>
+		</setRisorse>
+	</effetto>
+	<effetto nome="scambioBattistero" idEffetto="scambio" num="1">
+		<setRisorse id="pagamento">
+			<legno>0</legno>
+			<pietra>0</pietra>
+			<oro>0</oro>
+			<servitori>0</servitori>
+			<puntiFede>1</puntiFede>
+			<puntiMilitari>0</puntiMilitari>
+			<puntiVittoria>0</puntiVittoria>
+			<privilegi>0</privilegi>
+		</setRisorse>
+		<setRisorse id="guadagno">
+			<legno>0</legno>
+			<pietra>0</pietra>
+			<oro>2</oro>
+			<servitori>0</servitori>
+			<puntiFede>0</puntiFede>
+			<puntiMilitari>0</puntiMilitari>
+			<puntiVittoria>2</puntiVittoria>
+			<privilegi>0</privilegi>
+		</setRisorse>
+	</effetto>
+	<effetto nome="scambioResidenza" idEffetto="scambio" num="1">
+		<setRisorse id="pagamento">
+			<legno>0</legno>
+			<pietra>0</pietra>
+			<oro>1</oro>
+			<servitori>0</servitori>
+			<puntiFede>0</puntiFede>
+			<puntiMilitari>0</puntiMilitari>
+			<puntiVittoria>0</puntiVittoria>
+			<privilegi>0</privilegi>
+		</setRisorse>
+		<setRisorse id="guadagno">
+			<legno>0</legno>
+			<pietra>0</pietra>
+			<oro>0</oro>
+			<servitori>0</servitori>
+			<puntiFede>0</puntiFede>
+			<puntiMilitari>0</puntiMilitari>
+			<puntiVittoria>0</puntiVittoria>
+			<privilegi>1</privilegi>
+		</setRisorse>
+	</effetto>
+	<effetto nome="scambioMercato" idEffetto="scambio" num="1">
+		<setRisorse id="pagamento">
+			<legno>0</legno>
+			<pietra>0</pietra>
+			<oro>3</oro>
+			<servitori>0</servitori>
+			<puntiFede>0</puntiFede>
+			<puntiMilitari>0</puntiMilitari>
+			<puntiVittoria>0</puntiVittoria>
+			<privilegi>0</privilegi>
+		</setRisorse>
+		<setRisorse id="guadagno">
+			<legno>2</legno>
+			<pietra>2</pietra>
+			<oro>0</oro>
+			<servitori>0</servitori>
+			<puntiFede>0</puntiFede>
+			<puntiMilitari>0</puntiMilitari>
+			<puntiVittoria>0</puntiVittoria>
+			<privilegi>0</privilegi>
+		</setRisorse>
+	</effetto>
+	<effetto nome="scambioGildaDeiCostruttori" idEffetto="scambio" num="1">
+		<setRisorse id="pagamento">
+			<legno>1</legno>
+			<pietra>1</pietra>
+			<oro>0</oro>
+			<servitori>1</servitori>
+			<puntiFede>0</puntiFede>
+			<puntiMilitari>0</puntiMilitari>
+			<puntiVittoria>0</puntiVittoria>
+			<privilegi>0</privilegi>
+		</setRisorse>
+		<setRisorse id="guadagno">
+			<legno>0</legno>
+			<pietra>0</pietra>
+			<oro>0</oro>
+			<servitori>0</servitori>
+			<puntiFede>0</puntiFede>
+			<puntiMilitari>0</puntiMilitari>
+			<puntiVittoria>6</puntiVittoria>
+			<privilegi>0</privilegi>
+		</setRisorse>
+	</effetto>
+	<effetto nome="scambioCappella" idEffetto="scambio" num="1">
+		<setRisorse id="pagamento">
+			<legno>1</legno>
+			<pietra>1</pietra>
+			<oro>0</oro>
+			<servitori>0</servitori>
+			<puntiFede>1</puntiFede>
+			<puntiMilitari>0</puntiMilitari>
+			<puntiVittoria>0</puntiVittoria>
+			<privilegi>0</privilegi>
+		</setRisorse>
+		<setRisorse id="guadagno">
+			<legno>0</legno>
+			<pietra>0</pietra>
+			<oro>0</oro>
+			<servitori>0</servitori>
+			<puntiFede>1</puntiFede>
+			<puntiMilitari>0</puntiMilitari>
+			<puntiVittoria>0</puntiVittoria>
+			<privilegi>0</privilegi>
+		</setRisorse>
+	</effetto>
+
+	<!--***************************************************************************
+
+	SCAMBIO DOPPIO
+
+	****************************************************************************-->
+	<effetto nome="scambioTesoreria" idEffetto="scambio" num="2">
+		<setRisorse id="pagamento">
+			<legno>0</legno>
+			<pietra>0</pietra>
+			<oro>1</oro>
+			<servitori>0</servitori>
+			<puntiFede>0</puntiFede>
+			<puntiMilitari>0</puntiMilitari>
+			<puntiVittoria>0</puntiVittoria>
+			<privilegi>0</privilegi>
+		</setRisorse>
+		<setRisorse id="guadagno">
+			<legno>0</legno>
+			<pietra>0</pietra>
+			<oro>0</oro>
+			<servitori>0</servitori>
+			<puntiFede>0</puntiFede>
+			<puntiMilitari>0</puntiMilitari>
+			<puntiVittoria>3</puntiVittoria>
+			<privilegi>0</privilegi>
+		</setRisorse>
+		<setRisorse id="pagamento2">
+			<legno>0</legno>
+			<pietra>0</pietra>
+			<oro>2</oro>
+			<servitori>0</servitori>
+			<puntiFede>0</puntiFede>
+			<puntiMilitari>0</puntiMilitari>
+			<puntiVittoria>0</puntiVittoria>
+			<privilegi>0</privilegi>
+		</setRisorse>
+		<setRisorse id="guadagno2">
+			<legno>0</legno>
+			<pietra>0</pietra>
+			<oro>0</oro>
+			<servitori>0</servitori>
+			<puntiFede>0</puntiFede>
+			<puntiMilitari>0</puntiMilitari>
+			<puntiVittoria>5</puntiVittoria>
+			<privilegi>0</privilegi>
+		</setRisorse>
+	</effetto>
+	<effetto nome="scambioFalegnameria" idEffetto="scambio" num="2">
+		<setRisorse id="pagamento">
+			<legno>1</legno>
+			<pietra>0</pietra>
+			<oro>0</oro>
+			<servitori>0</servitori>
+			<puntiFede>0</puntiFede>
+			<puntiMilitari>0</puntiMilitari>
+			<puntiVittoria>0</puntiVittoria>
+			<privilegi>0</privilegi>
+		</setRisorse>
+		<setRisorse id="guadagno">
+			<legno>0</legno>
+			<pietra>0</pietra>
+			<oro>3</oro>
+			<servitori>0</servitori>
+			<puntiFede>0</puntiFede>
+			<puntiMilitari>0</puntiMilitari>
+			<puntiVittoria>0</puntiVittoria>
+			<privilegi>0</privilegi>
+		</setRisorse>
+		<setRisorse id="pagamento2">
+			<legno>2</legno>
+			<pietra>0</pietra>
+			<oro>0</oro>
+			<servitori>0</servitori>
+			<puntiFede>0</puntiFede>
+			<puntiMilitari>0</puntiMilitari>
+			<puntiVittoria>0</puntiVittoria>
+			<privilegi>0</privilegi>
+		</setRisorse>
+		<setRisorse id="guadagno2">
+			<legno>0</legno>
+			<pietra>0</pietra>
+			<oro>3</oro>
+			<servitori>0</servitori>
+			<puntiFede>0</puntiFede>
+			<puntiMilitari>0</puntiMilitari>
+			<puntiVittoria>0</puntiVittoria>
+			<privilegi>0</privilegi>
+		</setRisorse>
+	</effetto>
+	<effetto nome="scambioTagliapietre" idEffetto="scambio" num="2">
+		<setRisorse id="pagamento">
+			<legno>0</legno>
+			<pietra>1</pietra>
+			<oro>0</oro>
+			<servitori>0</servitori>
+			<puntiFede>0</puntiFede>
+			<puntiMilitari>0</puntiMilitari>
+			<puntiVittoria>0</puntiVittoria>
+			<privilegi>0</privilegi>
+		</setRisorse>
+		<setRisorse id="guadagno">
+			<legno>0</legno>
+			<pietra>0</pietra>
+			<oro>3</oro>
+			<servitori>0</servitori>
+			<puntiFede>0</puntiFede>
+			<puntiMilitari>0</puntiMilitari>
+			<puntiVittoria>0</puntiVittoria>
+			<privilegi>0</privilegi>
+		</setRisorse>
+		<setRisorse id="pagamento2">
+			<legno>0</legno>
+			<pietra>2</pietra>
+			<oro>0</oro>
+			<servitori>0</servitori>
+			<puntiFede>0</puntiFede>
+			<puntiMilitari>0</puntiMilitari>
+			<puntiVittoria>0</puntiVittoria>
+			<privilegi>0</privilegi>
+		</setRisorse>
+		<setRisorse id="guadagno2">
+			<legno>0</legno>
+			<pietra>0</pietra>
+			<oro>5</oro>
+			<servitori>0</servitori>
+			<puntiFede>0</puntiFede>
+			<puntiMilitari>0</puntiMilitari>
+			<puntiVittoria>0</puntiVittoria>
+			<privilegi>0</privilegi>
+		</setRisorse>
+	</effetto>
+	<effetto nome="scambioGildaDegliScultori" idEffetto="scambio" num="2">
+		<setRisorse id="pagamento">
+			<legno>0</legno>
+			<pietra>1</pietra>
+			<oro>0</oro>
+			<servitori>0</servitori>
+			<puntiFede>0</puntiFede>
+			<puntiMilitari>0</puntiMilitari>
+			<puntiVittoria>0</puntiVittoria>
+			<privilegi>0</privilegi>
+		</setRisorse>
+		<setRisorse id="guadagno">
+			<legno>0</legno>
+			<pietra>0</pietra>
+			<oro>0</oro>
+			<servitori>0</servitori>
+			<puntiFede>0</puntiFede>
+			<puntiMilitari>0</puntiMilitari>
+			<puntiVittoria>3</puntiVittoria>
+			<privilegi>0</privilegi>
+		</setRisorse>
+		<setRisorse id="pagamento2">
+			<legno>0</legno>
+			<pietra>3</pietra>
+			<oro>0</oro>
+			<servitori>0</servitori>
+			<puntiFede>0</puntiFede>
+			<puntiMilitari>0</puntiMilitari>
+			<puntiVittoria>0</puntiVittoria>
+			<privilegi>0</privilegi>
+		</setRisorse>
+		<setRisorse id="guadagno2">
+			<legno>0</legno>
+			<pietra>0</pietra>
+			<oro>0</oro>
+			<servitori>0</servitori>
+			<puntiFede>0</puntiFede>
+			<puntiMilitari>0</puntiMilitari>
+			<puntiVittoria>7</puntiVittoria>
+			<privilegi>0</privilegi>
+		</setRisorse>
+	</effetto>
+	<effetto nome="scambioGildaDeiPittori" idEffetto="scambio" num="2">
+		<setRisorse id="pagamento">
+			<legno>1</legno>
+			<pietra>0</pietra>
+			<oro>0</oro>
+			<servitori>0</servitori>
+			<puntiFede>0</puntiFede>
+			<puntiMilitari>0</puntiMilitari>
+			<puntiVittoria>0</puntiVittoria>
+			<privilegi>0</privilegi>
+		</setRisorse>
+		<setRisorse id="guadagno">
+			<legno>0</legno>
+			<pietra>0</pietra>
+			<oro>0</oro>
+			<servitori>0</servitori>
+			<puntiFede>0</puntiFede>
+			<puntiMilitari>0</puntiMilitari>
+			<puntiVittoria>3</puntiVittoria>
+			<privilegi>0</privilegi>
+		</setRisorse>
+		<setRisorse id="pagamento2">
+			<legno>3</legno>
+			<pietra>0</pietra>
+			<oro>0</oro>
+			<servitori>0</servitori>
+			<puntiFede>0</puntiFede>
+			<puntiMilitari>0</puntiMilitari>
+			<puntiVittoria>0</puntiVittoria>
+			<privilegi>0</privilegi>
+		</setRisorse>
+		<setRisorse id="guadagno2">
+			<legno>0</legno>
+			<pietra>0</pietra>
+			<oro>0</oro>
+			<servitori>0</servitori>
+			<puntiFede>0</puntiFede>
+			<puntiMilitari>0</puntiMilitari>
+			<puntiVittoria>7</puntiVittoria>
+			<privilegi>0</privilegi>
+		</setRisorse>
+	</effetto>
+	<effetto nome="scambioBasilica" idEffetto="scambio" num="2">
+		<setRisorse id="pagamento">
+			<legno>1</legno>
+			<pietra>0</pietra>
+			<oro>0</oro>
+			<servitori>0</servitori>
+			<puntiFede>0</puntiFede>
+			<puntiMilitari>0</puntiMilitari>
+			<puntiVittoria>0</puntiVittoria>
+			<privilegi>0</privilegi>
+		</setRisorse>
+		<setRisorse id="guadagno">
+			<legno>0</legno>
+			<pietra>0</pietra>
+			<oro>0</oro>
+			<servitori>0</servitori>
+			<puntiFede>2</puntiFede>
+			<puntiMilitari>0</puntiMilitari>
+			<puntiVittoria>0</puntiVittoria>
+			<privilegi>0</privilegi>
+		</setRisorse>
+		<setRisorse id="pagamento2">
+			<legno>0</legno>
+			<pietra>1</pietra>
+			<oro>0</oro>
+			<servitori>0</servitori>
+			<puntiFede>0</puntiFede>
+			<puntiMilitari>0</puntiMilitari>
+			<puntiVittoria>0</puntiVittoria>
+			<privilegi>0</privilegi>
+		</setRisorse>
+		<setRisorse id="guadagno2">
+			<legno>0</legno>
+			<pietra>0</pietra>
+			<oro>0</oro>
+			<servitori>0</servitori>
+			<puntiFede>2</puntiFede>
+			<puntiMilitari>0</puntiMilitari>
+			<puntiVittoria>0</puntiVittoria>
+			<privilegi>0</privilegi>
+		</setRisorse>
+	</effetto>
+
+	<!--*********************************************************************************************
+									  ____   ___  _   _ _   _ ____  
+									 | __ ) / _ \| \ | | | | / ___| 
+									 |  _ \| | | |  \| | | | \___ \ 
+									 | |_) | |_| | |\  | |_| |___) |
+									 |____/ \___/|_| \_|\___/|____/ 
+	                                
+	***********************************************************************************************-->
+
+	<!--***************************************************************************
+
+	Tipo bonus: RACCOLTA
+
+	****************************************************************************-->
+	<effetto nome="bonusRaccolta1" idEffetto="bonus" idAzione="raccolta">
+		<bonusDado>1</bonusDado>
+	</effetto>
+	<effetto nome="bonusRaccolta2" idEffetto="bonus" idAzione="raccolta">
+		<bonusDado>2</bonusDado>
+	</effetto>
+	<effetto nome="bonusRaccolta3" idEffetto="bonus" idAzione="raccolta">
+		<bonusDado>3</bonusDado>
+	</effetto>
+	<effetto nome="bonusRaccolta4" idEffetto="bonus" idAzione="raccolta">
+		<bonusDado>4</bonusDado>
+	</effetto>
+	<effetto nome="bonusRaccolta5" idEffetto="bonus" idAzione="raccolta">
+		<bonusDado>5</bonusDado>
+	</effetto>
+	<effetto nome="bonusRaccolta6" idEffetto="bonus" idAzione="raccolta">
+		<bonusDado>6</bonusDado>
+	</effetto>
+
+	<!--***************************************************************************
+
+	Tipo bonus: PRODUZIONE
+
+	****************************************************************************-->
+
+	<effetto nome="bonusProduzione1" idEffetto="bonus" idAzione="produzione">
+		<bonusDado>1</bonusDado>
+	</effetto>
+	<effetto nome="bonusProduzione2" idEffetto="bonus" idAzione="produzione">
+		<bonusDado>2</bonusDado>
+	</effetto>
+	<effetto nome="bonusProduzione3" idEffetto="bonus" idAzione="produzione">
+		<bonusDado>3</bonusDado>
+	</effetto>
+	<effetto nome="bonusProduzione4" idEffetto="bonus" idAzione="produzione">
+		<bonusDado>4</bonusDado>
+	</effetto>
+	<effetto nome="bonusProduzione5" idEffetto="bonus" idAzione="produzione">
+		<bonusDado>5</bonusDado>
+	</effetto>
+	<effetto nome="bonusProduzione6" idEffetto="bonus" idAzione="produzione">
+		<bonusDado>6</bonusDado>
+	</effetto>
+
+
+	<!--***************************************************************************
+
+	Tipo bonus: DADO CARTE
+
+	****************************************************************************-->
+
+	<!--****************************CARTE VERDI*********************************-->
+
+	<effetto nome="bonusCarteVerdi1" idEffetto="bonus" idAzione="carta">
+		<bonusDado>1</bonusDado>
+		<coloreCarta>verde</coloreCarta>
+	</effetto>
+	<effetto nome="bonusCarteVerdi2" idEffetto="bonus" idAzione="carta">
+		<bonusDado>2</bonusDado>
+		<coloreCarta>verde</coloreCarta>
+	</effetto>
+	<effetto nome="bonusCarteVerdi3" idEffetto="bonus" idAzione="carta">
+		<bonusDado>3</bonusDado>
+		<coloreCarta>verde</coloreCarta>
+	</effetto>
+	<effetto nome="bonusCarteVerdi4" idEffetto="bonus" idAzione="carta">
+		<bonusDado>4</bonusDado>
+		<coloreCarta>verde</coloreCarta>
+	</effetto>
+	<effetto nome="bonusCarteVerdi5" idEffetto="bonus" idAzione="carta">
+		<bonusDado>5</bonusDado>
+		<coloreCarta>verde</coloreCarta>
+	</effetto>
+	<effetto nome="bonusCarteVerdi6" idEffetto="bonus" idAzione="carta">
+		<bonusDado>6</bonusDado>
+		<coloreCarta>verde</coloreCarta>
+	</effetto>
+
+	<!--****************************CARTE GIALLE*********************************-->
+
+	<effetto nome="bonusCarteGialle1" idEffetto="bonus" idAzione="carta">
+		<bonusDado>1</bonusDado>
+		<coloreCarta>giallo</coloreCarta>
+	</effetto>
+	<effetto nome="bonusCarteGialle2" idEffetto="bonus" idAzione="carta">
+		<bonusDado>2</bonusDado>
+		<coloreCarta>giallo</coloreCarta>
+	</effetto>
+	<effetto nome="bonusCarteGialle3" idEffetto="bonus" idAzione="carta">
+		<bonusDado>3</bonusDado>
+		<coloreCarta>giallo</coloreCarta>
+	</effetto>
+	<effetto nome="bonusCarteGialle4" idEffetto="bonus" idAzione="carta">
+		<bonusDado>4</bonusDado>
+		<coloreCarta>giallo</coloreCarta>
+	</effetto>
+	<effetto nome="bonusCarteGialle5" idEffetto="bonus" idAzione="carta">
+		<bonusDado>5</bonusDado>
+		<coloreCarta>giallo</coloreCarta>
+	</effetto>
+	<effetto nome="bonusCarteGialle6" idEffetto="bonus" idAzione="carta">
+		<bonusDado>6</bonusDado>
+		<coloreCarta>giallo</coloreCarta>
+	</effetto>
+
+	<!--****************************CARTE BLU*********************************-->
+
+	<effetto nome="bonusCarteBlu1" idEffetto="bonus" idAzione="carta">
+		<bonusDado>1</bonusDado>
+		<coloreCarta>blu</coloreCarta>
+	</effetto>
+	<effetto nome="bonusCarteBlu2" idEffetto="bonus" idAzione="carta">
+		<bonusDado>2</bonusDado>
+		<coloreCarta>blu</coloreCarta>
+	</effetto>
+	<effetto nome="bonusCarteBlu3" idEffetto="bonus" idAzione="carta">
+		<bonusDado>3</bonusDado>
+		<coloreCarta>blu</coloreCarta>
+	</effetto>
+	<effetto nome="bonusCarteBlu4" idEffetto="bonus" idAzione="carta">
+		<bonusDado>4</bonusDado>
+		<coloreCarta>blu</coloreCarta>
+	</effetto>
+	<effetto nome="bonusCarteBlu5" idEffetto="bonus" idAzione="carta">
+		<bonusDado>5</bonusDado>
+		<coloreCarta>blu</coloreCarta>
+	</effetto>
+	<effetto nome="bonusCarteBlu6" idEffetto="bonus" idAzione="carta">
+		<bonusDado>6</bonusDado>
+		<coloreCarta>blu</coloreCarta>
+	</effetto>
+
+	<!--****************************CARTE VIOLA*********************************-->
+
+	<effetto nome="bonusCarteViola1" idEffetto="bonus" idAzione="carta">
+		<bonusDado>1</bonusDado>
+		<coloreCarta>viola</coloreCarta>
+	</effetto>
+	<effetto nome="bonusCarteViola2" idEffetto="bonus" idAzione="carta">
+		<bonusDado>2</bonusDado>
+		<coloreCarta>viola</coloreCarta>
+	</effetto>
+	<effetto nome="bonusCarteViola3" idEffetto="bonus" idAzione="carta">
+		<bonusDado>3</bonusDado>
+		<coloreCarta>viola</coloreCarta>
+	</effetto>
+	<effetto nome="bonusCarteViola4" idEffetto="bonus" idAzione="carta">
+		<bonusDado>4</bonusDado>
+		<coloreCarta>viola</coloreCarta>
+	</effetto>
+	<effetto nome="bonusCarteViola5" idEffetto="bonus" idAzione="carta">
+		<bonusDado>5</bonusDado>
+		<coloreCarta>viola</coloreCarta>
+	</effetto>
+	<effetto nome="bonusCarteViola6" idEffetto="bonus" idAzione="carta">
+		<bonusDado>6</bonusDado>
+		<coloreCarta>viola</coloreCarta>
+	</effetto>
+
+
+	<!--***************************************************************************
+
+	EFFETTI PARTICOLARI
+
+	****************************************************************************-->
+	<effetto nome="EffettoCostruttore">
+	</effetto>
+	<effetto nome="CarteBlu2andSconto1O">
+	</effetto>
+	<effetto nome="effettoBlu6andSconto2O">
+	</effetto>
+	<effetto nome="effettoGialla6andSconto1Land1P">
+	</effetto>
+	<!--***************************************************************************
+
+	LEADER E SCOMUNICHE
+
+	****************************************************************************-->
+	<effetto nome="dadi">
+	</effetto>
+</effetti>
