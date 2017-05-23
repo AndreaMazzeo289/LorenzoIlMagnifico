@@ -832,14 +832,13 @@ public class ParseXML {
 			for(int i=0; i<nomeValore.getLength(); i++){
 				
 				Element valoreElemento = (Element) nomeValore.item(i);
-					
+				
 				if(tipoValore.toUpperCase().equals(valoreElemento.getAttribute("nome").toUpperCase()))
 					valore = Integer.parseInt(valoreElemento.getElementsByTagName("valore").item(0).getFirstChild().getNodeValue());
 			}
 		}catch(Exception e){
 			e.printStackTrace();
 		}	
-		
 		return valore;
 	}
 }

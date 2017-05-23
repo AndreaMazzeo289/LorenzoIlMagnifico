@@ -11,6 +11,7 @@ public abstract class Spazio {
 	
 	public Spazio(int valoreMin) {
 		this.valoreMin=valoreMin;
+		this.disponibilità = true;
 	}
 
 	public int getValoreMin (){

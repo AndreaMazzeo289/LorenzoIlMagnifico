@@ -22,7 +22,7 @@ public class Plancia {
 	private SpazioProduzione spazioProduzione;
 	private SpazioRaccolta spazioRaccolta;
 	private SpazioConsiglio spazioConsiglio;
-	private Set<SpazioMercato> spaziMercato;
+	private ArrayList spaziMercato;
 	
 	public Plancia (int numeroGiocatori) {
 		
@@ -30,12 +30,12 @@ public class Plancia {
 		//          SPAZI TORRE                                                                                      //
 		//-----------------------------------------------------------------------------------------------------------//
 		
-		int numeroSpaziTorre = ParseXML.leggiValore("numeroSpaziTorri");
+		int numeroSpaziTorre = ParseXML.leggiValore("numeroSpaziTorre");
 
-		ArrayList risorseTorreVerde = new ArrayList(ParseXML.leggiValore("numeroSpaziTorri"));
-		ArrayList risorseTorreBlu = new ArrayList(ParseXML.leggiValore("numeroSpaziTorri"));
-		ArrayList risorseTorreGialla = new ArrayList(ParseXML.leggiValore("numeroSpaziTorri"));
-		ArrayList risorseTorreViola = new ArrayList(ParseXML.leggiValore("numeroSpaziTorri"));
+		ArrayList risorseTorreVerde = new ArrayList(numeroSpaziTorre);
+		ArrayList risorseTorreBlu = new ArrayList(numeroSpaziTorre);
+		ArrayList risorseTorreGialla = new ArrayList(numeroSpaziTorre);
+		ArrayList risorseTorreViola = new ArrayList(numeroSpaziTorre);
 		
 		for(int i=0; i<numeroSpaziTorre; i++){
 			risorseTorreVerde.add(ParseXML.leggiSetRisorseSpazio("verde"+Integer.toString(i))); 
@@ -63,7 +63,7 @@ public class Plancia {
 		//           SPAZI MERCATO                                                                                   //
 		//-----------------------------------------------------------------------------------------------------------//
 		
-		spaziMercato = new HashSet<SpazioMercato>();
+		spaziMercato = new ArrayList();
 		int valoreMinMercato = ParseXML.leggiValore("valoreMinMercato");
 		
 		switch (numeroGiocatori) {
@@ -160,7 +160,7 @@ public class Plancia {
 		return this.spazioConsiglio;
 	}
 	
-	public Set<SpazioMercato> getSpaziMercato() {
+	public ArrayList getSpaziMercato() {
 		return this.spaziMercato;
 	}
 

@@ -9,16 +9,14 @@ import java.util.Map;
 
 public class SetRisorse {  
 
-	
-	
 	HashMap<TipoRisorsa,Risorsa> risorse;
 	
 	public SetRisorse (HashSet<Risorsa> risorse) {
 		
 		this.risorse = new HashMap<TipoRisorsa, Risorsa>();
-		Iterator<Risorsa> risorsa = risorse.iterator();	
 		
-		while(risorsa.hasNext()){		
+		Iterator<Risorsa> risorsa = risorse.iterator();	                          //   aggiungo le risorse del set ricevuto come parametro		
+		while(risorsa.hasNext()){		                                          //       nella mappa 
 			this.risorse.put(risorsa.next().getTipoRisorsa(), risorsa.next());
 		}
 
@@ -83,7 +81,8 @@ public class SetRisorse {
 	}
 	
 	public Risorsa getRisorsa(TipoRisorsa tipoRisorsa){
-	
+		//Risorsa prova = risorse.get(tipoRisorsa);
+		//System.out.println(prova);
 		return risorse.get(tipoRisorsa);
 		
 	}
