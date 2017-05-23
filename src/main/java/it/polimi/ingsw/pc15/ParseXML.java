@@ -50,9 +50,10 @@ public class ParseXML {
 	// Descrizione:				Metodo che gestisce l'estrazione delle carte dal relativo file XML chiamando 
 	//							opportuni metodi per ogni tipologia di carta
 	//--------------------------------------------------------------------------------------------------------------//	
-	public Carta getCartaXML (ColoreCarta coloreCarta){
+	public Set<Carta> getCartaXML (ColoreCarta coloreCarta){
 		
 		Carta cartaSelezionata = null;
+		Set<Carta> setCarte = new HashSet<Carta>();
 		
 		try{
 			DocumentBuilderFactory documentFactory = DocumentBuilderFactory.newInstance();
@@ -87,13 +88,14 @@ public class ParseXML {
 							break;
 						default: System.out.println("ERRORE NELLA SCRITTURA DEL FILE!");
 					}
+					setCarte.add(cartaSelezionata);
 				}
 			}
 		}catch(Exception e){
 			e.printStackTrace();
 		}	
 		
-		return cartaSelezionata;
+		return setCarte;
 	}
 	
 	//--------------------------------------------------------------------------------------------------------------//
@@ -607,9 +609,7 @@ public class ParseXML {
 		//------------------------------------------------------//
 		try{
 			effettoPersonaggio = carta.getElementsByTagName("effetto").item(0).getFirstChild().getNodeValue();
-			System.out.println("*   Effetto del personaggio  |   " + effettoPersonaggio);
 		}catch (NullPointerException e){
-			System.out.println("*   Effetto del personaggio  |   Nessun effetto per questo personaggio");
 		}
 		
 		//------------------------------------------------------//
@@ -619,7 +619,6 @@ public class ParseXML {
         for (int j = 0; j < listaEffettiImm.getLength(); ++j) {
             Element effetto = (Element) listaEffettiImm.item(j);
             String effettoTipo = effetto.getFirstChild().getNodeValue();
-            System.out.println("*   Effetto immediato " + j + "      |   " + effettoTipo);
             Effetto effettoImm = getEffettoXML(effettoTipo);
             effettiImmediati.add(effettoImm);
         }
