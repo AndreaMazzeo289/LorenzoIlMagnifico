@@ -9,6 +9,7 @@ import java.util.Random;
 import java.util.Set;
 
 import it.polimi.ingsw.pc15.ParseXML;
+import it.polimi.ingsw.pc15.carte.Carta;
 import it.polimi.ingsw.pc15.carte.ColoreCarta;
 import it.polimi.ingsw.pc15.carte.Edificio;
 import it.polimi.ingsw.pc15.carte.Impresa;
@@ -34,19 +35,16 @@ public class Model extends Observable {
 	private int numGiocatori;
 	private ArrayList<Player> giocatori;
 	private int valoreDado;
-<<<<<<< HEAD
-=======
 	private Player player1;
 	private Player player2;
->>>>>>> 3fb49f6dc77dd992170cc2164b448a2076d46de4
 	private Plancia plancia;
 	private int turno;
 	private int periodo;
 	private ParseXML parseXML;
-	private Set<Territorio> setCarteTerritorio;
-	private Set<Personaggio> setCartePersonaggio;
-	private Set<Edificio> setCarteEdificio;
-	private Set<Impresa> setCarteImpresa;
+	private Set<Carta> setCarteTerritorio;
+	private Set<Carta> setCartePersonaggio;
+	private Set<Carta> setCarteEdificio;
+	private Set<Carta> setCarteImpresa;
 	
 	
 	public Model(int numGiocatori){
@@ -55,7 +53,7 @@ public class Model extends Observable {
 		this.plancia = new Plancia(numGiocatori);
 		this.parseXML = new ParseXML();
 		this.turno = 0;
-		this.periodo = 0;
+		this.periodo = 1;
 
 		HashSet<Risorsa> risorse = new HashSet<Risorsa>();
 		
@@ -95,77 +93,24 @@ public class Model extends Observable {
 		
 	}
 
-	public void iniziaPartita(){
+	public void iniziaPartita() {
 		
-		// Istanziazione carte territorio :
-		//----------------------------------	
-
-		for(int i = 0; i<ParseXML.leggiValore("numeroCarteVerdi"); i++){
-
-			setCarteTerritorio.add((Territorio) parseXML.getCartaXML(ColoreCarta.VERDE));	
-		}
+		setCarteTerritorio= parseXML.getCartaXML(ColoreCarta.VERDE);
+		setCarteEdificio= parseXML.getCartaXML(ColoreCarta.GIALLO);
+		setCartePersonaggio= parseXML.getCartaXML(ColoreCarta.BLU);
+		setCarteImpresa= parseXML.getCartaXML(ColoreCarta.VIOLA);
 		
-		// Istanziazione carte personaggio :
-		//----------------------------------
-
-		for(int i = 0; i<ParseXML.leggiValore("numeroCarteBlu"); i++){
-			setCartePersonaggio.add((Personaggio) parseXML.getCartaXML(ColoreCarta.BLU));
-		}
+		iniziaNuovoTurno();
 		
-		// Istanziazione carte edicio :
-		//----------------------------------
-		
-		for(int i = 0; i<ParseXML.leggiValore("numeroCarteGialle"); i++){
-
-			setCarteEdificio.add((Edificio) parseXML.getCartaXML(ColoreCarta.GIALLO));
-		}
-		
-		// Istanziazione carte impresa :
-		//----------------------------------
-
-		for (int i = 0; i<ParseXML.leggiValore("numeroCarteViola"); i++){
-			setCarteImpresa.add((Impresa) parseXML.getCartaXML(ColoreCarta.VIOLA));
-		}
-		
-<<<<<<< HEAD
-		
-		//Istanziazione differenti players e i corrispondenti se
-		for(int i = 0; i<numGiocatori; i++){
-			
-			Legna legna = new Legna (0);
-			Pietra pietra = new Pietra (0);
-			Oro oro = new Oro (0);
-			Servitori servitori = new Servitori (0);
-			PuntiFede puntiFede = new PuntiFede (0);
-			PuntiMilitari puntiMilitari = new PuntiMilitari (0);
-			PuntiVittoria puntiVittoria = new PuntiVittoria (0);
-			Privilegi privilegi = new Privilegi (0);
-			
-			risorse.add(legna);
-			risorse.add(pietra);
-			risorse.add(oro);
-			risorse.add(servitori);
-			risorse.add(puntiFede);
-			risorse.add(puntiMilitari);
-			risorse.add(puntiVittoria);
-			risorse.add(privilegi);
-			
-			SetRisorse setRisorse = new SetRisorse(risorse);
-			
-			Player player;
-			giocatori.add(player = new Player("noName", setRisorse));
-			
-		}
-		
-		
-		//imposta randomicamente l'ordine dei giocatori;
-		Collections.shuffle(giocatori);
-		
-=======
->>>>>>> 3fb49f6dc77dd992170cc2164b448a2076d46de4
 	}
 	
-	public void iniziaTurno(){
+	public void iniziaNuovoTurno() {
+		
+		turno++;
+		if(turno==3) {
+			periodo++;
+			turno=1;
+		}
 		
 		this.plancia.setTurno(periodo, setCarteTerritorio, setCartePersonaggio, setCarteEdificio, setCarteImpresa);
 		
@@ -221,3 +166,4 @@ public class Model extends Observable {
 	
 
 }
+
