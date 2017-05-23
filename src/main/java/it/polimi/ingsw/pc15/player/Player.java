@@ -88,7 +88,7 @@ public class Player {
 		
 		if (familiare.disponibile()) {
 		
-			//familiare.aggiungiServitori();
+			familiare.aggiungiServitori();
 		
 			if (spazio.occupabile(familiare) ) {
 				

@@ -29,8 +29,15 @@ public class Main {
 		
 		Scanner in = new Scanner(System.in);
 		
-		((Player) gioco.getPlayers().get(0)).occupaSpazio ((Spazio) gioco.getPlancia().getSpaziMercato().get(0), ((Player) gioco.getPlayers().get(0)).getFamiliare(ColoreFamiliare.ARANCIONE));
-		System.out.println(Integer.toString(((Player) gioco.getPlayers().get(0)).getSetRisorse().getRisorsa(TipoRisorsa.PUNTIMILITARI).getQuantità()));
+		((Player) gioco.getPlayers().get(0)).occupaSpazio ((Spazio) gioco.getPlancia().getSpaziMercato().get(1), ((Player) gioco.getPlayers().get(0)).getFamiliare(ColoreFamiliare.ARANCIONE));
+		System.out.println(Integer.toString(((Player) gioco.getPlayers().get(0)).getSetRisorse().getRisorsa(TipoRisorsa.ORO).getQuantità()));
+		System.out.println(Integer.toString(((Player) gioco.getPlayers().get(0)).getSetRisorse().getRisorsa(TipoRisorsa.PUNTIFEDE).getQuantità()));
+		System.out.println(Integer.toString(((Player) gioco.getPlayers().get(0)).getSetRisorse().getRisorsa(TipoRisorsa.PUNTIMILITARI).getQuantità()));		
+		System.out.println(Integer.toString(((Player) gioco.getPlayers().get(0)).getSetRisorse().getRisorsa(TipoRisorsa.PUNTIVITTORIA).getQuantità()));
+		System.out.println(Integer.toString(((Player) gioco.getPlayers().get(0)).getSetRisorse().getRisorsa(TipoRisorsa.PIETRA).getQuantità()));
+		System.out.println(Integer.toString(((Player) gioco.getPlayers().get(0)).getSetRisorse().getRisorsa(TipoRisorsa.SERVITORI).getQuantità()));
+		System.out.println(Integer.toString(((Player) gioco.getPlayers().get(0)).getSetRisorse().getRisorsa(TipoRisorsa.PRIVILEGI).getQuantità()));
+		
 
 	}
 }
