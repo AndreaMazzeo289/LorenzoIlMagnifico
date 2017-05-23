@@ -33,8 +33,6 @@ public class Model extends Observable {
 	
 	private int numGiocatori;
 	private ArrayList<Player> giocatori;
-	private HashSet<Risorsa> risorse;
-	private SetRisorse setRisorse;
 	private int valoreDado;
 	private Player player;
 	private Plancia plancia;
@@ -47,15 +45,44 @@ public class Model extends Observable {
 	private Set<Impresa> setCarteImpresa;
 	
 	
-	
-	
 	public Model(int numGiocatori){
-		
+
 		this.numGiocatori = numGiocatori;
 		this.plancia = new Plancia(numGiocatori);
 		this.parseXML = new ParseXML();
 		this.turno = 0;
 		this.periodo = 0;
+
+		HashSet<Risorsa> risorse = new HashSet<Risorsa>();
+		
+		Legna legna = new Legna (0);
+		Pietra pietra = new Pietra (0);
+		Oro oro = new Oro (0);
+		Servitori servitori = new Servitori (0);
+		PuntiFede puntiFede = new PuntiFede (0);
+		PuntiMilitari puntiMilitari = new PuntiMilitari (0);
+		PuntiVittoria puntiVittoria = new PuntiVittoria (0);
+		Privilegi privilegi = new Privilegi (0);
+			
+		risorse.add(legna);
+		risorse.add(pietra);
+		risorse.add(oro);
+		risorse.add(servitori);
+		risorse.add(puntiFede);
+		risorse.add(puntiMilitari);
+		risorse.add(puntiVittoria);
+		risorse.add(privilegi);
+		
+		SetRisorse setRisorse = new SetRisorse(risorse); 
+			
+		for(int i = 0; i<numGiocatori; i++){
+			giocatori.add(this.player = new Player("noName", setRisorse));
+			
+	}
+		
+		
+		//imposta randomicamente l'ordine dei giocatori;
+		Collections.shuffle(giocatori);
 		
 	}
 
@@ -90,38 +117,6 @@ public class Model extends Observable {
 		for (int i = 0; i<ParseXML.leggiValore("numeroCarteViola"); i++){
 			setCarteImpresa.add((Impresa) parseXML.getCartaXML(ColoreCarta.VIOLA));
 		}
-		
-		
-		//Istanziazione differenti players e i corrispondenti se
-		for(int i = 0; i<numGiocatori; i++){
-			
-			Legna legna = new Legna (0);
-			Pietra pietra = new Pietra (0);
-			Oro oro = new Oro (0);
-			Servitori servitori = new Servitori (0);
-			PuntiFede puntiFede = new PuntiFede (0);
-			PuntiMilitari puntiMilitari = new PuntiMilitari (0);
-			PuntiVittoria puntiVittoria = new PuntiVittoria (0);
-			Privilegi privilegi = new Privilegi (0);
-			
-			risorse.add(legna);
-			risorse.add(pietra);
-			risorse.add(oro);
-			risorse.add(servitori);
-			risorse.add(puntiFede);
-			risorse.add(puntiMilitari);
-			risorse.add(puntiVittoria);
-			risorse.add(privilegi);
-			
-			SetRisorse setRisorse = new SetRisorse(risorse);
-			
-			giocatori.add(this.player = new Player("noName", setRisorse));
-			
-		}
-		
-		
-		//imposta randomicamente l'ordine dei giocatori;
-		Collections.shuffle(giocatori);
 		
 	}
 	

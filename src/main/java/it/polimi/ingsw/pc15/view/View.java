@@ -17,6 +17,11 @@ public class View extends Observable implements Observer {
 		// TODO Auto-generated method stub
 		
 	}
+
+	public void input(int scelta) {
+		this.notifyObservers(scelta);
+		
+	}
 	
 	
 
