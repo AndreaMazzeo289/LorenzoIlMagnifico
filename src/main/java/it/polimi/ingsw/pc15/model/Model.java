@@ -53,7 +53,7 @@ public class Model extends Observable {
 		this.plancia = new Plancia(numGiocatori);
 		this.parseXML = new ParseXML();
 		this.turno = 0;
-		this.periodo = 0;
+		this.periodo = 1;
 
 		HashSet<Risorsa> risorse = new HashSet<Risorsa>();
 		
@@ -100,10 +100,17 @@ public class Model extends Observable {
 		setCartePersonaggio= parseXML.getCartaXML(ColoreCarta.BLU);
 		setCarteImpresa= parseXML.getCartaXML(ColoreCarta.VIOLA);
 		
+		iniziaNuovoTurno();
 		
 	}
 	
-	public void iniziaTurno(){
+	public void iniziaNuovoTurno() {
+		
+		turno++;
+		if(turno==3) {
+			periodo++;
+			turno=1;
+		}
 		
 		this.plancia.setTurno(periodo, setCarteTerritorio, setCartePersonaggio, setCarteEdificio, setCarteImpresa);
 		

@@ -95,43 +95,43 @@ public class Plancia {
 		Iterator<Carta> impresa = setCarteImpresa.iterator();
 		
 		int n = 0;
-		int numeroSpaziTorre = ParseXML.leggiValore("numeroSpaziTorri");
+		int numeroSpaziTorre = ParseXML.leggiValore("numeroSpaziTorre");
 		
 		while (territorio.hasNext() && n < numeroSpaziTorre) {
-			
-			if (territorio.next().getPeriodo() == periodo) {
-				arrayTerritori.add(territorio.next());
-				setCarteTerritorio.remove(territorio.next());
+			Carta territorioExt = territorio.next();
+			if (territorioExt.getPeriodo() == periodo) {
+				arrayTerritori.add(territorioExt);
+				territorio.remove();
 				n++;
 			}
 		}
 		
 		n=0;
 		while (personaggio.hasNext() && n < numeroSpaziTorre) {
-			
-			if (personaggio.next().getPeriodo() == periodo) {
-				arrayPersonaggi.add(personaggio.next());
-				setCartePersonaggio.remove(personaggio.next());
+			Carta personaggioExt = personaggio.next();
+			if (personaggioExt.getPeriodo() == periodo) {
+				arrayPersonaggi.add(personaggioExt);
+				personaggio.remove();
 				n++;
 			}			
 		}
 		
 		n=0;
 		while (edificio.hasNext() && n < numeroSpaziTorre) {
-			
-			if (edificio.next().getPeriodo() == periodo) {
-				arrayEdifici.add(edificio.next());
-				setCarteEdificio.remove(edificio.next());
+			Carta edificioExt = edificio.next();
+			if (edificioExt.getPeriodo() == periodo) {
+				arrayEdifici.add(edificioExt);
+				edificio.remove();
 				n++;
 			}			
 		}
 		
 		n=0;
 		while (impresa.hasNext() && n < numeroSpaziTorre) {
-			
-			if (impresa.next().getPeriodo() == periodo) {
-				arrayImprese.add(impresa.next());
-				setCarteImpresa.remove(impresa.next());
+			Carta impresaExt = impresa.next();
+			if (impresaExt.getPeriodo() == periodo) {
+				arrayImprese.add(impresaExt);
+				impresa.remove();
 				n++;
 			}			
 		}
@@ -140,6 +140,8 @@ public class Plancia {
  		Collections.shuffle(arrayPersonaggi);
  		Collections.shuffle(arrayEdifici);
  		Collections.shuffle(arrayImprese);
+ 		
+ 		
  		
  		this.torreVerde.setTorre(arrayTerritori);
  		this.torreBlu.setTorre(arrayPersonaggi);
