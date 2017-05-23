@@ -867,58 +867,130 @@
 	***********************************************************************************************-->
 	
 	<effetto nome="moltiplicatore2VxGialla" idEffetto="moltiplicazione">
-		<fattore1>puntiVittoria</fattore1>
-		<quantita>2</quantita>
-		<fattore2>gialla</fattore2>
-		<quantita2>1</quantita2>
+		<tipoRisorsa>cartaGialla</tipoRisorsa>
+		<quantita>1</quantita>
+		<setRisorse>
+			<legno>0</legno>
+			<pietra>0</pietra>
+			<oro>0</oro>
+			<servitori>0</servitori>
+			<puntiMilitari>0</puntiMilitari>
+			<puntiFede>0</puntiFede>
+			<puntiVittoria>2</puntiVittoria>
+			<privilegi>0</privilegi>
+		</setRisorse>
 	</effetto>
 	<effetto nome="moltiplicatore2VxVerde" idEffetto="moltiplicazione">
-		<fattore1>puntiVittoria</fattore1>
-		<quantita>2</quantita>
-		<fattore2>verde</fattore2>
-		<quantita2>1</quantita2>
+		<tipoRisorsa>cartaVerde</tipoRisorsa>
+		<quantita>1</quantita>
+		<setRisorse>
+			<legno>0</legno>
+			<pietra>0</pietra>
+			<oro>0</oro>
+			<servitori>0</servitori>
+			<puntiMilitari>0</puntiMilitari>
+			<puntiFede>0</puntiFede>
+			<puntiVittoria>2</puntiVittoria>
+			<privilegi>0</privilegi>
+		</setRisorse>
 	</effetto>
 	<effetto nome="moltiplicatore2VxBlu" idEffetto="moltiplicazione">
-		<fattore1>puntiVittoria</fattore1>
-		<quantita>2</quantita>
-		<fattore2>blu</fattore2>
-		<quantita2>1</quantita2>
+		<tipoRisorsa>cartaBlu</tipoRisorsa>
+		<quantita>1</quantita>
+		<setRisorse>
+			<legno>0</legno>
+			<pietra>0</pietra>
+			<oro>0</oro>
+			<servitori>0</servitori>
+			<puntiMilitari>0</puntiMilitari>
+			<puntiFede>0</puntiFede>
+			<puntiVittoria>2</puntiVittoria>
+			<privilegi>0</privilegi>
+		</setRisorse>
 	</effetto>
 	<effetto nome="moltiplicatore2VxViola" idEffetto="moltiplicazione">
-		<fattore1>puntiVittoria</fattore1>
-		<quantita>2</quantita>
-		<fattore2>viola</fattore2>
-		<quantita2>1</quantita2>
+		<tipoRisorsa>cartaViola</tipoRisorsa>
+		<quantita>1</quantita>
+		<setRisorse>
+			<legno>0</legno>
+			<pietra>0</pietra>
+			<oro>0</oro>
+			<servitori>0</servitori>
+			<puntiMilitari>0</puntiMilitari>
+			<puntiFede>0</puntiFede>
+			<puntiVittoria>2</puntiVittoria>
+			<privilegi>0</privilegi>
+		</setRisorse>
 	</effetto>
 	<effetto nome="moltiplicatore1Vx2PM" idEffetto="moltiplicazione">
-		<fattore1>puntiVittoria</fattore1>
-		<quantita>1</quantita>
-		<fattore2>puntiMilitari</fattore2>
-		<quantita2>2</quantita2>
+		<tipoRisorsa>puntiMilitari</tipoRisorsa>
+		<quantita>2</quantita>
+		<setRisorse>
+			<legno>0</legno>
+			<pietra>0</pietra>
+			<oro>0</oro>
+			<servitori>0</servitori>
+			<puntiMilitari>0</puntiMilitari>
+			<puntiFede>0</puntiFede>
+			<puntiVittoria>1</puntiVittoria>
+			<privilegi>0</privilegi>
+		</setRisorse>
 	</effetto>
 	<effetto nome="moltiplicatore1OxGialla" idEffetto="moltiplicazione">
-		<fattore1>oro</fattore1>
+		<tipoRisorsa>cartaGialla</tipoRisorsa>
 		<quantita>1</quantita>
-		<fattore2>gialla</fattore2>
-		<quantita2>1</quantita2>
+		<setRisorse>
+			<legno>0</legno>
+			<pietra>0</pietra>
+			<oro>1</oro>
+			<servitori>0</servitori>
+			<puntiMilitari>0</puntiMilitari>
+			<puntiFede>0</puntiFede>
+			<puntiVittoria>0</puntiVittoria>
+			<privilegi>0</privilegi>
+		</setRisorse>
 	</effetto>
 	<effetto nome="moltiplicatore1OxVerde" idEffetto="moltiplicazione">
-		<fattore1>oro</fattore1>
+		<tipoRisorsa>cartaVerde</tipoRisorsa>
 		<quantita>1</quantita>
-		<fattore2>verde</fattore2>
-		<quantita2>1</quantita2>
+		<setRisorse>
+			<legno>0</legno>
+			<pietra>0</pietra>
+			<oro>1</oro>
+			<servitori>0</servitori>
+			<puntiMilitari>0</puntiMilitari>
+			<puntiFede>0</puntiFede>
+			<puntiVittoria>0</puntiVittoria>
+			<privilegi>0</privilegi>
+		</setRisorse>
 	</effetto>
 	<effetto nome="moltiplicatore1VxBlu" idEffetto="moltiplicazione">
-		<fattore1>puntiVittoria</fattore1>
+		<tipoRisorsa>cartaBlu</tipoRisorsa>
 		<quantita>1</quantita>
-		<fattore2>blu</fattore2>
-		<quantita2>1</quantita2>
+		<setRisorse>
+			<legno>0</legno>
+			<pietra>0</pietra>
+			<oro>0</oro>
+			<servitori>0</servitori>
+			<puntiMilitari>0</puntiMilitari>
+			<puntiFede>0</puntiFede>
+			<puntiVittoria>1</puntiVittoria>
+			<privilegi>0</privilegi>
+		</setRisorse>
 	</effetto>
 	<effetto nome="moltiplicatore1VxViola" idEffetto="moltiplicazione">
-		<fattore1>puntiVittoria</fattore1>
+		<tipoRisorsa>cartaViola</tipoRisorsa>
 		<quantita>1</quantita>
-		<fattore2>viola</fattore2>
-		<quantita2>1</quantita2>
+		<setRisorse>
+			<legno>0</legno>
+			<pietra>0</pietra>
+			<oro>0</oro>
+			<servitori>0</servitori>
+			<puntiMilitari>0</puntiMilitari>
+			<puntiFede>0</puntiFede>
+			<puntiVittoria>1</puntiVittoria>
+			<privilegi>0</privilegi>
+		</setRisorse>
 	</effetto>
 
 	<!--*********************************************************************************************
