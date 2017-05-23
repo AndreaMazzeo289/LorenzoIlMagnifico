@@ -11,6 +11,7 @@ public class Familiare {
 	
 	public Familiare (ColoreFamiliare colore, Player player) {
 		this.coloreFamiliare = colore;
+		this.player = player;
 		this.valore = 0;
 		this.disponibilità = true;
 	}

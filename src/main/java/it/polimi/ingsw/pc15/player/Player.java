@@ -44,12 +44,7 @@ public class Player {
 		this.edifici = new HashSet<Edificio>();
 		this.imprese = new HashSet<Impresa>();
 		
-		this.effettiAttivi = new EffettiAttivi();
-		
-		
-		
-		
-		
+		this.effettiAttivi = new EffettiAttivi();	
 		
 	}
 	
