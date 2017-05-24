@@ -84,20 +84,39 @@ public class Plancia {
 		
 	}
 	
-	public void setTurno (int periodo, Set<Carta> setCarteTerritorio, Set<Carta> setCartePersonaggio, Set<Carta> setCarteEdificio, Set<Carta> setCarteImpresa){
+	/**
+	 * @param periodo
+	 * @param setCarteTerritorio
+	 * @param setCartePersonaggio
+	 * @param setCarteEdificio
+	 * @param setCarteImpresa
+	 */
+	public void setTurno (int periodo, ArrayList<Carta> arrayCarteTerritorio, ArrayList<Carta> arrayCartePersonaggio, ArrayList<Carta> arrayCarteEdificio, ArrayList<Carta> arrayCarteImpresa){
 		
 		ArrayList arrayTerritori = new ArrayList();
 		ArrayList arrayPersonaggi = new ArrayList();
 		ArrayList arrayEdifici = new ArrayList();
 		ArrayList arrayImprese = new ArrayList();
 		
-		Iterator<Carta> territorio = setCarteTerritorio.iterator();
-		Iterator<Carta> personaggio = setCartePersonaggio.iterator();
-		Iterator<Carta> edificio = setCarteEdificio.iterator();
-		Iterator<Carta> impresa = setCarteImpresa.iterator();
+		Iterator<Carta> territorio = arrayCarteTerritorio.iterator();
+		Iterator<Carta> personaggio = arrayCartePersonaggio.iterator();
+		Iterator<Carta> edificio = arrayCarteEdificio.iterator();
+		Iterator<Carta> impresa = arrayCarteImpresa.iterator();
 		
 		int n = 0;
 		int numeroSpaziTorre = ParseXML.leggiValore("numeroSpaziTorre");
+		
+		Collections.shuffle(arrayCarteTerritorio);
+		Collections.shuffle(arrayCartePersonaggio);
+		Collections.shuffle(arrayCarteEdificio);
+		Collections.shuffle(arrayCarteImpresa);
+		
+		for(Carta carta : arrayCarteTerritorio) {
+			if(carta.getPeriodo()==periodo && n<numeroSpaziTorre)
+				arrayTerritori.add(carta);
+				arrayCarteTerritorio.remove(carta);
+				n++;
+		}
 		
 		while (territorio.hasNext() && n < numeroSpaziTorre) {
 			Carta territorioExt = territorio.next();

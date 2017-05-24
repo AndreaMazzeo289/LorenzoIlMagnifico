@@ -35,6 +35,7 @@ public class Main {
 		((Player) gioco.getPlayers().get(0)).occupaSpazio((Spazio) gioco.getPlancia().getSpazioTorre(ColoreCarta.VERDE, 1), ((Player) gioco.getPlayers().get(0)).getFamiliare(ColoreFamiliare.NERO));
 		((Player) gioco.getPlayers().get(0)).occupaSpazio((Spazio) gioco.getPlancia().getSpazioTorre(ColoreCarta.VERDE, 1), ((Player) gioco.getPlayers().get(0)).getFamiliare(ColoreFamiliare.NERO));
 		
+		
 		System.out.println("oro: "+Integer.toString(((Player) gioco.getPlayers().get(0)).getSetRisorse().getRisorsa(TipoRisorsa.ORO).getQuantità()));
 		System.out.println("punti fede: "+Integer.toString(((Player) gioco.getPlayers().get(0)).getSetRisorse().getRisorsa(TipoRisorsa.PUNTIFEDE).getQuantità()));
 		System.out.println("punti militari: "+Integer.toString(((Player) gioco.getPlayers().get(0)).getSetRisorse().getRisorsa(TipoRisorsa.PUNTIMILITARI).getQuantità()));		

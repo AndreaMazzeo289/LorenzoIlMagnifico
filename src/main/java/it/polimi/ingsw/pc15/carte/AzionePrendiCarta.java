@@ -17,7 +17,10 @@ public abstract class AzionePrendiCarta {
 	public boolean risorseSufficienti (SetRisorse costo) {
 		
 	int oroAggiuntivo = 0;								 //
-														 //    se la torre è già occupata, il costo in oro della carta
+		
+		System.out.println(carta.getSpazio());
+		System.out.println(carta.getSpazio().getTorre());
+			//    se la torre è già occupata, il costo in oro della carta
 		if (carta.getSpazio().getTorre().occupata() ) {  //    aumenta di 3;
 			oroAggiuntivo = 3;							 // 
 		}

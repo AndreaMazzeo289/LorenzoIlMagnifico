@@ -43,10 +43,10 @@ public class Model extends Observable {
 	private int turno;
 	private int periodo;
 	private ParseXML parseXML;
-	private Set<Carta> setCarteTerritorio;
-	private Set<Carta> setCartePersonaggio;
-	private Set<Carta> setCarteEdificio;
-	private Set<Carta> setCarteImpresa;
+	private ArrayList<Carta> setCarteTerritorio;
+	private ArrayList<Carta> setCartePersonaggio;
+	private ArrayList<Carta> setCarteEdificio;
+	private ArrayList<Carta> setCarteImpresa;
 	
 	
 	public Model(int numGiocatori){
