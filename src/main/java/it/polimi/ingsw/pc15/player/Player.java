@@ -24,8 +24,7 @@ public class Player {
 	private ArrayList<Impresa> imprese;
 	private EffettiAttivi effettiAttivi;
 	
-	
-	
+
 	public Player (String name, SetRisorse setRisorse) {
 		this.name = name;
 		this.setRisorse = setRisorse;
