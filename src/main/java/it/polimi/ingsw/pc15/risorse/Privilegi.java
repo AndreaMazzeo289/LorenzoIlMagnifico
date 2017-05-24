@@ -6,11 +6,6 @@ public class Privilegi extends Risorsa {
 		super(quantità);
 		
 	}
-	
-	@Override
-	public void aggiungi(int quantità) {
-		
-	}
 
 	@Override
 	public TipoRisorsa getTipoRisorsa() {
