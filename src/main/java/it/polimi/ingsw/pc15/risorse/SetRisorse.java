@@ -74,7 +74,23 @@ public class SetRisorse {
 		
 	}
 
-	public boolean paragona (SetRisorse setRisorse) { //ritorna TRUE solo se il valore di ogni risorsa in questo setRisorse è >= di quello delle corrispondenti risorse del secondo setRisorse
+	public boolean paragona (SetRisorse setRisorse) { 
+		
+		boolean risultato = true;
+		
+		for(Map.Entry<TipoRisorsa, Risorsa> risorsa1 : risorse.entrySet()) {
+			for(Map.Entry<TipoRisorsa, Risorsa> risorsa2 : setRisorse.getRisorse().entrySet()) {
+				if(risorsa1.getKey().equals(risorsa2.getKey())) {
+					if (!risorsa1.getValue().paragona(risorsa2.getValue().getQuantità()))
+						risultato = false;
+				}
+			}
+		}
+		
+		return risultato;
+		
+
+		/*
 		
 		Iterator<Map.Entry<TipoRisorsa, Risorsa>> it1 = this.risorse.entrySet().iterator();
 		
@@ -92,6 +108,9 @@ public class SetRisorse {
 			}
 		}
 		return true;
+		
+		
+		*/
 	}
 	
 	public Risorsa getRisorsa(TipoRisorsa tipoRisorsa){
