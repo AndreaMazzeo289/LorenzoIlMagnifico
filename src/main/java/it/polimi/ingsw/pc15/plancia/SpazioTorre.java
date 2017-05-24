@@ -15,11 +15,12 @@ public class SpazioTorre extends Spazio {
 	private Effetto bonusRisorse;
 	
 
-	public SpazioTorre(int valoreMin, SetRisorse setRisorse) {
+	public SpazioTorre(int valoreMin, SetRisorse setRisorse, Torre torre) {
 		super(valoreMin);
 		this.carta = null;
 		this.familiare = null;
 		this.bonusRisorse = new AggiuntaRisorse(setRisorse);
+		this.torre = torre;
 	}
 
 	@Override

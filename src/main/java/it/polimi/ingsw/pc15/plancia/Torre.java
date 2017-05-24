@@ -16,7 +16,7 @@ public class Torre {
 
 		this.spaziTorre = new ArrayList(numeroSpaziTorre);
 		for (int i=0; i<numeroSpaziTorre; i++) {
-			spaziTorre.add(i, new SpazioTorre(2*i+1, arraySetRisorse.get(i)));	
+			spaziTorre.add(i, new SpazioTorre(2*i+1, arraySetRisorse.get(i), this));	
 		}
 	}
 		
