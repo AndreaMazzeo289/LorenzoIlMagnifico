@@ -11,6 +11,15 @@ import it.polimi.ingsw.pc15.carte.Impresa;
 import it.polimi.ingsw.pc15.carte.Personaggio;
 import it.polimi.ingsw.pc15.carte.Territorio;
 import it.polimi.ingsw.pc15.plancia.Spazio;
+import it.polimi.ingsw.pc15.risorse.Legna;
+import it.polimi.ingsw.pc15.risorse.Oro;
+import it.polimi.ingsw.pc15.risorse.Pietra;
+import it.polimi.ingsw.pc15.risorse.Privilegi;
+import it.polimi.ingsw.pc15.risorse.PuntiFede;
+import it.polimi.ingsw.pc15.risorse.PuntiMilitari;
+import it.polimi.ingsw.pc15.risorse.PuntiVittoria;
+import it.polimi.ingsw.pc15.risorse.Risorsa;
+import it.polimi.ingsw.pc15.risorse.Servitori;
 import it.polimi.ingsw.pc15.risorse.SetRisorse;
 
 public class Player {
@@ -24,10 +33,16 @@ public class Player {
 	private ArrayList<Impresa> imprese;
 	private EffettiAttivi effettiAttivi;
 	
-
-	public Player (String name, SetRisorse setRisorse) {
+	
+	public Player (String name) {
+		
 		this.name = name;
-		this.setRisorse = setRisorse;
+		this.effettiAttivi = new EffettiAttivi();	
+		
+		//-----------------------------------------------------------------------------------------------------------//
+		//          FAMILIARI                                                                                        //
+		//-----------------------------------------------------------------------------------------------------------//
+		
 		this.familiari = new HashSet<Familiare>();
 		
 		Familiare familiareNero = new Familiare (ColoreFamiliare.NERO, this);
@@ -39,6 +54,36 @@ public class Player {
 		this.familiari.add(familiareNero);
 		this.familiari.add(familiareArancione);
 		this.familiari.add(familiareNeutro);
+			
+		//-----------------------------------------------------------------------------------------------------------//
+		//          RISORSE                                                                                          //
+		//-----------------------------------------------------------------------------------------------------------//
+		
+		Oro oro = new Oro(0);
+		Legna legna = new Legna(0);
+		Pietra pietra = new Pietra(0);
+		Servitori servitori = new Servitori(0);
+		Privilegi privilegi = new Privilegi(0);
+		PuntiFede puntiFede = new PuntiFede(0);
+		PuntiMilitari puntiMilitari = new PuntiMilitari(0);
+		PuntiVittoria puntiVittoria = new PuntiVittoria(0);
+		
+		HashSet<Risorsa> risorse = new HashSet<Risorsa>();
+		
+		risorse.add(oro);
+		risorse.add(legna);
+		risorse.add(pietra);
+		risorse.add(servitori);
+		risorse.add(privilegi);
+		risorse.add(puntiFede);
+		risorse.add(puntiMilitari);
+		risorse.add(puntiVittoria);
+		
+		this.setRisorse = new SetRisorse(risorse);
+			
+		//-----------------------------------------------------------------------------------------------------------//
+		//          CARTE                                                                                            //
+		//-----------------------------------------------------------------------------------------------------------//
 		
 		int numeroMaxCarte = ParseXML.leggiValore("numeroMaxCarte");
 		
@@ -46,11 +91,30 @@ public class Player {
 		this.personaggi = new ArrayList<Personaggio>(numeroMaxCarte);
 		this.edifici = new ArrayList<Edificio>(numeroMaxCarte);
 		this.imprese = new ArrayList<Impresa>(numeroMaxCarte);
-		
-		this.effettiAttivi = new EffettiAttivi();	
-		
+
 	}
 	
+
+	public void occupaSpazio (Spazio spazio, Familiare familiare) {
+		
+		if (familiare.disponibile()) {
+		
+			familiare.aggiungiServitori();
+		
+			if (spazio.occupabile(familiare) ) {
+				
+				familiare.setDisponibilità(false);
+				spazio.occupa(familiare);
+			}
+		}	
+	}
+	
+	
+	
+	//-----------------------------------------------------------------------------------------------------------//
+	//          METODI GET                                                                                         //
+	//-----------------------------------------------------------------------------------------------------------//
+
 	public String getName() {
 		return this.name;
 	}
@@ -75,6 +139,10 @@ public class Player {
 		return this.imprese;
 	}
 	
+	public EffettiAttivi getEffettiAttivi(){
+		return effettiAttivi;
+	}
+	
 	public Familiare getFamiliare(ColoreFamiliare coloreFamiliare){
 		
 		Familiare familiareReturn = null;
@@ -86,26 +154,8 @@ public class Player {
 		
 		return familiareReturn;
 	}
-	
-	public void occupaSpazio (Spazio spazio, Familiare familiare) {
-		
-		if (familiare.disponibile()) {
-		
-			familiare.aggiungiServitori();
-		
-			if (spazio.occupabile(familiare) ) {
-				
-				familiare.setDisponibilità(false);
-				spazio.occupa(familiare);
-			}
-		}
-		
-	}
-	
-	public EffettiAttivi getEffettiAttivi(){
-		return effettiAttivi;
-	}
-	
+
+
 	
 	
 	
