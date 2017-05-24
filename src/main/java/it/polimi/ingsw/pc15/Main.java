@@ -3,6 +3,7 @@ package it.polimi.ingsw.pc15;
 import java.io.IOException;
 import java.util.Scanner;
 
+import it.polimi.ingsw.pc15.carte.ColoreCarta;
 import it.polimi.ingsw.pc15.controller.Controller;
 import it.polimi.ingsw.pc15.effetti.Effetto;
 import it.polimi.ingsw.pc15.model.Model;
@@ -29,7 +30,10 @@ public class Main {
 		
 		Scanner in = new Scanner(System.in);
 		
-		((Player) gioco.getPlayers().get(0)).occupaSpazio ((Spazio) gioco.getPlancia().getSpaziMercato().get(0), ((Player) gioco.getPlayers().get(0)).getFamiliare(ColoreFamiliare.ARANCIONE));
+		//((Player) gioco.getPlayers().get(0)).occupaSpazio ((Spazio) gioco.getPlancia().getSpaziMercato().get(0), ((Player) gioco.getPlayers().get(0)).getFamiliare(ColoreFamiliare.ARANCIONE));
+		
+		((Player) gioco.getPlayers().get(0)).occupaSpazio((Spazio) gioco.getPlancia().getSpazioTorre(ColoreCarta.VERDE, 1), ((Player) gioco.getPlayers().get(0)).getFamiliare(ColoreFamiliare.NERO));
+		((Player) gioco.getPlayers().get(0)).occupaSpazio((Spazio) gioco.getPlancia().getSpazioTorre(ColoreCarta.VERDE, 1), ((Player) gioco.getPlayers().get(0)).getFamiliare(ColoreFamiliare.NERO));
 		
 		System.out.println("oro: "+Integer.toString(((Player) gioco.getPlayers().get(0)).getSetRisorse().getRisorsa(TipoRisorsa.ORO).getQuantità()));
 		System.out.println("punti fede: "+Integer.toString(((Player) gioco.getPlayers().get(0)).getSetRisorse().getRisorsa(TipoRisorsa.PUNTIFEDE).getQuantità()));
