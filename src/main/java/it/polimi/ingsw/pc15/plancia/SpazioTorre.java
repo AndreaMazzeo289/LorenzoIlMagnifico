@@ -73,6 +73,7 @@ public class SpazioTorre extends Spazio {
 	
 	public void setCarta(Carta carta) {
 		this.carta = carta;
+		carta.setSpazio(this);
 	}
 	
 	public void removeCarta() {

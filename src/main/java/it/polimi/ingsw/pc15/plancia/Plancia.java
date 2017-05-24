@@ -13,6 +13,7 @@ import it.polimi.ingsw.pc15.carte.Edificio;
 import it.polimi.ingsw.pc15.carte.Impresa;
 import it.polimi.ingsw.pc15.carte.Personaggio;
 import it.polimi.ingsw.pc15.carte.Territorio;
+import it.polimi.ingsw.pc15.risorse.SetRisorse;
 
 public class Plancia {
 	
@@ -24,7 +25,7 @@ public class Plancia {
 	private SpazioProduzione spazioProduzione;
 	private SpazioRaccolta spazioRaccolta;
 	private SpazioConsiglio spazioConsiglio;
-	private ArrayList spaziMercato;
+	private ArrayList<SpazioMercato> spaziMercato;
 	
 	public Plancia (int numeroGiocatori) {
 		
@@ -34,10 +35,10 @@ public class Plancia {
 		
 		int numeroSpaziTorre = ParseXML.leggiValore("numeroSpaziTorre");
 
-		ArrayList risorseTorreVerde = new ArrayList(numeroSpaziTorre);
-		ArrayList risorseTorreBlu = new ArrayList(numeroSpaziTorre);
-		ArrayList risorseTorreGialla = new ArrayList(numeroSpaziTorre);
-		ArrayList risorseTorreViola = new ArrayList(numeroSpaziTorre);
+		ArrayList risorseTorreVerde = new ArrayList<SetRisorse> (numeroSpaziTorre);
+		ArrayList risorseTorreBlu = new ArrayList<SetRisorse> (numeroSpaziTorre);
+		ArrayList risorseTorreGialla = new ArrayList<SetRisorse> (numeroSpaziTorre);
+		ArrayList risorseTorreViola = new ArrayList<SetRisorse> (numeroSpaziTorre);
 		
 		for(int i=0; i<numeroSpaziTorre; i++){
 			risorseTorreVerde.add(ParseXML.leggiSetRisorseSpazio("verde"+Integer.toString(i))); 
@@ -65,7 +66,7 @@ public class Plancia {
 		//           SPAZI MERCATO                                                                                   //
 		//-----------------------------------------------------------------------------------------------------------//
 		
-		spaziMercato = new ArrayList();
+		spaziMercato = new ArrayList<SpazioMercato>();
 		int valoreMinMercato = ParseXML.leggiValore("valoreMinMercato");
 		
 		switch (numeroGiocatori) {
