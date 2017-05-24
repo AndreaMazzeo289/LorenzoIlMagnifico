@@ -95,7 +95,8 @@ public class Plancia {
 		int numeroSpaziTorre = ParseXML.leggiValore("numeroSpaziTorre");
 		
 		n=0;
-		for(Carta carta : arrayCarteTerritorio) {
+		for(int i=0; i<arrayCarteTerritorio.size(); i++) {
+			Carta carta = arrayCarteTerritorio.get(i);
 			if(carta.getPeriodo()==periodo && n<numeroSpaziTorre) {
 				arrayTerritori.add(carta);
 				arrayCarteTerritorio.remove(carta);
@@ -104,7 +105,8 @@ public class Plancia {
 		}
 		
 		n=0;
-		for(Carta carta : arrayCartePersonaggio) {
+		for(int i=0; i<arrayCartePersonaggio.size(); i++) {
+			Carta carta = arrayCartePersonaggio.get(i);
 			if(carta.getPeriodo()==periodo && n<numeroSpaziTorre) {
 				arrayPersonaggi.add(carta);
 				arrayCartePersonaggio.remove(carta);
@@ -113,7 +115,8 @@ public class Plancia {
 		}
 		
 		n=0;
-		for(Carta carta : arrayCarteEdificio) {
+		for(int i=0; i<arrayCarteEdificio.size(); i++) {
+			Carta carta = arrayCarteEdificio.get(i);
 			if(carta.getPeriodo()==periodo && n<numeroSpaziTorre) {
 				arrayEdifici.add(carta);
 				arrayCarteEdificio.remove(carta);
@@ -122,7 +125,8 @@ public class Plancia {
 		}
 		
 		n=0;
-		for(Carta carta : arrayCarteImpresa) {
+		for(int i=0; i<arrayCarteImpresa.size(); i++) {
+			Carta carta = arrayCarteImpresa.get(i);
 			if(carta.getPeriodo()==periodo && n<numeroSpaziTorre) {
 				arrayImprese.add(carta);
 				arrayCarteImpresa.remove(carta);

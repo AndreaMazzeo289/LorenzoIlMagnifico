@@ -4,6 +4,7 @@ import java.io.IOException;
 import java.util.Scanner;
 
 import it.polimi.ingsw.pc15.carte.ColoreCarta;
+import it.polimi.ingsw.pc15.carte.Impresa;
 import it.polimi.ingsw.pc15.carte.Territorio;
 import it.polimi.ingsw.pc15.controller.Controller;
 import it.polimi.ingsw.pc15.effetti.Effetto;
@@ -33,11 +34,16 @@ public class Main {
 		
 		//((Player) gioco.getPlayers().get(0)).occupaSpazio ((Spazio) gioco.getPlancia().getSpaziMercato().get(0), ((Player) gioco.getPlayers().get(0)).getFamiliare(ColoreFamiliare.ARANCIONE));
 		
-		((Player) gioco.getPlayers().get(0)).occupaSpazio((Spazio) gioco.getPlancia().getSpazioTorre(ColoreCarta.VERDE, 1), ((Player) gioco.getPlayers().get(0)).getFamiliare(ColoreFamiliare.NERO));
+		((Player) gioco.getPlayers().get(0)).occupaSpazio((Spazio) gioco.getPlancia().getSpazioTorre(ColoreCarta.VIOLA, 0), ((Player) gioco.getPlayers().get(0)).getFamiliare(ColoreFamiliare.NERO));
 		//((Player) gioco.getPlayers().get(0)).occupaSpazio((Spazio) gioco.getPlancia().getSpazioTorre(ColoreCarta.VERDE, 1), ((Player) gioco.getPlayers().get(0)).getFamiliare(ColoreFamiliare.NERO));
 		
-		for(Territorio carta : ((Player) gioco.getPlayers().get(0)).getTerritori())
+		//for(Territorio carta : ((Player) gioco.getPlayers().get(0)).getTerritori())
+		//	System.out.println(carta.getNome());
+		
+		for(Impresa carta : ((Player) gioco.getPlayers().get(0)).getImprese())
 			System.out.println(carta.getNome());
+		
+		System.out.println(((Player)gioco.getPlayers().get(0)).getFamiliare(ColoreFamiliare.NERO).getValore());
 		
 		System.out.println("oro: "+Integer.toString(((Player) gioco.getPlayers().get(0)).getSetRisorse().getRisorsa(TipoRisorsa.ORO).getQuantità()));
 		System.out.println("punti fede: "+Integer.toString(((Player) gioco.getPlayers().get(0)).getSetRisorse().getRisorsa(TipoRisorsa.PUNTIFEDE).getQuantità()));
@@ -46,7 +52,10 @@ public class Main {
 		System.out.println("pietra: "+Integer.toString(((Player) gioco.getPlayers().get(0)).getSetRisorse().getRisorsa(TipoRisorsa.PIETRA).getQuantità()));
 		System.out.println("servitori: "+Integer.toString(((Player) gioco.getPlayers().get(0)).getSetRisorse().getRisorsa(TipoRisorsa.SERVITORI).getQuantità()));
 		System.out.println("privilegi: "+Integer.toString(((Player) gioco.getPlayers().get(0)).getSetRisorse().getRisorsa(TipoRisorsa.PRIVILEGI).getQuantità()));
+		System.out.println("legna: "+Integer.toString(((Player) gioco.getPlayers().get(0)).getSetRisorse().getRisorsa(TipoRisorsa.LEGNA).getQuantità()));
 		
+		
+		System.out.println(gioco.getPlancia().getSpazioTorre(ColoreCarta.VIOLA, 0).getValoreMin());
 
 	}
 }

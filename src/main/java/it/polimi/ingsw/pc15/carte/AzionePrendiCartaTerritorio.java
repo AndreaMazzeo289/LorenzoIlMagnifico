@@ -28,7 +28,7 @@ public class AzionePrendiCartaTerritorio extends AzionePrendiCarta {
 			return false;
 		}
 		
-		if (player.getSetRisorse().getRisorsa(TipoRisorsa.PUNTIMILITARI).paragona(ParseXML.leggiValore("RequisitoMilitareTerritorio" + Integer.toString(player.getTerritori().size()+1)))) {
+		if (!player.getSetRisorse().getRisorsa(TipoRisorsa.PUNTIMILITARI).paragona(ParseXML.leggiValore("RequisitoMilitareTerritorio" + Integer.toString(player.getTerritori().size()+1)))) {
 			System.out.println("Non hai abbastanza punti militari per ottenere questo Territorio");
 			return false;
 		}
