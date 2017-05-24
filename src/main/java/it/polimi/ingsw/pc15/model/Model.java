@@ -37,6 +37,8 @@ public class Model extends Observable {
 	private int valoreDado;
 	private Player player1;
 	private Player player2;
+	private Player player3;
+	private Player player4;
 	private Plancia plancia;
 	private int turno;
 	private int periodo;
@@ -79,9 +81,13 @@ public class Model extends Observable {
 			
 		player1 = new Player("noName", setRisorse);
 		player2 = new Player("noName", setRisorse);
+		player3 = new Player("noName", setRisorse);
+		player4 = new Player("noName", setRisorse);
 		giocatori = new ArrayList();
 		giocatori.add(player1);
 		giocatori.add(player2);
+		giocatori.add(player3);
+		giocatori.add(player4);
 		
 		/*for(int i = 0; i<numGiocatori; i++){
 			giocatori.add(this.player = new Player("noName", setRisorse));*/
