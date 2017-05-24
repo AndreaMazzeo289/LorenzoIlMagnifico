@@ -26,4 +26,25 @@
     <nomeValore nome="numeroSpaziTorre">
         <valore>4</valore>
     </nomeValore>
+    <nomeValore nome="numeroMaxCarte">
+        <valore>6</valore>
+    </nomeValore>
+    <nomeValore nome="requisitoMilitareTerritorio1">
+        <valore>0</valore>
+    </nomeValore>
+    <nomeValore nome="requisitoMilitareTerritorio2">
+        <valore>0</valore>
+    </nomeValore>
+    <nomeValore nome="requisitoMilitareTerritorio3">
+        <valore>3</valore>
+    </nomeValore>
+    <nomeValore nome="requisitoMilitareTerritorio4">
+        <valore>7</valore>
+    </nomeValore>
+    <nomeValore nome="requisitoMilitareTerritorio5">
+        <valore>12</valore>
+    </nomeValore>
+    <nomeValore nome="requisitoMilitareTerritorio6">
+        <valore>18</valore>
+    </nomeValore>
 </datiGenerali>

@@ -1,9 +1,11 @@
 package it.polimi.ingsw.pc15.player;
 
+import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.Iterator;
 import java.util.Set;
 
+import it.polimi.ingsw.pc15.ParseXML;
 import it.polimi.ingsw.pc15.carte.Edificio;
 import it.polimi.ingsw.pc15.carte.Impresa;
 import it.polimi.ingsw.pc15.carte.Personaggio;
@@ -16,14 +18,13 @@ public class Player {
 	private final String name;
 	private SetRisorse setRisorse;
 	private Set<Familiare> familiari;
-	private Set<Territorio> territori;
-	private Set<Personaggio> personaggi;
-	private Set<Edificio> edifici;
-	private Set<Impresa> imprese;
+	private ArrayList<Territorio> territori;
+	private ArrayList<Personaggio> personaggi;
+	private ArrayList<Edificio> edifici;
+	private ArrayList<Impresa> imprese;
 	private EffettiAttivi effettiAttivi;
 	
-	
-	
+
 	public Player (String name, SetRisorse setRisorse) {
 		this.name = name;
 		this.setRisorse = setRisorse;
@@ -39,10 +40,12 @@ public class Player {
 		this.familiari.add(familiareArancione);
 		this.familiari.add(familiareNeutro);
 		
-		this.territori = new HashSet<Territorio>();
-		this.personaggi = new HashSet<Personaggio>();
-		this.edifici = new HashSet<Edificio>();
-		this.imprese = new HashSet<Impresa>();
+		int numeroMaxCarte = ParseXML.leggiValore("numeroMaxCarte");
+		
+		this.territori = new ArrayList<Territorio>(numeroMaxCarte);
+		this.personaggi = new ArrayList<Personaggio>(numeroMaxCarte);
+		this.edifici = new ArrayList<Edificio>(numeroMaxCarte);
+		this.imprese = new ArrayList<Impresa>(numeroMaxCarte);
 		
 		this.effettiAttivi = new EffettiAttivi();	
 		
@@ -56,19 +59,19 @@ public class Player {
 		return this.setRisorse;
 	}
 	
-	public Set<Territorio> getTerritori() {
+	public ArrayList<Territorio> getTerritori() {
 		return this.territori;
 	}
 	
-	public Set<Personaggio> getPersonaggi() {
+	public ArrayList<Personaggio> getPersonaggi() {
 		return this.personaggi;
 	}
 	
-	public Set<Edificio> getEdifici() {
+	public ArrayList<Edificio> getEdifici() {
 		return this.edifici;
 	}
 	
-	public Set<Impresa> getImprese() {
+	public ArrayList<Impresa> getImprese() {
 		return this.imprese;
 	}
 	

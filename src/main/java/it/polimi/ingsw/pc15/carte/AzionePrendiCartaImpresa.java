@@ -1,5 +1,6 @@
 package it.polimi.ingsw.pc15.carte;
 
+import it.polimi.ingsw.pc15.ParseXML;
 import it.polimi.ingsw.pc15.player.Player;
 
 public class AzionePrendiCartaImpresa extends AzionePrendiCarta {
@@ -17,7 +18,7 @@ public class AzionePrendiCartaImpresa extends AzionePrendiCarta {
 
 	@Override
 	public boolean requisitiSoddisfatti() {
-		if (player.getImprese().size() == 6) {  //limite carte Impresa
+		if (player.getImprese().size() == ParseXML.leggiValore("numeroMaxCarte")) {  //limite carte Impresa
 			System.out.println("Hai raggiunto il limite massimo di carte Impresa!");
 			return false;
 		}

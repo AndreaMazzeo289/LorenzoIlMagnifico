@@ -1,5 +1,6 @@
 package it.polimi.ingsw.pc15.carte;
 
+import it.polimi.ingsw.pc15.ParseXML;
 import it.polimi.ingsw.pc15.player.Player;
 import it.polimi.ingsw.pc15.risorse.TipoRisorsa;
 
@@ -16,39 +17,23 @@ public class AzionePrendiCartaTerritorio extends AzionePrendiCarta {
 		player.getTerritori().add((Territorio) carta);
 	}
 	
+	
 	@Override
 	public boolean requisitiSoddisfatti() {
 		
-		switch (player.getTerritori().size()) {
-		case 2: if (player.getSetRisorse().getRisorsa(TipoRisorsa.PUNTIMILITARI).getQuantità()<3) {
-					System.out.println("Hai bisogno di 3 Punti Militari per aggiungere un altra carta Territorio!");
-					return false;
-				}
-
-		case 3: if (player.getSetRisorse().getRisorsa(TipoRisorsa.PUNTIMILITARI).getQuantità()<7) {
-					System.out.println("Hai bisogno di 7 Punti Militari per aggiungere un altra carta Territorio!");
-					return false;
-				}
-			
-		case 4: if (player.getSetRisorse().getRisorsa(TipoRisorsa.PUNTIMILITARI).getQuantità()<12) {
-					System.out.println("Hai bisogno di 12 Punti Militari per aggiungere un altra carta Territorio!");
-					return false;
-				}
-			
-		case 5: if (player.getSetRisorse().getRisorsa(TipoRisorsa.PUNTIMILITARI).getQuantità()<18) {
-					System.out.println("Hai bisogno di 18 Punti Militari per aggiungere un altra carta Territorio!");
-					return false;
-				}
-			
-		case 6: System.out.println("Hai raggiunto il limite massimo di carte Territori!");
-				return false;
-	
-		default: break;
+		int numeroMaxCarte = ParseXML.leggiValore("numeroMaxCarte");
 		
+		if (player.getTerritori().size() == numeroMaxCarte) {
+			System.out.println("Hai raggiunto il limite massimo di carte Territorio!");
+			return false;
+		}
+		
+		if (player.getSetRisorse().getRisorsa(TipoRisorsa.PUNTIMILITARI).paragona(ParseXML.leggiValore("RequisitoMilitareTerritorio" + Integer.toString(player.getTerritori().size()+1)))) {
+			System.out.println("Non hai abbastanza punti militari per ottenere questo Territorio");
+			return false;
 		}
 		
 		return true;
-		
 	}
 
 
