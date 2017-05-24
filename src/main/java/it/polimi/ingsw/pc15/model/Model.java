@@ -43,10 +43,10 @@ public class Model extends Observable {
 	private int turno;
 	private int periodo;
 	private ParseXML parseXML;
-	private ArrayList<Carta> setCarteTerritorio;
-	private ArrayList<Carta> setCartePersonaggio;
-	private ArrayList<Carta> setCarteEdificio;
-	private ArrayList<Carta> setCarteImpresa;
+	private ArrayList<Carta> carteTerritorio;
+	private ArrayList<Carta> cartePersonaggio;
+	private ArrayList<Carta> carteEdificio;
+	private ArrayList<Carta> carteImpresa;
 	
 	
 	public Model(int numGiocatori){
@@ -101,10 +101,15 @@ public class Model extends Observable {
 
 	public void iniziaPartita() {
 		
-		setCarteTerritorio= parseXML.getCartaXML(ColoreCarta.VERDE);
-		setCarteEdificio= parseXML.getCartaXML(ColoreCarta.GIALLO);
-		setCartePersonaggio= parseXML.getCartaXML(ColoreCarta.BLU);
-		setCarteImpresa= parseXML.getCartaXML(ColoreCarta.VIOLA);
+		carteTerritorio= parseXML.getCartaXML(ColoreCarta.VERDE);
+		carteEdificio= parseXML.getCartaXML(ColoreCarta.GIALLO);
+		cartePersonaggio= parseXML.getCartaXML(ColoreCarta.BLU);
+		carteImpresa= parseXML.getCartaXML(ColoreCarta.VIOLA);
+		
+		Collections.shuffle(carteTerritorio);
+		Collections.shuffle(cartePersonaggio);
+		Collections.shuffle(carteEdificio);
+		Collections.shuffle(carteImpresa);
 		
 		iniziaNuovoTurno();
 		
@@ -118,7 +123,7 @@ public class Model extends Observable {
 			turno=1;
 		}
 		
-		this.plancia.setTurno(periodo, setCarteTerritorio, setCartePersonaggio, setCarteEdificio, setCarteImpresa);
+		this.plancia.setTurno(periodo, carteTerritorio, cartePersonaggio, carteEdificio, carteImpresa);
 		
 		//prende il primo giocatore e tira i dadi e li passa al familiare;
 		

@@ -83,87 +83,53 @@ public class Plancia {
 		}
 		
 	}
-	
-	/**
-	 * @param periodo
-	 * @param setCarteTerritorio
-	 * @param setCartePersonaggio
-	 * @param setCarteEdificio
-	 * @param setCarteImpresa
-	 */
+
 	public void setTurno (int periodo, ArrayList<Carta> arrayCarteTerritorio, ArrayList<Carta> arrayCartePersonaggio, ArrayList<Carta> arrayCarteEdificio, ArrayList<Carta> arrayCarteImpresa){
+
+		ArrayList arrayTerritori = new ArrayList<Territorio>();             
+		ArrayList arrayPersonaggi = new ArrayList<Personaggio>();
+		ArrayList arrayEdifici = new ArrayList<Edificio>();
+		ArrayList arrayImprese = new ArrayList<Impresa>();
 		
-		ArrayList arrayTerritori = new ArrayList();
-		ArrayList arrayPersonaggi = new ArrayList();
-		ArrayList arrayEdifici = new ArrayList();
-		ArrayList arrayImprese = new ArrayList();
-		
-		Iterator<Carta> territorio = arrayCarteTerritorio.iterator();
-		Iterator<Carta> personaggio = arrayCartePersonaggio.iterator();
-		Iterator<Carta> edificio = arrayCarteEdificio.iterator();
-		Iterator<Carta> impresa = arrayCarteImpresa.iterator();
-		
-		int n = 0;
+		int n;
 		int numeroSpaziTorre = ParseXML.leggiValore("numeroSpaziTorre");
 		
-		Collections.shuffle(arrayCarteTerritorio);
-		Collections.shuffle(arrayCartePersonaggio);
-		Collections.shuffle(arrayCarteEdificio);
-		Collections.shuffle(arrayCarteImpresa);
-		
+		n=0;
 		for(Carta carta : arrayCarteTerritorio) {
-			if(carta.getPeriodo()==periodo && n<numeroSpaziTorre)
+			if(carta.getPeriodo()==periodo && n<numeroSpaziTorre) {
 				arrayTerritori.add(carta);
 				arrayCarteTerritorio.remove(carta);
-				n++;
-		}
-		
-		while (territorio.hasNext() && n < numeroSpaziTorre) {
-			Carta territorioExt = territorio.next();
-			if (territorioExt.getPeriodo() == periodo) {
-				arrayTerritori.add(territorioExt);
-				territorio.remove();
 				n++;
 			}
 		}
 		
 		n=0;
-		while (personaggio.hasNext() && n < numeroSpaziTorre) {
-			Carta personaggioExt = personaggio.next();
-			if (personaggioExt.getPeriodo() == periodo) {
-				arrayPersonaggi.add(personaggioExt);
-				personaggio.remove();
+		for(Carta carta : arrayCartePersonaggio) {
+			if(carta.getPeriodo()==periodo && n<numeroSpaziTorre) {
+				arrayPersonaggi.add(carta);
+				arrayCartePersonaggio.remove(carta);
 				n++;
-			}			
+			}
 		}
 		
 		n=0;
-		while (edificio.hasNext() && n < numeroSpaziTorre) {
-			Carta edificioExt = edificio.next();
-			if (edificioExt.getPeriodo() == periodo) {
-				arrayEdifici.add(edificioExt);
-				edificio.remove();
+		for(Carta carta : arrayCarteEdificio) {
+			if(carta.getPeriodo()==periodo && n<numeroSpaziTorre) {
+				arrayEdifici.add(carta);
+				arrayCarteEdificio.remove(carta);
 				n++;
-			}			
+			}
 		}
 		
 		n=0;
-		while (impresa.hasNext() && n < numeroSpaziTorre) {
-			Carta impresaExt = impresa.next();
-			if (impresaExt.getPeriodo() == periodo) {
-				arrayImprese.add(impresaExt);
-				impresa.remove();
+		for(Carta carta : arrayCarteImpresa) {
+			if(carta.getPeriodo()==periodo && n<numeroSpaziTorre) {
+				arrayImprese.add(carta);
+				arrayCarteImpresa.remove(carta);
 				n++;
-			}			
+			}
 		}
- 		
- 		Collections.shuffle(arrayTerritori);
- 		Collections.shuffle(arrayPersonaggi);
- 		Collections.shuffle(arrayEdifici);
- 		Collections.shuffle(arrayImprese);
- 		
- 		
- 		
+
  		this.torreVerde.setTorre(arrayTerritori);
  		this.torreBlu.setTorre(arrayPersonaggi);
  		this.torreGialla.setTorre(arrayEdifici);
