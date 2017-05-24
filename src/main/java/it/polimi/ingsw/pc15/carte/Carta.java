@@ -37,6 +37,10 @@ public abstract class Carta {
 		return this.spazio;
 	}
 	
+	public String getNome() {
+		return this.nome;
+	}
+	
 	public int getPeriodo() {
 		return this.periodo;
 	}
