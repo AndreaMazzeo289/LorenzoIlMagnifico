@@ -8,6 +8,7 @@ import java.util.Set;
 
 import it.polimi.ingsw.pc15.ParseXML;
 import it.polimi.ingsw.pc15.carte.Carta;
+import it.polimi.ingsw.pc15.carte.ColoreCarta;
 import it.polimi.ingsw.pc15.carte.Edificio;
 import it.polimi.ingsw.pc15.carte.Impresa;
 import it.polimi.ingsw.pc15.carte.Personaggio;
@@ -166,6 +167,22 @@ public class Plancia {
 	public ArrayList getSpaziMercato() {
 		return this.spaziMercato;
 	}
+	
+	public SpazioTorre getSpazioTorre (ColoreCarta colore, int numeroSpazio) {
+		
+		switch (colore) {
+		
+		case VERDE: return torreVerde.getSpazio(numeroSpazio);
+		case BLU: return torreBlu.getSpazio(numeroSpazio);
+		case GIALLO: return torreGialla.getSpazio(numeroSpazio);
+		case VIOLA: return torreViola.getSpazio(numeroSpazio);		
+		default: return null;
+		
+		}
+		
+	}
+	
+	
 
 
 
