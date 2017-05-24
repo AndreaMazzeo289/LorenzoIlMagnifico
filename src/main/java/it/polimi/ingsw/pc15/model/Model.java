@@ -31,76 +31,43 @@ import it.polimi.ingsw.pc15.risorse.SetRisorse;
 
 public class Model extends Observable {
 	
-	
-	private int numGiocatori;
+	private int numeroGiocatori;
 	private ArrayList<Player> giocatori;
-	private int valoreDado;
 	private Plancia plancia;
 	private int turno;
 	private int periodo;
-	private ParseXML parseXML;
 	private ArrayList<Carta> carteTerritorio;
 	private ArrayList<Carta> cartePersonaggio;
 	private ArrayList<Carta> carteEdificio;
 	private ArrayList<Carta> carteImpresa;
 	
 	
-	public Model(int numGiocatori){
+	public Model(int numeroGiocatori){
 
-		this.numGiocatori = numGiocatori;
-		this.plancia = new Plancia(numGiocatori);
-		this.parseXML = new ParseXML();
+		this.numeroGiocatori = numeroGiocatori;
+		this.plancia = new Plancia(numeroGiocatori);
 		this.turno = 0;
 		this.periodo = 1;
-
-		HashSet<Risorsa> risorse = new HashSet<Risorsa>();
-		
-		Legna legna = new Legna (0);
-		Pietra pietra = new Pietra (0);
-		Oro oro = new Oro (0);
-		Servitori servitori = new Servitori (0);
-		PuntiFede puntiFede = new PuntiFede (0);
-		PuntiMilitari puntiMilitari = new PuntiMilitari (0);
-		PuntiVittoria puntiVittoria = new PuntiVittoria (0);
-		Privilegi privilegi = new Privilegi (0);
 			
-		risorse.add(legna);
-		risorse.add(pietra);
-		risorse.add(oro);
-		risorse.add(servitori);
-		risorse.add(puntiFede);
-		risorse.add(puntiMilitari);
-		risorse.add(puntiVittoria);
-		risorse.add(privilegi);
+		Player player1 = new Player("Maffe");
+		Player player2 = new Player("Mazze");
+		Player player3 = new Player("Fra");
+		Player player4 = new Player("AleMagni");
 		
-		SetRisorse setRisorse = new SetRisorse(risorse); 
-			
-		Player player1 = new Player("noName", setRisorse);
-		Player player2 = new Player("noName", setRisorse);
-		Player player3 = new Player("noName", setRisorse);
-		Player player4 = new Player("noName", setRisorse);
-		giocatori = new ArrayList();
+		giocatori = new ArrayList<Player>();
 		giocatori.add(player1);
 		giocatori.add(player2);
 		giocatori.add(player3);
 		giocatori.add(player4);
 		
-		/*for(int i = 0; i<numGiocatori; i++){
-			giocatori.add(this.player = new Player("noName", setRisorse));*/
-		
-		
-		
-		//imposta randomicamente l'ordine dei giocatori;
-		/*Collections.shuffle(giocatori);*/
-		
 	}
 
 	public void iniziaPartita() {
 		
-		carteTerritorio= parseXML.getCartaXML(ColoreCarta.VERDE);
-		carteEdificio= parseXML.getCartaXML(ColoreCarta.GIALLO);
-		cartePersonaggio= parseXML.getCartaXML(ColoreCarta.BLU);
-		carteImpresa= parseXML.getCartaXML(ColoreCarta.VIOLA);
+		carteTerritorio= ParseXML.getCartaXML(ColoreCarta.VERDE);
+		carteEdificio= ParseXML.getCartaXML(ColoreCarta.GIALLO);
+		cartePersonaggio= ParseXML.getCartaXML(ColoreCarta.BLU);
+		carteImpresa= ParseXML.getCartaXML(ColoreCarta.VIOLA);
 		
 		Collections.shuffle(carteTerritorio);
 		Collections.shuffle(cartePersonaggio);
@@ -120,9 +87,7 @@ public class Model extends Observable {
 		}
 		
 		this.plancia.setTurno(periodo, carteTerritorio, cartePersonaggio, carteEdificio, carteImpresa);
-		
-		//prende il primo giocatore e tira i dadi e li passa al familiare;
-		
+
 		Random random = new Random();
 		
 		int valoreDadoNero = random.nextInt(5) + 1;
