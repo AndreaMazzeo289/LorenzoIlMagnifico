@@ -59,7 +59,7 @@ public class ParseXML {
 			DocumentBuilderFactory documentFactory = DocumentBuilderFactory.newInstance();
 			
 			DocumentBuilder builder = documentFactory.newDocumentBuilder();
-			Document document = builder.parse(new File("/Users/andre/LaboratorioProvaFinale/prova-finale-template/XML/Cards_v1.4.xml"));
+			Document document = builder.parse(new File("XML/Cards_v1.4.xml"));
 			
 			NodeList carte = document.getElementsByTagName("carta");
 			
@@ -114,7 +114,7 @@ public class ParseXML {
 			DocumentBuilderFactory documentFactory = DocumentBuilderFactory.newInstance();
 			
 			DocumentBuilder builder = documentFactory.newDocumentBuilder();
-			Document document = builder.parse(new File("/Users/andre/LaboratorioProvaFinale/prova-finale-template/XML/Effects_v2.4.xml"));
+			Document document = builder.parse(new File("XML/Effects_v2.4.xml"));
 			
 			NodeList effetti = document.getElementsByTagName("effetto");
 			
@@ -770,7 +770,7 @@ public class ParseXML {
 			DocumentBuilderFactory documentFactory = DocumentBuilderFactory.newInstance();
 			
 			DocumentBuilder builder = documentFactory.newDocumentBuilder();
-			Document document = builder.parse(new File("/Users/andre/LaboratorioProvaFinale/prova-finale-template/XML/SetRisorseSpazi.xml"));
+			Document document = builder.parse(new File("XML/SetRisorseSpazi.xml"));
 			
 			NodeList spazi = document.getElementsByTagName("tipoSpazio");
 			
@@ -824,7 +824,7 @@ public class ParseXML {
 			DocumentBuilderFactory documentFactory = DocumentBuilderFactory.newInstance();
 			
 			DocumentBuilder builder = documentFactory.newDocumentBuilder();
-			Document document = builder.parse(new File("/Users/andre/LaboratorioProvaFinale/prova-finale-template/XML/DatiGenerali.xml"));
+			Document document = builder.parse(new File("XML/DatiGenerali.xml"));
 			
 			NodeList nomeValore = document.getElementsByTagName("nomeValore");
 			
