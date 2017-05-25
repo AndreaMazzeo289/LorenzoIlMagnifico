@@ -41,15 +41,22 @@ import it.polimi.ingsw.pc15.risorse.Servitori;
 import it.polimi.ingsw.pc15.risorse.SetRisorse;
 import it.polimi.ingsw.pc15.risorse.TipoRisorsa;
 
+/**
+ * Classe che permette la lettura da xml
+ * @author AndreaMazzeo289
+ * 
+ */
+
 public class ParseXML {
 	
 	//--------------------------------------------------------------------------------------------------------------//
-	// Nome metodo: 			GetCartaXML
-	// Parametri di ingresso: 	Colore della carta che si vuole estrarre (enum ColoreCarta)
-	// Parametri di uscita:   	Istanza della classe Carta che contiene tutte le informazioni relative alla carta
-	// Descrizione:				Metodo che gestisce l'estrazione delle carte dal relativo file XML chiamando 
-	//							opportuni metodi per ogni tipologia di carta
-	//--------------------------------------------------------------------------------------------------------------//	
+	// GET CARTA XML
+	//--------------------------------------------------------------------------------------------------------------//
+	/**
+	 * metodo che gestisce l'estrazione delle carte dal relativo file XML chiamando opportuni metodi per ogni tipologia di carta
+	 * @param colore della carta che si vuole estrarre (enumerazione ColoreCarta)
+	 * @return ArrayList di tutte le carte del colore desiderato
+	 */
 	public static ArrayList<Carta> getCartaXML (ColoreCarta coloreCarta){
 		
 		Carta cartaSelezionata = null;
@@ -97,14 +104,15 @@ public class ParseXML {
 		
 		return arrayCarte;
 	}
-	
+
 	//--------------------------------------------------------------------------------------------------------------//
-	// Nome metodo: 			GetEffettoXML
-	// Parametri di ingresso: 	Nome dell'effetto che si vuole estrarre (String)
-	// Parametri di uscita:   	Istanza dell'effetto estratto (Classe effetto)
-	// Descrizione:				Metodo che gestisce l'estrazione degli effetti dal relativo file XML chiamando 
-	//							opportuni metodi per ogni tipologia di effetto
-	//--------------------------------------------------------------------------------------------------------------//	
+	// GET EFFETTO XML
+	//--------------------------------------------------------------------------------------------------------------//
+	/**
+	 * metodo che gestisce l'estrazione degli effetti dal relativo file XML chiamando opportuni metodi per ogni tipologia di effetto
+	 * @param nome dell'effetto che si vuole estrarre (String)
+	 * @return Istanza dell'effetto estratto (Classe effetto)
+	 */
 	public static Effetto getEffettoXML (String nomeEffetto){
 		
 		Effetto effettoLetto = null;
@@ -183,11 +191,13 @@ public class ParseXML {
 	}
 	
 	//--------------------------------------------------------------------------------------------------------------//
-	// Nome metodo: 			leggiEffettoAddRisorsa
-	// Parametri di ingresso: 	Elemento dell'effetto specifico da estrarre
-	// Parametri di uscita:   	Istanza dell'effetto estratto (Classe AggiuntaRisorse)
-	// Descrizione:				Metodo che permette di estrarre gli effetti di tipo AddRisorsa dal file XML
+	// LEGGI EFFETTO ADD RISORSA
 	//--------------------------------------------------------------------------------------------------------------//
+	/**
+	 * metodo che permette di estrarre gli effetti di tipo AddRisorsa dal file XML
+	 * @param elemento dell'effetto specifico da estrarre (Classe Element)
+	 * @return istanza dell'effetto estratto (Classe AggiuntaRisorse)
+	 */
 	public static AggiuntaRisorse leggiEffettoAddRisorsa(Element effetto) {
 		
 		Legna legna = new Legna (Integer.parseInt(effetto.getElementsByTagName("legno").item(0).getFirstChild().getNodeValue()));
@@ -217,11 +227,13 @@ public class ParseXML {
 	}
 	
 	//--------------------------------------------------------------------------------------------------------------//
-	// Nome metodo: 			leggiEffettoAzioneRaccolto - leggiEffettoAzioneProduzione - leggiEffettoAzioneCarta
-	// Parametri di ingresso: 	Elemento dell'effetto specifico da estrarre
-	// Parametri di uscita:   	Istanza dell'effetto estratto (Classe AzioneRaccolto, AzioneProduzione, AzioneCarta)
-	// Descrizione:				Metodo che permette di estrarre gli effetti di tipo azione dal file XML
+	// LEGGI EFFETTO AZIONE RACCOLTO
 	//--------------------------------------------------------------------------------------------------------------//
+	/**
+	 * metodo che permette di estrarre gli effetti di tipo azione raccolto dal file XML
+	 * @param elemento dell'effetto specifico da estrarre (Classe Element)
+	 * @return istanza dell'effetto estratto (Classe AzioneRaccolto)
+	 */
 	public static AzioneRaccolto leggiEffettoAzioneRaccolto (Element effetto) {
 		
 		int valoreDadoRaccolta = Integer.parseInt(effetto.getElementsByTagName("valoreDado").item(0).getFirstChild().getNodeValue());
@@ -230,6 +242,14 @@ public class ParseXML {
 		return azioneRaccolto;
 	}
 	
+	//--------------------------------------------------------------------------------------------------------------//
+	// LEGGI EFFETTO AZIONE PRODUZIONE
+	//--------------------------------------------------------------------------------------------------------------//
+	/**
+	 * metodo che permette di estrarre gli effetti di tipo azione produzione dal file XML
+	 * @param elemento dell'effetto specifico da estrarre (Classe Element)
+	 * @return istanza dell'effetto estratto (Classe AzioneProduzione)
+	 */
 	public static AzioneProduzione leggiEffettoAzioneProduzione (Element effetto) {
 			
 		int valoreDadoProduzione = Integer.parseInt(effetto.getElementsByTagName("valoreDado").item(0).getFirstChild().getNodeValue());
@@ -238,6 +258,14 @@ public class ParseXML {
 		return azioneProduzione;
 	}
 
+	//--------------------------------------------------------------------------------------------------------------//
+	// LEGGI EFFETTO AZIONE CARTA
+	//--------------------------------------------------------------------------------------------------------------//
+	/**
+	 * metodo che permette di estrarre gli effetti di tipo azione carta dal file XML
+	 * @param elemento dell'effetto specifico da estrarre (Classe Element)
+	 * @return istanza dell'effetto estratto (Classe AzioneCarta)
+	 */
 	public static AzioneCarta leggiEffettoAzioneCarta (Element effetto) {
 		
 		int valoreDadoCarta = Integer.parseInt(effetto.getElementsByTagName("valoreDado").item(0).getFirstChild().getNodeValue());
@@ -264,13 +292,15 @@ public class ParseXML {
 		AzioneCarta azioneCarta = new AzioneCarta (valoreDadoCarta, coloreCartaEnum);
 		return azioneCarta;
 	}
-
+	
 	//--------------------------------------------------------------------------------------------------------------//
-	// Nome metodo: 			leggiEffettoMoltiplicazione
-	// Parametri di ingresso: 	Elemento dell'effetto specifico da estrarre
-	// Parametri di uscita:   	Istanza dell'effetto estratto (Classe Moltiplicazione)
-	// Descrizione:				Metodo che permette di estrarre gli effetti di tipo moltiplicazione dal file XML
+	// LEGGI EFFETTO MOLTIPLICAZIONE
 	//--------------------------------------------------------------------------------------------------------------//
+	/**
+	 * metodo che permette di estrarre gli effetti di tipo moltiplicazione dal file XML
+	 * @param elemento dell'effetto specifico da estrarre (Classe Element)
+	 * @return istanza dell'effetto estratto (Classe Moltiplicazione)
+	 */
 	public static Moltiplicazione leggiEffettoMoltiplicazione(Element effetto) {
 		
 		String tipoRisorsa = effetto.getElementsByTagName("tipoRisorsa").item(0).getFirstChild().getNodeValue();
@@ -332,11 +362,13 @@ public class ParseXML {
 	}
 
 	//--------------------------------------------------------------------------------------------------------------//
-	// Nome metodo: 			leggiEffettoScambio
-	// Parametri di ingresso: 	Elemento dell'effetto specifico da estrarre
-	// Parametri di uscita:   	Istanza dell'effetto estratto (Classe Scambio)
-	// Descrizione:				Metodo che permette di estrarre gli effetti di tipo scambio dal file XML
+	// LEGGI EFFETTO SCAMBIO
 	//--------------------------------------------------------------------------------------------------------------//
+	/**
+	 * metodo che permette di estrarre gli effetti di tipo scambio dal file XML
+	 * @param elemento dell'effetto specifico da estrarre (Classe Element)
+	 * @return istanza dell'effetto estratto (Classe Scambio)
+	 */
 	public static Scambio leggiEffettoScambio(Element effetto) {
 		
 		NodeList setRisorse = effetto.getElementsByTagName("setRisorse");
@@ -388,16 +420,15 @@ public class ParseXML {
 		Scambio scambio = new Scambio (pagamento, guadagno, pagamento2, guadagno2);
 		return scambio;
 	}
-
-	//--------------------------------------------------------------------------------------------------------------//
-	// Nome metodo: 			leggiEffettoBonusRaccolta - leggiEffettoBonusProduzione - leggiEffettoBonusDadoCarta
-	// Parametri di ingresso: 	Elemento dell'effetto specifico da estrarre
-	// Parametri di uscita:   	Istanza dell'effetto estratto (Classe BonusRaccolta, BonusProduzione, BonusDadoCarte)
-	// Descrizione:				Metodo che permette di estrarre gli effetti di tipo bonus dal file XML
-	//--------------------------------------------------------------------------------------------------------------//
 	
-	// leggi effetto bonus raccolta
-	//------------------------------
+	//--------------------------------------------------------------------------------------------------------------//
+	// LEGGI BONUS RACCOLTA
+	//--------------------------------------------------------------------------------------------------------------//
+	/**
+	 * metodo che permette di estrarre gli effetti di tipo bonus raccolta dal file XML
+	 * @param elemento dell'effetto specifico da estrarre (Classe Element)
+	 * @return istanza dell'effetto estratto (Classe BonusRaccolta)
+	 */
 	public static BonusRaccolta leggiEffettoBonusRaccolta (Element effetto)
 	{
 		int valoreDadoRaccolta = Integer.parseInt(effetto.getElementsByTagName("bonusDado").item(0).getFirstChild().getNodeValue());
@@ -406,8 +437,14 @@ public class ParseXML {
 		return bonusRaccolta;
 	}
 	
-	// leggi effetto bonus produzione
-	//--------------------------------
+	//--------------------------------------------------------------------------------------------------------------//
+	// LEGGI BONUS PRODUZIONE
+	//--------------------------------------------------------------------------------------------------------------//
+	/**
+	 * metodo che permette di estrarre gli effetti di tipo bonus produzione dal file XML
+	 * @param elemento dell'effetto specifico da estrarre (Classe Element)
+	 * @return istanza dell'effetto estratto (Classe BonusProduzione)
+	 */
 	public static BonusProduzione leggiEffettoBonusProduzione (Element effetto)
 	{
 		int valoreDadoProduzione = Integer.parseInt(effetto.getElementsByTagName("bonusDado").item(0).getFirstChild().getNodeValue());
@@ -416,8 +453,14 @@ public class ParseXML {
 		return bonusProduzione;
 	}
 	
-	// leggi effetto bonus dado carta
-	//--------------------------------
+	//--------------------------------------------------------------------------------------------------------------//
+	// LEGGI BONUS DADO CARTE
+	//--------------------------------------------------------------------------------------------------------------//
+	/**
+	 * metodo che permette di estrarre gli effetti di tipo bonus dado carta dal file XML
+	 * @param elemento dell'effetto specifico da estrarre (Classe Element)
+	 * @return istanza dell'effetto estratto (Classe BonusDadoCarte)
+	 */
 	public static BonusDadoCarte leggiEffettoBonusDadoCarta (Element effetto)
 	{
 		int valoreDadoCarta = Integer.parseInt(effetto.getElementsByTagName("bonusDado").item(0).getFirstChild().getNodeValue());
@@ -446,11 +489,13 @@ public class ParseXML {
 	}
 
 	//--------------------------------------------------------------------------------------------------------------//
-	// Nome metodo: 			leggiCartaVerde
-	// Parametri di ingresso: 	Element della carta specifica che stiamo analizzando (Classe element)
-	// Parametri di uscita:   	Istanza della carta che si vuole estrarre (Classe carta)
-	// Descrizione:				Metodo che permette di estrarre le carte verdi dal file XML
+	// LEGGI CARTA VERDE
 	//--------------------------------------------------------------------------------------------------------------//
+	/**
+	 * metodo che permette di estrarre le carte verdi dal file XML
+	 * @param istanza della carta che si vuole estrarre (Classe Territorio)
+	 * @return element della carta specifica che stiamo analizzando (Classe element)
+	 */
 	public static Territorio leggiCartaVerde (Element carta){
 		
 		//------------------------------------------------------//
@@ -515,11 +560,13 @@ public class ParseXML {
 	}
 	
 	//--------------------------------------------------------------------------------------------------------------//
-	// Nome metodo: 			leggiCartaGialla
-	// Parametri di ingresso: 	Element della carta specifica che stiamo analizzando (Classe element)
-	// Parametri di uscita:   	Istanza della carta che si vuole estrarre (Classe carta)
-	// Descrizione:				Metodo che permette di estrarre le carte gialle dal file XML
+	// LEGGI CARTA GIALLA
 	//--------------------------------------------------------------------------------------------------------------//
+	/**
+	 * metodo che permette di estrarre le carte gialle dal file XML
+	 * @param istanza della carta che si vuole estrarre (Classe Edificio)
+	 * @return element della carta specifica che stiamo analizzando (Classe element)
+	 */
 	public static Edificio leggiCartaGialla (Element carta){
 		
 		//------------------------------------------------------//
@@ -585,11 +632,13 @@ public class ParseXML {
 	}
 	
 	//--------------------------------------------------------------------------------------------------------------//
-	// Nome metodo: 			leggiCartaBlu
-	// Parametri di ingresso: 	Element della carta specifica che stiamo analizzando (Classe element)
-	// Parametri di uscita:   	Istanza della carta che si vuole estrarre (Classe carta)
-	// Descrizione:				Metodo che permette di estrarre le carte blu dal file XML
+	// LEGGI CARTA BLU
 	//--------------------------------------------------------------------------------------------------------------//
+	/**
+	 * metodo che permette di estrarre le carte blu dal file XML
+	 * @param istanza della carta che si vuole estrarre (Classe Personaggio)
+	 * @return element della carta specifica che stiamo analizzando (Classe element)
+	 */
 	public static Personaggio leggiCartaBlu(Element carta){
 		
 		//------------------------------------------------------//
@@ -663,11 +712,13 @@ public class ParseXML {
 	}
 	
 	//--------------------------------------------------------------------------------------------------------------//
-	// Nome metodo: 			leggiCartaViola
-	// Parametri di ingresso: 	Element della carta specifica che stiamo analizzando (Classe element)
-	// Parametri di uscita:   	Istanza della carta che si vuole estrarre (Classe carta)
-	// Descrizione:				Metodo che permette di estrarre le carte viola dal file XML
+	// LEGGI CARTA VIOLA
 	//--------------------------------------------------------------------------------------------------------------//
+	/**
+	 * metodo che permette di estrarre le carte viola dal file XML
+	 * @param istanza della carta che si vuole estrarre (Classe Impresa)
+	 * @return element della carta specifica che stiamo analizzando (Classe element)
+	 */
 	public static Impresa leggiCartaViola (Element carta){
 		
 		//------------------------------------------------------//
@@ -757,11 +808,13 @@ public class ParseXML {
 	}
 	
 	//--------------------------------------------------------------------------------------------------------------//
-	// Nome metodo: 			leggiSpazioTorre
-	// Parametri di ingresso: 	ColoreTorre (enum), numeroSpazio
-	// Parametri di uscita:   	ArrayList che contiene i quattro SpazioTorre della torre desiderata
-	// Descrizione:				Metodo che permette di estrarre le informazioni riguardo gli spazi della torre
+	// LEGGI SPAZIO TORRE
 	//--------------------------------------------------------------------------------------------------------------//
+	/**
+	 * metodo che permette di estrarre le informazioni riguardo gli spazi della torre
+	 * @param quale spazio si vuole analizzare (String)
+	 * @return set delle risorse dello spazio torre analizzato (Classe SetRisorse)
+	 */
 	public static SetRisorse leggiSetRisorseSpazio (String tipoSpazio){
 		
 		SetRisorse setRisorse = null;
@@ -809,13 +862,15 @@ public class ParseXML {
 		
 		return setRisorse;
 	}
-
+	
 	//--------------------------------------------------------------------------------------------------------------//
-	// Nome metodo: 			leggiValore
-	// Parametri di ingresso: 	Tipologia di spazio di cui si vuole sapere il valore minimo di attivazione (Stringa)
-	// Parametri di uscita:   	Intero
-	// Descrizione:				Metodo che permette di estrarre i valori minimi per l'attivazione degli spazi
+	// LEGGI VALORE
 	//--------------------------------------------------------------------------------------------------------------//
+	/**
+	 * metodo che permette di estrarre i dati generali del gioco dal relativo file XML
+	 * @param quale valore si vuole leggere dal file XML (String)
+	 * @return valore letto (Integer)
+	 */
 	public static int leggiValore (String tipoValore){
 		
 		int valore=1;
