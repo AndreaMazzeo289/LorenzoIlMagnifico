@@ -18,8 +18,14 @@ public class AzionePrendiCartaEdificio extends AzionePrendiCarta {
 
 	@Override
 	public boolean requisitiSoddisfatti() {
-		if (player.getEdifici().size() == ParseXML.leggiValore("numeroMaxCarte")) {    //limite carte Edificio
+		
+		if (player.getEdifici().size() == ParseXML.leggiValore("numeroMaxCarte")) {
 			System.out.println("Hai raggiunto il limite massimo di carte Edificio!");
+			return false;
+		}
+		
+		if (!risorseSufficienti()) {
+			System.out.println("Non hai risorse sufficienti per acquistare questa carta!");
 			return false;
 		}
 		
@@ -29,8 +35,8 @@ public class AzionePrendiCartaEdificio extends AzionePrendiCarta {
 	@Override
 	public boolean attiva() {
 
-		if (requisitiSoddisfatti() && risorseSufficienti(carta.getCosto()) ) {
-			paga(carta.getCosto());
+		if (requisitiSoddisfatti()) {
+			pagaCosto();
 			daiCarta();
 			carta.attivaEffettoIstantaneo();
 			

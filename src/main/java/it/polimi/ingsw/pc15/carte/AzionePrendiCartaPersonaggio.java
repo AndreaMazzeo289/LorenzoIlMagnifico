@@ -18,8 +18,14 @@ public class AzionePrendiCartaPersonaggio extends AzionePrendiCarta {
 
 	@Override
 	public boolean requisitiSoddisfatti() {
-		if (player.getPersonaggi().size() == ParseXML.leggiValore("numeroMaxCarte")) {  //limite carte Personaggio
+		
+		if (player.getPersonaggi().size() == ParseXML.leggiValore("numeroMaxCarte")) {  
 			System.out.println("Hai raggiunto il limite massimo di carte Personaggio!");
+			return false;
+		}
+		
+		if (!risorseSufficienti()) {
+			System.out.println("Non hai risorse sufficienti per acquistare questa carta!");
 			return false;
 		}
 			
@@ -29,8 +35,8 @@ public class AzionePrendiCartaPersonaggio extends AzionePrendiCarta {
 	@Override
 	public boolean attiva() {
 
-		if (requisitiSoddisfatti() && risorseSufficienti(carta.getCosto()) ) {
-			paga(carta.getCosto());
+		if (requisitiSoddisfatti()) {
+			pagaCosto();
 			daiCarta();
 			carta.attivaEffettoIstantaneo();
 			

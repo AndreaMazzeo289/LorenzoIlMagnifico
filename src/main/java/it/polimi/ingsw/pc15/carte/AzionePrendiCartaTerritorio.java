@@ -33,6 +33,11 @@ public class AzionePrendiCartaTerritorio extends AzionePrendiCarta {
 			return false;
 		}
 		
+		if (!risorseSufficienti()) {
+			System.out.println("Non hai risorse sufficienti per acquistare questa carta!");
+			return false;
+		}
+		
 		return true;
 	}
 
@@ -40,8 +45,8 @@ public class AzionePrendiCartaTerritorio extends AzionePrendiCarta {
 	@Override
 	public boolean attiva() {
 
-		if (requisitiSoddisfatti() && risorseSufficienti(carta.getCosto()) ) {
-			paga(carta.getCosto());
+		if (requisitiSoddisfatti()) {
+			pagaCosto();
 			daiCarta();
 			carta.attivaEffettoIstantaneo();
 			
