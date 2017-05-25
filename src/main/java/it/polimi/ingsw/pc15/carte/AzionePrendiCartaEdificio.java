@@ -34,6 +34,7 @@ public class AzionePrendiCartaEdificio extends AzionePrendiCarta {
 			daiCarta();
 			carta.attivaEffettoIstantaneo();
 			
+			System.out.println("Il giocatore ha preso la carta GIALLA: "  + carta.getNome());
 			return true;
 		}
 		

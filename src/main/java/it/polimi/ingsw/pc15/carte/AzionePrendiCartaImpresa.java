@@ -34,6 +34,7 @@ public class AzionePrendiCartaImpresa extends AzionePrendiCarta {
 			daiCarta();
 			carta.attivaEffettoIstantaneo();
 			
+			System.out.println("Il giocatore ha preso la carta VIOLA: "  + carta.getNome());
 			return true;
 		}
 		
