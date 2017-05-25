@@ -40,7 +40,7 @@ public class Plancia {
 		ArrayList risorseTorreGialla = new ArrayList<SetRisorse> (numeroSpaziTorre);
 		ArrayList risorseTorreViola = new ArrayList<SetRisorse> (numeroSpaziTorre);
 		
-		for(int i=0; i<numeroSpaziTorre; i++){
+		for(int i=1; i<=numeroSpaziTorre; i++){
 			risorseTorreVerde.add(ParseXML.leggiSetRisorseSpazio("verde"+Integer.toString(i))); 
 			risorseTorreBlu.add(ParseXML.leggiSetRisorseSpazio("blu"+Integer.toString(i))); 
 			risorseTorreGialla.add(ParseXML.leggiSetRisorseSpazio("giallo"+Integer.toString(i))); 
