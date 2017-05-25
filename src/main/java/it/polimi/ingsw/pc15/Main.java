@@ -33,10 +33,10 @@ public class Main {
 
 		Scanner in = new Scanner(System.in);
 		Player player = (Player)gioco.getPlayers().get(0);	
-		Spazio spazioBlu = (Spazio)gioco.getPlancia().getSpazioTorre(ColoreCarta.BLU, 0);
-		Spazio spazioVerde = (Spazio)gioco.getPlancia().getSpazioTorre(ColoreCarta.BLU, 1);
-		Spazio spazioGiallo = (Spazio)gioco.getPlancia().getSpazioTorre(ColoreCarta.GIALLO, 2);
-		Spazio spazioViola = (Spazio)gioco.getPlancia().getSpazioTorre(ColoreCarta.VIOLA, 2);
+		Spazio spazio1 = (Spazio)gioco.getPlancia().getSpazioTorre(ColoreCarta.BLU, 0);
+		Spazio spazio2 = (Spazio)gioco.getPlancia().getSpazioTorre(ColoreCarta.BLU, 1);
+		Spazio spazio3 = (Spazio)gioco.getPlancia().getSpazioTorre(ColoreCarta.GIALLO, 2);
+		Spazio spazio4 = (Spazio)gioco.getPlancia().getSpazioTorre(ColoreCarta.VIOLA, 2);
 		Familiare familiareNero = ((Player) gioco.getPlayers().get(0)).getFamiliare(ColoreFamiliare.NERO);
 		Familiare familiareArancione = ((Player) gioco.getPlayers().get(0)).getFamiliare(ColoreFamiliare.ARANCIONE);
 		Familiare familiareBianco = ((Player) gioco.getPlayers().get(0)).getFamiliare(ColoreFamiliare.BIANCO);
@@ -58,36 +58,30 @@ public class Main {
 		 *  - attenzione all'effetto della badessa (carta blu) oltre ad aggiunta risorse ha azione su qualsiasi carta
 		 */
 		
+		
+		
 		System.out.println("Il giocatore vuole prendere questa carta BLU con il familiare nero: "+ gioco.getPlancia().getSpazioTorre(ColoreCarta.BLU,0).getCarta().getNome());
+		System.out.println("il dado del familiare nero è: "+familiareNero.getValore());
+		player.occupaSpazio(spazio1, familiareNero);
+		
 		System.out.println("Il giocatore vuole prendere questa carta BLU con il familiare bianco: "+ gioco.getPlancia().getSpazioTorre(ColoreCarta.BLU,1).getCarta().getNome());
+		System.out.println("il dado del familiare giallo è: "+familiareBianco.getValore());
+		player.occupaSpazio(spazio2, familiareBianco);
+		
+		
+		
 		//System.out.println("Il giocatore vuole prendere questa carta GIALLA con il familiare arancione: "+ gioco.getPlancia().getSpazioTorre(ColoreCarta.GIALLO,2).getCarta().getNome());
 		//System.out.println("Il giocatore vuole prendere questa carta VIOLA con il familiare neutro: "+ gioco.getPlancia().getSpazioTorre(ColoreCarta.VIOLA,2).getCarta().getNome());
 		
-		System.out.println("il dado del familiare nero è: "+familiareNero.getValore());
-		System.out.println("il dado del familiare arancione è: "+familiareArancione.getValore());
-		//System.out.println("il dado del familiare giallo è: "+familiareBianco.getValore());
+		
+		//System.out.println("il dado del familiare arancione è: "+familiareArancione.getValore());
 		//System.out.println("il dado del familiare neutro è: "+familiareNeutro.getValore());
 		
-		player.occupaSpazio(spazioVerde, familiareNero);
-		player.occupaSpazio(spazioBlu, familiareBianco);
-		//player.occupaSpazio(spazioGiallo, familiareArancione);
-		//player.occupaSpazio(spazioViola, familiareNeutro);
 
-		System.out.println("il giocatore ha preso queste carte VERDI:");
-		for(Territorio carta : ((Player) gioco.getPlayers().get(0)).getTerritori())
-			System.out.println(carta.getNome());
+		//player.occupaSpazio(spazio3, familiareArancione);
+		//player.occupaSpazio(spazio4, familiareNeutro);
+
 		
-		System.out.println("il giocatore ha preso queste carte BLU:");
-		for(Personaggio carta : ((Player) gioco.getPlayers().get(0)).getPersonaggi())
-			System.out.println(carta.getNome());
-		
-		System.out.println("il giocatore ha preso queste carte GIALLE:");
-		for(Edificio carta : ((Player) gioco.getPlayers().get(0)).getEdifici())
-			System.out.println(carta.getNome());
-		
-		System.out.println("il giocatore ha preso queste carte VIOLA:");
-		for(Impresa carta : ((Player) gioco.getPlayers().get(0)).getImprese())
-			System.out.println(carta.getNome());
 		
 		
 		System.out.println("ora il giocatore ha queste risorse: ");
