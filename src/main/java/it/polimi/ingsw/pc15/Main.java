@@ -57,7 +57,6 @@ public class Main {
 		 * PROBLEMI: 
 		 * 	- requisito militare nelle carte viola
 		 *  - attenzione all'effetto della badessa (carta blu) oltre ad aggiunta risorse ha azione su qualsiasi carta
-		 * 	- QUANDO VADO AD AGGIUNGERE I BONUS DEGLI SPAZI DELLE TORRI PASSA UN NULL COME SET RISORSE E LA AGGIUNGI GENERA UN'ECCEZIONE
 		 */
 		
 		System.out.println("Il giocatore vuole prendere questa carta VERDE: "+ gioco.getPlancia().getSpazioTorre(ColoreCarta.VERDE,2).getCarta().getNome());
