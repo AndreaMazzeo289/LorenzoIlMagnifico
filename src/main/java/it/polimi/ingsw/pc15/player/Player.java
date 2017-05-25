@@ -59,10 +59,10 @@ public class Player {
 		//          RISORSE                                                                                          //
 		//-----------------------------------------------------------------------------------------------------------//
 		
-		Oro oro = new Oro(100);
-		Legna legna = new Legna(100);
-		Pietra pietra = new Pietra(100);
-		Servitori servitori = new Servitori(100);
+		Oro oro = new Oro(10);
+		Legna legna = new Legna(2);
+		Pietra pietra = new Pietra(2);
+		Servitori servitori = new Servitori(3);
 		Privilegi privilegi = new Privilegi(0);
 		PuntiFede puntiFede = new PuntiFede(0);
 		PuntiMilitari puntiMilitari = new PuntiMilitari(0);

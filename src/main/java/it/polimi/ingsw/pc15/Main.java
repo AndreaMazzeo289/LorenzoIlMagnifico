@@ -33,8 +33,8 @@ public class Main {
 
 		Scanner in = new Scanner(System.in);
 		Player player = (Player)gioco.getPlayers().get(0);	
-		Spazio spazioBlu = (Spazio)gioco.getPlancia().getSpazioTorre(ColoreCarta.BLU, 2);
-		Spazio spazioVerde = (Spazio)gioco.getPlancia().getSpazioTorre(ColoreCarta.VERDE, 2);
+		Spazio spazioBlu = (Spazio)gioco.getPlancia().getSpazioTorre(ColoreCarta.BLU, 0);
+		Spazio spazioVerde = (Spazio)gioco.getPlancia().getSpazioTorre(ColoreCarta.BLU, 1);
 		Spazio spazioGiallo = (Spazio)gioco.getPlancia().getSpazioTorre(ColoreCarta.GIALLO, 2);
 		Spazio spazioViola = (Spazio)gioco.getPlancia().getSpazioTorre(ColoreCarta.VIOLA, 2);
 		Familiare familiareNero = ((Player) gioco.getPlayers().get(0)).getFamiliare(ColoreFamiliare.NERO);
@@ -59,21 +59,20 @@ public class Main {
 		 * 	- QUANDO VADO AD AGGIUNGERE I BONUS DEGLI SPAZI DELLE TORRI PASSA UN NULL COME SET RISORSE E LA AGGIUNGI GENERA UN'ECCEZIONE
 		 */
 		
-		System.out.println("Il giocatore vuole prendere questa carta VERDE: "+ gioco.getPlancia().getSpazioTorre(ColoreCarta.VERDE,2).getCarta().getNome());
-		System.out.println("Il giocatore vuole prendere questa carta BLU: "+ gioco.getPlancia().getSpazioTorre(ColoreCarta.BLU,2).getCarta().getNome());
-		System.out.println("Il giocatore vuole prendere questa carta GIALLA: "+ gioco.getPlancia().getSpazioTorre(ColoreCarta.GIALLO,2).getCarta().getNome());
-		System.out.println("Il giocatore vuole prendere questa carta VIOLA: "+ gioco.getPlancia().getSpazioTorre(ColoreCarta.VIOLA,2).getCarta().getNome());
+		System.out.println("Il giocatore vuole prendere questa carta BLU con il familiare nero: "+ gioco.getPlancia().getSpazioTorre(ColoreCarta.BLU,0).getCarta().getNome());
+		System.out.println("Il giocatore vuole prendere questa carta BLU con il familiare bianco: "+ gioco.getPlancia().getSpazioTorre(ColoreCarta.BLU,1).getCarta().getNome());
+		//System.out.println("Il giocatore vuole prendere questa carta GIALLA con il familiare arancione: "+ gioco.getPlancia().getSpazioTorre(ColoreCarta.GIALLO,2).getCarta().getNome());
+		//System.out.println("Il giocatore vuole prendere questa carta VIOLA con il familiare neutro: "+ gioco.getPlancia().getSpazioTorre(ColoreCarta.VIOLA,2).getCarta().getNome());
 		
 		System.out.println("il dado del familiare nero è: "+familiareNero.getValore());
-		
 		System.out.println("il dado del familiare arancione è: "+familiareArancione.getValore());
-		System.out.println("il dado del familiare giallo è: "+familiareBianco.getValore());
-		System.out.println("il dado del familiare neutro è: "+familiareNeutro.getValore());
+		//System.out.println("il dado del familiare giallo è: "+familiareBianco.getValore());
+		//System.out.println("il dado del familiare neutro è: "+familiareNeutro.getValore());
 		
 		player.occupaSpazio(spazioVerde, familiareNero);
 		player.occupaSpazio(spazioBlu, familiareBianco);
-		player.occupaSpazio(spazioGiallo, familiareArancione);
-		player.occupaSpazio(spazioViola, familiareNeutro);
+		//player.occupaSpazio(spazioGiallo, familiareArancione);
+		//player.occupaSpazio(spazioViola, familiareNeutro);
 
 		System.out.println("il giocatore ha preso queste carte VERDI:");
 		for(Territorio carta : ((Player) gioco.getPlayers().get(0)).getTerritori())
