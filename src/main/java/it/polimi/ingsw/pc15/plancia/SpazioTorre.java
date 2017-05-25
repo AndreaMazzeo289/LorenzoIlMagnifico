@@ -102,7 +102,6 @@ public class SpazioTorre extends Spazio {
 				if ( (spazioTorre.getFamiliare().getColore().equals(ColoreFamiliare.NERO) || spazioTorre.getFamiliare().getColore().equals(ColoreFamiliare.BIANCO) || spazioTorre.getFamiliare().getColore().equals(ColoreFamiliare.ARANCIONE) ) 
 						&& familiare.getPlayer().equals(spazioTorre.getFamiliare().getPlayer()) ) {
 					
-						System.out.println("Non puoi avere due familiari di colori diversi nella stessa torre!");
 						return false;
 				}
 			}
