@@ -35,6 +35,10 @@ public class Torre {
 		
 	}
 	
+	public ArrayList<SpazioTorre> getSpaziTorre() {
+		return this.spaziTorre;
+	}
+	
 	public SpazioTorre getSpazio(int num) {
 		return this.spaziTorre.get(num);
 	}

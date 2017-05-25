@@ -33,6 +33,8 @@ public abstract class AzionePrendiCarta {
 	}    
 
 	public void paga(SetRisorse costo) {
+		if (carta.getSpazio().getTorre().occupata() ) 
+			carta.getCosto().getRisorsa(TipoRisorsa.ORO).aggiungi(3);
 		player.getSetRisorse().sottrai(costo);
 	}
 	

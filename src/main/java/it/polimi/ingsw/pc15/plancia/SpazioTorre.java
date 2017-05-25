@@ -4,6 +4,7 @@ import it.polimi.ingsw.pc15.carte.AzionePrendiCarta;
 import it.polimi.ingsw.pc15.carte.Carta;
 import it.polimi.ingsw.pc15.effetti.AggiuntaRisorse;
 import it.polimi.ingsw.pc15.effetti.Effetto;
+import it.polimi.ingsw.pc15.player.ColoreFamiliare;
 import it.polimi.ingsw.pc15.player.Familiare;
 import it.polimi.ingsw.pc15.risorse.SetRisorse;
 
@@ -94,19 +95,17 @@ public class SpazioTorre extends Spazio {
 	
 	public boolean controlloFamiliariTorre() {
 		
-		/*if (this.familiare.getColore() != ColoreFamiliare.NEUTRO) {                       		//controllo che il familiare da piazzare non sia NEUTRO
-			for (SpazioTorre spazioTorre : getTorre().getSpazioTorre())								//per ogni spazio della torre:
-				if ((spazioTorre.getFamiliare().getColore()==ColoreFamiliare.NERO || 				//bisogna controllare che non ci siano altri familiari del
-					spazioTorre.getFamiliare().getColore()==ColoreFamiliare.BIANCO || 				//player che vuole occupare lo spazio torre
-				    spazioTorre.getFamiliare().getColore()==ColoreFamiliare.ARANCIONE) && 
-					this.familiare.getPlayer().equals(spazioTorre.getFamiliare().getPlayer()) ) {
+		if (!this.familiare.getColore().equals(ColoreFamiliare.NEUTRO)) {
+
+			for (SpazioTorre spazioTorre : getTorre().getSpaziTorre())								
+				if ((spazioTorre.getFamiliare().getColore().equals(ColoreFamiliare.NERO) || spazioTorre.getFamiliare().getColore().equals(ColoreFamiliare.BIANCO) || spazioTorre.getFamiliare().getColore().equals(ColoreFamiliare.ARANCIONE)) 
+						&& this.familiare.getPlayer().equals(spazioTorre.getFamiliare().getPlayer()) ) {
 					
 						System.out.println("Non puoi avere due familiari di colori diversi nella stessa torre!");
 						return false;
 				}
-		}*/
-		
-		
+		}
+
 		return true;
 		
 	} 
