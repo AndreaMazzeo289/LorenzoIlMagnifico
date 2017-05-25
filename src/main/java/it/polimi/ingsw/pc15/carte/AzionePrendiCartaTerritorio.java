@@ -45,6 +45,7 @@ public class AzionePrendiCartaTerritorio extends AzionePrendiCarta {
 			daiCarta();
 			carta.attivaEffettoIstantaneo();
 			
+			System.out.println("Il giocatore ha preso la carta VERDE: "  + carta.getNome());
 			return true;
 		}
 		

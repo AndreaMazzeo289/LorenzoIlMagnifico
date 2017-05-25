@@ -56,7 +56,7 @@ public class SpazioTorre extends Spazio {
 			return false;		
 		}
 		
-		if (controlloFamiliariTorre() == false) {
+		if (controlloFamiliariTorre(familiare) == false) {
 			System.out.println("Non puoi posizionare altri familiari in questa torre!");
 			return false;
 		}
@@ -93,17 +93,19 @@ public class SpazioTorre extends Spazio {
 		return this.torre;
 	}
 	
-	public boolean controlloFamiliariTorre() {
+	public boolean controlloFamiliariTorre(Familiare familiare) {
 		
-		if (!this.familiare.getColore().equals(ColoreFamiliare.NEUTRO)) {
+		if (!familiare.getColore().equals(ColoreFamiliare.NEUTRO)) {
 
-			for (SpazioTorre spazioTorre : getTorre().getSpaziTorre())								
-				if ((spazioTorre.getFamiliare().getColore().equals(ColoreFamiliare.NERO) || spazioTorre.getFamiliare().getColore().equals(ColoreFamiliare.BIANCO) || spazioTorre.getFamiliare().getColore().equals(ColoreFamiliare.ARANCIONE)) 
+			for (SpazioTorre spazioTorre : getTorre().getSpaziTorre())	{	
+				if (spazioTorre.getFamiliare() != null)
+				if ( (spazioTorre.getFamiliare().getColore().equals(ColoreFamiliare.NERO) || spazioTorre.getFamiliare().getColore().equals(ColoreFamiliare.BIANCO) || spazioTorre.getFamiliare().getColore().equals(ColoreFamiliare.ARANCIONE) ) 
 						&& this.familiare.getPlayer().equals(spazioTorre.getFamiliare().getPlayer()) ) {
 					
 						System.out.println("Non puoi avere due familiari di colori diversi nella stessa torre!");
 						return false;
 				}
+			}
 		}
 
 		return true;
