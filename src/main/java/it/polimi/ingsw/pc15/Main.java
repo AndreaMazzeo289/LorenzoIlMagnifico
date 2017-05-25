@@ -59,21 +59,30 @@ public class Main {
 		 * 	- QUANDO VADO AD AGGIUNGERE I BONUS DEGLI SPAZI DELLE TORRI PASSA UN NULL COME SET RISORSE E LA AGGIUNGI GENERA UN'ECCEZIONE
 		 */
 		
+		
+		
 		System.out.println("Il giocatore vuole prendere questa carta BLU con il familiare nero: "+ gioco.getPlancia().getSpazioTorre(ColoreCarta.BLU,0).getCarta().getNome());
+		System.out.println("il dado del familiare nero è: "+familiareNero.getValore());
+		player.occupaSpazio(spazio1, familiareNero);
+		
 		System.out.println("Il giocatore vuole prendere questa carta BLU con il familiare bianco: "+ gioco.getPlancia().getSpazioTorre(ColoreCarta.BLU,1).getCarta().getNome());
+		System.out.println("il dado del familiare giallo è: "+familiareBianco.getValore());
+		player.occupaSpazio(spazio2, familiareBianco);
+		
+		
+		
 		//System.out.println("Il giocatore vuole prendere questa carta GIALLA con il familiare arancione: "+ gioco.getPlancia().getSpazioTorre(ColoreCarta.GIALLO,2).getCarta().getNome());
 		//System.out.println("Il giocatore vuole prendere questa carta VIOLA con il familiare neutro: "+ gioco.getPlancia().getSpazioTorre(ColoreCarta.VIOLA,2).getCarta().getNome());
 		
-		System.out.println("il dado del familiare nero è: "+familiareNero.getValore());
-		System.out.println("il dado del familiare arancione è: "+familiareArancione.getValore());
-		//System.out.println("il dado del familiare giallo è: "+familiareBianco.getValore());
+		
+		//System.out.println("il dado del familiare arancione è: "+familiareArancione.getValore());
 		//System.out.println("il dado del familiare neutro è: "+familiareNeutro.getValore());
 		
-		player.occupaSpazio(spazio1, familiareNero);
-		player.occupaSpazio(spazio2, familiareBianco);
+
 		//player.occupaSpazio(spazio3, familiareArancione);
 		//player.occupaSpazio(spazio4, familiareNeutro);
 
+		
 		
 		
 		System.out.println("ora il giocatore ha queste risorse: ");
