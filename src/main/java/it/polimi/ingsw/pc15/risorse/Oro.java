@@ -4,13 +4,7 @@ public class Oro extends Risorsa {
 
 	public Oro(int quantità) {
 		super(quantità);
+		this.tipoRisorsa = TipoRisorsa.ORO;
 		
 	}
-
-	@Override
-	public TipoRisorsa getTipoRisorsa() {
-		// TODO Auto-generated method stub
-		return TipoRisorsa.ORO;
-	}
-
 }

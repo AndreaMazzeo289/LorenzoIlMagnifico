@@ -3,6 +3,7 @@ package it.polimi.ingsw.pc15.risorse;
 public abstract class Risorsa {
 	
 	private int quantità;
+	protected TipoRisorsa tipoRisorsa;
 		
 	public Risorsa (int quantità) { //costruttore
 		this.quantità = quantità;
@@ -23,6 +24,8 @@ public abstract class Risorsa {
 		return true;
 	}
 	
-	public abstract TipoRisorsa getTipoRisorsa();
+	public TipoRisorsa getTipoRisorsa(){
+		return this.tipoRisorsa;
+	}
 
 }

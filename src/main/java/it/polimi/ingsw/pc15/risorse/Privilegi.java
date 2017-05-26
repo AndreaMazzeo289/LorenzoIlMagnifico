@@ -4,13 +4,6 @@ public class Privilegi extends Risorsa {
 
 	public Privilegi(int quantità) {
 		super(quantità);
-		
+		this.tipoRisorsa = TipoRisorsa.PRIVILEGI;
 	}
-
-	@Override
-	public TipoRisorsa getTipoRisorsa() {
-		// TODO Auto-generated method stub
-		return TipoRisorsa.PRIVILEGI;
-	}
-
 }
