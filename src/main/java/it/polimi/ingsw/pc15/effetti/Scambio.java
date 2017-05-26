@@ -32,14 +32,18 @@ public class Scambio extends Effetto{
 		}
 		
 		if (scelta==1 || pagamento2 == null) {
-			if(player.getSetRisorse().paragona(pagamento1))
+			if(player.getSetRisorse().paragona(pagamento1)) {
+				player.getSetRisorse().sottrai(pagamento1);
 				player.getSetRisorse().aggiungi(guadagno1);
+			}
 			else System.out.println("Non hai risorse sufficienti per attivare questo scambio!");
 		}
 		
 		if (scelta==2 || pagamento1 == null) {
-			if(player.getSetRisorse().paragona(pagamento2))
+			if(player.getSetRisorse().paragona(pagamento2)) {
+				player.getSetRisorse().sottrai(pagamento2);
 				player.getSetRisorse().aggiungi(guadagno2);
+			}
 			else System.out.println("Non hai risorse sufficienti per attivare questo scambio!");
 		}
 	}	
