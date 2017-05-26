@@ -4,13 +4,6 @@ public class PuntiMilitari extends Risorsa {
 
 	public PuntiMilitari(int quantità) {
 		super(quantità);
-		
+		this.tipoRisorsa = TipoRisorsa.PUNTIMILITARI;
 	}
-
-	@Override
-	public TipoRisorsa getTipoRisorsa() {
-		// TODO Auto-generated method stub
-		return TipoRisorsa.PUNTIMILITARI;
-	}
-
 }

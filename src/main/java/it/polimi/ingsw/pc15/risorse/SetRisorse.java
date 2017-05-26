@@ -7,7 +7,7 @@ import java.util.Map;
 
 public class SetRisorse {  
 
-	HashMap<TipoRisorsa, Risorsa> risorse;
+	private HashMap<TipoRisorsa, Risorsa> risorse;
 	
 	public SetRisorse (HashSet<Risorsa> risorse) {
 		

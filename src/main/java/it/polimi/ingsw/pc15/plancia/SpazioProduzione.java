@@ -19,22 +19,24 @@ public class SpazioProduzione extends Spazio{
 	@Override
 	public void occupa(Familiare familiare) {
 		this.listaFamiliari.add(familiare);
-		Effetto effetto = new AzioneProduzione(familiare.getValore());
+		Effetto effetto = new AzioneProduzione(familiare.getValore() + familiare.getPlayer().getEffettiAttivi().getBonusProduzione());
 		effetto.attiva(familiare.getPlayer());
 	}
 
 	@Override
 	public boolean occupabile(Familiare familiare){
 		
+		int valoreAzione = familiare.getValore()+ familiare.getPlayer().getEffettiAttivi().getBonusProduzione();
+		
 		if(this.listaFamiliari.isEmpty())
-			if(familiare.getValore() >= getValoreMin())
+			if(valoreAzione >= getValoreMin())
 				return true;
 			else {
 				System.out.println("Il valore del tuo familiare è troppo basso!");
 				return false;
 			}
 		else
-			if(familiare.getValore() >= getValoreMin()+3)
+			if(valoreAzione >= getValoreMin()+3)
 				return true;
 			else {
 				System.out.println("Il valore del tuo familiare è troppo basso!");

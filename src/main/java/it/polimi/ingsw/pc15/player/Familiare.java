@@ -6,6 +6,7 @@ public class Familiare {
 	
 	private final ColoreFamiliare coloreFamiliare;
 	private int valore;
+	private int valoreBonus;
 	private Player player;
 	private boolean disponibilità;
 	
@@ -13,6 +14,7 @@ public class Familiare {
 		this.coloreFamiliare = colore;
 		this.player = player;
 		this.valore = 0;
+		this.valoreBonus = 0;
 		this.disponibilità = true;
 	}
 	
@@ -25,6 +27,10 @@ public class Familiare {
 		this.valore = valore;
 	}
 	
+	public void incrementaValoreBonus (int valoreBonus) {
+		this.valoreBonus += valoreBonus;
+	}
+	
 	public ColoreFamiliare getColore() {
 		return this.coloreFamiliare;
 	}
@@ -33,8 +39,12 @@ public class Familiare {
 		return this.player;
 	}
 	
+	public int getValoreBonus() {
+		return this.valoreBonus;
+	}
+	
 	public int getValore() {
-		return this.valore;
+		return (this.valore + this.valoreBonus);
 	}
 	
 	public boolean disponibile() {
