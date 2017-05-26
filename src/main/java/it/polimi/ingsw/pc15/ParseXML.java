@@ -49,6 +49,10 @@ import it.polimi.ingsw.pc15.risorse.TipoRisorsa;
 
 public class ParseXML {
 	
+	public static void main (String args[]){
+		leggiCartaLeader("Cesare Borgia");
+	}
+	
 	//--------------------------------------------------------------------------------------------------------------//
 	// GET CARTA XML
 	//--------------------------------------------------------------------------------------------------------------//
@@ -806,6 +810,108 @@ public class ParseXML {
 		Impresa impresa = new Impresa (nome, id, periodo, costo, effettiImmediati, effettoImpr, requisito, costoPt);
 		return impresa;
 	}
+	
+	//--------------------------------------------------------------------------------------------------------------//
+	// LEGGI CARTA LEADER
+	//--------------------------------------------------------------------------------------------------------------//
+	/**
+	 * metodo che permette di estrarre le carte leader dal file XML
+	 * @param nome della carta leader che si vuole estrarre (String)
+	 */
+	public static void leggiCartaLeader (String nomeCarta){
+		
+		int valore=1;
+		Set<Effetto> effetti = new HashSet<Effetto>();
+		
+		
+		try{
+			DocumentBuilderFactory documentFactory = DocumentBuilderFactory.newInstance();
+			
+			DocumentBuilder builder = documentFactory.newDocumentBuilder();
+			Document document = builder.parse(new File("XML/Leaders.xml"));
+			
+			NodeList leaders = document.getElementsByTagName("leader");
+			
+			for(int i=0; i<leaders.getLength(); i++) {
+				
+				Element leader = (Element) leaders.item(i);
+				String nomeLeader = leader.getElementsByTagName("nome").item(0).getFirstChild().getNodeValue();
+				SetRisorse requisitoMaterie;
+				
+				if(nomeCarta.toUpperCase().equals(nomeLeader.toUpperCase())) {	
+					
+					System.out.println("nome della carta leader: "+nomeCarta);
+					
+					try{
+						//------------------------------------------------------//
+			      		//	FASE 2.1: ISTANZIAZIONE DEL SET RISORSE (COSTO)
+			      		//------------------------------------------------------//
+			    		Legna legna = new Legna (Integer.parseInt(leader.getElementsByTagName("legno").item(0).getFirstChild().getNodeValue()));
+			    		Pietra pietra = new Pietra (Integer.parseInt(leader.getElementsByTagName("pietra").item(0).getFirstChild().getNodeValue()));
+			    		Oro oro = new Oro (Integer.parseInt(leader.getElementsByTagName("oro").item(0).getFirstChild().getNodeValue()));
+			    		Servitori servitori = new Servitori (Integer.parseInt(leader.getElementsByTagName("servitori").item(0).getFirstChild().getNodeValue()));
+			    		PuntiFede puntiFede = new PuntiFede (Integer.parseInt(leader.getElementsByTagName("puntiFede").item(0).getFirstChild().getNodeValue()));
+			    		PuntiMilitari puntiMilitari = new PuntiMilitari (Integer.parseInt(leader.getElementsByTagName("puntiMilitari").item(0).getFirstChild().getNodeValue()));
+			    		PuntiVittoria puntiVittoria = new PuntiVittoria (Integer.parseInt(leader.getElementsByTagName("puntiVittoria").item(0).getFirstChild().getNodeValue()));
+			    		Privilegi privilegi = new Privilegi (Integer.parseInt(leader.getElementsByTagName("privilegi").item(0).getFirstChild().getNodeValue()));
+			            
+			            HashSet<Risorsa> risorse = new HashSet<>();
+			            
+			            risorse.add(legna);
+			            risorse.add(pietra);
+			            risorse.add(oro);
+			            risorse.add(servitori);
+			            risorse.add(puntiFede);
+			            risorse.add(puntiMilitari);
+			            risorse.add(puntiVittoria);
+			            risorse.add(privilegi);
+			                   
+			            requisitoMaterie = new SetRisorse (risorse);
+			            
+			            System.out.println("Requisiti materiali: ");
+			            System.out.println("Legna: "+legna.getQuantità());
+			            System.out.println("Pietra: "+pietra.getQuantità());
+			            System.out.println("Oro: "+oro.getQuantità());
+			            System.out.println("Servitori: "+servitori.getQuantità());
+			            System.out.println("Punti fede: "+puntiFede.getQuantità());
+			            System.out.println("Punti militari: "+puntiMilitari.getQuantità());
+			            System.out.println("Punti vittoria: "+puntiVittoria.getQuantità());
+			            System.out.println("Privilegi: "+privilegi.getQuantità());
+			            
+					}catch(Exception e) {
+						requisitoMaterie = null;
+						System.out.println("nessun requisito in materie richiesto");
+					}
+					
+					try{
+						NodeList carte = leader.getElementsByTagName("carta");
+						for(int j=0; j<carte.getLength(); j++) {
+							Element carta = (Element) carte.item(i);
+							
+							System.out.println("tipo: "+carta.getElementsByTagName("tipo").item(0).getFirstChild().getNodeValue());
+							System.out.println("quantita: "+carta.getElementsByTagName("quantita").item(0).getFirstChild().getNodeValue());
+						}
+					}catch(Exception e) {
+						System.out.println("nessun requisito in carte richiesto");
+					}
+					
+					NodeList listaEffetti = leader.getElementsByTagName("effetto");
+					System.out.println("effetti: ");
+			        for (int j = 0; j < listaEffetti.getLength(); ++j) {
+			            Element effetto = (Element) listaEffetti.item(j);
+			            String effettoTipo = effetto.getFirstChild().getNodeValue();
+			            System.out.println("effetto: "+effettoTipo);
+			            //Effetto effettoExt = getEffettoXML(effettoTipo);
+			            //effetti.add(effettoExt);
+			        }
+				}
+			}
+		}catch(Exception e){
+			e.printStackTrace();
+		}	
+		/*return leaderEstratto;*/
+	}
+	
 	
 	//--------------------------------------------------------------------------------------------------------------//
 	// LEGGI SPAZIO TORRE
