@@ -5,6 +5,7 @@ import java.util.Scanner;
 
 import it.polimi.ingsw.pc15.ParseXML;
 import it.polimi.ingsw.pc15.player.Player;
+import it.polimi.ingsw.pc15.risorse.TipoRisorsa;
 
 public class AzionePrendiCartaImpresa extends AzionePrendiCarta {
 
@@ -27,43 +28,69 @@ public class AzionePrendiCartaImpresa extends AzionePrendiCarta {
 			return false;
 		}
 		
-		System.out.println("Vuoi pagare il costo normale (1) o il costo in Punti Militari (2) ?");
+		return true;
+	}
+
+	@Override
+	public boolean attiva() {
+		
 		int scelta = 0;
-		try {
-			scelta = System.in.read();
-		} catch (IOException e) {
-			e.printStackTrace();
+		
+		if (carta.getCosto()!=null && ((Impresa)carta).getRequisitoPuntiMilitari() != 0) {
+		System.out.println("Vuoi pagare il costo normale (1) o il costo in Punti Militari (2) ?");
+		Scanner in = new Scanner(System.in);
+		scelta = in.nextInt();
 		}
 		
-		if (scelta==1)
-			if (!risorseSufficienti()) {
-				System.out.println("Non hai risorse sufficienti per acquistare questa carta!");
-				return false;
-				}
+		if (scelta == 1  || ((Impresa)carta).getRequisitoPuntiMilitari() == 0) {
+
+			if ( requisitiSoddisfatti() && risorseSufficienti() ) {
+				pagaCosto();
+				daiCarta();
+				carta.attivaEffettoIstantaneo();
+			
+				System.out.println("Il giocatore ha preso la carta VIOLA: "  + carta.getNome());
+				return true;
+			}
+		}
 		
-		if (scelta==2)
-			if(true);  //<----- CONTINUA QUI
+		if (scelta == 2  || carta.getCosto()== null) {
+			
+			if( puntiMilitariSufficienti() ) {
+				pagaPuntiMilitari();
+				daiCarta();
+				carta.attivaEffettoIstantaneo();
+				
+				System.out.println("Il giocatore ha preso la carta VIOLA: "  + carta.getNome());
+				return true;
+			}
+		}	
+		
+		return false;
+	}
+	
+	public boolean puntiMilitariSufficienti() {
+		
+		if ( ((Impresa)carta).getRequisitoPuntiMilitari() > player.getSetRisorse().getRisorsa(TipoRisorsa.PUNTIMILITARI).getQuantità() ) {
+			System.out.println("Non hai abbastanza Punti Militari per acquistare questa carta!");
+			return false;
+		}
+		
+		if (carta.getSpazio().getTorre().occupata() && player.getSetRisorse().getRisorsa(TipoRisorsa.ORO).getQuantità()<3 ) {
+			System.out.println("Non hai risorse sufficienti per acquistare questa carta!");
+			return false;
+		}
+		
+		if (((Impresa) carta).getCostoPuntiMilitari() > player.getSetRisorse().getRisorsa(TipoRisorsa.PUNTIMILITARI).getQuantità() ) {
+			System.out.println("Non hai abbastanza Punti Militari per acquistare questa carta!");
+			return false;
+		}
 		
 		return true;
 	}
 	
-	
-
-	@Override
-	public boolean attiva() {
-
-		if (requisitiSoddisfatti()) {
-			pagaCosto();
-			daiCarta();
-			carta.attivaEffettoIstantaneo();
-			
-			System.out.println("Il giocatore ha preso la carta VIOLA: "  + carta.getNome());
-			return true;
-		}
-		
-		else return false;
-	}
-
+	public void pagaPuntiMilitari() {
+		player.getSetRisorse().getRisorsa(TipoRisorsa.PUNTIMILITARI).aggiungi(-((Impresa) carta).getCostoPuntiMilitari());}
 }
 
 

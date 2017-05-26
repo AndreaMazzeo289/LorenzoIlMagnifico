@@ -29,5 +29,11 @@ public class Impresa extends Carta {
 	public int getRequisitoPuntiMilitari() {
 		return this.requisitoPuntiMilitari;
 	}
+	
+	public int getCostoPuntiMilitari() {
+		return this.costoPuntiMilitari;
+	}
+	
+	
 
 }

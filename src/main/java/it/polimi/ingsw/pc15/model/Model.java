@@ -90,9 +90,9 @@ public class Model extends Observable {
 
 		Random random = new Random();
 		
-		int valoreDadoNero = random.nextInt(5) + 1;
-		int valoreDadoBianco = random.nextInt(5) + 1;
-		int valoreDadoArancione = random.nextInt(5) + 1;
+		int valoreDadoNero = random.nextInt(6) + 1;
+		int valoreDadoBianco = random.nextInt(6) + 1;
+		int valoreDadoArancione = random.nextInt(6) + 1;
 		
 		for(Player player : giocatori) {
 			player.getFamiliare(ColoreFamiliare.NEUTRO).setValore(0);	
@@ -104,7 +104,7 @@ public class Model extends Observable {
 
 	}
 	
-	public ArrayList getPlayers() {
+	public ArrayList<Player> getPlayers() {
 		return this.giocatori;
 	}
 	
