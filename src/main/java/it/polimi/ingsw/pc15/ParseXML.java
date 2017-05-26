@@ -49,9 +49,28 @@ import it.polimi.ingsw.pc15.risorse.TipoRisorsa;
 
 public class ParseXML {
 	
-	public static void main (String args[]){
+	/*public static void main (String args[]){
 		leggiCartaLeader("Cesare Borgia");
-	}
+		leggiCartaLeader("Ludovico Ariosto");
+		leggiCartaLeader("Filippo Brunelleschi");
+		leggiCartaLeader("Sigismondo Malatesta");
+		leggiCartaLeader("Ludovico il Moro");
+		leggiCartaLeader("Lucrezia Borgia");
+		leggiCartaLeader("Lorenzo de’ Medici");
+		leggiCartaLeader("Sisto IV");
+		leggiCartaLeader("Santa Rita");
+		leggiCartaLeader("Pico della mirandola");
+		leggiCartaLeader("Francesco Sforza");
+		leggiCartaLeader("Michelangelo Buonarroti");
+		leggiCartaLeader("Giovanni dalle Bande Nere");
+		leggiCartaLeader("Girolamo Savonarola");
+		leggiCartaLeader("Leonardo da Vinci");
+		leggiCartaLeader("Sandro Botticelli");
+		leggiCartaLeader("Federico da Montefeltro");
+		leggiCartaLeader("Cosimo de’ Medici");
+		leggiCartaLeader("Bartolomeo Colleoni");
+		leggiCartaLeader("Ludovico III Gonzaga");
+	}*/
 	
 	//--------------------------------------------------------------------------------------------------------------//
 	// GET CARTA XML
@@ -843,6 +862,23 @@ public class ParseXML {
 					System.out.println("nome della carta leader: "+nomeCarta);
 					
 					try{
+						NodeList carte = leader.getElementsByTagName("carta");
+						int fine = carte.getLength();
+						if(fine!=0)
+							for(int j=0; j<fine; j++) {
+								Element carta = (Element) carte.item(j);
+								
+								System.out.println("tipo: "+carta.getElementsByTagName("tipo").item(0).getFirstChild().getNodeValue());
+								System.out.println("quantita: "+carta.getElementsByTagName("quantita").item(0).getFirstChild().getNodeValue());
+								
+							}
+						else
+							System.out.println("nessun requisito in carte richiesto");
+					}catch(Exception e2) {
+						System.out.println("nessun requisito in carte richiesto");
+					}
+					
+					try{
 						//------------------------------------------------------//
 			      		//	FASE 2.1: ISTANZIAZIONE DEL SET RISORSE (COSTO)
 			      		//------------------------------------------------------//
@@ -878,22 +914,12 @@ public class ParseXML {
 			            System.out.println("Punti vittoria: "+puntiVittoria.getQuantità());
 			            System.out.println("Privilegi: "+privilegi.getQuantità());
 			            
-					}catch(Exception e) {
+					}catch(Exception e1) {
 						requisitoMaterie = null;
 						System.out.println("nessun requisito in materie richiesto");
 					}
 					
-					try{
-						NodeList carte = leader.getElementsByTagName("carta");
-						for(int j=0; j<carte.getLength(); j++) {
-							Element carta = (Element) carte.item(i);
-							
-							System.out.println("tipo: "+carta.getElementsByTagName("tipo").item(0).getFirstChild().getNodeValue());
-							System.out.println("quantita: "+carta.getElementsByTagName("quantita").item(0).getFirstChild().getNodeValue());
-						}
-					}catch(Exception e) {
-						System.out.println("nessun requisito in carte richiesto");
-					}
+					
 					
 					NodeList listaEffetti = leader.getElementsByTagName("effetto");
 					System.out.println("effetti: ");
