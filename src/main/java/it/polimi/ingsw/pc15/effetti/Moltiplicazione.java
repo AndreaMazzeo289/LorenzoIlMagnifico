@@ -25,11 +25,8 @@ public class Moltiplicazione extends Effetto{
 	@Override
 	public void attiva(Player player) {
 		
-		for(int i = 1; i<=(player.getSetRisorse().getRisorsa(tipoRisorsa).getQuantità()/this.numRisorsa); i++){
-			
+		for(int i=1; i<= player.getSetRisorse().getRisorsa(tipoRisorsa).getQuantità()/this.numRisorsa; i++)		
 		       player.getSetRisorse().aggiungi(this.setRisorse);
-	
-	           }
 		
 		switch(this.tipoRisorsa) {
 		
