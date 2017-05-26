@@ -2,6 +2,7 @@ package it.polimi.ingsw.pc15;
 
 import java.io.File;
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.HashSet;
 import java.util.Set;
 
@@ -48,6 +49,13 @@ import it.polimi.ingsw.pc15.risorse.TipoRisorsa;
  */
 
 public class ParseXML {
+	
+	public static void main (String args[]) {
+		leggiScomunica(1);
+		leggiScomunica(2);
+		leggiScomunica(3);
+	}
+	
 	
 	/*public static void main (String args[]){
 		leggiCartaLeader("Cesare Borgia");
@@ -938,6 +946,50 @@ public class ParseXML {
 		/*return leaderEstratto;*/
 	}
 	
+	//--------------------------------------------------------------------------------------------------------------//
+	// LEGGI SCOMUNICA
+	//--------------------------------------------------------------------------------------------------------------//
+	/**
+	 * metodo che permette di estrarre i dati generali del gioco dal relativo file XML
+	 * @param quale valore si vuole leggere dal file XML (String)
+	 * @return valore letto (Integer)
+	 */
+	public static void leggiScomunica (int periodo){
+		
+		ArrayList<String> scomuniche = new ArrayList<String>();
+		String effettoScomunica;
+		
+		try{
+			DocumentBuilderFactory documentFactory = DocumentBuilderFactory.newInstance();
+			
+			DocumentBuilder builder = documentFactory.newDocumentBuilder();
+			Document document = builder.parse(new File("XML/Scomuniche.xml"));
+			
+			NodeList scomunicheList = document.getElementsByTagName("scomunica");
+			
+			for(int i=0; i<scomunicheList.getLength(); i++){
+				
+				Element scomunica = (Element) scomunicheList.item(i);
+				int periodoLetto = Integer.parseInt(scomunica.getElementsByTagName("periodo").item(0).getFirstChild().getNodeValue());
+				
+				if(periodoLetto == periodo){
+					effettoScomunica = scomunica.getElementsByTagName("effetto").item(0).getFirstChild().getNodeValue();
+					scomuniche.add(effettoScomunica);
+				}
+					
+			}
+		}catch(Exception e){
+			e.printStackTrace();
+		}	
+		
+		Collections.shuffle(scomuniche);
+		
+		System.out.println("Scomuniche di "+periodo+" periodo:");
+		for(String string : scomuniche) {
+			System.out.println(string);
+		}
+	}
+
 	
 	//--------------------------------------------------------------------------------------------------------------//
 	// LEGGI SPAZIO TORRE
