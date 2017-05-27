@@ -1,0 +1,376 @@
+<leaders>
+    <!--***************************************************************************
+    
+                            LEADER CON EFFETTO PERMANENTE
+
+    ****************************************************************************-->
+    <leader>
+        <nome>Cesare Borgia</nome>
+        <requisito>
+            <carta>
+                <tipo>Edificio</tipo>
+                <quantita>3</quantita>
+            </carta>
+            <risorse>
+                <legno>0</legno>
+                <pietra>0</pietra>
+                <oro>12</oro>
+                <servitori>0</servitori>
+                <puntiFede>0</puntiFede>
+                <puntiMilitari>0</puntiMilitari>
+                <puntiVittoria>0</puntiVittoria>
+                <privilegi>0</privilegi>
+            </risorse>
+        </requisito>
+        <effetti tipo="permanente">
+            <effetto>azioneRaccolta1</effetto>
+        </effetti>
+    </leader>
+    
+    <leader>
+        <nome>Ludovico Ariosto</nome>
+        <requisito>
+            <carta>
+                <tipo>Personaggio</tipo>
+                <quantita>5</quantita>
+            </carta>
+        </requisito>
+        <effetti tipo="permanente">
+            <effetto>familiareSpaziAzioneOccupati</effetto>
+        </effetti>
+    </leader>
+    
+    <leader>
+        <nome>Filippo Brunelleschi</nome>
+        <requisito>
+            <carta>
+                <tipo>Edificio</tipo>
+                <quantita>5</quantita>
+            </carta>
+        </requisito>
+        <effetti tipo="permanente">
+            <effetto>noMoneteAggiuntiveTorreOccupata</effetto>
+        </effetti>
+    </leader>
+    
+    <leader>
+        <nome>Sigismondo Malatesta</nome>
+        <requisito>
+            <risorse>
+                <legno>0</legno>
+                <pietra>0</pietra>
+                <oro>0</oro>
+                <servitori>0</servitori>
+                <puntiFede>3</puntiFede>
+                <puntiMilitari>7</puntiMilitari>
+                <puntiVittoria>0</puntiVittoria>
+                <privilegi>0</privilegi>
+            </risorse>
+        </requisito>
+        <effetti tipo="permanente">
+            <effetto>familiareNeutroPiu3</effetto>
+        </effetti>
+    </leader>
+    
+    <leader>
+        <nome>Ludovico il Moro</nome>
+        <requisito>
+            <carta>
+                <tipo>Territorio</tipo>
+                <quantita>2</quantita>
+            </carta>
+            <carta>
+                <tipo>Personaggio</tipo>
+                <quantita>2</quantita>
+            </carta>
+            <carta>
+                <tipo>Edificio</tipo>
+                <quantita>2</quantita>
+            </carta>
+            <carta>
+                <tipo>Impresa</tipo>
+                <quantita>2</quantita>
+            </carta>
+        </requisito>
+        <effetti tipo="permanente">
+            <effetto>valoreDadoNero5</effetto>
+            <effetto>valoreDadoBianco5</effetto>
+            <effetto>valoreDadoArancione5</effetto>
+        </effetti>
+    </leader>
+    
+    <leader>
+        <nome>Lucrezia Borgia</nome>
+        <requisito>
+            <carta>
+                <tipo>All</tipo>
+                <quantita>6</quantita>
+            </carta>
+        </requisito>
+        <effetti tipo="permanente">
+            <effetto>bonusDadoNero2</effetto>
+            <effetto>bonusDadoBianco2</effetto>
+            <effetto>bonusDadoArancione2</effetto>
+        </effetti>
+    </leader>
+    
+    <leader>
+        <nome>Lorenzo de’ Medici</nome>
+        <requisito>
+            <risorse>
+                <legno>0</legno>
+                <pietra>0</pietra>
+                <oro>0</oro>
+                <servitori>0</servitori>
+                <puntiFede>0</puntiFede>
+                <puntiMilitari>0</puntiMilitari>
+                <puntiVittoria>35</puntiVittoria>
+                <privilegi>0</privilegi>
+            </risorse>
+        </requisito>
+        <effetti tipo="permanente">
+            <effetto>copiaSkillLeader</effetto>
+        </effetti>
+    </leader>
+    
+    <leader>
+        <nome>Sisto IV</nome>
+        <requisito>
+            <risorse>
+                <legno>6</legno>
+                <pietra>6</pietra>
+                <oro>6</oro>
+                <servitori>6</servitori>
+                <puntiFede>0</puntiFede>
+                <puntiMilitari>0</puntiMilitari>
+                <puntiVittoria>0</puntiVittoria>
+                <privilegi>0</privilegi>
+            </risorse>
+        </requisito>
+        <effetti tipo="permanente">
+            <effetto>scambioSistoIV</effetto>
+        </effetti>
+    </leader>
+    
+    <leader>
+        <nome>Santa Rita</nome>
+        <requisito>
+            <risorse>
+                <legno>0</legno>
+                <pietra>0</pietra>
+                <oro>0</oro>
+                <servitori>0</servitori>
+                <puntiFede>8</puntiFede>
+                <puntiMilitari>0</puntiMilitari>
+                <puntiVittoria>0</puntiVittoria>
+                <privilegi>0</privilegi>
+            </risorse>
+        </requisito>
+        <effetti tipo="permanente">
+            <effetto>risorsePreseX2</effetto>
+        </effetti>
+    </leader>
+    
+    <leader>
+        <nome>Pico della mirandola</nome>
+        <requisito>
+            <carta>
+                <tipo>Edificio</tipo>
+                <quantita>2</quantita>
+                <tipo>Impresa</tipo>
+                <quantita>4</quantita>
+            </carta>
+        </requisito>
+        <effetti tipo="permanente">
+            <effetto>sconto3OroCarteSviluppo</effetto>
+        </effetti>
+    </leader>
+    
+    <!--***************************************************************************
+    
+                        LEADER CON EFFETTO VALIDO OGNI TURNO
+
+    ****************************************************************************-->
+    <leader>
+        <nome>Francesco Sforza</nome>
+        <requisito>
+            <carta>
+                <tipo>Impresa</tipo>
+                <quantita>5</quantita>
+            </carta>
+        </requisito>
+        <effetti tipo="turno">
+            <effetto>azioneRaccolta1</effetto>
+        </effetti>
+    </leader>
+    
+    <leader>
+        <nome>Girolamo Savonarola</nome>
+        <requisito>
+            <risorse>
+                <legno>0</legno>
+                <pietra>0</pietra>
+                <oro>18</oro>
+                <servitori>0</servitori>
+                <puntiFede>0</puntiFede>
+                <puntiMilitari>0</puntiMilitari>
+                <puntiVittoria>0</puntiVittoria>
+                <privilegi>0</privilegi>
+            </risorse>
+        </requisito>
+        <effetti tipo="turno">
+            <effetto>aggiungiRisorse1F</effetto>
+        </effetti>
+    </leader>
+    
+    <leader>
+        <nome>Michelangelo Buonarroti</nome>
+        <requisito>
+            <risorse>
+                <legno>0</legno>
+                <pietra>10</pietra>
+                <oro>0</oro>
+                <servitori>0</servitori>
+                <puntiFede>0</puntiFede>
+                <puntiMilitari>0</puntiMilitari>
+                <puntiVittoria>0</puntiVittoria>
+                <privilegi>0</privilegi>
+            </risorse>
+        </requisito>
+        <effetti tipo="turno">
+            <effetto>aggiungiRisorse3O</effetto>
+        </effetti>
+    </leader>
+    
+    <leader>
+        <nome>Giovanni dalle Bande Nere</nome>
+        <requisito>
+            <risorse>
+                <legno>0</legno>
+                <pietra>0</pietra>
+                <oro>0</oro>
+                <servitori>0</servitori>
+                <puntiFede>0</puntiFede>
+                <puntiMilitari>12</puntiMilitari>
+                <puntiVittoria>0</puntiVittoria>
+                <privilegi>0</privilegi>
+            </risorse>
+        </requisito>
+        <effetti tipo="turno">
+            <effetto>azioneRaccolta1Land1Pand1O</effetto>
+        </effetti>
+    </leader>
+    
+    <leader>
+        <nome>Leonardo da Vinci</nome>
+        <requisito>
+             <carta>
+                <tipo>Territorio</tipo>
+                <quantita>2</quantita>
+            </carta>
+             <carta>
+                <tipo>Personaggio</tipo>
+                <quantita>4</quantita>
+            </carta>
+        </requisito>
+        <effetti tipo="turno">
+            <effetto>azioneProduzione0</effetto>
+        </effetti>
+    </leader>
+    
+    <leader>
+        <nome>Sandro Botticelli</nome>
+        <requisito>
+            <risorse>
+                <legno>10</legno>
+                <pietra>0</pietra>
+                <oro>0</oro>
+                <servitori>0</servitori>
+                <puntiFede>0</puntiFede>
+                <puntiMilitari>0</puntiMilitari>
+                <puntiVittoria>0</puntiVittoria>
+                <privilegi>0</privilegi>
+            </risorse>
+        </requisito>
+        <effetti tipo="turno">
+            <effetto>aggiungiRisorse2PMand1PV</effetto>
+        </effetti>
+    </leader>
+    
+    <leader>
+        <nome>Federico da Montefeltro</nome>
+        <requisito>
+            <carta>
+                <tipo>Territorio</tipo>
+                <quantita>5</quantita>
+            </carta>
+            <risorse>
+                <legno>0</legno>
+                <pietra>0</pietra>
+                <oro>12</oro>
+                <servitori>0</servitori>
+                <puntiFede>0</puntiFede>
+                <puntiMilitari>0</puntiMilitari>
+                <puntiVittoria>0</puntiVittoria>
+                <privilegi>0</privilegi>
+            </risorse>
+        </requisito>
+        <effetti tipo="turno">
+            <effetto>valoreDado6</effetto>
+        </effetti>
+    </leader>
+    
+    <leader>
+        <nome>Cosimo de’ Medici</nome>
+        <requisito>
+            <carta>
+                <tipo>Personaggio</tipo>
+                <quantita>2</quantita>
+            </carta>
+             <carta>
+                <tipo>Edificio</tipo>
+                <quantita>4</quantita>
+            </carta>
+        </requisito>
+        <effetti tipo="turno">
+            <effetto>aggiuntaRisorse3Sand1PV</effetto>
+        </effetti>
+    </leader>
+    
+    <leader>
+        <nome>Bartolomeo Colleoni</nome>
+        <requisito>
+            <carta>
+                <tipo>Territorio</tipo>
+                <quantita>4</quantita>
+            </carta>
+            <carta>
+                <tipo>Impresa</tipo>
+                <quantita>2</quantita>
+            </carta>
+        </requisito>
+        <effetti tipo="turno">
+            <effetto>aggiuntaRisorse4PV</effetto>
+        </effetti>
+    </leader>
+    
+    <leader>
+        <nome>Ludovico III Gonzaga</nome>
+        <requisito>
+            <risorse>
+                <legno>0</legno>
+                <pietra>0</pietra>
+                <oro>0</oro>
+                <servitori>15</servitori>
+                <puntiFede>0</puntiFede>
+                <puntiMilitari>0</puntiMilitari>
+                <puntiVittoria>0</puntiVittoria>
+                <privilegi>0</privilegi>
+            </risorse>
+        </requisito>
+        <effetti tipo="turno">
+            <effetto>aggiuntaRisorse1Pr</effetto>
+        </effetti>
+    </leader>
+    
+</leaders>

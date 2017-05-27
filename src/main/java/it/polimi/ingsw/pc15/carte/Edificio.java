@@ -15,6 +15,7 @@ public class Edificio extends Carta {
 		super(nome, id, periodo, costo, effettoIstantaneo);
 		this.requisitoProduzione = requisitoProduz;
 		this.effettoProduzione = effettoProduzione;
+		this.colore = ColoreCarta.GIALLO;
 	}
 
 	public int getRequisitoProduzione() {

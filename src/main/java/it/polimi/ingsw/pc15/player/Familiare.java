@@ -4,15 +4,19 @@ import it.polimi.ingsw.pc15.risorse.TipoRisorsa;
 
 public class Familiare {
 	
+	private Player player;
 	private final ColoreFamiliare coloreFamiliare;
 	private int valore;
-	private Player player;
+	private int valoreBonus;
 	private boolean disponibilità;
+	private boolean valoreFissato;
 	
 	public Familiare (ColoreFamiliare colore, Player player) {
 		this.coloreFamiliare = colore;
 		this.player = player;
 		this.valore = 0;
+		
+		this.valoreBonus = 0;
 		this.disponibilità = true;
 	}
 	
@@ -25,6 +29,10 @@ public class Familiare {
 		this.valore = valore;
 	}
 	
+	public void incrementaValoreBonus (int valoreBonus) {
+		this.valoreBonus += valoreBonus;
+	}
+	
 	public ColoreFamiliare getColore() {
 		return this.coloreFamiliare;
 	}
@@ -33,8 +41,12 @@ public class Familiare {
 		return this.player;
 	}
 	
+	public int getValoreBonus() {
+		return this.valoreBonus;
+	}
+	
 	public int getValore() {
-		return this.valore;
+		return (this.valore + this.valoreBonus);
 	}
 	
 	public boolean disponibile() {

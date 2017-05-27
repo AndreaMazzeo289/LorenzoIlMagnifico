@@ -2,16 +2,19 @@ package it.polimi.ingsw.pc15.plancia;
 
 import java.util.ArrayList;
 import java.util.Collections;
+import java.util.HashMap;
 import java.util.HashSet;
 import java.util.Iterator;
 import java.util.Set;
 
 import it.polimi.ingsw.pc15.ParseXML;
 import it.polimi.ingsw.pc15.carte.Carta;
+import it.polimi.ingsw.pc15.carte.ColoreCarta;
 import it.polimi.ingsw.pc15.carte.Edificio;
 import it.polimi.ingsw.pc15.carte.Impresa;
 import it.polimi.ingsw.pc15.carte.Personaggio;
 import it.polimi.ingsw.pc15.carte.Territorio;
+import it.polimi.ingsw.pc15.risorse.SetRisorse;
 
 public class Plancia {
 	
@@ -23,7 +26,10 @@ public class Plancia {
 	private SpazioProduzione spazioProduzione;
 	private SpazioRaccolta spazioRaccolta;
 	private SpazioConsiglio spazioConsiglio;
-	private ArrayList spaziMercato;
+	private ArrayList<SpazioMercato> spaziMercato;
+	
+	private HashMap <Integer, TesseraScomunica> scomuniche;
+	
 	
 	public Plancia (int numeroGiocatori) {
 		
@@ -33,12 +39,12 @@ public class Plancia {
 		
 		int numeroSpaziTorre = ParseXML.leggiValore("numeroSpaziTorre");
 
-		ArrayList risorseTorreVerde = new ArrayList(numeroSpaziTorre);
-		ArrayList risorseTorreBlu = new ArrayList(numeroSpaziTorre);
-		ArrayList risorseTorreGialla = new ArrayList(numeroSpaziTorre);
-		ArrayList risorseTorreViola = new ArrayList(numeroSpaziTorre);
+		ArrayList risorseTorreVerde = new ArrayList<SetRisorse> (numeroSpaziTorre);
+		ArrayList risorseTorreBlu = new ArrayList<SetRisorse> (numeroSpaziTorre);
+		ArrayList risorseTorreGialla = new ArrayList<SetRisorse> (numeroSpaziTorre);
+		ArrayList risorseTorreViola = new ArrayList<SetRisorse> (numeroSpaziTorre);
 		
-		for(int i=0; i<numeroSpaziTorre; i++){
+		for(int i=1; i<=numeroSpaziTorre; i++){
 			risorseTorreVerde.add(ParseXML.leggiSetRisorseSpazio("verde"+Integer.toString(i))); 
 			risorseTorreBlu.add(ParseXML.leggiSetRisorseSpazio("blu"+Integer.toString(i))); 
 			risorseTorreGialla.add(ParseXML.leggiSetRisorseSpazio("giallo"+Integer.toString(i))); 
@@ -64,7 +70,7 @@ public class Plancia {
 		//           SPAZI MERCATO                                                                                   //
 		//-----------------------------------------------------------------------------------------------------------//
 		
-		spaziMercato = new ArrayList();
+		spaziMercato = new ArrayList<SpazioMercato>();
 		int valoreMinMercato = ParseXML.leggiValore("valoreMinMercato");
 		
 		switch (numeroGiocatori) {
@@ -80,69 +86,70 @@ public class Plancia {
 					break;
 		}
 		
+		
+		//-----------------------------------------------------------------------------------------------------------//
+		//          TESSERE SCOMUNICA                                                                                //
+		//-----------------------------------------------------------------------------------------------------------//
+		
+		this.scomuniche = new HashMap<Integer, TesseraScomunica>();
+		
+		int numeroTessereScomunica = ParseXML.leggiValore("numeroPeriodi");
+		for (int i=1; i<=numeroTessereScomunica; i++)
+			//scomuniche.put(i, ParseXML.leggiScomunica(i))
+			;
+			
 	}
-	
-	public void setTurno (int periodo, Set<Carta> setCarteTerritorio, Set<Carta> setCartePersonaggio, Set<Carta> setCarteEdificio, Set<Carta> setCarteImpresa){
+
+	public void setTurno (int periodo, ArrayList<Carta> arrayCarteTerritorio, ArrayList<Carta> arrayCartePersonaggio, ArrayList<Carta> arrayCarteEdificio, ArrayList<Carta> arrayCarteImpresa){
+
+		ArrayList arrayTerritori = new ArrayList<Territorio>();             
+		ArrayList arrayPersonaggi = new ArrayList<Personaggio>();
+		ArrayList arrayEdifici = new ArrayList<Edificio>();
+		ArrayList arrayImprese = new ArrayList<Impresa>();
 		
-		ArrayList arrayTerritori = new ArrayList();
-		ArrayList arrayPersonaggi = new ArrayList();
-		ArrayList arrayEdifici = new ArrayList();
-		ArrayList arrayImprese = new ArrayList();
-		
-		Iterator<Carta> territorio = setCarteTerritorio.iterator();
-		Iterator<Carta> personaggio = setCartePersonaggio.iterator();
-		Iterator<Carta> edificio = setCarteEdificio.iterator();
-		Iterator<Carta> impresa = setCarteImpresa.iterator();
-		
-		int n = 0;
+		int n;
 		int numeroSpaziTorre = ParseXML.leggiValore("numeroSpaziTorre");
 		
-		while (territorio.hasNext() && n < numeroSpaziTorre) {
-			Carta territorioExt = territorio.next();
-			if (territorioExt.getPeriodo() == periodo) {
-				arrayTerritori.add(territorioExt);
-				territorio.remove();
+		n=0;
+		for(int i=0; i<arrayCarteTerritorio.size(); i++) {
+			Carta carta = arrayCarteTerritorio.get(i);
+			if(carta.getPeriodo()==periodo && n<numeroSpaziTorre) {
+				arrayTerritori.add(carta);
+				arrayCarteTerritorio.remove(carta);
 				n++;
 			}
 		}
 		
 		n=0;
-		while (personaggio.hasNext() && n < numeroSpaziTorre) {
-			Carta personaggioExt = personaggio.next();
-			if (personaggioExt.getPeriodo() == periodo) {
-				arrayPersonaggi.add(personaggioExt);
-				personaggio.remove();
+		for(int i=0; i<arrayCartePersonaggio.size(); i++) {
+			Carta carta = arrayCartePersonaggio.get(i);
+			if(carta.getPeriodo()==periodo && n<numeroSpaziTorre) {
+				arrayPersonaggi.add(carta);
+				arrayCartePersonaggio.remove(carta);
 				n++;
-			}			
+			}
 		}
 		
 		n=0;
-		while (edificio.hasNext() && n < numeroSpaziTorre) {
-			Carta edificioExt = edificio.next();
-			if (edificioExt.getPeriodo() == periodo) {
-				arrayEdifici.add(edificioExt);
-				edificio.remove();
+		for(int i=0; i<arrayCarteEdificio.size(); i++) {
+			Carta carta = arrayCarteEdificio.get(i);
+			if(carta.getPeriodo()==periodo && n<numeroSpaziTorre) {
+				arrayEdifici.add(carta);
+				arrayCarteEdificio.remove(carta);
 				n++;
-			}			
+			}
 		}
 		
 		n=0;
-		while (impresa.hasNext() && n < numeroSpaziTorre) {
-			Carta impresaExt = impresa.next();
-			if (impresaExt.getPeriodo() == periodo) {
-				arrayImprese.add(impresaExt);
-				impresa.remove();
+		for(int i=0; i<arrayCarteImpresa.size(); i++) {
+			Carta carta = arrayCarteImpresa.get(i);
+			if(carta.getPeriodo()==periodo && n<numeroSpaziTorre) {
+				arrayImprese.add(carta);
+				arrayCarteImpresa.remove(carta);
 				n++;
-			}			
+			}
 		}
- 		
- 		Collections.shuffle(arrayTerritori);
- 		Collections.shuffle(arrayPersonaggi);
- 		Collections.shuffle(arrayEdifici);
- 		Collections.shuffle(arrayImprese);
- 		
- 		
- 		
+
  		this.torreVerde.setTorre(arrayTerritori);
  		this.torreBlu.setTorre(arrayPersonaggi);
  		this.torreGialla.setTorre(arrayEdifici);
@@ -150,6 +157,10 @@ public class Plancia {
 		
 	}
 	
+	
+	//-----------------------------------------------------------------------------------------------------------//
+	//          METODI GET                                                                                       //
+	//-----------------------------------------------------------------------------------------------------------//
 	
 	public SpazioProduzione getSpazioProduzione() {
 		return this.spazioProduzione;
@@ -166,6 +177,25 @@ public class Plancia {
 	public ArrayList getSpaziMercato() {
 		return this.spaziMercato;
 	}
+	
+	public SpazioTorre getSpazioTorre (ColoreCarta colore, int numeroSpazio) {
+		
+		switch (colore) {
+		
+		case VERDE: return torreVerde.getSpazio(numeroSpazio);
+		case BLU: return torreBlu.getSpazio(numeroSpazio);
+		case GIALLO: return torreGialla.getSpazio(numeroSpazio);
+		case VIOLA: return torreViola.getSpazio(numeroSpazio);		
+		default: return null;
+		
+		}
+	}
+	
+	public TesseraScomunica getTesseraScomunica(int periodo) {
+		return scomuniche.get(periodo);
+	}
+	
+	
 
 
 

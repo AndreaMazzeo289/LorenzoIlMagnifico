@@ -13,6 +13,7 @@ public class Personaggio extends Carta {
 	public Personaggio (String nome, int id, int periodo, SetRisorse costo, Set<Effetto> effettoIstantaneo, Effetto effettoPermanente) {
 		super(nome, id, periodo, costo, effettoIstantaneo);
 		this.effettoPermanente = effettoPermanente;
+		this.colore = ColoreCarta.BLU;
 		}
 
 	@Override

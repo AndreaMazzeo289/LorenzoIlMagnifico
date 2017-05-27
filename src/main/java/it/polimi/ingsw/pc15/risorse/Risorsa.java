@@ -3,9 +3,14 @@ package it.polimi.ingsw.pc15.risorse;
 public abstract class Risorsa {
 	
 	private int quantità;
+	//protected int moltiplicatore;
+	//protected int quantitàBonus;
+	protected TipoRisorsa tipoRisorsa;
 		
-	public Risorsa (int quantità) { //costruttore
+	public Risorsa (int quantità) { 
 		this.quantità = quantità;
+		//this.moltiplicatore = 1;
+		//this.quantitàBonus = 0;
 	}
 	
 	public int getQuantità() {
@@ -13,6 +18,7 @@ public abstract class Risorsa {
 	}
 	
 	public void aggiungi (int quantità) {
+		//this.quantità += quantità*moltiplicatore + quantitàBonus;
 		this.quantità += quantità;
 	}
 	
@@ -23,6 +29,8 @@ public abstract class Risorsa {
 		return true;
 	}
 	
-	public abstract TipoRisorsa getTipoRisorsa();
+	public TipoRisorsa getTipoRisorsa(){
+		return this.tipoRisorsa;
+	}
 
 }

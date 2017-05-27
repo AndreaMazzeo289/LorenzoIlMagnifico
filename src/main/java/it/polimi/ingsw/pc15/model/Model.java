@@ -28,77 +28,54 @@ import it.polimi.ingsw.pc15.risorse.PuntiVittoria;
 import it.polimi.ingsw.pc15.risorse.Risorsa;
 import it.polimi.ingsw.pc15.risorse.Servitori;
 import it.polimi.ingsw.pc15.risorse.SetRisorse;
+import it.polimi.ingsw.pc15.risorse.TipoRisorsa;
 
 public class Model extends Observable {
 	
-	
-	private int numGiocatori;
+	private int numeroGiocatori;
 	private ArrayList<Player> giocatori;
-	private int valoreDado;
-	private Player player1;
-	private Player player2;
 	private Plancia plancia;
 	private int turno;
 	private int periodo;
-	private ParseXML parseXML;
-	private Set<Carta> setCarteTerritorio;
-	private Set<Carta> setCartePersonaggio;
-	private Set<Carta> setCarteEdificio;
-	private Set<Carta> setCarteImpresa;
+	private ArrayList<Carta> carteTerritorio;
+	private ArrayList<Carta> cartePersonaggio;
+	private ArrayList<Carta> carteEdificio;
+	private ArrayList<Carta> carteImpresa;
 	
 	
-	public Model(int numGiocatori){
+	public Model(int numeroGiocatori){
 
-		this.numGiocatori = numGiocatori;
-		this.plancia = new Plancia(numGiocatori);
-		this.parseXML = new ParseXML();
+		this.numeroGiocatori = numeroGiocatori;
+		this.plancia = new Plancia(numeroGiocatori);
 		this.turno = 0;
 		this.periodo = 1;
-
-		HashSet<Risorsa> risorse = new HashSet<Risorsa>();
-		
-		Legna legna = new Legna (0);
-		Pietra pietra = new Pietra (0);
-		Oro oro = new Oro (0);
-		Servitori servitori = new Servitori (0);
-		PuntiFede puntiFede = new PuntiFede (0);
-		PuntiMilitari puntiMilitari = new PuntiMilitari (0);
-		PuntiVittoria puntiVittoria = new PuntiVittoria (0);
-		Privilegi privilegi = new Privilegi (0);
 			
-		risorse.add(legna);
-		risorse.add(pietra);
-		risorse.add(oro);
-		risorse.add(servitori);
-		risorse.add(puntiFede);
-		risorse.add(puntiMilitari);
-		risorse.add(puntiVittoria);
-		risorse.add(privilegi);
+		Player player1 = new Player("Maffe");
+		Player player2 = new Player("Mazze");
+		Player player3 = new Player("Fra");
+		Player player4 = new Player("AleMagni");
 		
-		SetRisorse setRisorse = new SetRisorse(risorse); 
-			
-		player1 = new Player("noName", setRisorse);
-		player2 = new Player("noName", setRisorse);
-		giocatori = new ArrayList();
+		giocatori = new ArrayList<Player>();
 		giocatori.add(player1);
 		giocatori.add(player2);
-		
-		/*for(int i = 0; i<numGiocatori; i++){
-			giocatori.add(this.player = new Player("noName", setRisorse));*/
-		
-		
-		
-		//imposta randomicamente l'ordine dei giocatori;
-		/*Collections.shuffle(giocatori);*/
+		giocatori.add(player3);
+		giocatori.add(player4);
 		
 	}
 
 	public void iniziaPartita() {
 		
-		setCarteTerritorio= parseXML.getCartaXML(ColoreCarta.VERDE);
-		setCarteEdificio= parseXML.getCartaXML(ColoreCarta.GIALLO);
-		setCartePersonaggio= parseXML.getCartaXML(ColoreCarta.BLU);
-		setCarteImpresa= parseXML.getCartaXML(ColoreCarta.VIOLA);
+		
+		
+		carteTerritorio= ParseXML.getCartaXML(ColoreCarta.VERDE);
+		carteEdificio= ParseXML.getCartaXML(ColoreCarta.GIALLO);
+		cartePersonaggio= ParseXML.getCartaXML(ColoreCarta.BLU);
+		carteImpresa= ParseXML.getCartaXML(ColoreCarta.VIOLA);
+		
+		Collections.shuffle(carteTerritorio);
+		Collections.shuffle(cartePersonaggio);
+		Collections.shuffle(carteEdificio);
+		Collections.shuffle(carteImpresa);
 		
 		iniziaNuovoTurno();
 		
@@ -112,50 +89,36 @@ public class Model extends Observable {
 			turno=1;
 		}
 		
-		this.plancia.setTurno(periodo, setCarteTerritorio, setCartePersonaggio, setCarteEdificio, setCarteImpresa);
-		
-		//prende il primo giocatore e tira i dadi e li passa al familiare;
-		
+		this.plancia.setTurno(periodo, carteTerritorio, cartePersonaggio, carteEdificio, carteImpresa);
+
 		Random random = new Random();
 		
-		//Imposto i familiari neri del player ad un valore random
-		valoreDado = random.nextInt(5) + 1;
-		Iterator<Player> itrGiocatoriNero = giocatori.iterator();
-		while(itrGiocatoriNero.hasNext()){
-			
-			itrGiocatoriNero.next().getFamiliare(ColoreFamiliare.NERO).setValore(valoreDado);
-			
-		}
+		int valoreDadoNero = random.nextInt(6) + 1;
+		int valoreDadoBianco = random.nextInt(6) + 1;
+		int valoreDadoArancione = random.nextInt(6) + 1;
 		
-		//Imposto i familiari bianchi del player ad un valore random
-		valoreDado = random.nextInt(5) + 1;
-		Iterator<Player> itrGiocatoriBianco = giocatori.iterator();
-		while(itrGiocatoriBianco.hasNext()){
-			
-			itrGiocatoriBianco.next().getFamiliare(ColoreFamiliare.BIANCO).setValore(valoreDado);
-			
-		}
-		
-		//Imposto i familiari arancioni del player ad un valore random
-		valoreDado = random.nextInt(5) + 1;
-		Iterator<Player> itrGiocatoriArancione = giocatori.iterator();
-		while(itrGiocatoriArancione.hasNext()){
-			
-			itrGiocatoriArancione.next().getFamiliare(ColoreFamiliare.ARANCIONE).setValore(valoreDado);
-			
-		}
-		
-		//Imposto il familiare neutro
-		Iterator<Player> itrGiocatoriNeutro = giocatori.iterator();
-		while(itrGiocatoriNeutro.hasNext()){
-			
-			itrGiocatoriNeutro.next().getFamiliare(ColoreFamiliare.NEUTRO).setValore(0);
-			
+		for(Player player : giocatori) {
+			player.getFamiliare(ColoreFamiliare.NEUTRO).setValore(0);	
+			player.getFamiliare(ColoreFamiliare.NERO).setValore(valoreDadoNero);
+			player.getFamiliare(ColoreFamiliare.BIANCO).setValore(valoreDadoBianco);
+			player.getFamiliare(ColoreFamiliare.ARANCIONE).setValore(valoreDadoArancione);
+					
 		}
 
 	}
 	
-	public ArrayList getPlayers() {
+	public void rapportoInVaticano(int periodo) {
+		
+		int puntiFedeMinimi = ParseXML.leggiValore("puntiFedePeriodo" + Integer.toString(periodo));
+		for (Player player :giocatori) {
+			if (player.getSetRisorse().getRisorsa(TipoRisorsa.PUNTIFEDE).getQuantità() < puntiFedeMinimi)
+				this.plancia.getTesseraScomunica(periodo).infliggiScomunica(player);
+		}
+	}
+	
+	
+	
+	public ArrayList<Player> getPlayers() {
 		return this.giocatori;
 	}
 	

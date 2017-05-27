@@ -1,28 +1,51 @@
 package it.polimi.ingsw.pc15.player;
 
+import java.util.HashMap;
+
+import it.polimi.ingsw.pc15.carte.ColoreCarta;
+
 public class EffettiAttivi {
 	
-	private int bonusDadoCarte[]; 
+	private HashMap<ColoreCarta, Integer> bonusDadoCarte;
 	private int bonusRaccolta;
 	private int bonusProduzione;
-	private int bonusPersonaggi;
 	private boolean disponibilitàMercato;
 	private boolean bonusSpazioTorri;
-	private int bonusDadi[];
+	private HashMap<ColoreCarta, Boolean> bonusPuntiVittoriaFinale;
+	
 	
 	public EffettiAttivi (){
 		
-		this.bonusDadoCarte = new int[5];
-		for(int i = 0; i<=4; i++){this.bonusDadoCarte[i]=0;}
-		this.bonusDadi = new int[4];
-		for(int i = 0; i<4; i++){this.bonusDadi[i]=0;}
+		bonusDadoCarte.put(ColoreCarta.VERDE, 0);
+		bonusDadoCarte.put(ColoreCarta.BLU, 0);
+		bonusDadoCarte.put(ColoreCarta.GIALLO, 0);
+		bonusDadoCarte.put(ColoreCarta.VIOLA, 0);
+		
+		bonusPuntiVittoriaFinale.put(ColoreCarta.VERDE, true);
+		bonusPuntiVittoriaFinale.put(ColoreCarta.BLU, true);
+		bonusPuntiVittoriaFinale.put(ColoreCarta.VIOLA, true);
+
 		this.bonusRaccolta = 0;
 		this.bonusProduzione = 0;
-		this.bonusPersonaggi = 0;
 	
 		this.disponibilitàMercato = true;
 		this.bonusSpazioTorri = true;
 		
+	}
+	
+	
+	
+	//-----------------------------------------------------------------------------------------------------------//
+	//          METODI SET                                                                                       //
+	//-----------------------------------------------------------------------------------------------------------//
+	
+	public void incrementaBonusDadoCarte (ColoreCarta colore, int valore) {
+		int valoreAggiornato = bonusDadoCarte.get(colore).intValue();
+		bonusDadoCarte.put(colore, valoreAggiornato);	
+	}
+	
+	public void annullaBonusPuntiVittoriaFinale (ColoreCarta colore) {
+		bonusPuntiVittoriaFinale.put(colore, false);
 	}
 	
 	public void incrementaBonusRaccolta(int incremento){
@@ -33,10 +56,6 @@ public class EffettiAttivi {
 		this.bonusProduzione += incremento;
 	}
 	
-	public void incrementaBonusPersonaggi(int incremento){
-		this.bonusPersonaggi += incremento;
-	}
-	
 	public void annullaDisponibilitàMercato(){
 		this.disponibilitàMercato = false;
 	}
@@ -45,12 +64,26 @@ public class EffettiAttivi {
 		this.bonusSpazioTorri = false;
 	}
 	
-	public void incrementaBonusDadi(int familiare, int bonusDado){
-		this.bonusDadi[familiare] += bonusDado;
+	
+	
+	//-----------------------------------------------------------------------------------------------------------//
+	//          METODI GET                                                                                       //
+	//-----------------------------------------------------------------------------------------------------------//
+	
+	public int getBonusRaccolta() {
+		return this.bonusRaccolta;
 	}
 	
-	public void incrementaBonusDadoCarte(int carta, int bonusDado){
-		this.bonusDadoCarte[carta] += bonusDado;
+	public int getBonusProduzione() {
+		return this.bonusProduzione;
+	}
+	
+	public int getBonusDadoCarte (ColoreCarta colore) {
+		return this.bonusDadoCarte.get(colore);
+	}
+	
+	public boolean bonusPuntiVittoriaFinale (ColoreCarta colore) {
+		return this.bonusPuntiVittoriaFinale.get(colore);
 	}
 	
 	public boolean disponibilitàMercato() {
@@ -60,4 +93,5 @@ public class EffettiAttivi {
 	public boolean disponibilitàBonusSpazioTorri() {
 		return this.bonusSpazioTorri;
 	}
+	
 }

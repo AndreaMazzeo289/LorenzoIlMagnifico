@@ -9,14 +9,14 @@ import it.polimi.ingsw.pc15.risorse.SetRisorse;
 
 public class Torre {
 	
-	private ArrayList spaziTorre;
+	private ArrayList<SpazioTorre> spaziTorre;
 	private boolean occupata;
 	
-	public Torre (int numeroSpaziTorre, ArrayList arraySetRisorse) {
+	public Torre (int numeroSpaziTorre, ArrayList<SetRisorse> arraySetRisorse) {
 
 		this.spaziTorre = new ArrayList(numeroSpaziTorre);
 		for (int i=0; i<numeroSpaziTorre; i++) {
-			spaziTorre.add(i, new SpazioTorre(2*i+1, (SetRisorse) arraySetRisorse.get(i)));	
+			spaziTorre.add(i, new SpazioTorre(2*i+1, arraySetRisorse.get(i), this));	
 		}
 	}
 		
@@ -28,11 +28,19 @@ public class Torre {
 		this.occupata=par;
 	}
 	
-	public void setTorre(ArrayList carte) {
+	public void setTorre(ArrayList<Carta> carte) {
 		
 		for (int i=0; i<spaziTorre.size(); i++)
-			((SpazioTorre) spaziTorre.get(i)).setCarta((Carta) carte.get(i));  //mette la carta i nello spazio i
+			(spaziTorre.get(i)).setCarta(carte.get(i));  //mette la carta i nello spazio i
 		
+	}
+	
+	public ArrayList<SpazioTorre> getSpaziTorre() {
+		return this.spaziTorre;
+	}
+	
+	public SpazioTorre getSpazio(int num) {
+		return this.spaziTorre.get(num);
 	}
 	
 }

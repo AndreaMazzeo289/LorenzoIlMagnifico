@@ -4,13 +4,8 @@ public class Legna extends Risorsa {
 
 	public Legna(int quantità) {
 		super(quantità);
+		this.tipoRisorsa = TipoRisorsa.LEGNA;
 		
-	}
-
-	@Override
-	public TipoRisorsa getTipoRisorsa() {
-		// TODO Auto-generated method stub
-		return TipoRisorsa.LEGNA;
 	}
 
 }

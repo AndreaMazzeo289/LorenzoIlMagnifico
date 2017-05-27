@@ -11,7 +11,7 @@ public class BonusProduzione extends Bonus{
 	@Override
 	public void attiva(Player player){
 		
-		player.getEffettiAttivi().incrementaBonusProduzione(getValore());
+		player.getEffettiAttivi().incrementaBonusProduzione(this.valore);
 	}
 	
 }

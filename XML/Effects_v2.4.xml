@@ -992,6 +992,90 @@
 			<privilegi>0</privilegi>
 		</setRisorse>
 	</effetto>
+    <effetto nome="moltiplicatore-1Vx5V" idEffetto="moltiplicazione">
+		<tipoRisorsa>puntiVittoria</tipoRisorsa>
+		<quantita>5</quantita>
+		<setRisorse>
+			<legno>0</legno>
+			<pietra>0</pietra>
+			<oro>0</oro>
+			<servitori>0</servitori>
+			<puntiMilitari>0</puntiMilitari>
+			<puntiFede>0</puntiFede>
+			<puntiVittoria>-1</puntiVittoria>
+			<privilegi>0</privilegi>
+		</setRisorse>
+	</effetto>
+    <effetto nome="moltiplicatore-1Vx1PM" idEffetto="moltiplicazione">
+		<tipoRisorsa>puntiMilitari</tipoRisorsa>
+		<quantita>1</quantita>
+		<setRisorse>
+			<legno>0</legno>
+			<pietra>0</pietra>
+			<oro>0</oro>
+			<servitori>0</servitori>
+			<puntiMilitari>0</puntiMilitari>
+			<puntiFede>0</puntiFede>
+			<puntiVittoria>-1</puntiVittoria>
+			<privilegi>0</privilegi>
+		</setRisorse>
+	</effetto>
+    <effetto nome="moltiplicatore-1Vx1L" idEffetto="moltiplicazione">
+		<tipoRisorsa>legna</tipoRisorsa>
+		<quantita>1</quantita>
+		<setRisorse>
+			<legno>0</legno>
+			<pietra>0</pietra>
+			<oro>0</oro>
+			<servitori>0</servitori>
+			<puntiMilitari>0</puntiMilitari>
+			<puntiFede>0</puntiFede>
+			<puntiVittoria>-1</puntiVittoria>
+			<privilegi>0</privilegi>
+		</setRisorse>
+	</effetto>
+    <effetto nome="moltiplicatore-1Vx1P" idEffetto="moltiplicazione">
+		<tipoRisorsa>pietra</tipoRisorsa>
+		<quantita>1</quantita>
+		<setRisorse>
+			<legno>0</legno>
+			<pietra>0</pietra>
+			<oro>0</oro>
+			<servitori>0</servitori>
+			<puntiMilitari>0</puntiMilitari>
+			<puntiFede>0</puntiFede>
+			<puntiVittoria>-1</puntiVittoria>
+			<privilegi>0</privilegi>
+		</setRisorse>
+	</effetto>
+    <effetto nome="moltiplicatore-1Vx1S" idEffetto="moltiplicazione">
+		<tipoRisorsa>servitori</tipoRisorsa>
+		<quantita>1</quantita>
+		<setRisorse>
+			<legno>0</legno>
+			<pietra>0</pietra>
+			<oro>0</oro>
+			<servitori>0</servitori>
+			<puntiMilitari>0</puntiMilitari>
+			<puntiFede>0</puntiFede>
+			<puntiVittoria>-1</puntiVittoria>
+			<privilegi>0</privilegi>
+		</setRisorse>
+	</effetto>
+    <effetto nome="moltiplicatore-1Vx1O" idEffetto="moltiplicazione">
+		<tipoRisorsa>oro</tipoRisorsa>
+		<quantita>1</quantita>
+		<setRisorse>
+			<legno>0</legno>
+			<pietra>0</pietra>
+			<oro>0</oro>
+			<servitori>0</servitori>
+			<puntiMilitari>0</puntiMilitari>
+			<puntiFede>0</puntiFede>
+			<puntiVittoria>-1</puntiVittoria>
+			<privilegi>0</privilegi>
+		</setRisorse>
+	</effetto>
 
 	<!--*********************************************************************************************
 								  ____                      _     _       
@@ -1518,6 +1602,9 @@
 	<effetto nome="bonusRaccolta6" idEffetto="bonus" idAzione="raccolta">
 		<bonusDado>6</bonusDado>
 	</effetto>
+    <effetto nome="bonusRaccolta-3" idEffetto="bonus" idAzione="raccolta">
+		<bonusDado>-3</bonusDado>
+	</effetto>
 
 	<!--***************************************************************************
 
@@ -1542,6 +1629,9 @@
 	</effetto>
 	<effetto nome="bonusProduzione6" idEffetto="bonus" idAzione="produzione">
 		<bonusDado>6</bonusDado>
+	</effetto>
+    <effetto nome="bonusProduzione-3" idEffetto="bonus" idAzione="produzione">
+		<bonusDado>-3</bonusDado>
 	</effetto>
 
 
@@ -1577,6 +1667,10 @@
 		<bonusDado>6</bonusDado>
 		<coloreCarta>verde</coloreCarta>
 	</effetto>
+    <effetto nome="bonusCarteVerdi-4" idEffetto="bonus" idAzione="carta">
+		<bonusDado>-4</bonusDado>
+		<coloreCarta>verde</coloreCarta>
+	</effetto>
 
 	<!--****************************CARTE GIALLE*********************************-->
 
@@ -1602,6 +1696,10 @@
 	</effetto>
 	<effetto nome="bonusCarteGialle6" idEffetto="bonus" idAzione="carta">
 		<bonusDado>6</bonusDado>
+		<coloreCarta>giallo</coloreCarta>
+	</effetto>
+    <effetto nome="bonusCarteGialle-4" idEffetto="bonus" idAzione="carta">
+		<bonusDado>-4</bonusDado>
 		<coloreCarta>giallo</coloreCarta>
 	</effetto>
 
@@ -1631,6 +1729,10 @@
 		<bonusDado>6</bonusDado>
 		<coloreCarta>blu</coloreCarta>
 	</effetto>
+    <effetto nome="bonusCarteBlu-4" idEffetto="bonus" idAzione="carta">
+		<bonusDado>-4</bonusDado>
+		<coloreCarta>blu</coloreCarta>
+	</effetto>
 
 	<!--****************************CARTE VIOLA*********************************-->
 
@@ -1658,7 +1760,30 @@
 		<bonusDado>6</bonusDado>
 		<coloreCarta>viola</coloreCarta>
 	</effetto>
+    <effetto nome="bonusCarteViola-4" idEffetto="bonus" idAzione="carta">
+		<bonusDado>-4</bonusDado>
+		<coloreCarta>viola</coloreCarta>
+	</effetto>
 
+    
+    <!--***************************************************************************
+
+	Tipo bonus: BONUS VALORE FAMILIARE
+
+	****************************************************************************-->
+    <effetto nome="bonusValoreFamiliareNero-1" idEffetto="bonus" idAzione="familiare">
+		<bonusDado>-1</bonusDado>
+		<coloreFamiliare>nero</coloreFamiliare>
+	</effetto>
+    <effetto nome="bonusValoreFamiliareBianco-1" idEffetto="bonus" idAzione="familiare">
+		<bonusDado>-1</bonusDado>
+		<coloreFamiliare>bianco</coloreFamiliare>
+	</effetto>
+    <effetto nome="bonusValoreFamiliareArancione-1" idEffetto="bonus" idAzione="familiare">
+		<bonusDado>-1</bonusDado>
+		<coloreFamiliare>arancione</coloreFamiliare>
+	</effetto>
+    
 
 	<!--***************************************************************************
 
@@ -1678,6 +1803,21 @@
 	LEADER E SCOMUNICHE
 
 	****************************************************************************-->
-	<effetto nome="dadi">
+	<effetto nome="negazioneMercato">
 	</effetto>
+    <effetto nome="saltaPrimoTurno">
+	</effetto>
+    <effetto nome="aumentaPrezzoServitori">
+	</effetto>
+    
+    <effetto nome="annullaGuadagnoVerdi">
+        <coloreCarta>verde</coloreCarta>
+	</effetto>
+    <effetto nome="annullaGuadagnoBlu">
+        <coloreCarta>blu</coloreCarta>
+	</effetto>
+    <effetto nome="annullaGuadagnoViola">
+        <coloreCarta>viola</coloreCarta>
+	</effetto>
+    
 </effetti>

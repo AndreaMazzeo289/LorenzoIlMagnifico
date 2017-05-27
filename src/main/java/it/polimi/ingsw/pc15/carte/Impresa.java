@@ -12,13 +12,13 @@ public class Impresa extends Carta {
 	private int requisitoPuntiMilitari;
 	private int costoPuntiMilitari;
 	
-	public Impresa (String nome, int id, int periodo, SetRisorse costo, Set<Effetto> effettoIstantaneo, Effetto aumentoPuntiVittoria, int requisitoPuntiMilitari,
-					int costoPuntiMilitari) {
+	public Impresa (String nome, int id, int periodo, SetRisorse costo, Set<Effetto> effettoIstantaneo, Effetto aumentoPuntiVittoria, int requisitoPuntiMilitari, int costoPuntiMilitari) {
 		super(nome, id, periodo, costo, effettoIstantaneo);
 		this.aumentoPuntiVittoria = aumentoPuntiVittoria;
 		this.requisitoPuntiMilitari = requisitoPuntiMilitari;
 		this.costoPuntiMilitari = costoPuntiMilitari;
-		}
+		this.colore = ColoreCarta.VIOLA;
+	}
 
 	@Override
 	public AzionePrendiCarta azionePrendiCarta(Player player) {
@@ -26,5 +26,15 @@ public class Impresa extends Carta {
 		AzionePrendiCarta azionePrendiCarta = new AzionePrendiCartaImpresa(player, this);
 		return azionePrendiCarta;
 	}
+	
+	public int getRequisitoPuntiMilitari() {
+		return this.requisitoPuntiMilitari;
+	}
+	
+	public int getCostoPuntiMilitari() {
+		return this.costoPuntiMilitari;
+	}
+	
+	
 
 }

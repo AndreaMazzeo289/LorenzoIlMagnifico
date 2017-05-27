@@ -4,13 +4,8 @@ public class Pietra extends Risorsa{
 
 	public Pietra(int quantità) {
 		super(quantità);
+		this.tipoRisorsa = TipoRisorsa.PIETRA;
 		
-	}
-
-	@Override
-	public TipoRisorsa getTipoRisorsa() {
-		// TODO Auto-generated method stub
-		return TipoRisorsa.PIETRA;
 	}
 
 }
