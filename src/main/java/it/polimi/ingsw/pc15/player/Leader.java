@@ -56,8 +56,20 @@ public class Leader {
 		return this.effettoPerTurno;
 	}
 	
+	public Set<Effetto> getEffettoPermanente() {
+		return this.effettoPermanente;
+	}
+	
+	public String getNome() {
+		return this.nome;
+	}
+	
 	public boolean effettoGiàAttivato() {
 		return this.effettoAttivato;
+	}
+	
+	public boolean giocato() {
+		return this.giocato;
 	}
 	
 }

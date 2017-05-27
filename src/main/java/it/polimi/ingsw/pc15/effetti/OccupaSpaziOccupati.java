@@ -6,7 +6,7 @@ public class OccupaSpaziOccupati extends Effetto {
 
 	@Override
 	public void attiva(Player player) {
-		// TODO Auto-generated method stub
+		player.getEffettiAttivi().concediPermessoSpaziOccupati();
 		
 	}
 

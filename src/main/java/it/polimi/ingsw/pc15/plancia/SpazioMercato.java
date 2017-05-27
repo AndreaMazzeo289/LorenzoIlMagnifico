@@ -32,16 +32,16 @@ public class SpazioMercato extends Spazio {
 			System.out.println("Non ti è permesso posizionare un familiare negli spazi del mercato!");
 			return false;
 		}
-
 		
 		if(familiare.getValore() < getValoreMin() )  {
 			System.out.println("Il valore del tuo familiare è troppo basso!");
 			return false;
 		}
 		
-		if (!this.disponibile() ) {
-			System.out.println("Lo spazio è già occupato!");
-			return false;
+		if (familiare.getPlayer().getEffettiAttivi().controllaPermessoSpaziOccupati()==false)
+			if (!this.disponibile() ) {
+				System.out.println("Lo spazio è già occupato!");
+				return false;
 		}
 		
 		return true;

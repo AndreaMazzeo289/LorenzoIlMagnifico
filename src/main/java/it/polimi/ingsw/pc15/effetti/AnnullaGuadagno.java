@@ -9,13 +9,12 @@ public class AnnullaGuadagno extends Effetto {
 	
 	public AnnullaGuadagno(ColoreCarta coloreCarta){
 		
-		this.coloreCarta = coloreCarta;
-		
+		this.coloreCarta = coloreCarta;	
 	}
 
 	@Override
 	public void attiva(Player player) {
-		// TODO Auto-generated method stub
+		player.getEffettiAttivi().annullaBonusPuntiVittoriaFinale(coloreCarta);
 		
 	}
 
