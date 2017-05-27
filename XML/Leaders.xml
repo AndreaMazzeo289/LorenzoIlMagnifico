@@ -148,7 +148,7 @@
             </risorse>
         </requisito>
         <effetti tipo="permanente">
-            <effetto>bonusPuntiFede</effetto>
+            <effetto>bonusPVChiesa</effetto>
         </effetti>
     </leader>
     
