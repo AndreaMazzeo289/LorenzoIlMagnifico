@@ -3,9 +3,9 @@ package it.polimi.ingsw.pc15.effetti;
 import it.polimi.ingsw.pc15.player.ColoreFamiliare;
 import it.polimi.ingsw.pc15.player.Player;
 
-public abstract class BonusValoreFamiliare extends Bonus{
+public class BonusValoreFamiliare extends Bonus{
 
-		protected ColoreFamiliare colore;
+		private ColoreFamiliare colore;
 		
 		public BonusValoreFamiliare (ColoreFamiliare colore, int valore){
 			
@@ -13,4 +13,12 @@ public abstract class BonusValoreFamiliare extends Bonus{
 			this.colore = colore;
 			
 		}
+
+		@Override
+		public void attiva(Player player) {
+			player.getFamiliare(colore).incrementaValoreBonus(valore);
+			
+		}
+		
+		
 }		

@@ -15,9 +15,9 @@ public class Familiare {
 		this.coloreFamiliare = colore;
 		this.player = player;
 		this.valore = 0;
-		
 		this.valoreBonus = 0;
 		this.disponibilità = true;
+		this.valoreFissato = false;
 	}
 	
 	
@@ -26,7 +26,8 @@ public class Familiare {
 	}
 	
 	public void setValore (int valore) {
-		this.valore = valore;
+		if (this.valoreFissato == false)
+			this.valore = valore;
 	}
 	
 	public void incrementaValoreBonus (int valoreBonus) {
