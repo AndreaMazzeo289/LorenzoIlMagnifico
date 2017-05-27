@@ -30,6 +30,7 @@ import it.polimi.ingsw.pc15.effetti.AzioneCarta;
 import it.polimi.ingsw.pc15.effetti.AzioneProduzione;
 import it.polimi.ingsw.pc15.effetti.AzioneRaccolto;
 import it.polimi.ingsw.pc15.effetti.BonusDadoCarte;
+import it.polimi.ingsw.pc15.effetti.BonusPVChiesa;
 import it.polimi.ingsw.pc15.effetti.BonusProduzione;
 import it.polimi.ingsw.pc15.effetti.BonusRaccolta;
 import it.polimi.ingsw.pc15.effetti.BonusValoreFamiliare;
@@ -249,7 +250,7 @@ public class ParseXML {
 					 		effettoLetto = leggiEffettoCopiaEffettoLeader();
 					 		break;
 					 	case "sovrapprezzo":
-					 		//effettoLetto = leggiEffettoBonusPuntiFede();
+					 		effettoLetto = leggiEffettoBonusPVChiesa(effetto);
 					 		break;
 					 	case "fede":
 					 		effettoLetto = leggiEffettoAnnullaSovrapprezzoTorri();
@@ -647,7 +648,7 @@ public class ParseXML {
 			fissaValoreFamiliare = new FissaValoreFamiliare (coloreFamiliareEnum, valoreFamiliare);
 		}
 		else
-			fissaValoreFamiliare = new FissaValoreFamiliareAScelta(null, valoreFamiliare);
+			fissaValoreFamiliare = new FissaValoreFamiliareAScelta(valoreFamiliare);
 		
 		return fissaValoreFamiliare;
 	}
@@ -711,10 +712,11 @@ public class ParseXML {
 	//--------------------------------------------------------------------------------------------------------------//
 	// LEGGI EFFETTO BONUS PV CHIESTA
 	//--------------------------------------------------------------------------------------------------------------//
-	/*public static BonusPVChiesa leggiEffettoBonusPVChiesa () {
-		BonusPVChiesa bonusPVChiesa = new BonusPVChiesa ();
+	public static BonusPVChiesa leggiEffettoBonusPVChiesa (Element effetto) {
+		int valore = Integer.parseInt(effetto.getElementsByTagName("valore").item(0).getFirstChild().getNodeValue());
+		BonusPVChiesa bonusPVChiesa = new BonusPVChiesa(valore);
 		return bonusPVChiesa;
-	}*/
+	}
 		
 	
 	//--------------------------------------------------------------------------------------------------------------//

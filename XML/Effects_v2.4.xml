@@ -1878,7 +1878,8 @@
     </effetto>
     <effetto nome="copiaEffettoLeader" idEffetto="copia">
     </effetto>
-    <effetto nome="bonusPuntiFede" idEffetto="bonus" idAzione="fede">
+    <effetto nome="bonusPVChiesa" idEffetto="bonus" idAzione="fede">
+        <valore>5</valore>
     </effetto>
     <effetto nome="annullaSovrapprezzoTorri" idEffetto="sovrapprezzo">
     </effetto>
