@@ -25,6 +25,10 @@ public class Familiare {
 		this.disponibilità = disponibilità;
 	}
 	
+	public void setValoreFissato() {
+		this.valoreFissato = true;
+	}
+	
 	public void setValore (int valore) {
 		if (this.valoreFissato == false)
 			this.valore = valore;
