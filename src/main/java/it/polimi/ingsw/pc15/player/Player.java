@@ -41,11 +41,11 @@ public class Player {
 	private ArrayList<Leader> carteLeader;
 	
 	
-	public Player (String name, ArrayList<Leader> carteLeader) {
+	public Player (String name) {
 		
 		this.name = name;
 		this.effettiAttivi = new EffettiAttivi();	
-		this.carteLeader = carteLeader;
+		this.carteLeader = null;
 		
 		//-----------------------------------------------------------------------------------------------------------//
 		//          FAMILIARI                                                                                        //
