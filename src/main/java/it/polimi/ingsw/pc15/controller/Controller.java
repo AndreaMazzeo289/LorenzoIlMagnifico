@@ -14,14 +14,13 @@ public class Controller implements Observer {
 	
 	private final Model gioco;
 	
-	public Controller (Model gioco, View view) {
+	public Controller (Model gioco) {
 		this.gioco = gioco;
-		view.addObserver(this);
 		
 	}
 
 	@Override
-	public void update(Observable arg0, Object arg1) {
+	public synchronized void update(Observable arg0, Object arg1) {
 	}
 
 }

@@ -22,7 +22,7 @@ import it.polimi.ingsw.pc15.risorse.SetRisorse;
 import it.polimi.ingsw.pc15.risorse.TipoRisorsa;
 import it.polimi.ingsw.pc15.view.View;
 
-public class Main {
+/*public class Main {
 
 	public static void main(String[] args) throws IOException {
 
@@ -51,7 +51,7 @@ public class Main {
 		/**
 		 * PROBLEMI: 
 		 *  - attenzione all'effetto della badessa (carta blu) oltre ad aggiunta risorse ha azione su qualsiasi carta
-		 */
+		 
 		
 		while (true) {
 			
@@ -63,5 +63,7 @@ public class Main {
 			
 		}
 	}
-}
+}     
+
+*/
  

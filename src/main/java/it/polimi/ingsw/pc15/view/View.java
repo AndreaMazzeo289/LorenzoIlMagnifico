@@ -4,6 +4,7 @@ import java.util.Observable;
 import java.util.Observer;
 import java.util.Scanner;
 
+import Networking.Connection;
 import it.polimi.ingsw.pc15.carte.Carta;
 import it.polimi.ingsw.pc15.carte.ColoreCarta;
 import it.polimi.ingsw.pc15.carte.Edificio;
@@ -20,9 +21,10 @@ public class View extends Observable implements Observer {
 	
 	private Player player;
 	
-	public View (Model gioco) {
-		gioco.addObserver(this);
-		player = gioco.getPlayers().get(0);	
+	public View (Player player, Connection connection) {
+		
+		this.player = player;
+		connection.addObserver(this);
 	}
 
 
@@ -85,7 +87,7 @@ public class View extends Observable implements Observer {
 	
 	
 	@Override
-	public void update(Observable o, Object arg) {
+	public synchronized void update(Observable o, Object arg) {
 		// TODO Auto-generated method stub
 		
 	}
