@@ -65,6 +65,8 @@ public class Model extends Observable {
 
 	public void iniziaPartita() {
 		
+		
+		
 		carteTerritorio= ParseXML.getCartaXML(ColoreCarta.VERDE);
 		carteEdificio= ParseXML.getCartaXML(ColoreCarta.GIALLO);
 		cartePersonaggio= ParseXML.getCartaXML(ColoreCarta.BLU);

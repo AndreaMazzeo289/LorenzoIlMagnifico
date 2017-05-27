@@ -29,23 +29,21 @@ import it.polimi.ingsw.pc15.risorse.TipoRisorsa;
 
 public class Player {
 	
-	private final String name;
+	private final String nome;
 	private SetRisorse setRisorse;
 	private Set<Familiare> familiari;
 	private HashMap <ColoreCarta, ArrayList<Carta>> carteSviluppo;
-	private ArrayList<Carta> territori;
-	private ArrayList<Carta> personaggi;
-	private ArrayList<Carta> edifici;
-	private ArrayList<Carta> imprese;
 	private EffettiAttivi effettiAttivi;
 	private ArrayList<Leader> carteLeader;
+	private Set<Player> avversari;
 	
 	
-	public Player (String name) {
+	public Player (String nome) {
 		
-		this.name = name;
+		this.nome = nome;
 		this.effettiAttivi = new EffettiAttivi();	
 		this.carteLeader = null;
+		this.avversari = null;
 		
 		//-----------------------------------------------------------------------------------------------------------//
 		//          FAMILIARI                                                                                        //
@@ -95,10 +93,10 @@ public class Player {
 		
 		int numeroMaxCarte = ParseXML.leggiValore("numeroMaxCarte");
 		
-		this.territori = new ArrayList<Carta>(numeroMaxCarte);
-		this.personaggi = new ArrayList<Carta>(numeroMaxCarte);
-		this.edifici = new ArrayList<Carta>(numeroMaxCarte);
-		this.imprese = new ArrayList<Carta>(numeroMaxCarte);
+		ArrayList<Carta> territori = new ArrayList<Carta>(numeroMaxCarte);
+		ArrayList<Carta> personaggi = new ArrayList<Carta>(numeroMaxCarte);
+		ArrayList<Carta> edifici = new ArrayList<Carta>(numeroMaxCarte);
+		ArrayList<Carta> imprese = new ArrayList<Carta>(numeroMaxCarte);
 		
 		this.carteSviluppo = new HashMap<ColoreCarta, ArrayList<Carta>>();
 		this.carteSviluppo.put(ColoreCarta.VERDE, territori);
@@ -148,8 +146,8 @@ public class Player {
 	//          METODI GET                                                                                       //
 	//-----------------------------------------------------------------------------------------------------------//
 
-	public String getName() {
-		return this.name;
+	public String getNome() {
+		return this.nome;
 	}
 	
 	public SetRisorse getSetRisorse() {
