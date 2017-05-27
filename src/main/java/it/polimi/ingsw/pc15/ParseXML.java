@@ -21,15 +21,25 @@ import it.polimi.ingsw.pc15.carte.Impresa;
 import it.polimi.ingsw.pc15.carte.Personaggio;
 import it.polimi.ingsw.pc15.carte.Territorio;
 import it.polimi.ingsw.pc15.effetti.AggiuntaRisorse;
+import it.polimi.ingsw.pc15.effetti.AnnullaGuadagno;
+import it.polimi.ingsw.pc15.effetti.AumentaPrezzoServitori;
 import it.polimi.ingsw.pc15.effetti.AzioneCarta;
 import it.polimi.ingsw.pc15.effetti.AzioneProduzione;
 import it.polimi.ingsw.pc15.effetti.AzioneRaccolto;
 import it.polimi.ingsw.pc15.effetti.BonusDadoCarte;
 import it.polimi.ingsw.pc15.effetti.BonusProduzione;
 import it.polimi.ingsw.pc15.effetti.BonusRaccolta;
+import it.polimi.ingsw.pc15.effetti.BonusValoreFamiliare;
 import it.polimi.ingsw.pc15.effetti.Effetto;
 import it.polimi.ingsw.pc15.effetti.Moltiplicazione;
+import it.polimi.ingsw.pc15.effetti.NegaMercato;
+import it.polimi.ingsw.pc15.effetti.RisorsePerCarte;
+import it.polimi.ingsw.pc15.effetti.RisorsePerRisorse;
+import it.polimi.ingsw.pc15.effetti.SaltaPrimoTurno;
 import it.polimi.ingsw.pc15.effetti.Scambio;
+import it.polimi.ingsw.pc15.plancia.TesseraScomunica;
+import it.polimi.ingsw.pc15.player.ColoreFamiliare;
+import it.polimi.ingsw.pc15.player.Player;
 import it.polimi.ingsw.pc15.risorse.Legna;
 import it.polimi.ingsw.pc15.risorse.Oro;
 import it.polimi.ingsw.pc15.risorse.Pietra;
@@ -206,8 +216,23 @@ public class ParseXML {
 								case "carta": 
 									effettoLetto = leggiEffettoBonusDadoCarta(effetto);
 									break;
+								case "familiare": 
+									effettoLetto = leggiEffettoBonusValoreFamiliare(effetto);
+									break;
 							}
 							break;
+					 	case "negaMercato":
+					 		effettoLetto = leggiEffettoNegaMercato();
+					 		break;
+					 	case "perditaPrimoTurno":
+					 		effettoLetto = leggiEffettoSaltaPrimoTurno();
+					 		break;
+					 	case "prezzoServitori":
+					 		effettoLetto = leggiEffettoAumentaPrezzoServitori();
+					 		break;
+					 	case "annullaGuadagno":
+					 		effettoLetto = leggiEffettoAnnullaGuadagno(effetto);
+					 		break;
 							
 					 	default:
 					 		System.out.println("Errore: effetto non presente");
@@ -369,6 +394,7 @@ public class ParseXML {
         SetRisorse setRisorse = new SetRisorse (risorse);
         
         TipoRisorsa tipoRisorsaEnum = null;
+        ColoreCarta coloreCartaEnum = null;
         switch(tipoRisorsa.toUpperCase()){
 	        case "LEGNA": tipoRisorsaEnum = TipoRisorsa.LEGNA;
 	        	break;
@@ -386,9 +412,22 @@ public class ParseXML {
 	    		break;
 	        case "PRIVILEGI": tipoRisorsaEnum = TipoRisorsa.PRIVILEGI;
 	    		break;
+	        case "CARTAGIALLA": coloreCartaEnum = ColoreCarta.GIALLO;
+	        	break;
+	        case "CARTABLU": coloreCartaEnum = ColoreCarta.BLU;
+        		break;
+	        case "CARTAVERDE": coloreCartaEnum = ColoreCarta.VERDE;
+        		break;
+	        case "CARTAVIOLA": coloreCartaEnum = ColoreCarta.VIOLA;
+        		break;	
         }
         
-		Moltiplicazione moltiplicazione = new Moltiplicazione (quantita,tipoRisorsaEnum,setRisorse);
+        Moltiplicazione moltiplicazione=null; 
+        if(tipoRisorsaEnum==null && coloreCartaEnum != null)
+        	moltiplicazione = new RisorsePerCarte(setRisorse, quantita, coloreCartaEnum);
+        if(tipoRisorsaEnum!=null && coloreCartaEnum == null)
+        	moltiplicazione = new RisorsePerRisorse(setRisorse, quantita, tipoRisorsaEnum);
+        
 		return moltiplicazione;
 	}
 
@@ -519,6 +558,84 @@ public class ParseXML {
 		return bonusDadoCarte;
 	}
 
+	//--------------------------------------------------------------------------------------------------------------//
+	// LEGGI BONUS VALORE FAMILIARE
+	//--------------------------------------------------------------------------------------------------------------//
+	/**
+	 * metodo che permette di estrarre gli effetti di tipo bonus valore familiare dal file XML
+	 * @param elemento dell'effetto specifico da estrarre (Classe Element)
+	 * @return istanza dell'effetto estratto (Classe BonusValoreFamiliare)
+	 */
+	public static BonusValoreFamiliare leggiEffettoBonusValoreFamiliare (Element effetto)
+	{
+		int valoreFamiliare = Integer.parseInt(effetto.getElementsByTagName("bonusDado").item(0).getFirstChild().getNodeValue());
+		String coloreFamiliare = effetto.getElementsByTagName("coloreFamiliare").item(0).getFirstChild().getNodeValue();
+		
+		ColoreFamiliare coloreFamiliareEnum = null;
+		switch(coloreFamiliare.toUpperCase()){
+			case "NERO": 
+				coloreFamiliareEnum = ColoreFamiliare.NERO;
+				break;
+			case "BIANCO": 
+				coloreFamiliareEnum = ColoreFamiliare.BIANCO;
+				break;
+			case "ARANCIONE": 
+				coloreFamiliareEnum = ColoreFamiliare.ARANCIONE;
+				break;
+		}
+		
+		BonusValoreFamiliare bonusValoreFamiliare = new BonusValoreFamiliare(coloreFamiliareEnum, valoreFamiliare);
+		return bonusValoreFamiliare;
+	}
+	
+	//--------------------------------------------------------------------------------------------------------------//
+	// LEGGI EFFETTO NEGAZIONE MERCATO
+	//--------------------------------------------------------------------------------------------------------------//
+	public static NegaMercato leggiEffettoNegaMercato () {
+		NegaMercato negaMercato = new NegaMercato ();
+		return negaMercato;
+	}
+	
+	//--------------------------------------------------------------------------------------------------------------//
+	// LEGGI EFFETTO SALTA PRIMO TURNO
+	//--------------------------------------------------------------------------------------------------------------//
+	public static SaltaPrimoTurno leggiEffettoSaltaPrimoTurno () {
+		SaltaPrimoTurno saltaPrimoTurno = new SaltaPrimoTurno ();
+		return saltaPrimoTurno;
+	}
+	
+	//--------------------------------------------------------------------------------------------------------------//
+	// LEGGI EFFETTO AUMENTA PREZZO SERVITORI
+	//--------------------------------------------------------------------------------------------------------------//
+	public static AumentaPrezzoServitori leggiEffettoAumentaPrezzoServitori () {
+		AumentaPrezzoServitori aumentaPrezzoServitori = new AumentaPrezzoServitori ();
+		return aumentaPrezzoServitori;
+	}
+	
+	//--------------------------------------------------------------------------------------------------------------//
+	// LEGGI EFFETTO ANNULLA GUADAGNO
+	//--------------------------------------------------------------------------------------------------------------//
+	public static AnnullaGuadagno leggiEffettoAnnullaGuadagno (Element effetto)
+	{
+		String coloreCarta = effetto.getElementsByTagName("coloreCarta").item(0).getFirstChild().getNodeValue();
+		
+		ColoreCarta coloreCartaEnum = null;
+		
+		switch(coloreCarta.toUpperCase()) {
+			case "VERDE": coloreCartaEnum = ColoreCarta.VERDE;
+				break;
+			case "GIALLO": coloreCartaEnum = ColoreCarta.GIALLO;
+				break;
+			case "BLU": coloreCartaEnum = ColoreCarta.BLU;
+				break;
+			case "VIOLA": coloreCartaEnum = ColoreCarta.VIOLA;
+				break;
+		}
+		
+		AnnullaGuadagno annullaGuadagno = new AnnullaGuadagno(coloreCartaEnum);
+		return annullaGuadagno;
+	}
+	
 	//--------------------------------------------------------------------------------------------------------------//
 	// LEGGI CARTA VERDE
 	//--------------------------------------------------------------------------------------------------------------//
@@ -954,10 +1071,11 @@ public class ParseXML {
 	 * @param quale valore si vuole leggere dal file XML (String)
 	 * @return valore letto (Integer)
 	 */
-	public static void leggiScomunica (int periodo){
+	public static TesseraScomunica leggiScomunica (int periodo){
 		
-		ArrayList<String> scomuniche = new ArrayList<String>();
+		ArrayList<TesseraScomunica> scomuniche = new ArrayList<TesseraScomunica>();
 		String effettoScomunica;
+		Set<Effetto> effetti = new HashSet<Effetto>();
 		
 		try{
 			DocumentBuilderFactory documentFactory = DocumentBuilderFactory.newInstance();
@@ -974,7 +1092,18 @@ public class ParseXML {
 				
 				if(periodoLetto == periodo){
 					effettoScomunica = scomunica.getElementsByTagName("effetto").item(0).getFirstChild().getNodeValue();
-					scomuniche.add(effettoScomunica);
+					
+					NodeList listaEffetti = scomunica.getElementsByTagName("effetto");
+			        for (int j = 0; j < listaEffetti.getLength(); ++j) {
+			            Element effetto = (Element) listaEffetti.item(j);
+			            String effettoTipo = effetto.getFirstChild().getNodeValue();
+			            Effetto effettoExt = getEffettoXML(effettoTipo);
+			            effetti.add(effettoExt);
+			        }
+					
+			        TesseraScomunica tesseraScomunica = new TesseraScomunica (periodoLetto,effetti);
+			        
+					scomuniche.add(tesseraScomunica);
 				}
 					
 			}
@@ -983,11 +1112,7 @@ public class ParseXML {
 		}	
 		
 		Collections.shuffle(scomuniche);
-		
-		System.out.println("Scomuniche di "+periodo+" periodo:");
-		for(String string : scomuniche) {
-			System.out.println(string);
-		}
+		return scomuniche.get(0);
 	}
 
 	

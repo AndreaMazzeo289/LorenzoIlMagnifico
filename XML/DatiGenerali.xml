@@ -47,4 +47,16 @@
     <nomeValore nome="requisitoMilitareTerritorio6">
         <valore>18</valore>
     </nomeValore>
+    <nomeValore nome="numeroPeriodi">
+    	<valore>3</valore>
+    </nomeValore>
+    <nomeValore nome="puntiFedePeriodo1">
+        <valore>3</valore>
+    </nomeValore>
+    <nomeValore nome="puntiFedePeriodo2">
+        <valore>4</valore>
+    </nomeValore>
+    <nomeValore nome="puntiFedePeriodo3">
+        <valore>5</valore>
+    </nomeValore>
 </datiGenerali>
