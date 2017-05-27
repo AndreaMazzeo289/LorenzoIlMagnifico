@@ -22,7 +22,10 @@ import it.polimi.ingsw.pc15.carte.Personaggio;
 import it.polimi.ingsw.pc15.carte.Territorio;
 import it.polimi.ingsw.pc15.effetti.AggiuntaRisorse;
 import it.polimi.ingsw.pc15.effetti.AnnullaGuadagno;
+import it.polimi.ingsw.pc15.effetti.AnnullaRequisitoTerritori;
+import it.polimi.ingsw.pc15.effetti.AnnullaSovrapprezzoTorri;
 import it.polimi.ingsw.pc15.effetti.AumentaPrezzoServitori;
+import it.polimi.ingsw.pc15.effetti.AumentaValoreFamiliare;
 import it.polimi.ingsw.pc15.effetti.AzioneCarta;
 import it.polimi.ingsw.pc15.effetti.AzioneProduzione;
 import it.polimi.ingsw.pc15.effetti.AzioneRaccolto;
@@ -30,9 +33,13 @@ import it.polimi.ingsw.pc15.effetti.BonusDadoCarte;
 import it.polimi.ingsw.pc15.effetti.BonusProduzione;
 import it.polimi.ingsw.pc15.effetti.BonusRaccolta;
 import it.polimi.ingsw.pc15.effetti.BonusValoreFamiliare;
+import it.polimi.ingsw.pc15.effetti.CopiaEffettoLeader;
 import it.polimi.ingsw.pc15.effetti.Effetto;
+import it.polimi.ingsw.pc15.effetti.FissaValoreFamiliare;
+import it.polimi.ingsw.pc15.effetti.FissaValoreFamiliareAScelta;
 import it.polimi.ingsw.pc15.effetti.Moltiplicazione;
 import it.polimi.ingsw.pc15.effetti.NegaMercato;
+import it.polimi.ingsw.pc15.effetti.OccupaSpaziOccupati;
 import it.polimi.ingsw.pc15.effetti.RisorsePerCarte;
 import it.polimi.ingsw.pc15.effetti.RisorsePerRisorse;
 import it.polimi.ingsw.pc15.effetti.SaltaPrimoTurno;
@@ -221,6 +228,8 @@ public class ParseXML {
 									break;
 							}
 							break;
+					 	case "fissaFamiliare":
+					 		effettoLetto = leggiEffettoFissaValoreFamiliare(effetto);
 					 	case "negaMercato":
 					 		effettoLetto = leggiEffettoNegaMercato();
 					 		break;
@@ -232,6 +241,18 @@ public class ParseXML {
 					 		break;
 					 	case "annullaGuadagno":
 					 		effettoLetto = leggiEffettoAnnullaGuadagno(effetto);
+					 		break;
+					 	case "spaziOccupati":
+					 		effettoLetto = leggiEffettoOccupaSpaziOccupati();
+					 		break;
+					 	case "copia":
+					 		effettoLetto = leggiEffettoCopiaEffettoLeader();
+					 		break;
+					 	case "sovrapprezzo":
+					 		//effettoLetto = leggiEffettoBonusPuntiFede();
+					 		break;
+					 	case "fede":
+					 		effettoLetto = leggiEffettoAnnullaSovrapprezzoTorri();
 					 		break;
 							
 					 	default:
@@ -559,7 +580,7 @@ public class ParseXML {
 	}
 
 	//--------------------------------------------------------------------------------------------------------------//
-	// LEGGI BONUS VALORE FAMILIARE
+	// LEGGI EFFETTO BONUS VALORE FAMILIARE
 	//--------------------------------------------------------------------------------------------------------------//
 	/**
 	 * metodo che permette di estrarre gli effetti di tipo bonus valore familiare dal file XML
@@ -570,8 +591,8 @@ public class ParseXML {
 	{
 		int valoreFamiliare = Integer.parseInt(effetto.getElementsByTagName("bonusDado").item(0).getFirstChild().getNodeValue());
 		String coloreFamiliare = effetto.getElementsByTagName("coloreFamiliare").item(0).getFirstChild().getNodeValue();
-		
 		ColoreFamiliare coloreFamiliareEnum = null;
+			
 		switch(coloreFamiliare.toUpperCase()){
 			case "NERO": 
 				coloreFamiliareEnum = ColoreFamiliare.NERO;
@@ -582,10 +603,53 @@ public class ParseXML {
 			case "ARANCIONE": 
 				coloreFamiliareEnum = ColoreFamiliare.ARANCIONE;
 				break;
+			case "NEUTRO":
+				coloreFamiliareEnum = ColoreFamiliare.NEUTRO;
+				break;
 		}
 		
 		BonusValoreFamiliare bonusValoreFamiliare = new BonusValoreFamiliare(coloreFamiliareEnum, valoreFamiliare);
 		return bonusValoreFamiliare;
+	}
+	
+	//--------------------------------------------------------------------------------------------------------------//
+	// LEGGI EFFETTO FISSA VALORE FAMILIARE
+	//--------------------------------------------------------------------------------------------------------------//
+	/**
+	 * metodo che permette di estrarre gli effetti di tipo bonus valore familiare dal file XML
+	 * @param elemento dell'effetto specifico da estrarre (Classe Element)
+	 * @return istanza dell'effetto estratto (Classe BonusValoreFamiliare)
+	 */
+	public static FissaValoreFamiliare leggiEffettoFissaValoreFamiliare (Element effetto)
+	{
+		int valoreFamiliare = Integer.parseInt(effetto.getElementsByTagName("bonusDado").item(0).getFirstChild().getNodeValue());
+		String scelta = effetto.getAttribute("scelta");
+		FissaValoreFamiliare fissaValoreFamiliare;
+		
+		if(scelta.equals("no")) {
+			String coloreFamiliare = effetto.getElementsByTagName("coloreFamiliare").item(0).getFirstChild().getNodeValue();
+			ColoreFamiliare coloreFamiliareEnum = null;
+				
+			switch(coloreFamiliare.toUpperCase()){
+				case "NERO": 
+					coloreFamiliareEnum = ColoreFamiliare.NERO;
+					break;
+				case "BIANCO": 
+					coloreFamiliareEnum = ColoreFamiliare.BIANCO;
+					break;
+				case "ARANCIONE": 
+					coloreFamiliareEnum = ColoreFamiliare.ARANCIONE;
+					break;
+				case "NEUTRO":
+					coloreFamiliareEnum = ColoreFamiliare.NEUTRO;
+					break;
+			}
+			fissaValoreFamiliare = new FissaValoreFamiliare (coloreFamiliareEnum, valoreFamiliare);
+		}
+		else
+			fissaValoreFamiliare = new FissaValoreFamiliareAScelta(null, valoreFamiliare);
+		
+		return fissaValoreFamiliare;
 	}
 	
 	//--------------------------------------------------------------------------------------------------------------//
@@ -611,6 +675,47 @@ public class ParseXML {
 		AumentaPrezzoServitori aumentaPrezzoServitori = new AumentaPrezzoServitori ();
 		return aumentaPrezzoServitori;
 	}
+	
+	//--------------------------------------------------------------------------------------------------------------//
+	// LEGGI EFFETTO ANNULLA SOVRAPPREZZO TORRI
+	//--------------------------------------------------------------------------------------------------------------//
+	public static AnnullaSovrapprezzoTorri leggiEffettoAnnullaSovrapprezzoTorri () {
+		AnnullaSovrapprezzoTorri annullaSovrapprezzoTorri = new AnnullaSovrapprezzoTorri ();
+		return annullaSovrapprezzoTorri;
+	}
+	
+	//--------------------------------------------------------------------------------------------------------------//
+	// LEGGI EFFETTO ANNULLA REQUISITO TERRITORI
+	//--------------------------------------------------------------------------------------------------------------//
+	public static AnnullaRequisitoTerritori leggiEffettoAnnullaRequisitoTerritori () {
+		AnnullaRequisitoTerritori annullaRequisitoTerritori = new AnnullaRequisitoTerritori ();
+		return annullaRequisitoTerritori;
+	}
+	
+	//--------------------------------------------------------------------------------------------------------------//
+	// LEGGI EFFETTO OCCUPA SPAZI OCCUPATI
+	//--------------------------------------------------------------------------------------------------------------//
+	public static OccupaSpaziOccupati leggiEffettoOccupaSpaziOccupati () {
+		OccupaSpaziOccupati occupaSpaziOccupati = new OccupaSpaziOccupati ();
+		return occupaSpaziOccupati;
+	}
+	
+	//--------------------------------------------------------------------------------------------------------------//
+	// LEGGI EFFETTO COPIA EFFETTO LEADER
+	//--------------------------------------------------------------------------------------------------------------//
+	public static CopiaEffettoLeader leggiEffettoCopiaEffettoLeader () {
+		CopiaEffettoLeader copiaEffettoLeader = new CopiaEffettoLeader ();
+		return copiaEffettoLeader;
+	}
+	
+	//--------------------------------------------------------------------------------------------------------------//
+	// LEGGI EFFETTO BONUS PV CHIESTA
+	//--------------------------------------------------------------------------------------------------------------//
+	/*public static BonusPVChiesa leggiEffettoBonusPVChiesa () {
+		BonusPVChiesa bonusPVChiesa = new BonusPVChiesa ();
+		return bonusPVChiesa;
+	}*/
+		
 	
 	//--------------------------------------------------------------------------------------------------------------//
 	// LEGGI EFFETTO ANNULLA GUADAGNO

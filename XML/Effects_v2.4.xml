@@ -24,6 +24,17 @@
 		<puntiVittoria>2</puntiVittoria>
 		<privilegi>1</privilegi>
 	</effetto>
+    
+    <effetto nome="aggiungiRisorse1Land1Pand1O" idEffetto="addRisorsa">
+		<legno>1</legno>
+		<pietra>1</pietra>
+		<oro>1</oro>
+		<servitori>0</servitori>
+		<puntiFede>0</puntiFede>
+		<puntiMilitari>0</puntiMilitari>
+		<puntiVittoria>0</puntiVittoria>
+		<privilegi>0</privilegi>
+	</effetto>
 
 	<effetto nome="aggiungiRisorse2PMand2V" idEffetto="addRisorsa">
 		<legno>0</legno>
@@ -209,6 +220,28 @@
 		<puntiFede>0</puntiFede>
 		<puntiMilitari>1</puntiMilitari>
 		<puntiVittoria>0</puntiVittoria>
+		<privilegi>0</privilegi>
+	</effetto>
+    
+    <effetto nome="aggiungiRisorse2PMand1V" idEffetto="addRisorsa">
+		<legno>0</legno>
+		<pietra>0</pietra>
+		<oro>0</oro>
+		<servitori>0</servitori>
+		<puntiFede>0</puntiFede>
+		<puntiMilitari>2</puntiMilitari>
+		<puntiVittoria>1</puntiVittoria>
+		<privilegi>0</privilegi>
+	</effetto>
+    
+    <effetto nome="aggiungiRisorse3Sand1V" idEffetto="addRisorsa">
+		<legno>0</legno>
+		<pietra>0</pietra>
+		<oro>0</oro>
+		<servitori>3</servitori>
+		<puntiFede>0</puntiFede>
+		<puntiMilitari>0</puntiMilitari>
+		<puntiVittoria>1</puntiVittoria>
 		<privilegi>0</privilegi>
 	</effetto>
 
@@ -696,7 +729,9 @@
 	Tipo azione: PRODUZIONE
 
 	****************************************************************************-->
-	
+	<effetto nome="azioneProduzione0" idEffetto="azione" idAzione="produzione">
+		<valoreDado>0</valoreDado>
+	</effetto>
 	<effetto nome="azioneProduzione1" idEffetto="azione" idAzione="produzione">
 		<valoreDado>1</valoreDado>
 	</effetto>
@@ -1771,18 +1806,35 @@
 	Tipo bonus: BONUS VALORE FAMILIARE
 
 	****************************************************************************-->
-    <effetto nome="bonusValoreFamiliareNero-1" idEffetto="bonus" idAzione="familiare">
+    <effetto nome="aumentaValoreFamiliareNero-1" idEffetto="bonus" idAzione="familiare">
 		<bonusDado>-1</bonusDado>
 		<coloreFamiliare>nero</coloreFamiliare>
 	</effetto>
-    <effetto nome="bonusValoreFamiliareBianco-1" idEffetto="bonus" idAzione="familiare">
+    <effetto nome="aumentaValoreFamiliareBianco-1" idEffetto="bonus" idAzione="familiare">
 		<bonusDado>-1</bonusDado>
 		<coloreFamiliare>bianco</coloreFamiliare>
 	</effetto>
-    <effetto nome="bonusValoreFamiliareArancione-1" idEffetto="bonus" idAzione="familiare">
+    <effetto nome="aumentaValoreFamiliareArancione-1" idEffetto="bonus" idAzione="familiare">
 		<bonusDado>-1</bonusDado>
 		<coloreFamiliare>arancione</coloreFamiliare>
 	</effetto>
+    <effetto nome="aumentaValoreFamiliareNero2" idEffetto="bonus" idAzione="familiare">
+		<bonusDado>2</bonusDado>
+		<coloreFamiliare>nero</coloreFamiliare>
+	</effetto>
+    <effetto nome="aumentaValoreFamiliareBianco2" idEffetto="bonus" idAzione="familiare">
+		<bonusDado>2</bonusDado>
+		<coloreFamiliare>bianco</coloreFamiliare>
+	</effetto>
+    <effetto nome="aumentaValoreFamiliareArancione2" idEffetto="bonus" idAzione="familiare">
+		<bonusDado>2</bonusDado>
+		<coloreFamiliare>arancione</coloreFamiliare>
+	</effetto>
+    <effetto nome="aumentaValoreFamiliareNeutro3" idEffetto="bonus" idAzione="familiare">
+		<bonusDado>3</bonusDado>
+		<coloreFamiliare>neutro</coloreFamiliare>
+	</effetto>
+    
     
 
 	<!--***************************************************************************
@@ -1803,21 +1855,49 @@
 	LEADER E SCOMUNICHE
 
 	****************************************************************************-->
-	<effetto nome="negazioneMercato">
+	<effetto nome="negazioneMercato" idEffetto="negaMercato">
 	</effetto>
-    <effetto nome="saltaPrimoTurno">
+    <effetto nome="saltaPrimoTurno" idEffetto="perditaPrimoTurno">
 	</effetto>
-    <effetto nome="aumentaPrezzoServitori">
+    <effetto nome="aumentaPrezzoServitori" idEffetto="prezzoServitori">
 	</effetto>
     
-    <effetto nome="annullaGuadagnoVerdi">
+    <effetto nome="annullaGuadagnoVerdi" idEffetto="annullaGuadagno">
         <coloreCarta>verde</coloreCarta>
 	</effetto>
-    <effetto nome="annullaGuadagnoBlu">
+    <effetto nome="annullaGuadagnoBlu" idEffetto="annullaGuadagno">
         <coloreCarta>blu</coloreCarta>
 	</effetto>
-    <effetto nome="annullaGuadagnoViola">
+    <effetto nome="annullaGuadagnoViola" idEffetto="annullaGuadagno">
         <coloreCarta>viola</coloreCarta>
 	</effetto>
+    
+    <effetto nome="annullaRequisitoTerritori" idEffetto="requisitoTerritori">
+    </effetto>
+    <effetto nome="occupaSpaziOccupati" idEffetto="spaziOccupati">
+    </effetto>
+    <effetto nome="copiaEffettoLeader" idEffetto="copia">
+    </effetto>
+    <effetto nome="bonusPuntiFede" idEffetto="bonus" idAzione="fede">
+    </effetto>
+    <effetto nome="annullaSovrapprezzoTorri" idEffetto="sovrapprezzo">
+    </effetto>
+    
+    <effetto nome="fissaValoreFamiliareNero5" idEffetto="fissaFamiliare" scelta="no">
+        <bonusDado>5</bonusDado>
+		<coloreFamiliare>nero</coloreFamiliare>
+    </effetto>
+    <effetto nome="fissaValoreFamiliareBianco5" idEffetto="fissaFamiliare" scelta="no">
+        <bonusDado>5</bonusDado>
+		<coloreFamiliare>bianco</coloreFamiliare>
+    </effetto>
+    <effetto nome="fissaValoreFamiliareArancione5" idEffetto="fissaFamiliare" scelta="no">
+        <bonusDado>5</bonusDado>
+		<coloreFamiliare>arancione</coloreFamiliare>
+    </effetto>
+    <effetto nome="fissaValoreFamiliareAScelta6" idEffetto="fissaFamiliare" scelta="si">
+        <bonusDado>6</bonusDado>    
+    </effetto>
+    
     
 </effetti>

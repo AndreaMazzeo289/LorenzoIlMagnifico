@@ -23,7 +23,7 @@
             </risorse>
         </requisito>
         <effetti tipo="permanente">
-            <effetto>azioneRaccolta1</effetto>
+            <effetto>annullaRequisitoTerritori</effetto>
         </effetti>
     </leader>
     
@@ -36,7 +36,7 @@
             </carta>
         </requisito>
         <effetti tipo="permanente">
-            <effetto>familiareSpaziAzioneOccupati</effetto>
+            <effetto>occupaSpaziOccupati</effetto>
         </effetti>
     </leader>
     
@@ -49,7 +49,7 @@
             </carta>
         </requisito>
         <effetti tipo="permanente">
-            <effetto>noMoneteAggiuntiveTorreOccupata</effetto>
+            <effetto>AnnullaSovrapprezzoTorri</effetto>
         </effetti>
     </leader>
     
@@ -68,7 +68,7 @@
             </risorse>
         </requisito>
         <effetti tipo="permanente">
-            <effetto>familiareNeutroPiu3</effetto>
+            <effetto>bonusValoreFamiliareNeutro3</effetto>
         </effetti>
     </leader>
     
@@ -93,9 +93,9 @@
             </carta>
         </requisito>
         <effetti tipo="permanente">
-            <effetto>valoreDadoNero5</effetto>
-            <effetto>valoreDadoBianco5</effetto>
-            <effetto>valoreDadoArancione5</effetto>
+            <effetto>fissaValoreFamiliareNero5</effetto>
+            <effetto>fissaValoreFamiliareBianco5</effetto>
+            <effetto>fissaValoreFamiliareArancione5</effetto>
         </effetti>
     </leader>
     
@@ -108,9 +108,9 @@
             </carta>
         </requisito>
         <effetti tipo="permanente">
-            <effetto>bonusDadoNero2</effetto>
-            <effetto>bonusDadoBianco2</effetto>
-            <effetto>bonusDadoArancione2</effetto>
+            <effetto>bonusValoreFamiliareNero2</effetto>
+            <effetto>bonusValoreFamiliareBianco2</effetto>
+            <effetto>bonusValoreFamiliareArancione2</effetto>
         </effetti>
     </leader>
     
@@ -129,7 +129,7 @@
             </risorse>
         </requisito>
         <effetti tipo="permanente">
-            <effetto>copiaSkillLeader</effetto>
+            <effetto>copiaEffettoLeader</effetto>
         </effetti>
     </leader>
     
@@ -148,7 +148,7 @@
             </risorse>
         </requisito>
         <effetti tipo="permanente">
-            <effetto>scambioSistoIV</effetto>
+            <effetto>bonusPuntiFede</effetto>
         </effetti>
     </leader>
     
@@ -257,7 +257,7 @@
             </risorse>
         </requisito>
         <effetti tipo="turno">
-            <effetto>azioneRaccolta1Land1Pand1O</effetto>
+            <effetto>aggiungiRisorse1Land1Pand1O</effetto>
         </effetti>
     </leader>
     
@@ -293,7 +293,7 @@
             </risorse>
         </requisito>
         <effetti tipo="turno">
-            <effetto>aggiungiRisorse2PMand1PV</effetto>
+            <effetto>aggiungiRisorse2PMand1V</effetto>
         </effetti>
     </leader>
     
@@ -316,7 +316,7 @@
             </risorse>
         </requisito>
         <effetti tipo="turno">
-            <effetto>valoreDado6</effetto>
+            <effetto>fissaValoreFamiliareAScelta6</effetto>
         </effetti>
     </leader>
     
@@ -333,7 +333,7 @@
             </carta>
         </requisito>
         <effetti tipo="turno">
-            <effetto>aggiuntaRisorse3Sand1PV</effetto>
+            <effetto>aggiungiRisorse3Sand1V</effetto>
         </effetti>
     </leader>
     
@@ -350,7 +350,7 @@
             </carta>
         </requisito>
         <effetti tipo="turno">
-            <effetto>aggiuntaRisorse4PV</effetto>
+            <effetto>aggiungiRisorse4V</effetto>
         </effetti>
     </leader>
     
@@ -369,7 +369,7 @@
             </risorse>
         </requisito>
         <effetti tipo="turno">
-            <effetto>aggiuntaRisorse1Pr</effetto>
+            <effetto>aggiungiRisorse1Pr</effetto>
         </effetti>
     </leader>
     
