@@ -11,6 +11,8 @@ public class EffettiAttivi {
 	private int bonusProduzione;
 	private boolean disponibilitàMercato;
 	private boolean bonusSpazioTorri;
+	private boolean requisitoTerritori;
+	private boolean permessoSpaziOccupati;
 	private HashMap<ColoreCarta, Boolean> bonusPuntiVittoriaFinale;
 	
 	
@@ -30,6 +32,8 @@ public class EffettiAttivi {
 	
 		this.disponibilitàMercato = true;
 		this.bonusSpazioTorri = true;
+		this.requisitoTerritori = true;
+		this.permessoSpaziOccupati = false;
 		
 	}
 	
@@ -64,6 +68,14 @@ public class EffettiAttivi {
 		this.bonusSpazioTorri = false;
 	}
 	
+	public void annullaRequisitoTerritori() {
+		this.requisitoTerritori = false;
+	}
+	
+	public void concediPermessoSpaziOccupati() {
+		this.permessoSpaziOccupati = true;
+	}
+	
 	
 	
 	//-----------------------------------------------------------------------------------------------------------//
@@ -92,6 +104,14 @@ public class EffettiAttivi {
 	
 	public boolean disponibilitàBonusSpazioTorri() {
 		return this.bonusSpazioTorri;
+	}
+	
+	public boolean requisitoTerritoriAttivo() {
+		return this.requisitoTerritori;
+	}
+	
+	public boolean controllaPermessoSpaziOccupati() {
+		return this.permessoSpaziOccupati;
 	}
 	
 }

@@ -6,7 +6,7 @@ public class AnnullaRequisitoTerritori extends Effetto {
 
 	@Override
 	public void attiva(Player player) {
-		// TODO Auto-generated method stub
+		player.getEffettiAttivi().annullaRequisitoTerritori();
 		
 	}
 

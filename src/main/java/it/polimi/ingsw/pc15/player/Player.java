@@ -174,8 +174,12 @@ public class Player {
 		return familiareReturn;
 	}
 	
-	public Leader getLeader (int i) {
-		return carteLeader.get(i);
+	public ArrayList<Leader> getLeader () {
+		return this.carteLeader;
+	}
+	
+	public Set<Player> getAvversari() {
+		return this.avversari;
 	}
 
 }

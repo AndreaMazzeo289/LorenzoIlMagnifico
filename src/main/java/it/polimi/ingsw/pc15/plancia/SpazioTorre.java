@@ -24,10 +24,6 @@ public class SpazioTorre extends Spazio {
 		this.torre = torre;
 	}
 
-	@Override
-	public void rimuoviFamiliari() {
-		this.familiare=null;
-	}
 
 	@Override
 	public boolean isEmpty() {
@@ -38,6 +34,7 @@ public class SpazioTorre extends Spazio {
 	
 	@Override
 	public void occupa (Familiare familiare) {
+		
 		this.familiare=familiare;
 		
 		if (this.familiare.getPlayer().getEffettiAttivi().disponibilitàBonusSpazioTorri())
@@ -77,8 +74,13 @@ public class SpazioTorre extends Spazio {
 		carta.setSpazio(this);
 	}
 	
-	public void removeCarta() {
-		this.carta=null;
+	public void rimuoviCarta() {
+		this.carta = null;
+	}
+	
+	@Override
+	public void rimuoviFamiliari() {
+		this.familiare=null;
 	}
 	
 	public Carta getCarta() {
