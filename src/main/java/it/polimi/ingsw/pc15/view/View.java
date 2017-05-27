@@ -4,6 +4,8 @@ import java.util.Observable;
 import java.util.Observer;
 import java.util.Scanner;
 
+import it.polimi.ingsw.pc15.carte.Carta;
+import it.polimi.ingsw.pc15.carte.ColoreCarta;
 import it.polimi.ingsw.pc15.carte.Edificio;
 import it.polimi.ingsw.pc15.carte.Impresa;
 import it.polimi.ingsw.pc15.carte.Personaggio;
@@ -40,17 +42,17 @@ public class View extends Observable implements Observer {
 		
 		case 2: System.out.println("\nAl momento possiedi le seguenti carte:");
 				System.out.print("Carte TERRITORIO: ");
-				for (Territorio carta : player.getTerritori() )
-					System.out.print(carta.getNome() + " | ");
+				for (Carta territorio : player.getCarte(ColoreCarta.VERDE) )
+					System.out.print(territorio.getNome() + " | ");
 				System.out.print("\nCarte PERSONAGGIO: ");
-				for (Personaggio carta : player.getPersonaggi() )
-					System.out.print(carta.getNome() + " | ");
+				for (Carta personaggio : player.getCarte(ColoreCarta.BLU) )
+					System.out.print(personaggio.getNome() + " | ");
 				System.out.print("\nCarte EDIFICIO: ");
-				for (Edificio carta : player.getEdifici() )
-					System.out.print(carta.getNome() + " | ");
+				for (Carta edificio : player.getCarte(ColoreCarta.GIALLO) )
+					System.out.print(edificio.getNome() + " | ");
 				System.out.print("\nCarte IMPRESA: ");
-				for (Impresa carta : player.getImprese() )
-					System.out.print(carta.getNome() + " | ");
+				for (Carta impresa : player.getCarte(ColoreCarta.VIOLA))
+					System.out.print(impresa.getNome() + " | ");
 				break;
 		
 		case 3: System.out.println("\nHai ancora a disposizione i seguenti familiari:");

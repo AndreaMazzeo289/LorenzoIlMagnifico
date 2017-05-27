@@ -17,6 +17,7 @@ public class Impresa extends Carta {
 		this.aumentoPuntiVittoria = aumentoPuntiVittoria;
 		this.requisitoPuntiMilitari = requisitoPuntiMilitari;
 		this.costoPuntiMilitari = costoPuntiMilitari;
+		this.colore = ColoreCarta.VIOLA;
 	}
 
 	@Override

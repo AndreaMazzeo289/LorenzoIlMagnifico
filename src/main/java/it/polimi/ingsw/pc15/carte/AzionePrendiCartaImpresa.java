@@ -14,16 +14,9 @@ public class AzionePrendiCartaImpresa extends AzionePrendiCarta {
 	}
 
 	@Override
-	public void daiCarta() {
-		carta.setSpazio(null);
-		carta.setPlayer(player);	
-		player.getImprese().add((Impresa) carta);
-	}
-
-	@Override
 	public boolean requisitiSoddisfatti() {
 		
-		if (player.getImprese().size() == ParseXML.leggiValore("numeroMaxCarte")) {  
+		if (player.getCarte(ColoreCarta.GIALLO).size() == ParseXML.leggiValore("numeroMaxCarte")) {  
 			System.out.println("Hai raggiunto il limite massimo di carte Impresa!");
 			return false;
 		}

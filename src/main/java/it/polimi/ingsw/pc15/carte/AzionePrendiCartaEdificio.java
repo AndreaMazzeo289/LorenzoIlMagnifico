@@ -8,18 +8,11 @@ public class AzionePrendiCartaEdificio extends AzionePrendiCarta {
 	public AzionePrendiCartaEdificio(Player player, Carta carta) {
 		super(player, carta);
 	}
-
-	@Override
-	public void daiCarta() {
-		carta.setSpazio(null);
-		carta.setPlayer(player);	
-		player.getEdifici().add((Edificio) carta);
-	}
-
+	
 	@Override
 	public boolean requisitiSoddisfatti() {
 		
-		if (player.getEdifici().size() == ParseXML.leggiValore("numeroMaxCarte")) {
+		if (player.getCarte(ColoreCarta.GIALLO).size() == ParseXML.leggiValore("numeroMaxCarte")) {
 			System.out.println("Hai raggiunto il limite massimo di carte Edificio!");
 			return false;
 		}

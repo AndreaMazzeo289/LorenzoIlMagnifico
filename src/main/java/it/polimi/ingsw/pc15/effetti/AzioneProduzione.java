@@ -2,6 +2,8 @@ package it.polimi.ingsw.pc15.effetti;
 
 import java.util.Iterator;
 
+import it.polimi.ingsw.pc15.carte.Carta;
+import it.polimi.ingsw.pc15.carte.ColoreCarta;
 import it.polimi.ingsw.pc15.carte.Edificio;
 import it.polimi.ingsw.pc15.player.Player;
 
@@ -14,11 +16,11 @@ public class AzioneProduzione extends Azione{
 	@Override
 	public void attiva(Player player){
 		
-		Iterator<Edificio> edificio= player.getEdifici().iterator();
+		Iterator<Carta> edificio= player.getCarte(ColoreCarta.GIALLO).iterator();
 		
 		while(edificio.hasNext()){
-			if (valoreDado >= edificio.next().getRequisitoProduzione())
-				edificio.next().getEffettoProduzione().attiva(player);
+			if (valoreDado >= ((Edificio) edificio.next()).getRequisitoProduzione())
+				((Edificio) edificio.next()).getEffettoProduzione().attiva(player);
 		}
 	}
 }

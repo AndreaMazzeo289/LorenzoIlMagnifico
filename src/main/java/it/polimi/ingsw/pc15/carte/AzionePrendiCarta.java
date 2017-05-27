@@ -39,7 +39,14 @@ public abstract class AzionePrendiCarta {
 	}
 	
 	public abstract boolean attiva();
-	public abstract void daiCarta();
+	
+	public void daiCarta() {
+		
+		carta.setSpazio(null);
+		carta.setPlayer(player);
+		player.getCarte(carta.getColore()).add(carta);
+		
+	}
 	public abstract boolean requisitiSoddisfatti();
 	
 }

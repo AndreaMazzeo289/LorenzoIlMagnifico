@@ -15,26 +15,7 @@ public class RisorsePerCarte extends Moltiplicazione {
 
 	@Override
 	public void attiva(Player player) {
-		switch(coloreCarta) {
-		
-			case VERDE: for (int i=0; i<player.getTerritori().size()/quantità; i++)
-							player.getSetRisorse().aggiungi(setRisorse);
-						break;
-						
-			case BLU:	for (int i=0; i<player.getPersonaggi().size()/quantità; i++)
-							player.getSetRisorse().aggiungi(setRisorse);
-						break;
-						
-			case GIALLO:for (int i=0; i<player.getEdifici().size()/quantità; i++)
-							player.getSetRisorse().aggiungi(setRisorse);
-						break;
-						
-			case VIOLA: for (int i=0; i<player.getImprese().size()/quantità; i++)
-							player.getSetRisorse().aggiungi(setRisorse);
-						break;
-						
+		for (int i=0; i<player.getCarte(coloreCarta).size()/quantità; i++)
+			player.getSetRisorse().aggiungi(setRisorse);
 		}
-		
-	}
-
 }

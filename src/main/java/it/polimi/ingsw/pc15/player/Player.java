@@ -1,15 +1,19 @@
 package it.polimi.ingsw.pc15.player;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.HashSet;
 import java.util.Iterator;
 import java.util.Set;
 
 import it.polimi.ingsw.pc15.ParseXML;
+import it.polimi.ingsw.pc15.carte.Carta;
+import it.polimi.ingsw.pc15.carte.ColoreCarta;
 import it.polimi.ingsw.pc15.carte.Edificio;
 import it.polimi.ingsw.pc15.carte.Impresa;
 import it.polimi.ingsw.pc15.carte.Personaggio;
 import it.polimi.ingsw.pc15.carte.Territorio;
+import it.polimi.ingsw.pc15.effetti.Effetto;
 import it.polimi.ingsw.pc15.plancia.Spazio;
 import it.polimi.ingsw.pc15.risorse.Legna;
 import it.polimi.ingsw.pc15.risorse.Oro;
@@ -21,23 +25,27 @@ import it.polimi.ingsw.pc15.risorse.PuntiVittoria;
 import it.polimi.ingsw.pc15.risorse.Risorsa;
 import it.polimi.ingsw.pc15.risorse.Servitori;
 import it.polimi.ingsw.pc15.risorse.SetRisorse;
+import it.polimi.ingsw.pc15.risorse.TipoRisorsa;
 
 public class Player {
 	
 	private final String name;
 	private SetRisorse setRisorse;
 	private Set<Familiare> familiari;
-	private ArrayList<Territorio> territori;
-	private ArrayList<Personaggio> personaggi;
-	private ArrayList<Edificio> edifici;
-	private ArrayList<Impresa> imprese;
+	private HashMap <ColoreCarta, ArrayList<Carta>> carteSviluppo;
+	private ArrayList<Carta> territori;
+	private ArrayList<Carta> personaggi;
+	private ArrayList<Carta> edifici;
+	private ArrayList<Carta> imprese;
 	private EffettiAttivi effettiAttivi;
+	private ArrayList<Leader> carteLeader;
 	
 	
-	public Player (String name) {
+	public Player (String name, ArrayList<Leader> carteLeader) {
 		
 		this.name = name;
 		this.effettiAttivi = new EffettiAttivi();	
+		this.carteLeader = carteLeader;
 		
 		//-----------------------------------------------------------------------------------------------------------//
 		//          FAMILIARI                                                                                        //
@@ -87,10 +95,16 @@ public class Player {
 		
 		int numeroMaxCarte = ParseXML.leggiValore("numeroMaxCarte");
 		
-		this.territori = new ArrayList<Territorio>(numeroMaxCarte);
-		this.personaggi = new ArrayList<Personaggio>(numeroMaxCarte);
-		this.edifici = new ArrayList<Edificio>(numeroMaxCarte);
-		this.imprese = new ArrayList<Impresa>(numeroMaxCarte);
+		this.territori = new ArrayList<Carta>(numeroMaxCarte);
+		this.personaggi = new ArrayList<Carta>(numeroMaxCarte);
+		this.edifici = new ArrayList<Carta>(numeroMaxCarte);
+		this.imprese = new ArrayList<Carta>(numeroMaxCarte);
+		
+		this.carteSviluppo = new HashMap<ColoreCarta, ArrayList<Carta>>();
+		this.carteSviluppo.put(ColoreCarta.VERDE, territori);
+		this.carteSviluppo.put(ColoreCarta.BLU, personaggi);
+		this.carteSviluppo.put(ColoreCarta.GIALLO, edifici);
+		this.carteSviluppo.put(ColoreCarta.VIOLA, imprese);
 
 	}
 	
@@ -109,6 +123,25 @@ public class Player {
 		}	
 	}
 	
+	public void scartaLeader (Leader leader) {
+
+		this.carteLeader.remove(leader);
+		this.setRisorse.getRisorsa(TipoRisorsa.PRIVILEGI).aggiungi(1);
+	}
+	
+	public void giocaLeader (int numeroLeader) {
+		//FINIRE
+	}
+	
+	public void attivaEffettoLeader (int numeroLeader) {
+		
+		if (this.carteLeader.get(numeroLeader).effettoGiàAttivato() == false) {
+			for (Effetto effetto : this.carteLeader.get(numeroLeader).getEffettoPerTurno() )
+				effetto.attiva(this);
+			this.carteLeader.get(numeroLeader).setEffettoAttivato(true);
+		}
+	}
+	
 	
 	
 	//-----------------------------------------------------------------------------------------------------------//
@@ -123,20 +156,8 @@ public class Player {
 		return this.setRisorse;
 	}
 	
-	public ArrayList<Territorio> getTerritori() {
-		return this.territori;
-	}
-	
-	public ArrayList<Personaggio> getPersonaggi() {
-		return this.personaggi;
-	}
-	
-	public ArrayList<Edificio> getEdifici() {
-		return this.edifici;
-	}
-	
-	public ArrayList<Impresa> getImprese() {
-		return this.imprese;
+	public ArrayList<Carta> getCarte (ColoreCarta colore) {
+		return this.carteSviluppo.get(colore);
 	}
 	
 	public EffettiAttivi getEffettiAttivi(){
@@ -154,12 +175,9 @@ public class Player {
 		
 		return familiareReturn;
 	}
-
-
 	
-	
-	
-	
-	
+	public Leader getLeader (int i) {
+		return carteLeader.get(i);
+	}
 
 }

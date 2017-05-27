@@ -10,16 +10,9 @@ public class AzionePrendiCartaPersonaggio extends AzionePrendiCarta {
 	}
 
 	@Override
-	public void daiCarta() {
-		carta.setSpazio(null);
-		carta.setPlayer(player);
-		player.getPersonaggi().add((Personaggio) carta);	
-	}
-
-	@Override
 	public boolean requisitiSoddisfatti() {
 		
-		if (player.getPersonaggi().size() == ParseXML.leggiValore("numeroMaxCarte")) {  
+		if (player.getCarte(ColoreCarta.BLU).size() == ParseXML.leggiValore("numeroMaxCarte")) {  
 			System.out.println("Hai raggiunto il limite massimo di carte Personaggio!");
 			return false;
 		}

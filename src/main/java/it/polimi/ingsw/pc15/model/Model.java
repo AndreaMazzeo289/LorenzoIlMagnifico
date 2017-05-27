@@ -50,10 +50,10 @@ public class Model extends Observable {
 		this.turno = 0;
 		this.periodo = 1;
 			
-		Player player1 = new Player("Maffe");
-		Player player2 = new Player("Mazze");
-		Player player3 = new Player("Fra");
-		Player player4 = new Player("AleMagni");
+		Player player1 = new Player("Maffe", null);
+		Player player2 = new Player("Mazze", null);
+		Player player3 = new Player("Fra", null);
+		Player player4 = new Player("AleMagni", null);
 		
 		giocatori = new ArrayList<Player>();
 		giocatori.add(player1);

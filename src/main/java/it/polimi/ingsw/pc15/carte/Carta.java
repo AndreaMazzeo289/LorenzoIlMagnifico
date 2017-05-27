@@ -18,6 +18,7 @@ public abstract class Carta {
 	private final Set<Effetto> effettoIstantaneo;
 	private Player player;
 	private SpazioTorre spazio;
+	protected ColoreCarta colore;
 	
 	public Carta (String nome, int id, int periodo, SetRisorse costo, Set<Effetto> effettoIstantaneo) {
 		this.nome = nome;
@@ -51,6 +52,10 @@ public abstract class Carta {
 	
 	public Player getPlayer() {
 		return this.player;
+	}
+	
+	public ColoreCarta getColore() {
+		return ColoreCarta.ALL;
 	}
 	
 	public void setPlayer(Player player) {

@@ -15,6 +15,7 @@ public class Territorio extends Carta {
 		super(nome, id, periodo, costo, effettoIstantaneo);
 		this.requisitoRaccolta = requisitoRaccolta;
 		this.effettoRaccolta = effettoRaccolta;
+		this.colore = ColoreCarta.VERDE;
 	}
 	
 	public int getRequisitoRaccolta() {

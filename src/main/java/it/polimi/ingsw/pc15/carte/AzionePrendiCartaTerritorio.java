@@ -9,26 +9,18 @@ public class AzionePrendiCartaTerritorio extends AzionePrendiCarta {
 	public AzionePrendiCartaTerritorio(Player player, Carta carta) {
 		super(player, carta);
 	}
-
-	@Override
-	public void daiCarta() {	
-		carta.setSpazio(null);
-		carta.setPlayer(player);	
-		player.getTerritori().add((Territorio) carta);
-	}
-	
 	
 	@Override
 	public boolean requisitiSoddisfatti() {
 		
 		int numeroMaxCarte = ParseXML.leggiValore("numeroMaxCarte");
 		
-		if (player.getTerritori().size() == numeroMaxCarte) {
+		if (player.getCarte(ColoreCarta.VERDE).size() == numeroMaxCarte) {
 			System.out.println("Hai raggiunto il limite massimo di carte Territorio!");
 			return false;
 		}
 		
-		if (!player.getSetRisorse().getRisorsa(TipoRisorsa.PUNTIMILITARI).paragona(ParseXML.leggiValore("RequisitoMilitareTerritorio" + Integer.toString(player.getTerritori().size()+1)))) {
+		if (!player.getSetRisorse().getRisorsa(TipoRisorsa.PUNTIMILITARI).paragona(ParseXML.leggiValore("RequisitoMilitareTerritorio" + Integer.toString(player.getCarte(ColoreCarta.VERDE).size()+1)))) {
 			System.out.println("Non hai abbastanza punti militari per ottenere questo Territorio");
 			return false;
 		}
