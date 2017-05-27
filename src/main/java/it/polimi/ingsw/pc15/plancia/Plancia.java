@@ -2,6 +2,7 @@ package it.polimi.ingsw.pc15.plancia;
 
 import java.util.ArrayList;
 import java.util.Collections;
+import java.util.HashMap;
 import java.util.HashSet;
 import java.util.Iterator;
 import java.util.Set;
@@ -26,6 +27,9 @@ public class Plancia {
 	private SpazioRaccolta spazioRaccolta;
 	private SpazioConsiglio spazioConsiglio;
 	private ArrayList<SpazioMercato> spaziMercato;
+	
+	private HashMap <Integer, TesseraScomunica> scomuniche;
+	
 	
 	public Plancia (int numeroGiocatori) {
 		
@@ -82,6 +86,18 @@ public class Plancia {
 					break;
 		}
 		
+		
+		//-----------------------------------------------------------------------------------------------------------//
+		//          TESSERE SCOMUNICA                                                                                //
+		//-----------------------------------------------------------------------------------------------------------//
+		
+		this.scomuniche = new HashMap<Integer, TesseraScomunica>();
+		
+		int numeroTessereScomunica = ParseXML.leggiValore("numeroPeriodi");
+		for (int i=1; i<=numeroTessereScomunica; i++)
+			//scomuniche.put(i, ParseXML.leggiScomunica(i))
+			;
+			
 	}
 
 	public void setTurno (int periodo, ArrayList<Carta> arrayCarteTerritorio, ArrayList<Carta> arrayCartePersonaggio, ArrayList<Carta> arrayCarteEdificio, ArrayList<Carta> arrayCarteImpresa){
@@ -143,7 +159,7 @@ public class Plancia {
 	
 	
 	//-----------------------------------------------------------------------------------------------------------//
-	//          GET SPAZI                                                                                   //
+	//          METODI GET                                                                                       //
 	//-----------------------------------------------------------------------------------------------------------//
 	
 	public SpazioProduzione getSpazioProduzione() {
@@ -173,7 +189,10 @@ public class Plancia {
 		default: return null;
 		
 		}
-		
+	}
+	
+	public TesseraScomunica getTesseraScomunica(int periodo) {
+		return scomuniche.get(periodo);
 	}
 	
 	

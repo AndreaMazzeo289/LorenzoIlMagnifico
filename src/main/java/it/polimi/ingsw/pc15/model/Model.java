@@ -28,6 +28,7 @@ import it.polimi.ingsw.pc15.risorse.PuntiVittoria;
 import it.polimi.ingsw.pc15.risorse.Risorsa;
 import it.polimi.ingsw.pc15.risorse.Servitori;
 import it.polimi.ingsw.pc15.risorse.SetRisorse;
+import it.polimi.ingsw.pc15.risorse.TipoRisorsa;
 
 public class Model extends Observable {
 	
@@ -103,6 +104,17 @@ public class Model extends Observable {
 		}
 
 	}
+	
+	public void rapportoInVaticano(int periodo) {
+		
+		int puntiFedeMinimi = ParseXML.leggiValore("puntiFedePeriodo" + Integer.toString(periodo));
+		for (Player player :giocatori) {
+			if (player.getSetRisorse().getRisorsa(TipoRisorsa.PUNTIFEDE).getQuantità() < puntiFedeMinimi)
+				this.plancia.getTesseraScomunica(periodo).infliggiScomunica(player);
+		}
+	}
+	
+	
 	
 	public ArrayList<Player> getPlayers() {
 		return this.giocatori;
