@@ -11,6 +11,5 @@ public abstract class Bonus extends Effetto{
 	}
 
 	@Override
-	public void attiva(Player player) {		
-	}
+	public abstract void attiva(Player player);
 }
