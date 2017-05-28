@@ -1806,31 +1806,31 @@
 	Tipo bonus: BONUS VALORE FAMILIARE
 
 	****************************************************************************-->
-    <effetto nome="aumentaValoreFamiliareNero-1" idEffetto="bonus" idAzione="familiare">
+    <effetto nome="bonusValoreFamiliareNero-1" idEffetto="bonus" idAzione="familiare">
 		<bonusDado>-1</bonusDado>
 		<coloreFamiliare>nero</coloreFamiliare>
 	</effetto>
-    <effetto nome="aumentaValoreFamiliareBianco-1" idEffetto="bonus" idAzione="familiare">
+    <effetto nome="bonusValoreFamiliareBianco-1" idEffetto="bonus" idAzione="familiare">
 		<bonusDado>-1</bonusDado>
 		<coloreFamiliare>bianco</coloreFamiliare>
 	</effetto>
-    <effetto nome="aumentaValoreFamiliareArancione-1" idEffetto="bonus" idAzione="familiare">
+    <effetto nome="bonusValoreFamiliareArancione-1" idEffetto="bonus" idAzione="familiare">
 		<bonusDado>-1</bonusDado>
 		<coloreFamiliare>arancione</coloreFamiliare>
 	</effetto>
-    <effetto nome="aumentaValoreFamiliareNero2" idEffetto="bonus" idAzione="familiare">
+    <effetto nome="bonusValoreFamiliareNero2" idEffetto="bonus" idAzione="familiare">
 		<bonusDado>2</bonusDado>
 		<coloreFamiliare>nero</coloreFamiliare>
 	</effetto>
-    <effetto nome="aumentaValoreFamiliareBianco2" idEffetto="bonus" idAzione="familiare">
+    <effetto nome="bonusValoreFamiliareBianco2" idEffetto="bonus" idAzione="familiare">
 		<bonusDado>2</bonusDado>
 		<coloreFamiliare>bianco</coloreFamiliare>
 	</effetto>
-    <effetto nome="aumentaValoreFamiliareArancione2" idEffetto="bonus" idAzione="familiare">
+    <effetto nome="bonusValoreFamiliareArancione2" idEffetto="bonus" idAzione="familiare">
 		<bonusDado>2</bonusDado>
 		<coloreFamiliare>arancione</coloreFamiliare>
 	</effetto>
-    <effetto nome="aumentaValoreFamiliareNeutro3" idEffetto="bonus" idAzione="familiare">
+    <effetto nome="bonusValoreFamiliareNeutro3" idEffetto="bonus" idAzione="familiare">
 		<bonusDado>3</bonusDado>
 		<coloreFamiliare>neutro</coloreFamiliare>
 	</effetto>

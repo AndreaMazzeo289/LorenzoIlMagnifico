@@ -51,6 +51,8 @@ import it.polimi.ingsw.pc15.view.View;
 		/**
 		 * PROBLEMI: 
 		 *  - attenzione all'effetto della badessa (carta blu) oltre ad aggiunta risorse ha azione su qualsiasi carta
+		 *  - effetti scomuniche risorse (1 periodo)
+		 *  - effetti Leader Santa Rita e Pico della mirandola
 		 
 		
 		while (true) {
