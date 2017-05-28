@@ -33,7 +33,7 @@ public class Player {
 	private SetRisorse setRisorse;
 	private Set<Familiare> familiari;
 	private HashMap <ColoreCarta, ArrayList<Carta>> carteSviluppo;
-	private EffettiAttivi effettiAttivi;
+	EffettiAttivi effettiAttivi;
 	private ArrayList<Leader> carteLeader;
 	private Set<Player> avversari;
 	
