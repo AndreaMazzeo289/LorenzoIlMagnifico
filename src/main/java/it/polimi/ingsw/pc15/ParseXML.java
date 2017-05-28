@@ -3,6 +3,7 @@ package it.polimi.ingsw.pc15;
 import java.io.File;
 import java.util.ArrayList;
 import java.util.Collections;
+import java.util.HashMap;
 import java.util.HashSet;
 import java.util.Set;
 
@@ -47,6 +48,7 @@ import it.polimi.ingsw.pc15.effetti.SaltaPrimoTurno;
 import it.polimi.ingsw.pc15.effetti.Scambio;
 import it.polimi.ingsw.pc15.plancia.TesseraScomunica;
 import it.polimi.ingsw.pc15.player.ColoreFamiliare;
+import it.polimi.ingsw.pc15.player.Leader;
 import it.polimi.ingsw.pc15.player.Player;
 import it.polimi.ingsw.pc15.risorse.Legna;
 import it.polimi.ingsw.pc15.risorse.Oro;
@@ -68,11 +70,11 @@ import it.polimi.ingsw.pc15.risorse.TipoRisorsa;
 
 public class ParseXML {
 	
-	public static void main (String args[]) {
+	/*public static void main (String args[]) {
 		leggiScomunica(1);
 		leggiScomunica(2);
 		leggiScomunica(3);
-	}
+	}*/
 	
 	
 	/*public static void main (String args[]){
@@ -242,6 +244,9 @@ public class ParseXML {
 					 		break;
 					 	case "annullaGuadagno":
 					 		effettoLetto = leggiEffettoAnnullaGuadagno(effetto);
+					 		break;
+					 	case "requisitoTerritori":
+					 		effettoLetto = leggiEffettoAnnullaRequisitoTerritori();
 					 		break;
 					 	case "spaziOccupati":
 					 		effettoLetto = leggiEffettoOccupaSpaziOccupati();
@@ -1068,12 +1073,14 @@ public class ParseXML {
 	/**
 	 * metodo che permette di estrarre le carte leader dal file XML
 	 * @param nome della carta leader che si vuole estrarre (String)
+	 * @return istanza della carta leader desiderata
 	 */
-	public static void leggiCartaLeader (String nomeCarta){
+	public static Leader leggiCartaLeader (String nomeCarta){
 		
 		int valore=1;
 		Set<Effetto> effetti = new HashSet<Effetto>();
-		
+		Leader leaderEstratto = null;
+		HashMap<ColoreCarta, Integer> requisitoCarte = new HashMap<ColoreCarta, Integer>();
 		
 		try{
 			DocumentBuilderFactory documentFactory = DocumentBuilderFactory.newInstance();
@@ -1091,23 +1098,35 @@ public class ParseXML {
 				
 				if(nomeCarta.toUpperCase().equals(nomeLeader.toUpperCase())) {	
 					
-					System.out.println("nome della carta leader: "+nomeCarta);
-					
 					try{
 						NodeList carte = leader.getElementsByTagName("carta");
 						int fine = carte.getLength();
-						if(fine!=0)
+						if(fine!=0) {
 							for(int j=0; j<fine; j++) {
 								Element carta = (Element) carte.item(j);
 								
-								System.out.println("tipo: "+carta.getElementsByTagName("tipo").item(0).getFirstChild().getNodeValue());
-								System.out.println("quantita: "+carta.getElementsByTagName("quantita").item(0).getFirstChild().getNodeValue());
+								String tipoCarta = carta.getElementsByTagName("tipo").item(0).getFirstChild().getNodeValue();
+								ColoreCarta coloreCartaEnum = null;
+								switch(tipoCarta.toUpperCase()) {
+									case "EDIFICIO" : coloreCartaEnum = ColoreCarta.VERDE;
+										break;
+									case "TERRITORIO" : coloreCartaEnum= ColoreCarta.BLU;
+										break;
+									case "PERSONAGGIO" : coloreCartaEnum = ColoreCarta.GIALLO;
+										break;
+									case "IMPRESA" : coloreCartaEnum = ColoreCarta.VIOLA;
+										break;
+								}
 								
+								int quantita = Integer.parseInt(carta.getElementsByTagName("quantita").item(0).getFirstChild().getNodeValue());
+								
+								requisitoCarte.put(coloreCartaEnum, quantita);
 							}
-						else
-							System.out.println("nessun requisito in carte richiesto");
+						}
+						else{
+							requisitoCarte=null;
+						}
 					}catch(Exception e2) {
-						System.out.println("nessun requisito in carte richiesto");
 					}
 					
 					try{
@@ -1136,47 +1155,43 @@ public class ParseXML {
 			                   
 			            requisitoMaterie = new SetRisorse (risorse);
 			            
-			            System.out.println("Requisiti materiali: ");
-			            System.out.println("Legna: "+legna.getQuantità());
-			            System.out.println("Pietra: "+pietra.getQuantità());
-			            System.out.println("Oro: "+oro.getQuantità());
-			            System.out.println("Servitori: "+servitori.getQuantità());
-			            System.out.println("Punti fede: "+puntiFede.getQuantità());
-			            System.out.println("Punti militari: "+puntiMilitari.getQuantità());
-			            System.out.println("Punti vittoria: "+puntiVittoria.getQuantità());
-			            System.out.println("Privilegi: "+privilegi.getQuantità());
-			            
 					}catch(Exception e1) {
 						requisitoMaterie = null;
-						System.out.println("nessun requisito in materie richiesto");
 					}
 					
 					
+					String tipologia = ((Element)(leader.getElementsByTagName("effetti")).item(0)).getAttribute("tipo");
 					
 					NodeList listaEffetti = leader.getElementsByTagName("effetto");
-					System.out.println("effetti: ");
+					System.out.println("effetti di tipo: "+tipologia);
 			        for (int j = 0; j < listaEffetti.getLength(); ++j) {
 			            Element effetto = (Element) listaEffetti.item(j);
 			            String effettoTipo = effetto.getFirstChild().getNodeValue();
 			            System.out.println("effetto: "+effettoTipo);
-			            //Effetto effettoExt = getEffettoXML(effettoTipo);
-			            //effetti.add(effettoExt);
+			            Effetto effettoExt = getEffettoXML(effettoTipo);
+			            effetti.add(effettoExt);
 			        }
+			        
+			        if(tipologia.equals("turno"))
+			        	leaderEstratto = new Leader (nomeCarta, effetti, null, requisitoMaterie, requisitoCarte);
+			        if(tipologia.equals("permanente"))
+			        	leaderEstratto = new Leader (nomeCarta, null, effetti, requisitoMaterie, requisitoCarte);
 				}
 			}
 		}catch(Exception e){
 			e.printStackTrace();
 		}	
-		/*return leaderEstratto;*/
+		
+		return leaderEstratto;
 	}
 	
 	//--------------------------------------------------------------------------------------------------------------//
 	// LEGGI SCOMUNICA
 	//--------------------------------------------------------------------------------------------------------------//
 	/**
-	 * metodo che permette di estrarre i dati generali del gioco dal relativo file XML
-	 * @param quale valore si vuole leggere dal file XML (String)
-	 * @return valore letto (Integer)
+	 * metodo che permette di estrarre i dati relativi alle scomuniche dal relativo file XML
+	 * @param di quale periodo deve essere la scomuniche che si andrà a leggere (Integer)
+	 * @return istanza della scomunica (Classe TesseraScomunica)
 	 */
 	public static TesseraScomunica leggiScomunica (int periodo){
 		
