@@ -70,16 +70,16 @@ import it.polimi.ingsw.pc15.risorse.TipoRisorsa;
 
 public class ParseXML {
 	
-	/*public static void main (String args[]) {
-		leggiScomunica(1);
+	public static void main (String args[]) {
+		/*leggiScomunica(1);*/
 		leggiScomunica(2);
 		leggiScomunica(3);
-	}*/
-	
-	
-	public static void main (String args[]){
-		leggiCartaLeader();
 	}
+	
+	
+	/*public static void main (String args[]){
+		leggiCartaLeader();
+	}*/
 	
 	//--------------------------------------------------------------------------------------------------------------//
 	// GET CARTA XML
@@ -1177,7 +1177,7 @@ public class ParseXML {
 		
 		ArrayList<TesseraScomunica> scomuniche = new ArrayList<TesseraScomunica>();
 		String effettoScomunica;
-		Set<Effetto> effetti = new HashSet<Effetto>();
+		
 		
 		try{
 			DocumentBuilderFactory documentFactory = DocumentBuilderFactory.newInstance();
@@ -1193,8 +1193,8 @@ public class ParseXML {
 				int periodoLetto = Integer.parseInt(scomunica.getElementsByTagName("periodo").item(0).getFirstChild().getNodeValue());
 				
 				if(periodoLetto == periodo){
-					effettoScomunica = scomunica.getElementsByTagName("effetto").item(0).getFirstChild().getNodeValue();
 					int id = Integer.parseInt(scomunica.getAttribute("id"));
+					Set<Effetto> effetti = new HashSet<Effetto>();
 					
 					NodeList listaEffetti = scomunica.getElementsByTagName("effetto");
 			        for (int j = 0; j < listaEffetti.getLength(); ++j) {
