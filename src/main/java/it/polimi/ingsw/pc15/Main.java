@@ -12,26 +12,27 @@ import it.polimi.ingsw.pc15.carte.Personaggio;
 import it.polimi.ingsw.pc15.carte.Territorio;
 import it.polimi.ingsw.pc15.controller.Controller;
 import it.polimi.ingsw.pc15.effetti.Effetto;
+import it.polimi.ingsw.pc15.effetti.NegaMercato;
 import it.polimi.ingsw.pc15.model.Model;
 import it.polimi.ingsw.pc15.plancia.Spazio;
 import it.polimi.ingsw.pc15.player.ColoreFamiliare;
 import it.polimi.ingsw.pc15.player.Familiare;
+import it.polimi.ingsw.pc15.player.Leader;
 import it.polimi.ingsw.pc15.player.Player;
 import it.polimi.ingsw.pc15.risorse.Risorsa;
 import it.polimi.ingsw.pc15.risorse.SetRisorse;
 import it.polimi.ingsw.pc15.risorse.TipoRisorsa;
 import it.polimi.ingsw.pc15.view.View;
 
-/*public class Main {
+public class Main {
 
 	public static void main(String[] args) throws IOException {
 
 		//Player[] players = new Player[numeroGiocatori];
 		//Thread[] threads = new Thread[numeroGiocatori];
 
-		Model gioco = new Model(4);
-		View view = new View (gioco);
-		Controller controller = new Controller (gioco, view);
+		Model gioco = new Model(4, true);
+		
 		gioco.iniziaPartita();
 
 		Scanner in = new Scanner(System.in);
@@ -53,19 +54,16 @@ import it.polimi.ingsw.pc15.view.View;
 		 *  - attenzione all'effetto della badessa (carta blu) oltre ad aggiunta risorse ha azione su qualsiasi carta
 		 *  - effetti scomuniche risorse (1 periodo)
 		 *  - effetti Leader Santa Rita e Pico della mirandola
-		 
+		 */
+			
+		/*for (Leader leader : player.getLeader())
+			System.out.println("Provo a giocare " + leader.getNome());
 		
-		while (true) {
-			
-			System.out.print("\nCosa vuoi fare?  \n-  Visualizza Risorse (1)  \n-  Visualizza Carte in tuo possesso (2)  \n-  Visualizza i familiari disponibili  (3)  \n-  Visualizza Plancia (4)  \n-  Posiziona un familiare (5)  \n");
-			
-			scelta = in.nextInt();
-			
-			view.input(scelta);
-			
-		}
+		for (int i=0; i<4; i++)
+			player.giocaLeader(i);*/
+		
+		player.occupaSpazio(gioco.getPlancia().getSpazioTorre(ColoreCarta.VERDE, 0), player.getFamiliare(ColoreFamiliare.NERO));
+		System.out.println(player.getCarte(ColoreCarta.VERDE).size());
 	}
-}     
-
-*/
+} 
  

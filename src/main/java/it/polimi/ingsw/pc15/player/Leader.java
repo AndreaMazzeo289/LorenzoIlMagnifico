@@ -1,11 +1,14 @@
 package it.polimi.ingsw.pc15.player;
 
 import java.util.HashMap;
+import java.util.Map;
 import java.util.Set;
 
 import it.polimi.ingsw.pc15.carte.ColoreCarta;
 import it.polimi.ingsw.pc15.effetti.Effetto;
+import it.polimi.ingsw.pc15.risorse.Risorsa;
 import it.polimi.ingsw.pc15.risorse.SetRisorse;
+import it.polimi.ingsw.pc15.risorse.TipoRisorsa;
 
 public class Leader {
 	
@@ -21,6 +24,7 @@ public class Leader {
 	private boolean effettoAttivato;
 	
 	public Leader (String nome, Set<Effetto> effettoPerTurno, Set<Effetto> effettoPermanente, SetRisorse requisitoRisorse, HashMap<ColoreCarta, Integer> requisitoCarte) {
+		
 		this.nome = nome;
 		this.player = null;
 		this.effettoPerTurno = effettoPerTurno;
@@ -36,11 +40,19 @@ public class Leader {
 	
 	public boolean requisitiSoddisfatti() {
 		
-		if (player.getSetRisorse().paragona(requisitoRisorse) == false) {
-			System.out.println("Non hai risorse sufficienti per giocare questa carta Leader!");
-			return false;
+		if (this.requisitoRisorse != null)
+			if (player.getSetRisorse().paragona(requisitoRisorse) == false) {
+				System.out.println("Non soddisfi il requisito di risorse richiesto per giocare questo Leader!");
+				return false;
 		}
 		
+		if (this.requisitoCarte != null)
+			for(Map.Entry<ColoreCarta, Integer> requisito : requisitoCarte.entrySet())
+				if (player.getCarte(requisito.getKey()).size() < requisito.getValue()) {
+					System.out.println("Non soddisfi il requisito di Carte Sviluppo richiesto per giocare questo Leader!");
+					return false;
+				}
+
 		return true;
 	}
 	
@@ -52,16 +64,24 @@ public class Leader {
 		this.effettoAttivato = valore;
 	}
 	
-	public Set<Effetto> getEffettoPerTurno() {
-		return this.effettoPerTurno;
+	public void setGiocato (boolean valore) {
+		this.giocato = valore;
 	}
 	
-	public Set<Effetto> getEffettoPermanente() {
-		return this.effettoPermanente;
-	}
+	//-----------------------------------------------------------------------------------------------------------//
+	//          METODI GET                                                                                       //
+	//-----------------------------------------------------------------------------------------------------------//
 	
 	public String getNome() {
 		return this.nome;
+	}
+	
+	public HashMap<ColoreCarta, Integer> getRequisitoCarte() {
+		return this.requisitoCarte;
+	}
+	
+	public SetRisorse getRequisitoRisorse() {
+		return this.requisitoRisorse;
 	}
 	
 	public boolean effettoGiàAttivato() {
@@ -70,6 +90,14 @@ public class Leader {
 	
 	public boolean giocato() {
 		return this.giocato;
+	}
+	
+	public Set<Effetto> getEffettoPerTurno() {
+		return this.effettoPerTurno;
+	}
+	
+	public Set<Effetto> getEffettoPermanente() {
+		return this.effettoPermanente;
 	}
 	
 }

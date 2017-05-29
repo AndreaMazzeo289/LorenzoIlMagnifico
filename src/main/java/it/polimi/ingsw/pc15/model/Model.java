@@ -17,6 +17,7 @@ import it.polimi.ingsw.pc15.carte.Personaggio;
 import it.polimi.ingsw.pc15.carte.Territorio;
 import it.polimi.ingsw.pc15.plancia.Plancia;
 import it.polimi.ingsw.pc15.player.ColoreFamiliare;
+import it.polimi.ingsw.pc15.player.Leader;
 import it.polimi.ingsw.pc15.player.Player;
 import it.polimi.ingsw.pc15.risorse.Legna;
 import it.polimi.ingsw.pc15.risorse.Oro;
@@ -37,18 +38,24 @@ public class Model extends Observable {
 	private Plancia plancia;
 	private int turno;
 	private int periodo;
+	
 	private ArrayList<Carta> carteTerritorio;
 	private ArrayList<Carta> cartePersonaggio;
 	private ArrayList<Carta> carteEdificio;
 	private ArrayList<Carta> carteImpresa;
 	
+	private ArrayList<Leader> carteLeader;
 	
-	public Model(int numeroGiocatori){
+	private boolean regoleAvanzate;
+	
+	
+	public Model(int numeroGiocatori, boolean regoleAvanzate){
 
 		this.numeroGiocatori = numeroGiocatori;
 		this.plancia = new Plancia(numeroGiocatori);
 		this.turno = 0;
 		this.periodo = 1;
+		this.regoleAvanzate = regoleAvanzate;
 			
 		Player player1 = new Player("Maffe");
 		Player player2 = new Player("Mazze");
@@ -65,7 +72,9 @@ public class Model extends Observable {
 
 	public void iniziaPartita() {
 		
-		
+		//-----------------------------------------------------------------------------------------------------------//
+		//          CREA CARTE SVILUPPO                                                                              //
+		//-----------------------------------------------------------------------------------------------------------//
 		
 		carteTerritorio= ParseXML.getCartaXML(ColoreCarta.VERDE);
 		carteEdificio= ParseXML.getCartaXML(ColoreCarta.GIALLO);
@@ -76,6 +85,27 @@ public class Model extends Observable {
 		Collections.shuffle(cartePersonaggio);
 		Collections.shuffle(carteEdificio);
 		Collections.shuffle(carteImpresa);
+		
+		//-----------------------------------------------------------------------------------------------------------//
+		//          CREA CARTE LEADER                                                                                //
+		//-----------------------------------------------------------------------------------------------------------//
+		
+		if (regoleAvanzate) {
+			
+			carteLeader = ParseXML.leggiCartaLeader();
+			Collections.shuffle(carteLeader);	
+			int numeroCarteLeader = ParseXML.leggiValore("numeroCarteLeader");
+			int i=0, j=0;
+			while (j<numeroGiocatori) {
+				giocatori.get(j).getLeader().add(carteLeader.get(i));
+				carteLeader.get(i).setPlayer(giocatori.get(j));
+				i++;
+				if (i==numeroCarteLeader) {
+					i=0;
+					j++;
+				}
+			}
+		}
 		
 		iniziaNuovoTurno();
 		
@@ -91,8 +121,11 @@ public class Model extends Observable {
 		
 		this.plancia.setTurno(periodo, carteTerritorio, cartePersonaggio, carteEdificio, carteImpresa);
 
-		Random random = new Random();
+		//-----------------------------------------------------------------------------------------------------------//
+		//          LANCIA I DADI                                                                                    //
+		//-----------------------------------------------------------------------------------------------------------//
 		
+		Random random = new Random();	
 		int valoreDadoNero = random.nextInt(6) + 1;
 		int valoreDadoBianco = random.nextInt(6) + 1;
 		int valoreDadoArancione = random.nextInt(6) + 1;
@@ -115,8 +148,6 @@ public class Model extends Observable {
 				this.plancia.getTesseraScomunica(periodo).infliggiScomunica(player);
 		}
 	}
-	
-	
 	
 	public ArrayList<Player> getPlayers() {
 		return this.giocatori;

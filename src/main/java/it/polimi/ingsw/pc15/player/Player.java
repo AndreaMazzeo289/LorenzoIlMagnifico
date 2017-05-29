@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.Iterator;
+import java.util.Map;
 import java.util.Set;
 
 import it.polimi.ingsw.pc15.ParseXML;
@@ -32,8 +33,8 @@ public class Player {
 	private final String nome;
 	private SetRisorse setRisorse;
 	private Set<Familiare> familiari;
-	private HashMap <ColoreCarta, ArrayList<Carta>> carteSviluppo;
-	EffettiAttivi effettiAttivi;
+	private HashMap <ColoreCarta, ArrayList> carteSviluppo;
+	private EffettiAttivi effettiAttivi;
 	private ArrayList<Leader> carteLeader;
 	private Set<Player> avversari;
 	
@@ -42,7 +43,7 @@ public class Player {
 		
 		this.nome = nome;
 		this.effettiAttivi = new EffettiAttivi();	
-		this.carteLeader = null;
+		this.carteLeader = new ArrayList<Leader>();
 		this.avversari = null;
 		
 		//-----------------------------------------------------------------------------------------------------------//
@@ -93,12 +94,12 @@ public class Player {
 		
 		int numeroMaxCarte = ParseXML.leggiValore("numeroMaxCarte");
 		
-		ArrayList<Carta> territori = new ArrayList<Carta>(numeroMaxCarte);
-		ArrayList<Carta> personaggi = new ArrayList<Carta>(numeroMaxCarte);
-		ArrayList<Carta> edifici = new ArrayList<Carta>(numeroMaxCarte);
-		ArrayList<Carta> imprese = new ArrayList<Carta>(numeroMaxCarte);
+		ArrayList<Territorio> territori = new ArrayList<Territorio>(numeroMaxCarte);
+		ArrayList<Personaggio> personaggi = new ArrayList<Personaggio>(numeroMaxCarte);
+		ArrayList<Edificio> edifici = new ArrayList<Edificio>(numeroMaxCarte);
+		ArrayList<Impresa> imprese = new ArrayList<Impresa>(numeroMaxCarte);
 		
-		this.carteSviluppo = new HashMap<ColoreCarta, ArrayList<Carta>>();
+		this.carteSviluppo = new HashMap<ColoreCarta, ArrayList>();
 		this.carteSviluppo.put(ColoreCarta.VERDE, territori);
 		this.carteSviluppo.put(ColoreCarta.BLU, personaggi);
 		this.carteSviluppo.put(ColoreCarta.GIALLO, edifici);
@@ -128,7 +129,19 @@ public class Player {
 	}
 	
 	public void giocaLeader (int numeroLeader) {
-		//FINIRE
+		
+		Leader leaderScelto = this.carteLeader.get(numeroLeader);
+		
+		if (leaderScelto.giocato())
+			System.out.println("Hai già giocato questo leader!");
+		
+		if (leaderScelto.requisitiSoddisfatti() ) {
+			System.out.println("Hai giocato la carta Leader " + leaderScelto.getNome());
+			this.carteLeader.get(0).setGiocato(true);
+			for (Effetto effetto : this.carteLeader.get(0).getEffettoPermanente())
+				effetto.attiva(this);
+		}
+		
 	}
 	
 	public void attivaEffettoLeader (int numeroLeader) {
@@ -139,7 +152,6 @@ public class Player {
 			this.carteLeader.get(numeroLeader).setEffettoAttivato(true);
 		}
 	}
-	
 	
 	
 	//-----------------------------------------------------------------------------------------------------------//
@@ -155,6 +167,13 @@ public class Player {
 	}
 	
 	public ArrayList<Carta> getCarte (ColoreCarta colore) {
+		
+		if (colore.equals(ColoreCarta.ALL)) {
+			ArrayList<Carta> arrayRichiesto = new ArrayList<Carta>();
+			for(Map.Entry<ColoreCarta, ArrayList> carte : carteSviluppo.entrySet())
+				arrayRichiesto.addAll(carte.getValue());
+		}
+		
 		return this.carteSviluppo.get(colore);
 	}
 	
