@@ -104,7 +104,7 @@ public class Server {
 		System.out.println("check view");
 		View player4 = new View(new Player(connessi.get(3)), playingConnection.get(connessi.get(3)));
 			
-		Model model = new Model(numeroGiocatori);
+		Model model = new Model(numeroGiocatori, false);
 		Controller controller = new Controller(model);
 		model.addObserver(player1);
 		model.addObserver(player2);

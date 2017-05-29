@@ -18,10 +18,14 @@ public class EffettiAttivi {
 	
 	public EffettiAttivi (){
 		
+		bonusDadoCarte = new HashMap<ColoreCarta, Integer>();
+		
 		bonusDadoCarte.put(ColoreCarta.VERDE, 0);
 		bonusDadoCarte.put(ColoreCarta.BLU, 0);
 		bonusDadoCarte.put(ColoreCarta.GIALLO, 0);
 		bonusDadoCarte.put(ColoreCarta.VIOLA, 0);
+		
+		bonusPuntiVittoriaFinale = new HashMap<ColoreCarta, Boolean>();
 		
 		bonusPuntiVittoriaFinale.put(ColoreCarta.VERDE, true);
 		bonusPuntiVittoriaFinale.put(ColoreCarta.BLU, true);

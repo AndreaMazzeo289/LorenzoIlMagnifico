@@ -59,4 +59,7 @@
     <nomeValore nome="puntiFedePeriodo3">
         <valore>5</valore>
     </nomeValore>
+    <nomeValore nome="numeroCarteLeader">
+        <valore>4</valore>
+    </nomeValore>
 </datiGenerali>

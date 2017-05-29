@@ -70,7 +70,7 @@ public class View extends Observable implements Observer {
 					System.out.print("\nFamiliare NEUTRO - valore " + player.getFamiliare(ColoreFamiliare.NEUTRO).getValore());
 				break;
 				
-		case 4: //MAZZE PENSACI TU!
+		case 4: //MAZZE PENSACI TU! ok
 				break;
 				
 		case 5: System.out.println("\nChe familiare vuoi posizionare?");

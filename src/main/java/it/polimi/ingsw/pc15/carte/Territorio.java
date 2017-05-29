@@ -33,4 +33,9 @@ public class Territorio extends Carta {
 		return azionePrendiCarta;
 	}
 
+	@Override
+	public ColoreCarta getColore() {
+		return ColoreCarta.VERDE;
+	}
+
 }

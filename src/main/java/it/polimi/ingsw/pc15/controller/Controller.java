@@ -25,7 +25,6 @@ public class Controller implements Observer {
 			throw new IllegalArgumentException();
 		}
 		
-		gioco.
 		
 	}
 

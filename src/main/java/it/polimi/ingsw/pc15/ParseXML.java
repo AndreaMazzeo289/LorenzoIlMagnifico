@@ -70,34 +70,15 @@ import it.polimi.ingsw.pc15.risorse.TipoRisorsa;
 
 public class ParseXML {
 	
-	/*public static void main (String args[]) {
-		leggiScomunica(1);
+	public static void main (String args[]) {
+		/*leggiScomunica(1);*/
 		leggiScomunica(2);
 		leggiScomunica(3);
-	}*/
+	}
 	
 	
 	/*public static void main (String args[]){
-		leggiCartaLeader("Cesare Borgia");
-		leggiCartaLeader("Ludovico Ariosto");
-		leggiCartaLeader("Filippo Brunelleschi");
-		leggiCartaLeader("Sigismondo Malatesta");
-		leggiCartaLeader("Ludovico il Moro");
-		leggiCartaLeader("Lucrezia Borgia");
-		leggiCartaLeader("Lorenzo de’ Medici");
-		leggiCartaLeader("Sisto IV");
-		leggiCartaLeader("Santa Rita");
-		leggiCartaLeader("Pico della mirandola");
-		leggiCartaLeader("Francesco Sforza");
-		leggiCartaLeader("Michelangelo Buonarroti");
-		leggiCartaLeader("Giovanni dalle Bande Nere");
-		leggiCartaLeader("Girolamo Savonarola");
-		leggiCartaLeader("Leonardo da Vinci");
-		leggiCartaLeader("Sandro Botticelli");
-		leggiCartaLeader("Federico da Montefeltro");
-		leggiCartaLeader("Cosimo de’ Medici");
-		leggiCartaLeader("Bartolomeo Colleoni");
-		leggiCartaLeader("Ludovico III Gonzaga");
+		leggiCartaLeader();
 	}*/
 	
 	//--------------------------------------------------------------------------------------------------------------//
@@ -1075,12 +1056,12 @@ public class ParseXML {
 	 * @param nome della carta leader che si vuole estrarre (String)
 	 * @return istanza della carta leader desiderata
 	 */
-	public static Leader leggiCartaLeader (String nomeCarta){
+	public static ArrayList<Leader> leggiCartaLeader (){
 		
-		int valore=1;
 		Set<Effetto> effetti = new HashSet<Effetto>();
 		Leader leaderEstratto = null;
-		HashMap<ColoreCarta, Integer> requisitoCarte = new HashMap<ColoreCarta, Integer>();
+		
+		ArrayList<Leader> listaLeader = new ArrayList<Leader>();
 		
 		try{
 			DocumentBuilderFactory documentFactory = DocumentBuilderFactory.newInstance();
@@ -1095,94 +1076,93 @@ public class ParseXML {
 				Element leader = (Element) leaders.item(i);
 				String nomeLeader = leader.getElementsByTagName("nome").item(0).getFirstChild().getNodeValue();
 				SetRisorse requisitoMaterie;
-				
-				if(nomeCarta.toUpperCase().equals(nomeLeader.toUpperCase())) {	
-					
-					try{
-						NodeList carte = leader.getElementsByTagName("carta");
-						int fine = carte.getLength();
-						if(fine!=0) {
-							for(int j=0; j<fine; j++) {
-								Element carta = (Element) carte.item(j);
-								
-								String tipoCarta = carta.getElementsByTagName("tipo").item(0).getFirstChild().getNodeValue();
-								ColoreCarta coloreCartaEnum = null;
-								switch(tipoCarta.toUpperCase()) {
-									case "EDIFICIO" : coloreCartaEnum = ColoreCarta.VERDE;
-										break;
-									case "TERRITORIO" : coloreCartaEnum= ColoreCarta.BLU;
-										break;
-									case "PERSONAGGIO" : coloreCartaEnum = ColoreCarta.GIALLO;
-										break;
-									case "IMPRESA" : coloreCartaEnum = ColoreCarta.VIOLA;
-										break;
-								}
-								
-								int quantita = Integer.parseInt(carta.getElementsByTagName("quantita").item(0).getFirstChild().getNodeValue());
-								
-								requisitoCarte.put(coloreCartaEnum, quantita);
+				HashMap<ColoreCarta, Integer> requisitoCarte = new HashMap<ColoreCarta, Integer>();	
+				try{
+					NodeList carte = leader.getElementsByTagName("carta");
+					int fine = carte.getLength();
+					if(fine!=0) {
+						for(int j=0; j<fine; j++) {
+							Element carta = (Element) carte.item(j);
+							
+							String tipoCarta = carta.getElementsByTagName("tipo").item(0).getFirstChild().getNodeValue();
+							ColoreCarta coloreCartaEnum = null;
+							switch(tipoCarta.toUpperCase()) {
+								case "EDIFICIO" : coloreCartaEnum = ColoreCarta.GIALLO;
+									break;
+								case "TERRITORIO" : coloreCartaEnum= ColoreCarta.VERDE;
+									break;
+								case "PERSONAGGIO" : coloreCartaEnum = ColoreCarta.BLU;
+									break;
+								case "IMPRESA" : coloreCartaEnum = ColoreCarta.VIOLA;
+									break;
+								case "ALL": coloreCartaEnum = ColoreCarta.ALL;
+									break;
 							}
+							
+							int quantita = Integer.parseInt(carta.getElementsByTagName("quantita").item(0).getFirstChild().getNodeValue());
+							
+							requisitoCarte.put(coloreCartaEnum, quantita);
 						}
-						else{
-							requisitoCarte=null;
-						}
-					}catch(Exception e2) {
 					}
-					
-					try{
-						//------------------------------------------------------//
-			      		//	FASE 2.1: ISTANZIAZIONE DEL SET RISORSE (COSTO)
-			      		//------------------------------------------------------//
-			    		Legna legna = new Legna (Integer.parseInt(leader.getElementsByTagName("legno").item(0).getFirstChild().getNodeValue()));
-			    		Pietra pietra = new Pietra (Integer.parseInt(leader.getElementsByTagName("pietra").item(0).getFirstChild().getNodeValue()));
-			    		Oro oro = new Oro (Integer.parseInt(leader.getElementsByTagName("oro").item(0).getFirstChild().getNodeValue()));
-			    		Servitori servitori = new Servitori (Integer.parseInt(leader.getElementsByTagName("servitori").item(0).getFirstChild().getNodeValue()));
-			    		PuntiFede puntiFede = new PuntiFede (Integer.parseInt(leader.getElementsByTagName("puntiFede").item(0).getFirstChild().getNodeValue()));
-			    		PuntiMilitari puntiMilitari = new PuntiMilitari (Integer.parseInt(leader.getElementsByTagName("puntiMilitari").item(0).getFirstChild().getNodeValue()));
-			    		PuntiVittoria puntiVittoria = new PuntiVittoria (Integer.parseInt(leader.getElementsByTagName("puntiVittoria").item(0).getFirstChild().getNodeValue()));
-			    		Privilegi privilegi = new Privilegi (Integer.parseInt(leader.getElementsByTagName("privilegi").item(0).getFirstChild().getNodeValue()));
-			            
-			            HashSet<Risorsa> risorse = new HashSet<>();
-			            
-			            risorse.add(legna);
-			            risorse.add(pietra);
-			            risorse.add(oro);
-			            risorse.add(servitori);
-			            risorse.add(puntiFede);
-			            risorse.add(puntiMilitari);
-			            risorse.add(puntiVittoria);
-			            risorse.add(privilegi);
-			                   
-			            requisitoMaterie = new SetRisorse (risorse);
-			            
-					}catch(Exception e1) {
-						requisitoMaterie = null;
+					else{
+						requisitoCarte=null;
 					}
-					
-					
-					String tipologia = ((Element)(leader.getElementsByTagName("effetti")).item(0)).getAttribute("tipo");
-					
-					NodeList listaEffetti = leader.getElementsByTagName("effetto");
-					System.out.println("effetti di tipo: "+tipologia);
-			        for (int j = 0; j < listaEffetti.getLength(); ++j) {
-			            Element effetto = (Element) listaEffetti.item(j);
-			            String effettoTipo = effetto.getFirstChild().getNodeValue();
-			            System.out.println("effetto: "+effettoTipo);
-			            Effetto effettoExt = getEffettoXML(effettoTipo);
-			            effetti.add(effettoExt);
-			        }
-			        
-			        if(tipologia.equals("turno"))
-			        	leaderEstratto = new Leader (nomeCarta, effetti, null, requisitoMaterie, requisitoCarte);
-			        if(tipologia.equals("permanente"))
-			        	leaderEstratto = new Leader (nomeCarta, null, effetti, requisitoMaterie, requisitoCarte);
+				}catch(Exception e2) {
 				}
+					
+				try{
+					//------------------------------------------------------//
+		      		//	FASE 2.1: ISTANZIAZIONE DEL SET RISORSE (COSTO)
+		      		//------------------------------------------------------//
+		    		Legna legna = new Legna (Integer.parseInt(leader.getElementsByTagName("legno").item(0).getFirstChild().getNodeValue()));
+		    		Pietra pietra = new Pietra (Integer.parseInt(leader.getElementsByTagName("pietra").item(0).getFirstChild().getNodeValue()));
+		    		Oro oro = new Oro (Integer.parseInt(leader.getElementsByTagName("oro").item(0).getFirstChild().getNodeValue()));
+		    		Servitori servitori = new Servitori (Integer.parseInt(leader.getElementsByTagName("servitori").item(0).getFirstChild().getNodeValue()));
+		    		PuntiFede puntiFede = new PuntiFede (Integer.parseInt(leader.getElementsByTagName("puntiFede").item(0).getFirstChild().getNodeValue()));
+		    		PuntiMilitari puntiMilitari = new PuntiMilitari (Integer.parseInt(leader.getElementsByTagName("puntiMilitari").item(0).getFirstChild().getNodeValue()));
+		    		PuntiVittoria puntiVittoria = new PuntiVittoria (Integer.parseInt(leader.getElementsByTagName("puntiVittoria").item(0).getFirstChild().getNodeValue()));
+		    		Privilegi privilegi = new Privilegi (Integer.parseInt(leader.getElementsByTagName("privilegi").item(0).getFirstChild().getNodeValue()));
+		            
+		            HashSet<Risorsa> risorse = new HashSet<>();
+		            
+		            risorse.add(legna);
+		            risorse.add(pietra);
+		            risorse.add(oro);
+		            risorse.add(servitori);
+		            risorse.add(puntiFede);
+		            risorse.add(puntiMilitari);
+		            risorse.add(puntiVittoria);
+		            risorse.add(privilegi);
+		                   
+		            requisitoMaterie = new SetRisorse (risorse);
+		            
+				}catch(Exception e1) {
+					requisitoMaterie = null;
+				}
+					
+					
+				String tipologia = ((Element)(leader.getElementsByTagName("effetti")).item(0)).getAttribute("tipo");
+				
+				NodeList listaEffetti = leader.getElementsByTagName("effetto");
+		        for (int j = 0; j < listaEffetti.getLength(); ++j) {
+		            Element effetto = (Element) listaEffetti.item(j);
+		            String effettoTipo = effetto.getFirstChild().getNodeValue();
+		            Effetto effettoExt = getEffettoXML(effettoTipo);
+		            effetti.add(effettoExt);
+		        }
+			        
+		        if(tipologia.equals("turno"))
+		        	leaderEstratto = new Leader (nomeLeader, effetti, null, requisitoMaterie, requisitoCarte);
+		        if(tipologia.equals("permanente"))
+		        	leaderEstratto = new Leader (nomeLeader, null, effetti, requisitoMaterie, requisitoCarte);
+		        
+		        listaLeader.add(leaderEstratto);
 			}
 		}catch(Exception e){
 			e.printStackTrace();
 		}	
 		
-		return leaderEstratto;
+		return listaLeader;
 	}
 	
 	//--------------------------------------------------------------------------------------------------------------//
@@ -1197,7 +1177,7 @@ public class ParseXML {
 		
 		ArrayList<TesseraScomunica> scomuniche = new ArrayList<TesseraScomunica>();
 		String effettoScomunica;
-		Set<Effetto> effetti = new HashSet<Effetto>();
+		
 		
 		try{
 			DocumentBuilderFactory documentFactory = DocumentBuilderFactory.newInstance();
@@ -1213,7 +1193,8 @@ public class ParseXML {
 				int periodoLetto = Integer.parseInt(scomunica.getElementsByTagName("periodo").item(0).getFirstChild().getNodeValue());
 				
 				if(periodoLetto == periodo){
-					effettoScomunica = scomunica.getElementsByTagName("effetto").item(0).getFirstChild().getNodeValue();
+					int id = Integer.parseInt(scomunica.getAttribute("id"));
+					Set<Effetto> effetti = new HashSet<Effetto>();
 					
 					NodeList listaEffetti = scomunica.getElementsByTagName("effetto");
 			        for (int j = 0; j < listaEffetti.getLength(); ++j) {
@@ -1223,7 +1204,7 @@ public class ParseXML {
 			            effetti.add(effettoExt);
 			        }
 					
-			        TesseraScomunica tesseraScomunica = new TesseraScomunica (periodoLetto,effetti);
+			        TesseraScomunica tesseraScomunica = new TesseraScomunica (id,periodoLetto,effetti);
 			        
 					scomuniche.add(tesseraScomunica);
 				}

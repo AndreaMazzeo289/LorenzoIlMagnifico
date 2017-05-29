@@ -94,9 +94,10 @@ public class Plancia {
 		this.scomuniche = new HashMap<Integer, TesseraScomunica>();
 		
 		int numeroTessereScomunica = ParseXML.leggiValore("numeroPeriodi");
-		for (int i=1; i<=numeroTessereScomunica; i++)
-			//scomuniche.put(i, ParseXML.leggiScomunica(i))
-			;
+		for (int i=1; i<=numeroTessereScomunica; i++) {
+			scomuniche.put(i, ParseXML.leggiScomunica(i));
+			System.out.println("ID Scomunica: " + scomuniche.get(i).getID());
+		}
 			
 	}
 
@@ -193,6 +194,10 @@ public class Plancia {
 	
 	public TesseraScomunica getTesseraScomunica(int periodo) {
 		return scomuniche.get(periodo);
+	}
+	
+	public HashMap<Integer, TesseraScomunica> getScomuniche() {
+		return this.scomuniche;
 	}
 	
 	

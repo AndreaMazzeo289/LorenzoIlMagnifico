@@ -34,6 +34,11 @@ public class Impresa extends Carta {
 	public int getCostoPuntiMilitari() {
 		return this.costoPuntiMilitari;
 	}
+
+	@Override
+	public ColoreCarta getColore() {
+		return ColoreCarta.VIOLA;
+	}
 	
 	
 

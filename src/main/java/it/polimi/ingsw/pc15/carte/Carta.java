@@ -54,9 +54,7 @@ public abstract class Carta {
 		return this.player;
 	}
 	
-	public ColoreCarta getColore() {
-		return ColoreCarta.ALL;
-	}
+	public abstract ColoreCarta getColore();
 	
 	public void setPlayer(Player player) {
 		this.player = player;
