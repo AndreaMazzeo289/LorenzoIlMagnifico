@@ -38,11 +38,6 @@ public class Client {
 			
 			System.out.println(in.nextLine());
 
-			String write2 = input.readLine();
-			out.println(write2);
-			out.flush();
-			
-			System.out.println(in.nextLine());
 			System.out.println(in.nextLine());
 		}
 		catch (IOException e) {e.printStackTrace();}

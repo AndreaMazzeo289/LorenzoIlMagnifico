@@ -13,7 +13,8 @@ public class Connection extends Observable implements Runnable {
 	private Server server;
 	private PrintStream out;
 	private Scanner in;
-	private int numeroGiocatori;
+	private int numeroGiocatori = 0;
+	private boolean flag = true;
 	
 	
 	public Connection(Socket socket, Server server){
@@ -27,7 +28,7 @@ public class Connection extends Observable implements Runnable {
 		// TODO Auto-generated method stub
 		try {	
 			
-			synchronized (this) {
+				if(flag){
 				out = new PrintStream(this.socket.getOutputStream());
 				in = new Scanner(this.socket.getInputStream());
 				out.println("Scrivi il tuo nome");
@@ -35,18 +36,24 @@ public class Connection extends Observable implements Runnable {
 			
 			
 				String read = in.nextLine();
-				send("Scrivi il tuo cognome");
-				String read2 = in.nextLine();
-				System.out.println("Connesso con il player : " + read + " " + read2);
+				
+				System.out.println("Connesso con il player : " + read);
 			
 				
 	
 				numeroGiocatori = server.Connetti(this, read);
-				
-				if (numeroGiocatori<4) {
-					send("In attesa di altri giocatori...");
-				}else send("La partita sta per cominciare");
+				}
+			synchronized (this) {
 				notify();
+			
+			if(flag){
+				
+			
+				send("In attesa di altri giocatori...");
+				flag = false;
+				wait();
+				send("La partita sta per cominciare");
+			}
 			}
 			
 			
@@ -55,6 +62,9 @@ public class Connection extends Observable implements Runnable {
 			
 			
 		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (InterruptedException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}

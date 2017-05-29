@@ -15,6 +15,7 @@ public class Server {
 	
 	private final static int PORT = 12879;
 	ServerSocket serverSocket;
+	ArrayList<Connection> connectionList = new ArrayList<Connection>();
 	
 	private Map<String, Connection> playingConnection = new HashMap<>();
 ;
@@ -36,11 +37,28 @@ public class Server {
 				System.out.println("Stabilisco connessione...");
 				Socket newSocket = serverSocket.accept();
 				Connection connection = new Connection(newSocket, this);
+				register(connection);
 				synchronized (connection) {
 						new Thread(connection).start();
 						connection.wait();
 				}
-			
+				
+				if(connectionList.size()==4){
+					
+					synchronized(connectionList.get(0)){
+						new Thread(connectionList.get(0)).start();
+					}
+					synchronized(connectionList.get(1)){
+						new Thread(connectionList.get(1)).start();
+					}
+					synchronized(connectionList.get(2)){
+						new Thread(connectionList.get(2)).start();
+					}
+					synchronized(connectionList.get(3)){
+						new Thread(connectionList.get(3)).start();
+					}
+					
+				}
 				
 			} 
 			
@@ -51,7 +69,10 @@ public class Server {
 			
 	}
 			
-	
+	public void register(Connection connection){
+		
+		connectionList.add(connection);
+	}
 	
 	public synchronized int Connetti(Connection c, String name){
 		
