@@ -26,7 +26,7 @@ import it.polimi.ingsw.pc15.risorse.SetRisorse;
 import it.polimi.ingsw.pc15.risorse.TipoRisorsa;
 import it.polimi.ingsw.pc15.view.View;
 
-/*public class Main {
+public class Main {
 
 	public static void main(String[] args) throws IOException {
 
@@ -59,7 +59,7 @@ import it.polimi.ingsw.pc15.view.View;
 		 *  - attenzione all'effetto della badessa (carta blu) oltre ad aggiunta risorse ha azione su qualsiasi carta
 		 *  - effetti scomuniche risorse (1 periodo)
 		 *  - effetti Leader Santa Rita e Pico della mirandola
-		 
+		 */
 		
 		
 		for (Leader leader : player.getLeader())
@@ -102,4 +102,4 @@ import it.polimi.ingsw.pc15.view.View;
 		
 		
 	}
-} */
+}
