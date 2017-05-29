@@ -20,13 +20,13 @@ import it.polimi.ingsw.pc15.risorse.TipoRisorsa;
 public class View extends Observable implements Observer {
 	
 	private Player player;
-	private ConsoleView consoleView;
+	//private ConsoleView consoleView;
 	
 	public View (Player player, Connection connection) {
 		
 		this.player = player;
 		connection.addObserver(this);
-		this.consoleView = new ConsoleView();
+		//this.consoleView = new ConsoleView();
 	}
 
 
@@ -94,8 +94,8 @@ public class View extends Observable implements Observer {
 		if(!(o instanceof Connection)|| !(message instanceof String)){
 			throw new IllegalArgumentException();
 		}
-		String instruction = consoleView.parseMessage((String) message);
-		notifyObservers(instruction);
+		//String instruction = consoleView.parseMessage((String) message);
+		//notifyObservers(instruction);
 	}
 	
 	
