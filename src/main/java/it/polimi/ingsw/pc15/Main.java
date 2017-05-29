@@ -68,6 +68,8 @@ public class Main {
 		for (int i=0; i<4; i++)
 			player.giocaLeader(i);
 		
+		gioco.rapportoInVaticano(2);
+
 		System.out.println("provo a prendere" + gioco.getPlancia().getSpazioTorre(ColoreCarta.BLU,0).getCarta().getNome());
 		
 		System.out.println("\nAl momento possiedi le seguenti risorse:");
