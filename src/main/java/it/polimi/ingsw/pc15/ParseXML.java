@@ -1142,11 +1142,9 @@ public class ParseXML {
 				String tipologia = ((Element)(leader.getElementsByTagName("effetti")).item(0)).getAttribute("tipo");
 				
 				NodeList listaEffetti = leader.getElementsByTagName("effetto");
-				System.out.println("effetti di tipo: "+tipologia);
 		        for (int j = 0; j < listaEffetti.getLength(); ++j) {
 		            Element effetto = (Element) listaEffetti.item(j);
 		            String effettoTipo = effetto.getFirstChild().getNodeValue();
-		            System.out.println("effetto: "+effettoTipo);
 		            Effetto effettoExt = getEffettoXML(effettoTipo);
 		            effetti.add(effettoExt);
 		        }
