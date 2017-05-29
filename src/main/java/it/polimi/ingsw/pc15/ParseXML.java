@@ -1060,7 +1060,7 @@ public class ParseXML {
 		
 		Set<Effetto> effetti = new HashSet<Effetto>();
 		Leader leaderEstratto = null;
-		HashMap<ColoreCarta, Integer> requisitoCarte = new HashMap<ColoreCarta, Integer>();
+		
 		ArrayList<Leader> listaLeader = new ArrayList<Leader>();
 		
 		try{
@@ -1076,7 +1076,7 @@ public class ParseXML {
 				Element leader = (Element) leaders.item(i);
 				String nomeLeader = leader.getElementsByTagName("nome").item(0).getFirstChild().getNodeValue();
 				SetRisorse requisitoMaterie;
-					
+				HashMap<ColoreCarta, Integer> requisitoCarte = new HashMap<ColoreCarta, Integer>();	
 				try{
 					NodeList carte = leader.getElementsByTagName("carta");
 					int fine = carte.getLength();
