@@ -3,43 +3,43 @@
     <!--************************************************************
                             PRIMO PERIODO
     *************************************************************-->
-    <scomunica>
+    <scomunica id="11">
         <periodo>1</periodo>
         <effetti>
             <effetto>riduzioneGuadagnoPuntiMilitari</effetto>
         </effetti>
     </scomunica>
-    <scomunica>
+    <scomunica id="12">
         <periodo>1</periodo>
         <effetti>
             <effetto>riduzioneGuadagnoOro</effetto>
         </effetti>
     </scomunica>
-    <scomunica>
+    <scomunica id="13">
         <periodo>1</periodo>
         <effetti>
             <effetto>riduzioneGuadagnoServitori</effetto>
         </effetti>
     </scomunica>
-    <scomunica>
+    <scomunica id="14">
         <periodo>1</periodo>
         <effetti>
             <effetto>riduzioneGuadagnoLegnoOrPietra</effetto>
         </effetti>
     </scomunica>
-    <scomunica>
+    <scomunica id="15">
         <periodo>1</periodo>
         <effetti>
             <effetto>bonusRaccolta-3</effetto>
         </effetti>
     </scomunica>
-    <scomunica>
+    <scomunica id="16">
         <periodo>1</periodo>
         <effetti>
             <effetto>bonusProduzione-3</effetto>    
         </effetti>
     </scomunica>
-    <scomunica>
+    <scomunica id="17">
         <periodo>1</periodo>
         <effetti>
             <effetto>bonusValoreFamiliareNero-1</effetto>
@@ -51,43 +51,43 @@
     <!--************************************************************
                             SECONDO PERIODO
     *************************************************************-->
-    <scomunica>
+    <scomunica id="21">
         <periodo>2</periodo>
         <effetti>
             <effetto>bonusCarteVerdi-4</effetto>
         </effetti>
     </scomunica>
-    <scomunica>
+    <scomunica id="22">
         <periodo>2</periodo>
         <effetti>
             <effetto>bonusCarteGialle-4</effetto>
         </effetti>
     </scomunica>
-    <scomunica>
+    <scomunica id="23">
         <periodo>2</periodo>
         <effetti>
             <effetto>bonusCarteBlu-4</effetto>
         </effetti>
     </scomunica>
-    <scomunica>
+    <scomunica id="24">
         <periodo>2</periodo>
         <effetti>
             <effetto>bonusCarteViola-4</effetto>
         </effetti>
     </scomunica>
-    <scomunica>
+    <scomunica id="25">
         <periodo>2</periodo>
         <effetti>
             <effetto>negazioneMercato</effetto>
         </effetti>
     </scomunica>
-    <scomunica>
+    <scomunica id="26">
         <periodo>2</periodo>
         <effetti>
             <effetto>aumentaPrezzoServitori</effetto>
         </effetti>
     </scomunica>
-    <scomunica>
+    <scomunica id="27">
         <periodo>2</periodo>
         <effetti>
             <effetto>saltaPrimoTurno</effetto>
@@ -97,43 +97,44 @@
     <!--************************************************************
                             TERZO PERIODO
     *************************************************************-->
-    <scomunica>
+    <scomunica id="31">
         <periodo>3</periodo>
         <effetti>
             <effetto>annullaGuadagnoVerdi</effetto>
         </effetti>
     </scomunica>
-    <scomunica>
+    <scomunica id="32">
         <periodo>3</periodo>
         <effetti>
             <effetto>annullaGuadagnoBlu</effetto>
         </effetti>
     </scomunica>
-    <scomunica>
+    <scomunica id="33">
         <periodo>3</periodo>
         <effetti>
             <effetto>annullaGuadagnoViola</effetto>
         </effetti>
     </scomunica>
-    <scomunica>
+    <scomunica id="34">
         <periodo>3</periodo>
         <effetti>
             <effetto>moltiplicatore-1Vx5V</effetto>
         </effetti>
     </scomunica>
-    <scomunica>
+    <scomunica id="35">
         <periodo>3</periodo>
         <effetti>
             <effetto>moltiplicatore-1Vx1PM</effetto>
         </effetti>
     </scomunica>
-    <scomunica>
+    <scomunica id="36">
         <periodo>3</periodo>
-        <effetti>                                                           <effetto>moltiplicatore-1Vx1L</effetto>
+        <effetti>                                                           
+            <effetto>moltiplicatore-1Vx1L</effetto>
             <effetto>moltiplicatore-1Vx1P</effetto>
         </effetti>
     </scomunica>
-    <scomunica>
+    <scomunica id="37">
         <periodo>3</periodo>
         <effetti>
             <effetto>moltiplicatore-1Vx1L</effetto>

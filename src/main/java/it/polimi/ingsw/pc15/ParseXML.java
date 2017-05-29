@@ -1194,6 +1194,7 @@ public class ParseXML {
 				
 				if(periodoLetto == periodo){
 					effettoScomunica = scomunica.getElementsByTagName("effetto").item(0).getFirstChild().getNodeValue();
+					int id = Integer.parseInt(scomunica.getAttribute("id"));
 					
 					NodeList listaEffetti = scomunica.getElementsByTagName("effetto");
 			        for (int j = 0; j < listaEffetti.getLength(); ++j) {
@@ -1203,7 +1204,7 @@ public class ParseXML {
 			            effetti.add(effettoExt);
 			        }
 					
-			        TesseraScomunica tesseraScomunica = new TesseraScomunica (periodoLetto,effetti);
+			        TesseraScomunica tesseraScomunica = new TesseraScomunica (id,periodoLetto,effetti);
 			        
 					scomuniche.add(tesseraScomunica);
 				}
