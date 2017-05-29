@@ -15,6 +15,7 @@ import it.polimi.ingsw.pc15.effetti.Effetto;
 import it.polimi.ingsw.pc15.effetti.NegaMercato;
 import it.polimi.ingsw.pc15.model.Model;
 import it.polimi.ingsw.pc15.plancia.Spazio;
+import it.polimi.ingsw.pc15.plancia.TesseraScomunica;
 import it.polimi.ingsw.pc15.player.ColoreFamiliare;
 import it.polimi.ingsw.pc15.player.Familiare;
 import it.polimi.ingsw.pc15.player.Leader;
@@ -55,15 +56,17 @@ public class Main {
 		 *  - effetti scomuniche risorse (1 periodo)
 		 *  - effetti Leader Santa Rita e Pico della mirandola
 		 */
-			
-		/*for (Leader leader : player.getLeader())
+		
+		
+		for (Leader leader : player.getLeader())
 			System.out.println("Provo a giocare " + leader.getNome());
 		
 		for (int i=0; i<4; i++)
-			player.giocaLeader(i);*/
+			player.giocaLeader(i);
 		
-		player.occupaSpazio(gioco.getPlancia().getSpazioTorre(ColoreCarta.VERDE, 0), player.getFamiliare(ColoreFamiliare.NERO));
-		System.out.println(player.getCarte(ColoreCarta.VERDE).size());
+		gioco.rapportoInVaticano(3);
+		
+		
 	}
 } 
  

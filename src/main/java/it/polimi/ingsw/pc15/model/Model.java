@@ -144,8 +144,10 @@ public class Model extends Observable {
 		
 		int puntiFedeMinimi = ParseXML.leggiValore("puntiFedePeriodo" + Integer.toString(periodo));
 		for (Player player :giocatori) {
-			if (player.getSetRisorse().getRisorsa(TipoRisorsa.PUNTIFEDE).getQuantità() < puntiFedeMinimi)
+			if (player.getSetRisorse().getRisorsa(TipoRisorsa.PUNTIFEDE).getQuantità() < puntiFedeMinimi) {
+				System.out.println(player.getNome() + " è stato scomunicato!");
 				this.plancia.getTesseraScomunica(periodo).infliggiScomunica(player);
+			}
 		}
 	}
 	

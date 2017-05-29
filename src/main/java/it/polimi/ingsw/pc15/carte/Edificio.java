@@ -33,4 +33,9 @@ public class Edificio extends Carta {
 		return azionePrendiCarta;
 	}
 
+	@Override
+	public ColoreCarta getColore() {
+		return ColoreCarta.GIALLO;
+	}
+
 }

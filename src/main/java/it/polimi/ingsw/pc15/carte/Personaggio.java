@@ -23,4 +23,9 @@ public class Personaggio extends Carta {
 		return azionePrendiCarta;
 	}
 
+	@Override
+	public ColoreCarta getColore() {
+		return ColoreCarta.BLU;
+	}
+
 }

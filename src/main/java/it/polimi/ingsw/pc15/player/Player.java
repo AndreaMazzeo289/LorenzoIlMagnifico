@@ -170,8 +170,15 @@ public class Player {
 		
 		if (colore.equals(ColoreCarta.ALL)) {
 			ArrayList<Carta> arrayRichiesto = new ArrayList<Carta>();
-			for(Map.Entry<ColoreCarta, ArrayList> carte : carteSviluppo.entrySet())
-				arrayRichiesto.addAll(carte.getValue());
+			for (Carta territorio : getCarte(ColoreCarta.VERDE))
+				arrayRichiesto.add(territorio);
+			for (Carta personaggio : getCarte(ColoreCarta.BLU))
+				arrayRichiesto.add(personaggio);
+			for (Carta edificio : getCarte(ColoreCarta.GIALLO))
+				arrayRichiesto.add(edificio);
+			for (Carta impresa : getCarte(ColoreCarta.VIOLA))
+				arrayRichiesto.add(impresa);
+			return arrayRichiesto;
 		}
 		
 		return this.carteSviluppo.get(colore);

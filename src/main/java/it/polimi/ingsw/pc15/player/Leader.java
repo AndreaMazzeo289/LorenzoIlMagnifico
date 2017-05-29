@@ -42,14 +42,14 @@ public class Leader {
 		
 		if (this.requisitoRisorse != null)
 			if (player.getSetRisorse().paragona(requisitoRisorse) == false) {
-				System.out.println("Non soddisfi il requisito di risorse richiesto per giocare questo Leader!");
+				System.out.println("Non soddisfi il requisito di risorse richiesto per giocare " + this.nome);
 				return false;
 		}
 		
 		if (this.requisitoCarte != null)
 			for(Map.Entry<ColoreCarta, Integer> requisito : requisitoCarte.entrySet())
 				if (player.getCarte(requisito.getKey()).size() < requisito.getValue()) {
-					System.out.println("Non soddisfi il requisito di Carte Sviluppo richiesto per giocare questo Leader!");
+					System.out.println("Non soddisfi il requisito di Carte Sviluppo richiesto per giocare " + this.nome);
 					return false;
 				}
 
