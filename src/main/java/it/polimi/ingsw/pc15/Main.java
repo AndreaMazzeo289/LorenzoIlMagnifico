@@ -64,9 +64,7 @@ public class Main {
 		for (int i=0; i<4; i++)
 			player.giocaLeader(i);
 		
-		gioco.rapportoInVaticano(1);
 		gioco.rapportoInVaticano(2);
-		gioco.rapportoInVaticano(3);
 		
 		
 	}
