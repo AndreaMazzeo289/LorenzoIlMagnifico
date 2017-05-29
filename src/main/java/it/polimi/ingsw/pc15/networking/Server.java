@@ -7,6 +7,10 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 
+import it.polimi.ingsw.pc15.controller.Controller;
+import it.polimi.ingsw.pc15.model.Model;
+import it.polimi.ingsw.pc15.view.View;
+
 
 
 public class Server {
@@ -16,6 +20,12 @@ public class Server {
 	private final static int PORT = 12879;
 	ServerSocket serverSocket;
 	ArrayList<Connection> connectionList = new ArrayList<Connection>();
+	View player1;
+	View player2;
+	View player3;
+	View player4;
+	Model model;
+	Controller controller;
 	
 	private Map<String, Connection> playingConnection = new HashMap<>();
 ;
@@ -28,6 +38,12 @@ public class Server {
 	
 	
 	
+	/* Crea la server socket nel costruttore e attende i vari client.
+	 * registra le connessioni che vengono stabilite con ciascun client in un arraylist.
+	 * Locka l'oggetto connection e manda un thread ad eseguire connection, va in wait() e unlocka connection.
+	 * Raggiunto il numero prefissato di giocatori utilizza le connection dell'arraylist per rilockare gli oggetti precedenti e lanciare
+	 * un thread per notificare i tread dei client e sincronizzarli una volta raggiunto il numero esatto di giocatori.
+	 */
 	
 
 	public void run() throws InterruptedException {
@@ -84,22 +100,23 @@ public class Server {
 				
 			}
 	
-//		View player1 = new View(new Player(connessi.get(0)), playingConnection.get(connessi.get(0)));
 
-		//View player2 = new View(new Player(connessi.get(1)), playingConnection.get(connessi.get(1)));
-		//View player3 = new View(new Player(connessi.get(2)), playingConnection.get(connessi.get(2)));
-		//View player4 = new View(new Player(connessi.get(3)), playingConnection.get(connessi.get(3)));
+		
+		this.player1 = new View(new Player(connessi.get(0)), playingConnection.get(connessi.get(0)));
+		this.player2 = new View(new Player(connessi.get(1)), playingConnection.get(connessi.get(1)));
+		this.player3 = new View(new Player(connessi.get(2)), playingConnection.get(connessi.get(2)));
+		this.player4 = new View(new Player(connessi.get(3)), playingConnection.get(connessi.get(3)));
 			
-		//Model model = new Model(numeroGiocatori);
-	//	Controller controller = new Controller(model);
-	//	model.addObserver(player1);
-	//	model.addObserver(player2);
-		//model.addObserver(player3);
-		//model.addObserver(player4);
-		//player1.addObserver(controller);
-	//	player2.addObserver(controller);	
-		//player3.addObserver(controller);	
-		//player4.addObserver(controller);
+		this.model = new Model(numeroGiocatori);
+		this.controller = new Controller(model);
+		this.model.addObserver(this.player1);
+		this.model.addObserver(this.player2);
+		this.model.addObserver(this.player3);
+		this.model.addObserver(this.player4);
+		this.player1.addObserver(this.controller);
+		this.player2.addObserver(this.controller);	
+		this.player3.addObserver(this.controller);	
+		this.player4.addObserver(this.controller);
 
 		return playingConnection.size();
 		}else	return playingConnection.size();

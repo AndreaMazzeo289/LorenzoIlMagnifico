@@ -17,6 +17,13 @@ public class Connection extends Observable implements Runnable {
 	private boolean flag = true;
 	
 	
+	/* Ogni connection corrisponde ad un thread del client.
+	 * comunica tramite la socket passata dal server con il client con stream di byte.
+	 * il thread esegue le operazioni di comunicazione e poi locka l'oggetto intanto sbloccato dalla wait() del server ed effettua 
+	 * la notify() per svegliare il thread del server e mandarlo in accept() nuovamente per ricevere nuoi client.
+	 * Va in wait() per aspettare il numero esatto di giocatori necessari per poi notificarlo al client una volta sveglio.
+	 * presenta una flag neccessaria per far passare il thread successivo dello stesso ogetto lanciato dal server alla notify() e svegliare il thread del client .
+	 */
 	public Connection(Socket socket, Server server){
 		
 		this.socket = socket;
