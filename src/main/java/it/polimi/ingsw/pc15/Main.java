@@ -5,6 +5,7 @@ import java.util.Map;
 import java.util.Random;
 import java.util.Scanner;
 
+import it.polimi.ingsw.pc15.carte.Carta;
 import it.polimi.ingsw.pc15.carte.ColoreCarta;
 import it.polimi.ingsw.pc15.carte.Edificio;
 import it.polimi.ingsw.pc15.carte.Impresa;
@@ -35,10 +36,13 @@ import it.polimi.ingsw.pc15.view.View;
 		Model gioco = new Model(4, true);
 		
 		gioco.iniziaPartita();
+		Player player = gioco.getPlayers().get(0);
+		Spazio spazio = (Spazio)gioco.getPlancia().getSpazioTorre(ColoreCarta.BLU, 0);
+		Familiare familiare = player.getFamiliare(ColoreFamiliare.NERO);
 
 		Scanner in = new Scanner(System.in);
 		int scelta;
-		Player player = gioco.getPlayers().get(0);
+		
 		
 		/**
 		 * TESTATE E FUNZIONANTI:
@@ -64,9 +68,37 @@ import it.polimi.ingsw.pc15.view.View;
 		for (int i=0; i<4; i++)
 			player.giocaLeader(i);
 		
-		gioco.rapportoInVaticano(1);
 		gioco.rapportoInVaticano(2);
-		gioco.rapportoInVaticano(3);
+
+		System.out.println("provo a prendere" + gioco.getPlancia().getSpazioTorre(ColoreCarta.BLU,0).getCarta().getNome());
+		
+		System.out.println("\nAl momento possiedi le seguenti risorse:");
+		System.out.println("Oro: "+player.getSetRisorse().getRisorsa(TipoRisorsa.ORO).getQuantità());
+		System.out.println("Legna: "+player.getSetRisorse().getRisorsa(TipoRisorsa.LEGNA).getQuantità());
+		System.out.println("Pietra: "+player.getSetRisorse().getRisorsa(TipoRisorsa.PIETRA).getQuantità());
+		System.out.println("Servitori: "+player.getSetRisorse().getRisorsa(TipoRisorsa.SERVITORI).getQuantità());
+		System.out.println("PuntiVittoria: "+player.getSetRisorse().getRisorsa(TipoRisorsa.PUNTIVITTORIA).getQuantità());
+		System.out.println("PuntiFede: "+player.getSetRisorse().getRisorsa(TipoRisorsa.PUNTIFEDE).getQuantità());
+		System.out.println("PuntiMilitari: "+player.getSetRisorse().getRisorsa(TipoRisorsa.PUNTIMILITARI).getQuantità());
+		
+		player.occupaSpazio(spazio, familiare);
+		for(Carta carta : player.getCarte(ColoreCarta.GIALLO)){
+			System.out.println(carta.getNome());
+		}
+		
+		System.out.println("\nAl momento possiedi le seguenti risorse dopo:");
+		System.out.println("Oro: "+player.getSetRisorse().getRisorsa(TipoRisorsa.ORO).getQuantità());
+		System.out.println("Legna: "+player.getSetRisorse().getRisorsa(TipoRisorsa.LEGNA).getQuantità());
+		System.out.println("Pietra: "+player.getSetRisorse().getRisorsa(TipoRisorsa.PIETRA).getQuantità());
+		System.out.println("Servitori: "+player.getSetRisorse().getRisorsa(TipoRisorsa.SERVITORI).getQuantità());
+		System.out.println("PuntiVittoria: "+player.getSetRisorse().getRisorsa(TipoRisorsa.PUNTIVITTORIA).getQuantità());
+		System.out.println("PuntiFede: "+player.getSetRisorse().getRisorsa(TipoRisorsa.PUNTIFEDE).getQuantità());
+		System.out.println("PuntiMilitari: "+player.getSetRisorse().getRisorsa(TipoRisorsa.PUNTIMILITARI).getQuantità());
+		
+		
+		/*gioco.rapportoInVaticano(1);
+		gioco.rapportoInVaticano(2);
+		gioco.rapportoInVaticano(3);*/
 		
 		
 	}

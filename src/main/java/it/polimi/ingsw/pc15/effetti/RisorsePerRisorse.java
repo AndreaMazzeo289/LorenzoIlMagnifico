@@ -10,6 +10,7 @@ public class RisorsePerRisorse extends Moltiplicazione {
 
 	public RisorsePerRisorse(SetRisorse setRisorse, int quantità, TipoRisorsa tipoRisorsa) {
 		super(setRisorse, quantità);
+		this.tipoRisorsa = tipoRisorsa;
 	}
 
 	@Override
