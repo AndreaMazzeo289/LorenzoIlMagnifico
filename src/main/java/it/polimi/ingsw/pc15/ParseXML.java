@@ -77,9 +77,9 @@ public class ParseXML {
 	}*/
 	
 	
-	/*public static void main (String args[]){
+	public static void main (String args[]){
 		leggiCartaLeader();
-	}*/
+	}
 	
 	//--------------------------------------------------------------------------------------------------------------//
 	// GET CARTA XML
@@ -1087,11 +1087,11 @@ public class ParseXML {
 							String tipoCarta = carta.getElementsByTagName("tipo").item(0).getFirstChild().getNodeValue();
 							ColoreCarta coloreCartaEnum = null;
 							switch(tipoCarta.toUpperCase()) {
-								case "EDIFICIO" : coloreCartaEnum = ColoreCarta.VERDE;
+								case "EDIFICIO" : coloreCartaEnum = ColoreCarta.GIALLO;
 									break;
-								case "TERRITORIO" : coloreCartaEnum= ColoreCarta.BLU;
+								case "TERRITORIO" : coloreCartaEnum= ColoreCarta.VERDE;
 									break;
-								case "PERSONAGGIO" : coloreCartaEnum = ColoreCarta.GIALLO;
+								case "PERSONAGGIO" : coloreCartaEnum = ColoreCarta.BLU;
 									break;
 								case "IMPRESA" : coloreCartaEnum = ColoreCarta.VIOLA;
 									break;
