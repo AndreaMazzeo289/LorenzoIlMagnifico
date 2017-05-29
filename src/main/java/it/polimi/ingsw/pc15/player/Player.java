@@ -33,7 +33,7 @@ public class Player {
 	private SetRisorse setRisorse;
 	private Set<Familiare> familiari;
 	private HashMap <ColoreCarta, ArrayList<Carta>> carteSviluppo;
-	EffettiAttivi effettiAttivi;
+	EffettiAttivi effettiAttivi = null;
 	private ArrayList<Leader> carteLeader;
 	private Set<Player> avversari;
 	
@@ -41,7 +41,7 @@ public class Player {
 	public Player (String nome) {
 		
 		this.nome = nome;
-		this.effettiAttivi = new EffettiAttivi();	
+		this.effettiAttivi = null;
 		this.carteLeader = null;
 		this.avversari = null;
 		

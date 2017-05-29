@@ -1,4 +1,4 @@
-package it.polimi.ingsw.pc15.model;
+ package it.polimi.ingsw.pc15.model;
 
 import java.util.ArrayList;
 import java.util.Collections;
@@ -115,7 +115,6 @@ public class Model extends Observable {
 				this.plancia.getTesseraScomunica(periodo).infliggiScomunica(player);
 		}
 	}
-	
 	
 	
 	public ArrayList<Player> getPlayers() {

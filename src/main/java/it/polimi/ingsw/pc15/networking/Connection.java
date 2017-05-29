@@ -15,6 +15,7 @@ public class Connection extends Observable implements Runnable {
 	private Scanner in;
 	private int numeroGiocatori = 0;
 	private boolean flag = true;
+	private boolean connessioneAttiva = true;
 	
 	
 	/* Ogni connection corrisponde ad un thread del client.
@@ -24,6 +25,8 @@ public class Connection extends Observable implements Runnable {
 	 * Va in wait() per aspettare il numero esatto di giocatori necessari per poi notificarlo al client una volta sveglio.
 	 * presenta una flag neccessaria per far passare il thread successivo dello stesso ogetto lanciato dal server alla notify() e svegliare il thread del client .
 	 */
+	
+	
 	public Connection(Socket socket, Server server){
 		
 		this.socket = socket;
@@ -34,6 +37,7 @@ public class Connection extends Observable implements Runnable {
 	public void run() {
 		// TODO Auto-generated method stub
 		try {	
+			String read;
 			
 				if(flag){
 				out = new PrintStream(this.socket.getOutputStream());
@@ -42,7 +46,7 @@ public class Connection extends Observable implements Runnable {
 				out.flush();
 			
 			
-				String read = in.nextLine();
+				read = in.nextLine();
 				
 				System.out.println("Connesso con il player : " + read);
 			
@@ -61,12 +65,16 @@ public class Connection extends Observable implements Runnable {
 				wait();
 				send("La partita sta per cominciare");
 			}
+			
+			
+			
 			}
 			
-			
-			
-		
-			
+			while(connessioneAttiva){
+				read = in.nextLine();
+				notifyObservers(read);
+				
+			}
 			
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
@@ -86,6 +94,7 @@ public class Connection extends Observable implements Runnable {
 	private synchronized void closeConnection(){
 		
 		try {
+			connessioneAttiva = false;
 			socket.close();
 		} catch (IOException e) {
 			// TODO Auto-generated catch block

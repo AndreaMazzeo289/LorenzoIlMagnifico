@@ -9,6 +9,7 @@ import java.util.Map;
 
 import it.polimi.ingsw.pc15.controller.Controller;
 import it.polimi.ingsw.pc15.model.Model;
+import it.polimi.ingsw.pc15.player.Player;
 import it.polimi.ingsw.pc15.view.View;
 
 
@@ -61,19 +62,13 @@ public class Server {
 				
 				if(connectionList.size()==4){
 					
-					synchronized(connectionList.get(0)){
-						new Thread(connectionList.get(0)).start();
-					}
-					synchronized(connectionList.get(1)){
-						new Thread(connectionList.get(1)).start();
-					}
-					synchronized(connectionList.get(2)){
-						new Thread(connectionList.get(2)).start();
-					}
-					synchronized(connectionList.get(3)){
-						new Thread(connectionList.get(3)).start();
-					}
 					
+					for(int i = 0; i < connectionList.size(); i++) {
+						
+						synchronized(connectionList.get(i)){
+							new Thread(connectionList.get(i)).start();
+						}
+					}
 				}
 				
 			} 
@@ -95,6 +90,7 @@ public class Server {
 		playingConnection.put(name, c);
 		System.out.println("Player connessi = " + playingConnection.size());
 		if(playingConnection.size()==numeroGiocatori){
+			
 			for(Map.Entry<String, Connection> scorriPlayersList : playingConnection.entrySet()) {
 				connessi.add(scorriPlayersList.getKey());
 				
@@ -102,26 +98,29 @@ public class Server {
 	
 
 		
-		this.player1 = new View(new Player(connessi.get(0)), playingConnection.get(connessi.get(0)));
-		this.player2 = new View(new Player(connessi.get(1)), playingConnection.get(connessi.get(1)));
-		this.player3 = new View(new Player(connessi.get(2)), playingConnection.get(connessi.get(2)));
-		this.player4 = new View(new Player(connessi.get(3)), playingConnection.get(connessi.get(3)));
+		View player1 = new View(new Player(connessi.get(0)), playingConnection.get(connessi.get(0)));
+		View player2 = new View(new Player(connessi.get(1)), playingConnection.get(connessi.get(1)));
+		View player3 = new View(new Player(connessi.get(2)), playingConnection.get(connessi.get(2)));
+		System.out.println("check view");
+		View player4 = new View(new Player(connessi.get(3)), playingConnection.get(connessi.get(3)));
 			
-		this.model = new Model(numeroGiocatori);
-		this.controller = new Controller(model);
-		this.model.addObserver(this.player1);
-		this.model.addObserver(this.player2);
-		this.model.addObserver(this.player3);
-		this.model.addObserver(this.player4);
-		this.player1.addObserver(this.controller);
-		this.player2.addObserver(this.controller);	
-		this.player3.addObserver(this.controller);	
-		this.player4.addObserver(this.controller);
+		Model model = new Model(numeroGiocatori);
+		Controller controller = new Controller(model);
+		model.addObserver(player1);
+		model.addObserver(player2);
+		
+		System.out.println("check observers");
+		model.addObserver(player3);
+		model.addObserver(player4);
+		player1.addObserver(controller);
+		player2.addObserver(controller);	
+		player3.addObserver(controller);	
+		player4.addObserver(controller);
 
 		return playingConnection.size();
 		}else	return playingConnection.size();
 	}
-	
+	 
 	
 	
 	
