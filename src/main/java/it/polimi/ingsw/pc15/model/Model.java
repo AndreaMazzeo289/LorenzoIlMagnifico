@@ -54,7 +54,7 @@ public class Model extends Observable {
 		this.numeroGiocatori = numeroGiocatori;
 		this.plancia = new Plancia(numeroGiocatori);
 		this.turno = 0;
-		this.periodo = 1;
+		this.periodo = 3;
 		this.regoleAvanzate = regoleAvanzate;
 			
 		Player player1 = new Player("Maffe");

@@ -72,7 +72,7 @@ public class Player {
 		Servitori servitori = new Servitori(3);
 		Privilegi privilegi = new Privilegi(0);
 		PuntiFede puntiFede = new PuntiFede(0);
-		PuntiMilitari puntiMilitari = new PuntiMilitari(0);
+		PuntiMilitari puntiMilitari = new PuntiMilitari(3);
 		PuntiVittoria puntiVittoria = new PuntiVittoria(0);
 		
 		HashSet<Risorsa> risorse = new HashSet<Risorsa>();
