@@ -13,7 +13,17 @@ public class Connection extends Observable implements Runnable {
 	private Server server;
 	private PrintStream out;
 	private Scanner in;
+	private int numeroGiocatori = 0;
+	private boolean flag = true;
 	
+	
+	/* Ogni connection corrisponde ad un thread del client.
+	 * comunica tramite la socket passata dal server con il client con stream di byte.
+	 * il thread esegue le operazioni di comunicazione e poi locka l'oggetto intanto sbloccato dalla wait() del server ed effettua 
+	 * la notify() per svegliare il thread del server e mandarlo in accept() nuovamente per ricevere nuoi client.
+	 * Va in wait() per aspettare il numero esatto di giocatori necessari per poi notificarlo al client una volta sveglio.
+	 * presenta una flag neccessaria per far passare il thread successivo dello stesso ogetto lanciato dal server alla notify() e svegliare il thread del client .
+	 */
 	public Connection(Socket socket, Server server){
 		
 		this.socket = socket;
@@ -24,28 +34,53 @@ public class Connection extends Observable implements Runnable {
 	public void run() {
 		// TODO Auto-generated method stub
 		try {	
-			out = new PrintStream(this.socket.getOutputStream());
-			in = new Scanner(this.socket.getInputStream());
-			out.println("Scrivi il tuo nome");
+			
+				if(flag){
+				out = new PrintStream(this.socket.getOutputStream());
+				in = new Scanner(this.socket.getInputStream());
+				out.println("Scrivi il tuo nome");
+				out.flush();
 			
 			
+				String read = in.nextLine();
+				
+				System.out.println("Connesso con il player : " + read);
 			
-			String read = in.next();
+				
 	
+				numeroGiocatori = server.Connetti(this, read);
+				}
+			synchronized (this) {
+				notify();
+			
+			if(flag){
+				
+			
+				send("In attesa di altri giocatori...");
+				flag = false;
+				wait();
+				send("La partita sta per cominciare");
+			}
+			}
 			
 			
-			System.out.println("Connesso con il player : " + read);
 			
-			
-			
-			server.Connetti(this, read);
 		
+			
 			
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
+		} catch (InterruptedException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
 		}
 		
+	}
+	
+	public synchronized void send(String messaggio){
+		
+		out.println(messaggio);
 	}
 	
 	private synchronized void closeConnection(){

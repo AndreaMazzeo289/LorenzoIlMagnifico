@@ -17,6 +17,11 @@ public class Client {
 	
 	static String hostName;
 	
+	/* il client prende hostname e stessa porta della server socket per stabilire una connessione.
+	 * viene poi chiesto al player di scrivere il proprio nome.
+	 * In base al numero di client connessi al server viene notificata l'attesa di ulteriori giocatori per iniziare la partita.
+	 * nel caso il numero necessario di giocatori venga raggiunto il client riceve una notifica che specifica l'imminente inizio della partita.
+	 */
 	
 	public Client() throws IOException{
 	}
@@ -36,6 +41,9 @@ public class Client {
 			out.flush();
 			
 			
+			System.out.println(in.nextLine());
+
+			System.out.println(in.nextLine());
 		}
 		catch (IOException e) {e.printStackTrace();}
 	}
