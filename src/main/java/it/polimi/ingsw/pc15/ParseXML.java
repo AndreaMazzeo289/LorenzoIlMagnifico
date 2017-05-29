@@ -1095,6 +1095,8 @@ public class ParseXML {
 									break;
 								case "IMPRESA" : coloreCartaEnum = ColoreCarta.VIOLA;
 									break;
+								case "ALL": coloreCartaEnum = ColoreCarta.ALL;
+									break;
 							}
 							
 							int quantita = Integer.parseInt(carta.getElementsByTagName("quantita").item(0).getFirstChild().getNodeValue());
