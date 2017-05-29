@@ -25,5 +25,9 @@ public class TesseraScomunica {
 	public int getPeriodo() {
 		return this.periodo;
 	}
+	
+	public int getID() {
+		return this.id;
+	}
 
 }
