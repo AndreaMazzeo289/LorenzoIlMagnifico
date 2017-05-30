@@ -4,6 +4,7 @@ import java.util.Scanner;
 
 import it.polimi.ingsw.pc15.player.Player;
 import it.polimi.ingsw.pc15.risorse.SetRisorse;
+import it.polimi.ingsw.pc15.risorse.TipoRisorsa;
 
 public class Scambio extends Effetto{
 	

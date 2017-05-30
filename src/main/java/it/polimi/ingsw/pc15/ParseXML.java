@@ -453,19 +453,20 @@ public class ParseXML {
 		SetRisorse pagamento = null;
 		SetRisorse pagamento2 = null;
 		SetRisorse guadagno = null;
-		SetRisorse guadagno2 = null;
+		SetRisorse guadagno2 = null;		
 		
 		for(int i=0; i<setRisorse.getLength(); ++i) {
+			
 			Element SingoloCosto = (Element) setRisorse.item(i);
 			
-			Legna legna = new Legna (Integer.parseInt(effetto.getElementsByTagName("legno").item(0).getFirstChild().getNodeValue()));
-			Pietra pietra = new Pietra (Integer.parseInt(effetto.getElementsByTagName("pietra").item(0).getFirstChild().getNodeValue()));
-			Oro oro = new Oro (Integer.parseInt(effetto.getElementsByTagName("oro").item(0).getFirstChild().getNodeValue()));
-			Servitori servitori = new Servitori (Integer.parseInt(effetto.getElementsByTagName("servitori").item(0).getFirstChild().getNodeValue()));
-			PuntiFede puntiFede = new PuntiFede (Integer.parseInt(effetto.getElementsByTagName("puntiFede").item(0).getFirstChild().getNodeValue()));
-			PuntiMilitari puntiMilitari = new PuntiMilitari (Integer.parseInt(effetto.getElementsByTagName("puntiMilitari").item(0).getFirstChild().getNodeValue()));
-			PuntiVittoria puntiVittoria = new PuntiVittoria (Integer.parseInt(effetto.getElementsByTagName("puntiVittoria").item(0).getFirstChild().getNodeValue()));
-			Privilegi privilegi = new Privilegi (Integer.parseInt(effetto.getElementsByTagName("privilegi").item(0).getFirstChild().getNodeValue()));
+			Legna legna = new Legna (Integer.parseInt(SingoloCosto.getElementsByTagName("legno").item(0).getFirstChild().getNodeValue()));
+			Pietra pietra = new Pietra (Integer.parseInt(SingoloCosto.getElementsByTagName("pietra").item(0).getFirstChild().getNodeValue()));
+			Oro oro = new Oro (Integer.parseInt(SingoloCosto.getElementsByTagName("oro").item(0).getFirstChild().getNodeValue()));
+			Servitori servitori = new Servitori (Integer.parseInt(SingoloCosto.getElementsByTagName("servitori").item(0).getFirstChild().getNodeValue()));
+			PuntiFede puntiFede = new PuntiFede (Integer.parseInt(SingoloCosto.getElementsByTagName("puntiFede").item(0).getFirstChild().getNodeValue()));
+			PuntiMilitari puntiMilitari = new PuntiMilitari (Integer.parseInt(SingoloCosto.getElementsByTagName("puntiMilitari").item(0).getFirstChild().getNodeValue()));
+			PuntiVittoria puntiVittoria = new PuntiVittoria (Integer.parseInt(SingoloCosto.getElementsByTagName("puntiVittoria").item(0).getFirstChild().getNodeValue()));
+			Privilegi privilegi = new Privilegi (Integer.parseInt(SingoloCosto.getElementsByTagName("privilegi").item(0).getFirstChild().getNodeValue()));
             
             HashSet<Risorsa> risorse = new HashSet<>();
             
