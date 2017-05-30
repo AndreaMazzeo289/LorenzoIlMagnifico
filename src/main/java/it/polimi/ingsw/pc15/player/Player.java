@@ -68,8 +68,8 @@ public class Player {
 		//-----------------------------------------------------------------------------------------------------------//
 		
 		Oro oro = new Oro(10);
-		Legna legna = new Legna(2);
-		Pietra pietra = new Pietra(2);
+		Legna legna = new Legna(10);
+		Pietra pietra = new Pietra(10);
 		Servitori servitori = new Servitori(3);
 		Privilegi privilegi = new Privilegi(0);
 		PuntiFede puntiFede = new PuntiFede(0);
@@ -138,9 +138,11 @@ public class Player {
 		
 		if (leaderScelto.requisitiSoddisfatti() ) {
 			System.out.println("Hai giocato la carta Leader " + leaderScelto.getNome());
-			this.carteLeader.get(0).setGiocato(true);
-			for (Effetto effetto : this.carteLeader.get(0).getEffettoPermanente())
-				effetto.attiva(this);
+			this.carteLeader.get(numeroLeader).setGiocato(true);
+			
+			if (this.carteLeader.get(numeroLeader).getEffettoPermanente()!=null) 
+				for (Effetto effetto : this.carteLeader.get(numeroLeader).getEffettoPermanente())
+					effetto.attiva(this);
 		}
 		
 	}

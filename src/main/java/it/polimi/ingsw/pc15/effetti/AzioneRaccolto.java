@@ -16,11 +16,13 @@ public class AzioneRaccolto extends Azione{
 	@Override
 	public void attiva(Player player){
 		
-		Iterator<Carta> territorio = player.getCarte(ColoreCarta.VERDE).iterator();
-		
-		while(territorio.hasNext()){
-			if (valoreDado >= ((Territorio) territorio.next()).getRequisitoRaccolta())
-				((Territorio) territorio.next()).getEffettoRaccolta().attiva(player);
+		for (Carta territorio : player.getCarte(ColoreCarta.VERDE)) {
+			if (valoreDado >= ((Territorio) territorio).getRequisitoRaccolta() ) {
+				System.out.println("Attivo raccolto in " + territorio.getNome());
+				((Territorio) territorio).getEffettoRaccolta().attiva(player);
+			}
+			
+			else System.out.println("Il valore del familiare non è sufficiente per attivare la raccolta in " + territorio.getNome());
 		}
 	}
 }

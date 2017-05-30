@@ -5,6 +5,7 @@ import java.util.Iterator;
 import it.polimi.ingsw.pc15.carte.Carta;
 import it.polimi.ingsw.pc15.carte.ColoreCarta;
 import it.polimi.ingsw.pc15.carte.Edificio;
+import it.polimi.ingsw.pc15.carte.Territorio;
 import it.polimi.ingsw.pc15.player.Player;
 
 public class AzioneProduzione extends Azione{
@@ -16,11 +17,13 @@ public class AzioneProduzione extends Azione{
 	@Override
 	public void attiva(Player player){
 		
-		Iterator<Carta> edificio= player.getCarte(ColoreCarta.GIALLO).iterator();
-		
-		while(edificio.hasNext()){
-			if (valoreDado >= ((Edificio) edificio.next()).getRequisitoProduzione())
-				((Edificio) edificio.next()).getEffettoProduzione().attiva(player);
+		for (Carta edificio : player.getCarte(ColoreCarta.GIALLO)) {
+			if (valoreDado >= ((Edificio) edificio).getRequisitoProduzione() ) {
+				System.out.println("Attivo produzione in " + edificio.getNome());
+				((Edificio) edificio).getEffettoProduzione().attiva(player);
+			}
+			
+			else System.out.println("Il valore del familiare non è sufficiente per attivare la produzione in " + edificio.getNome());
 		}
 	}
 }

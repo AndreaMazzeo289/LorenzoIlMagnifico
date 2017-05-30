@@ -37,8 +37,10 @@ public class Main {
 		
 		gioco.iniziaPartita();
 		Player player = gioco.getPlayers().get(0);
-		Spazio spazio = (Spazio)gioco.getPlancia().getSpazioTorre(ColoreCarta.BLU, 0);
-		Familiare familiare = player.getFamiliare(ColoreFamiliare.NERO);
+		Spazio spazio = gioco.getPlancia().getSpazioTorre(ColoreCarta.GIALLO, 0);
+		Spazio spazio2 = gioco.getPlancia().getSpazioProduzione();
+		Familiare familiareNero = player.getFamiliare(ColoreFamiliare.NERO);
+		Familiare familiareBianco = player.getFamiliare(ColoreFamiliare.BIANCO);
 
 		Scanner in = new Scanner(System.in);
 		int scelta;
@@ -79,9 +81,12 @@ public class Main {
 		System.out.println("Servitori: "+player.getSetRisorse().getRisorsa(TipoRisorsa.SERVITORI).getQuantità());
 		System.out.println("PuntiVittoria: "+player.getSetRisorse().getRisorsa(TipoRisorsa.PUNTIVITTORIA).getQuantità());
 		System.out.println("PuntiFede: "+player.getSetRisorse().getRisorsa(TipoRisorsa.PUNTIFEDE).getQuantità());
-		System.out.println("PuntiMilitari: "+player.getSetRisorse().getRisorsa(TipoRisorsa.PUNTIMILITARI).getQuantità());
+		System.out.println("PuntiMilitari: "+player.getSetRisorse().getRisorsa(TipoRisorsa.PUNTIMILITARI).getQuantità()+"\n");
 		
-		player.occupaSpazio(spazio, familiare);
+		player.occupaSpazio(spazio, familiareNero);
+		player.getFamiliare(ColoreFamiliare.BIANCO).setValore(1000);
+		player.occupaSpazio(spazio2, familiareBianco);
+		
 		for(Carta carta : player.getCarte(ColoreCarta.GIALLO)){
 			System.out.println(carta.getNome());
 		}
