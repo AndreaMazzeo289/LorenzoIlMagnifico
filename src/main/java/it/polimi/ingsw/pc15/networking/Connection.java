@@ -11,10 +11,10 @@ public class Connection extends Observable implements Runnable {
 
 	private Socket socket;
 	private Server server;
-	private PrintStream out;
+	private PrintStream out ;
 	private Scanner in;
 	private int numeroGiocatori = 0;
-	private boolean flag = true;
+	private boolean flag = true; // TEMPORANEAMENTE FLAG
 	private boolean connessioneAttiva = true;
 	
 	
@@ -33,49 +33,80 @@ public class Connection extends Observable implements Runnable {
 		this.server = server;
 	}
 	
+	
+	/*
+	 * OVERRIDE DEL METODO RUN DELL'INTERFACCIA RUNNABLE
+	 * LA CONNECTION CORRISPONDE ALLA SOCKET CREATA DAL SERVER PER COMUNICARE CON LO SPECIFICO CLIENT
+	 * OGNI CLIENT HA LA PROPRIA CONNECTION
+	 */
+	
+	
 	@Override
 	public void run() {
 		// TODO Auto-generated method stub
 		try {	
 			String read;
+			String name;
+			out = new PrintStream(this.socket.getOutputStream());
+			in = new Scanner(this.socket.getInputStream());
 			
+			/*
+			 * IL FLAG SERVE PER FAR ESEGUIRE ESCLUSIVAMENTE LA NOTIFY AL SECONDO THREAD PER RISVEGLIARE LA CONNECTION
+			 */
 				if(flag){
-				out = new PrintStream(this.socket.getOutputStream());
-				in = new Scanner(this.socket.getInputStream());
-				out.println("Scrivi il tuo nome");
-				out.flush();
-			
-			
-				read = in.nextLine();
 				
-				System.out.println("Connesso con il player : " + read);
-			
+					/*
+					 * CHIEDE IL NOME AL CLIENT
+					 * RICEVE IL NOME DAL CLIENT
+					 */
+						
+					out.println("Scrivi il tuo nome");
+					out.flush();
+					name = in.nextLine();
+					System.out.println("Connesso con il player : " + name);
 				
-	
-				numeroGiocatori = server.Connetti(this, read);
+					/*
+					 * RICEVE LA PRIMA RICHIESTA DI AGGIORNAMENTO SULLO STATO DEL GIOCO
+					 * AGGIUNGE ENTRA IN UNA FUNZIONE DEL SERVER DOVE "TUTTE LE SOCKET SI INCONTRANO" 
+					 * SE IL NUMERO DI GIOCATORI è MINORE DEL NECESSARIO INVIA IMMEDIATAMENTE UNO STATO DI ATTESA AL CORRISPONDENTE CLIENT
+					 */
+					read = in.nextLine();
+					numeroGiocatori = server.Connetti(this, name);
+				
 				}
-			synchronized (this) {
-				notify();
-			
-			if(flag){
 				
-			
-				send("In attesa di altri giocatori...");
-				flag = false;
-				wait();
-				send("La partita sta per cominciare");
-			}
-			
-			
-			
-			}
-			
-			while(connessioneAttiva){
-				read = in.nextLine();
-				notifyObservers(read);
+				/*
+				 * ACQUISICE IL MONITOR E SE IL THREAD PRECEDENTE è ENTRATO IN WAIT NOTIFICA
+				 * SE IL THREAD NON è MAI ANDATO IN WAIT VA IN WAIT SETTANDO IL FLAG FALSE
+				 */
+				
+				synchronized (this) {
+					
+					//System.out.println("Il thread " + Thread.currentThread().getId() + " fa la notify" );
+					notify();
+					
+					if(flag){
+						
+					
+						send("In attesa di altri giocatori...");
+						flag = false;
+						wait();
+						//System.out.println("Il thread " + Thread.currentThread().getId() + " si sveglia" );
+						
+						send("La partita sta per cominciare");
+						
+						while(connessioneAttiva){
+					
+					
+							read = in.nextLine();
+							notifyObservers(read);
+					
+						}
+					}
+				
+		
 				
 			}
-			
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -90,6 +121,8 @@ public class Connection extends Observable implements Runnable {
 		
 		out.println(messaggio);
 	}
+	
+	
 	
 	private synchronized void closeConnection(){
 		

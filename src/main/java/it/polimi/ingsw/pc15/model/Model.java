@@ -141,4 +141,17 @@ public class Model extends Observable {
 		return this.plancia;
 	}
 
+	
+	/*
+	 *  FUNZIONE DI PROVA PER I NOTIFYOBSERVERS
+	 */
+	
+	public void prova (String message){
+		
+		if(message.equals("Stato gioco?")){
+			
+			notifyObservers("Gioca Maffe");
+		}
+		
+	}
 }

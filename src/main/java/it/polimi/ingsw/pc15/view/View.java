@@ -17,16 +17,18 @@ import it.polimi.ingsw.pc15.player.Familiare;
 import it.polimi.ingsw.pc15.player.Player;
 import it.polimi.ingsw.pc15.risorse.TipoRisorsa;
 
-public class View extends Observable implements Observer {
+public abstract class View extends Observable implements Observer {
 	
 	private Player player;
+	private Model model;
 	//private ConsoleView consoleView;
 	
-	public View (Player player, Connection connection) {
+	public View (Player player, Model model) {
 		
 		this.player = player;
-		connection.addObserver(this);
+		this.model = model;
 		//this.consoleView = new ConsoleView();
+		this.model.addObserver(this);
 	}
 
 
@@ -86,7 +88,15 @@ public class View extends Observable implements Observer {
 		
 	}
 	
+	/*
+	 *  FUNZIONI DI PROVA PER GLI OBSERVERS
+	 */
+	public void provaView(String message){
+		
+		notifyObservers(message);
+	}
 	
+	public abstract void showModel(String message);
 	
 	@Override
 	public synchronized void update(Observable o, Object message) {
@@ -94,8 +104,7 @@ public class View extends Observable implements Observer {
 		if(!(o instanceof Connection)|| !(message instanceof String)){
 			throw new IllegalArgumentException();
 		}
-		//String instruction = consoleView.parseMessage((String) message);
-		//notifyObservers(instruction);
+		showModel((String)message);
 	}
 	
 	

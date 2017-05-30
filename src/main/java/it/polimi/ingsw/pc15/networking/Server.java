@@ -10,6 +10,7 @@ import java.util.Map;
 import it.polimi.ingsw.pc15.controller.Controller;
 import it.polimi.ingsw.pc15.model.Model;
 import it.polimi.ingsw.pc15.player.Player;
+import it.polimi.ingsw.pc15.view.RemoteView;
 import it.polimi.ingsw.pc15.view.View;
 
 
@@ -21,12 +22,6 @@ public class Server {
 	private final static int PORT = 12879;
 	ServerSocket serverSocket;
 	ArrayList<Connection> connectionList = new ArrayList<Connection>();
-	View player1;
-	View player2;
-	View player3;
-	View player4;
-	Model model;
-	Controller controller;
 	
 	private Map<String, Connection> playingConnection = new HashMap<>();
 ;
@@ -62,13 +57,26 @@ public class Server {
 				
 				if(connectionList.size()==4){
 					
+				
 					
-					for(int i = 0; i < connectionList.size(); i++) {
+					synchronized(connectionList.get(0)){
 						
-						synchronized(connectionList.get(i)){
-							new Thread(connectionList.get(i)).start();
-						}
+						new Thread(connectionList.get(0)).start();
 					}
+					synchronized(connectionList.get(1)){
+						
+						new Thread(connectionList.get(1)).start();
+					}
+					synchronized(connectionList.get(2)){
+						
+						new Thread(connectionList.get(2)).start();
+					}
+					synchronized(connectionList.get(3)){
+						
+						new Thread(connectionList.get(3)).start();
+					}
+						
+					
 				}
 				
 			} 
@@ -96,25 +104,23 @@ public class Server {
 				
 			}
 	
-
-		
-		View player1 = new View(new Player(connessi.get(0)), playingConnection.get(connessi.get(0)));
-		View player2 = new View(new Player(connessi.get(1)), playingConnection.get(connessi.get(1)));
-		View player3 = new View(new Player(connessi.get(2)), playingConnection.get(connessi.get(2)));
-		System.out.println("check view");
-		View player4 = new View(new Player(connessi.get(3)), playingConnection.get(connessi.get(3)));
-			
 		Model model = new Model(numeroGiocatori, false);
 		Controller controller = new Controller(model);
+		
+		RemoteView player1 = new RemoteView(new Player(connessi.get(0)), playingConnection.get(connessi.get(0)), model);
+		RemoteView player2 = new RemoteView(new Player(connessi.get(1)), playingConnection.get(connessi.get(1)), model);
+		RemoteView player3 = new RemoteView(new Player(connessi.get(2)), playingConnection.get(connessi.get(2)), model);
+		RemoteView player4 = new RemoteView(new Player(connessi.get(3)), playingConnection.get(connessi.get(3)), model);
+			
+		
+		
 		model.addObserver(player1);
 		model.addObserver(player2);
-		
-		System.out.println("check observers");
 		model.addObserver(player3);
 		model.addObserver(player4);
 		player1.addObserver(controller);
-		player2.addObserver(controller);	
-		player3.addObserver(controller);	
+		player2.addObserver(controller);
+		player3.addObserver(controller);
 		player4.addObserver(controller);
 
 		return playingConnection.size();

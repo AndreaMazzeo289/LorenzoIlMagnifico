@@ -96,7 +96,6 @@ public class Plancia {
 		int numeroTessereScomunica = ParseXML.leggiValore("numeroPeriodi");
 		for (int i=1; i<=numeroTessereScomunica; i++) {
 			scomuniche.put(i, ParseXML.leggiScomunica(i));
-			System.out.println("ID Scomunica: " + scomuniche.get(i).getID());
 		}
 			
 	}

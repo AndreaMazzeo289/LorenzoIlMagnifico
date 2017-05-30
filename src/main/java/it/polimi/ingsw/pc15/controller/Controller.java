@@ -20,11 +20,12 @@ public class Controller implements Observer {
 	}
 
 	@Override
-	public synchronized void update(Observable o, Object arg) {
-		if(!(o instanceof View)|| !(arg instanceof View )){
+	public synchronized void update(Observable o, Object message) {
+		if(!(o instanceof View)|| !(message instanceof View )){
 			throw new IllegalArgumentException();
 		}
 		
+		gioco.prova((String)message);
 		
 	}
 
