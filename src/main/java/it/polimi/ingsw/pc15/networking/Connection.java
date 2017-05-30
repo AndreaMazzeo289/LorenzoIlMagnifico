@@ -97,6 +97,7 @@ public class Connection extends Observable implements Runnable {
 					
 					
 							read = in.nextLine();
+							System.out.println(read);
 							setChanged();
 							notifyObservers(read);
 					

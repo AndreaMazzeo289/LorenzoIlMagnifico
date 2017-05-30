@@ -1,6 +1,6 @@
 package it.polimi.ingsw.pc15.view;
 
-import java.util.Observable;
+/*import java.util.Observable;
 import java.util.Observer;
 
 import it.polimi.ingsw.pc15.controller.Controller;
@@ -11,8 +11,7 @@ import it.polimi.ingsw.pc15.player.Player;
 public class RemoteView extends View implements Observer{
 
 	private Player player;
-	private Connection connection;
-	
+	private Connection connection;	
 	
 	
 	public RemoteView(Player player, Connection connection, Model model){
@@ -21,6 +20,7 @@ public class RemoteView extends View implements Observer{
 		this.player = player;
 		this.connection = connection;
 		this.connection.addObserver(this);
+		this.model.addObserver(this);
 		
 	}
 	
@@ -43,3 +43,4 @@ public class RemoteView extends View implements Observer{
 	}
 
 }
+*/

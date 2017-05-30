@@ -3,6 +3,7 @@
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Observable;
+import java.util.Observer;
 import java.util.Random;
 import it.polimi.ingsw.pc15.ParseXML;
 import it.polimi.ingsw.pc15.carte.Carta;
@@ -13,7 +14,7 @@ import it.polimi.ingsw.pc15.player.Leader;
 import it.polimi.ingsw.pc15.player.Player;
 import it.polimi.ingsw.pc15.risorse.TipoRisorsa;
 
-public class Model extends Observable {
+public class Model extends Observable implements Observer {
 	
 	private int numeroGiocatori;
 	private ArrayList<Player> giocatori;
@@ -153,6 +154,12 @@ public class Model extends Observable {
 			setChanged();
 			notifyObservers(message);
 		}
+		
+	}
+
+	@Override
+	public void update(Observable o, Object arg) {
+		// TODO Auto-generated method stub
 		
 	}
 }

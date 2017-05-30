@@ -10,7 +10,6 @@ import java.util.Map;
 import it.polimi.ingsw.pc15.controller.Controller;
 import it.polimi.ingsw.pc15.model.Model;
 import it.polimi.ingsw.pc15.player.Player;
-import it.polimi.ingsw.pc15.view.RemoteView;
 import it.polimi.ingsw.pc15.view.View;
 
 
@@ -106,12 +105,16 @@ public class Server {
 		Model model = new Model(numeroGiocatori, false);
 		Controller controller = new Controller(model);
 		
-		RemoteView player1 = new RemoteView(new Player(connessi.get(0)), playingConnection.get(connessi.get(0)), model);
-		RemoteView player2 = new RemoteView(new Player(connessi.get(1)), playingConnection.get(connessi.get(1)), model);
-		RemoteView player3 = new RemoteView(new Player(connessi.get(2)), playingConnection.get(connessi.get(2)), model);
-		RemoteView player4 = new RemoteView(new Player(connessi.get(3)), playingConnection.get(connessi.get(3)), model);
-			
+		View player1 = new View(new Player(connessi.get(0)), playingConnection.get(connessi.get(0)), model);
+		View player2 = new View(new Player(connessi.get(1)), playingConnection.get(connessi.get(1)), model);
+		View player3 = new View(new Player(connessi.get(2)), playingConnection.get(connessi.get(2)), model);
+		View player4 = new View(new Player(connessi.get(3)), playingConnection.get(connessi.get(3)), model);
 		
+			
+		model.addObserver(player1);
+		model.addObserver(player2);
+		model.addObserver(player3);
+		model.addObserver(player4);
 		player1.addObserver(controller);
 		player2.addObserver(controller);
 		player3.addObserver(controller);
