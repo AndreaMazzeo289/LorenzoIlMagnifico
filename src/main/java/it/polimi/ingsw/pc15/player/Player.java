@@ -121,6 +121,8 @@ public class Player {
 				spazio.occupa(familiare);
 			}
 		}	
+		
+		else System.out.println("\nHai già posizionato questo familiare!\n");
 	}
 	
 	public void scartaLeader (Leader leader) {
