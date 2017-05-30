@@ -51,9 +51,8 @@ public class Client {
 			 * 2 ATTESA DEL PROPRIO TURNO 
 			 * 3 ESECUZIONE PROPRIO TURNO
 			 */
-			out.println("Richiesta stato del gioco");
-			out.flush();
-			System.out.println(read = in.nextLine());
+			System.out.println(read = in.nextLine());  //in attesa di altri giocatori
+			System.out.println(read = in.nextLine()); //la partita sta per cominciare
 		
 			while(true){
 				
@@ -61,12 +60,10 @@ public class Client {
 				 * ASPETTA CHE 4 GIOCATORI SI CONNETTANO ALLA PARTITA
 				 * SE è IN STATO DI WAIT SALTA LE in.nextln()
 				 */
-				
+				out.println("Richiesta stato del gioco");
+				read = in.nextLine();
 				if(!read.equals("STATO:wait")){
 					
-					out.println("Stato gioco?");
-					read = in.nextLine();
-					System.out.println(read);
 					
 					if(read.equals("Gioca Maffe")){
 						

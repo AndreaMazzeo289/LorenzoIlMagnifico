@@ -70,7 +70,7 @@ public class Connection extends Observable implements Runnable {
 					 * AGGIUNGE ENTRA IN UNA FUNZIONE DEL SERVER DOVE "TUTTE LE SOCKET SI INCONTRANO" 
 					 * SE IL NUMERO DI GIOCATORI è MINORE DEL NECESSARIO INVIA IMMEDIATAMENTE UNO STATO DI ATTESA AL CORRISPONDENTE CLIENT
 					 */
-					read = in.nextLine();
+					
 					numeroGiocatori = server.Connetti(this, name);
 				
 				}

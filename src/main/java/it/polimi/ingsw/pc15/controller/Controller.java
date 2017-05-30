@@ -24,7 +24,7 @@ public class Controller implements Observer {
 		if(!(o instanceof View)|| !(message instanceof View )){
 			throw new IllegalArgumentException();
 		}
-		
+		System.out.println("checkcontroller");
 		gioco.prova((String)message);
 		
 	}

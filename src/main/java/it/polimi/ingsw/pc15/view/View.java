@@ -20,15 +20,13 @@ import it.polimi.ingsw.pc15.risorse.TipoRisorsa;
 public abstract class View extends Observable implements Observer {
 	
 	private Player player;
-	private Model model;
 	//private ConsoleView consoleView;
 	
 	public View (Player player, Model model) {
 		
 		this.player = player;
-		this.model = model;
 		//this.consoleView = new ConsoleView();
-		this.model.addObserver(this);
+		model.addObserver(this);
 	}
 
 
@@ -92,7 +90,7 @@ public abstract class View extends Observable implements Observer {
 	 *  FUNZIONI DI PROVA PER GLI OBSERVERS
 	 */
 	public void provaView(String message){
-		
+		System.out.println("checkview");
 		notifyObservers(message);
 	}
 	
