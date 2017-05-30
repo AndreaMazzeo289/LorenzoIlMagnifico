@@ -150,6 +150,7 @@ public class Model extends Observable {
 		System.out.println("checkmodel");
 		if(message.equals("Richiesta stato del gioco")){
 			System.out.println("checkmodel1");
+			setChanged();
 			notifyObservers(message);
 		}
 		

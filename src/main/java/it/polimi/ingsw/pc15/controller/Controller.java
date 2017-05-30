@@ -21,10 +21,11 @@ public class Controller implements Observer {
 
 	@Override
 	public synchronized void update(Observable o, Object message) {
-		if(!(o instanceof View)|| !(message instanceof View )){
+		if(!(o instanceof View)|| !(message instanceof String)){
 			throw new IllegalArgumentException();
 		}
 		System.out.println("checkcontroller");
+		
 		model.prova((String)message);
 		
 	}

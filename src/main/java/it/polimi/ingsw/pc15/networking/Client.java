@@ -76,7 +76,7 @@ public class Client {
 				
 				
 				
-				Thread.sleep(4000);
+				//Thread.sleep(4000);
 			}
 			
 		} catch (IOException e) {e.printStackTrace();}

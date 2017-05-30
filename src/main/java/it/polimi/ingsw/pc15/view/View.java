@@ -20,12 +20,13 @@ import it.polimi.ingsw.pc15.risorse.TipoRisorsa;
 public abstract class View extends Observable implements Observer {
 	
 	private Player player;
+	private Model model;
 	
 	
 	public View (Player player, Model model) {
 		
 		this.player = player;
-		model.addObserver(this);
+		this.model.addObserver(this);
 	}
 
 
@@ -90,6 +91,7 @@ public abstract class View extends Observable implements Observer {
 	 */
 	public void provaView(String message){
 		System.out.println("checkview");
+		setChanged();
 		notifyObservers(message);
 	}
 	
@@ -98,7 +100,7 @@ public abstract class View extends Observable implements Observer {
 	@Override
 	public synchronized void update(Observable o, Object message) {
 		// TODO Auto-generated method stub
-		if(!(o instanceof Connection)|| !(message instanceof String)){
+		if(!(o instanceof Model)|| !(message instanceof String)){
 			throw new IllegalArgumentException();
 		}
 		showModel((String)message);

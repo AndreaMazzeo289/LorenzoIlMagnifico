@@ -32,7 +32,8 @@ public class Server {
 	private static  final int numeroGiocatori = 4;
 	
 	public Server() throws IOException {
-		serverSocket = new ServerSocket(PORT);
+		this.serverSocket = new ServerSocket(PORT);
+		this.playingConnection = new HashMap<String, Connection>();
 		this.connectionList = new ArrayList<Connection>();
 		this.connessi = new ArrayList<String>();
 	};
@@ -111,11 +112,6 @@ public class Server {
 		RemoteView player4 = new RemoteView(new Player(connessi.get(3)), playingConnection.get(connessi.get(3)), model);
 			
 		
-		
-		model.addObserver(player1);
-		model.addObserver(player2);
-		model.addObserver(player3);
-		model.addObserver(player4);
 		player1.addObserver(controller);
 		player2.addObserver(controller);
 		player3.addObserver(controller);
