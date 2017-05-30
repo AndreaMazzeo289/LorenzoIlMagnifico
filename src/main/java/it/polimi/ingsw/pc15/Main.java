@@ -37,8 +37,8 @@ public class Main {
 		
 		gioco.iniziaPartita();
 		Player player = gioco.getPlayers().get(0);
-		Spazio spazio = gioco.getPlancia().getSpazioTorre(ColoreCarta.VERDE, 0);
-		Spazio spazio2 = gioco.getPlancia().getSpazioRaccolta();
+		Spazio spazio = gioco.getPlancia().getSpazioTorre(ColoreCarta.GIALLO, 0);
+		Spazio spazio2 = gioco.getPlancia().getSpazioProduzione();
 		Familiare familiareNero = player.getFamiliare(ColoreFamiliare.NERO);
 		Familiare familiareBianco = player.getFamiliare(ColoreFamiliare.BIANCO);
 
@@ -84,6 +84,7 @@ public class Main {
 		System.out.println("PuntiMilitari: "+player.getSetRisorse().getRisorsa(TipoRisorsa.PUNTIMILITARI).getQuantità()+"\n");
 		
 		player.occupaSpazio(spazio, familiareNero);
+		player.getFamiliare(ColoreFamiliare.BIANCO).setValore(1000);
 		player.occupaSpazio(spazio2, familiareBianco);
 		
 		for(Carta carta : player.getCarte(ColoreCarta.GIALLO)){
