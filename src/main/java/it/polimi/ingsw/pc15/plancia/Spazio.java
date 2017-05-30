@@ -1,5 +1,6 @@
 package it.polimi.ingsw.pc15.plancia;
 
+import java.util.ArrayList;
 import java.util.Queue;
 
 import it.polimi.ingsw.pc15.player.Familiare;
@@ -7,30 +8,31 @@ import it.polimi.ingsw.pc15.player.Familiare;
 public abstract class Spazio {
 	
 	private int valoreMin;
-	private boolean disponibilità;
+	protected ArrayList<Familiare> familiari;
 	
 	public Spazio(int valoreMin) {
 		this.valoreMin=valoreMin;
-		this.disponibilità = true;
+		this.familiari = new ArrayList<Familiare>();
 	}
 
 	public int getValoreMin (){
 		return this.valoreMin;
 	}
 	
-	public void setDisponibilità (boolean disponibilità) {
-		this.disponibilità = disponibilità;
+	public void aggiungiFamiliare(Familiare familiare) {
+		familiari.add(familiare);
 	}
 	
-	public abstract void rimuoviFamiliari();	
-	
-	public boolean disponibile() {
-		return this.disponibilità;
+	public void rimuoviFamiliari() {
+		this.familiari.clear();
 	}
 	
-	public abstract boolean isEmpty();
+	public ArrayList<Familiare> getFamiliari() {
+		return this.familiari;
+	}
 	
-	public abstract void occupa (Familiare familiare);
-	
-	public abstract boolean occupabile (Familiare familiare);
+	public boolean vuoto() {
+		return familiari.isEmpty();
+	}
+
 }

@@ -1,6 +1,8 @@
-package it.polimi.ingsw.pc15.carte;
+package azioni;
 
 import it.polimi.ingsw.pc15.ParseXML;
+import it.polimi.ingsw.pc15.carte.Carta;
+import it.polimi.ingsw.pc15.carte.ColoreCarta;
 import it.polimi.ingsw.pc15.player.Player;
 
 public class AzionePrendiCartaPersonaggio extends AzionePrendiCarta {
@@ -10,7 +12,7 @@ public class AzionePrendiCartaPersonaggio extends AzionePrendiCarta {
 	}
 
 	@Override
-	public boolean requisitiSoddisfatti() {
+	public boolean èValida() {
 		
 		if (player.getCarte(ColoreCarta.BLU).size() == ParseXML.leggiValore("numeroMaxCarte")) {  
 			System.out.println("Hai raggiunto il limite massimo di carte Personaggio!");
@@ -26,18 +28,15 @@ public class AzionePrendiCartaPersonaggio extends AzionePrendiCarta {
 	}
 
 	@Override
-	public boolean attiva() {
+	public void attiva() {
 
-		if (requisitiSoddisfatti()) {
+		if (èValida()) {
 			pagaCosto();
 			daiCarta();
 			carta.attivaEffettoIstantaneo();
 			
 			System.out.println("Il giocatore ha preso la carta BLU: "  + carta.getNome());
-			return true;
 		}
-		
-		else return false;
 	}
 
 }

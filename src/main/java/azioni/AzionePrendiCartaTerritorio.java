@@ -1,6 +1,8 @@
-package it.polimi.ingsw.pc15.carte;
+package azioni;
 
 import it.polimi.ingsw.pc15.ParseXML;
+import it.polimi.ingsw.pc15.carte.Carta;
+import it.polimi.ingsw.pc15.carte.ColoreCarta;
 import it.polimi.ingsw.pc15.player.Player;
 import it.polimi.ingsw.pc15.risorse.TipoRisorsa;
 
@@ -11,7 +13,7 @@ public class AzionePrendiCartaTerritorio extends AzionePrendiCarta {
 	}
 	
 	@Override
-	public boolean requisitiSoddisfatti() {
+	public boolean èValida() {
 		
 		int numeroMaxCarte = ParseXML.leggiValore("numeroMaxCarte");
 		
@@ -36,18 +38,16 @@ public class AzionePrendiCartaTerritorio extends AzionePrendiCarta {
 
 
 	@Override
-	public boolean attiva() {
+	public void attiva() {
 
-		if (requisitiSoddisfatti()) {
+		if (èValida()) {
 			pagaCosto();
 			daiCarta();
 			carta.attivaEffettoIstantaneo();
 			
 			System.out.println("Il giocatore ha preso la carta VERDE: "  + carta.getNome());
-			return true;
 		}
-		
-		else return false;
+
 	}
 
 }

@@ -1,19 +1,19 @@
-package it.polimi.ingsw.pc15.carte;
+package azioni;
 
+import it.polimi.ingsw.pc15.carte.Carta;
 import it.polimi.ingsw.pc15.player.Player;
 import it.polimi.ingsw.pc15.risorse.SetRisorse;
 import it.polimi.ingsw.pc15.risorse.TipoRisorsa;
 
-public abstract class AzionePrendiCarta {
+public abstract class AzionePrendiCarta extends Azione{
 	
-	protected final Player player;
 	protected final Carta carta;
 	
 	public AzionePrendiCarta (Player player, Carta carta) {
-		this.player = player;
+		super(player);
 		this.carta = carta;
 	}
-	
+
 	public boolean risorseSufficienti () {
 		
 	int oroAggiuntivo = 0;
@@ -38,7 +38,7 @@ public abstract class AzionePrendiCarta {
 		player.getSetRisorse().sottrai(carta.getCosto());
 	}
 	
-	public abstract boolean attiva();
+	public abstract void attiva();
 	
 	public void daiCarta() {
 		
@@ -48,6 +48,7 @@ public abstract class AzionePrendiCarta {
 		player.getCarte(carta.getColore()).add(carta);
 		
 	}
-	public abstract boolean requisitiSoddisfatti();
+	
+
 	
 }

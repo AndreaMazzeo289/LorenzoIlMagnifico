@@ -111,18 +111,6 @@ public class Player {
 
 	public void occupaSpazio (Spazio spazio, Familiare familiare) {
 		
-		if (familiare.disponibile()) {
-		
-			familiare.aggiungiServitori();
-		
-			if (spazio.occupabile(familiare) ) {
-				
-				familiare.setDisponibilità(false);
-				spazio.occupa(familiare);
-			}
-		}	
-		
-		else System.out.println("\nHai già posizionato questo familiare!\n");
 	}
 	
 	public void scartaLeader (Leader leader) {

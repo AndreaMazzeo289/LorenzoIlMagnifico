@@ -1,9 +1,12 @@
-package it.polimi.ingsw.pc15.carte;
+package azioni;
 
 import java.io.IOException;
 import java.util.Scanner;
 
 import it.polimi.ingsw.pc15.ParseXML;
+import it.polimi.ingsw.pc15.carte.Carta;
+import it.polimi.ingsw.pc15.carte.ColoreCarta;
+import it.polimi.ingsw.pc15.carte.Impresa;
 import it.polimi.ingsw.pc15.player.Player;
 import it.polimi.ingsw.pc15.risorse.TipoRisorsa;
 
@@ -14,7 +17,7 @@ public class AzionePrendiCartaImpresa extends AzionePrendiCarta {
 	}
 
 	@Override
-	public boolean requisitiSoddisfatti() {
+	public boolean èValida() {
 		
 		if (player.getCarte(ColoreCarta.GIALLO).size() == ParseXML.leggiValore("numeroMaxCarte")) {  
 			System.out.println("Hai raggiunto il limite massimo di carte Impresa!");
@@ -25,7 +28,7 @@ public class AzionePrendiCartaImpresa extends AzionePrendiCarta {
 	}
 
 	@Override
-	public boolean attiva() {
+	public void attiva() {
 		
 		int scelta = 0;
 		
@@ -37,13 +40,12 @@ public class AzionePrendiCartaImpresa extends AzionePrendiCarta {
 		
 		if (scelta == 1  || ((Impresa)carta).getRequisitoPuntiMilitari() == 0) {
 
-			if ( requisitiSoddisfatti() && risorseSufficienti() ) {
+			if ( èValida() && risorseSufficienti() ) {
 				pagaCosto();
 				daiCarta();
 				carta.attivaEffettoIstantaneo();
 			
 				System.out.println("Il giocatore ha preso la carta VIOLA: "  + carta.getNome());
-				return true;
 			}
 		}
 		
@@ -55,11 +57,8 @@ public class AzionePrendiCartaImpresa extends AzionePrendiCarta {
 				carta.attivaEffettoIstantaneo();
 				
 				System.out.println("Il giocatore ha preso la carta VIOLA: "  + carta.getNome());
-				return true;
 			}
 		}	
-		
-		return false;
 	}
 	
 	public boolean puntiMilitariSufficienti() {
