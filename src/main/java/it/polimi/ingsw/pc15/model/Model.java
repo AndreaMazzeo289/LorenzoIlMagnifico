@@ -39,7 +39,7 @@ public class Model extends Observable {
 		this.periodo = 1;
 		this.regoleAvanzate = regoleAvanzate;
 			
-		/*Player player1 = new Player("Maffe");
+		Player player1 = new Player("Maffe");
 		Player player2 = new Player("Mazze");
 		Player player3 = new Player("Fra");
 		Player player4 = new Player("AleMagni");
@@ -48,7 +48,7 @@ public class Model extends Observable {
 		giocatori.add(player1);
 		giocatori.add(player2);
 		giocatori.add(player3);
-		giocatori.add(player4);*/
+		giocatori.add(player4);
 		
 	}
 

@@ -19,8 +19,10 @@ public class AzioneRaccolto extends Azione{
 		Iterator<Carta> territorio = player.getCarte(ColoreCarta.VERDE).iterator();
 		
 		while(territorio.hasNext()){
-			if (valoreDado >= ((Territorio) territorio.next()).getRequisitoRaccolta())
+			if (valoreDado >= ((Territorio) territorio.next()).getRequisitoRaccolta()) {
+				System.out.println("Attivo la raccolta con ");
 				((Territorio) territorio.next()).getEffettoRaccolta().attiva(player);
+			}
 		}
 	}
 }
