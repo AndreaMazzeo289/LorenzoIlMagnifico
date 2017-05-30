@@ -13,24 +13,23 @@ public class Connection extends Observable implements Runnable {
 	private Server server;
 	private PrintStream out ;
 	private Scanner in;
-	private int numeroGiocatori = 0;
-	private boolean flag = true; // TEMPORANEAMENTE FLAG
-	private boolean connessioneAttiva = true;
 	
-	
-	/* Ogni connection corrisponde ad un thread del client.
-	 * comunica tramite la socket passata dal server con il client con stream di byte.
-	 * il thread esegue le operazioni di comunicazione e poi locka l'oggetto intanto sbloccato dalla wait() del server ed effettua 
-	 * la notify() per svegliare il thread del server e mandarlo in accept() nuovamente per ricevere nuoi client.
-	 * Va in wait() per aspettare il numero esatto di giocatori necessari per poi notificarlo al client una volta sveglio.
-	 * presenta una flag neccessaria per far passare il thread successivo dello stesso ogetto lanciato dal server alla notify() e svegliare il thread del client .
+	/*
+	 * FLAG TEMPORANEE
 	 */
+	private boolean flag; 
+	private boolean connessioneAttiva;
 	
 	
-	public Connection(Socket socket, Server server){
+	
+	public Connection(Socket socket, Server server) throws IOException{
 		
 		this.socket = socket;
 		this.server = server;
+		out = new PrintStream(this.socket.getOutputStream());
+		in = new Scanner(this.socket.getInputStream());
+		this.flag = true;
+		this.connessioneAttiva = true;
 	}
 	
 	
@@ -47,8 +46,7 @@ public class Connection extends Observable implements Runnable {
 		try {	
 			String read;
 			String name;
-			out = new PrintStream(this.socket.getOutputStream());
-			in = new Scanner(this.socket.getInputStream());
+			int numeroGiocatori = 0;
 			
 			/*
 			 * IL FLAG SERVE PER FAR ESEGUIRE ESCLUSIVAMENTE LA NOTIFY AL SECONDO THREAD PER RISVEGLIARE LA CONNECTION
@@ -107,9 +105,6 @@ public class Connection extends Observable implements Runnable {
 		
 				
 			}
-		} catch (IOException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
 		} catch (InterruptedException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();

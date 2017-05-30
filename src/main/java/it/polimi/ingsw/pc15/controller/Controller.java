@@ -12,10 +12,10 @@ import it.polimi.ingsw.pc15.view.View;
 
 public class Controller implements Observer {
 	
-	private final Model gioco;
+	private final Model model;
 	
-	public Controller (Model gioco) {
-		this.gioco = gioco;
+	public Controller (Model model) {
+		this.model = model;
 		
 	}
 
@@ -25,7 +25,7 @@ public class Controller implements Observer {
 			throw new IllegalArgumentException();
 		}
 		System.out.println("checkcontroller");
-		gioco.prova((String)message);
+		model.prova((String)message);
 		
 	}
 

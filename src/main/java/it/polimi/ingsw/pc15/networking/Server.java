@@ -21,25 +21,23 @@ public class Server {
 	
 	private final static int PORT = 12879;
 	ServerSocket serverSocket;
-	ArrayList<Connection> connectionList = new ArrayList<Connection>();
+	ArrayList<Connection> connectionList;
+	private Map<String, Connection> playingConnection;
+	private ArrayList<String> connessi;
 	
-	private Map<String, Connection> playingConnection = new HashMap<>();
-;
-	private ArrayList<String> connessi = new ArrayList<String>();
-	private final int numeroGiocatori = 4;
+	/*
+	 *  TEMPORANEO FINAL INT PER TESTARE
+	 */
+	
+	private static  final int numeroGiocatori = 4;
 	
 	public Server() throws IOException {
 		serverSocket = new ServerSocket(PORT);
+		this.connectionList = new ArrayList<Connection>();
+		this.connessi = new ArrayList<String>();
 	};
 	
 	
-	
-	/* Crea la server socket nel costruttore e attende i vari client.
-	 * registra le connessioni che vengono stabilite con ciascun client in un arraylist.
-	 * Locka l'oggetto connection e manda un thread ad eseguire connection, va in wait() e unlocka connection.
-	 * Raggiunto il numero prefissato di giocatori utilizza le connection dell'arraylist per rilockare gli oggetti precedenti e lanciare
-	 * un thread per notificare i tread dei client e sincronizzarli una volta raggiunto il numero esatto di giocatori.
-	 */
 	
 
 	public void run() throws InterruptedException {

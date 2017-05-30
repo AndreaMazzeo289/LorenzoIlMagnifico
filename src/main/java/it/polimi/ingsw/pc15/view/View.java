@@ -20,12 +20,11 @@ import it.polimi.ingsw.pc15.risorse.TipoRisorsa;
 public abstract class View extends Observable implements Observer {
 	
 	private Player player;
-	//private ConsoleView consoleView;
+	
 	
 	public View (Player player, Model model) {
 		
 		this.player = player;
-		//this.consoleView = new ConsoleView();
 		model.addObserver(this);
 	}
 

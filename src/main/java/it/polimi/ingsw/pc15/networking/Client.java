@@ -12,27 +12,20 @@ import java.util.Scanner;
 public class Client {
 	private  PrintStream out;
 	private  Scanner in;
-	private  String hostName;
-	private  String name;
+	private  String hostName; // ancora non l'ho inizializzato
 	
-	/*
-	 *  il client prende hostname e stessa porta della server socket per stabilire una connessione.
-	 *  viene poi chiesto al player di scrivere il proprio nome.
-	 *  In base al numero di client connessi al server viene notificata l'attesa di ulteriori giocatori per iniziare la partita.
-	 *  nel caso il numero necessario di giocatori venga raggiunto il client riceve una notifica che specifica l'imminente inizio della partita.
-	 */
 	
 	public Client() throws IOException{
+		Socket clientSocket = new Socket(hostName, 12879);
+		out = new PrintStream(clientSocket.getOutputStream());
+		in = new Scanner(clientSocket.getInputStream());
 	}
 	
 	public void run() throws InterruptedException {
 		// TODO Auto-generated method stub
 		try {
-			Socket clientSocket = new Socket(hostName, 12879);
-			out = new PrintStream(clientSocket.getOutputStream());
-			in = new Scanner(clientSocket.getInputStream());
 			String read;
-			
+			String name;
 			/*
 			 *  IL CLIENT SETTA IL NOME CHE GLI VIENE CHIESTO DA SERVER 
 			 */
@@ -40,8 +33,8 @@ public class Client {
 			read = in.nextLine();
 			System.out.println(read);
 			BufferedReader input = new BufferedReader(new InputStreamReader(System.in));
-			this.name = input.readLine();
-			out.println(this.name);
+			name = input.readLine();
+			out.println(name);
 			out.flush();
 			
 			/*

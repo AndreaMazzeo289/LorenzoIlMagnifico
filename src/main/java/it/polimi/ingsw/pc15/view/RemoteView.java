@@ -12,7 +12,6 @@ public class RemoteView extends View implements Observer{
 
 	private Player player;
 	private Connection connection;
-	private Controller controller;
 	
 	
 	
@@ -20,7 +19,8 @@ public class RemoteView extends View implements Observer{
 		
 		super(player, model);
 		this.player = player;
-		connection.addObserver(this);
+		this.connection = connection;
+		this.connection.addObserver(this);
 		
 	}
 	
