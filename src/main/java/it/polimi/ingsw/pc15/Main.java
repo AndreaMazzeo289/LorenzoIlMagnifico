@@ -71,8 +71,6 @@ public class Main {
 			player.giocaLeader(i);
 		
 		gioco.rapportoInVaticano(2);
-
-		System.out.println("provo a prendere" + gioco.getPlancia().getSpazioTorre(ColoreCarta.BLU,0).getCarta().getNome());
 		
 		System.out.println("\nAl momento possiedi le seguenti risorse:");
 		System.out.println("Oro: "+player.getSetRisorse().getRisorsa(TipoRisorsa.ORO).getQuantità());
@@ -85,13 +83,10 @@ public class Main {
 		
 		player.occupaSpazio(spazio, familiareNero);
 		player.getFamiliare(ColoreFamiliare.BIANCO).setValore(1000);
-		player.occupaSpazio(spazio2, familiareBianco);
+		player.occupaSpazio(spazio2, familiareNero);
 		
-		for(Carta carta : player.getCarte(ColoreCarta.GIALLO)){
-			System.out.println(carta.getNome());
-		}
 		
-		System.out.println("\nAl momento possiedi le seguenti risorse dopo:");
+		System.out.println("\nRisorse aggiornate:");
 		System.out.println("Oro: "+player.getSetRisorse().getRisorsa(TipoRisorsa.ORO).getQuantità());
 		System.out.println("Legna: "+player.getSetRisorse().getRisorsa(TipoRisorsa.LEGNA).getQuantità());
 		System.out.println("Pietra: "+player.getSetRisorse().getRisorsa(TipoRisorsa.PIETRA).getQuantità());
