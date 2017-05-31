@@ -18,7 +18,7 @@ import it.polimi.ingsw.pc15.risorse.SetRisorse;
 
 public class Plancia {
 	
-	private Torre torreTERRITORIO;
+	private Torre torreVerde;
 	private Torre torreBlu;
 	private Torre torreGialla;
 	private Torre torreViola;
@@ -39,19 +39,19 @@ public class Plancia {
 		
 		int numeroSpaziTorre = ParserXML.leggiValore("numeroSpaziTorre");
 
-		ArrayList risorseTorreTERRITORIO = new ArrayList<SetRisorse> (numeroSpaziTorre);
+		ArrayList risorseTorreVerde = new ArrayList<SetRisorse> (numeroSpaziTorre);
 		ArrayList risorseTorreBlu = new ArrayList<SetRisorse> (numeroSpaziTorre);
 		ArrayList risorseTorreGialla = new ArrayList<SetRisorse> (numeroSpaziTorre);
 		ArrayList risorseTorreViola = new ArrayList<SetRisorse> (numeroSpaziTorre);
 		
 		for(int i=1; i<=numeroSpaziTorre; i++){
-			risorseTorreTERRITORIO.add(ParserXML.leggiSetRisorseSpazio("TERRITORIO"+Integer.toString(i))); 
+			risorseTorreVerde.add(ParserXML.leggiSetRisorseSpazio("verde"+Integer.toString(i))); 
 			risorseTorreBlu.add(ParserXML.leggiSetRisorseSpazio("blu"+Integer.toString(i))); 
 			risorseTorreGialla.add(ParserXML.leggiSetRisorseSpazio("giallo"+Integer.toString(i))); 
 			risorseTorreViola.add(ParserXML.leggiSetRisorseSpazio("viola"+Integer.toString(i))); 
 		}
 		
-		torreTERRITORIO = new Torre (numeroSpaziTorre, risorseTorreTERRITORIO);
+		torreVerde = new Torre (numeroSpaziTorre, risorseTorreVerde);
 		torreBlu = new Torre (numeroSpaziTorre, risorseTorreBlu);
 		torreGialla = new Torre (numeroSpaziTorre, risorseTorreGialla);
 		torreViola = new Torre (numeroSpaziTorre, risorseTorreViola);
@@ -150,7 +150,7 @@ public class Plancia {
 			}
 		}
 
- 		this.torreTERRITORIO.setTorre(arrayTerritori);
+ 		this.torreVerde.setTorre(arrayTerritori);
  		this.torreBlu.setTorre(arrayPersonaggi);
  		this.torreGialla.setTorre(arrayEdifici);
  		this.torreViola.setTorre(arrayImprese);
@@ -178,11 +178,11 @@ public class Plancia {
 		return this.spaziMercato;
 	}
 	
-	public SpazioTorre getSpazioTorre (TipoCarta colore, int numeroSpazio) {
+	public SpazioTorre getSpazioTorre (TipoCarta tipo, int numeroSpazio) {
 		
-		switch (colore) {
+		switch (tipo) {
 		
-		case TERRITORIO: return torreTERRITORIO.getSpazio(numeroSpazio);
+		case TERRITORIO: return torreVerde.getSpazio(numeroSpazio);
 		case PERSONAGGIO: return torreBlu.getSpazio(numeroSpazio);
 		case EDIFICIO: return torreGialla.getSpazio(numeroSpazio);
 		case IMPRESA: return torreViola.getSpazio(numeroSpazio);		
