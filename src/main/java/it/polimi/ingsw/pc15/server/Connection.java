@@ -1,4 +1,4 @@
-package it.polimi.ingsw.pc15.networking;
+package it.polimi.ingsw.pc15.server;
 
 import java.io.IOException;
 import java.io.OutputStreamWriter;
@@ -97,7 +97,6 @@ public class Connection extends Observable implements Runnable {
 					
 					
 							read = in.nextLine();
-							System.out.println(read);
 							setChanged();
 							notifyObservers(read);
 					

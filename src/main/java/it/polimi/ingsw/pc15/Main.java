@@ -24,7 +24,6 @@ import it.polimi.ingsw.pc15.player.Player;
 import it.polimi.ingsw.pc15.risorse.Risorsa;
 import it.polimi.ingsw.pc15.risorse.SetRisorse;
 import it.polimi.ingsw.pc15.risorse.TipoRisorsa;
-import it.polimi.ingsw.pc15.view.View;
 
 public class Main {
 

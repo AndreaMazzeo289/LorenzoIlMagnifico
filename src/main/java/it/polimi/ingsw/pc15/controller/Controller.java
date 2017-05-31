@@ -7,7 +7,7 @@ import it.polimi.ingsw.pc15.model.Model;
 import it.polimi.ingsw.pc15.plancia.Spazio;
 import it.polimi.ingsw.pc15.player.ColoreFamiliare;
 import it.polimi.ingsw.pc15.player.Player;
-import it.polimi.ingsw.pc15.view.View;
+
 
 
 public class Controller implements Observer {
@@ -21,7 +21,7 @@ public class Controller implements Observer {
 
 	@Override
 	public synchronized void update(Observable o, Object message) {
-		if(!(o instanceof View)|| !(message instanceof String)){
+		if(!(message instanceof String)){
 			throw new IllegalArgumentException();
 		}
 		System.out.println("checkcontroller");

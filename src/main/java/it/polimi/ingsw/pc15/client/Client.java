@@ -1,4 +1,4 @@
-package it.polimi.ingsw.pc15.networking;
+package it.polimi.ingsw.pc15.client;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -12,13 +12,19 @@ import java.util.Scanner;
 public class Client {
 	private  PrintStream out;
 	private  Scanner in;
-	private  String hostName; // ancora non l'ho inizializzato
+	private  String hostName;
+	private ClientController clientController;
+	private ClientView clientView;
 	
 	
 	public Client() throws IOException{
+		
 		Socket clientSocket = new Socket(hostName, 12879);
-		out = new PrintStream(clientSocket.getOutputStream());
-		in = new Scanner(clientSocket.getInputStream());
+		this.out = new PrintStream(clientSocket.getOutputStream());
+		this.in = new Scanner(clientSocket.getInputStream());
+		this.clientController = new ClientController();
+		this.clientView = new ClientView();
+		
 	}
 	
 	public void run() throws InterruptedException {
@@ -37,6 +43,10 @@ public class Client {
 			out.println(name);
 			out.flush();
 			
+			
+			System.out.println(read = in.nextLine());  //in attesa di altri giocatori
+			System.out.println(read = in.nextLine()); //la partita sta per cominciare
+			
 			/*
 			 * COMINCIA A LEGGERE LO STATO DEL GIOCO :
 			 * 
@@ -44,9 +54,7 @@ public class Client {
 			 * 2 ATTESA DEL PROPRIO TURNO 
 			 * 3 ESECUZIONE PROPRIO TURNO
 			 */
-			System.out.println(read = in.nextLine());  //in attesa di altri giocatori
-			System.out.println(read = in.nextLine()); //la partita sta per cominciare
-		
+			
 			while(true){
 				
 				/*
@@ -58,7 +66,7 @@ public class Client {
 				if(!read.equals("STATO:wait")){
 					
 					
-					if(read.equals("Gioca Maffe")){
+					if(read.equals("Gioca" + name)){
 						
 						System.out.println("PROVA");
 						/*
@@ -82,6 +90,9 @@ public class Client {
 		} catch (IOException e) {e.printStackTrace();}
 			
 	}
+	
+	public void send(Message message){}
+	
 	public static void main(String[] args) throws IOException, InterruptedException {
 			Client client;
 			client = new Client();
