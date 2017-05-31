@@ -13,8 +13,8 @@ public class Client {
 	private  PrintStream out;
 	private  Scanner in;
 	private  String hostName;
-	private ClientController clientController;
-	private ClientView clientView;
+	//private ClientController clientController;
+	//private ClientView clientView;
 	
 	
 	public Client() throws IOException{
@@ -91,7 +91,7 @@ public class Client {
 			
 	}
 	
-	public void send(Message message){}
+	//public void send(Message message){}
 	
 	public static void main(String[] args) throws IOException, InterruptedException {
 			Client client;
