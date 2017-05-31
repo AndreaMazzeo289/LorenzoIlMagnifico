@@ -22,8 +22,8 @@ public class Client {
 		Socket clientSocket = new Socket(hostName, 12879);
 		this.out = new PrintStream(clientSocket.getOutputStream());
 		this.in = new Scanner(clientSocket.getInputStream());
-		this.clientController = new ClientController();
-		this.clientView = new ClientView();
+		//this.clientController = new ClientController();
+		//this.clientView = new ClientView();
 		
 	}
 	
