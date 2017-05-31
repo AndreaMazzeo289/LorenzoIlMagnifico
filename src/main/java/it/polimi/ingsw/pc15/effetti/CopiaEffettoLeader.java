@@ -13,7 +13,7 @@ public class CopiaEffettoLeader extends Effetto {
 		
 		ArrayList<Leader> leaderCopiabili = new ArrayList<Leader>();
 		for (Player avversario : player.getAvversari())
-			for (Leader leaderAvversario : avversario.getLeader())
+			for (Leader leaderAvversario : avversario.getCarteLeader())
 				if (leaderAvversario.giocato())
 					leaderCopiabili.add(leaderAvversario);
 		

@@ -32,7 +32,7 @@ public class Main {
 		//Player[] players = new Player[numeroGiocatori];
 		//Thread[] threads = new Thread[numeroGiocatori];
 
-		Model gioco = new Model(4, true);
+		Model gioco = new Model(null, true);
 		
 		gioco.iniziaPartita();
 		Player player = gioco.getPlayers().get(0);
@@ -63,11 +63,9 @@ public class Main {
 		 */
 		
 		
-		for (Leader leader : player.getLeader())
+		for (Leader leader : player.getCarteLeader())
 			System.out.println("Provo a giocare " + leader.getNome());
-		
-		for (int i=0; i<4; i++)
-			player.giocaLeader(i);
+	
 		
 		gioco.rapportoInVaticano(2);
 		
@@ -80,9 +78,6 @@ public class Main {
 		System.out.println("PuntiFede: "+player.getSetRisorse().getRisorsa(TipoRisorsa.PUNTIFEDE).getQuantità());
 		System.out.println("PuntiMilitari: "+player.getSetRisorse().getRisorsa(TipoRisorsa.PUNTIMILITARI).getQuantità()+"\n");
 		
-		player.occupaSpazio(spazio, familiareNero);
-		player.getFamiliare(ColoreFamiliare.BIANCO).setValore(1000);
-		player.occupaSpazio(spazio2, familiareNero);
 		
 		
 		System.out.println("\nRisorse aggiornate:");
