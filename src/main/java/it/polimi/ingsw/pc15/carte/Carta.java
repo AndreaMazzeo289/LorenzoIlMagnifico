@@ -36,9 +36,14 @@ public abstract class Carta {
 	
 	public void attivaEffettoIstantaneo() {
 		
-		Iterator<Effetto> effetto = effettoIstantaneo.iterator();
-		while(effetto.hasNext()) 
-			effetto.next().attiva(player);
+		for (Effetto effetto : this.effettoIstantaneo)
+			effetto.attiva(this.player);
+	}
+	
+	public void attivaEffettoPermanente() {
+		
+		for (Effetto effetto : this.effettoPermanente)
+			effetto.attiva(this.player);
 	}
 	
 	public void setSpazio(SpazioTorre spazio) {

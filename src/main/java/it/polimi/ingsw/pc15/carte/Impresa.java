@@ -10,13 +10,11 @@ import it.polimi.ingsw.pc15.risorse.SetRisorse;
 
 public class Impresa extends Carta {
 	
-	private Effetto aumentoPuntiVittoria;
 	private int requisitoPuntiMilitari;
 	private int costoPuntiMilitari;
 	
-	public Impresa (String nome, int id, int periodo, SetRisorse costo, Set<Effetto> effettoIstantaneo, Set<Effetto> effettoPermanente, Effetto aumentoPuntiVittoria, int requisitoPuntiMilitari, int costoPuntiMilitari) {
+	public Impresa (String nome, int id, int periodo, SetRisorse costo, Set<Effetto> effettoIstantaneo, Set<Effetto> effettoPermanente, int requisitoPuntiMilitari, int costoPuntiMilitari) {
 		super(nome, id, periodo, costo, effettoIstantaneo, effettoPermanente);
-		this.aumentoPuntiVittoria = aumentoPuntiVittoria;
 		this.requisitoPuntiMilitari = requisitoPuntiMilitari;
 		this.costoPuntiMilitari = costoPuntiMilitari;
 		this.tipo = TipoCarta.IMPRESA;

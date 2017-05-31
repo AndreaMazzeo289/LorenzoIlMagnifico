@@ -34,6 +34,7 @@ public class AzionePrendiCartaPersonaggio extends AzionePrendiCarta {
 			pagaCosto();
 			daiCarta();
 			carta.attivaEffettoIstantaneo();
+			carta.attivaEffettoPermanente();
 			
 			System.out.println("Il giocatore ha preso la carta BLU: "  + carta.getNome());
 		}
