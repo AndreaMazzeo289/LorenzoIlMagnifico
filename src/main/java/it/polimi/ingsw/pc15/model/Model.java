@@ -36,24 +36,18 @@ public class Model extends Observable implements Observer {
 	private boolean regoleAvanzate;
 	
 	
-	public Model(int numeroGiocatori, boolean regoleAvanzate){
+	public Model(ArrayList<String> nomiGiocatori, boolean regoleAvanzate){
 
-		this.numeroGiocatori = numeroGiocatori;
+		this.numeroGiocatori = nomiGiocatori.size();
 		this.plancia = new Plancia(numeroGiocatori);
 		this.turno = 0;
 		this.periodo = 1;
 		this.regoleAvanzate = regoleAvanzate;
-			
-		Player player1 = new Player("Maffe");
-		Player player2 = new Player("Mazze");
-		Player player3 = new Player("Fra");
-		Player player4 = new Player("AleMagni");
 		
 		giocatori = new ArrayList<Player>();
-		giocatori.add(player1);
-		giocatori.add(player2);
-		giocatori.add(player3);
-		giocatori.add(player4);
+		for (int i=0; i<numeroGiocatori; i++)
+			giocatori.add(new Player(nomiGiocatori.get(i)));
+			
 		
 	}
 
@@ -84,7 +78,7 @@ public class Model extends Observable implements Observer {
 			int numeroCarteLeader = ParserXML.leggiValore("numeroCarteLeader");
 			int i=0, j=0;
 			while (j<numeroGiocatori) {
-				giocatori.get(j).getLeader().add(carteLeader.get(i));
+				giocatori.get(j).getCarteLeader().add(carteLeader.get(i));
 				carteLeader.get(i).setPlayer(giocatori.get(j));
 				i++;
 				if (i==numeroCarteLeader) {
