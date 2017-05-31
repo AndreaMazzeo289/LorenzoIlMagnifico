@@ -187,7 +187,7 @@
             </carta>
         </requisito>
         <effetti tipo="turno">
-            <effetto>azioneRaccolta1</effetto>
+            <effetto>raccolta1</effetto>
         </effetti>
     </leader>
     
@@ -246,7 +246,7 @@
             </carta>
         </requisito>
         <effetti tipo="turno">
-            <effetto>azioneProduzione0</effetto>
+            <effetto>produzione0</effetto>
         </effetti>
     </leader>
     

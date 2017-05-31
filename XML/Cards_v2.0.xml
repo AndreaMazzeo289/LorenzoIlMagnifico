@@ -958,7 +958,7 @@
 		</costoCarta>
 		<effettiImmediati>
 			<effettoImmediato>aggiungiRisorse1F</effettoImmediato>
-			<effettoImmediato>azioneCartaQualsiasi4</effettoImmediato>
+			<effettoImmediato>azionePrendiCartaAggiuntivaAll4</effettoImmediato>
 		</effettiImmediati>
 		<effettiPermanenti>
 		</effettiPermanenti>
@@ -983,7 +983,7 @@
 			</risorsa>
 		</costoCarta>
 		<effettiImmediati>
-			<effettoImmediato>azioneCartaVerde6</effettoImmediato>
+			<effettoImmediato>azionePrendiCartaAggiuntivaVerde6</effettoImmediato>
 			<effettoImmediato>aggiungiRisorse2PM</effettoImmediato>
 		</effettiImmediati>
 		<effettiPermanenti>
@@ -998,7 +998,7 @@
 			</risorsa>
 		</costoCarta>
 		<effettiImmediati>
-			<effettoImmediato>azioneCartaBlu6andSconto2O</effettoImmediato>
+			<effettoImmediato>azionePrendiCartaAggiuntivaBlu6andSconto2O</effettoImmediato>
 		</effettiImmediati>
 		<effettiPermanenti>
 		</effettiPermanenti>
@@ -1012,7 +1012,7 @@
 			</risorsa>
 		</costoCarta>
 		<effettiImmediati>
-			<effettoImmediato>azioneCartaGialla6andSconto1Land1P</effettoImmediato>
+			<effettoImmediato>azionePrendiCartaAggiuntivaGialla6andSconto1Land1P</effettoImmediato>
 		</effettiImmediati>
 		<effettiPermanenti>
 		</effettiPermanenti>
@@ -1026,7 +1026,7 @@
 			</risorsa>
 		</costoCarta>
 		<effettiImmediati>
-			<effettoImmediato>azioneCartaViola6</effettoImmediato>
+			<effettoImmediato>azionePrendiCartaAggiuntivaViola6</effettoImmediato>
 			<effettoImmediato>aggiungiRisorse1Pr</effettoImmediato>
 		</effettiImmediati>
 		<effettiPermanenti>
@@ -1163,7 +1163,7 @@
 			</risorsa>
 		</costoCarta>
 		<effettiImmediati>
-			<effettoImmediato>azioneRaccolta4</effettoImmediato>
+			<effettoImmediato>raccolta4</effettoImmediato>
 			<effettoImmediato>aggiungiRisorse2F</effettoImmediato>
 		</effettiImmediati>
 		<effettiPermanenti>
@@ -1178,7 +1178,7 @@
 			</risorsa>
 		</costoCarta>
 		<effettiImmediati>
-			<effettoImmediato>azioneProduzione4</effettoImmediato>
+			<effettoImmediato>produzione4</effettoImmediato>
 			<effettoImmediato>aggiungiRisorse1F</effettoImmediato>
 		</effettiImmediati>
 		<effettiPermanenti>
@@ -1208,7 +1208,7 @@
 		</costoCarta>
 		<effettiImmediati>
 			<effettoImmediato>aggiungiRisorse1Pr</effettoImmediato>
-			<effettoImmediato>azioneCartaQualsiasi7</effettoImmediato>
+			<effettoImmediato>azionePrendiCartaAggiuntivaAll7</effettoImmediato>
 		</effettiImmediati>
 		<effettiPermanenti>
 		</effettiPermanenti>
@@ -1461,7 +1461,7 @@
 			</risorsa>
 		</costoCarta>
 		<effettiImmediati>
-			<effettoImmediato>azioneRaccolta4</effettoImmediato>
+			<effettoImmediato>raccolta4</effettoImmediato>
 		</effettiImmediati>
 		<effettiPermanenti>
 			<effettoPermanente>aggiungiRisorse5V</effettoPermanente>
@@ -1564,7 +1564,7 @@
 		</costoCarta>
 		<effettiImmediati>
 			<effettoImmediato>aggiungiRisorse1F</effettoImmediato>	
-			<effettoImmediato>azioneCartaQualsiasi7</effettoImmediato>
+			<effettoImmediato>azionePrendiCartaAggiuntivaAll7</effettoImmediato>
 		</effettiImmediati>
 		<effettiPermanenti>
 			<effettoPermanente>aggiungiRisorse5V</effettoPermanente>
@@ -1629,7 +1629,7 @@
 			</risorsa>
 		</costoCarta>
 		<effettiImmediati>
-			<effettoImmediato>azioneProduzione3</effettoImmediato>
+			<effettoImmediato>produzione3</effettoImmediato>
 		</effettiImmediati>
 		<effettiPermanenti>
 			<effettoPermanente>aggiungiRisorse5V</effettoPermanente>

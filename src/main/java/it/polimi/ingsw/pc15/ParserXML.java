@@ -27,6 +27,7 @@ import it.polimi.ingsw.pc15.effetti.AnnullaRequisitoTerritori;
 import it.polimi.ingsw.pc15.effetti.AnnullaSovrapprezzoTorri;
 import it.polimi.ingsw.pc15.effetti.AumentaPrezzoServitori;
 import it.polimi.ingsw.pc15.effetti.AumentaValoreFamiliare;
+import it.polimi.ingsw.pc15.effetti.AzionePrendiCartaAggiuntiva;
 import it.polimi.ingsw.pc15.effetti.Produzione;
 import it.polimi.ingsw.pc15.effetti.Raccolto;
 import it.polimi.ingsw.pc15.effetti.BonusDadoCarte;
@@ -313,23 +314,15 @@ public class ParserXML {
 					 	case "addRisorsa":
 					 		effettoLetto = leggiEffettoAddRisorsa(effetto);
 					 		break;
-					 		
-					 	case "azione":
-					 		
-					 		String tipoAzione = effetto.getAttribute("idAzione");
-							switch(tipoAzione){
-								case "raccolta": 
-									effettoLetto = leggiEffettoRaccolto(effetto);
-									break;
-								case "produzione": 
-									effettoLetto = leggiEffettoProduzione(effetto);
-									break;
-								case "carta": 
-									effettoLetto = leggiEffettoAzioneCarta(effetto);
-									break;
-							}
-							break;
-							
+					 	case "raccolta":
+					 		effettoLetto = leggiEffettoRaccolta(effetto);
+					 		break;
+					 	case "prendiCartaAggiuntiva":
+					 		effettoLetto = leggiEffettoAzionePrendiCartaAggiuntiva(effetto);
+					 		break;
+					 	case "produzione":
+					 		effettoLetto = leggiEffettoProduzione(effetto);
+					 		break;
 					 	case "moltiplicazione":
 					 		if(effetto.getAttribute("tipoMolt").equals("RxR"))
 					 			effettoLetto = leggiEffettorRisorsePerRisorse(effetto);
@@ -461,12 +454,12 @@ public class ParserXML {
 	 * @param elemento dell'effetto specifico da estrarre (Classe Element)
 	 * @return istanza dell'effetto estratto (Classe Raccolto)
 	 */
-	public static Raccolto leggiEffettoRaccolto (Element effetto) {
+	public static Raccolto leggiEffettoRaccolta (Element effetto) {
 		
 		int valoreDadoRaccolta = Integer.parseInt(effetto.getElementsByTagName("valoreDado").item(0).getFirstChild().getNodeValue());
 		
-		Raccolto Raccolto = new Raccolto (valoreDadoRaccolta);
-		return Raccolto;
+		Raccolto raccolto = new Raccolto (valoreDadoRaccolta);
+		return raccolto;
 	}
 	
 	//--------------------------------------------------------------------------------------------------------------//
@@ -481,8 +474,8 @@ public class ParserXML {
 			
 		int valoreDadoProduzione = Integer.parseInt(effetto.getElementsByTagName("valoreDado").item(0).getFirstChild().getNodeValue());
 			
-		Produzione Produzione = new Produzione (valoreDadoProduzione);
-		return Produzione;
+		Produzione produzione = new Produzione (valoreDadoProduzione);
+		return produzione;
 	}
 
 	//--------------------------------------------------------------------------------------------------------------//
@@ -494,8 +487,7 @@ public class ParserXML {
 	 * @return istanza dell'effetto estratto (Classe AzioneCarta)
 	 */
 	
-	/*
-	public static AzioneCarta leggiEffettoAzioneCarta (Element effetto) {
+	public static AzionePrendiCartaAggiuntiva leggiEffettoAzionePrendiCartaAggiuntiva (Element effetto) {
 		
 		int valoreDadoCarta = Integer.parseInt(effetto.getElementsByTagName("valoreDado").item(0).getFirstChild().getNodeValue());
 		String tipoCarta = effetto.getElementsByTagName("tipoCarta").item(0).getFirstChild().getNodeValue();
@@ -518,11 +510,9 @@ public class ParserXML {
 				tipoCartaEnum = TipoCarta.ALL;
 		}
 		
-		AzioneCarta azioneCarta = new AzioneCarta (valoreDadoCarta, tipoCartaEnum);
-		return azioneCarta;
+		AzionePrendiCartaAggiuntiva azione = new AzionePrendiCartaAggiuntiva (tipoCartaEnum, valoreDadoCarta);
+		return azione;
 	}
-	
-	*/
 	
 	//--------------------------------------------------------------------------------------------------------------//
 	// LEGGI EFFETTO MOLTIPLICAZIONE
