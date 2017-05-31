@@ -24,6 +24,7 @@ public class Client extends Observable{
 		this.clientView = new ClientView();
 		this.clientView.run();
 		clientView.addObserver(clientController);
+		clientController.addObserver(clientView);
 	}
 	
 	public void run() throws InterruptedException {

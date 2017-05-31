@@ -7,6 +7,7 @@ import java.util.Observable;
 import java.util.Observer;
 
 public class ClientView extends Observable implements Observer {
+	private String ingresso = "wait";
 	
 	public ClientView(){}
 	
@@ -14,10 +15,13 @@ public class ClientView extends Observable implements Observer {
 	public void run() throws IOException{
 		String read;
 		while(true){
+		if(ingresso.equals("Scrivi il tuo nome")){
+		System.out.println("Scrivi il tuo nome");
 		BufferedReader input = new BufferedReader(new InputStreamReader(System.in));
 		read = input.readLine();
 		setChanged();
 		notifyObservers(read);
+			}
 		}
 	}
 
@@ -28,6 +32,6 @@ public class ClientView extends Observable implements Observer {
 		if(!(o instanceof ClientController) || !(arg instanceof String)){
 			throw new IllegalArgumentException();
 		}
-		System.out.println(arg);
+		this.ingresso = (String)arg;
 	}
 }
