@@ -15,7 +15,7 @@ public class Personaggio extends Carta {
 	public Personaggio (String nome, int id, int periodo, SetRisorse costo, Set<Effetto> effettoIstantaneo, Effetto effettoPermanente) {
 		super(nome, id, periodo, costo, effettoIstantaneo);
 		this.effettoPermanente = effettoPermanente;
-		this.colore = ColoreCarta.BLU;
+		this.tipo = TipoCarta.PERSONAGGIO;
 		}
 
 	@Override
@@ -24,10 +24,4 @@ public class Personaggio extends Carta {
 		AzionePrendiCarta azionePrendiCarta = new AzionePrendiCartaPersonaggio(player, this);
 		return azionePrendiCarta;
 	}
-
-	@Override
-	public ColoreCarta getColore() {
-		return ColoreCarta.BLU;
-	}
-
 }

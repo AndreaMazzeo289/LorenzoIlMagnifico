@@ -19,7 +19,7 @@ public class Impresa extends Carta {
 		this.aumentoPuntiVittoria = aumentoPuntiVittoria;
 		this.requisitoPuntiMilitari = requisitoPuntiMilitari;
 		this.costoPuntiMilitari = costoPuntiMilitari;
-		this.colore = ColoreCarta.VIOLA;
+		this.tipo = TipoCarta.IMPRESA;
 	}
 
 	@Override
@@ -36,12 +36,4 @@ public class Impresa extends Carta {
 	public int getCostoPuntiMilitari() {
 		return this.costoPuntiMilitari;
 	}
-
-	@Override
-	public ColoreCarta getColore() {
-		return ColoreCarta.VIOLA;
-	}
-	
-	
-
 }

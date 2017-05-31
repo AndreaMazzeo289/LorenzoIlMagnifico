@@ -4,7 +4,7 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Set;
 
-import it.polimi.ingsw.pc15.carte.ColoreCarta;
+import it.polimi.ingsw.pc15.carte.TipoCarta;
 import it.polimi.ingsw.pc15.effetti.Effetto;
 import it.polimi.ingsw.pc15.risorse.Risorsa;
 import it.polimi.ingsw.pc15.risorse.SetRisorse;
@@ -18,12 +18,12 @@ public class Leader {
 	private final Set<Effetto> effettoPermanente;
 	
 	private SetRisorse requisitoRisorse;
-	private HashMap<ColoreCarta, Integer> requisitoCarte;
+	private HashMap<TipoCarta, Integer> requisitoCarte;
 	
 	private boolean giocato;
 	private boolean effettoAttivato;
 	
-	public Leader (String nome, Set<Effetto> effettoPerTurno, Set<Effetto> effettoPermanente, SetRisorse requisitoRisorse, HashMap<ColoreCarta, Integer> requisitoCarte) {
+	public Leader (String nome, Set<Effetto> effettoPerTurno, Set<Effetto> effettoPermanente, SetRisorse requisitoRisorse, HashMap<TipoCarta, Integer> requisitoCarte) {
 		
 		this.nome = nome;
 		this.player = null;
@@ -47,7 +47,7 @@ public class Leader {
 		}
 		
 		if (this.requisitoCarte != null)
-			for(Map.Entry<ColoreCarta, Integer> requisito : requisitoCarte.entrySet())
+			for(Map.Entry<TipoCarta, Integer> requisito : requisitoCarte.entrySet())
 				if (player.getCarte(requisito.getKey()).size() < requisito.getValue()) {
 					System.out.println("Non soddisfi il requisito di Carte Sviluppo richiesto per giocare " + this.nome);
 					return false;
@@ -76,7 +76,7 @@ public class Leader {
 		return this.nome;
 	}
 	
-	public HashMap<ColoreCarta, Integer> getRequisitoCarte() {
+	public HashMap<TipoCarta, Integer> getRequisitoCarte() {
 		return this.requisitoCarte;
 	}
 	

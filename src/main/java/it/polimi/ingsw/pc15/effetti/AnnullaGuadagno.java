@@ -1,20 +1,20 @@
 package it.polimi.ingsw.pc15.effetti;
 
-import it.polimi.ingsw.pc15.carte.ColoreCarta;
+import it.polimi.ingsw.pc15.carte.TipoCarta;
 import it.polimi.ingsw.pc15.player.Player;
 
 public class AnnullaGuadagno extends Effetto {
 	
-	private ColoreCarta coloreCarta;
+	private TipoCarta TipoCarta;
 	
-	public AnnullaGuadagno(ColoreCarta coloreCarta){
+	public AnnullaGuadagno(TipoCarta TipoCarta){
 		
-		this.coloreCarta = coloreCarta;	
+		this.TipoCarta = TipoCarta;	
 	}
 
 	@Override
 	public void attiva(Player player) {
-		player.getEffettiAttivi().annullaBonusPuntiVittoriaFinale(coloreCarta);
+		player.getEffettiAttivi().annullaBonusPuntiVittoriaFinale(TipoCarta);
 		
 	}
 

@@ -2,34 +2,34 @@ package it.polimi.ingsw.pc15.player;
 
 import java.util.HashMap;
 
-import it.polimi.ingsw.pc15.carte.ColoreCarta;
+import it.polimi.ingsw.pc15.carte.TipoCarta;
 
 public class EffettiAttivi {
 	
-	private HashMap<ColoreCarta, Integer> bonusDadoCarte;
+	private HashMap<TipoCarta, Integer> bonusDadoCarte;
 	private int bonusRaccolta;
 	private int bonusProduzione;
 	private boolean disponibilitàMercato;
 	private boolean bonusSpazioTorri;
 	private boolean requisitoTerritori;
 	private boolean permessoSpaziOccupati;
-	private HashMap<ColoreCarta, Boolean> bonusPuntiVittoriaFinale;
+	private HashMap<TipoCarta, Boolean> bonusPuntiVittoriaFinale;
 	
 	
 	public EffettiAttivi (){
 		
-		bonusDadoCarte = new HashMap<ColoreCarta, Integer>();
+		bonusDadoCarte = new HashMap<TipoCarta, Integer>();
 		
-		bonusDadoCarte.put(ColoreCarta.VERDE, 0);
-		bonusDadoCarte.put(ColoreCarta.BLU, 0);
-		bonusDadoCarte.put(ColoreCarta.GIALLO, 0);
-		bonusDadoCarte.put(ColoreCarta.VIOLA, 0);
+		bonusDadoCarte.put(TipoCarta.TERRITORIO, 0);
+		bonusDadoCarte.put(TipoCarta.PERSONAGGIO, 0);
+		bonusDadoCarte.put(TipoCarta.EDIFICIO, 0);
+		bonusDadoCarte.put(TipoCarta.IMPRESA, 0);
 		
-		bonusPuntiVittoriaFinale = new HashMap<ColoreCarta, Boolean>();
+		bonusPuntiVittoriaFinale = new HashMap<TipoCarta, Boolean>();
 		
-		bonusPuntiVittoriaFinale.put(ColoreCarta.VERDE, true);
-		bonusPuntiVittoriaFinale.put(ColoreCarta.BLU, true);
-		bonusPuntiVittoriaFinale.put(ColoreCarta.VIOLA, true);
+		bonusPuntiVittoriaFinale.put(TipoCarta.TERRITORIO, true);
+		bonusPuntiVittoriaFinale.put(TipoCarta.PERSONAGGIO, true);
+		bonusPuntiVittoriaFinale.put(TipoCarta.IMPRESA, true);
 
 		this.bonusRaccolta = 0;
 		this.bonusProduzione = 0;
@@ -47,12 +47,12 @@ public class EffettiAttivi {
 	//          METODI SET                                                                                       //
 	//-----------------------------------------------------------------------------------------------------------//
 	
-	public void incrementaBonusDadoCarte (ColoreCarta colore, int valore) {
+	public void incrementaBonusDadoCarte (TipoCarta colore, int valore) {
 		int valoreAggiornato = bonusDadoCarte.get(colore).intValue();
 		bonusDadoCarte.put(colore, valoreAggiornato);	
 	}
 	
-	public void annullaBonusPuntiVittoriaFinale (ColoreCarta colore) {
+	public void annullaBonusPuntiVittoriaFinale (TipoCarta colore) {
 		bonusPuntiVittoriaFinale.put(colore, false);
 	}
 	
@@ -94,12 +94,12 @@ public class EffettiAttivi {
 		return this.bonusProduzione;
 	}
 	
-	public int getBonusDadoCarte (ColoreCarta colore) {
+	public int getBonusDadoCarte (TipoCarta colore) {
 		return this.bonusDadoCarte.get(colore);
 	}
 	
-	public boolean bonusPuntiVittoriaFinale (ColoreCarta colore) {
-		return this.bonusPuntiVittoriaFinale.get(colore);
+	public boolean bonusPuntiVittoriaFinale (TipoCarta tipo) {
+		return this.bonusPuntiVittoriaFinale.get(tipo);
 	}
 	
 	public boolean disponibilitàMercato() {

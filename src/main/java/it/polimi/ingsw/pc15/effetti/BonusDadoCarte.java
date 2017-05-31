@@ -1,23 +1,23 @@
 package it.polimi.ingsw.pc15.effetti;
 
-import it.polimi.ingsw.pc15.carte.ColoreCarta;
+import it.polimi.ingsw.pc15.carte.TipoCarta;
 import it.polimi.ingsw.pc15.player.Player;
 
 public class BonusDadoCarte extends Bonus{
 	
-	private ColoreCarta coloreCarta;
+	private TipoCarta TipoCarta;
 	
-	public BonusDadoCarte (ColoreCarta coloreCarta, int valore){
+	public BonusDadoCarte (TipoCarta TipoCarta, int valore){
 		
 		super(valore);
-		this.coloreCarta = coloreCarta;
+		this.TipoCarta = TipoCarta;
 		
 	}
 	
 	@Override
 	public void attiva(Player player){
 		
-		player.getEffettiAttivi().incrementaBonusDadoCarte(coloreCarta, valore);
+		player.getEffettiAttivi().incrementaBonusDadoCarte(TipoCarta, valore);
 	}
 	
 }

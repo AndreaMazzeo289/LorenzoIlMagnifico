@@ -45,7 +45,7 @@ public abstract class AzionePrendiCarta extends Azione{
 		carta.getSpazio().rimuoviCarta();
 		carta.setSpazio(null);
 		carta.setPlayer(player);
-		player.getCarte(carta.getColore()).add(carta);
+		player.getCarte(carta.getTipo()).add(carta);
 		
 	}
 	

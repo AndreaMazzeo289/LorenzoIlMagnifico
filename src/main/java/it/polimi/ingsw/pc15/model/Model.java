@@ -7,7 +7,7 @@ import java.util.Observer;
 import java.util.Random;
 import it.polimi.ingsw.pc15.ParseXML;
 import it.polimi.ingsw.pc15.carte.Carta;
-import it.polimi.ingsw.pc15.carte.ColoreCarta;
+import it.polimi.ingsw.pc15.carte.TipoCarta;
 import it.polimi.ingsw.pc15.plancia.Plancia;
 import it.polimi.ingsw.pc15.player.ColoreFamiliare;
 import it.polimi.ingsw.pc15.player.Leader;
@@ -59,10 +59,10 @@ public class Model extends Observable implements Observer {
 		//          CREA CARTE SVILUPPO                                                                              //
 		//-----------------------------------------------------------------------------------------------------------//
 		
-		carteTerritorio= ParseXML.getCartaXML(ColoreCarta.VERDE);
-		carteEdificio= ParseXML.getCartaXML(ColoreCarta.GIALLO);
-		cartePersonaggio= ParseXML.getCartaXML(ColoreCarta.BLU);
-		carteImpresa= ParseXML.getCartaXML(ColoreCarta.VIOLA);
+		carteTerritorio= ParseXML.getCartaXML(TipoCarta.TERRITORIO);
+		carteEdificio= ParseXML.getCartaXML(TipoCarta.EDIFICIO);
+		cartePersonaggio= ParseXML.getCartaXML(TipoCarta.PERSONAGGIO);
+		carteImpresa= ParseXML.getCartaXML(TipoCarta.IMPRESA);
 		
 		Collections.shuffle(carteTerritorio);
 		Collections.shuffle(cartePersonaggio);

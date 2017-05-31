@@ -19,7 +19,7 @@ public abstract class Carta {
 	private final Set<Effetto> effettoIstantaneo;
 	private Player player;
 	private SpazioTorre spazio;
-	protected ColoreCarta colore;
+	protected TipoCarta tipo;
 	
 	public Carta (String nome, int id, int periodo, SetRisorse costo, Set<Effetto> effettoIstantaneo) {
 		this.nome = nome;
@@ -29,6 +29,33 @@ public abstract class Carta {
 		this.effettoIstantaneo = effettoIstantaneo;
 		this.player = null;
 		this.spazio = null;
+	}
+	
+	
+	public void attivaEffettoIstantaneo() {
+		
+		Iterator<Effetto> effetto = effettoIstantaneo.iterator();
+		while(effetto.hasNext()) 
+			effetto.next().attiva(player);
+	}
+	
+	public void setSpazio(SpazioTorre spazio) {
+		this.spazio = spazio;
+	}
+
+	public void setPlayer(Player player) {
+		this.player = player;
+	}      
+	
+	public abstract AzionePrendiCarta azionePrendiCarta (Player player);
+	
+	
+	//-----------------------------------------------------------------------------------------------------------//
+	//          METODI GET                                                                                       //
+	//-----------------------------------------------------------------------------------------------------------//
+	
+	public TipoCarta getTipo() {
+		return this.tipo;
 	}
 	
 	public SetRisorse getCosto() {
@@ -47,27 +74,8 @@ public abstract class Carta {
 		return this.periodo;
 	}
 	
-	public void setSpazio(SpazioTorre spazio) {
-		this.spazio = spazio;
-	}
-	
 	public Player getPlayer() {
 		return this.player;
 	}
 	
-	public abstract ColoreCarta getColore();
-	
-	public void setPlayer(Player player) {
-		this.player = player;
-	}      
-	
-	public void attivaEffettoIstantaneo() {
-		
-		Iterator<Effetto> effetto = effettoIstantaneo.iterator();
-		while(effetto.hasNext()) 
-			effetto.next().attiva(player);
-	}
-	
-	public abstract AzionePrendiCarta azionePrendiCarta (Player player);
-
 }

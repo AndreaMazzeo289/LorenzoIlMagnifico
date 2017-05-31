@@ -1,15 +1,15 @@
 package it.polimi.ingsw.pc15.effetti;
 
-import it.polimi.ingsw.pc15.carte.ColoreCarta;
+import it.polimi.ingsw.pc15.carte.TipoCarta;
 import it.polimi.ingsw.pc15.player.Player;
 
 public class AzioneCarta extends Azione{
 	
-	private ColoreCarta coloreCarta;
+	private TipoCarta TipoCarta;
 	
-	public AzioneCarta(int valoreDado, ColoreCarta coloreCarta){
+	public AzioneCarta(int valoreDado, TipoCarta TipoCarta){
 		super(valoreDado);
-		this.coloreCarta = coloreCarta;
+		this.TipoCarta = TipoCarta;
 	}
 	
 	@Override

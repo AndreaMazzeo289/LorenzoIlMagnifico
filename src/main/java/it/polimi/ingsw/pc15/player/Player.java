@@ -10,7 +10,7 @@ import java.util.Set;
 
 import it.polimi.ingsw.pc15.ParseXML;
 import it.polimi.ingsw.pc15.carte.Carta;
-import it.polimi.ingsw.pc15.carte.ColoreCarta;
+import it.polimi.ingsw.pc15.carte.TipoCarta;
 import it.polimi.ingsw.pc15.carte.Edificio;
 import it.polimi.ingsw.pc15.carte.Impresa;
 import it.polimi.ingsw.pc15.carte.Personaggio;
@@ -34,7 +34,7 @@ public class Player {
 	private final String nome;
 	private SetRisorse setRisorse;
 	private Set<Familiare> familiari;
-	private HashMap <ColoreCarta, ArrayList> carteSviluppo;
+	private HashMap <TipoCarta, ArrayList> carteSviluppo;
 	private EffettiAttivi effettiAttivi;
 	private ArrayList<Leader> carteLeader;
 	private Set<Player> avversari;
@@ -100,11 +100,11 @@ public class Player {
 		ArrayList<Edificio> edifici = new ArrayList<Edificio>(numeroMaxCarte);
 		ArrayList<Impresa> imprese = new ArrayList<Impresa>(numeroMaxCarte);
 		
-		this.carteSviluppo = new HashMap<ColoreCarta, ArrayList>();
-		this.carteSviluppo.put(ColoreCarta.VERDE, territori);
-		this.carteSviluppo.put(ColoreCarta.BLU, personaggi);
-		this.carteSviluppo.put(ColoreCarta.GIALLO, edifici);
-		this.carteSviluppo.put(ColoreCarta.VIOLA, imprese);
+		this.carteSviluppo = new HashMap<TipoCarta, ArrayList>();
+		this.carteSviluppo.put(TipoCarta.TERRITORIO, territori);
+		this.carteSviluppo.put(TipoCarta.PERSONAGGIO, personaggi);
+		this.carteSviluppo.put(TipoCarta.EDIFICIO, edifici);
+		this.carteSviluppo.put(TipoCarta.IMPRESA, imprese);
 
 	}
 	
@@ -159,17 +159,17 @@ public class Player {
 		return this.setRisorse;
 	}
 	
-	public ArrayList<Carta> getCarte (ColoreCarta colore) {
+	public ArrayList<Carta> getCarte (TipoCarta colore) {
 		
-		if (colore.equals(ColoreCarta.ALL)) {
+		if (colore.equals(TipoCarta.ALL)) {
 			ArrayList<Carta> arrayRichiesto = new ArrayList<Carta>();
-			for (Carta territorio : getCarte(ColoreCarta.VERDE))
+			for (Carta territorio : getCarte(TipoCarta.TERRITORIO))
 				arrayRichiesto.add(territorio);
-			for (Carta personaggio : getCarte(ColoreCarta.BLU))
+			for (Carta personaggio : getCarte(TipoCarta.PERSONAGGIO))
 				arrayRichiesto.add(personaggio);
-			for (Carta edificio : getCarte(ColoreCarta.GIALLO))
+			for (Carta edificio : getCarte(TipoCarta.EDIFICIO))
 				arrayRichiesto.add(edificio);
-			for (Carta impresa : getCarte(ColoreCarta.VIOLA))
+			for (Carta impresa : getCarte(TipoCarta.IMPRESA))
 				arrayRichiesto.add(impresa);
 			return arrayRichiesto;
 		}

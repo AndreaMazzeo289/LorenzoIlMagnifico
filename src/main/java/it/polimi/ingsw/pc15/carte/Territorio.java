@@ -17,7 +17,7 @@ public class Territorio extends Carta {
 		super(nome, id, periodo, costo, effettoIstantaneo);
 		this.requisitoRaccolta = requisitoRaccolta;
 		this.effettoRaccolta = effettoRaccolta;
-		this.colore = ColoreCarta.VERDE;
+		this.tipo = TipoCarta.TERRITORIO;
 	}
 	
 	public int getRequisitoRaccolta() {
@@ -33,11 +33,6 @@ public class Territorio extends Carta {
 		
 		AzionePrendiCarta azionePrendiCarta = new AzionePrendiCartaTerritorio (player, this);
 		return azionePrendiCarta;
-	}
-
-	@Override
-	public ColoreCarta getColore() {
-		return ColoreCarta.VERDE;
 	}
 
 }

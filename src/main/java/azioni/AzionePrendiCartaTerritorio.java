@@ -2,7 +2,7 @@ package azioni;
 
 import it.polimi.ingsw.pc15.ParseXML;
 import it.polimi.ingsw.pc15.carte.Carta;
-import it.polimi.ingsw.pc15.carte.ColoreCarta;
+import it.polimi.ingsw.pc15.carte.TipoCarta;
 import it.polimi.ingsw.pc15.player.Player;
 import it.polimi.ingsw.pc15.risorse.TipoRisorsa;
 
@@ -17,13 +17,13 @@ public class AzionePrendiCartaTerritorio extends AzionePrendiCarta {
 		
 		int numeroMaxCarte = ParseXML.leggiValore("numeroMaxCarte");
 		
-		if (player.getCarte(ColoreCarta.VERDE).size() == numeroMaxCarte) {
+		if (player.getCarte(TipoCarta.TERRITORIO).size() == numeroMaxCarte) {
 			System.out.println("Hai raggiunto il limite massimo di carte Territorio!");
 			return false;
 		}
 		
 		if (player.getEffettiAttivi().requisitoTerritoriAttivo())
-			if (!player.getSetRisorse().getRisorsa(TipoRisorsa.PUNTIMILITARI).paragona(ParseXML.leggiValore("RequisitoMilitareTerritorio" + Integer.toString(player.getCarte(ColoreCarta.VERDE).size()+1)))) {
+			if (!player.getSetRisorse().getRisorsa(TipoRisorsa.PUNTIMILITARI).paragona(ParseXML.leggiValore("RequisitoMilitareTerritorio" + Integer.toString(player.getCarte(TipoCarta.TERRITORIO).size()+1)))) {
 				System.out.println("Non hai abbastanza punti militari per ottenere questo Territorio");
 				return false;
 		}
@@ -45,7 +45,7 @@ public class AzionePrendiCartaTerritorio extends AzionePrendiCarta {
 			daiCarta();
 			carta.attivaEffettoIstantaneo();
 			
-			System.out.println("Il giocatore ha preso la carta VERDE: "  + carta.getNome());
+			System.out.println("Il giocatore ha preso la carta TERRITORIO: "  + carta.getNome());
 		}
 
 	}

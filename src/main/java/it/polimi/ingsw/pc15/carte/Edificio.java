@@ -17,7 +17,7 @@ public class Edificio extends Carta {
 		super(nome, id, periodo, costo, effettoIstantaneo);
 		this.requisitoProduzione = requisitoProduz;
 		this.effettoProduzione = effettoProduzione;
-		this.colore = ColoreCarta.GIALLO;
+		this.tipo = TipoCarta.IMPRESA;
 	}
 
 	public int getRequisitoProduzione() {
@@ -33,11 +33,6 @@ public class Edificio extends Carta {
 		
 		AzionePrendiCarta azionePrendiCarta = new AzionePrendiCartaEdificio(player, this);
 		return azionePrendiCarta;
-	}
-
-	@Override
-	public ColoreCarta getColore() {
-		return ColoreCarta.GIALLO;
 	}
 
 }

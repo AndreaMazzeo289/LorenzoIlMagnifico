@@ -9,7 +9,7 @@ import java.util.Set;
 
 import it.polimi.ingsw.pc15.ParseXML;
 import it.polimi.ingsw.pc15.carte.Carta;
-import it.polimi.ingsw.pc15.carte.ColoreCarta;
+import it.polimi.ingsw.pc15.carte.TipoCarta;
 import it.polimi.ingsw.pc15.carte.Edificio;
 import it.polimi.ingsw.pc15.carte.Impresa;
 import it.polimi.ingsw.pc15.carte.Personaggio;
@@ -18,7 +18,7 @@ import it.polimi.ingsw.pc15.risorse.SetRisorse;
 
 public class Plancia {
 	
-	private Torre torreVerde;
+	private Torre torreTERRITORIO;
 	private Torre torreBlu;
 	private Torre torreGialla;
 	private Torre torreViola;
@@ -39,19 +39,19 @@ public class Plancia {
 		
 		int numeroSpaziTorre = ParseXML.leggiValore("numeroSpaziTorre");
 
-		ArrayList risorseTorreVerde = new ArrayList<SetRisorse> (numeroSpaziTorre);
+		ArrayList risorseTorreTERRITORIO = new ArrayList<SetRisorse> (numeroSpaziTorre);
 		ArrayList risorseTorreBlu = new ArrayList<SetRisorse> (numeroSpaziTorre);
 		ArrayList risorseTorreGialla = new ArrayList<SetRisorse> (numeroSpaziTorre);
 		ArrayList risorseTorreViola = new ArrayList<SetRisorse> (numeroSpaziTorre);
 		
 		for(int i=1; i<=numeroSpaziTorre; i++){
-			risorseTorreVerde.add(ParseXML.leggiSetRisorseSpazio("verde"+Integer.toString(i))); 
+			risorseTorreTERRITORIO.add(ParseXML.leggiSetRisorseSpazio("TERRITORIO"+Integer.toString(i))); 
 			risorseTorreBlu.add(ParseXML.leggiSetRisorseSpazio("blu"+Integer.toString(i))); 
 			risorseTorreGialla.add(ParseXML.leggiSetRisorseSpazio("giallo"+Integer.toString(i))); 
 			risorseTorreViola.add(ParseXML.leggiSetRisorseSpazio("viola"+Integer.toString(i))); 
 		}
 		
-		torreVerde = new Torre (numeroSpaziTorre, risorseTorreVerde);
+		torreTERRITORIO = new Torre (numeroSpaziTorre, risorseTorreTERRITORIO);
 		torreBlu = new Torre (numeroSpaziTorre, risorseTorreBlu);
 		torreGialla = new Torre (numeroSpaziTorre, risorseTorreGialla);
 		torreViola = new Torre (numeroSpaziTorre, risorseTorreViola);
@@ -150,7 +150,7 @@ public class Plancia {
 			}
 		}
 
- 		this.torreVerde.setTorre(arrayTerritori);
+ 		this.torreTERRITORIO.setTorre(arrayTerritori);
  		this.torreBlu.setTorre(arrayPersonaggi);
  		this.torreGialla.setTorre(arrayEdifici);
  		this.torreViola.setTorre(arrayImprese);
@@ -178,14 +178,14 @@ public class Plancia {
 		return this.spaziMercato;
 	}
 	
-	public SpazioTorre getSpazioTorre (ColoreCarta colore, int numeroSpazio) {
+	public SpazioTorre getSpazioTorre (TipoCarta colore, int numeroSpazio) {
 		
 		switch (colore) {
 		
-		case VERDE: return torreVerde.getSpazio(numeroSpazio);
-		case BLU: return torreBlu.getSpazio(numeroSpazio);
-		case GIALLO: return torreGialla.getSpazio(numeroSpazio);
-		case VIOLA: return torreViola.getSpazio(numeroSpazio);		
+		case TERRITORIO: return torreTERRITORIO.getSpazio(numeroSpazio);
+		case PERSONAGGIO: return torreBlu.getSpazio(numeroSpazio);
+		case EDIFICIO: return torreGialla.getSpazio(numeroSpazio);
+		case IMPRESA: return torreViola.getSpazio(numeroSpazio);		
 		default: return null;
 		
 		}

@@ -6,7 +6,7 @@ import java.util.Random;
 import java.util.Scanner;
 
 import it.polimi.ingsw.pc15.carte.Carta;
-import it.polimi.ingsw.pc15.carte.ColoreCarta;
+import it.polimi.ingsw.pc15.carte.TipoCarta;
 import it.polimi.ingsw.pc15.carte.Edificio;
 import it.polimi.ingsw.pc15.carte.Impresa;
 import it.polimi.ingsw.pc15.carte.Personaggio;
@@ -37,7 +37,7 @@ public class Main {
 		
 		gioco.iniziaPartita();
 		Player player = gioco.getPlayers().get(0);
-		Spazio spazio = gioco.getPlancia().getSpazioTorre(ColoreCarta.GIALLO, 0);
+		Spazio spazio = gioco.getPlancia().getSpazioTorre(TipoCarta.EDIFICIO, 0);
 		Spazio spazio2 = gioco.getPlancia().getSpazioProduzione();
 		Familiare familiareNero = player.getFamiliare(ColoreFamiliare.NERO);
 		Familiare familiareBianco = player.getFamiliare(ColoreFamiliare.BIANCO);

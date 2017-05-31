@@ -5,7 +5,7 @@ import java.util.Scanner;
 
 import it.polimi.ingsw.pc15.ParseXML;
 import it.polimi.ingsw.pc15.carte.Carta;
-import it.polimi.ingsw.pc15.carte.ColoreCarta;
+import it.polimi.ingsw.pc15.carte.TipoCarta;
 import it.polimi.ingsw.pc15.carte.Impresa;
 import it.polimi.ingsw.pc15.player.Player;
 import it.polimi.ingsw.pc15.risorse.TipoRisorsa;
@@ -19,7 +19,7 @@ public class AzionePrendiCartaImpresa extends AzionePrendiCarta {
 	@Override
 	public boolean èValida() {
 		
-		if (player.getCarte(ColoreCarta.GIALLO).size() == ParseXML.leggiValore("numeroMaxCarte")) {  
+		if (player.getCarte(TipoCarta.EDIFICIO).size() == ParseXML.leggiValore("numeroMaxCarte")) {  
 			System.out.println("Hai raggiunto il limite massimo di carte Impresa!");
 			return false;
 		}
