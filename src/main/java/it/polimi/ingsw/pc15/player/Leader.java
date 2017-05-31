@@ -38,24 +38,6 @@ public class Leader {
 		
 	}
 	
-	public boolean requisitiSoddisfatti() {
-		
-		if (this.requisitoRisorse != null)
-			if (player.getSetRisorse().paragona(requisitoRisorse) == false) {
-				System.out.println("Non soddisfi il requisito di risorse richiesto per giocare " + this.nome);
-				return false;
-		}
-		
-		if (this.requisitoCarte != null)
-			for(Map.Entry<TipoCarta, Integer> requisito : requisitoCarte.entrySet())
-				if (player.getCarte(requisito.getKey()).size() < requisito.getValue()) {
-					System.out.println("Non soddisfi il requisito di Carte Sviluppo richiesto per giocare " + this.nome);
-					return false;
-				}
-
-		return true;
-	}
-	
 	public void setPlayer(Player player) {
 		this.player = player;
 	}

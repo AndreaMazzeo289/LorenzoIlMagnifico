@@ -108,45 +108,6 @@ public class Player {
 
 	}
 	
-
-	public void occupaSpazio (Spazio spazio, Familiare familiare) {
-		
-	}
-	
-	public void scartaLeader (Leader leader) {
-
-		this.carteLeader.remove(leader);
-		this.setRisorse.getRisorsa(TipoRisorsa.PRIVILEGI).aggiungi(1);
-	}
-	
-	public void giocaLeader (int numeroLeader) {
-		
-		Leader leaderScelto = this.carteLeader.get(numeroLeader);
-		
-		if (leaderScelto.giocato())
-			System.out.println("Hai già giocato questo leader!");
-		
-		if (leaderScelto.requisitiSoddisfatti() ) {
-			System.out.println("Hai giocato la carta Leader " + leaderScelto.getNome());
-			this.carteLeader.get(numeroLeader).setGiocato(true);
-			
-			if (this.carteLeader.get(numeroLeader).getEffettoPermanente()!=null) 
-				for (Effetto effetto : this.carteLeader.get(numeroLeader).getEffettoPermanente())
-					effetto.attiva(this);
-		}
-		
-	}
-	
-	public void attivaEffettoLeader (int numeroLeader) {
-		
-		if (this.carteLeader.get(numeroLeader).effettoGiàAttivato() == false) {
-			for (Effetto effetto : this.carteLeader.get(numeroLeader).getEffettoPerTurno() )
-				effetto.attiva(this);
-			this.carteLeader.get(numeroLeader).setEffettoAttivato(true);
-		}
-	}
-	
-	
 	//-----------------------------------------------------------------------------------------------------------//
 	//          METODI GET                                                                                       //
 	//-----------------------------------------------------------------------------------------------------------//
@@ -193,7 +154,7 @@ public class Player {
 		return familiareReturn;
 	}
 	
-	public ArrayList<Leader> getLeader () {
+	public ArrayList<Leader> getCarteLeader () {
 		return this.carteLeader;
 	}
 	
