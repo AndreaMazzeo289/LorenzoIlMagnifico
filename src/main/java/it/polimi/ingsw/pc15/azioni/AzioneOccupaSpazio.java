@@ -1,4 +1,4 @@
-package azioni;
+package it.polimi.ingsw.pc15.azioni;
 
 import it.polimi.ingsw.pc15.plancia.Spazio;
 import it.polimi.ingsw.pc15.player.Familiare;

@@ -1,8 +1,8 @@
 package it.polimi.ingsw.pc15.plancia;
 
-import azioni.AzioneOccupaSpazioMercato;
-import azioni.AzioneOccupaSpazioTorre;
 import azioni.AzionePrendiCarta;
+import it.polimi.ingsw.pc15.azioni.AzioneOccupaSpazioMercato;
+import it.polimi.ingsw.pc15.azioni.AzioneOccupaSpazioTorre;
 import it.polimi.ingsw.pc15.carte.Carta;
 import it.polimi.ingsw.pc15.effetti.AggiuntaRisorse;
 import it.polimi.ingsw.pc15.effetti.Effetto;
