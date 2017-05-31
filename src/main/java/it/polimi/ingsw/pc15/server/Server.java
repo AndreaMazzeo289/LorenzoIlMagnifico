@@ -67,6 +67,7 @@ public class Server {
 	public synchronized void connetti(Connection c, String name){
 		
 		numeroGiocatori = register(name, c);
+		System.out.println("connesso con il player:" + name);
 		if(numeroGiocatori==4){
 			
 			for(Map.Entry<String, Connection> scorriPlayersList : connections.entrySet()) {
@@ -75,7 +76,7 @@ public class Server {
 			}
 	
 			
-			Model model = new Model(connessi, false);
+			Model model = new Model(null, false);
 			Controller controller = new Controller(model);
 
 			for(Map.Entry<String, Connection> scorriPlayersList : connections.entrySet()) {

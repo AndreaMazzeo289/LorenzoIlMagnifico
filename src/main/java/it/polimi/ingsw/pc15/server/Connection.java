@@ -44,12 +44,11 @@ public class Connection extends Observable implements Runnable {
 	
 	@Override
 	public void run() {
-		name = in.nextLine();
 		
-		
-		server.connetti(this, name);
-		out.println("Ti sei connesso al Server");
+		out.println("Scrivi il tuo nome");
 		out.flush();
+		name = in.nextLine();
+		server.connetti(this, name);
 	
 	
 	}
