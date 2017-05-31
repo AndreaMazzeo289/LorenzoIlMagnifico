@@ -36,7 +36,7 @@ public class Model extends Observable implements Observer {
 	private boolean regoleAvanzate;
 	
 	
-	public Model(int numeroGiocatori, boolean regoleAvanzate){
+	public Model(Integer numeroGiocatori, boolean regoleAvanzate){
 
 		this.numeroGiocatori = numeroGiocatori;
 		this.plancia = new Plancia(numeroGiocatori);

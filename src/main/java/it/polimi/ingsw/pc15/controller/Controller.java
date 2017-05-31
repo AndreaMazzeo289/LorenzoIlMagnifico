@@ -10,7 +10,7 @@ import it.polimi.ingsw.pc15.player.Player;
 
 
 
-public class Controller implements Observer {
+public class Controller extends Observable implements Observer {
 	
 	private final Model model;
 	

@@ -6,6 +6,7 @@ import java.net.Socket;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
+import java.util.Observer;
 
 import it.polimi.ingsw.pc15.controller.Controller;
 import it.polimi.ingsw.pc15.model.Model;
@@ -19,20 +20,19 @@ public class Server {
 	
 	private final static int PORT = 12879;
 	ServerSocket serverSocket;
-	ArrayList<Connection> connectionList;
-	private Map<String, Connection> playingConnection;
+	private Map<String, Connection> connections;
 	private ArrayList<String> connessi;
+	private int numeroGiocatori;
+	
 	
 	/*
 	 *  TEMPORANEO FINAL INT PER TESTARE
 	 */
 	
-	private static  final int numeroGiocatori = 4;
-	
+
 	public Server() throws IOException {
 		this.serverSocket = new ServerSocket(PORT);
-		this.playingConnection = new HashMap<String, Connection>();
-		this.connectionList = new ArrayList<Connection>();
+		this.connections = new HashMap<String, Connection>();
 		this.connessi = new ArrayList<String>();
 	};
 	
@@ -45,37 +45,7 @@ public class Server {
 		try {
 				System.out.println("Stabilisco connessione...");
 				Socket newSocket = serverSocket.accept();
-				Connection connection = new Connection(newSocket, this);
-				register(connection);
-				synchronized (connection) {
-						new Thread(connection).start();
-						connection.wait();
-				}
-				
-				if(connectionList.size()==4){
-					
-				
-					
-					synchronized(connectionList.get(0)){
-						
-						new Thread(connectionList.get(0)).start();
-					}
-					synchronized(connectionList.get(1)){
-						
-						new Thread(connectionList.get(1)).start();
-					}
-					synchronized(connectionList.get(2)){
-						
-						new Thread(connectionList.get(2)).start();
-					}
-					synchronized(connectionList.get(3)){
-						
-						new Thread(connectionList.get(3)).start();
-					}
-						
-					
-				}
-				
+				Connection connection = new Connection(newSocket, this);		
 			} 
 			
 			catch (IOException e) {
@@ -85,42 +55,35 @@ public class Server {
 			
 	}
 			
-	public void register(Connection connection){
+	public synchronized int register(String name, Connection connection){
 		
-		connectionList.add(connection);
+		connections.put(name,connection);
+		return connections.size();
+		
 	}
 	
-	public synchronized int Connetti(Connection c, String name){
+	
+	
+	public synchronized void connetti(Connection c, String name){
 		
-		playingConnection.put(name, c);
-		System.out.println("Player connessi = " + playingConnection.size());
-		if(playingConnection.size()==numeroGiocatori){
+		numeroGiocatori = register(name, c);
+		if(numeroGiocatori==4){
 			
-			for(Map.Entry<String, Connection> scorriPlayersList : playingConnection.entrySet()) {
+			for(Map.Entry<String, Connection> scorriPlayersList : connections.entrySet()) {
 				connessi.add(scorriPlayersList.getKey());
 				
 			}
 	
-		Model model = new Model(numeroGiocatori, false);
-		Controller controller = new Controller(model);
-		
-		//View player1 = new View(new Player(connessi.get(0)), playingConnection.get(connessi.get(0)));
-		//View player2 = new View(new Player(connessi.get(1)), playingConnection.get(connessi.get(1)));
-		//View player3 = new View(new Player(connessi.get(2)), playingConnection.get(connessi.get(2)));
-		//View player4 = new View(new Player(connessi.get(3)), playingConnection.get(connessi.get(3)));
-		
 			
-		//model.addObserver(player1);
-		//model.addObserver(player2);
-		//model.addObserver(player3);
-		//model.addObserver(player4);
-		//player1.addObserver(controller);
-		//player2.addObserver(controller);
-		//player3.addObserver(controller);
-		//player4.addObserver(controller);
+			Model model = new Model(connessi, false);
+			Controller controller = new Controller(model);
 
-		return playingConnection.size();
-		}else	return playingConnection.size();
+			for(Map.Entry<String, Connection> scorriPlayersList : connections.entrySet()) {
+				scorriPlayersList.getValue().addObserver(controller);
+				
+			}
+			
+		}
 	}
 	 
 	
