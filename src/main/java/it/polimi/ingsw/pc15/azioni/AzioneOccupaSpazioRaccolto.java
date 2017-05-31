@@ -1,16 +1,16 @@
 package it.polimi.ingsw.pc15.azioni;
 
-import it.polimi.ingsw.pc15.effetti.AzioneProduzione;
-import it.polimi.ingsw.pc15.effetti.AzioneRaccolto;
+import it.polimi.ingsw.pc15.effetti.Raccolto;
 import it.polimi.ingsw.pc15.effetti.Effetto;
 import it.polimi.ingsw.pc15.plancia.Spazio;
+import it.polimi.ingsw.pc15.plancia.SpazioRaccolta;
 import it.polimi.ingsw.pc15.player.ColoreFamiliare;
 import it.polimi.ingsw.pc15.player.Familiare;
 import it.polimi.ingsw.pc15.player.Player;
 
 public class AzioneOccupaSpazioRaccolto extends AzioneOccupaSpazio {
 
-	public AzioneOccupaSpazioRaccolto(Player player, Familiare familiare, Spazio spazio) {
+	public AzioneOccupaSpazioRaccolto(Player player, Familiare familiare, SpazioRaccolta spazio) {
 		super(player, familiare, spazio);
 	}
 
@@ -18,7 +18,7 @@ public class AzioneOccupaSpazioRaccolto extends AzioneOccupaSpazio {
 	public void attiva() {
 		
 		spazio.aggiungiFamiliare(familiare);
-		Effetto effetto = new AzioneRaccolto(familiare.getValore() + player.getEffettiAttivi().getBonusProduzione());
+		Effetto effetto = new Raccolto (familiare.getValore() + player.getEffettiAttivi().getBonusProduzione());
 		effetto.attiva(familiare.getPlayer());
 
 	}

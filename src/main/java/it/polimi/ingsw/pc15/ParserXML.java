@@ -27,9 +27,8 @@ import it.polimi.ingsw.pc15.effetti.AnnullaRequisitoTerritori;
 import it.polimi.ingsw.pc15.effetti.AnnullaSovrapprezzoTorri;
 import it.polimi.ingsw.pc15.effetti.AumentaPrezzoServitori;
 import it.polimi.ingsw.pc15.effetti.AumentaValoreFamiliare;
-import it.polimi.ingsw.pc15.effetti.AzioneCarta;
-import it.polimi.ingsw.pc15.effetti.AzioneProduzione;
-import it.polimi.ingsw.pc15.effetti.AzioneRaccolto;
+import it.polimi.ingsw.pc15.effetti.Produzione;
+import it.polimi.ingsw.pc15.effetti.Raccolto;
 import it.polimi.ingsw.pc15.effetti.BonusDadoCarte;
 import it.polimi.ingsw.pc15.effetti.BonusPVChiesa;
 import it.polimi.ingsw.pc15.effetti.BonusProduzione;
@@ -320,10 +319,10 @@ public class ParserXML {
 					 		String tipoAzione = effetto.getAttribute("idAzione");
 							switch(tipoAzione){
 								case "raccolta": 
-									effettoLetto = leggiEffettoAzioneRaccolto(effetto);
+									effettoLetto = leggiEffettoRaccolto(effetto);
 									break;
 								case "produzione": 
-									effettoLetto = leggiEffettoAzioneProduzione(effetto);
+									effettoLetto = leggiEffettoProduzione(effetto);
 									break;
 								case "carta": 
 									effettoLetto = leggiEffettoAzioneCarta(effetto);
@@ -460,14 +459,14 @@ public class ParserXML {
 	/**
 	 * metodo che permette di estrarre gli effetti di tipo azione raccolto dal file XML
 	 * @param elemento dell'effetto specifico da estrarre (Classe Element)
-	 * @return istanza dell'effetto estratto (Classe AzioneRaccolto)
+	 * @return istanza dell'effetto estratto (Classe Raccolto)
 	 */
-	public static AzioneRaccolto leggiEffettoAzioneRaccolto (Element effetto) {
+	public static Raccolto leggiEffettoRaccolto (Element effetto) {
 		
 		int valoreDadoRaccolta = Integer.parseInt(effetto.getElementsByTagName("valoreDado").item(0).getFirstChild().getNodeValue());
 		
-		AzioneRaccolto azioneRaccolto = new AzioneRaccolto (valoreDadoRaccolta);
-		return azioneRaccolto;
+		Raccolto Raccolto = new Raccolto (valoreDadoRaccolta);
+		return Raccolto;
 	}
 	
 	//--------------------------------------------------------------------------------------------------------------//
@@ -476,14 +475,14 @@ public class ParserXML {
 	/**
 	 * metodo che permette di estrarre gli effetti di tipo azione produzione dal file XML
 	 * @param elemento dell'effetto specifico da estrarre (Classe Element)
-	 * @return istanza dell'effetto estratto (Classe AzioneProduzione)
+	 * @return istanza dell'effetto estratto (Classe Produzione)
 	 */
-	public static AzioneProduzione leggiEffettoAzioneProduzione (Element effetto) {
+	public static Produzione leggiEffettoProduzione (Element effetto) {
 			
 		int valoreDadoProduzione = Integer.parseInt(effetto.getElementsByTagName("valoreDado").item(0).getFirstChild().getNodeValue());
 			
-		AzioneProduzione azioneProduzione = new AzioneProduzione (valoreDadoProduzione);
-		return azioneProduzione;
+		Produzione Produzione = new Produzione (valoreDadoProduzione);
+		return Produzione;
 	}
 
 	//--------------------------------------------------------------------------------------------------------------//
@@ -494,6 +493,8 @@ public class ParserXML {
 	 * @param elemento dell'effetto specifico da estrarre (Classe Element)
 	 * @return istanza dell'effetto estratto (Classe AzioneCarta)
 	 */
+	
+	/*
 	public static AzioneCarta leggiEffettoAzioneCarta (Element effetto) {
 		
 		int valoreDadoCarta = Integer.parseInt(effetto.getElementsByTagName("valoreDado").item(0).getFirstChild().getNodeValue());
@@ -520,6 +521,8 @@ public class ParserXML {
 		AzioneCarta azioneCarta = new AzioneCarta (valoreDadoCarta, tipoCartaEnum);
 		return azioneCarta;
 	}
+	
+	*/
 	
 	//--------------------------------------------------------------------------------------------------------------//
 	// LEGGI EFFETTO MOLTIPLICAZIONE

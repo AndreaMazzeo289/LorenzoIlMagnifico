@@ -7,17 +7,19 @@ import it.polimi.ingsw.pc15.carte.TipoCarta;
 import it.polimi.ingsw.pc15.carte.Territorio;
 import it.polimi.ingsw.pc15.player.Player;
 
-public class AzioneRaccolto extends Azione{
+public class Raccolto extends Effetto {
 	
-	public AzioneRaccolto(int valoreDado){
-		super(valoreDado);
+	private int valore;
+	
+	public Raccolto(int valore){
+		this.valore = valore;
 	}
 	
 	@Override
 	public void attiva(Player player){
 		
 		for (Carta territorio : player.getCarte(TipoCarta.TERRITORIO)) {
-			if (valoreDado >= ((Territorio) territorio).getRequisitoRaccolta() ) {
+			if (valore>= ((Territorio) territorio).getRequisitoRaccolta() ) {
 				System.out.println("Attivo raccolto in " + territorio.getNome());
 				territorio.attivaEffettoPermanente();
 			}

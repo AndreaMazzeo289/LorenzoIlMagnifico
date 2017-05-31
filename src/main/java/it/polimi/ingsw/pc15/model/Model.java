@@ -5,7 +5,7 @@ import java.util.Collections;
 import java.util.Observable;
 import java.util.Observer;
 import java.util.Random;
-import it.polimi.ingsw.pc15.ParseXML;
+import it.polimi.ingsw.pc15.ParserXML;
 import it.polimi.ingsw.pc15.carte.Carta;
 import it.polimi.ingsw.pc15.carte.Edificio;
 import it.polimi.ingsw.pc15.carte.Impresa;
@@ -26,10 +26,10 @@ public class Model extends Observable implements Observer {
 	private int turno;
 	private int periodo;
 	
-	private ArrayList<Territorio> carteTerritorio;
-	private ArrayList<Personaggio> cartePersonaggio;
-	private ArrayList<Edificio> carteEdificio;
-	private ArrayList<Impresa> carteImpresa;
+	private ArrayList<Carta> carteTerritorio;
+	private ArrayList<Carta> cartePersonaggio;
+	private ArrayList<Carta> carteEdificio;
+	private ArrayList<Carta> carteImpresa;
 	
 	private ArrayList<Leader> carteLeader;
 	
@@ -63,10 +63,10 @@ public class Model extends Observable implements Observer {
 		//          CREA CARTE SVILUPPO                                                                              //
 		//-----------------------------------------------------------------------------------------------------------//
 		
-		carteTerritorio= (ArrayList<Territorio>) ParseXML.getCartaXML(TipoCarta.TERRITORIO);
-		cartePersonaggio= (ArrayList<Personaggio>) ParseXML.getCartaXML(TipoCarta.PERSONAGGIO);
-		carteEdificio= (ArrayList<Edificio>) ParseXML.getCartaXML(TipoCarta.EDIFICIO);
-		carteImpresa= (ArrayList<Impresa>) ParseXML.getCartaXML(TipoCarta.IMPRESA);
+		carteTerritorio= ParserXML.getCarteXML(TipoCarta.TERRITORIO);
+		cartePersonaggio= ParserXML.getCarteXML(TipoCarta.PERSONAGGIO);
+		carteEdificio= ParserXML.getCarteXML(TipoCarta.EDIFICIO);
+		carteImpresa= ParserXML.getCarteXML(TipoCarta.IMPRESA);
 		
 		Collections.shuffle(carteTerritorio);
 		Collections.shuffle(cartePersonaggio);
@@ -79,9 +79,9 @@ public class Model extends Observable implements Observer {
 		
 		if (regoleAvanzate) {
 			
-			carteLeader = ParseXML.leggiCartaLeader();
+			carteLeader = ParserXML.leggiCartaLeader();
 			Collections.shuffle(carteLeader);	
-			int numeroCarteLeader = ParseXML.leggiValore("numeroCarteLeader");
+			int numeroCarteLeader = ParserXML.leggiValore("numeroCarteLeader");
 			int i=0, j=0;
 			while (j<numeroGiocatori) {
 				giocatori.get(j).getLeader().add(carteLeader.get(i));
@@ -129,7 +129,7 @@ public class Model extends Observable implements Observer {
 	
 	public void rapportoInVaticano(int periodo) {
 		
-		int puntiFedeMinimi = ParseXML.leggiValore("puntiFedePeriodo" + Integer.toString(periodo));
+		int puntiFedeMinimi = ParserXML.leggiValore("puntiFedePeriodo" + Integer.toString(periodo));
 		for (Player player :giocatori) {
 			if (player.getSetRisorse().getRisorsa(TipoRisorsa.PUNTIFEDE).getQuantità() < puntiFedeMinimi) {
 				System.out.println(player.getNome() + " è stato scomunicato!");

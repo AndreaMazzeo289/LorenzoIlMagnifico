@@ -7,7 +7,7 @@ import java.util.HashSet;
 import java.util.Iterator;
 import java.util.Set;
 
-import it.polimi.ingsw.pc15.ParseXML;
+import it.polimi.ingsw.pc15.ParserXML;
 import it.polimi.ingsw.pc15.carte.Carta;
 import it.polimi.ingsw.pc15.carte.TipoCarta;
 import it.polimi.ingsw.pc15.carte.Edificio;
@@ -37,7 +37,7 @@ public class Plancia {
 		//          SPAZI TORRE                                                                                      //
 		//-----------------------------------------------------------------------------------------------------------//
 		
-		int numeroSpaziTorre = ParseXML.leggiValore("numeroSpaziTorre");
+		int numeroSpaziTorre = ParserXML.leggiValore("numeroSpaziTorre");
 
 		ArrayList risorseTorreTERRITORIO = new ArrayList<SetRisorse> (numeroSpaziTorre);
 		ArrayList risorseTorreBlu = new ArrayList<SetRisorse> (numeroSpaziTorre);
@@ -45,10 +45,10 @@ public class Plancia {
 		ArrayList risorseTorreViola = new ArrayList<SetRisorse> (numeroSpaziTorre);
 		
 		for(int i=1; i<=numeroSpaziTorre; i++){
-			risorseTorreTERRITORIO.add(ParseXML.leggiSetRisorseSpazio("TERRITORIO"+Integer.toString(i))); 
-			risorseTorreBlu.add(ParseXML.leggiSetRisorseSpazio("blu"+Integer.toString(i))); 
-			risorseTorreGialla.add(ParseXML.leggiSetRisorseSpazio("giallo"+Integer.toString(i))); 
-			risorseTorreViola.add(ParseXML.leggiSetRisorseSpazio("viola"+Integer.toString(i))); 
+			risorseTorreTERRITORIO.add(ParserXML.leggiSetRisorseSpazio("TERRITORIO"+Integer.toString(i))); 
+			risorseTorreBlu.add(ParserXML.leggiSetRisorseSpazio("blu"+Integer.toString(i))); 
+			risorseTorreGialla.add(ParserXML.leggiSetRisorseSpazio("giallo"+Integer.toString(i))); 
+			risorseTorreViola.add(ParserXML.leggiSetRisorseSpazio("viola"+Integer.toString(i))); 
 		}
 		
 		torreTERRITORIO = new Torre (numeroSpaziTorre, risorseTorreTERRITORIO);
@@ -61,9 +61,9 @@ public class Plancia {
 		//          SPAZI PRODUZIONE/RACCOLTA/CONSIGLIO                                                              //
 		//-----------------------------------------------------------------------------------------------------------//
 		
-		spazioProduzione = new SpazioProduzione(ParseXML.leggiValore("valoreMinProduzione")); 
-		spazioRaccolta = new SpazioRaccolta(ParseXML.leggiValore("valoreMinRaccolta"));       
-		spazioConsiglio = new SpazioConsiglio(ParseXML.leggiValore("valoreMinConsiglio"), ParseXML.leggiSetRisorseSpazio("consiglio"));   
+		spazioProduzione = new SpazioProduzione(ParserXML.leggiValore("valoreMinProduzione")); 
+		spazioRaccolta = new SpazioRaccolta(ParserXML.leggiValore("valoreMinRaccolta"));       
+		spazioConsiglio = new SpazioConsiglio(ParserXML.leggiValore("valoreMinConsiglio"), ParserXML.leggiSetRisorseSpazio("consiglio"));   
 		
 		  
 		//-----------------------------------------------------------------------------------------------------------//
@@ -71,16 +71,16 @@ public class Plancia {
 		//-----------------------------------------------------------------------------------------------------------//
 		
 		spaziMercato = new ArrayList<SpazioMercato>();
-		int valoreMinMercato = ParseXML.leggiValore("valoreMinMercato");
+		int valoreMinMercato = ParserXML.leggiValore("valoreMinMercato");
 		
 		switch (numeroGiocatori) {
 		
-			case 4: SpazioMercato spazioMercato4 = new SpazioMercato(valoreMinMercato, ParseXML.leggiSetRisorseSpazio("mercato4"));
+			case 4: SpazioMercato spazioMercato4 = new SpazioMercato(valoreMinMercato, ParserXML.leggiSetRisorseSpazio("mercato4"));
 					spaziMercato.add(spazioMercato4);
-			case 3: SpazioMercato spazioMercato3 = new SpazioMercato(valoreMinMercato, ParseXML.leggiSetRisorseSpazio("mercato3"));
+			case 3: SpazioMercato spazioMercato3 = new SpazioMercato(valoreMinMercato, ParserXML.leggiSetRisorseSpazio("mercato3"));
 					spaziMercato.add(spazioMercato3);
-			case 2: SpazioMercato spazioMercato2 = new SpazioMercato(valoreMinMercato, ParseXML.leggiSetRisorseSpazio("mercato2"));
-					SpazioMercato spazioMercato1 = new SpazioMercato(valoreMinMercato, ParseXML.leggiSetRisorseSpazio("mercato1"));
+			case 2: SpazioMercato spazioMercato2 = new SpazioMercato(valoreMinMercato, ParserXML.leggiSetRisorseSpazio("mercato2"));
+					SpazioMercato spazioMercato1 = new SpazioMercato(valoreMinMercato, ParserXML.leggiSetRisorseSpazio("mercato1"));
 					spaziMercato.add(spazioMercato2);
 					spaziMercato.add(spazioMercato1);
 					break;
@@ -93,14 +93,14 @@ public class Plancia {
 		
 		this.scomuniche = new HashMap<Integer, TesseraScomunica>();
 		
-		int numeroTessereScomunica = ParseXML.leggiValore("numeroPeriodi");
+		int numeroTessereScomunica = ParserXML.leggiValore("numeroPeriodi");
 		for (int i=1; i<=numeroTessereScomunica; i++) {
-			scomuniche.put(i, ParseXML.leggiScomunica(i));
+			scomuniche.put(i, ParserXML.leggiScomunica(i));
 		}
 			
 	}
 
-	public void setTurno (int periodo, ArrayList<Territorio> carteTerritorio, ArrayList<Personaggio> cartePersonaggio, ArrayList<Edificio> carteEdificio, ArrayList<Impresa> carteImpresa){
+	public void setTurno (int periodo, ArrayList<Carta> carteTerritorio, ArrayList<Carta> cartePersonaggio, ArrayList<Carta> carteEdificio, ArrayList<Carta> carteImpresa){
 
 		ArrayList arrayTerritori = new ArrayList<Territorio>();             
 		ArrayList arrayPersonaggi = new ArrayList<Personaggio>();
@@ -108,7 +108,7 @@ public class Plancia {
 		ArrayList arrayImprese = new ArrayList<Impresa>();
 		
 		int n;
-		int numeroSpaziTorre = ParseXML.leggiValore("numeroSpaziTorre");
+		int numeroSpaziTorre = ParserXML.leggiValore("numeroSpaziTorre");
 		
 		n=0;
 		for(int i=0; i<carteTerritorio.size(); i++) {

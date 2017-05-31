@@ -8,7 +8,7 @@ import java.util.Iterator;
 import java.util.Map;
 import java.util.Set;
 
-import it.polimi.ingsw.pc15.ParseXML;
+import it.polimi.ingsw.pc15.ParserXML;
 import it.polimi.ingsw.pc15.carte.Carta;
 import it.polimi.ingsw.pc15.carte.TipoCarta;
 import it.polimi.ingsw.pc15.carte.Edificio;
@@ -93,7 +93,7 @@ public class Player {
 		//          CARTE                                                                                            //
 		//-----------------------------------------------------------------------------------------------------------//
 		
-		int numeroMaxCarte = ParseXML.leggiValore("numeroMaxCarte");
+		int numeroMaxCarte = ParserXML.leggiValore("numeroMaxCarte");
 		
 		ArrayList<Territorio> territori = new ArrayList<Territorio>(numeroMaxCarte);
 		ArrayList<Personaggio> personaggi = new ArrayList<Personaggio>(numeroMaxCarte);

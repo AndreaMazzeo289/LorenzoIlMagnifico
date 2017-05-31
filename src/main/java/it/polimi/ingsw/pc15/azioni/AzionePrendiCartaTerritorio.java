@@ -1,6 +1,6 @@
 package it.polimi.ingsw.pc15.azioni;
 
-import it.polimi.ingsw.pc15.ParseXML;
+import it.polimi.ingsw.pc15.ParserXML;
 import it.polimi.ingsw.pc15.carte.Carta;
 import it.polimi.ingsw.pc15.carte.TipoCarta;
 import it.polimi.ingsw.pc15.player.Player;
@@ -15,7 +15,7 @@ public class AzionePrendiCartaTerritorio extends AzionePrendiCarta {
 	@Override
 	public boolean èValida() {
 		
-		int numeroMaxCarte = ParseXML.leggiValore("numeroMaxCarte");
+		int numeroMaxCarte = ParserXML.leggiValore("numeroMaxCarte");
 		
 		if (player.getCarte(TipoCarta.TERRITORIO).size() == numeroMaxCarte) {
 			System.out.println("Hai raggiunto il limite massimo di carte Territorio!");
@@ -23,7 +23,7 @@ public class AzionePrendiCartaTerritorio extends AzionePrendiCarta {
 		}
 		
 		if (player.getEffettiAttivi().requisitoTerritoriAttivo())
-			if (!player.getSetRisorse().getRisorsa(TipoRisorsa.PUNTIMILITARI).paragona(ParseXML.leggiValore("RequisitoMilitareTerritorio" + Integer.toString(player.getCarte(TipoCarta.TERRITORIO).size()+1)))) {
+			if (!player.getSetRisorse().getRisorsa(TipoRisorsa.PUNTIMILITARI).paragona(ParserXML.leggiValore("RequisitoMilitareTerritorio" + Integer.toString(player.getCarte(TipoCarta.TERRITORIO).size()+1)))) {
 				System.out.println("Non hai abbastanza punti militari per ottenere questo Territorio");
 				return false;
 		}

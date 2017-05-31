@@ -1,7 +1,7 @@
 package it.polimi.ingsw.pc15.azioni;
 
-import it.polimi.ingsw.pc15.effetti.AzioneProduzione;
 import it.polimi.ingsw.pc15.effetti.Effetto;
+import it.polimi.ingsw.pc15.effetti.Produzione;
 import it.polimi.ingsw.pc15.plancia.Spazio;
 import it.polimi.ingsw.pc15.plancia.SpazioProduzione;
 import it.polimi.ingsw.pc15.player.ColoreFamiliare;
@@ -18,7 +18,7 @@ public class AzioneOccupaSpazioProduzione extends AzioneOccupaSpazio {
 	public void attiva() {
 		
 		spazio.aggiungiFamiliare(familiare);
-		Effetto effetto = new AzioneProduzione(familiare.getValore() + player.getEffettiAttivi().getBonusProduzione());
+		Effetto effetto = new Produzione(familiare.getValore() + player.getEffettiAttivi().getBonusProduzione());
 		effetto.attiva(familiare.getPlayer());
 	}
 
