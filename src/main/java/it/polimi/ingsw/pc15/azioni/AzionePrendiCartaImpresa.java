@@ -1,4 +1,4 @@
-package azioni;
+package it.polimi.ingsw.pc15.azioni;
 
 import java.io.IOException;
 import java.util.Scanner;
