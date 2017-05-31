@@ -4,7 +4,7 @@ import java.util.Iterator;
 import java.util.Observable;
 import java.util.Set;
 
-import azioni.AzionePrendiCarta;
+import it.polimi.ingsw.pc15.azioni.AzionePrendiCarta;
 import it.polimi.ingsw.pc15.effetti.Effetto;
 import it.polimi.ingsw.pc15.plancia.SpazioTorre;
 import it.polimi.ingsw.pc15.player.Player;

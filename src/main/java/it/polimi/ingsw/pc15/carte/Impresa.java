@@ -2,8 +2,8 @@ package it.polimi.ingsw.pc15.carte;
 
 import java.util.Set;
 
-import azioni.AzionePrendiCarta;
-import azioni.AzionePrendiCartaImpresa;
+import it.polimi.ingsw.pc15.azioni.AzionePrendiCarta;
+import it.polimi.ingsw.pc15.azioni.AzionePrendiCartaImpresa;
 import it.polimi.ingsw.pc15.effetti.Effetto;
 import it.polimi.ingsw.pc15.player.Player;
 import it.polimi.ingsw.pc15.risorse.SetRisorse;
