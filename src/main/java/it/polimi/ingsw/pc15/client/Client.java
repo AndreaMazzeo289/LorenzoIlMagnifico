@@ -13,8 +13,8 @@ public class Client {
 	private  PrintStream out;
 	private  Scanner in;
 	private  String hostName;
-	private ClientController clientController;
-	private ClientView clientView;
+	//private ClientController clientController;
+	//private ClientView clientView;
 	
 	
 	public Client() throws IOException{
@@ -22,8 +22,8 @@ public class Client {
 		Socket clientSocket = new Socket(hostName, 12879);
 		this.out = new PrintStream(clientSocket.getOutputStream());
 		this.in = new Scanner(clientSocket.getInputStream());
-		this.clientController = new ClientController();
-		this.clientView = new ClientView();
+		//this.clientController = new ClientController();
+		//this.clientView = new ClientView();
 		
 	}
 	
@@ -91,7 +91,7 @@ public class Client {
 			
 	}
 	
-	public void send(Message message){}
+	//public void send(Message message){}
 	
 	public static void main(String[] args) throws IOException, InterruptedException {
 			Client client;
