@@ -1,0 +1,130 @@
+<SetRisorseSpazi>
+    <!--***************************************************************************
+
+                                    TORRE VERDE
+
+    ****************************************************************************-->
+    <tipoSpazio tipo="verde1">
+    </tipoSpazio>
+    <tipoSpazio tipo="verde2">
+    </tipoSpazio>
+    <tipoSpazio tipo="verde3">
+        <risorsa tipo="legna">
+            <quantita>1</quantita>
+        </risorsa>
+    </tipoSpazio>
+    <tipoSpazio tipo="verde4">
+        <risorsa tipo="legna">
+            <quantita>2</quantita>
+        </risorsa>
+    </tipoSpazio>
+    
+    <!--***************************************************************************
+
+                                    TORRE GIALLA
+
+    ****************************************************************************-->
+    
+     <tipoSpazio tipo="giallo1">
+    </tipoSpazio>
+    <tipoSpazio tipo="giallo2">
+    </tipoSpazio>
+    <tipoSpazio tipo="giallo3">
+        <risorsa tipo="puntiMilitari">
+            <quantita>1</quantita>
+        </risorsa>
+    </tipoSpazio>
+    <tipoSpazio tipo="giallo4">
+        <risorsa tipo="puntiMilitari">
+            <quantita>2</quantita>
+        </risorsa>
+    </tipoSpazio>
+    
+    <!--***************************************************************************
+
+                                    TORRE BLU
+
+    ****************************************************************************-->
+    
+    <tipoSpazio tipo="blu1">
+    </tipoSpazio>
+    <tipoSpazio tipo="blu2">
+    </tipoSpazio>
+    <tipoSpazio tipo="blu3">
+        <risorsa tipo="pietra">
+            <quantita>1</quantita>
+        </risorsa>
+    </tipoSpazio>
+    <tipoSpazio tipo="blu4">
+        <risorsa tipo="pietra">
+            <quantita>2</quantita>
+        </risorsa>
+    </tipoSpazio>
+    
+    <!--***************************************************************************
+
+                                    TORRE VIOLA
+
+    ****************************************************************************-->
+    
+    <tipoSpazio tipo="viola1">
+    </tipoSpazio>
+    <tipoSpazio tipo="viola2">
+    </tipoSpazio>
+    <tipoSpazio tipo="viola3">
+        <risorsa tipo="oro">
+            <quantita>1</quantita>
+        </risorsa>
+    </tipoSpazio>
+    <tipoSpazio tipo="viola4">
+        <risorsa tipo="oro">
+            <quantita>2</quantita>
+        </risorsa>
+    </tipoSpazio>
+    
+    <!--***************************************************************************
+
+                                     CONSIGLIO
+
+    ****************************************************************************-->
+    <tipoSpazio tipo="consiglio">
+        <risorsa tipo="oro">
+            <quantita>2</quantita>
+        </risorsa>
+        <risorsa tipo="privilegi">
+            <quantita>1</quantita>
+        </risorsa>
+    </tipoSpazio>
+    
+    <!--***************************************************************************
+
+                                      MERCATO
+
+    ****************************************************************************-->
+    <tipoSpazio tipo="mercato1">
+        <risorsa tipo="servitori">
+            <quantita>5</quantita>
+        </risorsa>
+    </tipoSpazio>
+    <tipoSpazio tipo="mercato2">
+       <risorsa tipo="oro">
+            <quantita>5</quantita>
+        </risorsa>
+    </tipoSpazio>
+    <tipoSpazio tipo="mercato3">
+        <risorsa tipo="oro">
+            <quantita>2</quantita>
+        </risorsa>
+        <risorsa tipo="puntiMilitari">
+            <quantita>3</quantita>
+        </risorsa>
+    </tipoSpazio>
+    <tipoSpazio tipo="mercato4">
+        <risorsa tipo="privilegi">
+            <quantita>2</quantita>
+        </risorsa>
+    </tipoSpazio>
+    
+    <!--*************************************************************************-->
+    
+</SetRisorseSpazi>

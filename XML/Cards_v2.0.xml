@@ -1,0 +1,1680 @@
+<carte>
+	<!--************************************************************************************************
+							   ____           _                           _ _ 
+							  / ___|__ _ _ __| |_ ___  __   _____ _ __ __| (_)
+							 | |   / _` | '__| __/ _ \ \ \ / / _ \ '__/ _` | |
+							 | |___ (_| | |  | |_  __/  \ V /  __/ | | (_| | |
+							  \____\__,_|_|   \__\___|   \_/ \___|_|  \__,_|_|
+
+	****************************************************************************************************								
+
+	****************************************************************************************************
+								  ___                   _           _       
+								 |_ _|  _ __   ___ _ __(_) ___   __| | ___  
+								  | |  | '_ \ / _ \ '__| |/ _ \ / _` |/ _ \ 
+								  | |  | |_) |  __/ |  | | (_) | (_| | (_) |
+								 |___| | .__/ \___|_|  |_|\___/ \__,_|\___/ 
+								       |_|     
+
+	**************************************************************************************************-->
+	<carta id="01" tipo="territorio">
+		<nome>Avamposto Commerciale</nome>
+		<periodo>1</periodo>
+		<dado>1</dado>
+		<effettiImmediati>
+		</effettiImmediati>
+		<effettiPermanenti>
+			<effettoPermanente>aggiungiRisorse1O</effettoPermanente>
+		</effettiPermanenti>
+	</carta>
+	<carta id="02" tipo="territorio">
+		<nome>Bosco</nome>
+		<periodo>1</periodo>
+		<dado>2</dado>
+		<effettiImmediati>
+			<effettoImmediato>aggiungiRisorse1L</effettoImmediato>
+		</effettiImmediati>
+		<effettiPermanenti>
+			<effettoPermanente>aggiungiRisorse1O</effettoPermanente>
+		</effettiPermanenti>
+	</carta>
+	<carta id="03" tipo="territorio">
+		<nome>Borgo</nome>
+		<periodo>1</periodo>
+		<dado>3</dado>
+		<effettiImmediati>
+		</effettiImmediati>
+		<effettiPermanenti>
+			<effettoPermanente>aggiungiRisorse1O</effettoPermanente>
+            <effettoPermanente>aggiungiRisorse1S</effettoPermanente>
+		</effettiPermanenti>
+	</carta>
+	<carta id="04" tipo="territorio">
+		<nome>Cava di ghiaia</nome>
+        <periodo>1</periodo>
+		<dado>4</dado>
+		<effettiImmediati>
+			<effettoImmediato>aggiungiRisorse2P</effettoImmediato>
+		</effettiImmediati>
+		<effettiPermanenti>
+			<effettoPermanente>aggiungiRisorse2P</effettoPermanente>
+		</effettiPermanenti>
+	</carta>
+	<carta id="05" tipo="territorio">
+		<nome>Foresta</nome>		 
+		<periodo>1</periodo>
+		<dado>5</dado>
+		<effettiImmediati>
+			<effettoImmediato>aggiungiRisorse1L</effettoImmediato>
+		</effettiImmediati>
+		<effettiPermanenti>
+			<effettoPermanente>aggiungiRisorse3L</effettoPermanente>
+		</effettiPermanenti>
+	</carta>
+	<carta id="06" tipo="territorio">
+		<nome>Monastero</nome>		 
+		<periodo>1</periodo>
+		<dado>6</dado>
+		<effettiImmediati>
+			<effettoImmediato>aggiungiRisorse2PM</effettoImmediato>
+			<effettoImmediato>aggiungiRisorse1S</effettoImmediato>
+		</effettiImmediati>
+		<effettiPermanenti>
+			<effettoPermanente>aggiungiRisorse1Fand1P</effettoPermanente>
+            <effettoPermanente>aggiungiRisorse1P</effettoPermanente>
+		</effettiPermanenti>
+	</carta>
+	<carta id="07" tipo="territorio">
+		<nome>Rocca</nome>		 
+		<periodo>1</periodo>
+		<dado>5</dado>
+		<effettiImmediati>
+		</effettiImmediati>
+		<effettiPermanenti>
+			<effettoPermanente>aggiungiRisorse2PM</effettoPermanente>
+			<effettoPermanente>aggiungiRisorse1P</effettoPermanente>
+		</effettiPermanenti>
+	</carta>
+	<carta id="08" tipo="territorio">
+		<nome>Citta</nome>		 
+		<periodo>1</periodo>
+		<dado>6</dado>
+		<effettiImmediati>
+			<effettoImmediato>aggiungiRisorse3O</effettoImmediato>
+		</effettiImmediati>
+		<effettiPermanenti>
+			<effettoPermanente>aggiungiRisorse1Pr</effettoPermanente>
+		</effettiPermanenti>
+	</carta>
+
+	<!--************************************************************************************************
+								  ___ ___                   _           _       
+								 |_ _|_ _|  _ __   ___ _ __(_) ___   __| | ___  
+								  | | | |  | '_ \ / _ \ '__| |/ _ \ / _` |/ _ \ 
+								  | | | |  | |_) |  __/ |  | | (_) | (_| | (_) |
+								 |___|___| | .__/ \___|_|  |_|\___/ \__,_|\___/ 
+								           |_|                                  
+
+	**************************************************************************************************-->
+
+	<carta id="09" tipo="territorio">
+		<nome>Miniera d'oro</nome>		 
+		<periodo>2</periodo>
+		<dado>1</dado>
+		<effettiImmediati>
+			<effettoImmediato>aggiungiRisorse1O</effettoImmediato>
+		</effettiImmediati>
+		<effettiPermanenti>
+			<effettoPermanente>aggiungiRisorse2O</effettoPermanente>
+		</effettiPermanenti>
+	</carta>
+	<carta id="10" tipo="territorio">
+		<nome>Villaggio montano</nome>		 
+		<periodo>2</periodo>
+		<dado>3</dado>
+		<effettiImmediati>
+			<effettoImmediato>aggiungiRisorse1S</effettoImmediato>
+		</effettiImmediati>
+		<effettiPermanenti>
+			<effettoPermanente>aggiungiRisorse1PM</effettoPermanente>
+			<effettoPermanente>aggiungiRisorse2L</effettoPermanente>
+		</effettiPermanenti>
+	</carta>
+	<carta id="11" tipo="territorio">
+		<nome>Villaggio minerario</nome>		 
+		<periodo>2</periodo>
+		<dado>4</dado>
+		<effettiImmediati>
+			<effettoImmediato>aggiungiRisorse2S</effettoImmediato>
+			<effettoImmediato>aggiungiRisorse1P</effettoImmediato>
+		</effettiImmediati>
+		<effettiPermanenti>
+			<effettoPermanente>aggiungiRisorse1S</effettoPermanente>
+			<effettoPermanente>aggiungiRisorse2P</effettoPermanente>
+		</effettiPermanenti>
+	</carta>
+	<carta id="12" tipo="territorio">
+		<nome>Cava di pietra</nome>		 
+		<periodo>2</periodo>
+		<dado>3</dado>
+		<effettiImmediati>
+			<effettoImmediato>aggiungiRisorse1L</effettoImmediato>
+		</effettiImmediati>
+		<effettiPermanenti>
+			<effettoPermanente>aggiungiRisorse3P</effettoPermanente>
+		</effettiPermanenti>
+	</carta>
+	<carta id="13" tipo="territorio">
+		<nome>Possedimento</nome>		 
+		<periodo>2</periodo>
+		<dado>4</dado>
+		<effettiImmediati>
+			<effettoImmediato>aggiungiRisorse2S</effettoImmediato>
+			<effettoImmediato>aggiungiRisorse1L</effettoImmediato>
+		</effettiImmediati>
+		<effettiPermanenti>
+			<effettoPermanente>aggiungiRisorse1O</effettoPermanente>
+			<effettoPermanente>aggiungiRisorse2L</effettoPermanente>
+		</effettiPermanenti>
+	</carta>
+	<carta id="14" tipo="territorio">
+		<nome>Eremo</nome>		 
+		<periodo>2</periodo>
+		<dado>2</dado>
+		<effettiImmediati>
+			<effettoImmediato>aggiungiRisorse1F</effettoImmediato>
+		</effettiImmediati>
+		<effettiPermanenti>
+			<effettoPermanente>aggiungiRisorse1F</effettoPermanente>
+		</effettiPermanenti>
+	</carta>
+	<carta id="15" tipo="territorio">
+		<nome>Maniero</nome>		 
+		<periodo>2</periodo>
+		<dado>5</dado>
+		<effettiImmediati>
+		</effettiImmediati>
+		<effettiPermanenti>
+			<effettoPermanente>aggiungiRisorse2PM</effettoPermanente>
+			<effettoPermanente>aggiungiRisorse2S</effettoPermanente>
+		</effettiPermanenti>
+	</carta>
+	<carta id="16" tipo="territorio">
+		<nome>Ducato</nome>		 
+		<periodo>2</periodo>
+		<dado>6</dado>
+		<effettiImmediati>
+			<effettoImmediato>aggiungiRisorse4O</effettoImmediato>
+		</effettiImmediati>
+		<effettiPermanenti>
+			<effettoPermanente>aggiungiRisorse1O</effettoPermanente>
+			<effettoPermanente>aggiungiRisorse1P</effettoPermanente>
+			<effettoPermanente>aggiungiRisorse2L</effettoPermanente>
+		</effettiPermanenti>
+	</carta>
+
+	<!--************************************************************************************************
+							  ___ ___ ___                   _           _       
+							 |_ _|_ _|_ _|  _ __   ___ _ __(_) ___   __| | ___  
+							  | | | | | |  | '_ \ / _ \ '__| |/ _ \ / _` |/ _ \ 
+							  | | | | | |  | |_) |  __/ |  | | (_) | (_| | (_) |
+							 |___|___|___| | .__/ \___|_|  |_|\___/ \__,_|\___/ 
+							               |_|                                  
+
+	**************************************************************************************************-->
+
+	<carta id="17" tipo="territorio">
+		<nome>Citta mercantile</nome>		 
+		<periodo>3</periodo>
+		<dado>1</dado>
+		<effettiImmediati>
+			<effettoImmediato>aggiungiRisorse1O</effettoImmediato>
+			<effettoImmediato>aggiungiRisorse1S</effettoImmediato>
+		</effettiImmediati>
+		<effettiPermanenti>
+			<effettoPermanente>aggiungiRisorse3O</effettoPermanente>
+		</effettiPermanenti>
+	</carta>
+	<carta id="18" tipo="territorio">
+		<nome>Tenuta</nome>		 
+		<periodo>3</periodo>
+		<dado>3</dado>
+		<effettiImmediati>
+			<effettoImmediato>aggiungiRisorse1V</effettoImmediato>
+			<effettoImmediato>aggiungiRisorse1L</effettoImmediato>
+		</effettiImmediati>
+		<effettiPermanenti>
+			<effettoPermanente>aggiungiRisorse2V</effettoPermanente>
+			<effettoPermanente>aggiungiRisorse2L</effettoPermanente>
+		</effettiPermanenti>
+	</carta>
+	<carta id="19" tipo="territorio">
+		<nome>Colonia</nome>		 
+		<periodo>3</periodo>
+		<dado>5</dado>
+		<effettiImmediati>
+			<effettoImmediato>aggiungiRisorse2PM</effettoImmediato>
+		</effettiImmediati>
+		<effettiPermanenti>
+			<effettoPermanente>aggiungiRisorse4V</effettoPermanente>
+			<effettoPermanente>aggiungiRisorse1L</effettoPermanente>
+		</effettiPermanenti>
+	</carta>
+	<carta id="20" tipo="territorio">
+		<nome>Cava di marmo</nome>		 
+		<periodo>3</periodo>
+		<dado>2</dado>
+		<effettiImmediati>
+			<effettoImmediato>aggiungiRisorse3V</effettoImmediato>
+		</effettiImmediati>
+		<effettiPermanenti>
+			<effettoPermanente>aggiungiRisorse1V</effettoPermanente>
+			<effettoPermanente>aggiungiRisorse2P</effettoPermanente>
+		</effettiPermanenti>
+	</carta>
+	<carta id="21" tipo="territorio">
+		<nome>Provincia</nome>		 
+		<periodo>3</periodo>
+		<dado>6</dado>
+		<effettiImmediati>
+			<effettoImmediato>aggiungiRisorse1Pr</effettoImmediato>
+			<effettoImmediato>aggiungiRisorse1P</effettoImmediato>
+		</effettiImmediati>
+		<effettiPermanenti>
+			<effettoPermanente>aggiungiRisorse4V</effettoPermanente>
+			<effettoPermanente>aggiungiRisorse1P</effettoPermanente>
+		</effettiPermanenti>
+	</carta>
+	<carta id="22" tipo="territorio">
+		<nome>Santuario</nome>		 
+		<periodo>3</periodo>
+		<dado>1</dado>
+		<effettiImmediati>
+			<effettoImmediato>aggiungiRisorse1F</effettoImmediato>
+		</effettiImmediati>
+		<effettiPermanenti>
+			<effettoPermanente>aggiungiRisorse1O</effettoPermanente>
+			<effettoPermanente>aggiungiRisorse1F</effettoPermanente>
+		</effettiPermanenti>
+	</carta>
+	<carta id="23" tipo="territorio">
+		<nome>Castello</nome>		 
+		<periodo>3</periodo>
+		<dado>4</dado>
+		<effettiImmediati>
+			<effettoImmediato>aggiungiRisorse2V</effettoImmediato>
+			<effettoImmediato>aggiungiRisorse2O</effettoImmediato>
+		</effettiImmediati>
+		<effettiPermanenti>
+			<effettoPermanente>aggiungiRisorse3PM</effettoPermanente>
+			<effettoPermanente>aggiungiRisorse1S</effettoPermanente>
+		</effettiPermanenti>
+	</carta>
+	<carta id="24" tipo="territorio">
+		<nome>Citta fortificata</nome>		 
+		<periodo>3</periodo>
+		<dado>2</dado>
+		<effettiImmediati>
+			<effettoImmediato>aggiungiRisorse2PM</effettoImmediato>
+			<effettoImmediato>aggiungiRisorse1S</effettoImmediato>
+		</effettiImmediati>
+		<effettiPermanenti>
+			<effettoPermanente>aggiungiRisorse1PM</effettoPermanente>
+			<effettoPermanente>aggiungiRisorse2S</effettoPermanente>
+		</effettiPermanenti>
+	</carta>
+
+	<!--************************************************************************************************
+							   ____           _               _       _ _      
+							  / ___|__ _ _ __| |_ ___    __ _(_) __ _| | | ___ 
+							 | |   / _` | '__| __/ _ \  / _` | |/ _` | | |/ _ \
+							 | |___ (_| | |  | |_  __/ | (_| | | (_| | | |  __/
+							  \____\__,_|_|   \__\___|  \__, |_|\__,_|_|_|\___|
+							                            |___/                  
+	****************************************************************************************************								
+
+	****************************************************************************************************
+								  ___                   _           _       
+								 |_ _|  _ __   ___ _ __(_) ___   __| | ___  
+								  | |  | '_ \ / _ \ '__| |/ _ \ / _` |/ _ \ 
+								  | |  | |_) |  __/ |  | | (_) | (_| | (_) |
+								 |___| | .__/ \___|_|  |_|\___/ \__,_|\___/ 
+								       |_|     
+
+	**************************************************************************************************-->
+
+	<carta id="25" tipo="edificio">
+		<nome>Zecca</nome>		 
+		<periodo>1</periodo>
+		<costoCarta>
+            <risorsa tipo="legna">
+				<quantita>1</quantita>
+            </risorsa>
+            <risorsa tipo="pietra">
+				<quantita>3</quantita>
+			</risorsa>
+		</costoCarta>
+		<dado>5</dado>
+		<effettiImmediati>
+			<effettoImmediato>aggiungiRisorse5V</effettoImmediato>
+		</effettiImmediati>
+		<effettiPermanenti>
+			<effettoPermanente>moltiplicatore1OxGialla</effettoPermanente>
+		</effettiPermanenti>
+	</carta>
+	<carta id="26" tipo="edificio">
+		<nome>Esattoria</nome>		 
+		<periodo>1</periodo>
+		<costoCarta>
+            <risorsa tipo="legna">
+				<quantita>3</quantita>
+			</risorsa>
+            <risorsa tipo="pietra">
+				<quantita>1</quantita>
+			</risorsa>
+		</costoCarta>
+		<dado>5</dado>
+		<effettiImmediati>
+			<effettoImmediato>aggiungiRisorse5V</effettoImmediato>
+		</effettiImmediati>
+		<effettiPermanenti>
+			<effettoPermanente>moltiplicatore1OxVerde</effettoPermanente>
+		</effettiPermanenti>
+	</carta>
+	<carta id="27" tipo="edificio">
+		<nome>Arco di trionfo</nome>		 
+		<periodo>1</periodo>
+		<costoCarta>
+            <risorsa tipo="oro">
+				<quantita>2</quantita>
+            </risorsa>
+            <risorsa tipo="pietra">
+				<quantita>2</quantita>
+			</risorsa>
+		</costoCarta>
+		<dado>6</dado>
+		<effettiImmediati>
+			<effettoImmediato>aggiungiRisorse6V</effettoImmediato>
+		</effettiImmediati>
+		<effettiPermanenti>
+			<effettoPermanente>moltiplicatore1VxViola</effettoPermanente>
+		</effettiPermanenti>
+	</carta>
+	<carta id="28" tipo="edificio">
+		<nome>Teatro</nome>		 
+		<periodo>1</periodo>
+		<costoCarta>
+			<risorsa tipo="oro">
+				<quantita>2</quantita>
+			</risorsa>
+            <risorsa tipo="legna">
+				<quantita>2</quantita>
+			</risorsa>
+		</costoCarta>
+		<dado>6</dado>
+		<effettiImmediati>
+			<effettoImmediato>aggiungiRisorse6V</effettoImmediato>
+		</effettiImmediati>
+		<effettiPermanenti>
+			<effettoPermanente>moltiplicatore1VxBlu</effettoPermanente>
+		</effettiPermanenti>
+	</carta>
+	<carta id="29" tipo="edificio">
+		<nome>Falegnameria</nome>		 
+		<periodo>1</periodo>
+		<costoCarta>
+			<risorsa tipo="legna">
+				<quantita>2</quantita>
+			</risorsa>
+            <risorsa tipo="oro">
+				<quantita>1</quantita>
+			</risorsa>
+		</costoCarta>
+		<dado>4</dado>
+		<effettiImmediati>
+			<effettoImmediato>aggiungiRisorse3V</effettoImmediato>
+		</effettiImmediati>
+		<effettiPermanenti>
+			<effettoPermanente>scambioFalegnameria</effettoPermanente>
+		</effettiPermanenti>
+	</carta>
+	<carta id="30" tipo="edificio">
+		<nome>Tagliapietre</nome>		 
+		<periodo>1</periodo>
+		<costoCarta>
+			<risorsa tipo="oro">
+				<quantita>1</quantita>
+			</risorsa>
+            <risorsa tipo="pietra">
+				<quantita>2</quantita>
+			</risorsa>
+		</costoCarta>
+		<dado>3</dado>
+		<effettiImmediati>
+			<effettoImmediato>aggiungiRisorse2V</effettoImmediato>
+		</effettiImmediati>
+		<effettiPermanenti>
+			<effettoPermanente>scambioTagliapietre</effettoPermanente>
+		</effettiPermanenti>
+	</carta>
+	<carta id="31" tipo="edificio">
+		<nome>Cappella</nome>		 
+		<periodo>1</periodo>
+		<costoCarta>
+			<risorsa tipo="legna">
+				<quantita>2</quantita>
+			</risorsa>
+		</costoCarta>
+		<dado>2</dado>
+		<effettiImmediati>
+			<effettoImmediato>aggiungiRisorse1F</effettoImmediato>
+		</effettiImmediati>
+		<effettiPermanenti>
+			<effettoPermanente>scambioCappella</effettoPermanente>
+		</effettiPermanenti>
+	</carta>
+	<carta id="32" tipo="edificio">
+		<nome>Residenza</nome>		 
+		<periodo>1</periodo>
+		<costoCarta>
+			<risorsa tipo="pietra">
+				<quantita>2</quantita>
+			</risorsa>
+		</costoCarta>
+		<dado>1</dado>
+		<effettiImmediati>
+			<effettoImmediato>aggiungiRisorse1V</effettoImmediato>
+		</effettiImmediati>
+		<effettiPermanenti>
+			<effettoPermanente>scambioResidenza</effettoPermanente>
+		</effettiPermanenti>
+	</carta>
+
+	<!--************************************************************************************************
+								  ___ ___                   _           _       
+								 |_ _|_ _|  _ __   ___ _ __(_) ___   __| | ___  
+								  | | | |  | '_ \ / _ \ '__| |/ _ \ / _` |/ _ \ 
+								  | | | |  | |_) |  __/ |  | | (_) | (_| | (_) |
+								 |___|___| | .__/ \___|_|  |_|\___/ \__,_|\___/ 
+								           |_|                                  
+
+	**************************************************************************************************-->
+
+	<carta id="33" tipo="edificio">
+		<nome>Mercato</nome>		 
+		<periodo>2</periodo>
+		<costoCarta>
+			<risorsa tipo="legna">
+				<quantita>2</quantita>
+			</risorsa>
+            <risorsa tipo="pietra">
+				<quantita>1</quantita>
+			</risorsa>
+		</costoCarta>
+		<dado>3</dado>
+		<effettiImmediati>
+			<effettoImmediato>aggiungiRisorse3V</effettoImmediato>
+		</effettiImmediati>
+		<effettiPermanenti>
+			<effettoPermanente>scambioMercato</effettoPermanente>
+		</effettiPermanenti>
+	</carta>
+	<carta id="34" tipo="edificio">
+		<nome>Tesoreria</nome>		 
+		<periodo>2</periodo>
+		<costoCarta>
+			<risorsa tipo="legna">
+				<quantita>3</quantita>
+			</risorsa>
+		</costoCarta>
+		<dado>3</dado>
+		<effettiImmediati>
+			<effettoImmediato>aggiungiRisorse4V</effettoImmediato>
+		</effettiImmediati>
+		<effettiPermanenti>
+			<effettoPermanente>scambioTesoreria</effettoPermanente>
+		</effettiPermanenti>
+	</carta>
+	<carta id="35" tipo="edificio">
+		<nome>Gilda dei pittori</nome>		 
+		<periodo>2</periodo>
+		<costoCarta>
+			<risorsa tipo="legna">
+				<quantita>4</quantita>
+			</risorsa>		
+		</costoCarta>
+		<dado>4</dado>
+		<effettiImmediati>
+			<effettoImmediato>aggiungiRisorse5V</effettoImmediato>
+		</effettiImmediati>
+		<effettiPermanenti>
+			<effettoPermanente>scambioGildaDeiPittori</effettoPermanente>
+		</effettiPermanenti>
+	</carta>
+	<carta id="36" tipo="edificio">
+		<nome>Gilda degli scultori</nome>		 
+		<periodo>2</periodo>
+		<costoCarta>
+            <risorsa tipo="pietra">
+				<quantita>4</quantita>
+			</risorsa>
+		</costoCarta>
+		<dado>5</dado>
+		<effettiImmediati>
+			<effettoImmediato>aggiungiRisorse6V</effettoImmediato>
+		</effettiImmediati>
+		<effettiPermanenti>
+			<effettoPermanente>scambioGildaDegliScultori</effettoPermanente>
+		</effettiPermanenti>
+	</carta>
+	<carta id="37" tipo="edificio">
+		<nome>Gilda dei costruttori</nome>		 
+		<periodo>2</periodo>
+		<costoCarta>
+			<risorsa tipo="legna">
+				<quantita>1</quantita>
+			</risorsa>
+            <risorsa tipo="pietra">
+				<quantita>2</quantita>
+			</risorsa>
+		</costoCarta>
+		<dado>4</dado>
+		<effettiImmediati>
+			<effettoImmediato>aggiungiRisorse4V</effettoImmediato>
+		</effettiImmediati>
+		<effettiPermanenti>
+			<effettoPermanente>scambioGildaDeiCostruttori</effettoPermanente>
+		</effettiPermanenti>
+	</carta>
+	<carta id="38" tipo="edificio">
+		<nome>Battistero</nome>		 
+		<periodo>2</periodo>
+		<costoCarta>
+			<risorsa tipo="pietra">
+				<quantita>3</quantita>
+			</risorsa>
+		</costoCarta>
+		<dado>3</dado>
+		<effettiImmediati>
+			<effettoImmediato>aggiungiRisorse2V</effettoImmediato>
+			<effettoImmediato>aggiungiRisorse1F</effettoImmediato>
+		</effettiImmediati>
+		<effettiPermanenti>
+			<effettoPermanente>scambioBattistero</effettoPermanente>
+		</effettiPermanenti>
+	</carta>
+	<carta id="39" tipo="edificio">
+		<nome>Caserma</nome>		 
+		<periodo>2</periodo>
+		<costoCarta>
+			<risorsa tipo="legna">
+				<quantita>1</quantita>
+			</risorsa>
+            <risorsa tipo="pietra">
+				<quantita>1</quantita>
+			</risorsa>
+		</costoCarta>
+		<dado>1</dado>
+		<effettiImmediati>
+			<effettoImmediato>aggiungiRisorse3V</effettoImmediato>
+		</effettiImmediati>
+		<effettiPermanenti>
+			<effettoPermanente>scambioCaserma</effettoPermanente>
+		</effettiPermanenti>
+	</carta>
+	<carta id="40" tipo="edificio">
+		<nome>Fortezza</nome>		 
+		<periodo>2</periodo>
+		<costoCarta>
+			<risorsa tipo="oro">
+				<quantita>2</quantita>
+			</risorsa>
+            <risorsa tipo="legna">
+				<quantita>2</quantita>
+			</risorsa>
+			<risorsa tipo="pietra">
+				<quantita>2</quantita>
+			</risorsa>
+		</costoCarta>
+		<dado>6</dado>
+		<effettiImmediati>
+			<effettoImmediato>aggiungiRisorse8V</effettoImmediato>
+		</effettiImmediati>
+		<effettiPermanenti>
+			<effettoPermanente>aggiungiRisorse2PM</effettoPermanente>
+			<effettoPermanente>aggiungiRisorse2V</effettoPermanente>
+		</effettiPermanenti>
+	</carta>
+
+	<!--************************************************************************************************
+							  ___ ___ ___                   _           _       
+							 |_ _|_ _|_ _|  _ __   ___ _ __(_) ___   __| | ___  
+							  | | | | | |  | '_ \ / _ \ '__| |/ _ \ / _` |/ _ \ 
+							  | | | | | |  | |_) |  __/ |  | | (_) | (_| | (_) |
+							 |___|___|___| | .__/ \___|_|  |_|\___/ \__,_|\___/ 
+							               |_|                                  
+
+	**************************************************************************************************-->
+
+	<carta id="41" tipo="edificio">
+		<nome>Banca</nome>		 
+		<periodo>3</periodo>
+		<costoCarta>
+			<risorsa tipo="oro">
+				<quantita>3</quantita>
+			</risorsa>
+            <risorsa tipo="legna">
+				<quantita>1</quantita>
+			</risorsa>
+			<risorsa tipo="pietra">
+				<quantita>3</quantita>
+			</risorsa>
+		</costoCarta>
+		<dado>2</dado>
+		<effettiImmediati>
+			<effettoImmediato>aggiungiRisorse7V</effettoImmediato>
+		</effettiImmediati>
+		<effettiPermanenti>
+			<effettoPermanente>aggiungiRisorse5O</effettoPermanente>
+		</effettiPermanenti>
+	</carta>
+	<carta id="42" tipo="edificio">
+		<nome>Fiera</nome>		 
+		<periodo>3</periodo>
+		<costoCarta>
+			<risorsa tipo="oro">
+				<quantita>4</quantita>
+			</risorsa>
+            <risorsa tipo="legna">
+				<quantita>3</quantita>
+			</risorsa>
+		</costoCarta>
+		<dado>4</dado>
+		<effettiImmediati>
+			<effettoImmediato>aggiungiRisorse8V</effettoImmediato>
+		</effettiImmediati>
+		<effettiPermanenti>
+			<effettoPermanente>scambioFiera</effettoPermanente>
+		</effettiPermanenti>
+	</carta>
+	<carta id="43" tipo="edificio">
+		<nome>Giardino</nome>		 
+		<periodo>3</periodo>
+		<costoCarta>
+            <risorsa tipo="servitori">
+				<quantita>2</quantita>
+			</risorsa>
+            <risorsa tipo="legna">
+				<quantita>4</quantita>
+			</risorsa>
+            <risorsa tipo="pietra">
+				<quantita>2</quantita>
+			</risorsa>
+		</costoCarta>
+		<dado>1</dado>
+		<effettiImmediati>
+			<effettoImmediato>aggiungiRisorse10V</effettoImmediato>
+		</effettiImmediati>
+		<effettiPermanenti>
+			<effettoPermanente>aggiungiRisorse3V</effettoPermanente>
+		</effettiPermanenti>
+	</carta>
+	<carta id="44" tipo="edificio">
+		<nome>Castelletto</nome>		 
+		<periodo>3</periodo>
+		<costoCarta>
+			<risorsa tipo="oro">
+				<quantita>2</quantita>
+			</risorsa>
+			<risorsa tipo="legna">
+				<quantita>2</quantita>
+			</risorsa>
+            <risorsa tipo="pietra">
+				<quantita>4</quantita>
+			</risorsa>
+		</costoCarta>
+		<dado>5</dado>
+		<effettiImmediati>
+			<effettoImmediato>aggiungiRisorse9V</effettoImmediato>
+		</effettiImmediati>
+		<effettiPermanenti>
+			<effettoPermanente>aggiungiRisorse2V</effettoPermanente>
+			<effettoPermanente>aggiungiRisorse1Pr</effettoPermanente>
+		</effettiPermanenti>
+	</carta>
+	<carta id="45" tipo="edificio">
+		<nome>Palazzo</nome>		 
+		<periodo>3</periodo>
+		<costoCarta>
+			<risorsa tipo="oro">
+				<quantita>3</quantita>
+			</risorsa>
+            <risorsa tipo="legna">
+				<quantita>3</quantita>
+			</risorsa>
+			<risorsa tipo="pietra">
+				<quantita>3</quantita>
+			</risorsa>
+		</costoCarta>
+		<dado>6</dado>
+		<effettiImmediati>
+			<effettoImmediato>aggiungiRisorse9V</effettoImmediato>
+		</effettiImmediati>
+		<effettiPermanenti>
+			<effettoPermanente>scambioPalazzo</effettoPermanente>
+		</effettiPermanenti>
+	</carta>
+	<carta id="46" tipo="edificio">
+		<nome>Basilica</nome>		 
+		<periodo>3</periodo>
+		<costoCarta>
+			<risorsa tipo="legna">
+				<quantita>1</quantita>
+			</risorsa>
+            <risorsa tipo="pietra">
+				<quantita>4</quantita>
+			</risorsa>
+		</costoCarta>
+		<dado>1</dado>
+		<effettiImmediati>
+			<effettoImmediato>aggiungiRisorse5V</effettoImmediato>
+			<effettoImmediato>aggiungiRisorse1F</effettoImmediato>
+		</effettiImmediati>
+		<effettiPermanenti>
+			<effettoPermanente>scambioBasilica</effettoPermanente>
+		</effettiPermanenti>
+	</carta>
+	<carta id="47" tipo="edificio">
+		<nome>Accademia militare</nome>		 
+		<periodo>3</periodo>
+		<costoCarta>
+			<risorsa tipo="servitori">
+				<quantita>1</quantita>
+			</risorsa>
+            <risorsa tipo="legna">
+				<quantita>2</quantita>
+			</risorsa>
+            <risorsa tipo="pietra">
+				<quantita>2</quantita>
+			</risorsa>
+		</costoCarta>
+		<dado>3</dado>
+		<effettiImmediati>
+			<effettoImmediato>aggiungiRisorse7V</effettoImmediato>
+		</effettiImmediati>
+		<effettiPermanenti>
+			<effettoPermanente>scambioAccademiaMilitare</effettoPermanente>
+		</effettiPermanenti>
+	</carta>
+	<carta id="48" tipo="edificio">
+		<nome>Cattedrale</nome>		 
+		<periodo>3</periodo>
+		<costoCarta>
+			<risorsa tipo="legna">
+				<quantita>4</quantita>
+			</risorsa>
+            <risorsa tipo="pietra">
+				<quantita>4</quantita>
+			</risorsa>
+		</costoCarta>
+		<dado>2</dado>
+		<effettiImmediati>
+			<effettoImmediato>aggiungiRisorse7V</effettoImmediato>
+			<effettoImmediato>aggiungiRisorse3F</effettoImmediato>
+		</effettiImmediati>
+		<effettiPermanenti>
+			<effettoPermanente>aggiungiRisorse1V</effettoPermanente>
+		</effettiPermanenti>
+	</carta>
+
+	<!--************************************************************************************************
+								   ____           _         _     _       
+								  / ___|__ _ _ __| |_ ___  | |__ | |_   _ 
+								 | |   / _` | '__| __/ _ \ | '_ \| | | | |
+								 | |___ (_| | |  | |_  __/ | |_) | | |_| |
+								  \____\__,_|_|   \__\___| |_.__/|_|\__,_|
+								                                                       
+	****************************************************************************************************								
+
+	****************************************************************************************************
+								  ___                   _           _       
+								 |_ _|  _ __   ___ _ __(_) ___   __| | ___  
+								  | |  | '_ \ / _ \ '__| |/ _ \ / _` |/ _ \ 
+								  | |  | |_) |  __/ |  | | (_) | (_| | (_) |
+								 |___| | .__/ \___|_|  |_|\___/ \__,_|\___/ 
+								       |_|     
+
+	**************************************************************************************************-->
+
+	<carta id="49" tipo="personaggio">
+		<nome>Condottiero</nome>		 
+		<periodo>1</periodo>
+		<costoCarta>
+			<risorsa tipo="oro">
+				<quantita>2</quantita>
+			</risorsa>
+		</costoCarta>
+		<effettiImmediati>
+			<effettoImmediato>aggiungiRisorse3PM</effettoImmediato>
+		</effettiImmediati>
+		<effettiPermanenti>
+			<effettoPermanente>bonusCarteVerdi2</effettoPermanente>
+		</effettiPermanenti>
+	</carta>
+	<carta id="50" tipo="personaggio">
+		<nome>Costruttore</nome>		 
+		<periodo>1</periodo>
+		<costoCarta>
+			<risorsa tipo="oro">
+				<quantita>4</quantita>
+			</risorsa>
+		</costoCarta>
+		<effettiImmediati>
+		</effettiImmediati>
+		<effettiPermanenti>
+			<effettoPermanente>bonusCarteGialle2andSconto1L</effettoPermanente>
+			<effettoPermanente>bonusCarteGialle2andSconto1P</effettoPermanente>
+		</effettiPermanenti>
+	</carta>	
+	<carta id="51" tipo="personaggio">
+		<nome>Dama</nome>		 
+		<periodo>1</periodo>
+		<costoCarta>
+            <risorsa tipo="oro">
+				<quantita>4</quantita>
+			</risorsa>
+		</costoCarta>
+		<effettiImmediati>
+		</effettiImmediati>
+		<effettiPermanenti>
+			<effettoPermanente>bonusCarteBlu2andSconto1O</effettoPermanente>
+		</effettiPermanenti>
+	</carta>	
+	<carta id="52" tipo="personaggio">
+		<nome>Cavaliere</nome>		 
+		<periodo>1</periodo>
+		<costoCarta>
+            <risorsa tipo="oro">
+				<quantita>2</quantita>
+			</risorsa>
+		</costoCarta>
+		<effettiImmediati>
+			<effettoImmediato>aggiungiRisorse1Pr</effettoImmediato>
+		</effettiImmediati>
+		<effettiPermanenti>
+			<effettoPermanente>bonusCarteViola2</effettoPermanente>
+		</effettiPermanenti>
+	</carta>	
+	<carta id="53" tipo="personaggio">
+		<nome>Contadino</nome>		 
+		<periodo>1</periodo>
+		<costoCarta>
+			<risorsa tipo="oro">
+				<quantita>3</quantita>
+			</risorsa>
+		</costoCarta>
+		<effettiImmediati>
+		</effettiImmediati>
+		<effettiPermanenti>
+			<effettoPermanente>bonusRaccolta2</effettoPermanente>
+		</effettiPermanenti>
+	</carta>	
+	<carta id="54" tipo="personaggio">
+		<nome>Artigiano</nome>		 
+		<periodo>1</periodo>
+		<costoCarta>
+			<risorsa tipo="oro">
+				<quantita>3</quantita>
+			</risorsa>
+		</costoCarta>
+		<effettiImmediati>
+		</effettiImmediati>
+		<effettiPermanenti>
+			<effettoPermanente>bonusProduzione2</effettoPermanente>
+		</effettiPermanenti>
+	</carta>	
+	<carta id="55" tipo="personaggio">
+		<nome>Predicatore</nome>		 
+		<periodo>1</periodo>
+		<costoCarta>
+			<risorsa tipo="oro">
+				<quantita>2</quantita>
+			</risorsa>
+		</costoCarta>
+		<effettiImmediati>
+			<effettoImmediato>aggiungiRisorse4F</effettoImmediato>
+		</effettiImmediati>
+		<effettiPermanenti>
+			<effettoPermanente>noBonusSpazioAzione</effettoPermanente>
+		</effettiPermanenti>
+	</carta>	
+	<carta id="56" tipo="personaggio">
+		<nome>Badessa</nome>		 
+		<periodo>1</periodo>
+		<costoCarta>
+			<risorsa tipo="oro">
+				<quantita>3</quantita>
+			</risorsa>
+		</costoCarta>
+		<effettiImmediati>
+			<effettoImmediato>aggiungiRisorse1F</effettoImmediato>
+			<effettoImmediato>azioneCartaQualsiasi4</effettoImmediato>
+		</effettiImmediati>
+		<effettiPermanenti>
+		</effettiPermanenti>
+	</carta>	
+
+	<!--************************************************************************************************
+								  ___ ___                   _           _       
+								 |_ _|_ _|  _ __   ___ _ __(_) ___   __| | ___  
+								  | | | |  | '_ \ / _ \ '__| |/ _ \ / _` |/ _ \ 
+								  | | | |  | |_) |  __/ |  | | (_) | (_| | (_) |
+								 |___|___| | .__/ \___|_|  |_|\___/ \__,_|\___/ 
+								           |_|                                  
+
+	**************************************************************************************************-->
+
+	<carta id="57" tipo="personaggio">
+		<nome>Capitano</nome>		 
+		<periodo>2</periodo>
+		<costoCarta>
+			<risorsa tipo="oro">
+				<quantita>4</quantita>
+			</risorsa>
+		</costoCarta>
+		<effettiImmediati>
+			<effettoImmediato>azioneCartaVerde6</effettoImmediato>
+			<effettoImmediato>aggiungiRisorse2PM</effettoImmediato>
+		</effettiImmediati>
+		<effettiPermanenti>
+		</effettiPermanenti>
+	</carta>
+	<carta id="58" tipo="personaggio">
+		<nome>Architetto</nome>		 
+		<periodo>2</periodo>
+		<costoCarta>
+			<risorsa tipo="oro">
+				<quantita>4</quantita>
+			</risorsa>
+		</costoCarta>
+		<effettiImmediati>
+			<effettoImmediato>azioneCartaBlu6andSconto2O</effettoImmediato>
+		</effettiImmediati>
+		<effettiPermanenti>
+		</effettiPermanenti>
+	</carta>
+	<carta id="59" tipo="personaggio">
+		<nome>Mecenate</nome>		 
+		<periodo>2</periodo>
+		<costoCarta>
+			<risorsa tipo="oro">
+				<quantita>3</quantita>
+			</risorsa>
+		</costoCarta>
+		<effettiImmediati>
+			<effettoImmediato>azioneCartaGialla6andSconto1Land1P</effettoImmediato>
+		</effettiImmediati>
+		<effettiPermanenti>
+		</effettiPermanenti>
+	</carta>
+	<carta id="60" tipo="personaggio">
+		<nome>Eroe</nome>		 
+		<periodo>2</periodo>
+		<costoCarta>
+			<risorsa tipo="oro">
+				<quantita>4</quantita>
+			</risorsa>
+		</costoCarta>
+		<effettiImmediati>
+			<effettoImmediato>azioneCartaViola6</effettoImmediato>
+			<effettoImmediato>aggiungiRisorse1Pr</effettoImmediato>
+		</effettiImmediati>
+		<effettiPermanenti>
+		</effettiPermanenti>
+	</carta>
+	<carta id="61" tipo="personaggio">
+		<nome>Fattore</nome>		 
+		<periodo>2</periodo>
+		<costoCarta>
+			<risorsa tipo="oro">
+				<quantita>4</quantita>
+			</risorsa>
+		</costoCarta>
+		<effettiImmediati>
+		</effettiImmediati>
+		<effettiPermanenti>
+			<effettoPermanente>bonusRaccolta3</effettoPermanente>
+		</effettiPermanenti>
+	</carta>
+	<carta id="62" tipo="personaggio">
+		<nome>Studioso</nome>		 
+		<periodo>2</periodo>
+		<costoCarta>
+			<risorsa tipo="oro">
+				<quantita>4</quantita>
+			</risorsa>
+		</costoCarta>
+		<effettiImmediati>
+		</effettiImmediati>
+		<effettiPermanenti>
+			<effettoPermanente>bonusProduzione3</effettoPermanente>
+		</effettiPermanenti>
+	</carta>
+	<carta id="63" tipo="personaggio">
+		<nome>Messo papale</nome>		 
+		<periodo>2</periodo>
+		<costoCarta>
+			<risorsa tipo="oro">
+				<quantita>5</quantita>
+			</risorsa>
+		</costoCarta>
+		<effettiImmediati>
+			<effettoImmediato>aggiungiRisorse3F</effettoImmediato>
+		</effettiImmediati>
+		<effettiPermanenti>
+		</effettiPermanenti>
+	</carta>
+	<carta id="64" tipo="personaggio">
+		<nome>Messo reale</nome>		 
+		<periodo>2</periodo>
+		<costoCarta>
+			<risorsa tipo="oro">
+				<quantita>5</quantita>
+			</risorsa>
+		</costoCarta>
+		<effettiImmediati>
+			<effettoImmediato>aggiungiRisorse3PrDiv</effettoImmediato>
+		</effettiImmediati>
+		<effettiPermanenti>
+		</effettiPermanenti>
+	</carta>
+
+	<!--************************************************************************************************
+							  ___ ___ ___                   _           _       
+							 |_ _|_ _|_ _|  _ __   ___ _ __(_) ___   __| | ___  
+							  | | | | | |  | '_ \ / _ \ '__| |/ _ \ / _` |/ _ \ 
+							  | | | | | |  | |_) |  __/ |  | | (_) | (_| | (_) |
+							 |___|___|___| | .__/ \___|_|  |_|\___/ \__,_|\___/ 
+							               |_|                                  
+
+	**************************************************************************************************-->
+	<carta id="65" tipo="personaggio">
+		<nome>Nobile</nome>		 
+		<periodo>3</periodo>
+		<costoCarta>
+			<risorsa tipo="oro">
+				<quantita>6</quantita>
+			</risorsa>
+		</costoCarta>
+		<effettiImmediati>
+			<effettoImmediato>moltiplicatore2VxVerde</effettoImmediato>
+		</effettiImmediati>
+		<effettiPermanenti>
+		</effettiPermanenti>
+	</carta>
+	<carta id="66" tipo="personaggio">
+		<nome>Governatore</nome>		 
+		<periodo>3</periodo>
+		<costoCarta>
+			<risorsa tipo="oro">
+				<quantita>6</quantita>
+			</risorsa>
+		</costoCarta>
+		<effettiImmediati>
+			<effettoImmediato>moltiplicatore2VxGialla</effettoImmediato>
+		</effettiImmediati>
+		<effettiPermanenti>
+		</effettiPermanenti>
+	</carta>
+	<carta id="67" tipo="personaggio">
+		<nome>Cortigiana</nome>		 
+		<periodo>3</periodo>
+		<costoCarta>
+			<risorsa tipo="oro">
+				<quantita>7</quantita>
+			</risorsa>
+		</costoCarta>
+		<effettiImmediati>
+			<effettoImmediato>moltiplicatore2VxBlu</effettoImmediato>
+		</effettiImmediati>
+		<effettiPermanenti>
+		</effettiPermanenti>
+	</carta>
+	<carta id="68" tipo="personaggio">
+		<nome>Araldo</nome>		 
+		<periodo>3</periodo>
+		<costoCarta>
+			<risorsa tipo="oro">
+				<quantita>6</quantita>
+			</risorsa>
+		</costoCarta>
+		<effettiImmediati>
+			<effettoImmediato>moltiplicatore2VxViola</effettoImmediato>
+		</effettiImmediati>
+		<effettiPermanenti>
+		</effettiPermanenti>
+	</carta>
+	<carta id="69" tipo="personaggio">
+		<nome>Cardinale</nome>		 
+		<periodo>3</periodo>
+		<costoCarta>
+			<risorsa tipo="oro">
+				<quantita>4</quantita>
+			</risorsa>
+		</costoCarta>
+		<effettiImmediati>
+			<effettoImmediato>azioneRaccolta4</effettoImmediato>
+			<effettoImmediato>aggiungiRisorse2F</effettoImmediato>
+		</effettiImmediati>
+		<effettiPermanenti>
+		</effettiPermanenti>
+	</carta>
+	<carta id="70" tipo="personaggio">
+		<nome>Vescovo</nome>		 
+		<periodo>3</periodo>
+		<costoCarta>
+			<risorsa tipo="oro">
+				<quantita>5</quantita>
+			</risorsa>
+		</costoCarta>
+		<effettiImmediati>
+			<effettoImmediato>azioneProduzione4</effettoImmediato>
+			<effettoImmediato>aggiungiRisorse1F</effettoImmediato>
+		</effettiImmediati>
+		<effettiPermanenti>
+		</effettiPermanenti>
+	</carta>
+	<carta id="71" tipo="personaggio">
+		<nome>Generale</nome>		 
+		<periodo>3</periodo>
+		<costoCarta>
+			<risorsa tipo="oro">
+				<quantita>5</quantita>
+			</risorsa>
+		</costoCarta>
+		<effettiImmediati>
+			<effettoImmediato>moltiplicatore1Vx2PM</effettoImmediato>
+		</effettiImmediati>
+		<effettiPermanenti>
+		</effettiPermanenti>
+	</carta>
+	<carta id="72" tipo="personaggio">
+		<nome>Ambasciatore</nome>		 
+		<periodo>3</periodo>
+		<costoCarta>
+			<risorsa tipo="oro">
+				<quantita>6</quantita>
+			</risorsa>
+		</costoCarta>
+		<effettiImmediati>
+			<effettoImmediato>aggiungiRisorse1Pr</effettoImmediato>
+			<effettoImmediato>azioneCartaQualsiasi7</effettoImmediato>
+		</effettiImmediati>
+		<effettiPermanenti>
+		</effettiPermanenti>
+	</carta>
+
+	<!--************************************************************************************************
+							   ____           _               _       _       
+							  / ___|__ _ _ __| |_ ___  __   ___) ___ | | __ _ 
+							 | |   / _` | '__| __/ _ \ \ \ / / |/ _ \| |/ _` |
+							 | |___ (_| | |  | |_  __/  \ V /| | (_) | | (_| |
+							  \____\__,_|_|   \__\___|   \_/ |_|\___/|_|\__,_|
+							                                                              
+	****************************************************************************************************								
+
+	****************************************************************************************************
+								  ___                   _           _       
+								 |_ _|  _ __   ___ _ __(_) ___   __| | ___  
+								  | |  | '_ \ / _ \ '__| |/ _ \ / _` |/ _ \ 
+								  | |  | |_) |  __/ |  | | (_) | (_| | (_) |
+								 |___| | .__/ \___|_|  |_|\___/ \__,_|\___/ 
+								       |_|     
+
+	**************************************************************************************************-->
+
+	<carta id="73" tipo="impresa">
+		<nome>Ingaggiare reclute</nome>
+		<periodo>1</periodo>
+		<costoCarta>
+			<risorsa tipo="oro">
+				<quantita>4</quantita>
+			</risorsa>
+		</costoCarta>
+		<effettiImmediati>
+			<effettoImmediato>aggiungiRisorse5PM</effettoImmediato>
+		</effettiImmediati>
+		<effettiPermanenti>
+			<effettoPermanente>aggiungiRisorse4V</effettoPermanente>
+		</effettiPermanenti>
+	</carta>
+	<carta id="74" tipo="impresa">
+		<nome>Riparare la chiesa</nome>		 
+		<periodo>1</periodo>
+		<costoCarta>
+			<risorsa tipo="oro">
+				<quantita>1</quantita>
+			</risorsa>
+			<risorsa tipo="legna">
+				<quantita>1</quantita>
+			</risorsa>
+			<risorsa tipo="pietra">
+				<quantita>1</quantita>
+			</risorsa>
+		</costoCarta>
+		<effettiImmediati>
+			<effettoImmediato>aggiungiRisorse1F</effettoImmediato>
+		</effettiImmediati>
+		<effettiPermanenti>
+			<effettoPermanente>aggiungiRisorse5V</effettoPermanente>
+		</effettiPermanenti>
+	</carta>
+	<carta id="75" tipo="impresa">
+		<nome>Costruire le mura</nome>
+		<periodo>1</periodo>
+		<costoCarta>
+			<risorsa tipo="pietra">
+				<quantita>3</quantita>
+			</risorsa>
+		</costoCarta>
+		<effettiImmediati>
+			<effettoImmediato>aggiungiRisorse2PM</effettoImmediato>
+			<effettoImmediato>aggiungiRisorse1Pr</effettoImmediato>
+		</effettiImmediati>
+		<effettiPermanenti>
+			<effettoPermanente>aggiungiRisorse3V</effettoPermanente>
+		</effettiPermanenti>
+	</carta>
+	<carta id="76" tipo="impresa">
+		<nome>Innalzare una statua</nome>		 
+		<periodo>1</periodo>
+		<costoCarta>
+			<risorsa tipo="pietra">
+				<quantita>2</quantita>
+			</risorsa>
+			<risorsa tipo="legna">
+				<quantita>2</quantita>
+            </risorsa>
+		</costoCarta>
+		<effettiImmediati>
+			<effettoImmediato>aggiungiRisorse2PrDiv</effettoImmediato>
+		</effettiImmediati>
+		<effettiPermanenti>
+			<effettoPermanente>aggiungiRisorse4V</effettoPermanente>
+		</effettiPermanenti>
+	</carta>
+	<carta id="77" tipo="impresa">
+		<nome>Campagna militare</nome>		 
+		<periodo>1</periodo>
+        <costoPtMilitari>
+            <costoPt>2</costoPt>
+            <requisito>3</requisito>
+        </costoPtMilitari>
+		<effettiImmediati>
+			<effettoImmediato>aggiungiRisorse3O</effettoImmediato>
+		</effettiImmediati>
+		<effettiPermanenti>
+			<effettoPermanente>aggiungiRisorse5V</effettoPermanente>
+		</effettiPermanenti>
+	</carta>
+	<carta id="78" tipo="impresa">
+		<nome>Ospitare i mendicanti</nome>		 
+		<periodo>1</periodo>
+		<costoCarta>
+			<risorsa tipo="legna">
+				<quantita>3</quantita>
+			</risorsa>
+		</costoCarta>
+		<effettiImmediati>
+			<effettoImmediato>aggiungiRisorse4S</effettoImmediato>
+		</effettiImmediati>
+		<effettiPermanenti>
+			<effettoPermanente>aggiungiRisorse4V</effettoPermanente>
+		</effettiPermanenti>
+	</carta>
+	<carta id="79" tipo="impresa">
+		<nome>Combattere le eresie</nome>
+		<periodo>1</periodo>
+        <costoPtMilitari>
+            <costoPt>3</costoPt>
+            <requisito>5</requisito>
+        </costoPtMilitari>
+		<effettiImmediati>
+			<effettoImmediato>aggiungiRisorse2F</effettoImmediato>
+		</effettiImmediati>
+		<effettiPermanenti>
+			<effettoPermanente>aggiungiRisorse5V</effettoPermanente>
+		</effettiPermanenti>
+	</carta>
+	<carta id="80" tipo="impresa">
+		<nome>Sostegno al vescovo</nome>
+		<periodo>1</periodo>
+		<costoCarta>
+			<risorsa tipo="legna">
+				<quantita>1</quantita>
+			</risorsa>
+            <risorsa tipo="oro">
+                <quantita>2</quantita>
+			</risorsa>
+            <risorsa tipo="pietra">
+                <quantita>1</quantita>
+			</risorsa>
+		</costoCarta>
+        <costoPtMilitari>
+            <costoPt>2</costoPt>
+            <requisito>4</requisito>
+        </costoPtMilitari>
+		<effettiImmediati>
+			<effettoImmediato>aggiungiRisorse3F</effettoImmediato>
+		</effettiImmediati>
+		<effettiPermanenti>
+			<effettoPermanente>aggiungiRisorse1V</effettoPermanente>
+		</effettiPermanenti>
+	</carta>
+
+	<!--************************************************************************************************
+								  ___ ___                   _           _       
+								 |_ _|_ _|  _ __   ___ _ __(_) ___   __| | ___  
+								  | | | |  | '_ \ / _ \ '__| |/ _ \ / _` |/ _ \ 
+								  | | | |  | |_) |  __/ |  | | (_) | (_| | (_) |
+								 |___|___| | .__/ \___|_|  |_|\___/ \__,_|\___/ 
+								           |_|                                  
+
+	**************************************************************************************************-->
+
+	<carta id="81" tipo="impresa">
+		<nome>Ingaggiare soldati</nome>		 
+		<periodo>2</periodo>
+		<costoCarta>
+			<risorsa tipo="oro">
+				<quantita>6</quantita>
+			</risorsa>
+		</costoCarta>
+		<effettiImmediati>
+			<effettoImmediato>aggiungiRisorse6PM</effettoImmediato>
+		</effettiImmediati>
+		<effettiPermanenti>
+			<effettoPermanente>aggiungiRisorse5V</effettoPermanente>
+		</effettiPermanenti>
+	</carta>
+	<carta id="82" tipo="impresa">
+		<nome>Riparare l'abbazia</nome>		 
+		<periodo>2</periodo>
+		<costoCarta>
+			<risorsa tipo="oro">
+				<quantita>2</quantita>
+			</risorsa>
+			<risorsa tipo="legna">
+				<quantita>2</quantita>
+			</risorsa>
+			<risorsa tipo="pietra">
+				<quantita>2</quantita>
+			</risorsa>
+		</costoCarta>
+		<effettiImmediati>
+			<effettoImmediato>aggiungiRisorse2F</effettoImmediato>
+		</effettiImmediati>
+		<effettiPermanenti>
+			<effettoPermanente>aggiungiRisorse6V</effettoPermanente>
+		</effettiPermanenti>
+	</carta>
+	<carta id="83" tipo="impresa">
+		<nome>Costruire i bastioni</nome>		 
+		<periodo>2</periodo>
+		<costoCarta>
+			<risorsa tipo="pietra">
+				<quantita>4</quantita>
+			</risorsa>
+		</costoCarta>
+		<effettiImmediati>
+			<effettoImmediato>aggiungiRisorse3PM</effettoImmediato>
+			<effettoImmediato>aggiungiRisorse1Pr</effettoImmediato>
+		</effettiImmediati>
+		<effettiPermanenti>
+			<effettoPermanente>aggiungiRisorse2V</effettoPermanente>
+		</effettiPermanenti>
+	</carta>
+	<carta id="84" tipo="impresa">
+		<nome>Supporto al re</nome>		 
+		<periodo>2</periodo>
+        <costoPtMilitari>
+            <costoPt>3</costoPt>
+            <requisito>6</requisito>
+        </costoPtMilitari>
+		<effettiImmediati>
+			<effettoImmediato>aggiungiRisorse5O</effettoImmediato>
+			<effettoImmediato>aggiungiRisorse1Pr</effettoImmediato>
+		</effettiImmediati>
+		<effettiPermanenti>
+			<effettoPermanente>aggiungiRisorse3V</effettoPermanente>
+		</effettiPermanenti>
+	</carta>
+	<carta id="85" tipo="impresa">
+		<nome>Scavare canalizzazioni</nome>		 
+		<periodo>2</periodo>
+		<costoCarta>
+			<risorsa tipo="servitori">
+				<quantita>2</quantita>
+			</risorsa>
+			<risorsa tipo="oro">
+				<quantita>3</quantita>
+			</risorsa>
+		</costoCarta>
+		<effettiImmediati>
+			<effettoImmediato>azioneRaccolta4</effettoImmediato>
+		</effettiImmediati>
+		<effettiPermanenti>
+			<effettoPermanente>aggiungiRisorse5V</effettoPermanente>
+		</effettiPermanenti>
+	</carta>
+	<carta id="86" tipo="impresa">
+		<nome>Accogliere gli stranieri</nome>		 
+		<periodo>2</periodo>
+		<costoCarta>
+			<risorsa tipo="legna">
+				<quantita>6</quantita>
+			</risorsa>
+		</costoCarta>
+		<effettiImmediati>
+			<effettoImmediato>aggiungiRisorse5S</effettoImmediato>
+		</effettiImmediati>
+		<effettiPermanenti>
+			<effettoPermanente>aggiungiRisorse4V</effettoPermanente>
+		</effettiPermanenti>
+	</carta>
+	<carta id="87" tipo="impresa">
+		<nome>Crociata</nome>		 
+		<periodo>2</periodo>
+        <costoPtMilitari>
+            <costoPt>4</costoPt>
+            <requisito>8</requisito>
+        </costoPtMilitari>
+		<effettiImmediati>
+			<effettoImmediato>aggiungiRisorse5O</effettoImmediato>
+			<effettoImmediato>aggiungiRisorse1F</effettoImmediato>
+		</effettiImmediati>
+		<effettiPermanenti>
+			<effettoPermanente>aggiungiRisorse5V</effettoPermanente>
+		</effettiPermanenti>
+	</carta>
+	<carta id="88" tipo="impresa">
+		<nome>Sostegno al cardinale</nome>		 
+		<periodo>2</periodo>
+		<costoCarta>
+            <risorsa tipo="legna">
+                <quantita>2</quantita>
+            </risorsa>
+            <risorsa tipo="oro">
+                <quantita>3</quantita>
+            </risorsa>
+            <risorsa tipo="pietra">
+                <quantita>2</quantita>
+            </risorsa>
+		</costoCarta>
+        <costoPtMilitari>
+            <costoPt>4</costoPt>
+            <requisito>7</requisito>
+        </costoPtMilitari>
+		<effettiImmediati>
+			<effettoImmediato>aggiungiRisorse3F</effettoImmediato>
+		</effettiImmediati>
+		<effettiPermanenti>
+			<effettoPermanente>aggiungiRisorse4V</effettoPermanente>
+		</effettiPermanenti>
+	</carta>
+
+	<!--************************************************************************************************
+							  ___ ___ ___                   _           _       
+							 |_ _|_ _|_ _|  _ __   ___ _ __(_) ___   __| | ___  
+							  | | | | | |  | '_ \ / _ \ '__| |/ _ \ / _` |/ _ \ 
+							  | | | | | |  | |_) |  __/ |  | | (_) | (_| | (_) |
+							 |___|___|___| | .__/ \___|_|  |_|\___/ \__,_|\___/ 
+							               |_|                                  
+
+	**************************************************************************************************-->
+
+	<carta id="89" tipo="impresa">
+		<nome>Ingaggiare mercenari</nome>		 
+		<periodo>3</periodo>
+		<costoCarta>
+			<risorsa tipo="oro">
+				<quantita>8</quantita>
+			</risorsa>
+		</costoCarta>
+		<effettiImmediati>
+			<effettoImmediato>aggiungiRisorse7PM</effettoImmediato>
+		</effettiImmediati>
+		<effettiPermanenti>
+			<effettoPermanente>aggiungiRisorse6V</effettoPermanente>
+		</effettiPermanenti>
+	</carta>
+	<carta id="90" tipo="impresa">
+		<nome>Riparare la cattedrale</nome>		 
+		<periodo>3</periodo>
+		<costoCarta>
+			<risorsa tipo="oro">
+				<quantita>3</quantita>
+			</risorsa>
+			<risorsa tipo="legna">
+				<quantita>3</quantita>
+			</risorsa>
+			<risorsa tipo="pietra">
+				<quantita>3</quantita>
+			</risorsa>
+		</costoCarta>
+		<effettiImmediati>
+			<effettoImmediato>aggiungiRisorse1F</effettoImmediato>	
+			<effettoImmediato>azioneCartaQualsiasi7</effettoImmediato>
+		</effettiImmediati>
+		<effettiPermanenti>
+			<effettoPermanente>aggiungiRisorse5V</effettoPermanente>
+		</effettiPermanenti>
+	</carta>
+	<carta id="91" tipo="impresa">
+		<nome>Costruire le torri</nome>		 
+		<periodo>3</periodo>
+		<costoCarta>
+			<risorsa tipo="pietra">
+				<quantita>6</quantita>
+			</risorsa>
+		</costoCarta>
+		<effettiImmediati>
+			<effettoImmediato>aggiungiRisorse4PM</effettoImmediato>
+			<effettoImmediato>aggiungiRisorse1Pr</effettoImmediato>
+		</effettiImmediati>
+		<effettiPermanenti>
+			<effettoPermanente>aggiungiRisorse4V</effettoPermanente>
+		</effettiPermanenti>
+	</carta>
+	<carta id="92" tipo="impresa">
+		<nome>Commissionare arte sacra</nome>		 
+		<periodo>3</periodo>
+		<costoCarta>
+			<risorsa tipo="legna">
+				<quantita>6</quantita>
+			</risorsa>
+		</costoCarta>
+		<effettiImmediati>
+			<effettoImmediato>aggiungiRisorse3F</effettoImmediato>
+		</effettiImmediati>
+		<effettiPermanenti>
+			<effettoPermanente>aggiungiRisorse3V</effettoPermanente>
+		</effettiPermanenti>
+	</carta>
+	<carta id="93" tipo="impresa">
+		<nome>Conquista militare</nome>		 
+		<periodo>3</periodo>
+        <costoPtMilitari>
+            <costoPt>6</costoPt>
+            <requisito>12</requisito>
+        </costoPtMilitari>
+		<effettiImmediati>
+			<effettoImmediato>aggiungiRisorse3L</effettoImmediato>
+			<effettoImmediato>aggiungiRisorse3P</effettoImmediato>
+			<effettoImmediato>aggiungiRisorse3O</effettoImmediato>
+		</effettiImmediati>
+		<effettiPermanenti>
+			<effettoPermanente>aggiungiRisorse7V</effettoPermanente>
+		</effettiPermanenti>
+	</carta>
+	<carta id="94" tipo="impresa">
+		<nome>Migliorare le strade</nome>		 
+		<periodo>3</periodo>
+		<costoCarta>
+			<risorsa tipo="servitori">
+				<quantita>3</quantita>
+			</risorsa>
+			<risorsa tipo="oro">
+				<quantita>4</quantita>
+			</risorsa>
+		</costoCarta>
+		<effettiImmediati>
+			<effettoImmediato>azioneProduzione3</effettoImmediato>
+		</effettiImmediati>
+		<effettiPermanenti>
+			<effettoPermanente>aggiungiRisorse5V</effettoPermanente>
+		</effettiPermanenti>
+	</carta>
+	<carta id="95" tipo="impresa">
+		<nome>Guerra santa</nome>		 
+		<periodo>3</periodo>
+        <costoPtMilitari>
+            <costoPt>8</costoPt>
+            <requisito>15</requisito>
+        </costoPtMilitari>
+		<effettiImmediati>
+			<effettoImmediato>aggiungiRisorse4F</effettoImmediato>
+		</effettiImmediati>
+		<effettiPermanenti>
+			<effettoPermanente>aggiungiRisorse8V</effettoPermanente>
+		</effettiPermanenti>
+	</carta>
+	<carta id="96" tipo="impresa">
+		<nome>Sostegno al papa</nome>		 
+		<periodo>3</periodo>
+		<costoCarta>
+			<risorsa tipo="legna">
+				<quantita>3</quantita>
+            </risorsa>
+            <risorsa tipo="oro">
+                <quantita>4</quantita>
+            </risorsa>
+            <risorsa tipo="pietra">
+                <quantita>3</quantita>
+            </risorsa>
+		</costoCarta>
+        <costoPtMilitari>
+            <costoPt>5</costoPt>
+            <requisito>10</requisito>
+        </costoPtMilitari>
+		<effettiImmediati>
+			<effettoImmediato>aggiungiRisorse2F</effettoImmediato>
+		</effettiImmediati>
+		<effettiPermanenti>
+			<effettoPermanente>aggiungiRisorse10V</effettoPermanente>
+		</effettiPermanenti>
+	</carta>
+
+	<!--**********************************************************************************************-->
+
+</carte>
