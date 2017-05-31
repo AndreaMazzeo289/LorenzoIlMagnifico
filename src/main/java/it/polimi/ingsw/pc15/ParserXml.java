@@ -68,7 +68,7 @@ import it.polimi.ingsw.pc15.risorse.TipoRisorsa;
  * 
  */
 
-public class ParserXml {
+public class ParserXML {
 	
 	public static void main (String args[]) {
 		/*leggiScomunica(1);*/
