@@ -101,7 +101,7 @@ public class Server {
 				
 			}
 	
-		Model model = new Model(numeroGiocatori, false);
+		Model model = new Model(null, false);
 		Controller controller = new Controller(model);
 		
 		//View player1 = new View(new Player(connessi.get(0)), playingConnection.get(connessi.get(0)));
