@@ -1,27 +1,33 @@
 package it.polimi.ingsw.pc15.risorse;
 
+/**
+ * Superclasse generale di ogni risorsa del giocatore
+ * @author Andrea
+ *
+ */
+
 public abstract class Risorsa {
 	
 	private int quantità;
-	//protected int moltiplicatore;
-	//protected int quantitàBonus;
 	protected TipoRisorsa tipoRisorsa;
 		
 	public Risorsa (int quantità) { 
 		this.quantità = quantità;
-		//this.moltiplicatore = 1;
-		//this.quantitàBonus = 0;
 	}
 	
-	public int getQuantità() {
-		return this.quantità;
-	}
-	
+	/**
+	 * Aumenta la quantità della risorsa di un numero scelto
+	 * @param quantità da aggiungere
+	 */
 	public void aggiungi (int quantità) {
-		//this.quantità += quantità*moltiplicatore + quantitàBonus;
 		this.quantità += quantità;
 	}
 	
+	/**
+	 * Controlla se la risorsa ha quantità maggiore o uguale a un numero dato.
+	 * @param numero da paragonare
+	 * @return true in caso affermativo, false in caso negativo
+	 */
 	public boolean paragona (int quantità) {
 		if (this.quantità < quantità)
 			return false;
@@ -29,8 +35,20 @@ public abstract class Risorsa {
 		return true;
 	}
 	
+	/**
+	 * Restituisce la tipologia della risorsa (Oro, Legno, Pietra, ecc.)
+	 * @return tipo della risorsa
+	 */
 	public TipoRisorsa getTipoRisorsa(){
 		return this.tipoRisorsa;
 	}
-
+	
+	/**
+	 * Restituisce l'attuale quantità della Risorsa
+	 * @return quantità attuale
+	 */
+	public int getQuantità() {
+		return this.quantità;
+	}
+	
 }
