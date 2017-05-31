@@ -17,16 +17,18 @@ public abstract class Carta {
 	private final int periodo;
 	private final SetRisorse costo;
 	private final Set<Effetto> effettoIstantaneo;
+	private final Set<Effetto> effettoPermanente;
 	private Player player;
 	private SpazioTorre spazio;
 	protected TipoCarta tipo;
 	
-	public Carta (String nome, int id, int periodo, SetRisorse costo, Set<Effetto> effettoIstantaneo) {
+	public Carta (String nome, int id, int periodo, SetRisorse costo, Set<Effetto> effettoIstantaneo, Set<Effetto> effettoPermanente) {
 		this.nome = nome;
 		this.id = id;
 		this.periodo = periodo;
 		this.costo = costo;
 		this.effettoIstantaneo = effettoIstantaneo;
+		this.effettoPermanente = effettoPermanente;
 		this.player = null;
 		this.spazio = null;
 	}
@@ -76,6 +78,10 @@ public abstract class Carta {
 	
 	public Player getPlayer() {
 		return this.player;
+	}
+	
+	public Set<Effetto> getEffettoPermanente() {
+		return this.effettoPermanente;
 	}
 	
 }

@@ -14,8 +14,8 @@ public class Impresa extends Carta {
 	private int requisitoPuntiMilitari;
 	private int costoPuntiMilitari;
 	
-	public Impresa (String nome, int id, int periodo, SetRisorse costo, Set<Effetto> effettoIstantaneo, Effetto aumentoPuntiVittoria, int requisitoPuntiMilitari, int costoPuntiMilitari) {
-		super(nome, id, periodo, costo, effettoIstantaneo);
+	public Impresa (String nome, int id, int periodo, SetRisorse costo, Set<Effetto> effettoIstantaneo, Set<Effetto> effettoPermanente, Effetto aumentoPuntiVittoria, int requisitoPuntiMilitari, int costoPuntiMilitari) {
+		super(nome, id, periodo, costo, effettoIstantaneo, effettoPermanente);
 		this.aumentoPuntiVittoria = aumentoPuntiVittoria;
 		this.requisitoPuntiMilitari = requisitoPuntiMilitari;
 		this.costoPuntiMilitari = costoPuntiMilitari;

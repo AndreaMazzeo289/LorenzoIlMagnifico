@@ -100,7 +100,7 @@ public class Plancia {
 			
 	}
 
-	public void setTurno (int periodo, ArrayList<Carta> arrayCarteTerritorio, ArrayList<Carta> arrayCartePersonaggio, ArrayList<Carta> arrayCarteEdificio, ArrayList<Carta> arrayCarteImpresa){
+	public void setTurno (int periodo, ArrayList<Territorio> carteTerritorio, ArrayList<Personaggio> cartePersonaggio, ArrayList<Edificio> carteEdificio, ArrayList<Impresa> carteImpresa){
 
 		ArrayList arrayTerritori = new ArrayList<Territorio>();             
 		ArrayList arrayPersonaggi = new ArrayList<Personaggio>();
@@ -111,41 +111,41 @@ public class Plancia {
 		int numeroSpaziTorre = ParseXML.leggiValore("numeroSpaziTorre");
 		
 		n=0;
-		for(int i=0; i<arrayCarteTerritorio.size(); i++) {
-			Carta carta = arrayCarteTerritorio.get(i);
+		for(int i=0; i<carteTerritorio.size(); i++) {
+			Carta carta = carteTerritorio.get(i);
 			if(carta.getPeriodo()==periodo && n<numeroSpaziTorre) {
 				arrayTerritori.add(carta);
-				arrayCarteTerritorio.remove(carta);
+				carteTerritorio.remove(carta);
 				n++;
 			}
 		}
 		
 		n=0;
-		for(int i=0; i<arrayCartePersonaggio.size(); i++) {
-			Carta carta = arrayCartePersonaggio.get(i);
+		for(int i=0; i<cartePersonaggio.size(); i++) {
+			Carta carta = cartePersonaggio.get(i);
 			if(carta.getPeriodo()==periodo && n<numeroSpaziTorre) {
 				arrayPersonaggi.add(carta);
-				arrayCartePersonaggio.remove(carta);
+				cartePersonaggio.remove(carta);
 				n++;
 			}
 		}
 		
 		n=0;
-		for(int i=0; i<arrayCarteEdificio.size(); i++) {
-			Carta carta = arrayCarteEdificio.get(i);
+		for(int i=0; i<carteEdificio.size(); i++) {
+			Carta carta = carteEdificio.get(i);
 			if(carta.getPeriodo()==periodo && n<numeroSpaziTorre) {
 				arrayEdifici.add(carta);
-				arrayCarteEdificio.remove(carta);
+				carteEdificio.remove(carta);
 				n++;
 			}
 		}
 		
 		n=0;
-		for(int i=0; i<arrayCarteImpresa.size(); i++) {
-			Carta carta = arrayCarteImpresa.get(i);
+		for(int i=0; i<carteImpresa.size(); i++) {
+			Carta carta = carteImpresa.get(i);
 			if(carta.getPeriodo()==periodo && n<numeroSpaziTorre) {
 				arrayImprese.add(carta);
-				arrayCarteImpresa.remove(carta);
+				carteImpresa.remove(carta);
 				n++;
 			}
 		}

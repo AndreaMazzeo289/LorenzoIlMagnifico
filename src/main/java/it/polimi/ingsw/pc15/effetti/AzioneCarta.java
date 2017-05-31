@@ -5,11 +5,11 @@ import it.polimi.ingsw.pc15.player.Player;
 
 public class AzioneCarta extends Azione{
 	
-	private TipoCarta TipoCarta;
+	private TipoCarta tipoCarta;
 	
-	public AzioneCarta(int valoreDado, TipoCarta TipoCarta){
+	public AzioneCarta(int valoreDado, TipoCarta tipoCarta){
 		super(valoreDado);
-		this.TipoCarta = TipoCarta;
+		this.tipoCarta = tipoCarta;
 	}
 	
 	@Override

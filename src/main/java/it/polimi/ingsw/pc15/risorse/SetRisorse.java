@@ -15,7 +15,6 @@ public class SetRisorse {
 
 		for (Risorsa risorsa : risorse)
 			this.risorse.put(risorsa.getTipoRisorsa(), risorsa);
-
 	}
 	
 	public void aggiungi (SetRisorse setRisorse) {  //aggiunge al setRisorse corrente le risorse del setRisorse passato come parametro

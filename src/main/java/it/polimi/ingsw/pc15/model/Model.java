@@ -7,6 +7,10 @@ import java.util.Observer;
 import java.util.Random;
 import it.polimi.ingsw.pc15.ParseXML;
 import it.polimi.ingsw.pc15.carte.Carta;
+import it.polimi.ingsw.pc15.carte.Edificio;
+import it.polimi.ingsw.pc15.carte.Impresa;
+import it.polimi.ingsw.pc15.carte.Personaggio;
+import it.polimi.ingsw.pc15.carte.Territorio;
 import it.polimi.ingsw.pc15.carte.TipoCarta;
 import it.polimi.ingsw.pc15.plancia.Plancia;
 import it.polimi.ingsw.pc15.player.ColoreFamiliare;
@@ -22,10 +26,10 @@ public class Model extends Observable implements Observer {
 	private int turno;
 	private int periodo;
 	
-	private ArrayList<Carta> carteTerritorio;
-	private ArrayList<Carta> cartePersonaggio;
-	private ArrayList<Carta> carteEdificio;
-	private ArrayList<Carta> carteImpresa;
+	private ArrayList<Territorio> carteTerritorio;
+	private ArrayList<Personaggio> cartePersonaggio;
+	private ArrayList<Edificio> carteEdificio;
+	private ArrayList<Impresa> carteImpresa;
 	
 	private ArrayList<Leader> carteLeader;
 	
@@ -59,10 +63,10 @@ public class Model extends Observable implements Observer {
 		//          CREA CARTE SVILUPPO                                                                              //
 		//-----------------------------------------------------------------------------------------------------------//
 		
-		carteTerritorio= ParseXML.getCartaXML(TipoCarta.TERRITORIO);
-		carteEdificio= ParseXML.getCartaXML(TipoCarta.EDIFICIO);
-		cartePersonaggio= ParseXML.getCartaXML(TipoCarta.PERSONAGGIO);
-		carteImpresa= ParseXML.getCartaXML(TipoCarta.IMPRESA);
+		carteTerritorio= (ArrayList<Territorio>) ParseXML.getCartaXML(TipoCarta.TERRITORIO);
+		cartePersonaggio= (ArrayList<Personaggio>) ParseXML.getCartaXML(TipoCarta.PERSONAGGIO);
+		carteEdificio= (ArrayList<Edificio>) ParseXML.getCartaXML(TipoCarta.EDIFICIO);
+		carteImpresa= (ArrayList<Impresa>) ParseXML.getCartaXML(TipoCarta.IMPRESA);
 		
 		Collections.shuffle(carteTerritorio);
 		Collections.shuffle(cartePersonaggio);
