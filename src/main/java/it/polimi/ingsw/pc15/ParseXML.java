@@ -1308,4 +1308,6 @@ public class ParseXML {
 		}	
 		return valore;
 	}
+	
+	
 }
