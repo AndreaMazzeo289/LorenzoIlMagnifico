@@ -174,7 +174,7 @@ public class Plancia {
 		return this.spazioConsiglio;
 	}
 	
-	public ArrayList getSpaziMercato() {
+	public ArrayList<SpazioMercato> getSpaziMercato() {
 		return this.spaziMercato;
 	}
 	
