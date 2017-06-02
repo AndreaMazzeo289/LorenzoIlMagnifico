@@ -30,13 +30,11 @@ public class AzionePrendiCartaEdificio extends AzionePrendiCarta {
 	@Override
 	public void attiva() {
 
-		if (èValida()) {
-			pagaCosto();
-			daiCarta();
-			carta.attivaEffettoIstantaneo();
+		pagaCosto();
+		daiCarta();
+		attivaEffettoIstantaneo();
 			
-			System.out.println("Il giocatore ha preso la carta GIALLA: "  + carta.getNome());
-		}
+		System.out.println("Il giocatore ha preso la carta GIALLA: "  + carta.getNome());
 	}
 
 

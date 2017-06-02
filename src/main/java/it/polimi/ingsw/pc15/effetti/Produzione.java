@@ -22,7 +22,8 @@ public class Produzione extends Effetto{
 		for (Carta edificio : player.getCarte(TipoCarta.EDIFICIO)) {
 			if (valore >= ((Edificio) edificio).getRequisitoProduzione() ) {
 				System.out.println("Attivo produzione in " + edificio.getNome());
-				edificio.attivaEffettoPermanente();
+				for (Effetto effetto : edificio.getEffettoPermanente())
+					effetto.attiva(player);
 			}
 			
 			else System.out.println("Il valore del familiare non è sufficiente per attivare la produzione in " + edificio.getNome());

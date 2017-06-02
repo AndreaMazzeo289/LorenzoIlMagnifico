@@ -40,14 +40,11 @@ public class AzionePrendiCartaTerritorio extends AzionePrendiCarta {
 	@Override
 	public void attiva() {
 
-		if (èValida()) {
-			pagaCosto();
-			daiCarta();
-			carta.attivaEffettoIstantaneo();
+		pagaCosto();
+		daiCarta();
+		attivaEffettoIstantaneo();
 			
-			System.out.println("Il giocatore ha preso la carta TERRITORIO: "  + carta.getNome());
-		}
-
+		System.out.println("Il giocatore ha preso la carta TERRITORIO: "  + carta.getNome());
 	}
 
 }

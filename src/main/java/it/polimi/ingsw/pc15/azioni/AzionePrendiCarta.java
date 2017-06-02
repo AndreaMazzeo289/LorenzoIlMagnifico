@@ -1,6 +1,7 @@
 package it.polimi.ingsw.pc15.azioni;
 
 import it.polimi.ingsw.pc15.carte.Carta;
+import it.polimi.ingsw.pc15.effetti.Effetto;
 import it.polimi.ingsw.pc15.player.Player;
 import it.polimi.ingsw.pc15.risorse.SetRisorse;
 import it.polimi.ingsw.pc15.risorse.TipoRisorsa;
@@ -13,6 +14,9 @@ public abstract class AzionePrendiCarta extends Azione{
 		super(player);
 		this.carta = carta;
 	}
+	
+	public abstract void attiva();
+	public abstract boolean èValida();
 
 	public boolean risorseSufficienti () {
 		
@@ -38,17 +42,20 @@ public abstract class AzionePrendiCarta extends Azione{
 		player.getSetRisorse().sottrai(carta.getCosto());
 	}
 	
-	public abstract void attiva();
-	
 	public void daiCarta() {
 		
 		carta.getSpazio().rimuoviCarta();
 		carta.setSpazio(null);
 		carta.setPlayer(player);
+		
 		player.getCarte(carta.getTipo()).add(carta);
 		
 	}
 	
-
+	public void attivaEffettoIstantaneo() {
+		for (Effetto effetto : carta.getEffettoPermanente()) {
+			effetto.attiva(player);
+		}
+	}
 	
 }

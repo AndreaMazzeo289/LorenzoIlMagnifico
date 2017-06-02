@@ -7,9 +7,25 @@ import it.polimi.ingsw.pc15.player.Familiare;
 import it.polimi.ingsw.pc15.player.Player;
 
 public class AzioneOccupaSpazioTorre extends AzioneOccupaSpazio {
+	
+	AzionePrendiCarta azionePrendiCarta;
 
 	public AzioneOccupaSpazioTorre(Player player, Familiare familiare, SpazioTorre spazio) {
 		super(player, familiare, spazio);
+		
+		switch (((SpazioTorre) this.spazio).getCarta().getTipo() ) {
+
+		case EDIFICIO: azionePrendiCarta = new AzionePrendiCartaEdificio (this.player, ((SpazioTorre) this.spazio).getCarta());
+			break;
+		case IMPRESA:azionePrendiCarta = new AzionePrendiCartaImpresa (this.player, ((SpazioTorre) this.spazio).getCarta());
+			break;
+		case PERSONAGGIO: azionePrendiCarta = new AzionePrendiCartaPersonaggio (this.player, ((SpazioTorre) this.spazio).getCarta());
+			break;
+		case TERRITORIO: azionePrendiCarta = new AzionePrendiCartaTerritorio (this.player, ((SpazioTorre) this.spazio).getCarta());
+			break;
+		default:azionePrendiCarta = null;
+			break;
+		}
 	}
 
 	@Override
@@ -21,8 +37,8 @@ public class AzioneOccupaSpazioTorre extends AzioneOccupaSpazio {
 			((SpazioTorre) spazio).getBonusRisorse().attiva(player);
 		
 		((SpazioTorre) spazio).getTorre().setOccupata(true);
-			
 		
+		azionePrendiCarta.attiva();	
 	}
 
 	@Override
@@ -48,7 +64,7 @@ public class AzioneOccupaSpazioTorre extends AzioneOccupaSpazio {
 			return false;
 		}
 		
-		return true;
+		return this.azionePrendiCarta.èValida();
 	}
 	
 	public boolean controlloFamiliariTorre() {

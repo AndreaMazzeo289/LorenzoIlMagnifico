@@ -17,4 +17,8 @@ public class AggiuntaRisorse extends Effetto {
 		
 		player.getSetRisorse().aggiungi(setRisorse);
 	}
+	
+	public SetRisorse getSetRisorse() {
+		return this.setRisorse;
+	}
 }

@@ -32,20 +32,7 @@ public abstract class Carta {
 		this.player = null;
 		this.spazio = null;
 	}
-	
-	
-	public void attivaEffettoIstantaneo() {
 		
-		for (Effetto effetto : this.effettoIstantaneo)
-			effetto.attiva(this.player);
-	}
-	
-	public void attivaEffettoPermanente() {
-		
-		for (Effetto effetto : this.effettoPermanente)
-			effetto.attiva(this.player);
-	}
-	
 	public void setSpazio(SpazioTorre spazio) {
 		this.spazio = spazio;
 	}

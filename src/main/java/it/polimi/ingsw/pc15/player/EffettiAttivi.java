@@ -3,6 +3,7 @@ package it.polimi.ingsw.pc15.player;
 import java.util.HashMap;
 
 import it.polimi.ingsw.pc15.carte.TipoCarta;
+import it.polimi.ingsw.pc15.risorse.TipoRisorsa;
 
 public class EffettiAttivi {
 	
@@ -14,6 +15,10 @@ public class EffettiAttivi {
 	private boolean requisitoTerritori;
 	private boolean permessoSpaziOccupati;
 	private HashMap<TipoCarta, Boolean> bonusPuntiVittoriaFinale;
+	private HashMap<TipoRisorsa, Integer> risorseBonusCarte;
+	private HashMap<TipoRisorsa, Integer> risorseBonusSpazi;
+	private int moltiplicatoreRisorseCarte;
+	private int moltiplicatoreRisorseSpazi;
 	
 	
 	public EffettiAttivi (){
@@ -26,7 +31,6 @@ public class EffettiAttivi {
 		bonusDadoCarte.put(TipoCarta.IMPRESA, 0);
 		
 		bonusPuntiVittoriaFinale = new HashMap<TipoCarta, Boolean>();
-		
 		bonusPuntiVittoriaFinale.put(TipoCarta.TERRITORIO, true);
 		bonusPuntiVittoriaFinale.put(TipoCarta.PERSONAGGIO, true);
 		bonusPuntiVittoriaFinale.put(TipoCarta.IMPRESA, true);
@@ -38,6 +42,12 @@ public class EffettiAttivi {
 		this.bonusSpazioTorri = true;
 		this.requisitoTerritori = true;
 		this.permessoSpaziOccupati = false;
+		
+		risorseBonusCarte = new HashMap<TipoRisorsa, Integer>();
+		risorseBonusSpazi = new HashMap<TipoRisorsa, Integer>();
+		moltiplicatoreRisorseCarte = 1;
+		moltiplicatoreRisorseSpazi = 1;
+		
 		
 	}
 	
@@ -116,6 +126,22 @@ public class EffettiAttivi {
 	
 	public boolean controllaPermessoSpaziOccupati() {
 		return this.permessoSpaziOccupati;
+	}
+	
+	public HashMap<TipoRisorsa, Integer> getRisorseBonusSpazi() {
+		return this.risorseBonusSpazi;
+	}
+	
+	public HashMap<TipoRisorsa, Integer> getRisorseBonusCarte() {
+		return this.risorseBonusCarte;
+	}
+	
+	public int getMoltiplicatoreRisorseSpazi() {
+		return this.moltiplicatoreRisorseSpazi;
+	}
+	
+	public int getMoltiplicatoreRisorseCarte() {
+		return this.moltiplicatoreRisorseCarte;
 	}
 	
 }
