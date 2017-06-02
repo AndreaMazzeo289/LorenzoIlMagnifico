@@ -1,12 +1,14 @@
 package it.polimi.ingsw.pc15.effetti;
 
+import java.util.Map;
 import java.util.Scanner;
 
 import it.polimi.ingsw.pc15.player.Player;
+import it.polimi.ingsw.pc15.risorse.Risorsa;
 import it.polimi.ingsw.pc15.risorse.SetRisorse;
 import it.polimi.ingsw.pc15.risorse.TipoRisorsa;
 
-public class Scambio extends Effetto{
+public class Scambio extends Effetto implements Incrementabile{
 	
 	private SetRisorse pagamento1;
 	private SetRisorse guadagno1;
@@ -47,5 +49,52 @@ public class Scambio extends Effetto{
 			}
 			else System.out.println("Non hai risorse sufficienti per attivare questo scambio!");
 		}
-	}	
+	}
+	
+	
+	@Override
+	public void attivaDaSpazio(Player player) {
+		
+		for(Map.Entry<TipoRisorsa, Risorsa> risorsa : this.guadagno1.getRisorse().entrySet())
+			risorsa.getValue().aggiungi(risorsa.getValue().getQuantità()*player.getEffettiAttivi().getMoltiplicatoreRisorseSpazi()-1);
+		this.guadagno1.aggiungi (player.getEffettiAttivi().getRisorseBonusSpazi());
+		
+		for(Map.Entry<TipoRisorsa, Risorsa> risorsa : this.guadagno2.getRisorse().entrySet())
+			risorsa.getValue().aggiungi(risorsa.getValue().getQuantità()*player.getEffettiAttivi().getMoltiplicatoreRisorseSpazi()-1);
+		this.guadagno2.aggiungi (player.getEffettiAttivi().getRisorseBonusSpazi());
+		
+		attiva(player);
+		
+		this.guadagno1.sottrai (player.getEffettiAttivi().getRisorseBonusSpazi());
+		for(Map.Entry<TipoRisorsa, Risorsa> risorsa : this.guadagno1.getRisorse().entrySet())
+			risorsa.getValue().aggiungi(-risorsa.getValue().getQuantità()/player.getEffettiAttivi().getMoltiplicatoreRisorseSpazi()*(player.getEffettiAttivi().getMoltiplicatoreRisorseSpazi()-1));
+		
+		this.guadagno2.sottrai (player.getEffettiAttivi().getRisorseBonusSpazi());
+		for(Map.Entry<TipoRisorsa, Risorsa> risorsa : this.guadagno2.getRisorse().entrySet())
+			risorsa.getValue().aggiungi(-risorsa.getValue().getQuantità()/player.getEffettiAttivi().getMoltiplicatoreRisorseSpazi()*(player.getEffettiAttivi().getMoltiplicatoreRisorseSpazi()-1));
+		
+	}
+
+	@Override
+	public void attivaDaCarta(Player player) {
+		
+		for(Map.Entry<TipoRisorsa, Risorsa> risorsa : this.guadagno1.getRisorse().entrySet())
+			risorsa.getValue().aggiungi(risorsa.getValue().getQuantità()*player.getEffettiAttivi().getMoltiplicatoreRisorseCarte()-1);
+		this.guadagno1.aggiungi (player.getEffettiAttivi().getRisorseBonusCarte());
+		
+		for(Map.Entry<TipoRisorsa, Risorsa> risorsa : this.guadagno2.getRisorse().entrySet())
+			risorsa.getValue().aggiungi(risorsa.getValue().getQuantità()*player.getEffettiAttivi().getMoltiplicatoreRisorseCarte()-1);
+		this.guadagno2.aggiungi (player.getEffettiAttivi().getRisorseBonusCarte());
+		
+		attiva(player);
+		
+		this.guadagno1.sottrai (player.getEffettiAttivi().getRisorseBonusCarte());
+		for(Map.Entry<TipoRisorsa, Risorsa> risorsa : this.guadagno1.getRisorse().entrySet())
+			risorsa.getValue().aggiungi(-risorsa.getValue().getQuantità()/player.getEffettiAttivi().getMoltiplicatoreRisorseCarte()*(player.getEffettiAttivi().getMoltiplicatoreRisorseCarte()-1));
+		
+		this.guadagno2.sottrai (player.getEffettiAttivi().getRisorseBonusCarte());
+		for(Map.Entry<TipoRisorsa, Risorsa> risorsa : this.guadagno2.getRisorse().entrySet())
+			risorsa.getValue().aggiungi(-risorsa.getValue().getQuantità()/player.getEffettiAttivi().getMoltiplicatoreRisorseCarte()*(player.getEffettiAttivi().getMoltiplicatoreRisorseCarte()-1));
+		
+	}
 }

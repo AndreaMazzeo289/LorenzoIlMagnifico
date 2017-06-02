@@ -2,6 +2,7 @@ package it.polimi.ingsw.pc15.azioni;
 
 import it.polimi.ingsw.pc15.carte.Carta;
 import it.polimi.ingsw.pc15.effetti.Effetto;
+import it.polimi.ingsw.pc15.effetti.Incrementabile;
 import it.polimi.ingsw.pc15.player.Player;
 import it.polimi.ingsw.pc15.risorse.SetRisorse;
 import it.polimi.ingsw.pc15.risorse.TipoRisorsa;
@@ -53,8 +54,9 @@ public abstract class AzionePrendiCarta extends Azione{
 	}
 	
 	public void attivaEffettoIstantaneo() {
-		for (Effetto effetto : carta.getEffettoPermanente()) {
-			effetto.attiva(player);
+		for (Effetto effetto : carta.getEffettoIstantaneo()) {
+			if (Incrementabile.class.isInstance(effetto))
+				((Incrementabile) effetto).attivaDaCarta(player);
 		}
 	}
 	

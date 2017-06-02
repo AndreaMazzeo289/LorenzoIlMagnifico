@@ -76,4 +76,8 @@ public abstract class Carta {
 		return this.effettoPermanente;
 	}
 	
+	public Set<Effetto> getEffettoIstantaneo() {
+		return this.effettoIstantaneo;
+	}
+	
 }
