@@ -25,7 +25,7 @@ public class GUI {
 		frm.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		
 		try {
-			BufferedImage img= ImageIO.read(GUI.class.getResource("/pc15/img/Leaders/leaders_f_c_10.jpg"));
+			BufferedImage img= ImageIO.read(GUI.class.getResource("lorenzo-magnifico.png"));
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
