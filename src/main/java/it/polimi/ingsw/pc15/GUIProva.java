@@ -11,7 +11,7 @@ import javax.swing.JPanel;
 public class GUIProva {
 
   public static void main(String[] args) {
-    ImagePanel panel = new ImagePanel(new ImageIcon("img/DevCardsFront/devcards_f_en_c_1.png").getImage());
+    ImagePanel panel = new ImagePanel(new ImageIcon("img/Gameboard.jpeg").getImage());
 
     JFrame frame = new JFrame();
     frame.getContentPane().add(panel);
