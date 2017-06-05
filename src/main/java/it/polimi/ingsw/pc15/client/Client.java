@@ -21,8 +21,8 @@ public class Client extends Observable implements Serializable{
 	
 	public Client(Socket clientSocket) throws IOException{ //Costruttore Socket Client
 		
-		this.out = new PrintStream(clientSocket.getOutputStream());
-		this.in = new Scanner(clientSocket.getInputStream());
+		this.out = new ObjectOutputStream(clientSocket.getOutputStream());
+		this.in = new ObjectInputStream(clientSocket.getInputStream());
 		
 		this.clientController = new ClientController(this);
 		this.view = new CLI(clientController);
@@ -39,15 +39,14 @@ public class Client extends Observable implements Serializable{
 	public void run() throws InterruptedException {
 		String string;
 			while(true){
-				string = in.nextLine();
-				clientController.notify(string);
+				
+				clientController.notify();
 				
 			}
 	}
 	
 	public void send(String message){
 		
-		out.println(message);
 	}
 	
 	public static void main(String[] args) throws IOException, InterruptedException {
