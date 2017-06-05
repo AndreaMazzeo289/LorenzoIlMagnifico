@@ -81,10 +81,11 @@ public class Connection extends Observable implements Runnable {
 	
 	}
 	
-	public synchronized void send(String messaggio){
+	public synchronized void sendLine(String messaggio){
 		
-		//out.writeObject();
+		out.println(messaggio);
 	}
+	//public synchronized void sendObj()
 	
 	public synchronized void attivaConnessione(){
 		

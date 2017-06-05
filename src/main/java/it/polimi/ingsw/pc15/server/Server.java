@@ -82,13 +82,14 @@ public class Server {
 				connessi.add(scorriPlayersList.getKey());
 		
 		
-			Model model = new Model(null, false);
+			Model model = new Model(connessi, false);
 			
 			Controller controller = new Controller(model);
 	
 			for(Map.Entry<String, Connection> scorriPlayersList : connections.entrySet()) {
 					scorriPlayersList.getValue().addObserver(controller);
 					scorriPlayersList.getValue().attivaConnessione();
+					scorriPlayersList.getValue().sendLine("OK");
 			}
 			
 			

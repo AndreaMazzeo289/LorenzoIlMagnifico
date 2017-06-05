@@ -43,9 +43,14 @@ public class Client extends Observable implements Serializable{
 	public void run() {
 		Scanner name = new Scanner(System.in);
 		System.out.println("Scrivi il tuo nome :");
-		name.nextLine();
-		out.println(name);
-		view.run();
+		out.println(name.nextLine());
+		if(in.nextLine().equals("OK")){
+			System.out.println("La partita ha inizio");
+			view.run();
+		}
+			
+		
+		
 	}
 	
 	public void send(ArrayList<String> message) throws IOException{
