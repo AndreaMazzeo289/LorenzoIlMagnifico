@@ -7,17 +7,17 @@ import java.util.Observable;
 import java.util.Scanner;
 
 public class Client extends Observable{
+	
 	private  PrintStream out;
 	private  Scanner in;
-	private  String hostName;
+	private static String hostName;
 	
 	private ClientController clientController;
 	private ClientView clientView;
 	
 	
-	public Client() throws IOException{
+	public Client(Socket clientSocket) throws IOException{ //Costruttore Socket Client
 		
-		Socket clientSocket = new Socket(hostName, 12879);
 		this.out = new PrintStream(clientSocket.getOutputStream());
 		this.in = new Scanner(clientSocket.getInputStream());
 		this.clientController = new ClientController(this);
@@ -25,6 +25,12 @@ public class Client extends Observable{
 		clientView.addObserver(clientController);
 		clientController.addObserver(clientView);
 	}
+	
+	public Client() throws IOException{ //Costruttore RMI Client
+		
+	}
+	
+	
 	
 	public void run() throws InterruptedException {
 		String string;
@@ -41,12 +47,22 @@ public class Client extends Observable{
 	}
 	
 	public static void main(String[] args) throws IOException, InterruptedException {
-			Client client;
-			client = new Client();
-			
+		
+		Scanner systemIn = new Scanner (System.in);
+		System.out.println("Vuoi connetterti tramite socket (1) o RMI (2)?"); 
+		int scelta = systemIn.nextInt();
+		
+		Client client;
+		
+		if (scelta==1) {
+			client = new Client(new Socket(hostName, 12879));
 			client.run();
+		}
+		else if (scelta==2) {
+			client = new Client();
+			client.run();
+		}
 			
+
 	}
-
-
 }

@@ -3,6 +3,7 @@ package it.polimi.ingsw.pc15.azioni;
 import it.polimi.ingsw.pc15.ParserXML;
 import it.polimi.ingsw.pc15.carte.Carta;
 import it.polimi.ingsw.pc15.carte.TipoCarta;
+import it.polimi.ingsw.pc15.effetti.Effetto;
 import it.polimi.ingsw.pc15.player.Player;
 
 public class AzionePrendiCartaPersonaggio extends AzionePrendiCarta {
@@ -29,15 +30,19 @@ public class AzionePrendiCartaPersonaggio extends AzionePrendiCarta {
 
 	@Override
 	public void attiva() {
-
-		if (èValida()) {
-			pagaCosto();
-			daiCarta();
-			carta.attivaEffettoIstantaneo();
-			carta.attivaEffettoPermanente();
+		
+		pagaCosto();
+		daiCarta();
+		attivaEffettoIstantaneo();
+		attivaEffettoPermanente();
 			
-			System.out.println("Il giocatore ha preso la carta BLU: "  + carta.getNome());
-		}
+		System.out.println("Il giocatore ha preso la carta BLU: "  + carta.getNome());
+	}
+	
+	public void attivaEffettoPermanente() {
+		for (Effetto effetto : carta.getEffettoPermanente())
+			effetto.attiva(player);
+		
 	}
 
 }

@@ -53,10 +53,34 @@ public class Model extends Observable implements Observer {
 
 	public void iniziaPartita() {
 		
-		//-----------------------------------------------------------------------------------------------------------//
-		//          CREA CARTE SVILUPPO                                                                              //
-		//-----------------------------------------------------------------------------------------------------------//
+		generaCarteSviluppo();
+	
+		if (regoleAvanzate)
+			distribuisciCarteLeader();
 		
+		iniziaNuovoTurno();
+		
+	}
+	
+	public void distribuisciCarteLeader() {
+		
+		carteLeader = ParserXML.leggiCartaLeader();
+		Collections.shuffle(carteLeader);	
+		int numeroCarteLeader = ParserXML.leggiValore("numeroCarteLeader");
+		int i=0, j=0;
+		while (j<numeroGiocatori) {
+			giocatori.get(j).getCarteLeader().add(carteLeader.get(i));
+			carteLeader.get(i).setPlayer(giocatori.get(j));
+			i++;
+			if (i==numeroCarteLeader) {
+				i=0;
+				j++;
+			}
+		}
+	}	
+	
+	public void generaCarteSviluppo() {
+
 		carteTerritorio= ParserXML.getCarteXML(TipoCarta.TERRITORIO);
 		cartePersonaggio= ParserXML.getCarteXML(TipoCarta.PERSONAGGIO);
 		carteEdificio= ParserXML.getCarteXML(TipoCarta.EDIFICIO);
@@ -67,31 +91,8 @@ public class Model extends Observable implements Observer {
 		Collections.shuffle(carteEdificio);
 		Collections.shuffle(carteImpresa);
 		
-		//-----------------------------------------------------------------------------------------------------------//
-		//          CREA CARTE LEADER                                                                                //
-		//-----------------------------------------------------------------------------------------------------------//
-		
-		if (regoleAvanzate) {
-			
-			carteLeader = ParserXML.leggiCartaLeader();
-			Collections.shuffle(carteLeader);	
-			int numeroCarteLeader = ParserXML.leggiValore("numeroCarteLeader");
-			int i=0, j=0;
-			while (j<numeroGiocatori) {
-				giocatori.get(j).getCarteLeader().add(carteLeader.get(i));
-				carteLeader.get(i).setPlayer(giocatori.get(j));
-				i++;
-				if (i==numeroCarteLeader) {
-					i=0;
-					j++;
-				}
-			}
-		}
-		
-		iniziaNuovoTurno();
-		
 	}
-	
+
 	public void iniziaNuovoTurno() {
 		
 		turno++;
@@ -160,4 +161,6 @@ public class Model extends Observable implements Observer {
 		// TODO Auto-generated method stub
 		
 	}
+	
+	
 }
