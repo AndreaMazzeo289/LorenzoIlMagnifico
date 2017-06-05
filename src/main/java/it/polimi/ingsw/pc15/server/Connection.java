@@ -1,9 +1,13 @@
 package it.polimi.ingsw.pc15.server;
 
 import java.io.IOException;
+import java.io.ObjectInputStream;
+import java.io.ObjectOutputStream;
 import java.io.OutputStreamWriter;
 import java.io.PrintStream;
 import java.net.Socket;
+import java.nio.channels.NotYetBoundException;
+import java.util.ArrayList;
 import java.util.Observable;
 import java.util.Scanner;
 
@@ -11,9 +15,12 @@ public class Connection extends Observable implements Runnable {
 
 	private Socket socket;
 	private Server server;
-	private PrintStream out ;
+	private ObjectInputStream inObj;
+	private ObjectOutputStream outObj;
 	private Scanner in;
+	private PrintStream out;
 	private String name;
+	private ArrayList<String> input;
 	
 	/*
 	 * FLAG TEMPORANEE
@@ -27,11 +34,12 @@ public class Connection extends Observable implements Runnable {
 		
 		this.socket = socket;
 		this.server = server;
-		out = new PrintStream(this.socket.getOutputStream());
-		in = new Scanner(this.socket.getInputStream());
+		outObj = new ObjectOutputStream(this.socket.getOutputStream());
+		inObj = new ObjectInputStream(this.socket.getInputStream());
+		this.in = new Scanner(this.socket.getInputStream());
+		this.out = new PrintStream(this.socket.getOutputStream());
 		this.flag = true;
-		this.connessioneAttiva = true;
-		this.name = null;
+		this.connessioneAttiva = false;
 	}
 	
 	
@@ -42,20 +50,45 @@ public class Connection extends Observable implements Runnable {
 	 */
 	
 	
+	@SuppressWarnings("unchecked")
 	@Override
 	public void run() {
 		
-		out.println("Scrivi il tuo nome");
-		out.flush();
-		name = in.nextLine();
+		
+		name = in.nextLine();		
 		server.connetti(this, name);
+		
+		while(true){
+			
+			if(connessioneAttiva){
+				try {
+					input = (ArrayList<String>)inObj.readObject();
+				} catch (ClassNotFoundException | IOException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+				setChanged();
+				notifyObservers(input);
+				try {
+					Thread.currentThread().sleep(4000);
+				} catch (InterruptedException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+			}
+		}
 	
 	
 	}
 	
 	public synchronized void send(String messaggio){
 		
-		out.println(messaggio);
+		//out.writeObject();
+	}
+	
+	public synchronized void attivaConnessione(){
+		
+		connessioneAttiva = true;
 	}
 	
 	

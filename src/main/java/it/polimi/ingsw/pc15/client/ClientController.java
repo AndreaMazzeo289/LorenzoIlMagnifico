@@ -1,5 +1,7 @@
 package it.polimi.ingsw.pc15.client;
 
+import java.io.IOException;
+import java.util.ArrayList;
 import java.util.Observable;
 import java.util.Observer;
 
@@ -11,21 +13,23 @@ public class ClientController extends Observable implements Observer  {
 	public ClientController(Client client){
 		
 		this.client = client;
+	
+		
 		
 	}
 	
-	public void notify(String string){
-		
-		setChanged();
-		notifyObservers(string);
-	}
-
+	
 	@Override
-	public void update(Observable o, Object arg1) {
-		if(!(o instanceof CLI) || !(arg1 instanceof String)){
+	public void update(Observable o, Object input) {
+		if(!(o instanceof CLI) || !(input instanceof ArrayList<?>)){
 			throw new IllegalArgumentException();
 		}
-
 		
+		try {
+			client.send((ArrayList<String>)input);
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 	}
 }

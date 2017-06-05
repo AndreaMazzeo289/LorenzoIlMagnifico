@@ -81,18 +81,16 @@ public class Server {
 			for(Map.Entry<String, Connection> scorriPlayersList : connections.entrySet())
 				connessi.add(scorriPlayersList.getKey());
 		
-		//View player1 = new View(new Player(connessi.get(0)), playingConnection.get(connessi.get(0)));
-		//View player2 = new View(new Player(connessi.get(1)), playingConnection.get(connessi.get(1)));
-		//View player3 = new View(new Player(connessi.get(2)), playingConnection.get(connessi.get(2)));
-		//View player4 = new View(new Player(connessi.get(3)), playingConnection.get(connessi.get(3)));
 		
-		Model model = new Model(null, false);
-		
-		Controller controller = new Controller(model);
-
-		for(Map.Entry<String, Connection> scorriPlayersList : connections.entrySet()) {
-				scorriPlayersList.getValue().addObserver(controller);
-		}
+			Model model = new Model(null, false);
+			
+			Controller controller = new Controller(model);
+	
+			for(Map.Entry<String, Connection> scorriPlayersList : connections.entrySet()) {
+					scorriPlayersList.getValue().addObserver(controller);
+					scorriPlayersList.getValue().attivaConnessione();
+			}
+			
 			
 		}
 	}
