@@ -18,13 +18,14 @@ public class CLI extends View {
 
 
 	public void run(){
+		String read = null;
 		while(true){
 			
-			System.out.println("Cosa vuoi fare :\n1.OccupaSpazio\n2.Attiva carta Leader\n3.Scarta carta Leader\n4.Visualizza carte\n5.Visualizza risorse");
-			input.next();
+			System.out.println("Cosa vuoi fare :\n1.OccupaSpazio\n2.Gioca carta Leader\n3.Scarta carta Leader\n4.Attiva effetto carta Leader");
+			read = read.concat(input.next()+" ");
 			
 			if(input.equals("1")){
-				System.out.println("\nDove vuoi posizionare il familiare?\n1.TorreVerde\n2.TorreBlu\n3.TorreGialla\n4.T");
+				System.out.println();
 				
 				
 			}

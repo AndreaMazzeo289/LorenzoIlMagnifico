@@ -1,15 +1,18 @@
 package it.polimi.ingsw.pc15.client;
 
 import java.io.IOException;
+import java.io.ObjectInputStream;
+import java.io.ObjectOutputStream;
 import java.io.PrintStream;
+import java.io.Serializable;
 import java.net.Socket;
 import java.util.Observable;
 import java.util.Scanner;
 
-public class Client extends Observable{
+public class Client extends Observable implements Serializable{
 	
-	private  PrintStream out;
-	private  Scanner in;
+	private ObjectInputStream in;
+	private ObjectOutputStream out;
 	private static String hostName;
 	
 	private ClientController clientController;
@@ -20,6 +23,7 @@ public class Client extends Observable{
 		
 		this.out = new PrintStream(clientSocket.getOutputStream());
 		this.in = new Scanner(clientSocket.getInputStream());
+		
 		this.clientController = new ClientController(this);
 		this.view = new CLI(clientController);
 		
