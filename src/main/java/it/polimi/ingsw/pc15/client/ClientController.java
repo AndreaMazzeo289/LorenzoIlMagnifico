@@ -22,11 +22,10 @@ public class ClientController extends Observable implements Observer  {
 
 	@Override
 	public void update(Observable o, Object arg1) {
-		if(!(o instanceof ClientView) || !(arg1 instanceof String)){
+		if(!(o instanceof CLI) || !(arg1 instanceof String)){
 			throw new IllegalArgumentException();
 		}
 
-		client.send((String) arg1);
 		
 	}
 }

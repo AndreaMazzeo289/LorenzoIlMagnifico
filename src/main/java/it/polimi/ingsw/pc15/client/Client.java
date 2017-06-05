@@ -13,7 +13,7 @@ public class Client extends Observable{
 	private static String hostName;
 	
 	private ClientController clientController;
-	private ClientView clientView;
+	private View view;
 	
 	
 	public Client(Socket clientSocket) throws IOException{ //Costruttore Socket Client
@@ -21,9 +21,9 @@ public class Client extends Observable{
 		this.out = new PrintStream(clientSocket.getOutputStream());
 		this.in = new Scanner(clientSocket.getInputStream());
 		this.clientController = new ClientController(this);
-		this.clientView = new ClientView();
-		clientView.addObserver(clientController);
-		clientController.addObserver(clientView);
+		this.view = new CLI(clientController);
+		
+		System.out.println("");
 	}
 	
 	public Client() throws IOException{ //Costruttore RMI Client
@@ -57,12 +57,12 @@ public class Client extends Observable{
 		if (scelta==1) {
 			client = new Client(new Socket(hostName, 12879));
 			client.run();
+			
 		}
 		else if (scelta==2) {
 			client = new Client();
 			client.run();
 		}
-			
-
+	
 	}
 }
