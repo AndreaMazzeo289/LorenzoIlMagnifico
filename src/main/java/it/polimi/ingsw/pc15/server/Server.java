@@ -50,7 +50,8 @@ public class Server {
 		try {
 				System.out.println("Stabilisco connessione...");
 				Socket newSocket = serverSocket.accept();
-				Connection connection = new Connection(newSocket, this);		
+				Connection connection = new Connection(newSocket, this);	
+				new Thread(connection).start();
 			} 
 			
 			catch (IOException e) {
@@ -85,7 +86,7 @@ public class Server {
 		//View player3 = new View(new Player(connessi.get(2)), playingConnection.get(connessi.get(2)));
 		//View player4 = new View(new Player(connessi.get(3)), playingConnection.get(connessi.get(3)));
 		
-		Model model = new Model(connessi, false);
+		Model model = new Model(null, false);
 		
 		Controller controller = new Controller(model);
 

@@ -22,7 +22,6 @@ public class Client extends Observable{
 		this.in = new Scanner(clientSocket.getInputStream());
 		this.clientController = new ClientController(this);
 		this.clientView = new ClientView();
-		this.clientView.run();
 		clientView.addObserver(clientController);
 		clientController.addObserver(clientView);
 	}

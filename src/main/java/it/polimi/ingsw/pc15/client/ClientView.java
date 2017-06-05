@@ -12,18 +12,17 @@ public class ClientView extends Observable implements Observer {
 	public ClientView(){}
 	
 	
-	public void run() throws IOException{
+	public void scriviNome(String ingresso) throws IOException{
+		
 		String read;
-		while(true){
-		if(ingresso.equals("Scrivi il tuo nome")){
 		System.out.println("Scrivi il tuo nome");
 		BufferedReader input = new BufferedReader(new InputStreamReader(System.in));
 		read = input.readLine();
 		setChanged();
 		notifyObservers(read);
-			}
-		}
 	}
+		
+	
 
 
 	@Override
@@ -32,6 +31,21 @@ public class ClientView extends Observable implements Observer {
 		if(!(o instanceof ClientController) || !(arg instanceof String)){
 			throw new IllegalArgumentException();
 		}
-		this.ingresso = (String)arg;
+		showInput(this.ingresso = (String)arg);
+		if(ingresso.equals("Scrivi il tuo nome")){
+			
+			try {
+				scriviNome(ingresso);
+			} catch (IOException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+		}
+	}
+
+
+	private void showInput(String string) {
+		// TODO Auto-generated method stub
+		
 	}
 }
