@@ -9,6 +9,9 @@ import javax.swing.ImageIcon;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import java.awt.Color;
+import java.awt.BorderLayout;
+import javax.swing.JLabel;
+import javax.swing.SwingConstants;
 
 
 public class GUI {
@@ -19,9 +22,14 @@ public class GUI {
 	    Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
 	    int width = (int)screenSize.getWidth();
 	    int height = (int)screenSize.getHeight();
-	    frame.setSize(width, height);
+	    frame.setSize(799, 703);
 	    frame.setResizable(false);
 	    frame.getContentPane().setBackground(Color.WHITE);
+	    
+	    JLabel lblNewLabel = new JLabel("New label");
+	    lblNewLabel.setIcon(new ImageIcon(GUI.class.getResource("/img/Leaders/leaders_f_c_05.jpg")));
+	    lblNewLabel.setHorizontalAlignment(SwingConstants.CENTER);
+	    frame.getContentPane().add(lblNewLabel, BorderLayout.CENTER);
 	    frame.setAlwaysOnTop(true);
 	    frame.setVisible(true);
 	    
