@@ -33,9 +33,10 @@ public class Controller extends Observable implements Observer {
 		
 			
 			for(Map.Entry<String, Connection> scorriPlayersList : connections.entrySet()) {
-				if(scorriPlayersList.getKey().equals(model.getProssimoGiocatore()))
+				if(scorriPlayersList.getKey().equals(model.getProssimoGiocatore())){
 					System.out.println(model.getProssimoGiocatore());
 					scorriPlayersList.getValue().sendLine(model.getProssimoGiocatore());
+				}
 				
 			}
 		}
@@ -43,17 +44,17 @@ public class Controller extends Observable implements Observer {
 	
 	@Override
 	public synchronized void update(Observable o, Object input) {
-		if( !(o instanceof Connection) ||(!(input instanceof String) || !(input instanceof ArrayList<?>))){
+		if( !(o instanceof Connection) || !((input instanceof String) || (input instanceof ArrayList<?>))){
 			throw new IllegalArgumentException();
 		}
+		System.out.println(input);
 		
-		if(input instanceof String){
-			parseString((String) input);
-		}
-		if(input.equals("Inizio Partita")){
 			
+			if(input instanceof String){
+				parseString((String) input);
+			}	
 			
-		}
+		
 		
 		if(input instanceof ArrayList<?>){
 		System.out.println("input = " + ((ArrayList<String>) input).get(i));
