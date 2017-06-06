@@ -967,11 +967,11 @@ public class ParserXML {
 	//--------------------------------------------------------------------------------------------------------------//
 	public static AnnullaGuadagno leggiEffettoAnnullaGuadagno (Element effetto)
 	{
-		String coloreCarta = effetto.getElementsByTagName("coloreCarta").item(0).getFirstChild().getNodeValue();
+		String tipoCarta = effetto.getElementsByTagName("tipoCarta").item(0).getFirstChild().getNodeValue();
 		
 		TipoCarta tipoCartaEnum = null;
 		
-		switch(coloreCarta.toUpperCase()) {
+		switch(tipoCarta.toUpperCase()) {
 			case "TERRITORIO": tipoCartaEnum = TipoCarta.TERRITORIO;
 				break;
 			case "EDIFICIO": tipoCartaEnum = TipoCarta.EDIFICIO;

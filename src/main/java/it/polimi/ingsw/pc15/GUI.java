@@ -27,7 +27,7 @@ public class GUI {
 	    frame.getContentPane().setBackground(Color.WHITE);
 	    
 	    JLabel lblNewLabel = new JLabel("New label");
-	    lblNewLabel.setIcon(new ImageIcon(GUI.class.getResource("/img/Leaders/leaders_f_c_05.jpg")));
+	    lblNewLabel.setIcon( new ImageIcon("img/DevCardsFront/devcards_f_en_c_10.png"));
 	    lblNewLabel.setHorizontalAlignment(SwingConstants.CENTER);
 	    frame.getContentPane().add(lblNewLabel, BorderLayout.CENTER);
 	    frame.setAlwaysOnTop(true);
