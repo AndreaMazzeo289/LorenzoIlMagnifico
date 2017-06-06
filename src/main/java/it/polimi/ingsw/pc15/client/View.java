@@ -9,7 +9,7 @@ public abstract class View extends Observable{
 	{
 		
 		this.addObserver(clientController);
-		
+	
 	}
 	
 	public abstract void run();

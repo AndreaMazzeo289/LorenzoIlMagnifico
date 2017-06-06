@@ -38,6 +38,8 @@ public class Player {
 	private EffettiAttivi effettiAttivi;
 	private ArrayList<Leader> carteLeader;
 	private Set<Player> avversari;
+	@SuppressWarnings("unused")
+	private Boolean turno = false;
 	
 	
 	public Player (String nome) {
@@ -160,6 +162,15 @@ public class Player {
 	
 	public Set<Player> getAvversari() {
 		return this.avversari;
+	}
+	
+	public void setOrdine(Boolean turno){
+		
+		this.turno = turno ;
+	}
+	public Boolean getOrdine(){
+		
+		return turno;
 	}
 
 }

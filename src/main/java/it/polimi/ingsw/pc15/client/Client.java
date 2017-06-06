@@ -17,10 +17,9 @@ public class Client extends Observable implements Serializable{
 	private Scanner in;
 	private PrintStream out;
 	private static String hostName;
-	
+	private String name;
 	private ClientController clientController;
 	private View view;
-	
 	
 	public Client(Socket clientSocket) throws IOException{ //Costruttore Socket Client
 		
@@ -41,12 +40,18 @@ public class Client extends Observable implements Serializable{
 	
 	
 	public void run() {
-		Scanner name = new Scanner(System.in);
+		Scanner input = new Scanner(System.in);
 		System.out.println("Scrivi il tuo nome :");
-		out.println(name.nextLine());
+		name = input.nextLine();
+		out.println(name);
 		if(in.nextLine().equals("OK")){
-			System.out.println("La partita ha inizio");
-			view.run();
+			System.out.println(name +" la partita ha inizio");
+			
+			while(true){
+				System.out.println("lol");
+				if(in.nextLine().equals(name))
+					view.run();
+			}
 		}
 			
 		

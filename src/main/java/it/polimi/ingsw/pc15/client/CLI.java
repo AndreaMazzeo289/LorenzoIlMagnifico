@@ -22,7 +22,6 @@ public class CLI extends View {
 
 	public void run(){
 		int read;
-		while(true){
 			
 			System.out.println("Cosa vuoi fare :\n1.OccupaSpazio\n2.Gioca Leader\n3.Scarta Leader\n4.Attiva Leader");
 			
@@ -43,7 +42,8 @@ public class CLI extends View {
 			notifyObservers(message);
 			
 			
-		}
+			
+		
 		
 		
 		

@@ -61,6 +61,10 @@ public class Connection extends Observable implements Runnable {
 		while(true){
 			
 			if(connessioneAttiva){
+				
+				setChanged();
+				notifyObservers("IniziaPartita");
+				
 				try {
 					input = (ArrayList<String>)inObj.readObject();
 				} catch (ClassNotFoundException | IOException e) {

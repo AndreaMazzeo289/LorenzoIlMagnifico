@@ -32,6 +32,7 @@ public class Model extends Observable implements Observer {
 	private ArrayList<Carta> carteImpresa;
 	
 	private ArrayList<Leader> carteLeader;
+	private Random random;
 	
 	private boolean regoleAvanzate;
 	
@@ -43,10 +44,11 @@ public class Model extends Observable implements Observer {
 		this.turno = 0;
 		this.periodo = 1;
 		this.regoleAvanzate = regoleAvanzate;
-		
+		this.random = new Random();
 		giocatori = new ArrayList<Player>();
 		for (int i=0; i<numeroGiocatori; i++)
 			giocatori.add(new Player(nomiGiocatori.get(i)));
+		Collections.shuffle(giocatori);
 			
 		
 	}
@@ -54,9 +56,10 @@ public class Model extends Observable implements Observer {
 	public void iniziaPartita() {
 		
 		generaCarteSviluppo();
-	
 		if (regoleAvanzate)
 			distribuisciCarteLeader();
+		
+		giocatori.get(random.nextInt(numeroGiocatori)).setOrdine(true);
 		
 		iniziaNuovoTurno();
 		
@@ -162,5 +165,21 @@ public class Model extends Observable implements Observer {
 		
 	}
 	
+	public String getProssimoGiocatore(){
+		for(int i = 0; i < this.numeroGiocatori; i++){
+			if(giocatori.get(i).getOrdine()==true){
+				return giocatori.get(i).getNome();
+			}
+			
+		}
+		
+		return null;}
+	
+	
+	public void setOrdineGiocatori(){}
+	
+	public int getTurno(){
+		return turno;
+	}
 	
 }

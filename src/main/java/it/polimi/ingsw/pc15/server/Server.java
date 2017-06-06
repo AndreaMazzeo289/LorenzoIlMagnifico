@@ -20,7 +20,7 @@ public class Server {
 
 	private final static int PORT = 12879;
 	ServerSocket serverSocket;
-	private Map<String, Connection> connections;
+	private HashMap<String, Connection> connections;
 	private boolean rmi;
 	
 	public Server() throws IOException {
@@ -74,17 +74,17 @@ public class Server {
 		
 		int numeroGiocatori = register(name, c);
 		System.out.println("connesso con il player:" + name);
-		if(numeroGiocatori==4){	
+		if(numeroGiocatori==2){	
 			
 			ArrayList<String> connessi = new ArrayList<String>();
 
 			for(Map.Entry<String, Connection> scorriPlayersList : connections.entrySet())
 				connessi.add(scorriPlayersList.getKey());
-		
+				
 		
 			Model model = new Model(connessi, false);
 			
-			Controller controller = new Controller(model);
+			Controller controller = new Controller(model, this.connections);
 	
 			for(Map.Entry<String, Connection> scorriPlayersList : connections.entrySet()) {
 					scorriPlayersList.getValue().addObserver(controller);

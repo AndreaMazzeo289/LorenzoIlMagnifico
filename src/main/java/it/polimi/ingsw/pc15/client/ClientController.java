@@ -26,7 +26,9 @@ public class ClientController extends Observable implements Observer  {
 		}
 		
 		try {
+			
 			client.send((ArrayList<String>)input);
+			System.out.println("check");
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
