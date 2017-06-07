@@ -2,9 +2,12 @@
 
 import java.util.ArrayList;
 import java.util.Collections;
+import java.util.HashSet;
 import java.util.Observable;
 import java.util.Observer;
 import java.util.Random;
+import java.util.Set;
+
 import it.polimi.ingsw.pc15.ParserXML;
 import it.polimi.ingsw.pc15.carte.Carta;
 import it.polimi.ingsw.pc15.carte.Edificio;
@@ -16,6 +19,12 @@ import it.polimi.ingsw.pc15.plancia.Plancia;
 import it.polimi.ingsw.pc15.player.ColoreFamiliare;
 import it.polimi.ingsw.pc15.player.Leader;
 import it.polimi.ingsw.pc15.player.Player;
+import it.polimi.ingsw.pc15.risorse.Legna;
+import it.polimi.ingsw.pc15.risorse.Oro;
+import it.polimi.ingsw.pc15.risorse.Pietra;
+import it.polimi.ingsw.pc15.risorse.Risorsa;
+import it.polimi.ingsw.pc15.risorse.Servitori;
+import it.polimi.ingsw.pc15.risorse.SetRisorse;
 import it.polimi.ingsw.pc15.risorse.TipoRisorsa;
 
 public class Model extends Observable implements Observer {
@@ -30,9 +39,7 @@ public class Model extends Observable implements Observer {
 	private ArrayList<Carta> cartePersonaggio;
 	private ArrayList<Carta> carteEdificio;
 	private ArrayList<Carta> carteImpresa;
-	
 	private ArrayList<Leader> carteLeader;
-	private Random random;
 	
 	private boolean regoleAvanzate;
 	
@@ -44,11 +51,11 @@ public class Model extends Observable implements Observer {
 		this.turno = 0;
 		this.periodo = 1;
 		this.regoleAvanzate = regoleAvanzate;
-		this.random = new Random();
 		giocatori = new ArrayList<Player>();
 		for (int i=0; i<numeroGiocatori; i++)
 			giocatori.add(new Player(nomiGiocatori.get(i)));
 		Collections.shuffle(giocatori);
+		
 			
 		
 	}
@@ -59,9 +66,28 @@ public class Model extends Observable implements Observer {
 		if (regoleAvanzate)
 			distribuisciCarteLeader();
 		
+		distribuisciRisorse();
+		
+		Random random = new Random();
 		giocatori.get(random.nextInt(numeroGiocatori)).setOrdine(true);
 		
 		iniziaNuovoTurno();
+		
+	}
+	
+	public void distribuisciRisorse() {
+		
+		HashSet<Risorsa> risorseGiocatore = new HashSet<Risorsa>();
+		risorseGiocatore.add(new Oro(5));
+		risorseGiocatore.add(new Legna(2));
+		risorseGiocatore.add(new Pietra(2));
+		risorseGiocatore.add(new Servitori(3));
+		SetRisorse setRisorseGiocatore = new SetRisorse(risorseGiocatore);
+		
+		for(int i=0; i<numeroGiocatori; i++) {
+			setRisorseGiocatore.getRisorsa(TipoRisorsa.ORO).aggiungi(i);
+			giocatori.get(i).getSetRisorse().aggiungi(setRisorseGiocatore);
+		}
 		
 	}
 	
@@ -158,7 +184,8 @@ public class Model extends Observable implements Observer {
 			
 		}
 		
-		return null;}
+		return null;
+	}
 	
 	
 	public void setOrdineGiocatori(){}

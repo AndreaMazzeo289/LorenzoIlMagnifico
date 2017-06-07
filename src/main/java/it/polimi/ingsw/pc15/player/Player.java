@@ -69,25 +69,16 @@ public class Player {
 		//          RISORSE                                                                                          //
 		//-----------------------------------------------------------------------------------------------------------//
 		
-		Oro oro = new Oro(10);
-		Legna legna = new Legna(10);
-		Pietra pietra = new Pietra(10);
-		Servitori servitori = new Servitori(3);
-		Privilegi privilegi = new Privilegi(0);
-		PuntiFede puntiFede = new PuntiFede(0);
-		PuntiMilitari puntiMilitari = new PuntiMilitari(0);
-		PuntiVittoria puntiVittoria = new PuntiVittoria(0);
-		
 		HashSet<Risorsa> risorse = new HashSet<Risorsa>();
 		
-		risorse.add(oro);
-		risorse.add(legna);
-		risorse.add(pietra);
-		risorse.add(servitori);
-		risorse.add(privilegi);
-		risorse.add(puntiFede);
-		risorse.add(puntiMilitari);
-		risorse.add(puntiVittoria);
+		risorse.add(new Oro(0));
+		risorse.add(new Legna(0));
+		risorse.add(new Pietra(0));
+		risorse.add(new Servitori(0));
+		risorse.add(new PuntiMilitari(0));
+		risorse.add(new PuntiFede(0));
+		risorse.add(new PuntiVittoria(0));
+		risorse.add(new Privilegi(0));
 		
 		this.setRisorse = new SetRisorse(risorse);
 			
