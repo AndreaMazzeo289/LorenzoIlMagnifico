@@ -22,14 +22,6 @@ public class Connection extends Observable implements Runnable {
 	private String name;
 	private ArrayList<String> input;
 	
-	/*
-	 * FLAG TEMPORANEE
-	 */
-	private boolean flag; 
-	private boolean connessioneAttiva;
-	
-	
-	
 	public Connection(Socket socket, Server server) throws IOException{
 		
 		this.socket = socket;
@@ -38,75 +30,35 @@ public class Connection extends Observable implements Runnable {
 		inObj = new ObjectInputStream(this.socket.getInputStream());
 		this.in = new Scanner(this.socket.getInputStream());
 		this.out = new PrintStream(this.socket.getOutputStream());
-		this.flag = true;
-		this.connessioneAttiva = false;
 	}
 	
-	
-	/*
-	 * OVERRIDE DEL METODO RUN DELL'INTERFACCIA RUNNABLE
-	 * LA CONNECTION CORRISPONDE ALLA SOCKET CREATA DAL SERVER PER COMUNICARE CON LO SPECIFICO CLIENT
-	 * OGNI CLIENT HA LA PROPRIA CONNECTION
-	 */
-	
-	
-	@SuppressWarnings("unchecked")
 	@Override
 	public void run() {
-		
-		
+
 		name = in.nextLine();		
 		server.connetti(this, name);
 		
-		while(true){
+		while(true) {
 			
-			if(connessioneAttiva){
-				
-				setChanged();
-				notifyObservers("IniziaPartita");
-				
-				try {
-					input = (ArrayList<String>)inObj.readObject();
-				} catch (ClassNotFoundException | IOException e) {
-					// TODO Auto-generated catch block
-					e.printStackTrace();
-				}
-				setChanged();
-				notifyObservers(input);
-				try {
-					Thread.currentThread().sleep(4000);
-				} catch (InterruptedException e) {
-					// TODO Auto-generated catch block
-					e.printStackTrace();
-				}
+			Object message = new Object();
+			try {
+				message = inObj.readObject();
+			} catch (ClassNotFoundException | IOException e) {
+				e.printStackTrace();
 			}
+
+			setChanged();
+			notifyObservers(message);
 		}
-	
 	
 	}
 	
-	public synchronized void sendLine(String messaggio){
+	public synchronized void sendLine(String messaggio) {
 		
 		out.println(messaggio);
 	}
-	//public synchronized void sendObj()
 	
-	public synchronized void attivaConnessione(){
-		
-		connessioneAttiva = true;
-	}
-	
-	
-	
-	private synchronized void closeConnection(){
-		
-		try {
-			connessioneAttiva = false;
-			socket.close();
-		} catch (IOException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-		
+	public String getName() {
+		return this.name;
 	}
 }

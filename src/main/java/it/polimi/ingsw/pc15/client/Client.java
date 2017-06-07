@@ -23,23 +23,20 @@ public class Client extends Observable implements Serializable{
 	
 	public Client(Socket clientSocket) throws IOException{ //Costruttore Socket Client
 		
-		this.outObj = new ObjectOutputStream(clientSocket.getOutputStream());
-		this.inObj = new ObjectInputStream(clientSocket.getInputStream());
 		this.in = new Scanner(clientSocket.getInputStream());
-		this.out = new PrintStream(clientSocket.getOutputStream());
-		
+		this.out = new PrintStream(clientSocket.getOutputStream());		
+		this.inObj = new ObjectInputStream(clientSocket.getInputStream());
+		this.outObj = new ObjectOutputStream(clientSocket.getOutputStream());
+
 		this.clientController = new ClientController(this);
 		this.view = new CLI(clientController);
-		
-		
 	}
 	
-	public Client(){ //Costruttore RMI Client
-	}
-	
-	
+	public Client() {}
+
 	
 	public void run() {
+		
 		Scanner input = new Scanner(System.in);
 		System.out.println("Scrivi il tuo nome :");
 		name = input.nextLine();
@@ -49,37 +46,28 @@ public class Client extends Observable implements Serializable{
 			
 			while(true){
 				System.out.println("lol");
-				String test = in.nextLine();
-				if(test.equals(name))
+				if(in.nextLine().equals(name))
 					view.run();
 			}
 		}
-			
+		out.println(name);  //manda il nome alla Connection
 		
-		
+		if(in.nextLine().equals("OK")) {  //attende finchè riceve l'OK dal server
+			System.out.println(name +", la partita ha inizio");
+			view.run();
+		}
+
 	}
 	
-	public void send(ArrayList<String> message) throws IOException{
+	public void send(Object message) throws IOException{
+		
+		System.out.println("Sono il client e sto inviando " + ((ArrayList<String>) message).get(0));
 		outObj.writeObject(message);
 	}
 	
 	public static void main(String[] args) throws IOException, InterruptedException {
 		
-		Scanner systemIn = new Scanner (System.in);
-		System.out.println("Vuoi connetterti tramite socket (1) o RMI (2)?"); 
-		int scelta = systemIn.nextInt();
-		
-		Client client;
-		
-		if (scelta==1) {
-			client = new Client(new Socket(hostName, 12879));
-			client.run();
-			
-		}
-		else if (scelta==2) {
-			client = new Client();
-			client.run();
-		}
-	
+		Client client = new Client(new Socket(hostName, 12879));
+		client.run();
 	}
 }
