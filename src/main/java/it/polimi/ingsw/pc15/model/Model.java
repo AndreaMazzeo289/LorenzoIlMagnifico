@@ -144,24 +144,9 @@ public class Model extends Observable implements Observer {
 		return this.plancia;
 	}
 
-	
-	/*
-	 *  FUNZIONE DI PROVA PER I NOTIFYOBSERVERS
-	 */
-	
-	public void prova (String message){
-		System.out.println("checkmodel");
-		if(message.equals("Richiesta stato del gioco")){
-			System.out.println("checkmodel1");
-			setChanged();
-			notifyObservers(message);
-		}
-		
-	}
 
 	@Override
 	public void update(Observable o, Object arg) {
-		// TODO Auto-generated method stub
 		
 	}
 	
@@ -178,8 +163,20 @@ public class Model extends Observable implements Observer {
 	
 	public void setOrdineGiocatori(){}
 	
+	
 	public int getTurno(){
 		return turno;
+	}
+	
+	public Player getPlayer(String nome) {
+		
+		for (Player player : this.giocatori) {
+			if (player.getNome().equals(nome))
+				return player;
+		}
+		
+		return null;
+
 	}
 	
 }

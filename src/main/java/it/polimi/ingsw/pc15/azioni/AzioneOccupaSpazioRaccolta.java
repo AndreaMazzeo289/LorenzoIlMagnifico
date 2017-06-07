@@ -8,9 +8,9 @@ import it.polimi.ingsw.pc15.player.ColoreFamiliare;
 import it.polimi.ingsw.pc15.player.Familiare;
 import it.polimi.ingsw.pc15.player.Player;
 
-public class AzioneOccupaSpazioRaccolto extends AzioneOccupaSpazio {
+public class AzioneOccupaSpazioRaccolta extends AzioneOccupaSpazio {
 
-	public AzioneOccupaSpazioRaccolto(Player player, Familiare familiare, SpazioRaccolta spazio) {
+	public AzioneOccupaSpazioRaccolta(Player player, Familiare familiare, SpazioRaccolta spazio) {
 		super(player, familiare, spazio);
 	}
 

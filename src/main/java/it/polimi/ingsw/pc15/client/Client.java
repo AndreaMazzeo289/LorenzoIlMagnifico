@@ -40,16 +40,6 @@ public class Client extends Observable implements Serializable{
 		Scanner input = new Scanner(System.in);
 		System.out.println("Scrivi il tuo nome :");
 		name = input.nextLine();
-		out.println(name);
-		if(in.nextLine().equals("OK")){
-			System.out.println(name +" la partita ha inizio");
-			
-			while(true){
-				System.out.println("lol");
-				if(in.nextLine().equals(name))
-					view.run();
-			}
-		}
 		out.println(name);  //manda il nome alla Connection
 		
 		if(in.nextLine().equals("OK")) {  //attende finchè riceve l'OK dal server

@@ -11,7 +11,6 @@ public class AzioneGiocaLeader extends AzioneLeader {
 
 	public AzioneGiocaLeader(Player player, Leader leader) {
 		super(player, leader);
-		// TODO Auto-generated constructor stub
 	}
 
 	@Override

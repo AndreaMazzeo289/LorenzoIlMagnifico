@@ -61,4 +61,5 @@ public class Connection extends Observable implements Runnable {
 	public String getName() {
 		return this.name;
 	}
+
 }
