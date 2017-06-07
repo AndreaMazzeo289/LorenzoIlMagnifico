@@ -53,7 +53,7 @@ public class Server {
 		connections.put(name, connection);
 		System.out.println("connesso con il player:" + name);
 		numeroGiocatori++;
-		if (numeroGiocatori==3) {
+		if (numeroGiocatori==2) {
 			avviaPartita();
 			numeroGiocatori=0;
 		}
@@ -73,9 +73,8 @@ public class Server {
 		model.iniziaPartita();
 		
 		for(Map.Entry<String, Connection> giocatoriConnessi : connections.entrySet()) {
-			giocatoriConnessi.getValue().addObserver(controller);
-			giocatoriConnessi.getValue().attivaConnessione();
-			giocatoriConnessi.getValue().sendLine("OK");
+			giocatoriConnessi.getValue().addObserver(controller);  //il Controller viene reso Observer di ogni connessione
+			giocatoriConnessi.getValue().sendLine("OK"); //notifica ai giocatori l'inizio partita
 	}
 		
 	}

@@ -27,7 +27,7 @@ public class Client extends Observable implements Serializable{
 		this.out = new PrintStream(clientSocket.getOutputStream());		
 		this.inObj = new ObjectInputStream(clientSocket.getInputStream());
 		this.outObj = new ObjectOutputStream(clientSocket.getOutputStream());
-		
+
 		this.clientController = new ClientController(this);
 		this.view = new CLI(clientController);
 	}
@@ -42,39 +42,22 @@ public class Client extends Observable implements Serializable{
 		name = input.nextLine();
 		out.println(name);  //manda il nome alla Connection
 		
-		if(in.nextLine().equals("OK")){
-			System.out.println(name +" la partita ha inizio");
-			
-			while(true){
-				System.out.println("lol");
-				if(in.nextLine().equals(name))
-					view.run();
-			}
+		if(in.nextLine().equals("OK")) {  //attende finchè riceve l'OK dal server
+			System.out.println(name +", la partita ha inizio");
+			view.run();
 		}
 
 	}
 	
-	public void send(ArrayList<String> message) throws IOException{
+	public void send(Object message) throws IOException{
+		
+		System.out.println("Sono il client e sto inviando " + ((ArrayList<String>) message).get(0));
 		outObj.writeObject(message);
 	}
 	
 	public static void main(String[] args) throws IOException, InterruptedException {
 		
-		Scanner systemIn = new Scanner (System.in);
-		System.out.println("Vuoi connetterti tramite socket (1) o RMI (2)?"); 
-		int scelta = systemIn.nextInt();
-		
-		Client client;
-		
-		if (scelta==1) {
-			client = new Client(new Socket(hostName, 12879));
-			client.run();
-			
-		}
-		else if (scelta==2) {
-			client = new Client();
-			client.run();
-		}
-	
+		Client client = new Client(new Socket(hostName, 12879));
+		client.run();
 	}
 }

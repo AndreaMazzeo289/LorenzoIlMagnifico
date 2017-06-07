@@ -13,24 +13,16 @@ public class ClientController extends Observable implements Observer  {
 	public ClientController(Client client){
 		
 		this.client = client;
-	
-		
-		
 	}
 	
 	
 	@Override
 	public void update(Observable o, Object input) {
-		if(!(o instanceof CLI) || !(input instanceof ArrayList<?>)){
-			throw new IllegalArgumentException();
-		}
 		
+		System.out.println("Sono il Client controller e ho ricevuto " + ((ArrayList<String>) input).get(0));
 		try {
-			
-			client.send((ArrayList<String>)input);
-			System.out.println("check");
+			client.send(input);
 		} catch (IOException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 	}
