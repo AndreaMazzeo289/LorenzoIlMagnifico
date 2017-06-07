@@ -49,7 +49,8 @@ public class Client extends Observable implements Serializable{
 			
 			while(true){
 				System.out.println("lol");
-				if(in.nextLine().equals(name))
+				String test = in.nextLine();
+				if(test.equals(name))
 					view.run();
 			}
 		}

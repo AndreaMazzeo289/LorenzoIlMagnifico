@@ -127,13 +127,13 @@ public class ParserXML {
 	                int periodo = Integer.parseInt(carta.getElementsByTagName("periodo").item(0).getFirstChild().getNodeValue());
 	                
 	                
-	               /**********************************************************/
+	               /**********************************************************
 	                System.out.println("------------------------------------------------");
 	                System.out.println("ID carta: " +id);
 	                System.out.println("Nome carta: " +nome);
 	                System.out.println("Tipo carta: " +tipo);
 	                System.out.println("Periodo carta: " +periodo);
-	               /**********************************************************/
+	               **********************************************************/
 	                
 	                
 	                Set<Effetto> effettiImmediatiSet = new HashSet<Effetto>();
@@ -144,7 +144,7 @@ public class ParserXML {
 	                //------------------------------------------------------//
 	                try{
 	                    valoreDado = Integer.parseInt(carta.getElementsByTagName("dado").item(0).getFirstChild().getNodeValue());
-	                    System.out.println("valore dado: " +valoreDado);
+	                    /*System.out.println("valore dado: " +valoreDado);*/
 	                }catch (NullPointerException e){
 	                }
 	                
@@ -155,9 +155,9 @@ public class ParserXML {
 	                for (int j = 0; j < listaEffettiPermanenti.getLength(); ++j) {
 	                    Element effetto = (Element) listaEffettiPermanenti.item(j);
 	                    String tipologiaEffetto = effetto.getFirstChild().getNodeValue();
-	                    System.out.println("Effetto permanente "+j+":"+tipologiaEffetto);
-	                    /*Effetto effettoLetto = getEffettoXML(tipologiaEffetto);
-	                    effettiPermanentiSet.add(effettoLetto);*/
+	                    /*System.out.println("Effetto permanente "+j+":"+tipologiaEffetto);*/
+	                    Effetto effettoLetto = getEffettoXML(tipologiaEffetto);
+	                    effettiPermanentiSet.add(effettoLetto);
 	                }
 	              
 	                //------------------------------------------------------//
@@ -167,9 +167,9 @@ public class ParserXML {
 	                for (int j = 0; j < listaEffettiImmediati.getLength(); ++j) {
 	                    Element effetto = (Element) listaEffettiImmediati.item(j);
 	                    String tipologiaEffetto = effetto.getFirstChild().getNodeValue();
-	                    System.out.println("Effetto immediato "+j+":"+tipologiaEffetto);
-	                    /*Effetto effettoLetto = getEffettoXML(tipologiaEffetto);
-	                    effettiImmediatiSet.add(effettoLetto);*/
+	                    /*System.out.println("Effetto immediato "+j+":"+tipologiaEffetto);*/
+	                    Effetto effettoLetto = getEffettoXML(tipologiaEffetto);
+	                    effettiImmediatiSet.add(effettoLetto);
 	                }
 	        
 	                //------------------------------------------------------//
@@ -185,42 +185,42 @@ public class ParserXML {
 	                		 
 	                		 switch(risorsa.getAttribute("tipo").toUpperCase()) {
 	                		 	case "LEGNA":
-	                		 		System.out.println("Legna richiesta: "+quantita);
+	                		 		/*System.out.println("Legna richiesta: "+quantita);*/
 	                		 		Legna legna = new Legna(quantita);
 	                		 		risorseMap.add(legna);
 	                		 		break;
 	                		 	case "PIETRA":
-	                		 		System.out.println("Pietra richiesta: "+quantita);
+	                		 		/*System.out.println("Pietra richiesta: "+quantita);*/
 	                		 		Pietra pietra = new Pietra(quantita);
 	                		 		risorseMap.add(pietra);
 	                		 		break;
 	                		 	case "ORO":
-	                		 		System.out.println("Oro richiesto: "+quantita);
+	                		 		/*System.out.println("Oro richiesto: "+quantita);*/
 	                		 		Oro oro = new Oro(quantita);
 	                		 		risorseMap.add(oro);
 	                		 		break;
 	                		 	case "SERVITORI":
-	                		 		System.out.println("Servitori richiesti: "+quantita);
+	                		 		/*System.out.println("Servitori richiesti: "+quantita);*/
 	                		 		Servitori servitori = new Servitori(quantita);
 	                		 		risorseMap.add(servitori);
 	                		 		break;
 	                		 	case "PUNTIMILITARI":
-	                		 		System.out.println("Punti militari richiesti: "+quantita);
+	                		 		/*System.out.println("Punti militari richiesti: "+quantita);*/
 	                		 		PuntiMilitari puntiMilitari = new PuntiMilitari(quantita);
 	                		 		risorseMap.add(puntiMilitari);
 	                		 		break;
 	                		 	case "PUNTIFEDE":
-	                		 		System.out.println("Punti fede richiesti: "+quantita);
+	                		 		/*System.out.println("Punti fede richiesti: "+quantita);*/
 	                		 		PuntiFede puntiFede = new PuntiFede(quantita);
 	                		 		risorseMap.add(puntiFede);
 	                		 		break;
 	                		 	case "PUNTIVITTORIA":
-	                		 		System.out.println("Punti vittoria richiesti: "+quantita);
+	                		 		/*System.out.println("Punti vittoria richiesti: "+quantita);*/
 	                		 		PuntiVittoria puntiVittoria = new PuntiVittoria(quantita);
 	                		 		risorseMap.add(puntiVittoria);
 	                		 		break;
 	                		 	case "PRIVILEGI":
-	                		 		System.out.println("Privilegi richiesti: "+quantita);
+	                		 		/*System.out.println("Privilegi richiesti: "+quantita);*/
 	                		 		Privilegi privilegi = new Privilegi(quantita);
 	                		 		risorseMap.add(privilegi);
 	                		 		break;
@@ -241,9 +241,9 @@ public class ParserXML {
 	                try{
 	                    costoPt = Integer.parseInt(carta.getElementsByTagName("costoPt").item(0).getFirstChild().getNodeValue());
 	                    requisito = Integer.parseInt(carta.getElementsByTagName("requisito").item(0).getFirstChild().getNodeValue());
-	                    System.out.println("Presente un pagamento con punti militari:");
+	                    /*System.out.println("Presente un pagamento con punti militari:");
 	                    System.out.println("Punti da pagare :"+costoPt);
-	                    System.out.println("Ma devi averne minimo: "+requisito);
+	                    System.out.println("Ma devi averne minimo: "+requisito);*/
 	                    
 	                }catch(NullPointerException e){
 	                    costoPt = 0;
@@ -1019,8 +1019,8 @@ public class ParserXML {
 				SetRisorse requisitoMaterie;
 				HashMap<TipoCarta, Integer> requisitoCarte = new HashMap<TipoCarta, Integer>();	
 				
-				System.out.println("-------------------------------------------");
-				System.out.println("Nome leader: "+nomeLeader);
+				/*System.out.println("-------------------------------------------");
+				System.out.println("Nome leader: "+nomeLeader);*/
 				
 				try{
 					NodeList carte = leader.getElementsByTagName("carta");
@@ -1070,42 +1070,42 @@ public class ParserXML {
                 		 
                 		 switch(risorsa.getAttribute("tipo").toUpperCase()) {
                 		 	case "LEGNA":
-                		 		System.out.println("Legna richiesta: "+quantita);
+                		 		/*System.out.println("Legna richiesta: "+quantita);*/
                 		 		Legna legna = new Legna(quantita);
                 		 		risorseMap.add(legna);
                 		 		break;
                 		 	case "PIETRA":
-                		 		System.out.println("Pietra richiesta: "+quantita);
+                		 		/*System.out.println("Pietra richiesta: "+quantita);*/
                 		 		Pietra pietra = new Pietra(quantita);
                 		 		risorseMap.add(pietra);
                 		 		break;
                 		 	case "ORO":
-                		 		System.out.println("Oro richiesto: "+quantita);
+                		 		/*System.out.println("Oro richiesto: "+quantita);*/
                 		 		Oro oro = new Oro(quantita);
                 		 		risorseMap.add(oro);
                 		 		break;
                 		 	case "SERVITORI":
-                		 		System.out.println("Servitori richiesti: "+quantita);
+                		 		/*System.out.println("Servitori richiesti: "+quantita);*/
                 		 		Servitori servitori = new Servitori(quantita);
                 		 		risorseMap.add(servitori);
                 		 		break;
                 		 	case "PUNTIMILITARI":
-                		 		System.out.println("Punti militari richiesti: "+quantita);
+                		 		/*System.out.println("Punti militari richiesti: "+quantita);*/
                 		 		PuntiMilitari puntiMilitari = new PuntiMilitari(quantita);
                 		 		risorseMap.add(puntiMilitari);
                 		 		break;
                 		 	case "PUNTIFEDE":
-                		 		System.out.println("Punti fede richiesti: "+quantita);
+                		 		/*System.out.println("Punti fede richiesti: "+quantita);*/
                 		 		PuntiFede puntiFede = new PuntiFede(quantita);
                 		 		risorseMap.add(puntiFede);
                 		 		break;
                 		 	case "PUNTIVITTORIA":
-                		 		System.out.println("Punti vittoria richiesti: "+quantita);
+                		 		/*System.out.println("Punti vittoria richiesti: "+quantita);*/
                 		 		PuntiVittoria puntiVittoria = new PuntiVittoria(quantita);
                 		 		risorseMap.add(puntiVittoria);
                 		 		break;
                 		 	case "PRIVILEGI":
-                		 		System.out.println("Privilegi richiesti: "+quantita);
+                		 		/*System.out.println("Privilegi richiesti: "+quantita);*/
                 		 		Privilegi privilegi = new Privilegi(quantita);
                 		 		risorseMap.add(privilegi);
                 		 		break;
@@ -1119,13 +1119,13 @@ public class ParserXML {
 				}
 				
 				String tipologia = ((Element)(leader.getElementsByTagName("effetti")).item(0)).getAttribute("tipo");
-				System.out.println("questo leader ha un effetto di tipo "+tipologia);
+				/*System.out.println("questo leader ha un effetto di tipo "+tipologia);*/
 				
 				NodeList listaEffetti = leader.getElementsByTagName("effetto");
 		        for (int j = 0; j < listaEffetti.getLength(); ++j) {
 		            Element effetto = (Element) listaEffetti.item(j);
 		            String effettoTipo = effetto.getFirstChild().getNodeValue();
-		            System.out.println("effetto "+j+" "+effettoTipo);
+		            /*System.out.println("effetto "+j+" "+effettoTipo);*/
 		            Effetto effettoExt = getEffettoXML(effettoTipo);
 		            effetti.add(effettoExt);
 		        }
