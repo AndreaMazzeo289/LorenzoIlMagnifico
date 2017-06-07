@@ -23,27 +23,25 @@ public class Client extends Observable implements Serializable{
 	
 	public Client(Socket clientSocket) throws IOException{ //Costruttore Socket Client
 		
-		this.outObj = new ObjectOutputStream(clientSocket.getOutputStream());
-		this.inObj = new ObjectInputStream(clientSocket.getInputStream());
 		this.in = new Scanner(clientSocket.getInputStream());
-		this.out = new PrintStream(clientSocket.getOutputStream());
+		this.out = new PrintStream(clientSocket.getOutputStream());		
+		this.inObj = new ObjectInputStream(clientSocket.getInputStream());
+		this.outObj = new ObjectOutputStream(clientSocket.getOutputStream());
 		
 		this.clientController = new ClientController(this);
 		this.view = new CLI(clientController);
-		
-		
 	}
 	
-	public Client(){ //Costruttore RMI Client
-	}
-	
-	
+	public Client() {}
+
 	
 	public void run() {
+		
 		Scanner input = new Scanner(System.in);
 		System.out.println("Scrivi il tuo nome :");
 		name = input.nextLine();
-		out.println(name);
+		out.println(name);  //manda il nome alla Connection
+		
 		if(in.nextLine().equals("OK")){
 			System.out.println(name +" la partita ha inizio");
 			
@@ -53,9 +51,7 @@ public class Client extends Observable implements Serializable{
 					view.run();
 			}
 		}
-			
-		
-		
+
 	}
 	
 	public void send(ArrayList<String> message) throws IOException{

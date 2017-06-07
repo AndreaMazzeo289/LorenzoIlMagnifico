@@ -22,10 +22,6 @@ public class Connection extends Observable implements Runnable {
 	private String name;
 	private ArrayList<String> input;
 	
-	/*
-	 * FLAG TEMPORANEE
-	 */
-	private boolean flag; 
 	private boolean connessioneAttiva;
 	
 	
@@ -38,19 +34,9 @@ public class Connection extends Observable implements Runnable {
 		inObj = new ObjectInputStream(this.socket.getInputStream());
 		this.in = new Scanner(this.socket.getInputStream());
 		this.out = new PrintStream(this.socket.getOutputStream());
-		this.flag = true;
 		this.connessioneAttiva = false;
 	}
 	
-	
-	/*
-	 * OVERRIDE DEL METODO RUN DELL'INTERFACCIA RUNNABLE
-	 * LA CONNECTION CORRISPONDE ALLA SOCKET CREATA DAL SERVER PER COMUNICARE CON LO SPECIFICO CLIENT
-	 * OGNI CLIENT HA LA PROPRIA CONNECTION
-	 */
-	
-	
-	@SuppressWarnings("unchecked")
 	@Override
 	public void run() {
 		
