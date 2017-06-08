@@ -48,13 +48,13 @@ public class Controller extends Observable implements Observer {
 	
 	public void parseInput(String nomeGiocatore, ArrayList<String> input) {
 		
-		Azione azioneGiocatore;
+		Azione azioneGiocatore = null;
 		Player giocatore = model.getPlayer(nomeGiocatore);
 		
 		
 		switch(input.get(0)) {
 		
-		case "occupa spazio": 
+		case "occupa spazio":
 			
 			Familiare familiareAzione;
 			switch(input.get(1)) {
@@ -91,6 +91,8 @@ public class Controller extends Observable implements Observer {
 				break; //DA FINIRE;
 		
 			}
+			
+			break;
 		
 		case "gioca Leader": azioneGiocatore = new AzioneGiocaLeader(giocatore, null);
 			break;
@@ -102,8 +104,9 @@ public class Controller extends Observable implements Observer {
 			break;
 		}
 		
-		if (azioneGiocatore.èValida())
+		if (azioneGiocatore.èValida()) {
 			azioneGiocatore.attiva();
+		}
 	}
 
 }

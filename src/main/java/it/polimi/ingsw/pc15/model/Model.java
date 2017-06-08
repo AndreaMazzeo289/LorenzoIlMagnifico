@@ -55,9 +55,7 @@ public class Model extends Observable implements Observer {
 		for (int i=0; i<numeroGiocatori; i++)
 			giocatori.add(new Player(nomiGiocatori.get(i)));
 		Collections.shuffle(giocatori);
-		
-			
-		
+
 	}
 
 	public void iniziaPartita() {
@@ -71,6 +69,7 @@ public class Model extends Observable implements Observer {
 		Random random = new Random();
 		giocatori.get(random.nextInt(numeroGiocatori)).setOrdine(true);
 		
+			
 		iniziaNuovoTurno();
 		
 	}
