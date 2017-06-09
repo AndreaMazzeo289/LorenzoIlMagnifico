@@ -8,12 +8,11 @@ public class AzioneScartaLeader extends AzioneLeader {
 
 	public AzioneScartaLeader(Player player, Leader leader) {
 		super(player, leader);
-		// TODO Auto-generated constructor stub
 	}
 
 	@Override
 	public void attiva() {	
-		
+		System.out.println("Hai scartato " + leader.getNome());
 		player.getCarteLeader().remove(leader);
 		player.getSetRisorse().getRisorsa(TipoRisorsa.PRIVILEGI).aggiungi(1);		
 	}

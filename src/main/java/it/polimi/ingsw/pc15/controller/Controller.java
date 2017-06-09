@@ -58,7 +58,7 @@ public class Controller extends Observable implements Observer {
 		System.out.println("Oro giocatore: " + giocatore.getSetRisorse().getRisorsa(TipoRisorsa.ORO).getQuantità());
 		System.out.println("Legna giocatore: " + giocatore.getSetRisorse().getRisorsa(TipoRisorsa.LEGNA).getQuantità());
 		System.out.println("Pietra giocatore: " + giocatore.getSetRisorse().getRisorsa(TipoRisorsa.PIETRA).getQuantità());
-		System.out.println("Servitori giocatore: " + giocatore.getSetRisorse().getRisorsa(TipoRisorsa.SERVITORI).getQuantità());
+		System.out.println("Servitori giocatore: " + giocatore.getSetRisorse().getRisorsa(TipoRisorsa.SERVITORI).getQuantità() + "\n");
 
 		
 		switch(input.get(0)) {
@@ -130,7 +130,7 @@ public class Controller extends Observable implements Observer {
 		System.out.println("Oro giocatore: " + giocatore.getSetRisorse().getRisorsa(TipoRisorsa.ORO).getQuantità());
 		System.out.println("Legna giocatore: " + giocatore.getSetRisorse().getRisorsa(TipoRisorsa.LEGNA).getQuantità());
 		System.out.println("Pietra giocatore: " + giocatore.getSetRisorse().getRisorsa(TipoRisorsa.PIETRA).getQuantità());
-		System.out.println("Servitori giocatore: " + giocatore.getSetRisorse().getRisorsa(TipoRisorsa.SERVITORI).getQuantità());
+		System.out.println("Servitori giocatore: " + giocatore.getSetRisorse().getRisorsa(TipoRisorsa.SERVITORI).getQuantità() + "\n");
 		
 	}
 }

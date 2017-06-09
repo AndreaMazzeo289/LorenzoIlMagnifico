@@ -15,7 +15,9 @@ public class AzioneGiocaLeader extends AzioneLeader {
 
 	@Override
 	public void attiva() {
-
+		
+		System.out.println("Hai giocato " + leader.getNome());
+		
 		leader.setGiocato(true);
 		
 		if (leader.getEffettoPermanente()!=null) 

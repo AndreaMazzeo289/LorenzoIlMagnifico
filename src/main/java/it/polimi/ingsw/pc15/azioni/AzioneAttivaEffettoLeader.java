@@ -8,11 +8,12 @@ public class AzioneAttivaEffettoLeader extends AzioneLeader {
 
 	public AzioneAttivaEffettoLeader(Player player, Leader leader) {
 		super(player, leader);
-		// TODO Auto-generated constructor stub
 	}
 
 	@Override
 	public void attiva() {
+		
+		System.out.println("Attivi l'effetto di " + leader.getNome());
 		
 		for (Effetto effetto : leader.getEffettoPerTurno() )
 			effetto.attiva(player);
