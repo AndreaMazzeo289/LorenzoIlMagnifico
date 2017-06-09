@@ -42,7 +42,7 @@ public class Main {
 		
 		gioco.iniziaPartita();
 		
-		Player player = gioco.getPlayers().get(0);
+		Player player = gioco.getPlayer("Maffe");
 		for (Leader leader : player.getCarteLeader())
 			System.out.println(leader.getNome());
 

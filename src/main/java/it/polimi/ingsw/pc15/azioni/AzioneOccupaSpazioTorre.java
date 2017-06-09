@@ -31,7 +31,10 @@ public class AzioneOccupaSpazioTorre extends AzioneOccupaSpazio {
 	@Override
 	public void attiva() {
 		
+		System.out.println("Occupi spazio torre!");
+		
 		spazio.aggiungiFamiliare(familiare);
+		familiare.setDisponibilità(false);
 		
 		if (player.getEffettiAttivi().disponibilitàBonusSpazioTorri())
 			((SpazioTorre) spazio).getBonusRisorse().attiva(player);

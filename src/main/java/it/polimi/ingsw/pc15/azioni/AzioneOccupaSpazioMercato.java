@@ -14,7 +14,11 @@ public class AzioneOccupaSpazioMercato extends AzioneOccupaSpazio {
 	@Override
 	public void attiva() {
 		
+		System.out.println("Occupi spazio mercato!");
+		
 		spazio.aggiungiFamiliare(familiare);
+		familiare.setDisponibilità(false);
+		
 		(((SpazioMercato) spazio).getEffetto()).attiva(player);
 		
 	}

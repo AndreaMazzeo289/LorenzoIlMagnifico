@@ -32,7 +32,7 @@ public class Server {
 
 	public void run() throws InterruptedException {
 		
-		System.out.println("Stabilisco connessione...");
+		System.out.println("Server avviato!\nIn attesa di giocatori...");
 
 		while (true) {
 		try {
@@ -67,7 +67,7 @@ public class Server {
 		for(Map.Entry<String, Connection> giocatoriConnessi : connections.entrySet())
 			nomiGiocatoriConnessi.add(giocatoriConnessi.getKey());
 		
-		Model model = new Model(nomiGiocatoriConnessi, false);
+		Model model = new Model(nomiGiocatoriConnessi, true);
 		Controller controller = new Controller(model);
 		
 		model.iniziaPartita();

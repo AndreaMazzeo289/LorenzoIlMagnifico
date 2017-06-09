@@ -17,7 +17,11 @@ public class AzioneOccupaSpazioRaccolta extends AzioneOccupaSpazio {
 	@Override
 	public void attiva() {
 		
+		System.out.println("Occupi spazio raccolta!");
+		
 		spazio.aggiungiFamiliare(familiare);
+		familiare.setDisponibilità(false);
+		
 		Effetto effetto = new Raccolto (familiare.getValore() + player.getEffettiAttivi().getBonusProduzione());
 		effetto.attiva(familiare.getPlayer());
 

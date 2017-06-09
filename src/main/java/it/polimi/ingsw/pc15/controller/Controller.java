@@ -14,6 +14,7 @@ import it.polimi.ingsw.pc15.azioni.AzioneOccupaSpazioConsiglio;
 import it.polimi.ingsw.pc15.azioni.AzioneOccupaSpazioMercato;
 import it.polimi.ingsw.pc15.azioni.AzioneOccupaSpazioProduzione;
 import it.polimi.ingsw.pc15.azioni.AzioneOccupaSpazioRaccolta;
+import it.polimi.ingsw.pc15.azioni.AzioneOccupaSpazioTorre;
 import it.polimi.ingsw.pc15.azioni.AzioneOccupaSpazioRaccolta;
 import it.polimi.ingsw.pc15.azioni.AzioneScartaLeader;
 import it.polimi.ingsw.pc15.model.Model;
@@ -26,6 +27,7 @@ import it.polimi.ingsw.pc15.player.ColoreFamiliare;
 import it.polimi.ingsw.pc15.player.Familiare;
 import it.polimi.ingsw.pc15.player.Leader;
 import it.polimi.ingsw.pc15.player.Player;
+import it.polimi.ingsw.pc15.risorse.TipoRisorsa;
 import it.polimi.ingsw.pc15.server.Connection;
 
 public class Controller extends Observable implements Observer {
@@ -40,27 +42,28 @@ public class Controller extends Observable implements Observer {
 	@Override
 	public synchronized void update(Observable o, Object input) {
 		
-		System.out.println("\nSono il controller e ho ricevuto " + ((ArrayList<String>) input) + " da " + ((Connection) o).getName() );
-		System.out.println("Dimensione array: " + ((ArrayList<String>) input).size());
-		
-		int num = Integer.valueOf(((ArrayList<String>) input).get(1));
-		System.out.println("Il numero è " + num);
-		
+		System.out.println("\nSono il controller e ho ricevuto " + ((ArrayList<String>) input) + " da " + ((Connection) o).getName() + "\n");	
 		
 		parseInput(((Connection) o).getName(), (ArrayList<String>) input);
 	}
 	
+	
+	
 	public void parseInput(String nomeGiocatore, ArrayList<String> input) {
 		
-		Azione azioneGiocatore = null;
+		Azione azioneGiocatore;
 		Player giocatore = model.getPlayer(nomeGiocatore);	
 		
-		if (giocatore.getCarteLeader().isEmpty())
-			System.out.println("Non ci sono carte leader");
+		System.out.println("Nome giocatore: " + giocatore.getNome());
+		System.out.println("Oro giocatore: " + giocatore.getSetRisorse().getRisorsa(TipoRisorsa.ORO).getQuantità());
+		System.out.println("Legna giocatore: " + giocatore.getSetRisorse().getRisorsa(TipoRisorsa.LEGNA).getQuantità());
+		System.out.println("Pietra giocatore: " + giocatore.getSetRisorse().getRisorsa(TipoRisorsa.PIETRA).getQuantità());
+		System.out.println("Servitori giocatore: " + giocatore.getSetRisorse().getRisorsa(TipoRisorsa.SERVITORI).getQuantità());
+
 		
 		switch(input.get(0)) {
 		
-		case "occupa spazio":
+		case "posiziona familiare":
 			
 			Familiare familiareAzione;
 			switch (input.get(1)) {
@@ -72,7 +75,8 @@ public class Controller extends Observable implements Observer {
 				break;
 			case "familiare neutro": familiareAzione = giocatore.getFamiliare(ColoreFamiliare.NEUTRO); 
 				break;
-			default: familiareAzione = new Familiare(null, null);
+			default: System.out.println("Errore lettura scelta familiare!");
+				familiareAzione = new Familiare(null, null);
 				break;
 			}
 			
@@ -81,6 +85,7 @@ public class Controller extends Observable implements Observer {
 			case "mercato":
 				spazioAzione = model.getPlancia().getSpaziMercato().get(Integer.valueOf(input.get(3)));
 				azioneGiocatore = new AzioneOccupaSpazioMercato(giocatore, familiareAzione, (SpazioMercato) spazioAzione);
+				break;
 			case "consiglio": 
 				spazioAzione = model.getPlancia().getSpazioConsiglio();
 				azioneGiocatore = new AzioneOccupaSpazioConsiglio(giocatore, familiareAzione, (SpazioConsiglio) spazioAzione);
@@ -93,28 +98,39 @@ public class Controller extends Observable implements Observer {
 				spazioAzione = model.getPlancia().getSpazioProduzione();
 				azioneGiocatore = new AzioneOccupaSpazioProduzione(giocatore, familiareAzione, (SpazioProduzione) spazioAzione);
 				break;
-			case "torre":
-				break; //DA FINIRE;
-		
-			}
+			case "torre": azioneGiocatore = new AzioneOccupaSpazioTorre(giocatore, familiareAzione, null); //<---- DA FINIRE!!!
+				break;
+			default: System.out.println("Errore lettura scelta spazio");
+				azioneGiocatore = null;
+				break;	
+			}		
 			
 			break;
 		
 		case "gioca Leader": azioneGiocatore = new AzioneGiocaLeader (giocatore, giocatore.getCarteLeader().get(Integer.valueOf(input.get(1))));
 			break;
+			
 		case "scarta Leader": azioneGiocatore = new AzioneScartaLeader (giocatore, giocatore.getCarteLeader().get(Integer.valueOf(input.get(1))));
 			break;
+			
 		case "attiva effetto Leader": azioneGiocatore = new AzioneAttivaEffettoLeader (giocatore, giocatore.getCarteLeader().get(Integer.valueOf(input.get(1))));;
 			break;
-		default: 
-			System.out.println("ERRORE");
+			
+		default: System.out.println("ERRORE");
 			azioneGiocatore = null;
 			break;
 		}
 		
 		if (azioneGiocatore.èValida()) {
+			System.out.println("\nAttivo l'azione!\n");
 			azioneGiocatore.attiva();
-		}
-	}
+		}		
 
+		System.out.println("Risorse aggiornate " + giocatore.getNome() + ":");
+		System.out.println("Oro giocatore: " + giocatore.getSetRisorse().getRisorsa(TipoRisorsa.ORO).getQuantità());
+		System.out.println("Legna giocatore: " + giocatore.getSetRisorse().getRisorsa(TipoRisorsa.LEGNA).getQuantità());
+		System.out.println("Pietra giocatore: " + giocatore.getSetRisorse().getRisorsa(TipoRisorsa.PIETRA).getQuantità());
+		System.out.println("Servitori giocatore: " + giocatore.getSetRisorse().getRisorsa(TipoRisorsa.SERVITORI).getQuantità());
+		
+	}
 }

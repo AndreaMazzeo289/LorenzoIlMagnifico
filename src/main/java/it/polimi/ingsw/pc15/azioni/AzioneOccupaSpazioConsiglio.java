@@ -14,7 +14,11 @@ public class AzioneOccupaSpazioConsiglio extends AzioneOccupaSpazio {
 	@Override
 	public void attiva() {
 		
+		System.out.println("Occupi spazio consiglio!");
+		
 		spazio.aggiungiFamiliare(familiare);
+		familiare.setDisponibilità(false);
+		
 		((SpazioConsiglio) spazio).getEffetto().attiva(player);
 	}
 
@@ -30,7 +34,8 @@ public class AzioneOccupaSpazioConsiglio extends AzioneOccupaSpazio {
 			System.out.println("Il valore del tuo familiare è troppo basso!");
 			return false;
 		}
-		return false;
+		
+		return true;
 	}
 
 }

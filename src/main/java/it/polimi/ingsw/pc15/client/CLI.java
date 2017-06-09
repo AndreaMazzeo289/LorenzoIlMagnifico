@@ -34,7 +34,7 @@ public class CLI extends View {
 		case 3: System.out.println("La plancia è stra figa");
 				break;
 		case 4: ArrayList<String> message = new ArrayList<String>();
-				System.out.println("Cosa vuoi fare?\n  1. Posiziona un familiare\n  2. Gioca una carta Leader\n  3. Scarta una carta Leader\n  4. Attiva l'effetto di una carta Leader");
+				System.out.println("\nCosa vuoi fare?\n  1. Posiziona un familiare\n  2. Gioca una carta Leader\n  3. Scarta una carta Leader\n  4. Attiva l'effetto di una carta Leader");
 				switch(input.nextInt()) {
 				
 				case 1: message.add("posiziona familiare");
@@ -57,11 +57,12 @@ public class CLI extends View {
 						
 						/////////////SCELTA SPAZIO////////////////////////////////////
 
-						System.out.println("\nQuale spazio vuoi occupare?\n  1. Spazio mercato\n  2. Spazio del Consiglio\n  3. Spazio raccolta\n  4. Spazio produzione\n  5. Spazio di una torre");
+						System.out.println("\nQuale spazio vuoi occupare?\n  1. Spazio del Mercato\n  2. Spazio del Consiglio\n  3. Spazio raccolta\n  4. Spazio produzione\n  5. Spazio di una torre");
 						switch (input.nextInt()) {
 						case 1: message.add("mercato");
-								System.out.println("Quale spazio mercato vuoi occupare?");
-								message.add(input.nextLine());
+								System.out.println("\nQuale spazio del mercato vuoi occupare?");
+								int scelta = input.nextInt();
+								message.add(String.valueOf(scelta));
 								break;
 						case 2: message.add("consiglio");
 								break;

@@ -43,7 +43,7 @@ public class Client extends Observable implements Serializable{
 		out.println(name);  //manda il nome alla Connection
 		
 		if(in.nextLine().equals("OK")) {  //attende finchè riceve l'OK dal server
-			System.out.println(name +", la partita ha inizio");
+			System.out.println(name +", la partita ha inizio!");
 			view.run();
 		}
 

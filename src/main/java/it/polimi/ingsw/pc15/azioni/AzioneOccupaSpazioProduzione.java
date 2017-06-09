@@ -17,6 +17,9 @@ public class AzioneOccupaSpazioProduzione extends AzioneOccupaSpazio {
 	@Override
 	public void attiva() {
 		
+		System.out.println("Occupi spazio produzione!");	
+		familiare.setDisponibilità(false);
+		
 		spazio.aggiungiFamiliare(familiare);
 		Effetto effetto = new Produzione(familiare.getValore() + player.getEffettiAttivi().getBonusProduzione());
 		effetto.attiva(familiare.getPlayer());
