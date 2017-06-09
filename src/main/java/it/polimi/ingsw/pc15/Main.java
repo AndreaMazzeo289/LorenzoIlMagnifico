@@ -43,10 +43,8 @@ public class Main {
 		gioco.iniziaPartita();
 		
 		Player player = gioco.getPlayers().get(0);
-		SpazioMercato spazio = gioco.getPlancia().getSpaziMercato().get(0);
-		Spazio spazio2 = gioco.getPlancia().getSpazioProduzione();
-		Familiare familiareNero = player.getFamiliare(ColoreFamiliare.NERO);
-		Familiare familiareBianco = player.getFamiliare(ColoreFamiliare.BIANCO);
+		for (Leader leader : player.getCarteLeader())
+			System.out.println(leader.getNome());
 
 		
 		
@@ -66,8 +64,6 @@ public class Main {
 		 *  - effetti scomuniche risorse (1 periodo)
 		 *  - effetti Leader Santa Rita e Pico della mirandola
 		 */
-		
-		Azione azionePlayer = new AzioneOccupaSpazioMercato(player, familiareNero, spazio);
 		
 	}
 }

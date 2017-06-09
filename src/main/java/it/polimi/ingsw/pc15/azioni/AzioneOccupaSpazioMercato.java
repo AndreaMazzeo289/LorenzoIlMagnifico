@@ -15,7 +15,7 @@ public class AzioneOccupaSpazioMercato extends AzioneOccupaSpazio {
 	public void attiva() {
 		
 		spazio.aggiungiFamiliare(familiare);
-		((SpazioMercato) spazio).getEffetto().attiva(player);
+		(((SpazioMercato) spazio).getEffetto()).attiva(player);
 		
 	}
 

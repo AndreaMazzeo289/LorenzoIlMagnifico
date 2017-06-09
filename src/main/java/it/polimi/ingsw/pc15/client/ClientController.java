@@ -13,17 +13,18 @@ public class ClientController extends Observable implements Observer  {
 	public ClientController(Client client){
 		
 		this.client = client;
-	}
-	
+	}	
 	
 	@Override
 	public void update(Observable o, Object input) {
 		
-		System.out.println("Sono il Client controller e ho ricevuto " + ((ArrayList<String>) input).get(0));
+		System.out.println("\nSono il Client controller e ho ricevuto " + (ArrayList<String>) input);
+		
 		try {
 			client.send(input);
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
+		
 	}
 }

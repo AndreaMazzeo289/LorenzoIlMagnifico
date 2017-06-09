@@ -40,13 +40,14 @@ public class Connection extends Observable implements Runnable {
 		
 		while(true) {
 			
-			Object message = new Object();
+			ArrayList<String> message = new ArrayList<String>();
 			try {
-				message = inObj.readObject();
+				message = (ArrayList<String>) inObj.readObject();
 			} catch (ClassNotFoundException | IOException e) {
 				e.printStackTrace();
 			}
-
+			
+			System.out.println("\nSono la connection e ho ricevuto " + message);
 			setChanged();
 			notifyObservers(message);
 		}

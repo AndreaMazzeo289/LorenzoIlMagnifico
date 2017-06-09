@@ -21,8 +21,11 @@ public class Raccolto extends Effetto {
 		for (Carta territorio : player.getCarte(TipoCarta.TERRITORIO)) {
 			if (valore>= ((Territorio) territorio).getRequisitoRaccolta() ) {
 				System.out.println("Attivo raccolto in " + territorio.getNome());
-				for (Effetto effetto : territorio.getEffettoPermanente())
-					effetto.attiva(player);
+				for (Effetto effetto : territorio.getEffettoPermanente()) {
+					if (effetto instanceof Incrementabile)
+						((Incrementabile) effetto).attivaDaCarta(player);
+					else effetto.attiva(player);
+				}
 			}
 			
 			else System.out.println("Il valore del familiare non è sufficiente per attivare la raccolta in " + territorio.getNome());

@@ -51,7 +51,7 @@ public class Client extends Observable implements Serializable{
 	
 	public void send(Object message) throws IOException{
 		
-		System.out.println("Sono il client e sto inviando " + ((ArrayList<String>) message).get(0));
+		System.out.println("\nSono il client e sto inviando " + (ArrayList<String>) message);
 		outObj.writeObject(message);
 	}
 	

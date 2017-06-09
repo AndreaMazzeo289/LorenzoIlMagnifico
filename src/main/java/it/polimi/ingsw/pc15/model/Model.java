@@ -32,8 +32,10 @@ public class Model extends Observable implements Observer {
 	private int numeroGiocatori;
 	private ArrayList<Player> giocatori;
 	private Plancia plancia;
+	
 	private int turno;
 	private int periodo;
+	private ArrayList<String> ordine;
 	
 	private ArrayList<Carta> carteTerritorio;
 	private ArrayList<Carta> cartePersonaggio;
@@ -54,7 +56,8 @@ public class Model extends Observable implements Observer {
 		giocatori = new ArrayList<Player>();
 		for (int i=0; i<numeroGiocatori; i++)
 			giocatori.add(new Player(nomiGiocatori.get(i)));
-		Collections.shuffle(giocatori);
+		ordine = nomiGiocatori;
+		Collections.shuffle(ordine);
 
 	}
 
@@ -66,10 +69,6 @@ public class Model extends Observable implements Observer {
 		
 		distribuisciRisorse();
 		
-		Random random = new Random();
-		giocatori.get(random.nextInt(numeroGiocatori)).setOrdine(true);
-		
-			
 		iniziaNuovoTurno();
 		
 	}
@@ -175,6 +174,7 @@ public class Model extends Observable implements Observer {
 		
 	}
 	
+	/*
 	public String getProssimoGiocatore(){
 		for(int i = 0; i < this.numeroGiocatori; i++){
 			if(giocatori.get(i).getOrdine()==true){
@@ -185,14 +185,8 @@ public class Model extends Observable implements Observer {
 		
 		return null;
 	}
+	*/
 	
-	
-	public void setOrdineGiocatori(){}
-	
-	
-	public int getTurno(){
-		return turno;
-	}
 	
 	public Player getPlayer(String nome) {
 		

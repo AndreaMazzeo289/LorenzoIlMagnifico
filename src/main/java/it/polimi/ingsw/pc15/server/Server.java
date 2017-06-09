@@ -68,14 +68,14 @@ public class Server {
 			nomiGiocatoriConnessi.add(giocatoriConnessi.getKey());
 		
 		Model model = new Model(nomiGiocatoriConnessi, false);
-		Controller controller = new Controller(model, this.connections);
+		Controller controller = new Controller(model);
 		
 		model.iniziaPartita();
 		
 		for(Map.Entry<String, Connection> giocatoriConnessi : connections.entrySet()) {
 			giocatoriConnessi.getValue().addObserver(controller);  //il Controller viene reso Observer di ogni connessione
 			giocatoriConnessi.getValue().sendLine("OK"); //notifica ai giocatori l'inizio partita
-	}
+		}
 		
 	}
 
