@@ -27,7 +27,7 @@ public class CLI extends View {
 			
 	    	ArrayList<String> message = new ArrayList<String>();
 			
-	    	System.out.println("\nCosa vuoi fare?\n");
+	    	System.out.println("\nCosa vuoi fare?");
 	    	if (tuoTurno)
 	    		System.out.println("  0. Posiziona un familiare");
 	    	System.out.println("  1. Visualizza risorse\n  2. Visualizza familiari disponibili\n  3. Visualizza plancia");
@@ -60,7 +60,7 @@ public class CLI extends View {
 				case 1: message.add("mercato");
 					System.out.println("\nQuale spazio del mercato vuoi occupare?");
 					int scelta = input.nextInt();
-					message.add(String.valueOf(scelta));
+					message.add(String.valueOf(scelta-1));
 					break;
 				case 2: message.add("consiglio");
 					break;

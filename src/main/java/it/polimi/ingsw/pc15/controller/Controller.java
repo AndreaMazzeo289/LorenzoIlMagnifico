@@ -124,6 +124,8 @@ public class Controller extends Observable implements Observer {
 		if (azioneGiocatore.èValida()) {
 			System.out.println("\nAttivo l'azione!\n");
 			azioneGiocatore.attiva();
+			if (azioneGiocatore instanceof AzioneOccupaSpazio )
+				model.giocatoreSuccessivo();
 		}		
 
 		System.out.println("Risorse aggiornate " + giocatore.getNome() + ":");

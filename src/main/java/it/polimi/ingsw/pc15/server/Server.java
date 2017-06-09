@@ -51,7 +51,7 @@ public class Server {
 	public synchronized void connetti(Connection connection, String name){
 		
 		connections.put(name, connection);
-		System.out.println("connesso con il player:" + name);
+		System.out.println("Giocatore connesso: " + name);
 		numeroGiocatori++;
 		if (numeroGiocatori==2) {
 			avviaPartita();
@@ -68,6 +68,10 @@ public class Server {
 			nomiGiocatoriConnessi.add(giocatoriConnessi.getKey());
 		
 		Model model = new Model(nomiGiocatoriConnessi, true);
+		
+		for(Map.Entry<String, Connection> connessione : connections.entrySet()) 
+			model.addObserver(connessione.getValue());
+			
 		Controller controller = new Controller(model);
 		
 		model.iniziaPartita();

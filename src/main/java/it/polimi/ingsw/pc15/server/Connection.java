@@ -9,9 +9,12 @@ import java.net.Socket;
 import java.nio.channels.NotYetBoundException;
 import java.util.ArrayList;
 import java.util.Observable;
+import java.util.Observer;
 import java.util.Scanner;
 
-public class Connection extends Observable implements Runnable {
+import it.polimi.ingsw.pc15.model.StatoPartita;
+
+public class Connection extends Observable implements Observer, Runnable {
 
 	private Socket socket;
 	private Server server;
@@ -40,16 +43,18 @@ public class Connection extends Observable implements Runnable {
 		
 		while(true) {
 			
-			ArrayList<String> message = new ArrayList<String>();
 			try {
+				ArrayList<String> message;
 				message = (ArrayList<String>) inObj.readObject();
+				System.out.println("\nSono la connection e ho ricevuto " + message);
+				setChanged();
+				notifyObservers(message);
+				
 			} catch (ClassNotFoundException | IOException e) {
 				e.printStackTrace();
 			}
 			
-			System.out.println("\nSono la connection e ho ricevuto " + message);
-			setChanged();
-			notifyObservers(message);
+
 		}
 	
 	}
@@ -61,6 +66,17 @@ public class Connection extends Observable implements Runnable {
 	
 	public String getName() {
 		return this.name;
+	}
+
+	@Override
+	public void update(Observable o, Object arg) {
+		
+		try {
+			outObj.writeObject((StatoPartita)arg);
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+		
 	}
 
 }
