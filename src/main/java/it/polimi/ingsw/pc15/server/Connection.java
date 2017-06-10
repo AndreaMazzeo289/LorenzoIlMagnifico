@@ -54,31 +54,35 @@ public class Connection extends Observable implements Observer, Runnable, Serial
 			} catch (ClassNotFoundException | IOException e) {
 				e.printStackTrace();
 			}
-			
-
 		}
 	
-	}
-	
-	public synchronized void sendLine(String messaggio) {
-		
-		out.println(messaggio);
-	}
-	
-	public String getName() {
-		return this.name;
 	}
 
 	@Override
 	public void update(Observable o, Object arg) {
 		
-		System.out.println("\nSono la connection e ho ricevuto " + ((StatoPartita) arg).getMessaggio());
+		StatoPartita statoPartita = (StatoPartita)arg;
+		
+		System.out.println("\nSono la connection e ho ricevuto " + (statoPartita.getMessaggio()));
+		statoPartita.setStatoGiocatore(name);
+		sendObj(statoPartita);
+		
+	}
+	
+	public synchronized void sendLine(String messaggio) {	
+		out.println(messaggio);
+	}
+	
+	public synchronized void sendObj(Object obj) {	
 		try {
-			outObj.writeObject((StatoPartita)arg);
+			outObj.writeObject(obj);
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
-		
+	}
+	
+	public String getName() {
+		return this.name;
 	}
 
 }

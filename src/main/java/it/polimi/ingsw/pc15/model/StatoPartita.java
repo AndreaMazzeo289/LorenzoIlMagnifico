@@ -12,6 +12,7 @@ public class StatoPartita implements Serializable {
 	private int periodo;
 	private int turno;
 	private ArrayList<Player> statoGiocatori;
+	private Player statoGiocatore;
 	private String giocatoreCorrente;
 	private String messaggio;
 	
@@ -21,6 +22,7 @@ public class StatoPartita implements Serializable {
 		this.turno = turno;
 		this.statoGiocatori = statoGiocatori;
 		this.giocatoreCorrente = giocatoreCorrente;
+		this.statoGiocatore = null;
 		this.messaggio = messaggio;
 	}
 	
@@ -44,8 +46,19 @@ public class StatoPartita implements Serializable {
 		return this.giocatoreCorrente;
 	}
 	
+	public Player getStatoGiocatore() {
+		return this.statoGiocatore;
+	}
+	
 	public String getMessaggio() {
 		return this.messaggio;
+	}
+	
+	public void setStatoGiocatore(String nome) {
+		for (Player giocatore : statoGiocatori)
+			if (giocatore.getNome().equals(nome)) 
+				statoGiocatore = giocatore;
+		statoGiocatori.remove(statoGiocatore);
 	}
 
 }

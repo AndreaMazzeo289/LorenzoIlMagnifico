@@ -12,20 +12,46 @@ public class ClientModel extends Observable {
 	private Plancia statoPlancia;
 	private int periodo;
 	private int turno;
-	private ArrayList<Player> statoGiocatori;
+	private ArrayList<Player> statoAvversari;
+	private Player statoGiocatore;
 	private String giocatoreCorrente;
-
 	
+
 	public void aggiorna(StatoPartita stato) {
 		
 		this.statoPlancia = stato.getStatoPlancia();
 		this.periodo = stato.getPeriodo();
 		this.turno = stato.getTurno();
-		this.statoGiocatori = stato.getStatoGiocatori();
+		this.statoAvversari = stato.getStatoGiocatori();
 		this.giocatoreCorrente = stato.getGiocatoreCorrente();	
+		this.statoGiocatore = stato.getStatoGiocatore();
 		
 		System.out.println("\nSono il clientModel e sono stato aggiornato! <3");
 		
+	}
+	
+	public Plancia getStatoPlancia() {
+		return this.statoPlancia;
+	}
+	
+	public int getPeriodo() {
+		return this.periodo;
+	}
+	
+	public int getTurno() {
+		return this.turno;
+	}
+	
+	public Player getStatoGiocatore() {
+		return this.statoGiocatore;
+	}
+	
+	public ArrayList<Player> getStatoAvversari() {
+		return this.statoAvversari;
+	}
+	
+	public String getGiocatoreCorrente() {
+		return this.giocatoreCorrente;
 	}
 	
 

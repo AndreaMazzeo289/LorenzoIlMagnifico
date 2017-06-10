@@ -6,7 +6,7 @@ import java.util.Observer;
 
 public abstract class View extends Observable implements Observer, Runnable {
 	
-	private ClientModel clientModel;
+	protected ClientModel clientModel;
 	
 	public View(ClientController clientController, ClientModel clientModel)
 	{
