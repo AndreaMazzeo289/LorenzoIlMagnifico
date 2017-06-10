@@ -11,7 +11,7 @@ import it.polimi.ingsw.pc15.effetti.Effetto;
 import it.polimi.ingsw.pc15.player.Familiare;
 import it.polimi.ingsw.pc15.risorse.SetRisorse;
 
-public class SpazioConsiglio extends Spazio implements Serializable {
+public class SpazioConsiglio extends Spazio {
 	
 	private Effetto effetto;
 	

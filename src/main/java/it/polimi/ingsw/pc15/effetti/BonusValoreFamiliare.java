@@ -5,7 +5,7 @@ import java.io.Serializable;
 import it.polimi.ingsw.pc15.player.ColoreFamiliare;
 import it.polimi.ingsw.pc15.player.Player;
 
-public class BonusValoreFamiliare extends Bonus implements Serializable {
+public class BonusValoreFamiliare extends Bonus {
 
 		protected ColoreFamiliare colore;
 		

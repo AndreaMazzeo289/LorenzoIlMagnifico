@@ -9,7 +9,7 @@ import it.polimi.ingsw.pc15.azioni.AzioneOccupaSpazioProduzione;
 import it.polimi.ingsw.pc15.effetti.Effetto;
 import it.polimi.ingsw.pc15.player.Familiare;
 
-public class SpazioProduzione extends Spazio implements Serializable {
+public class SpazioProduzione extends Spazio {
 	
 	public SpazioProduzione(int valoreMin) {
 		super(valoreMin);

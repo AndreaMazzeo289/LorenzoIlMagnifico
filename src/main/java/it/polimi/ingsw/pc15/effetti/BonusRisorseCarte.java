@@ -5,7 +5,7 @@ import java.io.Serializable;
 import it.polimi.ingsw.pc15.player.Player;
 import it.polimi.ingsw.pc15.risorse.TipoRisorsa;
 
-public class BonusRisorseCarte extends Bonus implements Serializable {
+public class BonusRisorseCarte extends Bonus {
 	
 	private TipoRisorsa risorsa;
 

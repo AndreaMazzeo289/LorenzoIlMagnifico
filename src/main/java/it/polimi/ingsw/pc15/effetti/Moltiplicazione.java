@@ -13,7 +13,7 @@ import it.polimi.ingsw.pc15.risorse.Risorsa;
 import it.polimi.ingsw.pc15.risorse.SetRisorse;
 import it.polimi.ingsw.pc15.risorse.TipoRisorsa;
 
-public abstract class Moltiplicazione extends Effetto implements Incrementabile, Serializable{
+public abstract class Moltiplicazione extends Effetto implements Incrementabile {
 
 	protected SetRisorse setRisorse;
 	protected int quantità;

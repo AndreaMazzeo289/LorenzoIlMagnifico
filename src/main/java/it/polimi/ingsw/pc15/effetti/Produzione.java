@@ -9,7 +9,7 @@ import it.polimi.ingsw.pc15.carte.Edificio;
 import it.polimi.ingsw.pc15.carte.Territorio;
 import it.polimi.ingsw.pc15.player.Player;
 
-public class Produzione extends Effetto implements Serializable {
+public class Produzione extends Effetto {
 	
 	private int valore;
 	

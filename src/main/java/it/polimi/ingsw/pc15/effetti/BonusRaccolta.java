@@ -4,7 +4,7 @@ import java.io.Serializable;
 
 import it.polimi.ingsw.pc15.player.Player;
 
-public class BonusRaccolta extends Bonus implements Serializable {
+public class BonusRaccolta extends Bonus {
 	
 	public BonusRaccolta(int valore){
 		super(valore);

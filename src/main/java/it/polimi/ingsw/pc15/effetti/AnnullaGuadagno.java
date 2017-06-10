@@ -5,7 +5,7 @@ import java.io.Serializable;
 import it.polimi.ingsw.pc15.carte.TipoCarta;
 import it.polimi.ingsw.pc15.player.Player;
 
-public class AnnullaGuadagno extends Effetto implements Serializable {
+public class AnnullaGuadagno extends Effetto {
 	
 	private TipoCarta TipoCarta;
 	

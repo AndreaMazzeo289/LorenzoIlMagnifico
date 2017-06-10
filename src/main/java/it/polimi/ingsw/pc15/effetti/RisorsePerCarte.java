@@ -6,7 +6,7 @@ import it.polimi.ingsw.pc15.carte.TipoCarta;
 import it.polimi.ingsw.pc15.player.Player;
 import it.polimi.ingsw.pc15.risorse.SetRisorse;
 
-public class RisorsePerCarte extends Moltiplicazione implements Serializable {
+public class RisorsePerCarte extends Moltiplicazione {
 	
 	private TipoCarta TipoCarta;
 

@@ -7,7 +7,7 @@ import java.util.Scanner;
 import it.polimi.ingsw.pc15.player.Leader;
 import it.polimi.ingsw.pc15.player.Player;
 
-public class CopiaEffettoLeader extends Effetto implements Serializable {
+public class CopiaEffettoLeader extends Effetto {
 
 	@Override
 	public void attiva(Player player) {

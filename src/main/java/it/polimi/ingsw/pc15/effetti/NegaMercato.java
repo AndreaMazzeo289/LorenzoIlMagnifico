@@ -4,7 +4,7 @@ import java.io.Serializable;
 
 import it.polimi.ingsw.pc15.player.Player;
 
-public class NegaMercato extends Effetto implements Serializable {
+public class NegaMercato extends Effetto {
 
 	@Override
 	public void attiva(Player player) {

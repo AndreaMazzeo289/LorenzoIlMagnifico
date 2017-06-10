@@ -9,7 +9,7 @@ import it.polimi.ingsw.pc15.risorse.Risorsa;
 import it.polimi.ingsw.pc15.risorse.SetRisorse;
 import it.polimi.ingsw.pc15.risorse.TipoRisorsa;
 
-public class Scambio extends Effetto implements Incrementabile, Serializable {
+public class Scambio extends Effetto implements Incrementabile {
 	
 	private SetRisorse pagamento1;
 	private SetRisorse guadagno1;

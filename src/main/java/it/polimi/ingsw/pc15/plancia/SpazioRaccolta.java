@@ -10,7 +10,7 @@ import it.polimi.ingsw.pc15.player.Familiare;
 import java.io.Serializable;
 import java.util.LinkedList;
 
-public class SpazioRaccolta extends Spazio implements Serializable {
+public class SpazioRaccolta extends Spazio {
 	
 	public SpazioRaccolta(int valoreMin) {
 		super(valoreMin);

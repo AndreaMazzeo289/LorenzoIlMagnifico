@@ -8,7 +8,7 @@ import it.polimi.ingsw.pc15.carte.TipoCarta;
 import it.polimi.ingsw.pc15.carte.Territorio;
 import it.polimi.ingsw.pc15.player.Player;
 
-public class Raccolto extends Effetto implements Serializable {
+public class Raccolto extends Effetto {
 	
 	private int valore;
 	

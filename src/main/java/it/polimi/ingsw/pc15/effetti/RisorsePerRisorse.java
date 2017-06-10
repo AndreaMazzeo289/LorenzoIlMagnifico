@@ -6,7 +6,7 @@ import it.polimi.ingsw.pc15.player.Player;
 import it.polimi.ingsw.pc15.risorse.SetRisorse;
 import it.polimi.ingsw.pc15.risorse.TipoRisorsa;
 
-public class RisorsePerRisorse extends Moltiplicazione implements Serializable {
+public class RisorsePerRisorse extends Moltiplicazione {
 	
 	private TipoRisorsa tipoRisorsa;
 

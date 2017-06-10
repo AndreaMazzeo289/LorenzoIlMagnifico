@@ -13,7 +13,7 @@ import it.polimi.ingsw.pc15.player.ColoreFamiliare;
 import it.polimi.ingsw.pc15.player.Familiare;
 import it.polimi.ingsw.pc15.risorse.SetRisorse;
 
-public class SpazioTorre extends Spazio implements Serializable {
+public class SpazioTorre extends Spazio {
 
 	private Carta carta;
 	private Torre torre;

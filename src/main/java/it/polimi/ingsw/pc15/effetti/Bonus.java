@@ -4,7 +4,7 @@ import java.io.Serializable;
 
 import it.polimi.ingsw.pc15.player.Player;
 
-public abstract class Bonus extends Effetto implements Serializable {
+public abstract class Bonus extends Effetto {
 	
 	protected int valore;
 	

@@ -2,7 +2,7 @@ package it.polimi.ingsw.pc15.risorse;
 
 import java.io.Serializable;
 
-public class Privilegi extends Risorsa implements Serializable {
+public class Privilegi extends Risorsa  {
 
 	public Privilegi(int quantità) {
 		super(quantità);

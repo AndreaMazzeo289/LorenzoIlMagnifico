@@ -7,7 +7,7 @@ import it.polimi.ingsw.pc15.player.ColoreFamiliare;
 import it.polimi.ingsw.pc15.player.Familiare;
 import it.polimi.ingsw.pc15.player.Player;
 
-public class FissaValoreFamiliareAScelta extends FissaValoreFamiliare implements Serializable {
+public class FissaValoreFamiliareAScelta extends FissaValoreFamiliare {
 
 	public FissaValoreFamiliareAScelta(int valore) {
 		super(null, valore);
