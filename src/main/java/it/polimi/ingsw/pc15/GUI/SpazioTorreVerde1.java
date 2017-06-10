@@ -37,7 +37,7 @@ public class SpazioTorreVerde1 extends JPanel{
 		int larghezzaS = larghezzaN;
 		int altezzaS = 47;
 		int larghezzaTotale = 4076;//4068
-		int altezzaTotale = 6420;
+		int altezzaTotale = 6530;
 		
 		labelNorth = new JLabel();
 		labelEast = new JLabel();

@@ -14,6 +14,7 @@ import java.util.Observer;
 import java.util.Scanner;
 
 import it.polimi.ingsw.pc15.model.StatoPartita;
+import it.polimi.ingsw.pc15.risorse.TipoRisorsa;
 
 public class Connection extends Observable implements Observer, Runnable, Serializable {
 

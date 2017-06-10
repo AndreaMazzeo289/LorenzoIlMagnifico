@@ -31,14 +31,14 @@ public class SpazioRaccolto1 extends JPanel{
 		int altezzaECW = 432;
 		int altezzaN = 91;
 		int altezzaS = 143;
-		int larghezzaW = 85;
+		int larghezzaW = 85;//85
 		int larghezzaE = 66;
-		int larghezzaC = 399;
+		int larghezzaC = 401;//399
 		int larghezzaN = larghezzaW+larghezzaE+larghezzaC; //956
 		int larghezzaS = larghezzaN;
 		
 		int larghezzaTotale = 4076;
-		int altezzaTotale = 6420;
+		int altezzaTotale = 6530;
 		
 		labelNorth = new JLabel();
 		labelEast = new JLabel();

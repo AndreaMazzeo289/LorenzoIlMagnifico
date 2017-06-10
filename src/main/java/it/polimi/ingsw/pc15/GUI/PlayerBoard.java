@@ -1,5 +1,6 @@
 package it.polimi.ingsw.pc15.GUI;
 
+import java.awt.FlowLayout;
 import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;
 import java.awt.GridLayout;
@@ -9,6 +10,7 @@ import javax.swing.JPanel;
 public class PlayerBoard extends JPanel{
 
 	CarteGioco carta;
+	CartaScomunica cartaScomunica;
 	
 	public PlayerBoard() {
 		
@@ -16,16 +18,38 @@ public class PlayerBoard extends JPanel{
 		
 		JPanel risorsePlayer = new JPanel(new GridBagLayout());
 		JPanel cartePlayer = new JPanel(new GridLayout(4,7));
-		JPanel buttonPanel = new JPanel(new GridLayout(1,4));
+		JPanel scomunicheButtonPanel = new JPanel (new GridLayout(1,2));
+		JPanel presentationPanel = new JPanel (new GridBagLayout());
+		JPanel buttonPanel = new JPanel(new GridLayout(2,2));
+		JPanel scomunichePanel = new JPanel(new GridLayout(1,3));
 		
 		GridBagConstraints gbc = new GridBagConstraints();
 		
-		// Panel button
+		// Presentation panel
+		//-----------------------//
+		gbc.gridx=0;
+		gbc.gridy=0;
+		presentationPanel.add(new Presentazione(),gbc);
+		gbc.gridx=1;
+		gbc.gridy=0;
+		presentationPanel.add(new ButtonStatoGioco(),gbc);
+		
+		// ScomunicheButtonPanel 
 		//-----------------------//
 		buttonPanel.add(new ButtonPosizionaFamiliare());
 		buttonPanel.add(new ButtonGiocaLeader());
 		buttonPanel.add(new ButtonAttivaEffettoLeader());
 		buttonPanel.add(new ButtonScartaLeader());
+		
+		cartaScomunica = new CartaScomunica("img/PunchboardCut/excomm_1_1.png");
+		scomunichePanel.add(cartaScomunica);
+		cartaScomunica = new CartaScomunica("img/PunchboardCut/excomm_2_1.png");
+		scomunichePanel.add(cartaScomunica);
+		cartaScomunica = new CartaScomunica("img/PunchboardCut/excomm_3_1.png");
+		scomunichePanel.add(cartaScomunica);
+		
+		scomunicheButtonPanel.add(scomunichePanel);
+		scomunicheButtonPanel.add(buttonPanel);
 		
 		// Panel carte
 		//-----------------------//
@@ -78,15 +102,17 @@ public class PlayerBoard extends JPanel{
 		gbc.gridy=0;
 		risorsePlayer.add(new FamiliariDisponibili(),gbc);
 		
-	
 		gbc.gridx=0;
 		gbc.gridy=0;
-		this.add(cartePlayer,gbc);
+		this.add(presentationPanel,gbc);
 		gbc.gridx=0;
 		gbc.gridy=1;
-		this.add(buttonPanel, gbc);
+		this.add(scomunicheButtonPanel,gbc);
 		gbc.gridx=0;
 		gbc.gridy=2;
+		this.add(cartePlayer, gbc);
+		gbc.gridx=0;
+		gbc.gridy=3;
 		this.add(risorsePlayer, gbc);
 		
 		this.setVisible(true);

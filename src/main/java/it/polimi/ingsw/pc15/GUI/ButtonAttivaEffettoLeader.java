@@ -8,6 +8,7 @@ import java.awt.Toolkit;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JLabel;
+import java.awt.Color;
 
 public class ButtonAttivaEffettoLeader extends JButton{
 
@@ -16,6 +17,7 @@ public class ButtonAttivaEffettoLeader extends JButton{
 	Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
 	
 	public ButtonAttivaEffettoLeader() {
+		setBackground(Color.decode("3752777"));
 		
 		int altezzaSchermo = (int)screenSize.getHeight();
 		int larghezzaSchermo = (int)screenSize.getWidth()/2;
@@ -26,7 +28,7 @@ public class ButtonAttivaEffettoLeader extends JButton{
 		int larghezza = 880; 
 		
 		int larghezzaTotale = 4076;
-		int altezzaTotale = 6420;
+		int altezzaTotale = 6530; //6420
 		
 		imageButton = new JLabel();
 		

@@ -39,7 +39,7 @@ public class SpazioTorreVerde2 extends JPanel{
 		int larghezzaS = larghezzaN;
 		int altezzaS = 47;
 		int larghezzaTotale = 4076;//4068
-		int altezzaTotale = 6420;
+		int altezzaTotale = 6450;
 		
 		int x = (int)(altezzaSchermo*altezzaN)/altezzaTotale;
 		System.out.println(x);

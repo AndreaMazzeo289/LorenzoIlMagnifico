@@ -1,6 +1,7 @@
 package it.polimi.ingsw.pc15.GUI;
 
 import java.awt.BorderLayout;
+import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.Image;
 import java.awt.Toolkit;
@@ -17,6 +18,7 @@ public class ButtonGiocaLeader extends JButton{
 	
 	public ButtonGiocaLeader() {
 		
+		setBackground(Color.decode("5724515"));
 		int altezzaSchermo = (int)screenSize.getHeight();
 		int larghezzaSchermo = (int)screenSize.getWidth()/2;
 		
@@ -26,7 +28,7 @@ public class ButtonGiocaLeader extends JButton{
 		int larghezza = 880; 
 		
 		int larghezzaTotale = 4076;
-		int altezzaTotale = 6420;
+		int altezzaTotale = 6530;
 		
 		imageButton = new JLabel();
 		

@@ -38,7 +38,7 @@ public class TappetoServitori extends JPanel{
 		int larghezzaS = larghezzaN;
 		
 		int larghezzaTotale = 4076;
-		int altezzaTotale = 6420;
+		int altezzaTotale = 6530;
 		
 		labelNorth = new JLabel();
 		labelEast = new JLabel();

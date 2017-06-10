@@ -35,7 +35,7 @@ public class SpazioConsiglio extends JPanel{
 		int larghezzaS = larghezzaW+larghezzaE+larghezzaC;
 		
 		int larghezzaTotale = 4076;
-		int altezzaTotale = 6420;
+		int altezzaTotale = 6530;
 		
 		labelEast = new JLabel();
 		labelWest = new JLabel();

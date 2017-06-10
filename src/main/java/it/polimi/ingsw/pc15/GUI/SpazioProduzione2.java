@@ -30,15 +30,15 @@ public class SpazioProduzione2 extends JPanel{
 		
 		int altezzaECW = 432;
 		int altezzaN = 363;
-		int altezzaS = 59;
-		int larghezzaW = 85;
+		int altezzaS = 65;//59
+		int larghezzaW = 68;
 		int larghezzaE = 411;
 		int larghezzaC = 1007;
 		int larghezzaN = larghezzaW+larghezzaE+larghezzaC; //956
 		int larghezzaS = larghezzaN;
 		
 		int larghezzaTotale = 4076;
-		int altezzaTotale = 6420;
+		int altezzaTotale = 6530;
 		
 		labelNorth = new JLabel();
 		labelEast = new JLabel();

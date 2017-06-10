@@ -24,7 +24,7 @@ public class CarteGioco extends JPanel{
 		int larghezza = 582; //toDefine
 		
 		int larghezzaTotale = 4076;
-		int altezzaTotale = 6420;
+		int altezzaTotale = 6530;
 		
 		carta = new JLabel();
 		

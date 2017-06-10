@@ -29,16 +29,16 @@ public class SpazioProduzione1 extends JPanel{
 		this.setLayout(new BorderLayout());
 		
 		int altezzaECW = 432;
-		int altezzaN = 363;
+		int altezzaN = 369;//363
 		int altezzaS = 59;
 		int larghezzaW = 85;
 		int larghezzaE = 66;
-		int larghezzaC = 399;
+		int larghezzaC = 401;//399
 		int larghezzaN = larghezzaW+larghezzaE+larghezzaC; //956
 		int larghezzaS = larghezzaN;
 		
 		int larghezzaTotale = 4076;
-		int altezzaTotale = 6420;
+		int altezzaTotale = 6530;
 		
 		labelNorth = new JLabel();
 		labelEast = new JLabel();
