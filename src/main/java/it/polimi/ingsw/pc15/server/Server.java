@@ -51,7 +51,7 @@ public class Server {
 	public synchronized void connetti(Connection connection, String name){
 		
 		connections.put(name, connection);
-		System.out.println("Giocatore connesso: " + name);
+		System.out.println("Giocatore connnesso: " + name);
 		numeroGiocatori++;
 		if (numeroGiocatori==2) {
 			avviaPartita();

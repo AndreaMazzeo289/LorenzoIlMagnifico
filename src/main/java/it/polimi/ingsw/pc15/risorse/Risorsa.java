@@ -1,12 +1,14 @@
 package it.polimi.ingsw.pc15.risorse;
 
+import java.io.Serializable;
+
 /**
  * Superclasse generale di ogni risorsa del giocatore
  * @author Andrea
  *
  */
 
-public abstract class Risorsa {
+public abstract class Risorsa implements Serializable {
 	
 	private int quantità;
 	protected TipoRisorsa tipoRisorsa;

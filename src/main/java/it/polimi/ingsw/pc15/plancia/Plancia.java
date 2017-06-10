@@ -1,5 +1,6 @@
 package it.polimi.ingsw.pc15.plancia;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.HashMap;
@@ -16,7 +17,7 @@ import it.polimi.ingsw.pc15.carte.Personaggio;
 import it.polimi.ingsw.pc15.carte.Territorio;
 import it.polimi.ingsw.pc15.risorse.SetRisorse;
 
-public class Plancia {
+public class Plancia implements Serializable {
 	
 	private Torre torreVerde;
 	private Torre torreBlu;

@@ -1,6 +1,8 @@
 package it.polimi.ingsw.pc15.risorse;
 
-public class Oro extends Risorsa {
+import java.io.Serializable;
+
+public class Oro extends Risorsa implements Serializable{
 
 	public Oro(int quantità) {
 		super(quantità);

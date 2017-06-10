@@ -1,8 +1,10 @@
 package it.polimi.ingsw.pc15.azioni;
 
+import java.io.Serializable;
+
 import it.polimi.ingsw.pc15.player.Player;
 
-public abstract class Azione {
+public abstract class Azione implements Serializable {
 	
 	protected Player player;
 	

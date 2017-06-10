@@ -1,5 +1,6 @@
 package it.polimi.ingsw.pc15.effetti;
 
+import java.io.Serializable;
 import java.util.Map;
 import java.util.Scanner;
 
@@ -8,7 +9,7 @@ import it.polimi.ingsw.pc15.risorse.Risorsa;
 import it.polimi.ingsw.pc15.risorse.SetRisorse;
 import it.polimi.ingsw.pc15.risorse.TipoRisorsa;
 
-public class Scambio extends Effetto implements Incrementabile{
+public class Scambio extends Effetto implements Incrementabile, Serializable {
 	
 	private SetRisorse pagamento1;
 	private SetRisorse guadagno1;

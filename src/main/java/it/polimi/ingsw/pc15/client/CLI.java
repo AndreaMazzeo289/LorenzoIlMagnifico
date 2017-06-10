@@ -14,8 +14,8 @@ public class CLI extends View {
 	private boolean tuoTurno;
 	private final boolean regoleAvanzate;
 	
-	public CLI(ClientController clientController){
-		super(clientController);
+	public CLI(ClientController clientController, ClientModel clientModel){
+		super(clientController, clientModel);
 		this.input = new Scanner(System.in);
 		this.tuoTurno = true;
 		this.regoleAvanzate = true;
@@ -112,5 +112,11 @@ public class CLI extends View {
 	    	
 	    	notifyObservers(message);
 	    }			
+	}
+
+	@Override
+	public void update(Observable arg0, Object arg1) {
+		// TODO Auto-generated method stub
+		
 	}
 }

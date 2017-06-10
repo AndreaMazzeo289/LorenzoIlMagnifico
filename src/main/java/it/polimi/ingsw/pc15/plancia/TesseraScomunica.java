@@ -1,11 +1,12 @@
 package it.polimi.ingsw.pc15.plancia;
 
+import java.io.Serializable;
 import java.util.Set;
 
 import it.polimi.ingsw.pc15.effetti.Effetto;
 import it.polimi.ingsw.pc15.player.Player;
 
-public class TesseraScomunica {
+public class TesseraScomunica implements Serializable {
 	
 	private final int id;
 	private final int periodo;

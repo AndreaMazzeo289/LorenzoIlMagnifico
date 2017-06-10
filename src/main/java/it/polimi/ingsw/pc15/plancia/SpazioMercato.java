@@ -1,5 +1,6 @@
 package it.polimi.ingsw.pc15.plancia;
 
+import java.io.Serializable;
 import java.util.Queue;
 
 import it.polimi.ingsw.pc15.azioni.AzioneOccupaSpazioMercato;
@@ -8,7 +9,7 @@ import it.polimi.ingsw.pc15.effetti.Effetto;
 import it.polimi.ingsw.pc15.player.Familiare;
 import it.polimi.ingsw.pc15.risorse.SetRisorse;
 
-public class SpazioMercato extends Spazio {
+public class SpazioMercato extends Spazio implements Serializable {
 
 	private Effetto effetto;
 	

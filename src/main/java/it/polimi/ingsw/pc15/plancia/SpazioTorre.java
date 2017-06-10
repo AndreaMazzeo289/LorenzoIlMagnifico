@@ -1,6 +1,9 @@
 package it.polimi.ingsw.pc15.plancia;
 
 import it.polimi.ingsw.pc15.azioni.AzionePrendiCarta;
+
+import java.io.Serializable;
+
 import it.polimi.ingsw.pc15.azioni.AzioneOccupaSpazioMercato;
 import it.polimi.ingsw.pc15.azioni.AzioneOccupaSpazioTorre;
 import it.polimi.ingsw.pc15.carte.Carta;
@@ -10,7 +13,7 @@ import it.polimi.ingsw.pc15.player.ColoreFamiliare;
 import it.polimi.ingsw.pc15.player.Familiare;
 import it.polimi.ingsw.pc15.risorse.SetRisorse;
 
-public class SpazioTorre extends Spazio {
+public class SpazioTorre extends Spazio implements Serializable {
 
 	private Carta carta;
 	private Torre torre;

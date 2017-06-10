@@ -1,5 +1,6 @@
  package it.polimi.ingsw.pc15.model;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.HashSet;
@@ -29,7 +30,7 @@ import it.polimi.ingsw.pc15.risorse.Servitori;
 import it.polimi.ingsw.pc15.risorse.SetRisorse;
 import it.polimi.ingsw.pc15.risorse.TipoRisorsa;
 
-public class Model extends Observable{
+public class Model extends Observable {
 	
 	private int numeroGiocatori;
 	private ArrayList<Player> giocatori;
@@ -231,7 +232,9 @@ public class Model extends Observable{
 	}
 	
 	public void notificaStatoPartita (String messaggio) {
+		System.out.println("\nSono il model e ho preparato " + messaggio);
 		StatoPartita statoPartita = new StatoPartita(plancia, periodo, turno, giocatori, giocatoreCorrente, messaggio);
+		setChanged();
 		notifyObservers(statoPartita);
 		
 	}

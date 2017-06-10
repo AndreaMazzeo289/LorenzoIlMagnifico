@@ -1,8 +1,10 @@
 package it.polimi.ingsw.pc15.effetti;
 
+import java.io.Serializable;
+
 import it.polimi.ingsw.pc15.player.Player;
 
-public abstract class Bonus extends Effetto{
+public abstract class Bonus extends Effetto implements Serializable {
 	
 	protected int valore;
 	

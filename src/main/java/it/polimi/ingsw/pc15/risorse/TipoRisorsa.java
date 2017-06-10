@@ -1,6 +1,8 @@
 package it.polimi.ingsw.pc15.risorse;
 
-public enum TipoRisorsa { 
+import java.io.Serializable;
+
+public enum TipoRisorsa implements Serializable { 
 	
 	ORO,LEGNA,PIETRA,SERVITORI,PUNTIVITTORIA,PUNTIMILITARI,PUNTIFEDE,PRIVILEGI;
 

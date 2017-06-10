@@ -1,6 +1,7 @@
 
 package it.polimi.ingsw.pc15.player;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.HashSet;
@@ -29,7 +30,7 @@ import it.polimi.ingsw.pc15.risorse.Servitori;
 import it.polimi.ingsw.pc15.risorse.SetRisorse;
 import it.polimi.ingsw.pc15.risorse.TipoRisorsa;
 
-public class Player {
+public class Player implements Serializable {
 	
 	private final String nome;
 	private SetRisorse setRisorse;

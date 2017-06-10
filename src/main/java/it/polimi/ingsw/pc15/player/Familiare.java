@@ -1,8 +1,10 @@
 package it.polimi.ingsw.pc15.player;
 
+import java.io.Serializable;
+
 import it.polimi.ingsw.pc15.risorse.TipoRisorsa;
 
-public class Familiare {
+public class Familiare implements Serializable{
 	
 	private Player player;
 	private final ColoreFamiliare coloreFamiliare;

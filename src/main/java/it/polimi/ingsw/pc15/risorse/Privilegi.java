@@ -1,6 +1,8 @@
 package it.polimi.ingsw.pc15.risorse;
 
-public class Privilegi extends Risorsa {
+import java.io.Serializable;
+
+public class Privilegi extends Risorsa implements Serializable {
 
 	public Privilegi(int quantità) {
 		super(quantità);

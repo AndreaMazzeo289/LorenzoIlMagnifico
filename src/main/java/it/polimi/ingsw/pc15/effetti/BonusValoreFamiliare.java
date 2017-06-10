@@ -1,9 +1,11 @@
 package it.polimi.ingsw.pc15.effetti;
 
+import java.io.Serializable;
+
 import it.polimi.ingsw.pc15.player.ColoreFamiliare;
 import it.polimi.ingsw.pc15.player.Player;
 
-public class BonusValoreFamiliare extends Bonus{
+public class BonusValoreFamiliare extends Bonus implements Serializable {
 
 		protected ColoreFamiliare colore;
 		

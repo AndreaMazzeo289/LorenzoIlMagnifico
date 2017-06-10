@@ -1,6 +1,8 @@
 package it.polimi.ingsw.pc15.risorse;
 
-public class Legna extends Risorsa {
+import java.io.Serializable;
+
+public class Legna extends Risorsa implements Serializable{
 
 	public Legna(int quantità) {
 		super(quantità);

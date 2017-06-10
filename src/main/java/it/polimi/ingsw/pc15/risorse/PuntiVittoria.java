@@ -1,6 +1,8 @@
 package it.polimi.ingsw.pc15.risorse;
 
-public class PuntiVittoria extends Risorsa {
+import java.io.Serializable;
+
+public class PuntiVittoria extends Risorsa implements Serializable {
 
 	public PuntiVittoria(int quantità) {
 		super(quantità);

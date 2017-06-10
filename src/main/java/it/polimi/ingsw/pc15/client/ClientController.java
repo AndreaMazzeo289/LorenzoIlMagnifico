@@ -4,39 +4,66 @@ import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import java.io.PrintStream;
+import java.io.Serializable;
 import java.net.Socket;
 import java.util.ArrayList;
 import java.util.Observable;
 import java.util.Observer;
 import java.util.Scanner;
 
-public class ClientController extends Observable implements Observer  {
+import it.polimi.ingsw.pc15.model.StatoPartita;
 
+public class ClientController extends Observable implements Observer, Serializable {
+	
+	private Client client;
 	private Scanner in;
 	private PrintStream out;
 	private ObjectInputStream inObj;
 	private ObjectOutputStream outObj;
+	private ClientModel clientModel;
 
 
-	public ClientController (Socket socket) throws IOException  {
+	public ClientController (Socket socket, ClientModel clientModel) throws IOException  {
 		
 		this.in = new Scanner(socket.getInputStream());
 		this.out = new PrintStream(socket.getOutputStream());	
 		this.inObj = new ObjectInputStream(socket.getInputStream());
 		this.outObj = new ObjectOutputStream(socket.getOutputStream());
+		this.clientModel = clientModel;
 	}	
 	
-	public void run() {
+	public boolean connetti() {
 		
 		String name;
 		Scanner input = new Scanner(System.in);
-		System.out.println("Scrivi il tuo nome :");
+		System.out.println("Connesso alla partita!\nScrivi il tuo nome :");
 		name = input.nextLine();
 		out.println(name);  //manda il nome alla Connection
 		
 		if(in.nextLine().equals("OK")) {  //attende finchè riceve l'OK dal server
 			System.out.println(name +", la partita ha inizio!");
+			return true;
 		}
+		
+		return false;
+		
+	}
+		
+		public void run() {
+			
+			StatoPartita statoPartita = null;
+			
+			while (true) {
+				try {
+
+					statoPartita = (StatoPartita) inObj.readObject();
+					
+				} catch (ClassNotFoundException | IOException e) {
+					e.printStackTrace();}
+				
+				System.out.println("\nSono il clientController e ho ricevuto " +statoPartita.getMessaggio());
+				clientModel.aggiorna(statoPartita);
+			}
 
 	}
 	

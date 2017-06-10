@@ -10,9 +10,8 @@ import java.util.ArrayList;
 import java.util.Observable;
 import java.util.Scanner;
 
-public class Client extends Observable implements Serializable{
+public class Client {
 	
-	private String name;
 	private static String hostName;
 	private ClientController clientController;
 	private View view;
@@ -21,15 +20,20 @@ public class Client extends Observable implements Serializable{
 	public Client() throws IOException {
 		
 		this.clientModel = new ClientModel();
-		this.clientController = new ClientController(new Socket(hostName, 12879));
-		this.clientController.run();
-		this.view = new CLI(clientController);
-		this.view.run();
-
+		this.clientController = new ClientController(new Socket(hostName, 12879), clientModel);
+		this.view = new CLI(clientController, clientModel);
+	}
+	
+	public void connetti() {
+		if (clientController.connetti()) {
+			new Thread(view).start();
+			clientController.run();
+		}
 	}
 	
 	public static void main(String[] args) throws IOException, InterruptedException {
 		
 		Client client = new Client();
+		client.connetti();
 	}
 }

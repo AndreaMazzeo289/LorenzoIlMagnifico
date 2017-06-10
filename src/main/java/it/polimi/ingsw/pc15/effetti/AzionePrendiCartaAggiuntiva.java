@@ -1,9 +1,11 @@
 package it.polimi.ingsw.pc15.effetti;
 
+import java.io.Serializable;
+
 import it.polimi.ingsw.pc15.carte.TipoCarta;
 import it.polimi.ingsw.pc15.player.Player;
 
-public class AzionePrendiCartaAggiuntiva extends Effetto {
+public class AzionePrendiCartaAggiuntiva extends Effetto implements Serializable {
 	
 	private TipoCarta tipoCarta;
 	private int valore;

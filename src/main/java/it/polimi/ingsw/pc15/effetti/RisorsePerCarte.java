@@ -1,10 +1,12 @@
 package it.polimi.ingsw.pc15.effetti;
 
+import java.io.Serializable;
+
 import it.polimi.ingsw.pc15.carte.TipoCarta;
 import it.polimi.ingsw.pc15.player.Player;
 import it.polimi.ingsw.pc15.risorse.SetRisorse;
 
-public class RisorsePerCarte extends Moltiplicazione {
+public class RisorsePerCarte extends Moltiplicazione implements Serializable {
 	
 	private TipoCarta TipoCarta;
 

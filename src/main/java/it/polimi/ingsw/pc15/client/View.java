@@ -1,13 +1,16 @@
 package it.polimi.ingsw.pc15.client;
 
 import java.util.Observable;
+import java.util.Observer;
 
 
-public abstract class View extends Observable{
+public abstract class View extends Observable implements Observer, Runnable {
 	
-	public View(ClientController clientController)
+	private ClientModel clientModel;
+	
+	public View(ClientController clientController, ClientModel clientModel)
 	{
-		
+		this.clientModel = clientModel;
 		this.addObserver(clientController);
 	
 	}

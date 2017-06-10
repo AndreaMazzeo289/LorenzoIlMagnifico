@@ -1,11 +1,12 @@
 package it.polimi.ingsw.pc15.plancia;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Queue;
 
 import it.polimi.ingsw.pc15.player.Familiare;
 
-public abstract class Spazio {
+public abstract class Spazio implements Serializable {
 	
 	private int valoreMin;
 	protected ArrayList<Familiare> familiari;

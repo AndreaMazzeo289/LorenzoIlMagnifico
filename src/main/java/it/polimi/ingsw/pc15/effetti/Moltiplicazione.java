@@ -1,5 +1,6 @@
 package it.polimi.ingsw.pc15.effetti;
 
+import java.io.Serializable;
 import java.util.Iterator;
 import java.util.Map;
 
@@ -12,7 +13,7 @@ import it.polimi.ingsw.pc15.risorse.Risorsa;
 import it.polimi.ingsw.pc15.risorse.SetRisorse;
 import it.polimi.ingsw.pc15.risorse.TipoRisorsa;
 
-public abstract class Moltiplicazione extends Effetto implements Incrementabile{
+public abstract class Moltiplicazione extends Effetto implements Incrementabile, Serializable{
 
 	protected SetRisorse setRisorse;
 	protected int quantità;

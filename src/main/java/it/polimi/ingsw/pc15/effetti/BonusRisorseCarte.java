@@ -1,9 +1,11 @@
 package it.polimi.ingsw.pc15.effetti;
 
+import java.io.Serializable;
+
 import it.polimi.ingsw.pc15.player.Player;
 import it.polimi.ingsw.pc15.risorse.TipoRisorsa;
 
-public class BonusRisorseCarte extends Bonus {
+public class BonusRisorseCarte extends Bonus implements Serializable {
 	
 	private TipoRisorsa risorsa;
 

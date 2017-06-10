@@ -1,5 +1,6 @@
 package it.polimi.ingsw.pc15.effetti;
 
+import java.io.Serializable;
 import java.util.Map;
 
 import it.polimi.ingsw.pc15.player.Player;
@@ -7,7 +8,7 @@ import it.polimi.ingsw.pc15.risorse.Risorsa;
 import it.polimi.ingsw.pc15.risorse.SetRisorse;
 import it.polimi.ingsw.pc15.risorse.TipoRisorsa;
 
-public class AggiuntaRisorse extends Effetto implements Incrementabile {
+public class AggiuntaRisorse extends Effetto implements Incrementabile  {
 
 	private SetRisorse setRisorse;
 	

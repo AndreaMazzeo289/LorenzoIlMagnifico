@@ -1,6 +1,8 @@
 package it.polimi.ingsw.pc15.player;
 
-public enum ColoreFamiliare {
+import java.io.Serializable;
+
+public enum ColoreFamiliare implements Serializable{
 	
 	BIANCO, NERO, ARANCIONE, NEUTRO;
 

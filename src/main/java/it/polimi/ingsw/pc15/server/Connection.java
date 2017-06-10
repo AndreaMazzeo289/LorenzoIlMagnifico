@@ -5,6 +5,7 @@ import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import java.io.OutputStreamWriter;
 import java.io.PrintStream;
+import java.io.Serializable;
 import java.net.Socket;
 import java.nio.channels.NotYetBoundException;
 import java.util.ArrayList;
@@ -14,7 +15,7 @@ import java.util.Scanner;
 
 import it.polimi.ingsw.pc15.model.StatoPartita;
 
-public class Connection extends Observable implements Observer, Runnable {
+public class Connection extends Observable implements Observer, Runnable, Serializable {
 
 	private Socket socket;
 	private Server server;
@@ -71,6 +72,7 @@ public class Connection extends Observable implements Observer, Runnable {
 	@Override
 	public void update(Observable o, Object arg) {
 		
+		System.out.println("\nSono la connection e ho ricevuto " + ((StatoPartita) arg).getMessaggio());
 		try {
 			outObj.writeObject((StatoPartita)arg);
 		} catch (IOException e) {

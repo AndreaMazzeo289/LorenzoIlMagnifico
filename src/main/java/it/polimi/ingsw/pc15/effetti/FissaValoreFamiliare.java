@@ -1,10 +1,12 @@
 package it.polimi.ingsw.pc15.effetti;
 
+import java.io.Serializable;
+
 import it.polimi.ingsw.pc15.player.ColoreFamiliare;
 import it.polimi.ingsw.pc15.player.Familiare;
 import it.polimi.ingsw.pc15.player.Player;
 
-public class FissaValoreFamiliare extends Effetto{
+public class FissaValoreFamiliare extends Effetto implements Serializable { 
 	
 	protected ColoreFamiliare colore;
 	protected int valore;

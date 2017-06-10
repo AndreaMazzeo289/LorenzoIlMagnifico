@@ -1,5 +1,6 @@
 package it.polimi.ingsw.pc15.carte;
 
+import java.io.Serializable;
 import java.util.Iterator;
 import java.util.Observable;
 import java.util.Set;
@@ -10,7 +11,7 @@ import it.polimi.ingsw.pc15.plancia.SpazioTorre;
 import it.polimi.ingsw.pc15.player.Player;
 import it.polimi.ingsw.pc15.risorse.SetRisorse;
 
-public abstract class Carta {
+public abstract class Carta implements Serializable {
 	
 	private final String nome;
 	private final int id;

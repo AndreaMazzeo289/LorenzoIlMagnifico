@@ -1,6 +1,8 @@
 package it.polimi.ingsw.pc15.risorse;
 
-public class Servitori extends Risorsa {
+import java.io.Serializable;
+
+public class Servitori extends Risorsa implements Serializable {
 
 	public Servitori(int quantità) {
 		super(quantità);

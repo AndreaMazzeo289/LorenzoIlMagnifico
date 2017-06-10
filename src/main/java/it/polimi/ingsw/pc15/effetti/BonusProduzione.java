@@ -1,8 +1,10 @@
 package it.polimi.ingsw.pc15.effetti;
 
+import java.io.Serializable;
+
 import it.polimi.ingsw.pc15.player.Player;
 
-public class BonusProduzione extends Bonus{
+public class BonusProduzione extends Bonus implements Serializable {
 	
 	public BonusProduzione(int valore){
 		super(valore);

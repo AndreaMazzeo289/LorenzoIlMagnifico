@@ -1,5 +1,6 @@
 package it.polimi.ingsw.pc15.carte;
 
+import java.io.Serializable;
 import java.util.Set;
 
 import it.polimi.ingsw.pc15.azioni.AzionePrendiCarta;

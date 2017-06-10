@@ -1,5 +1,6 @@
 package it.polimi.ingsw.pc15.player;
 
+import java.io.Serializable;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Set;
@@ -10,7 +11,7 @@ import it.polimi.ingsw.pc15.risorse.Risorsa;
 import it.polimi.ingsw.pc15.risorse.SetRisorse;
 import it.polimi.ingsw.pc15.risorse.TipoRisorsa;
 
-public class Leader {
+public class Leader implements Serializable{
 	
 	private final String nome;
 	private Player player;

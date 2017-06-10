@@ -1,5 +1,6 @@
 package it.polimi.ingsw.pc15.player;
 
+import java.io.Serializable;
 import java.util.HashMap;
 import java.util.HashSet;
 
@@ -8,7 +9,7 @@ import it.polimi.ingsw.pc15.risorse.Risorsa;
 import it.polimi.ingsw.pc15.risorse.SetRisorse;
 import it.polimi.ingsw.pc15.risorse.TipoRisorsa;
 
-public class EffettiAttivi {
+public class EffettiAttivi implements Serializable{
 	
 	private HashMap<TipoCarta, Integer> bonusDadoCarte;
 	private int bonusRaccolta;

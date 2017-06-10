@@ -1,11 +1,12 @@
 package it.polimi.ingsw.pc15.risorse;
 
+import java.io.Serializable;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.Iterator;
 import java.util.Map;
 
-public class SetRisorse {  
+public class SetRisorse implements Serializable {  
 
 	private HashMap<TipoRisorsa, Risorsa> risorse;
 	

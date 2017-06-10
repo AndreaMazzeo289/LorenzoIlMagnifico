@@ -1,5 +1,6 @@
 package it.polimi.ingsw.pc15.plancia;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.Set;
@@ -7,7 +8,7 @@ import java.util.Set;
 import it.polimi.ingsw.pc15.carte.Carta;
 import it.polimi.ingsw.pc15.risorse.SetRisorse;
 
-public class Torre {
+public class Torre implements Serializable {
 	
 	private ArrayList<SpazioTorre> spaziTorre;
 	private boolean occupata;

@@ -1,6 +1,8 @@
 package it.polimi.ingsw.pc15.carte;
 
-public enum TipoCarta {
+import java.io.Serializable;
+
+public enum TipoCarta implements Serializable {
 	TERRITORIO, PERSONAGGIO, EDIFICIO, IMPRESA, ALL;
 	
 }
