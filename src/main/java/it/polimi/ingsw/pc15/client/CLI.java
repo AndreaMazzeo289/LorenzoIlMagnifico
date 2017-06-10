@@ -38,6 +38,11 @@ public class CLI extends View {
 	    	if (this.clientModel.getGiocatoreCorrente().equals(this.clientModel.getStatoGiocatore().getNome()))
 	    		tuoTurno = true;
 	    	else tuoTurno = false;
+	    	
+	    	if (tuoTurno)
+	    		System.out.println("\nÈ il tuo turno!");
+	    	else 
+	    		System.out.println("\nÈ il turno di " + this.clientModel.getGiocatoreCorrente()+"!");
 			
 	    	ArrayList<String> message = new ArrayList<String>();
 			
@@ -105,13 +110,13 @@ public class CLI extends View {
 					
 	    	case 2: System.out.println("\nI tuoi familiari disponibili sono i seguenti: ");
 	    			if (this.clientModel.getStatoGiocatore().getFamiliare(ColoreFamiliare.NERO).disponibile())
-	    				System.out.println("Familiare nero - valore: " + this.clientModel.getStatoGiocatore().getFamiliare(ColoreFamiliare.NERO).getValore());
+	    				System.out.println("  - Familiare nero - valore: " + this.clientModel.getStatoGiocatore().getFamiliare(ColoreFamiliare.NERO).getValore());
 	    			if (this.clientModel.getStatoGiocatore().getFamiliare(ColoreFamiliare.BIANCO).disponibile())
-	    				System.out.println("Familiare bianco - valore: " + this.clientModel.getStatoGiocatore().getFamiliare(ColoreFamiliare.BIANCO).getValore());
+	    				System.out.println("  - Familiare bianco - valore: " + this.clientModel.getStatoGiocatore().getFamiliare(ColoreFamiliare.BIANCO).getValore());
 	    			if (this.clientModel.getStatoGiocatore().getFamiliare(ColoreFamiliare.ARANCIONE).disponibile())
-	    				System.out.println("Familiare arancione - valore: " + this.clientModel.getStatoGiocatore().getFamiliare(ColoreFamiliare.ARANCIONE).getValore());
+	    				System.out.println("  - Familiare arancione - valore: " + this.clientModel.getStatoGiocatore().getFamiliare(ColoreFamiliare.ARANCIONE).getValore());
 	    			if (this.clientModel.getStatoGiocatore().getFamiliare(ColoreFamiliare.NEUTRO).disponibile())
-	    				System.out.println("Familiare neutro - valore: " + this.clientModel.getStatoGiocatore().getFamiliare(ColoreFamiliare.NEUTRO).getValore());
+	    				System.out.println("  - Familiare neutro - valore: " + this.clientModel.getStatoGiocatore().getFamiliare(ColoreFamiliare.NEUTRO).getValore());
 	    			break;
 	    			
 	    	case 3: System.out.println("La plancia è stra figa");

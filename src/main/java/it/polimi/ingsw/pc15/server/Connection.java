@@ -62,7 +62,7 @@ public class Connection extends Observable implements Observer, Runnable, Serial
 		
 		StatoPartita statoPartita = (StatoPartita)arg;
 		
-		System.out.println("\nSono la connection e ho ricevuto " + (statoPartita.getMessaggio()));
+		System.out.println("\nSono la connection di " + name + " e ho ricevuto " + (statoPartita.getMessaggio()));
 		statoPartita.setStatoGiocatore(name);
 		sendObj(statoPartita);
 		

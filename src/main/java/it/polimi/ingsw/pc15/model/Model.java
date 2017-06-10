@@ -78,6 +78,9 @@ public class Model extends Observable {
 		
 		distribuisciRisorse();
 		
+		for (Player player : giocatori)
+			System.out.println(player.getNome());
+		
 		iniziaNuovoTurno();
 		
 	}
@@ -207,11 +210,15 @@ public class Model extends Observable {
 	
 	public Player getPlayer(String nome) {
 		
+		if (giocatori == null)
+			System.out.println("ERRORE MORTALE");
+		
 		for (Player player : this.giocatori) {
 			if (player.getNome().equals(nome))
 				return player;
 		}
 		
+		System.out.println("ERRORE: il giocatore cercato non esiste!");
 		return null;
 	}
 
@@ -229,8 +236,6 @@ public class Model extends Observable {
 		if (ordine.lastIndexOf(giocatoreCorrente)==ordine.size()-1)
 				finisciTurno();
 		else giocatoreCorrente = ordine.get(ordine.lastIndexOf(giocatoreCorrente)+1);
-		
-		System.out.println("è il turno di " + giocatoreCorrente);
 	}
 	
 	public void notificaStatoPartita (String messaggio) {

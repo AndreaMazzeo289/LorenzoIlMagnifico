@@ -54,6 +54,8 @@ public class Controller extends Observable implements Observer {
 		Azione azioneGiocatore;
 		Player giocatore = model.getPlayer(nomeGiocatore);	
 		
+		System.out.println("\nSono il controller e ho ricevuto " + input + " da " + giocatore.getNome());
+		
 		switch(input.get(0)) {
 		
 		case "posiziona familiare":
@@ -115,13 +117,14 @@ public class Controller extends Observable implements Observer {
 		}
 		
 		if (azioneGiocatore.èValida()) {
-			System.out.println("\nAttivo l'azione!\n");
 			azioneGiocatore.attiva();
 			if (azioneGiocatore instanceof AzioneOccupaSpazio ) {
-				String message = new String();
-				message = giocatore.getNome() + input.get(0) + input.get(1);
-				model.notificaStatoPartita(message);
+				
 				model.giocatoreSuccessivo();
+				String message = new String();
+				message = "\nMossa di " + giocatore.getNome() + ": " + input;
+				model.notificaStatoPartita(message);
+
 				
 			}
 		}		

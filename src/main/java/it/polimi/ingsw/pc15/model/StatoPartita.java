@@ -58,7 +58,6 @@ public class StatoPartita implements Serializable {
 		for (Player giocatore : statoGiocatori)
 			if (giocatore.getNome().equals(nome)) 
 				statoGiocatore = giocatore;
-		statoGiocatori.remove(statoGiocatore);
 	}
 
 }

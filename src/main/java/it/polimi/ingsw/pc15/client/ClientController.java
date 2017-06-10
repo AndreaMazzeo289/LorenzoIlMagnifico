@@ -71,7 +71,7 @@ public class ClientController extends Observable implements Observer, Serializab
 	@Override
 	public void update(Observable o, Object input) {
 		
-		System.out.println("\nSono il Client controller e ho ricevuto " + (ArrayList<String>) input);
+		//System.out.println("\nSono il Client controller e ho ricevuto " + (ArrayList<String>) input);
 		
 		try {
 			send(input);
@@ -83,7 +83,7 @@ public class ClientController extends Observable implements Observer, Serializab
 	
 	public void send(Object message) throws IOException{
 		
-		System.out.println("\nSono il clientController e sto inviando " + (ArrayList<String>) message);
+		//System.out.println("\nSono il clientController e sto inviando " + (ArrayList<String>) message);
 		outObj.writeObject(message);
 	}
 }
