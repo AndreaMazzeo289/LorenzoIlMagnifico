@@ -170,6 +170,8 @@ public class Model extends Observable {
 			player.getFamiliare(ColoreFamiliare.ARANCIONE).setValore(valoreDadoArancione);
 					
 		}
+		
+		notificaStatoPartita("\nÈ iniziato un nuovo turno! (Periodo: " + periodo + ", Turno: " + turno + ")");
 
 	}
 	
@@ -232,7 +234,6 @@ public class Model extends Observable {
 	}
 	
 	public void notificaStatoPartita (String messaggio) {
-		System.out.println("\nSono il model e ho preparato " + messaggio);
 		StatoPartita statoPartita = new StatoPartita(plancia, periodo, turno, giocatori, giocatoreCorrente, messaggio);
 		setChanged();
 		notifyObservers(statoPartita);

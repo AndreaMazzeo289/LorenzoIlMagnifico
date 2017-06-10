@@ -55,7 +55,6 @@ public class Connection extends Observable implements Observer, Runnable, Serial
 				e.printStackTrace();
 			}
 		}
-	
 	}
 
 	@Override

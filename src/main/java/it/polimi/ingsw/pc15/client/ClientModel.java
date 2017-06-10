@@ -24,10 +24,7 @@ public class ClientModel extends Observable {
 		this.turno = stato.getTurno();
 		this.statoAvversari = stato.getStatoGiocatori();
 		this.giocatoreCorrente = stato.getGiocatoreCorrente();	
-		this.statoGiocatore = stato.getStatoGiocatore();
-		
-		System.out.println("\nSono il clientModel e sono stato aggiornato! <3");
-		
+		this.statoGiocatore = stato.getStatoGiocatore();		
 	}
 	
 	public Plancia getStatoPlancia() {

@@ -36,9 +36,10 @@ public class ClientController extends Observable implements Observer, Serializab
 		
 		String name;
 		Scanner input = new Scanner(System.in);
-		System.out.println("Connesso alla partita!\nScrivi il tuo nome :");
+		System.out.println("Tentativo di connessione!\nScrivi il tuo nome :");
 		name = input.nextLine();
 		out.println(name);  //manda il nome alla Connection
+		System.out.println("Connessione al server riuscita! In attesa di altri giocatori");
 		
 		if(in.nextLine().equals("OK")) {  //attende finchè riceve l'OK dal server
 			System.out.println(name +", la partita ha inizio!");
@@ -61,7 +62,7 @@ public class ClientController extends Observable implements Observer, Serializab
 				} catch (ClassNotFoundException | IOException e) {
 					e.printStackTrace();}
 				
-				System.out.println("\nSono il clientController e ho ricevuto " +statoPartita.getMessaggio());
+				System.out.println(statoPartita.getMessaggio());
 				clientModel.aggiorna(statoPartita);
 			}
 

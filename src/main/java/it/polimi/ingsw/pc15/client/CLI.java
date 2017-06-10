@@ -8,6 +8,10 @@ import java.util.Observable;
 import java.util.Observer;
 import java.util.Scanner;
 
+import it.polimi.ingsw.pc15.player.ColoreFamiliare;
+import it.polimi.ingsw.pc15.player.Leader;
+import it.polimi.ingsw.pc15.risorse.TipoRisorsa;
+
 public class CLI extends View {
 	
 	private Scanner input;
@@ -22,6 +26,12 @@ public class CLI extends View {
 	}
 	
 	public void run(){
+		
+		try {
+			Thread.sleep(1000);
+		} catch (InterruptedException e1) {
+			e1.printStackTrace();
+		}
 		
 	    while (true) {
 			
@@ -77,46 +87,75 @@ public class CLI extends View {
 				setChanged();
 				break;		
 				
-	    	case 1: System.out.println("Hai un botto di risorse");
+	    	case 1: System.out.println("\nAl momento possiedi le seguenti risorse: ");
+					System.out.println("Oro: " + this.clientModel.getStatoGiocatore().getSetRisorse().getRisorsa(TipoRisorsa.ORO).getQuantità());
+					System.out.println("Legna: " + this.clientModel.getStatoGiocatore().getSetRisorse().getRisorsa(TipoRisorsa.LEGNA).getQuantità());
+					System.out.println("Pietra: " + this.clientModel.getStatoGiocatore().getSetRisorse().getRisorsa(TipoRisorsa.PIETRA).getQuantità());
+					System.out.println("Servitori: " + this.clientModel.getStatoGiocatore().getSetRisorse().getRisorsa(TipoRisorsa.SERVITORI).getQuantità());
+					System.out.println("\nPunti Vittoria: " + this.clientModel.getStatoGiocatore().getSetRisorse().getRisorsa(TipoRisorsa.PUNTIVITTORIA).getQuantità());
+					System.out.println("Punti Militari: " + this.clientModel.getStatoGiocatore().getSetRisorse().getRisorsa(TipoRisorsa.PUNTIMILITARI).getQuantità());
+					System.out.println("Punti Fede: " + this.clientModel.getStatoGiocatore().getSetRisorse().getRisorsa(TipoRisorsa.PUNTIFEDE).getQuantità());
 					break;
-	    	case 2: System.out.println("Hai un botto di familiari");
-					break;
+					
+	    	case 2: System.out.println("\nI tuoi familiari disponibili sono i seguenti: ");
+	    			if (this.clientModel.getStatoGiocatore().getFamiliare(ColoreFamiliare.NERO).disponibile())
+	    				System.out.println("Familiare nero - valore " + this.clientModel.getStatoGiocatore().getFamiliare(ColoreFamiliare.NERO));
+	    			if (this.clientModel.getStatoGiocatore().getFamiliare(ColoreFamiliare.BIANCO).disponibile())
+	    				System.out.println("Familiare nero - valore " + this.clientModel.getStatoGiocatore().getFamiliare(ColoreFamiliare.BIANCO));
+	    			if (this.clientModel.getStatoGiocatore().getFamiliare(ColoreFamiliare.ARANCIONE).disponibile())
+	    				System.out.println("Familiare nero - valore " + this.clientModel.getStatoGiocatore().getFamiliare(ColoreFamiliare.ARANCIONE));
+	    			if (this.clientModel.getStatoGiocatore().getFamiliare(ColoreFamiliare.NEUTRO).disponibile())
+	    				System.out.println("Familiare nero - valore " + this.clientModel.getStatoGiocatore().getFamiliare(ColoreFamiliare.NEUTRO));
+	    			break;
+	    			
 	    	case 3: System.out.println("La plancia è stra figa");
 					break;
-	    	case 4: System.out.println("Hai un botto di leader");
-					break;
+					
+	    	case 4: System.out.println("\nAl momento possiedi le seguenti carte Leader:");
+	    			for (Leader leader : this.clientModel.getStatoGiocatore().getCarteLeader())
+	    				System.out.println("  - " + leader.getNome());
+	    			break;
 		
 			case 5: message = new ArrayList<String>();
 					message.add("gioca Leader"); 
-					System.out.println("\nQuale Leader vuoi giocare?\n  1. Lorenzo de Medici\n  2. Bartolomeo Colleoni\n  3. Pico de la Mirandola\n  4. Alessandro Magni");
+					System.out.println("\nQuale Leader vuoi giocare?");
+	    			for (Leader leader : this.clientModel.getStatoGiocatore().getCarteLeader())
+	    				System.out.println("  " + (this.clientModel.getStatoGiocatore().getCarteLeader().lastIndexOf(leader)+1) +". " + leader.getNome());
 					message.add(String.valueOf(input.nextInt()-1));
 					setChanged();
 					break;		
 			case 6: message = new ArrayList<String>();
-					message.add("scarta Leader"); 
-					System.out.println("\nQuale Leader vuoi scartare?\n  1. Lorenzo de Medici\n  2. Bartolomeo Colleoni\n  3. Pico de la Mirandola\n  4. Alessandro Magni");
+					System.out.println("\nQuale Leader vuoi scartare?");
+					for (Leader leader : this.clientModel.getStatoGiocatore().getCarteLeader())
+						System.out.println("  " + (this.clientModel.getStatoGiocatore().getCarteLeader().lastIndexOf(leader)+1) +". " + leader.getNome());
 					message.add(String.valueOf(input.nextInt()-1));
 					setChanged();
 					break;		
 			case 7: message = new ArrayList<String>();
 					message.add("attiva effetto Leader"); 
-					System.out.println("\nQuale Leader vuoi attivare?\n  1. Lorenzo de Medici\n  2. Bartolomeo Colleoni\n  3. Pico de la Mirandola\n  4. Alessandro Magni");
+					System.out.println("\nQuale Leader vuoi attivare?");
+	    			for (Leader leader : this.clientModel.getStatoGiocatore().getCarteLeader())
+	    				System.out.println("  " + (this.clientModel.getStatoGiocatore().getCarteLeader().lastIndexOf(leader)+1) +". " + leader.getNome());
 					message.add(String.valueOf(input.nextInt()-1));
 					setChanged();
 					break;		
 			default: System.out.println("Inserire un comando valido");
 					break;
-					
 				
 	    	}	
 	    	
 	    	notifyObservers(message);
+	    	
+	    	try {
+				Thread.sleep(1000);
+			} catch (InterruptedException e) {
+				e.printStackTrace();
+			}
 	    }			
 	}
 
 	@Override
 	public void update(Observable arg0, Object arg1) {
-		// TODO Auto-generated method stub
 		
 	}
 }
