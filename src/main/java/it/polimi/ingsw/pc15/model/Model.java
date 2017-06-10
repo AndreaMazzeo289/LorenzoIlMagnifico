@@ -210,9 +210,6 @@ public class Model extends Observable {
 	
 	public Player getPlayer(String nome) {
 		
-		if (giocatori == null)
-			System.out.println("ERRORE MORTALE");
-		
 		for (Player player : this.giocatori) {
 			if (player.getNome().equals(nome))
 				return player;
