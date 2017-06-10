@@ -136,6 +136,7 @@ public class CLI extends View {
 					setChanged();
 					break;		
 			case 6: message = new ArrayList<String>();
+					message.add("scarta Leader"); 
 					System.out.println("\nQuale Leader vuoi scartare?");
 					for (Leader leader : this.clientModel.getStatoGiocatore().getCarteLeader())
 						System.out.println("  " + (this.clientModel.getStatoGiocatore().getCarteLeader().lastIndexOf(leader)+1) +". " + leader.getNome());

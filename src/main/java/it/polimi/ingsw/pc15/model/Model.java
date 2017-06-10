@@ -234,7 +234,7 @@ public class Model extends Observable {
 	public void giocatoreSuccessivo() {
 		
 		if (ordine.lastIndexOf(giocatoreCorrente)==ordine.size()-1)
-				finisciTurno();
+			finisciTurno();
 		else giocatoreCorrente = ordine.get(ordine.lastIndexOf(giocatoreCorrente)+1);
 	}
 	
