@@ -12,7 +12,7 @@ public class AzioneScartaLeader extends AzioneLeader {
 
 	@Override
 	public void attiva() {	
-		System.out.println("Hai scartato " + leader.getNome());
+		
 		player.getCarteLeader().remove(leader);
 		player.getSetRisorse().getRisorsa(TipoRisorsa.PRIVILEGI).aggiungi(1);		
 	}

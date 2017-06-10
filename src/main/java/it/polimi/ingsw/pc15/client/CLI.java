@@ -168,6 +168,6 @@ public class CLI extends View {
 
 	@Override
 	public void update(Observable arg0, Object arg1) {
-		
+		run();
 	}
 }

@@ -11,6 +11,7 @@ public abstract class View extends Observable implements Observer, Runnable {
 	public View(ClientController clientController, ClientModel clientModel)
 	{
 		this.clientModel = clientModel;
+		clientModel.addObserver(this);
 		this.addObserver(clientController);
 	
 	}
