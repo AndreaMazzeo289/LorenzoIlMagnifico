@@ -14,6 +14,6 @@ public abstract class Azione implements Serializable {
 	}
 	
 	public abstract void attiva();
-	public abstract boolean èValida();
+	public abstract RisultatoAzione èValida();
 
 }

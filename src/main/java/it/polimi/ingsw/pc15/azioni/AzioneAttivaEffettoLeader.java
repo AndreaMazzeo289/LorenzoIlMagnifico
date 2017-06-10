@@ -21,19 +21,16 @@ public class AzioneAttivaEffettoLeader extends AzioneLeader {
 	}
 
 	@Override
-	public boolean èValida() {
+	public RisultatoAzione èValida() {
 		
 		if (leader.giocato() == false) {
-			System.out.println("Non hai ancora giocato questo Leader!");
-			return false;
+			return new RisultatoAzione(false, " vuole attivare l'effetto di " + leader.getNome() + " ma deve prima giocare tale carta!");
 		}
 		
 		if (leader.effettoGiàAttivato()) {
-			System.out.println("Hai già attivato l'effetto di questo Leader in questo turno!");
-			return false;
-		}
+			return new RisultatoAzione(false, " vuole attivare l'effetto di " + leader.getNome() + " ma lo ha già attivato questo turno!");		}
 		
-		return true;
+		return new RisultatoAzione(true, " attiva l'effetto di " + leader.getNome() + "!");
 	}
 
 }

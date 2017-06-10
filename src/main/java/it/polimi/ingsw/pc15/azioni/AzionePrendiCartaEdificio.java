@@ -12,29 +12,24 @@ public class AzionePrendiCartaEdificio extends AzionePrendiCarta {
 	}
 	
 	@Override
-	public boolean èValida() {
+	public RisultatoAzione èValida() {
 		
-		if (player.getCarte(TipoCarta.EDIFICIO).size() == ParserXML.leggiValore("numeroMaxCarte")) {
-			System.out.println("Hai raggiunto il limite massimo di carte Edificio!");
-			return false;
-		}
+		if (player.getCarte(TipoCarta.EDIFICIO).size() == ParserXML.leggiValore("numeroMaxCarte"))
+			return new RisultatoAzione(false, "FRASE");
 		
-		if (!risorseSufficienti()) {
-			System.out.println("Non hai risorse sufficienti per acquistare questa carta!");
-			return false;
-		}
+		if (!risorseSufficienti())
+			return new RisultatoAzione(false, "FRASE");
 		
-		return true;
+		return new RisultatoAzione(true, player.getNome() + " prende la carta Edificio " + carta.getNome()+"!");
 	}
 
 	@Override
 	public void attiva() {
-
+		
 		pagaCosto();
 		daiCarta();
 		attivaEffettoIstantaneo();
-			
-		System.out.println("Il giocatore ha preso la carta GIALLA: "  + carta.getNome());
+		
 	}
 
 

@@ -26,34 +26,27 @@ public class AzioneOccupaSpazioProduzione extends AzioneOccupaSpazio {
 	}
 
 	@Override
-	public boolean èValida() {
+	public RisultatoAzione èValida() {
 		
-		if (familiare.disponibile() == false) {
-			System.out.println("Hai già posizionato questo familiare!");
-			return false;
-		}
+		if (familiare.disponibile() == false)
+			return new RisultatoAzione(false, "FRASE");
 		
 		for (Familiare familiare : spazio.getFamiliari())
-			if (familiare.getPlayer().equals(player) && !(familiare.getColore().equals(ColoreFamiliare.NEUTRO) || this.familiare.getColore().equals(ColoreFamiliare.NEUTRO))) {
-				System.out.println("Non puoi posizionare due familiari di colori diversi in questo spazio!");
-			}
+			if (familiare.getPlayer().equals(player) && !(familiare.getColore().equals(ColoreFamiliare.NEUTRO) || this.familiare.getColore().equals(ColoreFamiliare.NEUTRO)))
+				return new RisultatoAzione(false, "FRASE");
 		
 		int valoreAzione = familiare.getValore()+ familiare.getPlayer().getEffettiAttivi().getBonusProduzione();
 		
 		if(spazio.vuoto() == false )
 			if(valoreAzione >= spazio.getValoreMin())
-				return true;
-			else {
-				System.out.println("Il valore del tuo familiare è troppo basso!");
-				return false;
-			}
+				return new RisultatoAzione(true, player.getNome() + " occupa lo spazio produzione!");
+			else 
+				return new RisultatoAzione(false, "FRASE");
 		else
 			if(valoreAzione >= spazio.getValoreMin()+3)
-				return true;
-			else {
-				System.out.println("Il valore del tuo familiare è troppo basso!");
-				return false;
-			}
+				return new RisultatoAzione(true, player.getNome() + " occupa lo spazio produzione!");
+			else 
+				return new RisultatoAzione(false, "FRASE");
 	}
 
 }

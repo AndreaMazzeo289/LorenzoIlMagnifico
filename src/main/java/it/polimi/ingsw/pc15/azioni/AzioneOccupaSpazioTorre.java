@@ -45,27 +45,19 @@ public class AzioneOccupaSpazioTorre extends AzioneOccupaSpazio {
 	}
 
 	@Override
-	public boolean èValida() {
+	public RisultatoAzione èValida() {
 		
-		if (familiare.disponibile() == false) {
-			System.out.println("Hai già posizionato questo familiare!");
-			return false;
-		}
+		if (familiare.disponibile() == false)
+			return new RisultatoAzione(false, "FRASE");
 		
-		if (spazio.vuoto() == false) {
-			System.out.println("Lo spazio è già occupato!");
-			return false;		
-		}
+		if (spazio.vuoto() == false)
+			return new RisultatoAzione(false, "FRASE");
 		
-		if (controlloFamiliariTorre() == false) {
-			System.out.println("Non puoi posizionare altri familiari in questa torre!");
-			return false;
-		}
-					
-		if ( familiare.getValore() < spazio.getValoreMin() ) {
-			System.out.println("Il valore del tuo familiare è troppo basso!");
-			return false;
-		}
+		if (controlloFamiliariTorre() == false)
+			return new RisultatoAzione(false, "FRASE");
+		
+		if ( familiare.getValore() < spazio.getValoreMin() )
+			return new RisultatoAzione(false, "FRASE");
 		
 		return this.azionePrendiCarta.èValida();
 	}

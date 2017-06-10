@@ -16,8 +16,6 @@ public class AzioneGiocaLeader extends AzioneLeader {
 	@Override
 	public void attiva() {
 		
-		System.out.println("Hai giocato " + leader.getNome());
-		
 		leader.setGiocato(true);
 		
 		if (leader.getEffettoPermanente()!=null) 
@@ -26,27 +24,21 @@ public class AzioneGiocaLeader extends AzioneLeader {
 	}
 
 	@Override
-	public boolean èValida() {
+	public RisultatoAzione èValida() {
 		
-		if (leader.giocato()) {
-			System.out.println("Hai già giocato questo Leader!");
-			return false;
-		}
+		if (leader.giocato())
+			return new RisultatoAzione(false, " vuole giocare la carta Leader " + leader.getNome() + " ma lo ha già giocato!");
 
 		if (leader.getRequisitoRisorse() != null)
-			if (player.getSetRisorse().paragona(leader.getRequisitoRisorse()) == false) {
-				System.out.println("Non soddisfi il requisito di risorse richiesto per giocare " + leader.getNome());
-				return false;
-		}
+			if (player.getSetRisorse().paragona(leader.getRequisitoRisorse()) == false)
+				return new RisultatoAzione(false, " vuole giocare la carta Leader " + leader.getNome() + " ma non soddisfa il requisito di risorse richiesto!");
 		
 		if (leader.getRequisitoCarte() != null)
 			for(Map.Entry<TipoCarta, Integer> requisito : leader.getRequisitoCarte().entrySet())
-				if (player.getCarte(requisito.getKey()).size() < requisito.getValue()) {
-					System.out.println("Non soddisfi il requisito di Carte Sviluppo richiesto per giocare " + leader.getNome());
-					return false;
-				}
+				if (player.getCarte(requisito.getKey()).size() < requisito.getValue())
+					return new RisultatoAzione(false, " vuole giocare la carta Leader " + leader.getNome() + " ma non soddisfa il requisito di carte richiesto!");
 
-		return true;
+		return new RisultatoAzione(true, player.getNome() + " gioca la carta Leader " + leader.getNome());
 	}
 
 }

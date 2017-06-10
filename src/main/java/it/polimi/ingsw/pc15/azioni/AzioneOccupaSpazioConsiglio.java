@@ -23,19 +23,15 @@ public class AzioneOccupaSpazioConsiglio extends AzioneOccupaSpazio {
 	}
 
 	@Override
-	public boolean èValida() {
+	public RisultatoAzione èValida() {
 		
-		if (familiare.disponibile() == false) {
-			System.out.println("Hai già posizionato questo familiare!");
-			return false;
-		}
+		if (familiare.disponibile() == false)
+			return new RisultatoAzione(false, "FRASE");
 		
-		if(familiare.getValore() < spazio.getValoreMin()) {
-			System.out.println("Il valore del tuo familiare è troppo basso!");
-			return false;
-		}
+		if(familiare.getValore() < spazio.getValoreMin())		
+			return new RisultatoAzione(false, "FRASE");
 		
-		return true;
+		return new RisultatoAzione(true, player.getNome() + " occupa lo spazio del Consiglio!");
 	}
 
 }

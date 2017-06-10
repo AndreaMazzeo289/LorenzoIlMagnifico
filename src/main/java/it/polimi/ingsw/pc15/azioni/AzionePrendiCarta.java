@@ -17,7 +17,7 @@ public abstract class AzionePrendiCarta extends Azione{
 	}
 	
 	public abstract void attiva();
-	public abstract boolean èValida();
+	public abstract RisultatoAzione èValida();
 
 	public boolean risorseSufficienti () {
 		

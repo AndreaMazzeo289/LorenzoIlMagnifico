@@ -20,7 +20,7 @@ public class AzionePrendiCartaImpresa extends AzionePrendiCarta {
 	}
 
 	@Override
-	public boolean èValida() {
+	public RisultatoAzione èValida() {
 		
 		if (carta.getCosto()!=null && ((Impresa)carta).getRequisitoPuntiMilitari() != 0) {
 			System.out.println("Vuoi pagare il costo normale (1) o il costo in Punti Militari (2) ?");
@@ -29,21 +29,19 @@ public class AzionePrendiCartaImpresa extends AzionePrendiCarta {
 		}
 		
 		if (scelta == 1  || ((Impresa)carta).getRequisitoPuntiMilitari() == 0)
-			if (!risorseSufficienti()) {
-				System.out.println("Non hai risorse sufficienti per acquistare questa carta!");
-				return false;
-		}
+			if (!risorseSufficienti())
+				return new RisultatoAzione(false, "FRASE");
 		
 		if (scelta == 2  || carta.getCosto()== null)
 			if( puntiMilitariSufficienti() == false)
-				return false;
+				return new RisultatoAzione(false, "FRASE");
 
 		if (player.getCarte(TipoCarta.EDIFICIO).size() == ParserXML.leggiValore("numeroMaxCarte")) {  
 			System.out.println("Hai raggiunto il limite massimo di carte Impresa!");
-			return false;
+			return new RisultatoAzione(false, "FRASE");
 		}
 		
-		return true;
+		return new RisultatoAzione(true, player.getNome() + " prende la carta Impresa " + carta.getNome()+"!");
 	}
 
 	@Override

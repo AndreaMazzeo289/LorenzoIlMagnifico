@@ -18,14 +18,12 @@ public class AzioneScartaLeader extends AzioneLeader {
 	}
 
 	@Override
-	public boolean èValida() {
+	public RisultatoAzione èValida() {
 		
-		if (leader.giocato()) {
-			System.out.println("Non puoi scartare un Leader in gioco!");
-			return false;
-		}
+		if (leader.giocato())
+			return new RisultatoAzione(false, " vuole scartare " + leader.getNome() + " ma tale carta è già in gioco!");
 		
-		return true;
+		return new RisultatoAzione(true, player.getNome() + " scarta la carta Leader " + leader.getNome() + "!");
 	}
 
 }

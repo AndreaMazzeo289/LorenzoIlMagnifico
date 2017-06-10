@@ -40,9 +40,9 @@ public class CLI extends View {
 	    	else tuoTurno = false;
 	    	
 	    	if (tuoTurno)
-	    		System.out.println("\nÈ il tuo turno!");
+	    		System.out.println("\n(È il tuo turno!)");
 	    	else 
-	    		System.out.println("\nÈ il turno di " + this.clientModel.getGiocatoreCorrente()+"!");
+	    		System.out.println("\n(È il turno di " + this.clientModel.getGiocatoreCorrente()+"!)");
 			
 	    	ArrayList<String> message = new ArrayList<String>();
 			

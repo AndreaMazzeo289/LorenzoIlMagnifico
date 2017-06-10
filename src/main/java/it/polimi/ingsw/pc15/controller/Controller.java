@@ -17,6 +17,7 @@ import it.polimi.ingsw.pc15.azioni.AzioneOccupaSpazioRaccolta;
 import it.polimi.ingsw.pc15.azioni.AzioneOccupaSpazioTorre;
 import it.polimi.ingsw.pc15.azioni.AzioneOccupaSpazioRaccolta;
 import it.polimi.ingsw.pc15.azioni.AzioneScartaLeader;
+import it.polimi.ingsw.pc15.azioni.RisultatoAzione;
 import it.polimi.ingsw.pc15.model.Model;
 import it.polimi.ingsw.pc15.plancia.Spazio;
 import it.polimi.ingsw.pc15.plancia.SpazioConsiglio;
@@ -116,17 +117,13 @@ public class Controller extends Observable implements Observer {
 			break;
 		}
 		
-		if (azioneGiocatore.èValida()) {
+		RisultatoAzione risultatoAzione = azioneGiocatore.èValida();
+		if (risultatoAzione.getRisultato()==true) {
 			azioneGiocatore.attiva();
-			if (azioneGiocatore instanceof AzioneOccupaSpazio ) {
-				
+			if (azioneGiocatore instanceof AzioneOccupaSpazio )
 				model.giocatoreSuccessivo();
-				String message = new String();
-				message = "\nMossa di " + giocatore.getNome() + ": " + input;
-				model.notificaStatoPartita(message);
-
-				
-			}
 		}		
+		String message = "\n" + risultatoAzione.getCommento();
+		model.notificaStatoPartita(message);
 	}
 }
