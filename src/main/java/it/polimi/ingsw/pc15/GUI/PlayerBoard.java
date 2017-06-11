@@ -1,22 +1,26 @@
 package it.polimi.ingsw.pc15.GUI;
 
+import java.awt.Component;
 import java.awt.FlowLayout;
 import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;
 import java.awt.GridLayout;
 
+import javax.swing.JButton;
+import javax.swing.JFrame;
 import javax.swing.JPanel;
 
 public class PlayerBoard extends JPanel{
 
-	CarteGioco carta;
-	CartaScomunica cartaScomunica;
+	private CarteGioco carta;
+	private CartaScomunica cartaScomunica;
+	private JPanel risorsePlayer;
 	
 	public PlayerBoard() {
 		
 		this.setLayout(new GridBagLayout());
 		
-		JPanel risorsePlayer = new JPanel(new GridBagLayout());
+		risorsePlayer = new JPanel(new GridBagLayout());
 		JPanel cartePlayer = new JPanel(new GridLayout(4,7));
 		JPanel scomunicheButtonPanel = new JPanel (new GridLayout(1,2));
 		JPanel presentationPanel = new JPanel (new GridBagLayout());
@@ -36,10 +40,14 @@ public class PlayerBoard extends JPanel{
 		
 		// ScomunicheButtonPanel 
 		//-----------------------//
-		buttonPanel.add(new ButtonPosizionaFamiliare());
-		buttonPanel.add(new ButtonGiocaLeader());
-		buttonPanel.add(new ButtonAttivaEffettoLeader());
-		buttonPanel.add(new ButtonScartaLeader());
+		JButton posizionaFamiliare = new ButtonPosizionaFamiliare();
+		JButton attivaEffettoLeader = new ButtonAttivaEffettoLeader();
+		JButton giocaLeader = new ButtonGiocaLeader();
+		JButton scartaLeader = new ButtonScartaLeader();
+		buttonPanel.add(posizionaFamiliare);
+		buttonPanel.add(attivaEffettoLeader);
+		buttonPanel.add(giocaLeader);
+		buttonPanel.add(scartaLeader);
 		
 		cartaScomunica = new CartaScomunica("img/PunchboardCut/excomm_1_1.png");
 		scomunichePanel.add(cartaScomunica);
@@ -55,30 +63,38 @@ public class PlayerBoard extends JPanel{
 		//-----------------------//
 		for(int i=0; i<6; i++) {
 			carta = new CarteGioco("img/DevCardsBack/devcards_b_c_g_1.jdevcards_b_c_pdevcards_b_c_g.jdevcards_b_c_pg.jpg");
+			carta.addActionListener(new ButtonListenerCarte());
 			cartePlayer.add(carta);
 		}
 		carta = new CarteGioco("img/Leaders/leaders_b_c_00.jpg");
+		carta.addActionListener(new ButtonListenerCarte());
 		cartePlayer.add(carta);
 		
 		for(int i=0; i<6; i++) {
 			carta = new CarteGioco("img/DevCardsBack/devcards_b_c_b_1.jdevcards_b_c_pdevcards_b_c_g.jdevcards_b_c_pg.jpg");
+			carta.addActionListener(new ButtonListenerCarte());
 			cartePlayer.add(carta);
 		}
 		carta = new CarteGioco("img/Leaders/leaders_b_c_00.jpg");
+		carta.addActionListener(new ButtonListenerCarte());
 		cartePlayer.add(carta);
 		
 		for(int i=0; i<6; i++) {
 			carta = new CarteGioco("img/DevCardsBack/devcards_b_c_y_1.jdevcards_b_c_pdevcards_b_c_g.jdevcards_b_c_pg.jpg");
+			carta.addActionListener(new ButtonListenerCarte());
 			cartePlayer.add(carta);
 		}
 		carta = new CarteGioco("img/Leaders/leaders_b_c_00.jpg");
+		carta.addActionListener(new ButtonListenerCarte());
 		cartePlayer.add(carta);
 		
 		for(int i=0; i<6; i++) {
 			carta = new CarteGioco("img/DevCardsBack/devcards_b_c_p_1.jdevcards_b_c_pdevcards_b_c_g.jdevcards_b_c_pg.jpg");
+			carta.addActionListener(new ButtonListenerCarte());
 			cartePlayer.add(carta);
 		}
 		carta = new CarteGioco("img/Leaders/leaders_b_c_00.jpg");
+		carta.addActionListener(new ButtonListenerCarte());
 		cartePlayer.add(carta);
 		
 		// Panel risorse
@@ -115,8 +131,26 @@ public class PlayerBoard extends JPanel{
 		gbc.gridy=3;
 		this.add(risorsePlayer, gbc);
 		
-		this.setVisible(true);
+		this.setVisible(true);	
 		
+		attivaEffettoLeader.addActionListener(new ButtonListener());
+		posizionaFamiliare.addActionListener(new ButtonListener());
+		scartaLeader.addActionListener(new ButtonListener());
+		giocaLeader.addActionListener(new ButtonListener());
+	}
+	
+	
+	public ForziereOro getForziereOro(){
+		return (ForziereOro)this.risorsePlayer.getComponent(0);
+	}
+	public CestaLegna getCestaLegna(){
+		return (CestaLegna)this.risorsePlayer.getComponent(1);
+	}
+	public CestaPietra getCestaPietra(){
+		return (CestaPietra)this.risorsePlayer.getComponent(2);
+	}
+	public TappetoServitori getTappetoServitori(){
+		return (TappetoServitori)this.risorsePlayer.getComponent(3);
 	}
 	
 }

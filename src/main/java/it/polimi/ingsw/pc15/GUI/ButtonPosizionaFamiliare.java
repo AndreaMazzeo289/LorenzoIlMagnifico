@@ -17,6 +17,8 @@ public class ButtonPosizionaFamiliare extends JButton{
 	Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
 	
 	public ButtonPosizionaFamiliare() {
+		
+		this.setActionCommand("posizionaFamiliare");
 		setBackground(Color.decode("7551812"));
 		
 		int altezzaSchermo = (int)screenSize.getHeight();

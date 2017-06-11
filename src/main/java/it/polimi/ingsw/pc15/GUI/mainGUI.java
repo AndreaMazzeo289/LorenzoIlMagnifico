@@ -18,11 +18,12 @@ import javax.swing.SwingConstants;
 
 public class mainGUI {
 	
+	public static JFrame mainFrame;
+	
 	public static void main(String[] args) throws IOException {
 		
-		JFrame mainFrame = new JFrame();
+		mainFrame = new JFrame();
 		
-		//Gameboard gameboard = new Gameboard();
 		Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
 	    int width = (int)screenSize.getWidth();
 	    int height = (int)screenSize.getHeight();
@@ -39,31 +40,11 @@ public class mainGUI {
 	    
 	    mainFrame.setVisible(true);
 	    mainFrame.setAlwaysOnTop(true);
-	     
-	    System.out.println("ok");
-		/*JFrame frame = new JFrame();
 	    
-	    Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
-	    int width = (int)screenSize.getWidth();
-	    int height = (int)screenSize.getHeight();
-	    frame.setSize(799, 703);
-	    frame.setResizable(false);
-	    frame.getContentPane().setBackground(Color.WHITE);
-	    
-	    JLabel lblNewLabel = new JLabel("New label");
-	    lblNewLabel.setIcon( new ImageIcon("img/DevCardsFront/devcards_f_en_c_10.png"));
-	    lblNewLabel.setHorizontalAlignment(SwingConstants.CENTER);
-	    frame.getContentPane().add(lblNewLabel, BorderLayout.CENTER);
-	    frame.setAlwaysOnTop(true);
-	    frame.setVisible(true);*/
-		
-		//gameboard.pack();
-		//gameboard.setVisible(true);
-	    
-	 }
+	}
 	
-	
-	
-	
+	public PlayerBoard getPlayerBoard() {
+		return (PlayerBoard)mainFrame.getContentPane().getComponent(1);
+	}
 
 }

@@ -21,33 +21,48 @@ public class CestaPietra extends JPanel{
 	JLabel labelSouth;
 	Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
 	
+	int altezzaSchermo;
+	int larghezzaSchermo;
+	
+	int altezzaECW;
+	int altezzaN;
+	int altezzaS;
+	int larghezzaW;
+	int larghezzaE;
+	int larghezzaC;
+	int larghezzaN;
+	int larghezzaS;
+	
+	int larghezzaTotale;
+	int altezzaTotale;
+	
+	ImageIcon imageIcon;
+	Image image, newImage;
+	
 	public CestaPietra() {
 		
-		int altezzaSchermo = (int)screenSize.getHeight();
-		int larghezzaSchermo = (int)screenSize.getWidth()/2;
+		altezzaSchermo = (int)screenSize.getHeight();
+		larghezzaSchermo = (int)screenSize.getWidth()/2;
 		
 		this.setLayout(new BorderLayout());
 		
-		int altezzaECW = 142;
-		int altezzaN = 246;
-		int altezzaS = 112;
-		int larghezzaW = 182;
-		int larghezzaE = 173;
-		int larghezzaC = 166;
-		int larghezzaN = larghezzaW+larghezzaE+larghezzaC;
-		int larghezzaS = larghezzaN;
+		altezzaECW = 142;
+		altezzaN = 246;
+		altezzaS = 112;
+		larghezzaW = 182;
+		larghezzaE = 173;
+		larghezzaC = 166;
+		larghezzaN = larghezzaW+larghezzaE+larghezzaC;
+		larghezzaS = larghezzaN;
 		
-		int larghezzaTotale = 4076;
-		int altezzaTotale = 6530;
+		larghezzaTotale = 4076;
+		altezzaTotale = 6530;
 		
 		labelNorth = new JLabel();
 		labelEast = new JLabel();
 		labelWest = new JLabel();
 		labelCenter = new JLabel();
 		labelSouth = new JLabel();
-		
-		ImageIcon imageIcon;
-		Image image, newImage;
 		
 		imageIcon = new ImageIcon("img\\Punchboard\\pietra\\north.png");
 		image = imageIcon.getImage();
@@ -85,5 +100,13 @@ public class CestaPietra extends JPanel{
 		this.add(labelWest, BorderLayout.WEST);
 		this.add(labelCenter, BorderLayout.CENTER);
 		this.add(labelSouth, BorderLayout.SOUTH);
+	}
+	
+	public void redrawCentral (String path){
+		imageIcon = new ImageIcon(path);
+		image = imageIcon.getImage();
+		newImage = image.getScaledInstance(((int)(larghezzaSchermo*larghezzaC)/larghezzaTotale),((int)(altezzaSchermo*altezzaECW)/altezzaTotale),Image.SCALE_DEFAULT);
+		ImageIcon imageCenter = new ImageIcon(newImage);
+		labelCenter.setIcon(imageCenter);
 	}
 }

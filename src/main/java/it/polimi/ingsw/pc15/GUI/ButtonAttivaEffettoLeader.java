@@ -17,6 +17,8 @@ public class ButtonAttivaEffettoLeader extends JButton{
 	Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
 	
 	public ButtonAttivaEffettoLeader() {
+			
+		this.setActionCommand("attivaEffettoLeader");
 		setBackground(Color.decode("3752777"));
 		
 		int altezzaSchermo = (int)screenSize.getHeight();
@@ -42,5 +44,6 @@ public class ButtonAttivaEffettoLeader extends JButton{
 		
 		this.setIcon(imageAll);
 		this.setPreferredSize(new Dimension(larghezza,altezza));
+		
 	}
 }
