@@ -108,13 +108,9 @@ public class Plancia implements Serializable {
 		ArrayList arrayEdifici = new ArrayList<Edificio>();
 		ArrayList arrayImprese = new ArrayList<Impresa>();
 		
-		for (Carta carta : carteTerritorio)
-			if (carta.getPeriodo()==1)
-				System.out.println(carta.getNome());
-		
 		int n;
 		int numeroSpaziTorre = ParserXML.leggiValore("numeroSpaziTorre");
-		System.out.println("Il numero di spazi torre è " + numeroSpaziTorre);
+		//System.out.println("Il numero di spazi torre è " + numeroSpaziTorre);
 		
 		n=0;
 		for(int i=0; i<carteTerritorio.size(); i++) {

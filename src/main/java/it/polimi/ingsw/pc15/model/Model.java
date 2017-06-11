@@ -75,13 +75,13 @@ public class Model extends Observable {
 	public void iniziaPartita() {
 		
 		generaCarteSviluppo();
+		
 		if (regoleAvanzate)
 			distribuisciCarteLeader();
 		
 		distribuisciRisorse();
 		
-		for (Player player : giocatori)
-			System.out.println(player.getNome());
+		notificaStatoPartita("---  PARTITA INIZIATA!  ---");
 		
 		iniziaNuovoTurno();
 		
@@ -183,11 +183,14 @@ public class Model extends Observable {
 					
 		}
 		
+
 		notificaStatoPartita("\nÈ iniziato un nuovo turno! (Periodo: " + periodo + ", Turno: " + turno + ")");
 
 	}
 	
 	private void finisciTurno() {
+		
+		notificaStatoPartita("Fine del turno!");
 		
 		if (turno==2)
 			rapportoInVaticano(periodo);
@@ -211,7 +214,7 @@ public class Model extends Observable {
 		int puntiFedeMinimi = ParserXML.leggiValore("puntiFedePeriodo" + Integer.toString(periodo));
 		for (Player player :giocatori) {
 			if (player.getSetRisorse().getRisorsa(TipoRisorsa.PUNTIFEDE).getQuantità() < puntiFedeMinimi) {
-				System.out.println(player.getNome() + " è stato scomunicato!");
+				notificaStatoPartita(player.getNome() + " è stato scomunicato!");
 				this.plancia.getTesseraScomunica(periodo).infliggiScomunica(player);
 			}
 		}
@@ -241,8 +244,10 @@ public class Model extends Observable {
 		
 		if (ordine.lastIndexOf(giocatoreCorrente)==ordine.size()-1) {
 			azione++;
-			if (azione==5)  
-				iniziaNuovoTurno();
+			if (azione==4)  {
+				azione=1;
+				finisciTurno();	
+			}
 			else giocatoreCorrente = ordine.get(0);		
 		}
 		else giocatoreCorrente = ordine.get(ordine.lastIndexOf(giocatoreCorrente)+1);
@@ -250,8 +255,6 @@ public class Model extends Observable {
 	
 	public void notificaStatoPartita (String messaggio) {
 		
-		for (Player player : giocatori)
-			System.out.println(player.getSetRisorse().getRisorsa(TipoRisorsa.ORO).getQuantità());
 		StatoPartita statoPartita = new StatoPartita(plancia, periodo, turno, giocatori, giocatoreCorrente, messaggio);
 		setChanged();
 		notifyObservers(statoPartita);

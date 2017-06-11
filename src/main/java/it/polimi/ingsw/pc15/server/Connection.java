@@ -49,7 +49,7 @@ public class Connection extends Observable implements Observer, Runnable, Serial
 			try {
 				ArrayList<String> message;
 				message = (ArrayList<String>) inObj.readObject();
-				System.out.println("\nSono la connection e ho ricevuto " + message);
+				//System.out.println("\nSono la connection e ho ricevuto " + message);
 				setChanged();
 				notifyObservers(message);
 				
@@ -63,7 +63,7 @@ public class Connection extends Observable implements Observer, Runnable, Serial
 	public void update(Observable o, Object arg) {
 		
 		StatoPartita statoPartita = (StatoPartita)arg;
-		System.out.println("\nSono la connection di " + name + " e ho ricevuto " + (statoPartita.getMessaggio()));
+		//System.out.println("\nSono la connection di " + name + " e ho ricevuto " + (statoPartita.getMessaggio()));
 		statoPartita.setStatoGiocatore(name);
 		sendObj(statoPartita);
 		
@@ -74,8 +74,15 @@ public class Connection extends Observable implements Observer, Runnable, Serial
 	}
 	
 	public synchronized void sendObj(Object obj) {	
+		
 		try {
 			outObj.writeObject(obj);
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+		
+		try {
+			outObj.reset();
 		} catch (IOException e) {
 			e.printStackTrace();
 		}

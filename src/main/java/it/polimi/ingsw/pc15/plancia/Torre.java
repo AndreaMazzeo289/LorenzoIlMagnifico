@@ -31,10 +31,7 @@ public class Torre implements Serializable {
 	
 	public void setTorre(ArrayList<Carta> carte) {
 		
-		System.out.println("Ho " + carte.size() + " carte");
-		System.out.println("il numero di st è " + spaziTorre.size());
-		
-		for (int i=0; i<spaziTorre.size()-1; i++)
+		for (int i=0; i<carte.size(); i++)
 			(spaziTorre.get(i)).setCarta(carte.get(i));  //mette la carta i nello spazio i
 		
 	}
