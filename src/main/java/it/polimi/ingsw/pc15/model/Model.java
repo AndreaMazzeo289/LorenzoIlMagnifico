@@ -47,6 +47,7 @@ public class Model extends Observable {
 	
 	private int periodo;
 	private int turno;
+	private int azione;
 	
 	private boolean regoleAvanzate;
 	
@@ -67,6 +68,7 @@ public class Model extends Observable {
 		
 		this.periodo = 1;
 		this.turno = 1;
+		this.azione = 1;
 
 	}
 
@@ -159,7 +161,8 @@ public class Model extends Observable {
 			this.ordine = nuovoOrdine;
 		}
 		
-		this.plancia.setTurno(periodo, carteTerritorio, cartePersonaggio, carteEdificio, carteImpresa);
+		plancia.setCarte(periodo, carteTerritorio, cartePersonaggio, carteEdificio, carteImpresa);
+		plancia.libera();
 		
 		Random random = new Random();	
 		int valoreDadoNero = random.nextInt(6) + 1;
@@ -167,10 +170,16 @@ public class Model extends Observable {
 		int valoreDadoArancione = random.nextInt(6) + 1;
 		
 		for(Player player : giocatori) {
-			player.getFamiliare(ColoreFamiliare.NEUTRO).setValore(0);	
+			
+			player.getFamiliare(ColoreFamiliare.NEUTRO).setValore(0);
 			player.getFamiliare(ColoreFamiliare.NERO).setValore(valoreDadoNero);
 			player.getFamiliare(ColoreFamiliare.BIANCO).setValore(valoreDadoBianco);
 			player.getFamiliare(ColoreFamiliare.ARANCIONE).setValore(valoreDadoArancione);
+			
+			player.getFamiliare(ColoreFamiliare.NEUTRO).setDisponibilità(true);
+			player.getFamiliare(ColoreFamiliare.NERO).setDisponibilità(true);
+			player.getFamiliare(ColoreFamiliare.BIANCO).setDisponibilità(true);
+			player.getFamiliare(ColoreFamiliare.ARANCIONE).setDisponibilità(true);
 					
 		}
 		
@@ -230,12 +239,19 @@ public class Model extends Observable {
 
 	public void giocatoreSuccessivo() {
 		
-		if (ordine.lastIndexOf(giocatoreCorrente)==ordine.size()-1)
-			finisciTurno();
+		if (ordine.lastIndexOf(giocatoreCorrente)==ordine.size()-1) {
+			azione++;
+			if (azione==5)  
+				iniziaNuovoTurno();
+			else giocatoreCorrente = ordine.get(0);		
+		}
 		else giocatoreCorrente = ordine.get(ordine.lastIndexOf(giocatoreCorrente)+1);
 	}
 	
 	public void notificaStatoPartita (String messaggio) {
+		
+		for (Player player : giocatori)
+			System.out.println(player.getSetRisorse().getRisorsa(TipoRisorsa.ORO).getQuantità());
 		StatoPartita statoPartita = new StatoPartita(plancia, periodo, turno, giocatori, giocatoreCorrente, messaggio);
 		setChanged();
 		notifyObservers(statoPartita);

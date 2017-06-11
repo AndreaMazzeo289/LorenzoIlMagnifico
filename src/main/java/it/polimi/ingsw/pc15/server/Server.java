@@ -55,6 +55,7 @@ public class Server {
 		numeroGiocatori++;
 		if (numeroGiocatori==2) {
 			avviaPartita();
+			//this.connections = new HashMap<String, Connection>();
 			numeroGiocatori=0;
 		}
 	}

@@ -14,6 +14,8 @@ import java.util.Observer;
 import java.util.Scanner;
 
 import it.polimi.ingsw.pc15.model.StatoPartita;
+import it.polimi.ingsw.pc15.player.Player;
+import it.polimi.ingsw.pc15.risorse.TipoRisorsa;
 
 public class Connection extends Observable implements Observer, Runnable, Serializable {
 
@@ -61,7 +63,6 @@ public class Connection extends Observable implements Observer, Runnable, Serial
 	public void update(Observable o, Object arg) {
 		
 		StatoPartita statoPartita = (StatoPartita)arg;
-		
 		System.out.println("\nSono la connection di " + name + " e ho ricevuto " + (statoPartita.getMessaggio()));
 		statoPartita.setStatoGiocatore(name);
 		sendObj(statoPartita);
