@@ -21,24 +21,42 @@ public class ForziereOro extends JPanel{
 	JLabel labelSouth;
 	Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
 	
+	int altezzaSchermo;
+	int larghezzaSchermo;
+	
+	int altezzaECW;
+	int altezzaN;
+	int altezzaS;
+	int larghezzaW;
+	int larghezzaE;
+	int larghezzaC;
+	int larghezzaN;
+	int larghezzaS;
+	
+	int larghezzaTotale;
+	int altezzaTotale;
+	
+	ImageIcon imageIcon;
+	Image image, newImage;
+	
 	public ForziereOro() {
 		
-		int altezzaSchermo = (int)screenSize.getHeight();
-		int larghezzaSchermo = (int)screenSize.getWidth()/2;
+		altezzaSchermo = (int)screenSize.getHeight();
+		larghezzaSchermo = (int)screenSize.getWidth()/2;
 		
 		this.setLayout(new BorderLayout());
 		
-		int altezzaECW = 136;
-		int altezzaN = 273;
-		int altezzaS = 91;
-		int larghezzaW = 170;
-		int larghezzaE = 277;
-		int larghezzaC = 139;
-		int larghezzaN = larghezzaW+larghezzaE+larghezzaC;
-		int larghezzaS = larghezzaN;
+		altezzaECW = 136;
+		altezzaN = 273;
+		altezzaS = 91;
+		larghezzaW = 170;
+		larghezzaE = 277;
+		larghezzaC = 139;
+		larghezzaN = larghezzaW+larghezzaE+larghezzaC;
+		larghezzaS = larghezzaN;
 		
-		int larghezzaTotale = 4076;
-		int altezzaTotale = 6420;
+		larghezzaTotale = 4076;
+		altezzaTotale = 6530;
 		
 		labelNorth = new JLabel();
 		labelEast = new JLabel();
@@ -46,8 +64,7 @@ public class ForziereOro extends JPanel{
 		labelCenter = new JLabel();
 		labelSouth = new JLabel();
 		
-		ImageIcon imageIcon;
-		Image image, newImage;
+		
 		
 		imageIcon = new ImageIcon("img\\Punchboard\\oro\\north.png");
 		image = imageIcon.getImage();
@@ -86,4 +103,17 @@ public class ForziereOro extends JPanel{
 		this.add(labelCenter, BorderLayout.CENTER);
 		this.add(labelSouth, BorderLayout.SOUTH);
 	}
+	
+	public JLabel getLabel(){
+		return labelCenter;
+	}
+	
+	public void redrawCentral (String path){
+		imageIcon = new ImageIcon(path);
+		image = imageIcon.getImage();
+		newImage = image.getScaledInstance(((int)(larghezzaSchermo*larghezzaC)/larghezzaTotale),((int)(altezzaSchermo*altezzaECW)/altezzaTotale),Image.SCALE_DEFAULT);
+		ImageIcon imageCenter = new ImageIcon(newImage);
+		labelCenter.setIcon(imageCenter);
+	}
+	
 }

@@ -43,7 +43,7 @@ public class FamiliariDisponibili extends JPanel{
 		int larghezzaS = larghezzaN;
 		int altezzaS = 167;
 		int larghezzaTotale = 4076;
-		int altezzaTotale = 6420;
+		int altezzaTotale = 6530;
 		
 		labelNorth = new JLabel();
 		labelEast = new JLabel();

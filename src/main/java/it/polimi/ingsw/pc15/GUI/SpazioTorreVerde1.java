@@ -8,6 +8,7 @@ import java.awt.Image;
 import java.awt.Toolkit;
 
 import javax.swing.ImageIcon;
+import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
@@ -15,11 +16,12 @@ import javax.swing.JPanel;
 public class SpazioTorreVerde1 extends JPanel{
 
 	JLabel labelNorth;
-	JLabel labelEast;
 	JLabel labelWest;
-	JLabel labelCenter;
 	JLabel labelSouth;
 	Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
+	
+	JButton buttonCenter;
+	JButton buttonEast;
 	
 	public SpazioTorreVerde1() {
 		
@@ -29,20 +31,19 @@ public class SpazioTorreVerde1 extends JPanel{
 		this.setLayout(new BorderLayout());
 		
 		int altezzaECW = 833;
+		int altezzaC = 833;
 		int altezzaN = 181;
 		int larghezzaW = 129;
 		int larghezzaE = 395;
-		int larghezzaC = 517;
+		int larghezzaC = 517;//517
 		int larghezzaN = larghezzaW+larghezzaE+larghezzaC; //1041
 		int larghezzaS = larghezzaN;
 		int altezzaS = 47;
 		int larghezzaTotale = 4076;//4068
-		int altezzaTotale = 6420;
+		int altezzaTotale = 6530;
 		
 		labelNorth = new JLabel();
-		labelEast = new JLabel();
 		labelWest = new JLabel();
-		labelCenter = new JLabel();
 		labelSouth = new JLabel();
 		
 		ImageIcon imageIcon;
@@ -65,7 +66,7 @@ public class SpazioTorreVerde1 extends JPanel{
 		
 		imageIcon = new ImageIcon("img\\Gameboard\\SpaziTorre\\Verde\\1\\center.png");
 		image = imageIcon.getImage();
-		newImage = image.getScaledInstance(((int)(larghezzaSchermo*larghezzaC)/larghezzaTotale),((int)(altezzaSchermo*altezzaECW)/altezzaTotale),Image.SCALE_DEFAULT);
+		newImage = image.getScaledInstance(((int)(larghezzaSchermo*larghezzaC)/larghezzaTotale),((int)(altezzaSchermo*altezzaC)/altezzaTotale),Image.SCALE_DEFAULT);
 		ImageIcon imageCenter = new ImageIcon(newImage);
 		
 		imageIcon = new ImageIcon("img\\Gameboard\\SpaziTorre\\Verde\\1\\south.png");
@@ -74,15 +75,27 @@ public class SpazioTorreVerde1 extends JPanel{
 		ImageIcon imageSouth = new ImageIcon(newImage);
 		
 		labelNorth.setIcon(imageNorth);
-		labelEast.setIcon(imageEast);
 		labelWest.setIcon(imageWest);
-		labelCenter.setIcon(imageCenter);
 		labelSouth.setIcon(imageSouth);
 		
+		buttonCenter = new JButton();
+		buttonCenter.setIcon(imageCenter);
+		buttonCenter.setBorder(null);
+		//buttonCenter.addActionListener(new ButtonListener(path));
+		
+		buttonEast = new JButton();
+		buttonEast.setActionCommand("spazioTorreVerde1");
+		buttonEast.setIcon(imageEast);
+		buttonEast.setBorder(null);
+		buttonEast.addActionListener(new ButtonListenerSpazi());
+		
+		
 		this.add(labelNorth, BorderLayout.NORTH);
-		this.add(labelEast, BorderLayout.EAST);
 		this.add(labelWest, BorderLayout.WEST);
-		this.add(labelCenter, BorderLayout.CENTER);
 		this.add(labelSouth, BorderLayout.SOUTH);
+		
+		this.add(buttonCenter, BorderLayout.CENTER);
+		this.add(buttonEast, BorderLayout.EAST);
+		
 	}
 }

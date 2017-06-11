@@ -8,6 +8,7 @@ import java.awt.Image;
 import java.awt.Toolkit;
 
 import javax.swing.ImageIcon;
+import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
@@ -17,9 +18,10 @@ public class SpazioRaccolto1 extends JPanel{
 	JLabel labelNorth;
 	JLabel labelEast;
 	JLabel labelWest;
-	JLabel labelCenter;
 	JLabel labelSouth;
 	Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
+	
+	JButton buttonCenter;
 	
 	public SpazioRaccolto1() {
 		
@@ -31,19 +33,18 @@ public class SpazioRaccolto1 extends JPanel{
 		int altezzaECW = 432;
 		int altezzaN = 91;
 		int altezzaS = 143;
-		int larghezzaW = 85;
+		int larghezzaW = 85;//85
 		int larghezzaE = 66;
-		int larghezzaC = 399;
+		int larghezzaC = 401;//399
 		int larghezzaN = larghezzaW+larghezzaE+larghezzaC; //956
 		int larghezzaS = larghezzaN;
 		
 		int larghezzaTotale = 4076;
-		int altezzaTotale = 6420;
+		int altezzaTotale = 6530;
 		
 		labelNorth = new JLabel();
 		labelEast = new JLabel();
 		labelWest = new JLabel();
-		labelCenter = new JLabel();
 		labelSouth = new JLabel();
 		
 		ImageIcon imageIcon;
@@ -77,13 +78,19 @@ public class SpazioRaccolto1 extends JPanel{
 		labelNorth.setIcon(imageNorth);
 		labelEast.setIcon(imageEast);
 		labelWest.setIcon(imageWest);
-		labelCenter.setIcon(imageCenter);
 		labelSouth.setIcon(imageSouth);
+		
+		buttonCenter = new JButton();
+		buttonCenter.setActionCommand("spazioRaccolto1");
+		buttonCenter.setIcon(imageCenter);
+		buttonCenter.setBorder(null);
+		buttonCenter.addActionListener(new ButtonListenerSpazi());
 		
 		this.add(labelNorth, BorderLayout.NORTH);
 		this.add(labelEast, BorderLayout.EAST);
 		this.add(labelWest, BorderLayout.WEST);
-		this.add(labelCenter, BorderLayout.CENTER);
 		this.add(labelSouth, BorderLayout.SOUTH);
+		
+		this.add(buttonCenter, BorderLayout.CENTER);
 	}
 }

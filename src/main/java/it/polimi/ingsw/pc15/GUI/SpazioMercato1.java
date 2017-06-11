@@ -28,7 +28,7 @@ public class SpazioMercato1 extends JPanel{
 		int larghezza = 2034; 
 		
 		int larghezzaTotale = 4076;
-		int altezzaTotale = 6420;
+		int altezzaTotale = 6530;
 		
 		all = new JLabel();
 		
