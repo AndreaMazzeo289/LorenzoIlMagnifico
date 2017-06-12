@@ -234,7 +234,7 @@ public class ParserXML {
 	                
 	                if(risorseMap.isEmpty()) {
 	                	risorseMap.add(new Oro(0));
-           		 		
+	                	costo = new SetRisorse (risorseMap);
 	                }
 	        
 	                //------------------------------------------------------//
