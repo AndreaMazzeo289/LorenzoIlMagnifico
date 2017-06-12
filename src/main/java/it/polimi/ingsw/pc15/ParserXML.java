@@ -228,12 +228,12 @@ public class ParserXML {
 	                		 		System.out.println("Nessun costo");
 	                		 }
 	                		 
+	                		 if(risorseMap.isEmpty())
+	                			 risorseMap.add(new Oro(0));
 	                		 costo = new SetRisorse (risorseMap);
+	                		 
 	                	}
 	                }catch(NullPointerException e){
-	                	Oro oro = new Oro(0);
-        		 		risorseMap.add(oro);
-        		 		costo = new SetRisorse (risorseMap);
 	                }
 	        
 	                //------------------------------------------------------//
