@@ -76,25 +76,25 @@ public class Controller extends Observable implements Observer {
 			}
 			
 			Spazio spazioAzione;
-			switch (input.get(2)) {
+			switch (input.get(3)) {
 			case "mercato":
-				spazioAzione = model.getPlancia().getSpaziMercato().get(Integer.valueOf(input.get(3)));
-				azioneGiocatore = new AzioneOccupaSpazioMercato(giocatore, familiareAzione, (SpazioMercato) spazioAzione);
+				spazioAzione = model.getPlancia().getSpaziMercato().get(Integer.valueOf(input.get(4)));
+				azioneGiocatore = new AzioneOccupaSpazioMercato(giocatore, familiareAzione, (SpazioMercato) spazioAzione, Integer.valueOf(input.get(2)));
 				break;
 			case "consiglio": 
 				spazioAzione = model.getPlancia().getSpazioConsiglio();
-				azioneGiocatore = new AzioneOccupaSpazioConsiglio(giocatore, familiareAzione, (SpazioConsiglio) spazioAzione);
+				azioneGiocatore = new AzioneOccupaSpazioConsiglio(giocatore, familiareAzione, (SpazioConsiglio) spazioAzione, Integer.valueOf(input.get(2)));
 				break;
 			case "raccolta": 
 				spazioAzione = model.getPlancia().getSpazioRaccolta();
-				azioneGiocatore = new AzioneOccupaSpazioRaccolta(giocatore, familiareAzione, (SpazioRaccolta) spazioAzione);
+				azioneGiocatore = new AzioneOccupaSpazioRaccolta(giocatore, familiareAzione, (SpazioRaccolta) spazioAzione, Integer.valueOf(input.get(2)));
 				break;
 			case "produzione": 
 				spazioAzione = model.getPlancia().getSpazioProduzione();
-				azioneGiocatore = new AzioneOccupaSpazioProduzione(giocatore, familiareAzione, (SpazioProduzione) spazioAzione);
+				azioneGiocatore = new AzioneOccupaSpazioProduzione(giocatore, familiareAzione, (SpazioProduzione) spazioAzione, Integer.valueOf(input.get(2)));
 				break;
 			case "torre": Torre torreAzione;
-				switch(input.get(3)) {
+				switch(input.get(4)) {
 				case "verde": torreAzione = model.getPlancia().getTorre(TipoCarta.TERRITORIO);
 					break;
 				case "blu": torreAzione = model.getPlancia().getTorre(TipoCarta.PERSONAGGIO);
@@ -108,8 +108,8 @@ public class Controller extends Observable implements Observer {
 					break;
 				}
 				
-				spazioAzione = torreAzione.getSpazio(Integer.valueOf(input.get(4)));
-				azioneGiocatore = new AzioneOccupaSpazioTorre(giocatore, familiareAzione, (SpazioTorre) spazioAzione);
+				spazioAzione = torreAzione.getSpazio(Integer.valueOf(input.get(5)));
+				azioneGiocatore = new AzioneOccupaSpazioTorre(giocatore, familiareAzione, (SpazioTorre) spazioAzione, Integer.valueOf(input.get(2)));
 				break;
 				
 			default: System.out.println("Errore lettura scelta spazio");

@@ -19,4 +19,7 @@ public class BonusRisorseSpazi extends Bonus {
 		
 	}
 
+	public String toString() {
+		return ("Quando ottieni " + risorsa.name() + " per effetto di uno spazio azione, ne ricevi " + valore + " in più");
+	}
 }

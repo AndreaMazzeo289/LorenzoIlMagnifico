@@ -8,16 +8,20 @@ import it.polimi.ingsw.pc15.risorse.SetRisorse;
 
 public class RisorsePerCarte extends Moltiplicazione {
 	
-	private TipoCarta TipoCarta;
+	private TipoCarta tipoCarta;
 
-	public RisorsePerCarte(SetRisorse setRisorse, int quantità, TipoCarta TipoCarta) {
+	public RisorsePerCarte(SetRisorse setRisorse, int quantità, TipoCarta tipoCarta) {
 		super(setRisorse, quantità);
-		this.TipoCarta = TipoCarta;
+		this.tipoCarta = tipoCarta;
 	}
 
 	@Override
 	public void attiva(Player player) {
-		for (int i=0; i<player.getCarte(TipoCarta).size()/quantità; i++)
+		for (int i=0; i<player.getCarte(tipoCarta).size()/quantità; i++)
 			player.getSetRisorse().aggiungi(setRisorse);
 		}
+	
+	public String toString() {
+		return ("Guadagni " + setRisorse.toString() + " per ogni " + quantità + " carte " + tipoCarta.toString()) ;
+	}
 }

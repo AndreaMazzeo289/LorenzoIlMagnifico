@@ -8,7 +8,10 @@ public class AumentaValoreFamiliare extends BonusValoreFamiliare {
 
 	public AumentaValoreFamiliare(ColoreFamiliare colore, int valore) {
 		super(colore, valore);
-		// TODO Auto-generated constructor stub
+	}
+	
+	public String toString() {
+		return ("Modifica il valore del familiare " + colore.name() + " di " + valore) ;
 	}
 	
 	

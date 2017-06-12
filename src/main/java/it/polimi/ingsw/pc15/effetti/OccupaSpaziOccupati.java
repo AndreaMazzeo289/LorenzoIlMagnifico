@@ -11,5 +11,9 @@ public class OccupaSpaziOccupati extends Effetto {
 		player.getEffettiAttivi().concediPermessoSpaziOccupati();
 		
 	}
+	
+	public String toString() {
+		return ("Consente di posizionare familiari in spazi azione occupati") ;
+	}
 
 }

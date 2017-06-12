@@ -8,8 +8,11 @@ public class AnnullaSovrapprezzoTorri extends Effetto {
 
 	@Override
 	public void attiva(Player player) {
-		// TODO Auto-generated method stub
 		
+	}
+	
+	public String toString() {
+		return "Annulla il sovrapprezzo di 3 monete d'oro per acquistare carte in torri occupate";
 	}
 
 }

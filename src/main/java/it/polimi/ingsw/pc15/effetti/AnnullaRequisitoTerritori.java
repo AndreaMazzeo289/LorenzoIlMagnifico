@@ -11,5 +11,9 @@ public class AnnullaRequisitoTerritori extends Effetto {
 		player.getEffettiAttivi().annullaRequisitoTerritori();
 		
 	}
+	
+	public String toString() {
+		return "Annulla il requisito di Punti Militari per ottenere nuove carte Territorio";
+	}
 
 }

@@ -7,19 +7,23 @@ import it.polimi.ingsw.pc15.player.Player;
 
 public class BonusDadoCarte extends Bonus {
 	
-	private TipoCarta TipoCarta;
+	private TipoCarta tipoCarta;
 	
-	public BonusDadoCarte (TipoCarta TipoCarta, int valore){
+	public BonusDadoCarte (TipoCarta tipoCarta, int valore){
 		
 		super(valore);
-		this.TipoCarta = TipoCarta;
+		this.tipoCarta = tipoCarta;
 		
 	}
 	
 	@Override
 	public void attiva(Player player){
 		
-		player.getEffettiAttivi().incrementaBonusDadoCarte(TipoCarta, valore);
+		player.getEffettiAttivi().incrementaBonusDadoCarte(tipoCarta, valore);
+	}
+	
+	public String toString() {
+		return "Fornisce un bonus al dado di " + valore + "quando prendi delle carte " + tipoCarta.name();
 	}
 	
 }

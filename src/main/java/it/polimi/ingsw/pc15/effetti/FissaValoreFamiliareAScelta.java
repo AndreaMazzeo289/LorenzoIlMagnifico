@@ -36,5 +36,9 @@ public class FissaValoreFamiliareAScelta extends FissaValoreFamiliare {
 		fissaValore(player);
 		
 	}
+	
+	public String toString() {
+		return ("Fissa il valore di un familiare a tua scelta a " + valore) ;
+	}
 
 }

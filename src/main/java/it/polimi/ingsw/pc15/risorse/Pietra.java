@@ -9,5 +9,10 @@ public class Pietra extends Risorsa  {
 		this.tipoRisorsa = TipoRisorsa.PIETRA;
 		
 	}
+	
+	@Override
+	public String toString() {
+		return "Pietra";
+	}
 
 }

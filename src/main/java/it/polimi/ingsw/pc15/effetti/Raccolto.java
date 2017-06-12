@@ -32,4 +32,8 @@ public class Raccolto extends Effetto {
 			else System.out.println("Il valore del familiare non è sufficiente per attivare la raccolta in " + territorio.getNome());
 		}
 	}
+	
+	public String toString() {
+		return ("Consente di effettuare un'azione Raccolta del valore di " + valore) ;
+	}
 }

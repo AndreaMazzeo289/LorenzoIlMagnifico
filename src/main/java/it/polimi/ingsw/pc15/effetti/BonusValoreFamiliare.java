@@ -7,18 +7,22 @@ import it.polimi.ingsw.pc15.player.Player;
 
 public class BonusValoreFamiliare extends Bonus {
 
-		protected ColoreFamiliare colore;
+	protected ColoreFamiliare colore;
 		
-		public BonusValoreFamiliare (ColoreFamiliare colore, int valore){
+	public BonusValoreFamiliare (ColoreFamiliare colore, int valore){
 			
-			super(valore);
-			this.colore = colore;	
-		}
+		super(valore);
+		this.colore = colore;	
+	}
 		
-		@Override
-		public void attiva(Player player) {
-			player.getFamiliare(colore).incrementaValoreBonus(valore);
+	@Override
+	public void attiva(Player player) {
+		player.getFamiliare(colore).incrementaValoreBonus(valore);
 			
+	}
+		
+	public String toString() {
+		return ("Modifica il valore del familiare " + colore.name() + " di " + valore) ;
 		}
 		
 		

@@ -10,5 +10,8 @@ public class SaltaPrimoTurno extends Effetto {
 	public void attiva(Player player) {
 		
 	}
-
+	
+	public String toString() {
+		return ("Costringe il giocatore a saltare il proprio primo turno") ;
+	}
 }

@@ -11,6 +11,8 @@ public class NegaBonusSpazioTorri extends Effetto {
 		player.getEffettiAttivi().annullaBonusSpazioTorre();		
 	}
 	
-	
+	public String toString() {
+		return ("Non ricevi bonus dagli spazi azione delle Torri") ;
+	}
 
 }

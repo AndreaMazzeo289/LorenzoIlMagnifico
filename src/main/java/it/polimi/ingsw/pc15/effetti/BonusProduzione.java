@@ -16,4 +16,8 @@ public class BonusProduzione extends Bonus {
 		player.getEffettiAttivi().incrementaBonusProduzione(this.valore);
 	}
 	
+	public String toString() {
+		return ("Fornisce una modifica permanente al valore delle azioni Produzione di " + valore);
+	}
+	
 }

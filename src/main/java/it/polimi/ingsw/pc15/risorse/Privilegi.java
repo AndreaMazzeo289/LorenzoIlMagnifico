@@ -8,4 +8,9 @@ public class Privilegi extends Risorsa  {
 		super(quantità);
 		this.tipoRisorsa = TipoRisorsa.PRIVILEGI;
 	}
+	
+	@Override
+	public String toString() {
+		return "Privilegi del Consiglio";
+	}
 }

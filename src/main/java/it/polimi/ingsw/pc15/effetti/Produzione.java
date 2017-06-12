@@ -32,4 +32,8 @@ public class Produzione extends Effetto {
 			else System.out.println("Il valore del familiare non è sufficiente per attivare la produzione in " + edificio.getNome());
 		}
 	}
+	
+	public String toString() {
+		return ("Consente di effettuare un'azione Produzione del valore di " + valore) ;
+	}
 }

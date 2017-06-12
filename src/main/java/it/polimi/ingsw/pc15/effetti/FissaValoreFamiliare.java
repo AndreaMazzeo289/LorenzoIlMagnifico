@@ -26,5 +26,9 @@ public class FissaValoreFamiliare extends Effetto {
 		player.getFamiliare(colore).setValoreFissato();
 		
 	}
+	
+	public String toString() {
+		return ("Fissa il valore del familiare " + colore.name() + " di " + valore) ;
+	}
 
 }

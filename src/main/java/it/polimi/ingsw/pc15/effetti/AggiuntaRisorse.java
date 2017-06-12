@@ -54,5 +54,9 @@ public class AggiuntaRisorse extends Effetto implements Incrementabile  {
 			risorsa.getValue().aggiungi(-risorsa.getValue().getQuantità()/player.getEffettiAttivi().getMoltiplicatoreRisorseCarte()*(player.getEffettiAttivi().getMoltiplicatoreRisorseCarte()-1));
 		
 	}
+	
+	public String toString() {
+		return ("Aggiungi " + setRisorse.toString());
+	}
 
 }

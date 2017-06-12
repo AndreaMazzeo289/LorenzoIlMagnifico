@@ -4,17 +4,18 @@ import it.polimi.ingsw.pc15.plancia.Spazio;
 import it.polimi.ingsw.pc15.plancia.SpazioMercato;
 import it.polimi.ingsw.pc15.player.Familiare;
 import it.polimi.ingsw.pc15.player.Player;
+import it.polimi.ingsw.pc15.risorse.TipoRisorsa;
 
 public class AzioneOccupaSpazioMercato extends AzioneOccupaSpazio {
 
-	public AzioneOccupaSpazioMercato(Player player, Familiare familiare, SpazioMercato spazio) {
-		super(player, familiare, spazio);
+	public AzioneOccupaSpazioMercato(Player player, Familiare familiare, SpazioMercato spazio, int servitoriAggiuntivi) {
+		super(player, familiare, spazio, servitoriAggiuntivi);
 	}
 
 	@Override
 	public void attiva() {
 		
-		System.out.println("Occupi spazio mercato!");
+		player.getSetRisorse().getRisorsa(TipoRisorsa.SERVITORI).aggiungi(-servitoriAggiuntivi);
 		
 		spazio.aggiungiFamiliare(familiare);
 		familiare.setDisponibilità(false);
@@ -32,7 +33,7 @@ public class AzioneOccupaSpazioMercato extends AzioneOccupaSpazio {
 		if (player.getEffettiAttivi().disponibilitàMercato() == false)
 			return new RisultatoAzione(false, "FRASE");
 		
-		if(familiare.getValore() < this.spazio.getValoreMin() ) 
+		if(familiare.getValore() + servitoriAggiuntivi < this.spazio.getValoreMin() ) 
 			return new RisultatoAzione(false, "FRASE");
 		
 		if (player.getEffettiAttivi().controllaPermessoSpaziOccupati() == false)

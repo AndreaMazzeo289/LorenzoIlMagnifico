@@ -15,5 +15,9 @@ public class BonusPVChiesa extends Bonus {
 		
 		
 	}
+	
+	public String toString() {
+		return "Fornisce un bonus di Punti Vittoria durante il rapporto in Vaticano di " + valore;
+	}
 
 }

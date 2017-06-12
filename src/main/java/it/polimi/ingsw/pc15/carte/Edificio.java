@@ -16,7 +16,7 @@ public class Edificio extends Carta {
 	public Edificio (String nome, int id, int periodo, SetRisorse costo, Set<Effetto> effettoPermanente, Set<Effetto> effettoIstantaneo, int requisitoProduzione) {
 		super(nome, id, periodo, costo, effettoIstantaneo, effettoPermanente);
 		this.requisitoProduzione = requisitoProduzione;
-		this.tipo = TipoCarta.IMPRESA;
+		this.tipo = TipoCarta.EDIFICIO;
 	}
 
 	public int getRequisitoProduzione() {

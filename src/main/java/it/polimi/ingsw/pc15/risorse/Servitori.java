@@ -6,12 +6,12 @@ public class Servitori extends Risorsa  {
 
 	public Servitori(int quantità) {
 		super(quantità);
+		this.tipoRisorsa = TipoRisorsa.SERVITORI;
 	}
-
+	
 	@Override
-	public TipoRisorsa getTipoRisorsa() {
-		// TODO Auto-generated method stub
-		return TipoRisorsa.SERVITORI;
+	public String toString() {
+		return "Servitori";
 	}
 
 }

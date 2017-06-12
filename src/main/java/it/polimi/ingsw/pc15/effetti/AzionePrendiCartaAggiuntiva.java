@@ -21,6 +21,9 @@ public class AzionePrendiCartaAggiuntiva extends Effetto {
 		
 	}
 	
+	public String toString() {
+		return "Puoi effettuare un'azione aggiuntiva di valore " + valore + " per prendere una carta " + tipoCarta.name();
+	}
 	
 
 }

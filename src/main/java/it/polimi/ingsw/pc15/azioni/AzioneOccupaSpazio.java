@@ -8,11 +8,13 @@ public abstract class AzioneOccupaSpazio extends Azione {
 	
 	protected Spazio spazio;
 	protected Familiare familiare;
+	protected int servitoriAggiuntivi;
 
-	public AzioneOccupaSpazio(Player player, Familiare familiare, Spazio spazio) {
+	public AzioneOccupaSpazio(Player player, Familiare familiare, Spazio spazio, int servitoriAggiuntivi) {
 		super (player);
 		this.spazio = spazio;
 		this.familiare = familiare;
+		this.servitoriAggiuntivi = servitoriAggiuntivi;
 	}
 
 }

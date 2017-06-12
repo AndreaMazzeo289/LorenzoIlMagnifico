@@ -10,5 +10,9 @@ public class AumentaPrezzoServitori extends Effetto {
 	public void attiva(Player player) {
 		
 	}
+	
+	public String toString() {
+		return "Aumenta il numero di servitori da spendere per aumentare il valore di un'azione";
+	}
 
 }

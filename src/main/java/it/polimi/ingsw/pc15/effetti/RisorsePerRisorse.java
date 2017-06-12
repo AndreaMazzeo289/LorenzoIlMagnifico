@@ -22,5 +22,9 @@ public class RisorsePerRisorse extends Moltiplicazione {
 			player.getSetRisorse().aggiungi(setRisorse);
 
 	}
+	
+	public String toString() {
+		return ("Guadagni " + setRisorse.toString() + " per ogni " + quantità + " di " + tipoRisorsa.toString()) ;
+	}
 
 }

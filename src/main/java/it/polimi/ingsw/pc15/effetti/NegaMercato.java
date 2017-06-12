@@ -12,6 +12,10 @@ public class NegaMercato extends Effetto {
 		
 	}
 	
+	public String toString() {
+		return ("Annulla la possibilità di posizionare familiari negli spazi del Mercato") ;
+	}
+	
 	
 
 }

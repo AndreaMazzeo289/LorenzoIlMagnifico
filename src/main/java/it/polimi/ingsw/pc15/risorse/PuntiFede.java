@@ -8,5 +8,10 @@ public class PuntiFede extends Risorsa  {
 		super(quantità);
 		this.tipoRisorsa = TipoRisorsa.PUNTIFEDE;
 	}
+	
+	@Override
+	public String toString() {
+		return "Punti Fede";
+	}
 
 }

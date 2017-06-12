@@ -4,17 +4,18 @@ import it.polimi.ingsw.pc15.plancia.Spazio;
 import it.polimi.ingsw.pc15.plancia.SpazioConsiglio;
 import it.polimi.ingsw.pc15.player.Familiare;
 import it.polimi.ingsw.pc15.player.Player;
+import it.polimi.ingsw.pc15.risorse.TipoRisorsa;
 
 public class AzioneOccupaSpazioConsiglio extends AzioneOccupaSpazio {
 
-	public AzioneOccupaSpazioConsiglio(Player player, Familiare familiare, SpazioConsiglio spazio) {
-		super(player, familiare, spazio);
+	public AzioneOccupaSpazioConsiglio(Player player, Familiare familiare, SpazioConsiglio spazio, int servitoriAggiuntivi) {
+		super(player, familiare, spazio, servitoriAggiuntivi);
 	}
 
 	@Override
 	public void attiva() {
 		
-		System.out.println("Occupi spazio consiglio!");
+		player.getSetRisorse().getRisorsa(TipoRisorsa.SERVITORI).aggiungi(-servitoriAggiuntivi);
 		
 		spazio.aggiungiFamiliare(familiare);
 		familiare.setDisponibilità(false);
@@ -28,7 +29,7 @@ public class AzioneOccupaSpazioConsiglio extends AzioneOccupaSpazio {
 		if (familiare.disponibile() == false)
 			return new RisultatoAzione(false, "FRASE");
 		
-		if(familiare.getValore() < spazio.getValoreMin())		
+		if(familiare.getValore()+servitoriAggiuntivi < spazio.getValoreMin())		
 			return new RisultatoAzione(false, "FRASE");
 		
 		return new RisultatoAzione(true, player.getNome() + " occupa lo spazio del Consiglio!");

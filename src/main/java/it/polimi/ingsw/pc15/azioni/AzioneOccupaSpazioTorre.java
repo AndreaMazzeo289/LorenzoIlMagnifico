@@ -5,13 +5,14 @@ import it.polimi.ingsw.pc15.plancia.SpazioTorre;
 import it.polimi.ingsw.pc15.player.ColoreFamiliare;
 import it.polimi.ingsw.pc15.player.Familiare;
 import it.polimi.ingsw.pc15.player.Player;
+import it.polimi.ingsw.pc15.risorse.TipoRisorsa;
 
 public class AzioneOccupaSpazioTorre extends AzioneOccupaSpazio {
 	
 	AzionePrendiCarta azionePrendiCarta;
 
-	public AzioneOccupaSpazioTorre(Player player, Familiare familiare, SpazioTorre spazio) {
-		super(player, familiare, spazio);
+	public AzioneOccupaSpazioTorre(Player player, Familiare familiare, SpazioTorre spazio, int servitoriAggiuntivi) {
+		super(player, familiare, spazio, servitoriAggiuntivi);
 		
 		switch (((SpazioTorre) this.spazio).getCarta().getTipo() ) {
 
@@ -31,7 +32,7 @@ public class AzioneOccupaSpazioTorre extends AzioneOccupaSpazio {
 	@Override
 	public void attiva() {
 		
-		System.out.println("Occupi spazio torre!");
+		player.getSetRisorse().getRisorsa(TipoRisorsa.SERVITORI).aggiungi(-servitoriAggiuntivi);
 		
 		spazio.aggiungiFamiliare(familiare);
 		familiare.setDisponibilità(false);
@@ -56,7 +57,7 @@ public class AzioneOccupaSpazioTorre extends AzioneOccupaSpazio {
 		if (controlloFamiliariTorre() == false)
 			return new RisultatoAzione(false, "FRASE");
 		
-		if ( familiare.getValore() < spazio.getValoreMin() )
+		if ( familiare.getValore() + servitoriAggiuntivi < spazio.getValoreMin() )
 			return new RisultatoAzione(false, "FRASE");
 		
 		return this.azionePrendiCarta.èValida();

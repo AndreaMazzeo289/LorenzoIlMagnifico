@@ -7,17 +7,18 @@ import it.polimi.ingsw.pc15.plancia.SpazioRaccolta;
 import it.polimi.ingsw.pc15.player.ColoreFamiliare;
 import it.polimi.ingsw.pc15.player.Familiare;
 import it.polimi.ingsw.pc15.player.Player;
+import it.polimi.ingsw.pc15.risorse.TipoRisorsa;
 
 public class AzioneOccupaSpazioRaccolta extends AzioneOccupaSpazio {
 
-	public AzioneOccupaSpazioRaccolta(Player player, Familiare familiare, SpazioRaccolta spazio) {
-		super(player, familiare, spazio);
+	public AzioneOccupaSpazioRaccolta(Player player, Familiare familiare, SpazioRaccolta spazio, int servitoriAggiuntivi) {
+		super(player, familiare, spazio, servitoriAggiuntivi);
 	}
 
 	@Override
 	public void attiva() {
 		
-		System.out.println("Occupi spazio raccolta!");
+		player.getSetRisorse().getRisorsa(TipoRisorsa.SERVITORI).aggiungi(-servitoriAggiuntivi);
 		
 		spazio.aggiungiFamiliare(familiare);
 		familiare.setDisponibilità(false);
@@ -37,7 +38,7 @@ public class AzioneOccupaSpazioRaccolta extends AzioneOccupaSpazio {
 			if (familiare.getPlayer().equals(player) && !(familiare.getColore().equals(ColoreFamiliare.NEUTRO) || this.familiare.getColore().equals(ColoreFamiliare.NEUTRO)))
 				return new RisultatoAzione(false, "non puoi posizionare altri familiari in questo spazio");
 		
-		int valoreAzione = familiare.getValore()+ familiare.getPlayer().getEffettiAttivi().getBonusRaccolta();
+		int valoreAzione = familiare.getValore()+ familiare.getPlayer().getEffettiAttivi().getBonusRaccolta() + servitoriAggiuntivi;
 		
 		if(valoreAzione >= spazio.getValoreMin())
 			return new RisultatoAzione(true, player.getNome() + " occupa lo spazio raccolta!");

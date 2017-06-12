@@ -8,5 +8,9 @@ public class PuntiVittoria extends Risorsa  {
 		super(quantità);
 		this.tipoRisorsa = TipoRisorsa.PUNTIVITTORIA;
 	}
-
+	
+	@Override
+	public String toString() {
+		return "Punti Vittoria";
+	}
 }

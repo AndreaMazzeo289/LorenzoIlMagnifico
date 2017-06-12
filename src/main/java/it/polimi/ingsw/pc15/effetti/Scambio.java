@@ -98,4 +98,11 @@ public class Scambio extends Effetto implements Incrementabile {
 			risorsa.getValue().aggiungi(-risorsa.getValue().getQuantità()/player.getEffettiAttivi().getMoltiplicatoreRisorseCarte()*(player.getEffettiAttivi().getMoltiplicatoreRisorseCarte()-1));
 		
 	}
+	
+	public String toString() {
+		String stringa = "Puoi pagare " + pagamento1.toString() + " per guadagnare " + guadagno1.toString();
+		if (pagamento2 != null)
+			stringa += " o pagare " + pagamento2.toString() + " per guadagnare " + guadagno2.toString();
+		return stringa;
+	}
 }

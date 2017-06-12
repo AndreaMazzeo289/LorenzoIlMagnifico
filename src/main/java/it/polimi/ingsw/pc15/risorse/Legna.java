@@ -9,5 +9,10 @@ public class Legna extends Risorsa implements Serializable {
 		this.tipoRisorsa = TipoRisorsa.LEGNA;
 		
 	}
+	
+	@Override
+	public String toString() {
+		return "Legna";
+	}
 
 }

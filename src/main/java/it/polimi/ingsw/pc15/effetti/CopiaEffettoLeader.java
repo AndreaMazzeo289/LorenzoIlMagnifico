@@ -29,8 +29,10 @@ public class CopiaEffettoLeader extends Effetto {
 		for (Effetto effetto : leaderCopiabili.get(scelta).getEffettoPermanente())
 			effetto.attiva(player);
 
-				
-		
 	}
 
+	
+	public String toString() {
+		return "Copia l'effetto di un altro Leader in gioco" ;
+	}
 }

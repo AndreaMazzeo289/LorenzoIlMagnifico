@@ -64,9 +64,16 @@ public class SetRisorse implements Serializable {
 		return risorse.get(tipoRisorsa);	
 	}
 	
-	public HashMap<TipoRisorsa,Risorsa> getRisorse(){
-	
+	public HashMap<TipoRisorsa,Risorsa> getRisorse() {
 		return this.risorse;
+	}
+	
+	public String toString() {
+		String stringa = "[ ";
+		for(Map.Entry<TipoRisorsa, Risorsa> risorsa : risorse.entrySet()) 
+			stringa += (risorsa.getValue().toString() + ":" + risorsa.getValue().getQuantità() + " ");
+		stringa += "]";
+		return stringa;
 	}
 
 }
