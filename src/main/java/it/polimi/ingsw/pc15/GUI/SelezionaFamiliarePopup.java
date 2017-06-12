@@ -46,7 +46,7 @@ public class SelezionaFamiliarePopup extends JFrame{
 	int larghezzaTotale;
 	int altezzaTotale;
 	
-	public SelezionaFamiliarePopup() {
+	public SelezionaFamiliarePopup(ButtonListener listener) {
 		
 		altezzaECW = 330;//303
 		altezzaN = 200;
@@ -128,10 +128,10 @@ public class SelezionaFamiliarePopup extends JFrame{
 		labelFamNero.setActionCommand("selezionatoFamiliareNero");
 		labelFamNeutro.setActionCommand("selezionatoFamiliareNeutro");
 		
-		labelFamBianco.addActionListener(new ButtonListener());
-		labelFamArancione.addActionListener(new ButtonListener());
-		labelFamNero.addActionListener(new ButtonListener());
-		labelFamNeutro.addActionListener(new ButtonListener());
+		labelFamBianco.addActionListener(listener);
+		labelFamArancione.addActionListener(listener);
+		labelFamNero.addActionListener(listener);
+		labelFamNeutro.addActionListener(listener);
 		
 		labelFamBianco.setIcon(imageFamiliareBianco);
 		labelFamArancione.setIcon(imageFamiliareArancione);

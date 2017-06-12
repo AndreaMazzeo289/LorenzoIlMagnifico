@@ -30,20 +30,15 @@ import javax.swing.JTable;
 
 public class Gameboard extends JPanel {
 	
-	private static final String titolo = "Gameboard";
-	
-	JLabel labelNorth;
-	JLabel labelEast;
-	JLabel labelWest;
-	JLabel labelCenter;
+	JPanel spaziTorre = new JPanel (new GridBagLayout());
+	SpazioConsiglio spazioConsiglio = new SpazioConsiglio ();
+	JPanel spazioFinale = new JPanel (new GridLayout(1,2));
 	
 	public Gameboard() {
 		
 		this.setLayout(new GridBagLayout());
 		
-		JPanel spaziTorre = new JPanel (new GridBagLayout());
-		//JPanel SpazioConsiglio = new JPanel ();
-		JPanel spazioFinale = new JPanel (new GridLayout(1,2));
+		
 		
 		Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
 		int altezzaSchermo = (int)screenSize.getHeight();
@@ -147,13 +142,15 @@ public class Gameboard extends JPanel {
 		// ADD GAMEBOARD
 		//-------------------------------------------------------------------//
 
+		spazioConsiglio = new SpazioConsiglio();
+		
 		gbc.gridx=0;
 		gbc.gridy=0;
 		this.add(spaziTorre,gbc);
 		
 		gbc.gridx=0;
 		gbc.gridy=1;
-		this.add(new SpazioConsiglio(),gbc);
+		this.add(spazioConsiglio,gbc);
 		
 		gbc.gridx=0;
 		gbc.gridy=2;

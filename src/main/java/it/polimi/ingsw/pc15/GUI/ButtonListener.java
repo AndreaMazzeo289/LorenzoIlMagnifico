@@ -37,18 +37,17 @@ public class ButtonListener implements ActionListener{
 		
 		
 		if (e.getActionCommand().equals("posizionaFamiliare")) {
-			selezionaFamiliarePopup = new SelezionaFamiliarePopup();
+			selezionaFamiliarePopup = new SelezionaFamiliarePopup(this);
 			System.out.println("Popup richiesta familiare creato");
 		}
 		
 		if(e.getActionCommand().equals("selezionatoFamiliareBianco")) {
 			System.out.println("selezionato bianco");
-			selezionaFamiliarePopup.setVisible(false);
+			selezionaFamiliarePopup.dispose();
+			//cambia colore JButton
+			Gameboard gameBoard = (Gameboard)mainGUI.mainFrame.getContentPane().getComponent(0);
 			
-		}
-		
-		if(e.getActionCommand().equals("torreVerde1")) {
-			System.out.println("ciao");
+			
 		}
 		
 		if(e.getActionCommand().equals("buttonStatoGioco")) {

@@ -231,6 +231,9 @@ public class ParserXML {
 	                		 costo = new SetRisorse (risorseMap);
 	                	}
 	                }catch(NullPointerException e){
+	                	Oro oro = new Oro(0);
+        		 		risorseMap.add(oro);
+        		 		costo = new SetRisorse (risorseMap);
 	                }
 	        
 	                //------------------------------------------------------//
