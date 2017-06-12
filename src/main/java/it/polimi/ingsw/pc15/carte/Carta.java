@@ -83,13 +83,13 @@ public abstract class Carta implements Serializable {
 	
 	public String toString() {
 		String stringa = nome + " (COSTO: " + costo.toString() + "  EFFETTO ISTANTANEO: ";
-		if (effettoIstantaneo.isEmpty())
+		if (effettoIstantaneo==null||effettoIstantaneo.isEmpty())
 			stringa += "nessuno  -";
 		else for (Effetto effetto : effettoIstantaneo)
 			stringa += effetto.toString() + " - ";
-		stringa += " EFFETTO PERMANENTE: ";
 		
-		if (effettoPermanente.isEmpty())
+		stringa += " EFFETTO PERMANENTE: ";
+		if (effettoPermanente==null||effettoPermanente.isEmpty())
 			stringa += "nessuno";
 		else for (Effetto effetto : effettoPermanente)
 			stringa += effetto.toString() + " - ";

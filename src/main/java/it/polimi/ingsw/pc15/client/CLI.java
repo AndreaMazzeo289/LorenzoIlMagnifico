@@ -231,6 +231,16 @@ public class CLI extends View {
 		    					System.out.println(familiare.getPlayer().getNome() + " ");
 	    				}
 	    			
+	    			System.out.println("\n    Torre VIOLA:");
+	    			for (SpazioTorre spazio : this.clientModel.getStatoPlancia().getTorre(TipoCarta.IMPRESA).getSpaziTorre())
+	    				if (spazio.vuoto())
+	    					System.out.println("  - Spazio " + (this.clientModel.getStatoPlancia().getTorre(TipoCarta.IMPRESA).getSpaziTorre().lastIndexOf(spazio)+1) + ": LIBERO - Carta Impresa presente: " + spazio.getCarta().toString());
+	    				else {
+	    					System.out.print("  - Spazio " + (this.clientModel.getStatoPlancia().getTorre(TipoCarta.IMPRESA).getSpaziTorre().lastIndexOf(spazio)+1) + ": occupato da ");
+		    				for (Familiare familiare : spazio.getFamiliari())
+		    					System.out.println(familiare.getPlayer().getNome() + " ");
+	    				}
+	    			
 	    			
 	    			System.out.println("\n    Torre GIALLA:");
 	    			for (SpazioTorre spazio : this.clientModel.getStatoPlancia().getTorre(TipoCarta.EDIFICIO).getSpaziTorre())
@@ -242,17 +252,6 @@ public class CLI extends View {
 		    					System.out.println(familiare.getPlayer().getNome() + " ");
 	    				}
 	    			
-	    			System.out.println("\n    Torre VIOLA:");
-	    			for (SpazioTorre spazio : this.clientModel.getStatoPlancia().getTorre(TipoCarta.IMPRESA).getSpaziTorre())
-	    				if (spazio.vuoto())
-	    					System.out.println("  - Spazio " + (this.clientModel.getStatoPlancia().getTorre(TipoCarta.IMPRESA).getSpaziTorre().lastIndexOf(spazio)+1) + ": LIBERO - Carta Impresa presente: " + spazio.getCarta().getNome());
-	    				else {
-	    					System.out.print("  - Spazio " + (this.clientModel.getStatoPlancia().getTorre(TipoCarta.IMPRESA).getSpaziTorre().lastIndexOf(spazio)+1) + ": occupato da ");
-		    				for (Familiare familiare : spazio.getFamiliari())
-		    					System.out.println(familiare.getPlayer().getNome() + " ");
-	    				}
-	    			
-	    			
 	    			System.out.println("\n    Torre BLU:");
 	    			for (SpazioTorre spazio : this.clientModel.getStatoPlancia().getTorre(TipoCarta.PERSONAGGIO).getSpaziTorre())
 	    				if (spazio.vuoto())
@@ -262,6 +261,8 @@ public class CLI extends View {
 		    				for (Familiare familiare : spazio.getFamiliari())
 		    					System.out.println(familiare.getPlayer().getNome() + " ");
 	    				}
+	    		
+
 
 					update(null, null);
 	    			break;

@@ -23,7 +23,7 @@ public class BonusDadoCarte extends Bonus {
 	}
 	
 	public String toString() {
-		return "Fornisce un bonus al dado di " + valore + "quando prendi delle carte " + tipoCarta.name();
+		return "Fornisce un bonus al dado di " + valore + " quando prendi delle carte " + tipoCarta.name();
 	}
 	
 }

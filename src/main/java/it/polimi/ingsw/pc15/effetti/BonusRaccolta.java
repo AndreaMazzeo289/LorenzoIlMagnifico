@@ -17,7 +17,7 @@ public class BonusRaccolta extends Bonus {
 	}
 	
 	public String toString() {
-		return "Fornisce una modifica permanente al valore delle azioni Produzione di " + valore;
+		return "Fornisce un bonus permanente al valore delle azioni Produzione di " + valore;
 	}
 	
 }
