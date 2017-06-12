@@ -14,6 +14,8 @@ import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 
+import it.polimi.ingsw.pc15.player.ColoreFamiliare;
+
 public class FamiliariDisponibili extends JPanel{
 
 	JLabel labelNorth;
@@ -23,27 +25,55 @@ public class FamiliariDisponibili extends JPanel{
 	JLabel labelSouth;
 	Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
 	
+	JPanel panelCentrale;
+	
+	JLabel labelFamBianco;
+	JLabel labelFamArancione;
+	JLabel labelFamNero;
+	JLabel labelFamNeutro;
+	
+	ImageIcon imageIcon;
+	Image image, newImage;
+	
+	int altezzaECW;
+	int altezzaN;
+	int larghezzaFamBianco;
+	int larghezzaFamArancione;
+	int larghezzaFamNero;
+	int larghezzaFamNeutro;	
+	int larghezzaW;
+	int larghezzaE;
+	int larghezzaC;
+	int larghezzaN; //686
+	int larghezzaS;
+	int altezzaS;
+	int larghezzaTotale;
+	int altezzaTotale;
+	
+	int altezzaSchermo;
+	int larghezzaSchermo;
+	
 	public FamiliariDisponibili() {
 		
-		int altezzaSchermo = (int)screenSize.getHeight();
-		int larghezzaSchermo = (int)screenSize.getWidth()/2;
+		altezzaSchermo = (int)screenSize.getHeight();
+		larghezzaSchermo = (int)screenSize.getWidth()/2;
 		
 		this.setLayout(new BorderLayout());
 		
-		int altezzaECW = 225;
-		int altezzaN = 108;
-		int larghezzaFamBianco = 157;
-		int larghezzaFamArancione = 166;
-		int larghezzaFamNero = 162;
-		int larghezzaFamNeutro = 155;	
-		int larghezzaW = 24;
-		int larghezzaE = 22;
-		int larghezzaC = larghezzaFamBianco+larghezzaFamArancione+larghezzaFamNero+larghezzaFamNeutro;
-		int larghezzaN = larghezzaW+larghezzaE+larghezzaC; //686
-		int larghezzaS = larghezzaN;
-		int altezzaS = 167;
-		int larghezzaTotale = 4076;
-		int altezzaTotale = 6530;
+		altezzaECW = 303;
+		altezzaN = 200;
+		larghezzaFamBianco = 198;
+		larghezzaFamArancione = 207;
+		larghezzaFamNero = 208;
+		larghezzaFamNeutro = 196;	
+		larghezzaW = 52;
+		larghezzaE = 63;
+		larghezzaC = larghezzaFamBianco+larghezzaFamArancione+larghezzaFamNero+larghezzaFamNeutro;
+		larghezzaN = larghezzaW+larghezzaE+larghezzaC; //686
+		larghezzaS = larghezzaN;
+		altezzaS = 197;
+		larghezzaTotale = 4076;
+		altezzaTotale = 6530;
 		
 		labelNorth = new JLabel();
 		labelEast = new JLabel();
@@ -51,8 +81,7 @@ public class FamiliariDisponibili extends JPanel{
 		labelCenter = new JLabel();
 		labelSouth = new JLabel();
 		
-		ImageIcon imageIcon;
-		Image image, newImage;
+		
 		
 		imageIcon = new ImageIcon("img\\Punchboard\\familiari\\north.png");
 		image = imageIcon.getImage();
@@ -89,13 +118,13 @@ public class FamiliariDisponibili extends JPanel{
 		newImage = image.getScaledInstance(((int)(larghezzaSchermo*larghezzaFamNeutro)/larghezzaTotale),((int)(altezzaSchermo*altezzaECW)/altezzaTotale),Image.SCALE_DEFAULT);
 		ImageIcon imageFamiliareNeutro = new ImageIcon(newImage);
 		
-		JPanel panelCentrale = new JPanel (new GridBagLayout());
+		panelCentrale = new JPanel (new GridBagLayout());
 		GridBagConstraints gbc = new GridBagConstraints();
 		
-		JLabel labelFamBianco = new JLabel();
-		JLabel labelFamArancione = new JLabel();
-		JLabel labelFamNero = new JLabel();
-		JLabel labelFamNeutro = new JLabel();
+		labelFamBianco = new JLabel();
+		labelFamArancione = new JLabel();
+		labelFamNero = new JLabel();
+		labelFamNeutro = new JLabel();
 		
 		labelFamBianco.setIcon(imageFamiliareBianco);
 		labelFamArancione.setIcon(imageFamiliareArancione);
@@ -127,5 +156,105 @@ public class FamiliariDisponibili extends JPanel{
 		this.add(labelWest, BorderLayout.WEST);
 		this.add(panelCentrale, BorderLayout.CENTER);
 		this.add(labelSouth, BorderLayout.SOUTH);
+	}
+	
+	public JLabel getLabelFamiliareBianco() {
+		return (JLabel)this.panelCentrale.getComponent(0);
+	}
+	
+	public JLabel getLabelFamiliareArancione() {
+		return (JLabel)this.panelCentrale.getComponent(1);
+	}
+	
+	public JLabel getLabelFamiliareNero() {
+		return (JLabel)this.panelCentrale.getComponent(2);
+	}
+	
+	public JLabel getLabelFamiliareNeutro() {
+		return (JLabel)this.panelCentrale.getComponent(3);
+	}
+	
+	public void utilizzaFamiliare(ColoreFamiliare coloreFamiliare){
+		
+		switch(coloreFamiliare){
+		case NERO:
+			
+			imageIcon = new ImageIcon("img\\Punchboard\\familiari\\familiareNeroOcc.png");
+			image = imageIcon.getImage();
+			newImage = image.getScaledInstance(((int)(larghezzaSchermo*larghezzaFamNero)/larghezzaTotale),((int)(altezzaSchermo*altezzaECW)/altezzaTotale),Image.SCALE_DEFAULT);
+			ImageIcon imageFamiliareNero = new ImageIcon(newImage);
+			labelFamNero.setIcon(imageFamiliareNero);
+			break;
+			
+		case BIANCO:
+			
+			imageIcon = new ImageIcon("img\\Punchboard\\familiari\\familiareBiancoOcc.png");
+			image = imageIcon.getImage();
+			newImage = image.getScaledInstance(((int)(larghezzaSchermo*larghezzaFamBianco)/larghezzaTotale),((int)(altezzaSchermo*altezzaECW)/altezzaTotale),Image.SCALE_DEFAULT);
+			ImageIcon imageFamiliareBianco = new ImageIcon(newImage);
+			labelFamBianco.setIcon(imageFamiliareBianco);
+			break;
+			
+		case ARANCIONE:
+			
+			imageIcon = new ImageIcon("img\\Punchboard\\familiari\\familiareArancioneOcc.png");
+			image = imageIcon.getImage();
+			newImage = image.getScaledInstance(((int)(larghezzaSchermo*larghezzaFamArancione)/larghezzaTotale),((int)(altezzaSchermo*altezzaECW)/altezzaTotale),Image.SCALE_DEFAULT);
+			ImageIcon imageFamiliareArancione = new ImageIcon(newImage);
+			labelFamArancione.setIcon(imageFamiliareArancione);
+			break;
+			
+		case NEUTRO:
+			
+			imageIcon = new ImageIcon("img\\Punchboard\\familiari\\familiareNeutroOcc.png");
+			image = imageIcon.getImage();
+			newImage = image.getScaledInstance(((int)(larghezzaSchermo*larghezzaFamNeutro)/larghezzaTotale),((int)(altezzaSchermo*altezzaECW)/altezzaTotale),Image.SCALE_DEFAULT);
+			ImageIcon imageFamiliareNeutro = new ImageIcon(newImage);
+			labelFamNeutro.setIcon(imageFamiliareNeutro);
+			break;
+			
+		}
+	}
+	
+	public void liberaFamiliare(ColoreFamiliare coloreFamiliare){
+		
+		switch(coloreFamiliare){
+		case NERO:
+			
+			imageIcon = new ImageIcon("img\\Punchboard\\familiari\\familiareNero.png");
+			image = imageIcon.getImage();
+			newImage = image.getScaledInstance(((int)(larghezzaSchermo*larghezzaFamNero)/larghezzaTotale),((int)(altezzaSchermo*altezzaECW)/altezzaTotale),Image.SCALE_DEFAULT);
+			ImageIcon imageFamiliareNero = new ImageIcon(newImage);
+			labelFamNero.setIcon(imageFamiliareNero);
+			break;
+			
+		case BIANCO:
+			
+			imageIcon = new ImageIcon("img\\Punchboard\\familiari\\familiareBianco.png");
+			image = imageIcon.getImage();
+			newImage = image.getScaledInstance(((int)(larghezzaSchermo*larghezzaFamBianco)/larghezzaTotale),((int)(altezzaSchermo*altezzaECW)/altezzaTotale),Image.SCALE_DEFAULT);
+			ImageIcon imageFamiliareBianco = new ImageIcon(newImage);
+			labelFamBianco.setIcon(imageFamiliareBianco);
+			break;
+			
+		case ARANCIONE:
+			
+			imageIcon = new ImageIcon("img\\Punchboard\\familiari\\familiareArancione.png");
+			image = imageIcon.getImage();
+			newImage = image.getScaledInstance(((int)(larghezzaSchermo*larghezzaFamArancione)/larghezzaTotale),((int)(altezzaSchermo*altezzaECW)/altezzaTotale),Image.SCALE_DEFAULT);
+			ImageIcon imageFamiliareArancione = new ImageIcon(newImage);
+			labelFamArancione.setIcon(imageFamiliareArancione);
+			break;
+			
+		case NEUTRO:
+			
+			imageIcon = new ImageIcon("img\\Punchboard\\familiari\\familiareNeutro.png");
+			image = imageIcon.getImage();
+			newImage = image.getScaledInstance(((int)(larghezzaSchermo*larghezzaFamNeutro)/larghezzaTotale),((int)(altezzaSchermo*altezzaECW)/altezzaTotale),Image.SCALE_DEFAULT);
+			ImageIcon imageFamiliareNeutro = new ImageIcon(newImage);
+			labelFamNeutro.setIcon(imageFamiliareNeutro);
+			break;
+			
+		}
 	}
 }

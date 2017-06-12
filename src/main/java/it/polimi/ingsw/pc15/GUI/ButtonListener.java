@@ -13,32 +13,50 @@ import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 
+import it.polimi.ingsw.pc15.player.ColoreFamiliare;
+
 public class ButtonListener implements ActionListener{
 
+	public SelezionaFamiliarePopup selezionaFamiliarePopup;
 	
-	
-	 public ButtonListener() {
-	  }
+	public ButtonListener() {
+	}
 
 	@Override
 	public void actionPerformed(ActionEvent e) {
 		// TODO Auto-generated method stub
 		
+		
 		if (e.getActionCommand().equals("attivaEffettoLeader")) {
 			PlayerBoard playerBoard = (PlayerBoard)mainGUI.mainFrame.getContentPane().getComponent(1);
-			playerBoard.getForziereOro().redrawCentral("img\\Punchboard\\oro\\1.png");
-		}
+			playerBoard.getPanelRisorseOro().writeIntoLabel(2);
+			playerBoard.getPanelFamiliariDisponibili().liberaFamiliare(ColoreFamiliare.NERO);
 			
+		}
+		
+		
+		
 		if (e.getActionCommand().equals("posizionaFamiliare")) {
-			JFrame richiediFamiliare = new JFrame ();
-			richiediFamiliare.setSize(400, 400);
-			richiediFamiliare.setVisible(true);
-			richiediFamiliare.setAlwaysOnTop(true);
+			selezionaFamiliarePopup = new SelezionaFamiliarePopup();
+			System.out.println("Popup richiesta familiare creato");
+		}
+		
+		if(e.getActionCommand().equals("selezionatoFamiliareBianco")) {
+			System.out.println("selezionato bianco");
+			selezionaFamiliarePopup.setVisible(false);
+			
 		}
 		
 		if(e.getActionCommand().equals("torreVerde1")) {
 			System.out.println("ciao");
 		}
+		
+		if(e.getActionCommand().equals("buttonStatoGioco")) {
+			PlayerBoard playerBoard = (PlayerBoard)mainGUI.mainFrame.getContentPane().getComponent(1);
+			playerBoard.getPanelFamiliariDisponibili().utilizzaFamiliare(ColoreFamiliare.NERO);
+		}
+		
+		
 		
 	}	
 	
