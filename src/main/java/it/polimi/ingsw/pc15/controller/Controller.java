@@ -43,19 +43,15 @@ public class Controller extends Observable implements Observer {
 	@Override
 	public synchronized void update(Observable o, Object input) {
 		
-		System.out.println("\nSono il controller e ho ricevuto " + ((ArrayList<String>) input) + " da " + ((Connection) o).getName() + "\n");	
-		
 		parseInput(((Connection) o).getName(), (ArrayList<String>) input);
 	}
-	
-	
 	
 	public void parseInput(String nomeGiocatore, ArrayList<String> input) {
 		
 		Azione azioneGiocatore;
 		Player giocatore = model.getPlayer(nomeGiocatore);	
 		
-		System.out.println("\nSono il controller e ho ricevuto " + input + " da " + giocatore.getNome());
+		//System.out.println("\nSono il controller e ho ricevuto " + input + " da " + giocatore.getNome());
 		
 		switch(input.get(0)) {
 		
@@ -120,10 +116,15 @@ public class Controller extends Observable implements Observer {
 		RisultatoAzione risultatoAzione = azioneGiocatore.èValida();
 		if (risultatoAzione.getRisultato()==true) {
 			azioneGiocatore.attiva();
-			if (azioneGiocatore instanceof AzioneOccupaSpazio )
+			if (azioneGiocatore instanceof AzioneOccupaSpazio)
 				model.giocatoreSuccessivo();
-		}		
-		String message = "\n" + risultatoAzione.getCommento();
-		model.notificaStatoPartita(message);
+			String message = "\n" + risultatoAzione.getCommento();
+			model.notificaStatoPartita(message);	
+		}
+		
+		else {
+			String message = "\n" + risultatoAzione.getCommento();
+			model.notificaStatoPartita(message);
+		}
 	}
 }

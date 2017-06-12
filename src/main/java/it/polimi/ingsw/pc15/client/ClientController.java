@@ -16,7 +16,6 @@ import it.polimi.ingsw.pc15.risorse.TipoRisorsa;
 
 public class ClientController extends Observable implements Observer, Serializable {
 	
-	private Client client;
 	private Scanner in;
 	private PrintStream out;
 	private ObjectInputStream inObj;
@@ -40,12 +39,10 @@ public class ClientController extends Observable implements Observer, Serializab
 		System.out.println("Tentativo di connessione!\nScrivi il tuo nome :");
 		name = input.nextLine();
 		out.println(name);  //manda il nome alla Connection
-		System.out.println("Connessione al server riuscita! In attesa di altri giocatori");
+		System.out.println("Connessione al server riuscita! In attesa di altri giocatori\n");
 		
-		if(in.nextLine().equals("OK")) {  //attende finchè riceve l'OK dal server
-			System.out.println(name +", la partita ha inizio!");
+		if(in.nextLine().equals("OK"))  //attende finchè riceve l'OK dal server
 			return true;
-		}
 		
 		return false;
 		
@@ -53,18 +50,15 @@ public class ClientController extends Observable implements Observer, Serializab
 		
 		public void run() {
 			
-			StatoPartita statoPartita = null;
-			
 			while (true) {
+				
 				try {
-
-					statoPartita = (StatoPartita) inObj.readObject();
+					StatoPartita statoPartita = (StatoPartita) inObj.readObject();
+					System.out.println(statoPartita.getMessaggio());
+					clientModel.aggiorna(statoPartita);
 					
 				} catch (ClassNotFoundException | IOException e) {
 					e.printStackTrace();}
-				
-				System.out.println(statoPartita.getMessaggio());
-				clientModel.aggiorna(statoPartita);
 			}
 
 	}

@@ -15,7 +15,6 @@ import it.polimi.ingsw.pc15.model.Model;
 import it.polimi.ingsw.pc15.player.Player;
 
 
-
 public class Server {
 
 	private final static int PORT = 12879;
@@ -55,6 +54,7 @@ public class Server {
 		numeroGiocatori++;
 		if (numeroGiocatori==2) {
 			avviaPartita();
+			this.connections = new HashMap<String, Connection>();
 			numeroGiocatori=0;
 		}
 	}

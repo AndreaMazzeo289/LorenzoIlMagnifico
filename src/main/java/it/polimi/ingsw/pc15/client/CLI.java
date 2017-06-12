@@ -27,13 +27,13 @@ public class CLI extends View {
 	
 	public void run(){
 		
-		try {
-			Thread.sleep(1000);
-		} catch (InterruptedException e1) {
-			e1.printStackTrace();
-		}
-		
 	    while (true) {
+	    	
+			try {
+				Thread.sleep(1400);
+			} catch (InterruptedException e1) {
+				e1.printStackTrace();
+			}
 	    	
 	    	if (this.clientModel.getGiocatoreCorrente().equals(this.clientModel.getStatoGiocatore().getNome()))
 	    		tuoTurno = true;
@@ -46,7 +46,7 @@ public class CLI extends View {
 			
 	    	ArrayList<String> message = new ArrayList<String>();
 			
-	    	System.out.println("\nCosa vuoi fare?");
+	    	System.out.println("\n" + clientModel.getStatoGiocatore().getNome() + ", cosa vuoi fare?");
 	    	if (tuoTurno)
 	    		System.out.println("  0. Posiziona un familiare");
 	    	System.out.println("  1. Visualizza risorse\n  2. Visualizza familiari disponibili\n  3. Visualizza plancia");
@@ -99,13 +99,13 @@ public class CLI extends View {
 				break;		
 				
 	    	case 1: System.out.println("\nAl momento possiedi le seguenti risorse: ");
-					System.out.println("Oro: " + this.clientModel.getStatoGiocatore().getSetRisorse().getRisorsa(TipoRisorsa.ORO).getQuantità());
-					System.out.println("Legna: " + this.clientModel.getStatoGiocatore().getSetRisorse().getRisorsa(TipoRisorsa.LEGNA).getQuantità());
-					System.out.println("Pietra: " + this.clientModel.getStatoGiocatore().getSetRisorse().getRisorsa(TipoRisorsa.PIETRA).getQuantità());
-					System.out.println("Servitori: " + this.clientModel.getStatoGiocatore().getSetRisorse().getRisorsa(TipoRisorsa.SERVITORI).getQuantità());
-					System.out.println("\nPunti Vittoria: " + this.clientModel.getStatoGiocatore().getSetRisorse().getRisorsa(TipoRisorsa.PUNTIVITTORIA).getQuantità());
-					System.out.println("Punti Militari: " + this.clientModel.getStatoGiocatore().getSetRisorse().getRisorsa(TipoRisorsa.PUNTIMILITARI).getQuantità());
-					System.out.println("Punti Fede: " + this.clientModel.getStatoGiocatore().getSetRisorse().getRisorsa(TipoRisorsa.PUNTIFEDE).getQuantità());
+					System.out.println("  - Oro: " + this.clientModel.getStatoGiocatore().getSetRisorse().getRisorsa(TipoRisorsa.ORO).getQuantità());
+					System.out.println("  - Legna: " + this.clientModel.getStatoGiocatore().getSetRisorse().getRisorsa(TipoRisorsa.LEGNA).getQuantità());
+					System.out.println("  - Pietra: " + this.clientModel.getStatoGiocatore().getSetRisorse().getRisorsa(TipoRisorsa.PIETRA).getQuantità());
+					System.out.println("  - Servitori: " + this.clientModel.getStatoGiocatore().getSetRisorse().getRisorsa(TipoRisorsa.SERVITORI).getQuantità());
+					System.out.println("\n  - Punti Vittoria: " + this.clientModel.getStatoGiocatore().getSetRisorse().getRisorsa(TipoRisorsa.PUNTIVITTORIA).getQuantità());
+					System.out.println("  - Punti Militari: " + this.clientModel.getStatoGiocatore().getSetRisorse().getRisorsa(TipoRisorsa.PUNTIMILITARI).getQuantità());
+					System.out.println("  - Punti Fede: " + this.clientModel.getStatoGiocatore().getSetRisorse().getRisorsa(TipoRisorsa.PUNTIFEDE).getQuantità());
 					break;
 					
 	    	case 2: System.out.println("\nI tuoi familiari disponibili sono i seguenti: ");
@@ -124,7 +124,8 @@ public class CLI extends View {
 					
 	    	case 4: System.out.println("\nAl momento possiedi le seguenti carte Leader:");
 	    			for (Leader leader : this.clientModel.getStatoGiocatore().getCarteLeader())
-	    				System.out.println("  - " + leader.getNome());
+	    				if (leader!=null)
+	    					System.out.println("  - " + leader.getNome());
 	    			break;
 		
 			case 5: message = new ArrayList<String>();
@@ -158,15 +159,12 @@ public class CLI extends View {
 	    	
 	    	notifyObservers(message);
 	    	
-	    	try {
-				Thread.sleep(1000);
-			} catch (InterruptedException e) {
-				e.printStackTrace();
-			}
+	  
 	    }			
 	}
 
 	@Override
 	public void update(Observable arg0, Object arg1) {
+		
 	}
 }

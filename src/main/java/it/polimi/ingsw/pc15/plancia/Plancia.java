@@ -75,7 +75,7 @@ public class Plancia implements Serializable {
 		int valoreMinMercato = ParserXML.leggiValore("valoreMinMercato");
 		
 		switch (numeroGiocatori) {
-		
+			
 			case 4: SpazioMercato spazioMercato4 = new SpazioMercato(valoreMinMercato, ParserXML.leggiSetRisorseSpazio("mercato4"));
 					spaziMercato.add(spazioMercato4);
 			case 3: SpazioMercato spazioMercato3 = new SpazioMercato(valoreMinMercato, ParserXML.leggiSetRisorseSpazio("mercato3"));
@@ -101,7 +101,7 @@ public class Plancia implements Serializable {
 			
 	}
 
-	public void setTurno (int periodo, ArrayList<Carta> carteTerritorio, ArrayList<Carta> cartePersonaggio, ArrayList<Carta> carteEdificio, ArrayList<Carta> carteImpresa){
+	public void setCarte (int periodo, ArrayList<Carta> carteTerritorio, ArrayList<Carta> cartePersonaggio, ArrayList<Carta> carteEdificio, ArrayList<Carta> carteImpresa){
 
 		ArrayList arrayTerritori = new ArrayList<Territorio>();             
 		ArrayList arrayPersonaggi = new ArrayList<Personaggio>();
@@ -110,6 +110,7 @@ public class Plancia implements Serializable {
 		
 		int n;
 		int numeroSpaziTorre = ParserXML.leggiValore("numeroSpaziTorre");
+		//System.out.println("Il numero di spazi torre è " + numeroSpaziTorre);
 		
 		n=0;
 		for(int i=0; i<carteTerritorio.size(); i++) {
@@ -158,6 +159,25 @@ public class Plancia implements Serializable {
 		
 	}
 	
+	public void libera() {
+		
+		for (SpazioTorre spazioTorre : torreVerde.getSpaziTorre())
+			spazioTorre.rimuoviFamiliari();
+		for (SpazioTorre spazioTorre : torreBlu.getSpaziTorre())
+			spazioTorre.rimuoviFamiliari();
+		for (SpazioTorre spazioTorre : torreGialla.getSpaziTorre())
+			spazioTorre.rimuoviFamiliari();
+		for (SpazioTorre spazioTorre : torreViola.getSpaziTorre())
+			spazioTorre.rimuoviFamiliari();
+		
+		spazioProduzione.rimuoviFamiliari();
+		spazioRaccolta.rimuoviFamiliari();
+		spazioConsiglio.rimuoviFamiliari();
+		
+		for (SpazioMercato spazioMercato : spaziMercato)
+			spazioMercato.rimuoviFamiliari();
+		
+	}
 	
 	//-----------------------------------------------------------------------------------------------------------//
 	//          METODI GET                                                                                       //

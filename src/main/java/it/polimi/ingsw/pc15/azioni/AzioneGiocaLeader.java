@@ -16,7 +16,7 @@ public class AzioneGiocaLeader extends AzioneLeader {
 	@Override
 	public void attiva() {
 		
-		leader.setGiocato(true);
+		leader.setGiocato();
 		
 		if (leader.getEffettoPermanente()!=null) 
 			for (Effetto effetto : leader.getEffettoPermanente())

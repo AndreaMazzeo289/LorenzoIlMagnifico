@@ -6,6 +6,7 @@ import java.util.Observable;
 import it.polimi.ingsw.pc15.model.StatoPartita;
 import it.polimi.ingsw.pc15.plancia.Plancia;
 import it.polimi.ingsw.pc15.player.Player;
+import it.polimi.ingsw.pc15.risorse.TipoRisorsa;
 
 public class ClientModel extends Observable {
 	
@@ -18,7 +19,7 @@ public class ClientModel extends Observable {
 	
 
 	public void aggiorna(StatoPartita stato) {
-		
+				
 		this.statoPlancia = stato.getStatoPlancia();
 		this.periodo = stato.getPeriodo();
 		this.turno = stato.getTurno();
@@ -26,8 +27,9 @@ public class ClientModel extends Observable {
 		this.giocatoreCorrente = stato.getGiocatoreCorrente();	
 		this.statoGiocatore = stato.getStatoGiocatore();
 		
-		setChanged();
-		notifyObservers();
+		//setChanged();
+		//notifyObservers();
+		
 	}
 	
 	public Plancia getStatoPlancia() {
@@ -52,10 +54,7 @@ public class ClientModel extends Observable {
 	
 	public String getGiocatoreCorrente() {
 		return this.giocatoreCorrente;
-	}
-	
-	
-	
+	}	
 
 }
 

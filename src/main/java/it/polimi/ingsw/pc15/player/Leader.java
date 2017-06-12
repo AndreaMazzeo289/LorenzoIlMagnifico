@@ -13,7 +13,7 @@ import it.polimi.ingsw.pc15.risorse.TipoRisorsa;
 
 public class Leader implements Serializable{
 	
-	private final String nome;
+	public String nome;
 	private Player player;
 	private final Set<Effetto> effettoPerTurno;
 	private final Set<Effetto> effettoPermanente;
@@ -23,6 +23,7 @@ public class Leader implements Serializable{
 	
 	private boolean giocato;
 	private boolean effettoAttivato;
+	private boolean scartato;
 	
 	public Leader (String nome, Set<Effetto> effettoPerTurno, Set<Effetto> effettoPermanente, SetRisorse requisitoRisorse, HashMap<TipoCarta, Integer> requisitoCarte) {
 		
@@ -36,6 +37,7 @@ public class Leader implements Serializable{
 		
 		this.giocato = false;
 		this.effettoAttivato = false;
+		this.scartato = false;
 		
 	}
 	
@@ -47,8 +49,12 @@ public class Leader implements Serializable{
 		this.effettoAttivato = valore;
 	}
 	
-	public void setGiocato (boolean valore) {
-		this.giocato = valore;
+	public void setGiocato() {
+		this.giocato = true;
+	}
+	
+	public void setScartato() {
+		this.scartato = true;
 	}
 	
 	//-----------------------------------------------------------------------------------------------------------//
@@ -73,6 +79,10 @@ public class Leader implements Serializable{
 	
 	public boolean giocato() {
 		return this.giocato;
+	}
+	
+	public boolean scartato() {
+		return this.scartato;
 	}
 	
 	public Set<Effetto> getEffettoPerTurno() {

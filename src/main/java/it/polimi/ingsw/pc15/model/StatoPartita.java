@@ -56,7 +56,7 @@ public class StatoPartita implements Serializable {
 	
 	public void setStatoGiocatore(String nome) {
 		for (Player giocatore : statoGiocatori)
-			if (giocatore.getNome().equals(nome)) 
+			if (giocatore.getNome().equals(nome))
 				statoGiocatore = giocatore;
 	}
 
