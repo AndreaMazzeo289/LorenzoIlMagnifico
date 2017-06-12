@@ -44,7 +44,7 @@ public class CarteGioco extends JButton{
 		//this.add(carta, BorderLayout.CENTER);
 		this.setIcon(imageAll);
 		this.setPreferredSize(new Dimension(larghezza,altezza));
-		this.setBackground(Color.BLACK);
+		this.setBackground(Color.decode("15394527"));
 	}
 	
 }

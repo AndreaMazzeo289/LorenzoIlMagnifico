@@ -21,6 +21,7 @@ public class PlayerBoard extends JPanel{
 		this.setLayout(new GridBagLayout());
 		
 		risorsePlayer = new JPanel(new GridBagLayout());
+		//risorsePlayer = new JPanel(new GridLayout(1,7));
 		JPanel cartePlayer = new JPanel(new GridLayout(4,7));
 		JPanel scomunicheButtonPanel = new JPanel (new GridLayout(1,2));
 		JPanel presentationPanel = new JPanel (new GridBagLayout());
@@ -31,12 +32,11 @@ public class PlayerBoard extends JPanel{
 		
 		// Presentation panel
 		//-----------------------//
+		
+		JButton statoGioco = new ButtonStatoGioco();
 		gbc.gridx=0;
 		gbc.gridy=0;
-		presentationPanel.add(new Presentazione(),gbc);
-		gbc.gridx=1;
-		gbc.gridy=0;
-		presentationPanel.add(new ButtonStatoGioco(),gbc);
+		presentationPanel.add(statoGioco,gbc);
 		
 		// ScomunicheButtonPanel 
 		//-----------------------//
@@ -44,6 +44,7 @@ public class PlayerBoard extends JPanel{
 		JButton attivaEffettoLeader = new ButtonAttivaEffettoLeader();
 		JButton giocaLeader = new ButtonGiocaLeader();
 		JButton scartaLeader = new ButtonScartaLeader();
+		
 		buttonPanel.add(posizionaFamiliare);
 		buttonPanel.add(attivaEffettoLeader);
 		buttonPanel.add(giocaLeader);
@@ -101,22 +102,22 @@ public class PlayerBoard extends JPanel{
 		//-----------------------//
 		gbc.gridx=0;
 		gbc.gridy=0;
-		risorsePlayer.add(new ForziereOro(),gbc);
+		risorsePlayer.add(new PanelRisorse("img\\Punchboard\\Risorse\\northOro.png"), gbc);
 		gbc.gridx=1;
-		gbc.gridy=0;
-		risorsePlayer.add(new CestaLegna(),gbc);
+		risorsePlayer.add(new PanelRisorse("img\\Punchboard\\Risorse\\northLegna.png"), gbc);
 		gbc.gridx=2;
-		gbc.gridy=0;
-		risorsePlayer.add(new CestaPietra(),gbc);
+		risorsePlayer.add(new PanelRisorse("img\\Punchboard\\Risorse\\northPietra.png"), gbc);
 		gbc.gridx=3;
-		gbc.gridy=0;
-		risorsePlayer.add(new TappetoServitori(),gbc);
+		risorsePlayer.add(new PanelRisorse("img\\Punchboard\\Risorse\\northServitori.png"), gbc);
 		gbc.gridx=4;
-		gbc.gridy=0;
-		risorsePlayer.add(new PuntiGiocatore(),gbc);
+		risorsePlayer.add(new PanelRisorse("img\\Punchboard\\Risorse\\northMilitari.png"), gbc);
 		gbc.gridx=5;
-		gbc.gridy=0;
-		risorsePlayer.add(new FamiliariDisponibili(),gbc);
+		risorsePlayer.add(new PanelRisorse("img\\Punchboard\\Risorse\\northFede.png"), gbc);
+		gbc.gridx=6;
+		risorsePlayer.add(new PanelRisorse("img\\Punchboard\\Risorse\\northVittoria.png"), gbc);
+		gbc.gridx=7;
+		risorsePlayer.add(new FamiliariDisponibili(), gbc);
+		
 		
 		gbc.gridx=0;
 		gbc.gridy=0;
@@ -137,20 +138,41 @@ public class PlayerBoard extends JPanel{
 		posizionaFamiliare.addActionListener(new ButtonListener());
 		scartaLeader.addActionListener(new ButtonListener());
 		giocaLeader.addActionListener(new ButtonListener());
+		statoGioco.addActionListener(new ButtonListener());
+		
 	}
 	
 	
-	public ForziereOro getForziereOro(){
-		return (ForziereOro)this.risorsePlayer.getComponent(0);
+	public PanelRisorse getPanelRisorseOro(){
+		return (PanelRisorse)this.risorsePlayer.getComponent(0);
 	}
-	public CestaLegna getCestaLegna(){
-		return (CestaLegna)this.risorsePlayer.getComponent(1);
+	
+	public PanelRisorse getPanelRisorseLegna(){
+		return (PanelRisorse)this.risorsePlayer.getComponent(1);
 	}
-	public CestaPietra getCestaPietra(){
-		return (CestaPietra)this.risorsePlayer.getComponent(2);
+	
+	public PanelRisorse getPanelRisorsePietra(){
+		return (PanelRisorse)this.risorsePlayer.getComponent(2);
 	}
-	public TappetoServitori getTappetoServitori(){
-		return (TappetoServitori)this.risorsePlayer.getComponent(3);
+	
+	public PanelRisorse getPanelRisorseServitori(){
+		return (PanelRisorse)this.risorsePlayer.getComponent(3);
+	}
+	
+	public PanelRisorse getPanelRisorsePuntiMilitari(){
+		return (PanelRisorse)this.risorsePlayer.getComponent(4);
+	}
+	
+	public PanelRisorse getPanelRisorsePuntiFede(){
+		return (PanelRisorse)this.risorsePlayer.getComponent(5);
+	}
+	
+	public PanelRisorse getPanelRisorsePuntiVittoria(){
+		return (PanelRisorse)this.risorsePlayer.getComponent(6);
+	}
+	
+	public FamiliariDisponibili getPanelFamiliariDisponibili(){
+		return (FamiliariDisponibili)this.risorsePlayer.getComponent(7);
 	}
 	
 }
