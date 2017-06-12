@@ -242,7 +242,7 @@ public class Model extends Observable {
 		
 		if (ordine.lastIndexOf(giocatoreCorrente)==ordine.size()-1) {
 			azione++;
-			if (azione==4)  {
+			if (azione==3)  {
 				azione=1;
 				finisciTurno();	
 			}

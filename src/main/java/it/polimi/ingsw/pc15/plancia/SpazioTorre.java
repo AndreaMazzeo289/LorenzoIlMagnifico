@@ -40,12 +40,12 @@ public class SpazioTorre extends Spazio {
 		return this.carta;
 	}
 	
-	public Familiare getFamiliare() {
-		return this.familiari.get(0);
-	}
-	
 	public Torre getTorre() {
 		return this.torre;
+	}
+	
+	public Familiare getFamiliare() {
+		return this.familiari.get(0);
 	}
 	
 	public Effetto getBonusRisorse() {
