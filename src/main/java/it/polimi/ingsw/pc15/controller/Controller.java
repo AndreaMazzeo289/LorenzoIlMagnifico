@@ -18,12 +18,15 @@ import it.polimi.ingsw.pc15.azioni.AzioneOccupaSpazioTorre;
 import it.polimi.ingsw.pc15.azioni.AzioneOccupaSpazioRaccolta;
 import it.polimi.ingsw.pc15.azioni.AzioneScartaLeader;
 import it.polimi.ingsw.pc15.azioni.RisultatoAzione;
+import it.polimi.ingsw.pc15.carte.TipoCarta;
 import it.polimi.ingsw.pc15.model.Model;
 import it.polimi.ingsw.pc15.plancia.Spazio;
 import it.polimi.ingsw.pc15.plancia.SpazioConsiglio;
 import it.polimi.ingsw.pc15.plancia.SpazioMercato;
 import it.polimi.ingsw.pc15.plancia.SpazioProduzione;
 import it.polimi.ingsw.pc15.plancia.SpazioRaccolta;
+import it.polimi.ingsw.pc15.plancia.SpazioTorre;
+import it.polimi.ingsw.pc15.plancia.Torre;
 import it.polimi.ingsw.pc15.player.ColoreFamiliare;
 import it.polimi.ingsw.pc15.player.Familiare;
 import it.polimi.ingsw.pc15.player.Leader;
@@ -90,8 +93,25 @@ public class Controller extends Observable implements Observer {
 				spazioAzione = model.getPlancia().getSpazioProduzione();
 				azioneGiocatore = new AzioneOccupaSpazioProduzione(giocatore, familiareAzione, (SpazioProduzione) spazioAzione);
 				break;
-			case "torre": azioneGiocatore = new AzioneOccupaSpazioTorre(giocatore, familiareAzione, null); //<---- DA FINIRE!!!
+			case "torre": Torre torreAzione;
+				switch(input.get(3)) {
+				case "verde": torreAzione = model.getPlancia().getTorre(TipoCarta.TERRITORIO);
+					break;
+				case "blu": torreAzione = model.getPlancia().getTorre(TipoCarta.PERSONAGGIO);
+					break;
+				case "gialla": torreAzione = model.getPlancia().getTorre(TipoCarta.EDIFICIO);
+					break;
+				case "viola": torreAzione = model.getPlancia().getTorre(TipoCarta.IMPRESA);
+					break;
+				default: System.out.println("Errore nella lettura torre");
+					torreAzione = null;
+					break;
+				}
+				
+				spazioAzione = torreAzione.getSpazio(Integer.valueOf(input.get(4)));
+				azioneGiocatore = new AzioneOccupaSpazioTorre(giocatore, familiareAzione, (SpazioTorre) spazioAzione);
 				break;
+				
 			default: System.out.println("Errore lettura scelta spazio");
 				azioneGiocatore = null;
 				break;	

@@ -65,6 +65,7 @@ public class AzioneOccupaSpazioTorre extends AzioneOccupaSpazio {
 	public boolean controlloFamiliariTorre() {
 		
 		for (SpazioTorre spazioTorre : ((SpazioTorre) spazio).getTorre().getSpaziTorre())
+			if (spazioTorre.getFamiliare()!=null)
 			if (spazioTorre.getFamiliare().getPlayer().equals(player) && !(this.familiare.getColore().equals(ColoreFamiliare.NEUTRO) || spazioTorre.getFamiliare().getColore().equals(ColoreFamiliare.NEUTRO)))
 				return false;
 		

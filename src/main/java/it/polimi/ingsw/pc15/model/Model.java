@@ -81,8 +81,6 @@ public class Model extends Observable {
 		
 		distribuisciRisorse();
 		
-		notificaStatoPartita("---  PARTITA INIZIATA!  ---");
-		
 		iniziaNuovoTurno();
 		
 	}

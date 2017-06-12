@@ -30,10 +30,13 @@ public class Torre implements Serializable {
 	}
 	
 	public void setTorre(ArrayList<Carta> carte) {
-		
 		for (int i=0; i<carte.size(); i++)
 			(spaziTorre.get(i)).setCarta(carte.get(i));  //mette la carta i nello spazio i
-		
+	}
+	
+	public void libera() {
+		for (SpazioTorre spazio: this.spaziTorre)
+			spazio.rimuoviFamiliari();
 	}
 	
 	public ArrayList<SpazioTorre> getSpaziTorre() {

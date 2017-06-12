@@ -41,8 +41,10 @@ public class ClientController extends Observable implements Observer, Serializab
 		out.println(name);  //manda il nome alla Connection
 		System.out.println("Connessione al server riuscita! In attesa di altri giocatori\n");
 		
-		if(in.nextLine().equals("OK"))  //attende finchè riceve l'OK dal server
+		if(in.nextLine().equals("OK")) { //attende finchè riceve l'OK dal server
+			System.out.println("  --- PARTITA INIZIATA! ---");
 			return true;
+		}
 		
 		return false;
 		

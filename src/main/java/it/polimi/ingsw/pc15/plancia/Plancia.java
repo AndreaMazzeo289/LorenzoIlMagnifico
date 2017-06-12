@@ -6,6 +6,7 @@ import java.util.Collections;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.Iterator;
+import java.util.Map;
 import java.util.Set;
 
 import it.polimi.ingsw.pc15.ParserXML;
@@ -15,14 +16,13 @@ import it.polimi.ingsw.pc15.carte.Edificio;
 import it.polimi.ingsw.pc15.carte.Impresa;
 import it.polimi.ingsw.pc15.carte.Personaggio;
 import it.polimi.ingsw.pc15.carte.Territorio;
+import it.polimi.ingsw.pc15.risorse.Risorsa;
 import it.polimi.ingsw.pc15.risorse.SetRisorse;
+import it.polimi.ingsw.pc15.risorse.TipoRisorsa;
 
 public class Plancia implements Serializable {
 	
-	private Torre torreVerde;
-	private Torre torreBlu;
-	private Torre torreGialla;
-	private Torre torreViola;
+	private HashMap<TipoCarta, Torre> torri;
 	
 	private SpazioProduzione spazioProduzione;
 	private SpazioRaccolta spazioRaccolta;
@@ -52,10 +52,12 @@ public class Plancia implements Serializable {
 			risorseTorreViola.add(ParserXML.leggiSetRisorseSpazio("viola"+Integer.toString(i))); 
 		}
 		
-		torreVerde = new Torre (numeroSpaziTorre, risorseTorreVerde);
-		torreBlu = new Torre (numeroSpaziTorre, risorseTorreBlu);
-		torreGialla = new Torre (numeroSpaziTorre, risorseTorreGialla);
-		torreViola = new Torre (numeroSpaziTorre, risorseTorreViola);
+		this.torri = new HashMap<TipoCarta, Torre>();
+		torri.put(TipoCarta.TERRITORIO, new Torre (numeroSpaziTorre, risorseTorreVerde));
+		torri.put(TipoCarta.PERSONAGGIO, new Torre (numeroSpaziTorre, risorseTorreBlu));
+		torri.put(TipoCarta.EDIFICIO, new Torre (numeroSpaziTorre, risorseTorreGialla));
+		torri.put(TipoCarta.IMPRESA, new Torre (numeroSpaziTorre, risorseTorreViola));
+		
 		
 		
 		//-----------------------------------------------------------------------------------------------------------//
@@ -152,23 +154,17 @@ public class Plancia implements Serializable {
 			}
 		}
 
- 		this.torreVerde.setTorre(arrayTerritori);
- 		this.torreBlu.setTorre(arrayPersonaggi);
- 		this.torreGialla.setTorre(arrayEdifici);
- 		this.torreViola.setTorre(arrayImprese);
+ 		torri.get(TipoCarta.TERRITORIO).setTorre(arrayTerritori);
+ 		torri.get(TipoCarta.PERSONAGGIO).setTorre(arrayPersonaggi);
+ 		torri.get(TipoCarta.EDIFICIO).setTorre(arrayEdifici);
+ 		torri.get(TipoCarta.IMPRESA).setTorre(arrayImprese);
 		
 	}
 	
 	public void libera() {
 		
-		for (SpazioTorre spazioTorre : torreVerde.getSpaziTorre())
-			spazioTorre.rimuoviFamiliari();
-		for (SpazioTorre spazioTorre : torreBlu.getSpaziTorre())
-			spazioTorre.rimuoviFamiliari();
-		for (SpazioTorre spazioTorre : torreGialla.getSpaziTorre())
-			spazioTorre.rimuoviFamiliari();
-		for (SpazioTorre spazioTorre : torreViola.getSpaziTorre())
-			spazioTorre.rimuoviFamiliari();
+		for(Map.Entry<TipoCarta, Torre> torre : torri.entrySet())
+			torre.getValue().libera();
 		
 		spazioProduzione.rimuoviFamiliari();
 		spazioRaccolta.rimuoviFamiliari();
@@ -200,16 +196,11 @@ public class Plancia implements Serializable {
 	}
 	
 	public SpazioTorre getSpazioTorre (TipoCarta tipo, int numeroSpazio) {
-		
-		switch (tipo) {
-		
-		case TERRITORIO: return torreVerde.getSpazio(numeroSpazio);
-		case PERSONAGGIO: return torreBlu.getSpazio(numeroSpazio);
-		case EDIFICIO: return torreGialla.getSpazio(numeroSpazio);
-		case IMPRESA: return torreViola.getSpazio(numeroSpazio);		
-		default: return null;
-		
-		}
+		return this.torri.get(tipo).getSpazio(numeroSpazio);
+	}
+	
+	public Torre getTorre(TipoCarta tipo) {
+		return this.torri.get(tipo);
 	}
 	
 	public TesseraScomunica getTesseraScomunica(int periodo) {
@@ -219,7 +210,6 @@ public class Plancia implements Serializable {
 	public HashMap<Integer, TesseraScomunica> getScomuniche() {
 		return this.scomuniche;
 	}
-	
 	
 
 

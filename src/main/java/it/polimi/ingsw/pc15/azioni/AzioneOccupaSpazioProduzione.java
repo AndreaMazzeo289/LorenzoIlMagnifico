@@ -37,16 +37,11 @@ public class AzioneOccupaSpazioProduzione extends AzioneOccupaSpazio {
 		
 		int valoreAzione = familiare.getValore()+ familiare.getPlayer().getEffettiAttivi().getBonusProduzione();
 		
-		if(spazio.vuoto() == false )
-			if(valoreAzione >= spazio.getValoreMin())
+
+		if(valoreAzione >= spazio.getValoreMin())
 				return new RisultatoAzione(true, player.getNome() + " occupa lo spazio produzione!");
-			else 
-				return new RisultatoAzione(false, "FRASE");
-		else
-			if(valoreAzione >= spazio.getValoreMin()+3)
-				return new RisultatoAzione(true, player.getNome() + " occupa lo spazio produzione!");
-			else 
-				return new RisultatoAzione(false, "FRASE");
+		else 
+				return new RisultatoAzione(false, "Il valore del tuo familiare è troppo basso!");
 	}
 
 }

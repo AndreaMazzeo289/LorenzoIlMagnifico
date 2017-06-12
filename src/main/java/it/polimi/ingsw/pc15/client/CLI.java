@@ -8,7 +8,11 @@ import java.util.Observable;
 import java.util.Observer;
 import java.util.Scanner;
 
+import it.polimi.ingsw.pc15.carte.TipoCarta;
+import it.polimi.ingsw.pc15.plancia.SpazioMercato;
+import it.polimi.ingsw.pc15.plancia.SpazioTorre;
 import it.polimi.ingsw.pc15.player.ColoreFamiliare;
+import it.polimi.ingsw.pc15.player.Familiare;
 import it.polimi.ingsw.pc15.player.Leader;
 import it.polimi.ingsw.pc15.player.Player;
 import it.polimi.ingsw.pc15.risorse.TipoRisorsa;
@@ -35,27 +39,9 @@ public class CLI extends View {
 			} catch (InterruptedException e1) {
 				e1.printStackTrace();
 			}
-	    	
-	    	if (this.clientModel.getGiocatoreCorrente().equals(this.clientModel.getStatoGiocatore().getNome()))
-	    		tuoTurno = true;
-	    	else tuoTurno = false;
-	    	
-	    	if (tuoTurno)
-	    		System.out.println("\n(È il tuo turno!)");
-	    	else 
-	    		System.out.println("\n(È il turno di " + this.clientModel.getGiocatoreCorrente()+"!)");
 			
-	    	ArrayList<String> message = new ArrayList<String>();
+			ArrayList<String> message = new ArrayList<String>();
 			
-	    	System.out.println("\n" + clientModel.getStatoGiocatore().getNome() + ", cosa vuoi fare?");
-	    	if (tuoTurno)
-	    		System.out.println("  0. Posiziona un familiare");
-	    	System.out.println("  1. Visualizza risorse\n  2. Visualizza familiari disponibili\n  3. Visualizza plancia");
-	    	if (regoleAvanzate) {
-	    		System.out.println("  4. Visualizza carte Leader");
-	    		if (tuoTurno)
-	    			System.out.println("  5. Gioca una carta Leader\n  6. Scarta una carta Leader\n  7. Attiva l'effetto di una carta Leader");
-	    	}
 	    	switch (input.nextInt()) {
 	    	case 0: message.add("posiziona familiare");
 	    	
@@ -92,7 +78,31 @@ public class CLI extends View {
 				case 4: message.add("produzione");
 					break;
 				case 5: message.add("torre");
-					break;
+						System.out.println("\nQuale torre vuoi occupare?\n  1. Verde\n  2. Blu\n  3. Gialla\n  4. Viola");
+						int sceltaSpazio;
+						switch(input.nextInt()) {
+						case 1: message.add("verde");
+								System.out.println("Quale spazio della torre?");
+								sceltaSpazio = input.nextInt();
+								message.add(String.valueOf(sceltaSpazio-1));
+								break;
+						case 2: message.add("blu");
+								System.out.println("Quale spazio della torre?");
+								sceltaSpazio = input.nextInt();
+								message.add(String.valueOf(sceltaSpazio-1));
+								break;
+						case 3: message.add("gialla");
+								System.out.println("Quale spazio della torre?");
+								sceltaSpazio = input.nextInt();
+								message.add(String.valueOf(sceltaSpazio-1));
+								break;
+						case 4: message.add("viola");
+								System.out.println("Quale spazio della torre?");
+								sceltaSpazio = input.nextInt();
+								message.add(String.valueOf(sceltaSpazio-1));
+								break;
+						}
+						break;
 				} 
 				
 				////////////FINE SCELTA SPAZIO///////////////////////////////////
@@ -121,8 +131,77 @@ public class CLI extends View {
 	    				System.out.println("  - Familiare neutro - valore: " + this.clientModel.getStatoGiocatore().getFamiliare(ColoreFamiliare.NEUTRO).getValore());
 	    			break;
 	    			
-	    	case 3: System.out.println("La plancia è stra figa");
-					break;
+	    	case 3: for (SpazioMercato spazioMercato : this.clientModel.getStatoPlancia().getSpaziMercato())
+	    				if (spazioMercato.vuoto())
+	    					System.out.println("  - Spazio del Mercato " + this.clientModel.getStatoPlancia().getSpaziMercato().lastIndexOf(spazioMercato) + ": LIBERO");
+	    				else 
+	    					System.out.println("  - Spazio del Mercato " + this.clientModel.getStatoPlancia().getSpaziMercato().lastIndexOf(spazioMercato) + ": Occupato da " + spazioMercato.getFamiliari().get(0).getPlayer().getNome());
+					
+	    			if (this.clientModel.getStatoPlancia().getSpazioRaccolta().vuoto())
+						System.out.println("\n  - Spazio raccolta : LIBERO");
+	    			else {
+	    				System.out.println("\n  - Spazio raccolta: Occupato da ");
+	    				for (Familiare familiare : this.clientModel.getStatoPlancia().getSpazioRaccolta().getFamiliari())
+	    					System.out.println(familiare.getPlayer().getNome() + " ");
+	    			}
+	    			
+	    			if (this.clientModel.getStatoPlancia().getSpazioProduzione().vuoto())
+						System.out.println("  - Spazio produzione : LIBERO");
+	    			else {
+	    				System.out.println("  - Spazio produzione: Occupato da ");
+	    				for (Familiare familiare : this.clientModel.getStatoPlancia().getSpazioProduzione().getFamiliari())
+	    					System.out.println(familiare.getPlayer().getNome() + " ");
+	    			}
+	    			
+	    			if (this.clientModel.getStatoPlancia().getSpazioConsiglio().vuoto())
+						System.out.println("\n  - Spazio del Consiglio : LIBERO");
+	    			else {
+	    				System.out.println("\n  - Spazio del Consiglio: Occupato da ");
+	    				for (Familiare familiare : this.clientModel.getStatoPlancia().getSpazioConsiglio().getFamiliari())
+	    					System.out.println(familiare.getPlayer().getNome() + " ");
+	    			}
+	    			
+	    			System.out.println("\n    Torre VERDE:");
+	    			for (SpazioTorre spazio : this.clientModel.getStatoPlancia().getTorre(TipoCarta.TERRITORIO).getSpaziTorre())
+	    				if (spazio.vuoto())
+	    					System.out.println("  - Spazio " + (this.clientModel.getStatoPlancia().getTorre(TipoCarta.TERRITORIO).getSpaziTorre().lastIndexOf(spazio)+1) + ": LIBERO - Carta Territorio presente: " + spazio.getCarta().getNome());
+	    				else {
+	    					System.out.println("  - Spazio " + (this.clientModel.getStatoPlancia().getTorre(TipoCarta.TERRITORIO).getSpaziTorre().lastIndexOf(spazio)+1) + ": occupato da ");
+		    				for (Familiare familiare : spazio.getFamiliari())
+		    					System.out.println(familiare.getPlayer().getNome() + " ");
+	    				}
+	    			
+	    			System.out.println("\n    Torre BLU:");
+	    			for (SpazioTorre spazio : this.clientModel.getStatoPlancia().getTorre(TipoCarta.PERSONAGGIO).getSpaziTorre())
+	    				if (spazio.vuoto())
+	    					System.out.println("  - Spazio " + (this.clientModel.getStatoPlancia().getTorre(TipoCarta.PERSONAGGIO).getSpaziTorre().lastIndexOf(spazio)+1) + ": LIBERO - Carta Personaggio presente: " + spazio.getCarta().getNome());
+	    				else {
+	    					System.out.println("  - Spazio " + (this.clientModel.getStatoPlancia().getTorre(TipoCarta.PERSONAGGIO).getSpaziTorre().lastIndexOf(spazio)+1) + ": occupato da ");
+		    				for (Familiare familiare : spazio.getFamiliari())
+		    					System.out.println(familiare.getPlayer().getNome() + " ");
+	    				}
+	    			
+	    			System.out.println("\n    Torre GIALLA:");
+	    			for (SpazioTorre spazio : this.clientModel.getStatoPlancia().getTorre(TipoCarta.EDIFICIO).getSpaziTorre())
+	    				if (spazio.vuoto())
+	    					System.out.println("  - Spazio " + (this.clientModel.getStatoPlancia().getTorre(TipoCarta.EDIFICIO).getSpaziTorre().lastIndexOf(spazio)+1) + ": LIBERO - Carta Edificio presente: " + spazio.getCarta().getNome());
+	    				else {
+	    					System.out.println("  - Spazio " + (this.clientModel.getStatoPlancia().getTorre(TipoCarta.EDIFICIO).getSpaziTorre().lastIndexOf(spazio)+1) + ": occupato da ");
+		    				for (Familiare familiare : spazio.getFamiliari())
+		    					System.out.println(familiare.getPlayer().getNome() + " ");
+	    				}
+	    			
+	    			System.out.println("\n    Torre VIOLA:");
+	    			for (SpazioTorre spazio : this.clientModel.getStatoPlancia().getTorre(TipoCarta.IMPRESA).getSpaziTorre())
+	    				if (spazio.vuoto())
+	    					System.out.println("  - Spazio " + (this.clientModel.getStatoPlancia().getTorre(TipoCarta.IMPRESA).getSpaziTorre().lastIndexOf(spazio)+1) + ": LIBERO - Carta Impresa presente: " + spazio.getCarta().getNome());
+	    				else {
+	    					System.out.println("  - Spazio " + (this.clientModel.getStatoPlancia().getTorre(TipoCarta.IMPRESA).getSpaziTorre().lastIndexOf(spazio)+1) + ": occupato da ");
+		    				for (Familiare familiare : spazio.getFamiliari())
+		    					System.out.println(familiare.getPlayer().getNome() + " ");
+	    				}
+
+	    			break;
 					
 	    	case 4: System.out.println("\nAl momento possiedi le seguenti carte Leader:");
 	    			for (Leader leader : this.clientModel.getStatoGiocatore().getCarteLeader())
@@ -167,6 +246,35 @@ public class CLI extends View {
 
 	@Override
 	public void update(Observable arg0, Object arg1) {
+		
+		try {
+			Thread.sleep(1400);
+		} catch (InterruptedException e1) {
+			e1.printStackTrace();
+		}
+    	
+    	if (this.clientModel.getGiocatoreCorrente().equals(this.clientModel.getStatoGiocatore().getNome()))
+    		tuoTurno = true;
+    	else tuoTurno = false;
+    	
+    	if (tuoTurno)
+    		System.out.println("\n(È il tuo turno!)");
+    	else 
+    		System.out.println("\n(È il turno di " + this.clientModel.getGiocatoreCorrente()+"!)");
+		
+    	ArrayList<String> message = new ArrayList<String>();
+		
+    	System.out.println("\n" + clientModel.getStatoGiocatore().getNome() + ", cosa vuoi fare?");
+    	if (tuoTurno)
+    		System.out.println("  0. Posiziona un familiare");
+    	System.out.println("  1. Visualizza risorse\n  2. Visualizza familiari disponibili\n  3. Visualizza plancia");
+    	if (regoleAvanzate) {
+    		System.out.println("  4. Visualizza carte Leader");
+    		if (tuoTurno)
+    			System.out.println("  5. Gioca una carta Leader\n  6. Scarta una carta Leader\n  7. Attiva l'effetto di una carta Leader");
+    	}
+    	
+    	
 		
 	}
 }
