@@ -227,13 +227,14 @@ public class ParserXML {
 	                		 	default:
 	                		 		System.out.println("Nessun costo");
 	                		 }
+	                		 costo = new SetRisorse (risorseMap);
 	                	}
 	                }catch(NullPointerException e){
 	                }
 	                
 	                if(risorseMap.isEmpty()) {
 	                	risorseMap.add(new Oro(0));
-           		 		costo = new SetRisorse (risorseMap);
+           		 		
 	                }
 	        
 	                //------------------------------------------------------//
