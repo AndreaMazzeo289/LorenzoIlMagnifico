@@ -10,6 +10,7 @@ import java.util.Scanner;
 
 import it.polimi.ingsw.pc15.player.ColoreFamiliare;
 import it.polimi.ingsw.pc15.player.Leader;
+import it.polimi.ingsw.pc15.player.Player;
 import it.polimi.ingsw.pc15.risorse.TipoRisorsa;
 
 public class CLI extends View {
@@ -60,7 +61,8 @@ public class CLI extends View {
 	    	
 				/////////////SCELTA FAMILIARE///////////////////////////////
 	
-				System.out.println("\nQuale familiare vuoi posizionare?\n  1. Nero\n  2. Bianco\n  3. Arancione\n  4. Neutro");
+				System.out.println("\nQuale familiare vuoi posizionare?\n  1. Nero \n  2. Bianco\n  3. Arancione\n  4. Neutro");		
+					
 				switch(input.nextInt()) {
 				case 1: message.add("familiare nero");
 						break;
