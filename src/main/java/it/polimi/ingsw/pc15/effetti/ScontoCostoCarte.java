@@ -19,6 +19,10 @@ public class ScontoCostoCarte extends Effetto {
 		player.getEffettiAttivi().aggiungiScontoCostoCarte(tipoCarta, sconto);
 	}
 	
+	public String toString() {
+		return ("Fornisce uno sconto di " + sconto.toString() + " quando acquisti una carta " + tipoCarta.name());
+	}
+	
 	
 
 }
