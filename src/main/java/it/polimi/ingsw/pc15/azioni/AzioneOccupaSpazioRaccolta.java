@@ -38,7 +38,7 @@ public class AzioneOccupaSpazioRaccolta extends AzioneOccupaSpazio {
 			if (familiare.getPlayer().equals(player) && !(familiare.getColore().equals(ColoreFamiliare.NEUTRO) || this.familiare.getColore().equals(ColoreFamiliare.NEUTRO)))
 				return new RisultatoAzione(false, "non puoi posizionare altri familiari in questo spazio");
 		
-		int valoreAzione = familiare.getValore()+ familiare.getPlayer().getEffettiAttivi().getBonusRaccolta() + servitoriAggiuntivi;
+		int valoreAzione = familiare.getValore() + servitoriAggiuntivi;
 		
 		if(valoreAzione >= spazio.getValoreMin())
 			return new RisultatoAzione(true, player.getNome() + " occupa lo spazio raccolta!");

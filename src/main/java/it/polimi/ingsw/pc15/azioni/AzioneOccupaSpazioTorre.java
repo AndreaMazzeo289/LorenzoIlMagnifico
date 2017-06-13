@@ -57,7 +57,7 @@ public class AzioneOccupaSpazioTorre extends AzioneOccupaSpazio {
 		if (controlloFamiliariTorre() == false)
 			return new RisultatoAzione(false, "FRASE");
 		
-		if ( familiare.getValore() + servitoriAggiuntivi < spazio.getValoreMin() )
+		if ( familiare.getValore() + servitoriAggiuntivi + player.getEffettiAttivi().getBonusDadoCarte(((SpazioTorre) spazio).getCarta().getTipo()) < spazio.getValoreMin() )
 			return new RisultatoAzione(false, "FRASE");
 		
 		return this.azionePrendiCarta.èValida();

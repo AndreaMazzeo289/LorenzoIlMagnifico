@@ -12,13 +12,17 @@ import it.polimi.ingsw.pc15.risorse.TipoRisorsa;
 public class EffettiAttivi implements Serializable{
 	
 	private HashMap<TipoCarta, Integer> bonusDadoCarte;
+	private HashMap<TipoCarta, SetRisorse> scontoCostoCarte;
+	private HashMap<TipoCarta, Boolean> bonusPuntiVittoriaFinale;
+	
 	private int bonusRaccolta;
 	private int bonusProduzione;
+	
 	private boolean disponibilitàMercato;
 	private boolean bonusSpazioTorri;
 	private boolean requisitoTerritori;
 	private boolean permessoSpaziOccupati;
-	private HashMap<TipoCarta, Boolean> bonusPuntiVittoriaFinale;
+
 	private SetRisorse risorseBonusCarte;
 	private SetRisorse risorseBonusSpazi;
 	private int moltiplicatoreRisorseCarte;
@@ -28,6 +32,7 @@ public class EffettiAttivi implements Serializable{
 	public EffettiAttivi (){
 		
 		bonusDadoCarte = new HashMap<TipoCarta, Integer>();
+		scontoCostoCarte = new HashMap<TipoCarta, SetRisorse>();
 		
 		bonusDadoCarte.put(TipoCarta.TERRITORIO, 0);
 		bonusDadoCarte.put(TipoCarta.PERSONAGGIO, 0);
@@ -65,6 +70,10 @@ public class EffettiAttivi implements Serializable{
 	public void incrementaBonusDadoCarte (TipoCarta colore, int valore) {
 		int valoreAggiornato = bonusDadoCarte.get(colore).intValue();
 		bonusDadoCarte.put(colore, valoreAggiornato);	
+	}
+	
+	public void aggiungiScontoCostoCarte (TipoCarta tipo, SetRisorse sconto) {
+		this.scontoCostoCarte.put(tipo, sconto);
 	}
 	
 	public void annullaBonusPuntiVittoriaFinale (TipoCarta colore) {
@@ -109,8 +118,12 @@ public class EffettiAttivi implements Serializable{
 		return this.bonusProduzione;
 	}
 	
-	public int getBonusDadoCarte (TipoCarta colore) {
-		return this.bonusDadoCarte.get(colore);
+	public int getBonusDadoCarte (TipoCarta tipo) {
+		return this.bonusDadoCarte.get(tipo);
+	}
+	
+	public SetRisorse getScontoCostoCarte (TipoCarta tipo) {
+		return this.scontoCostoCarte.get(tipo);
 	}
 	
 	public boolean bonusPuntiVittoriaFinale (TipoCarta tipo) {
