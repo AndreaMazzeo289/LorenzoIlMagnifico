@@ -26,7 +26,6 @@ import it.polimi.ingsw.pc15.effetti.AnnullaGuadagno;
 import it.polimi.ingsw.pc15.effetti.AnnullaRequisitoTerritori;
 import it.polimi.ingsw.pc15.effetti.AnnullaSovrapprezzoTorri;
 import it.polimi.ingsw.pc15.effetti.AumentaPrezzoServitori;
-import it.polimi.ingsw.pc15.effetti.AumentaValoreFamiliare;
 import it.polimi.ingsw.pc15.effetti.AzionePrendiCartaAggiuntiva;
 import it.polimi.ingsw.pc15.effetti.Produzione;
 import it.polimi.ingsw.pc15.effetti.Raccolto;
