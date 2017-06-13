@@ -9,6 +9,9 @@ import java.util.Observable;
 import java.util.Observer;
 import java.util.Random;
 import java.util.Set;
+import java.util.TreeMap;
+
+import com.sun.javafx.collections.MappingChange.Map;
 
 import it.polimi.ingsw.pc15.ParserXML;
 import it.polimi.ingsw.pc15.carte.Carta;
@@ -17,6 +20,7 @@ import it.polimi.ingsw.pc15.carte.Impresa;
 import it.polimi.ingsw.pc15.carte.Personaggio;
 import it.polimi.ingsw.pc15.carte.Territorio;
 import it.polimi.ingsw.pc15.carte.TipoCarta;
+import it.polimi.ingsw.pc15.effetti.Effetto;
 import it.polimi.ingsw.pc15.plancia.Plancia;
 import it.polimi.ingsw.pc15.player.ColoreFamiliare;
 import it.polimi.ingsw.pc15.player.Familiare;
@@ -201,8 +205,8 @@ public class Model extends Observable {
 		}
 		
 		if (periodo==4)
-			//calcolaPunteggio()
-		;
+			calcolaPunteggio();
+		
 		else 
 			iniziaNuovoTurno();
 	}
@@ -237,7 +241,6 @@ public class Model extends Observable {
 		return this.plancia;
 	}
 
-
 	public void giocatoreSuccessivo() {
 		
 		if (ordine.lastIndexOf(giocatoreCorrente)==ordine.size()-1) {
@@ -249,6 +252,52 @@ public class Model extends Observable {
 			else giocatoreCorrente = ordine.get(0);		
 		}
 		else giocatoreCorrente = ordine.get(ordine.lastIndexOf(giocatoreCorrente)+1);
+	}
+	
+	public void calcolaPunteggio() {
+		
+		TreeMap<Integer, Player> classificaPM = new TreeMap<Integer, Player>();
+		TreeMap<Integer, Player> classificaPV = new TreeMap<Integer, Player>();
+		
+		for (Player giocatore : giocatori) {
+			
+			if (giocatore.getEffettiAttivi().bonusPuntiVittoriaFinale(TipoCarta.TERRITORIO))
+				switch (giocatore.getCarte(TipoCarta.TERRITORIO).size()) {
+				case 3: giocatore.getSetRisorse().getRisorsa(TipoRisorsa.PUNTIVITTORIA).aggiungi(1); break;
+				case 4: giocatore.getSetRisorse().getRisorsa(TipoRisorsa.PUNTIVITTORIA).aggiungi(4); break;
+				case 5: giocatore.getSetRisorse().getRisorsa(TipoRisorsa.PUNTIVITTORIA).aggiungi(10); break;
+				case 6: giocatore.getSetRisorse().getRisorsa(TipoRisorsa.PUNTIVITTORIA).aggiungi(20); break;
+				default: break;
+				}
+			
+			if (giocatore.getEffettiAttivi().bonusPuntiVittoriaFinale(TipoCarta.PERSONAGGIO))
+				switch (giocatore.getCarte(TipoCarta.PERSONAGGIO).size()) {
+				case 1: giocatore.getSetRisorse().getRisorsa(TipoRisorsa.PUNTIVITTORIA).aggiungi(1); break;
+				case 2: giocatore.getSetRisorse().getRisorsa(TipoRisorsa.PUNTIVITTORIA).aggiungi(3); break;
+				case 3: giocatore.getSetRisorse().getRisorsa(TipoRisorsa.PUNTIVITTORIA).aggiungi(6); break;
+				case 4: giocatore.getSetRisorse().getRisorsa(TipoRisorsa.PUNTIVITTORIA).aggiungi(10); break;
+				case 5: giocatore.getSetRisorse().getRisorsa(TipoRisorsa.PUNTIVITTORIA).aggiungi(15); break;
+				case 6: giocatore.getSetRisorse().getRisorsa(TipoRisorsa.PUNTIVITTORIA).aggiungi(21); break;
+				default: break;
+				}
+			
+			if (giocatore.getEffettiAttivi().bonusPuntiVittoriaFinale(TipoCarta.IMPRESA))
+				for (Carta impresa : giocatore.getCarte(TipoCarta.IMPRESA))
+					for (Effetto effetto : impresa.getEffettoPermanente())
+						effetto.attiva(giocatore);
+			
+			int sommaRisorse =  giocatore.getSetRisorse().getRisorsa(TipoRisorsa.PIETRA).getQuantità() + 
+								giocatore.getSetRisorse().getRisorsa(TipoRisorsa.LEGNA).getQuantità() +
+								giocatore.getSetRisorse().getRisorsa(TipoRisorsa.ORO).getQuantità() +
+								giocatore.getSetRisorse().getRisorsa(TipoRisorsa.SERVITORI).getQuantità();
+			giocatore.getSetRisorse().getRisorsa(TipoRisorsa.PUNTIVITTORIA).aggiungi(sommaRisorse/5);
+			
+			classificaPM.put(giocatore.getSetRisorse().getRisorsa(TipoRisorsa.PUNTIMILITARI).getQuantità(), giocatore);
+		}
+		
+		classificaPM.get(classificaPM.firstKey()).getSetRisorse().getRisorsa(TipoRisorsa.PUNTIVITTORIA).aggiungi(5);
+		
+		
 	}
 	
 	public void notificaStatoPartita (String messaggio) {

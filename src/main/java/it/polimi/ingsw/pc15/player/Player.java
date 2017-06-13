@@ -112,9 +112,9 @@ public class Player implements Serializable {
 		return this.setRisorse;
 	}
 	
-	public ArrayList<Carta> getCarte (TipoCarta colore) {
+	public ArrayList<Carta> getCarte (TipoCarta tipo) {
 		
-		if (colore.equals(TipoCarta.ALL)) {
+		if (tipo.equals(TipoCarta.ALL)) {
 			ArrayList<Carta> arrayRichiesto = new ArrayList<Carta>();
 			for (Carta territorio : getCarte(TipoCarta.TERRITORIO))
 				arrayRichiesto.add(territorio);
@@ -127,7 +127,7 @@ public class Player implements Serializable {
 			return arrayRichiesto;
 		}
 		
-		return this.carteSviluppo.get(colore);
+		return this.carteSviluppo.get(tipo);
 	}
 	
 	public EffettiAttivi getEffettiAttivi(){
