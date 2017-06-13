@@ -1197,7 +1197,7 @@ public class ParserXML {
 	public static ArrayList<Leader> leggiCartaLeader (){
 		
 		Set<Effetto> effetti = new HashSet<Effetto>();
-		Leader leaderEstratto = null;
+		
 		
 		ArrayList<Leader> listaLeader = new ArrayList<Leader>();
 		
@@ -1211,6 +1211,7 @@ public class ParserXML {
 			
 			for(int i=0; i<leaders.getLength(); i++) {
 				
+				Leader leaderEstratto = null;
 				HashSet<Risorsa> risorseMap = new HashSet<>();
 				Element leader = (Element) leaders.item(i);
 				String nomeLeader = leader.getElementsByTagName("nome").item(0).getFirstChild().getNodeValue();
