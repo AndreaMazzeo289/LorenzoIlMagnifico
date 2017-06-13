@@ -212,15 +212,15 @@
 	****************************************************************************-->
 
 	<effetto nome="aggiungiRisorse1Pr" idEffetto="addRisorsa">
-		<tipoRisorsa>privilegio</tipoRisorsa>
+		<tipoRisorsa>privilegi</tipoRisorsa>
         <quantita>1</quantita>
 	</effetto>
 	<effetto nome="aggiungiRisorse2PrDiv" idEffetto="addRisorsa">
-		<tipoRisorsa>privilegio</tipoRisorsa>
+		<tipoRisorsa>privilegi</tipoRisorsa>
         <quantita>2</quantita>
 	</effetto>
 	<effetto nome="aggiungiRisorse3PrDiv" idEffetto="addRisorsa">
-		<tipoRisorsa>privilegio</tipoRisorsa>
+		<tipoRisorsa>privilegi</tipoRisorsa>
         <quantita>3</quantita>
 	</effetto>
 
@@ -1117,6 +1117,14 @@
             </risorsa>
 		</setRisorse>
 	</effetto>
+    <effetto nome="sconto3OroPerQualunque" idEffetto="sconto">
+        <tipoCarta>all</tipoCarta>
+         <setRisorse>
+            <risorsa tipo="oro">
+                <quantita>3</quantita>
+            </risorsa>
+		</setRisorse>
+	</effetto>
 	<effetto nome="sconto1OroPerPersonaggio" idEffetto="sconto">
         <tipoCarta>personaggio</tipoCarta>
          <setRisorse>
@@ -1178,12 +1186,13 @@
     </effetto>
     <effetto nome="copiaEffettoLeader" idEffetto="copia">
     </effetto>
-    <effetto nome="bonusPVChiesa" idEffetto="bonus" idAzione="fede">
+    <effetto nome="bonusPVChiesa" idEffetto="bonusFede">
         <valore>5</valore>
     </effetto>
     <effetto nome="annullaSovrapprezzoTorri" idEffetto="sovrapprezzo">
     </effetto>
-    
+    <effetto nome="risorsePreseX2" idEffetto="moltiplicaRisorseCarte">
+    </effetto>
     <effetto nome="fissaValoreFamiliareNero5" idEffetto="fissaFamiliare" scelta="no">
         <bonusDado>5</bonusDado>
 		<coloreFamiliare>nero</coloreFamiliare>
