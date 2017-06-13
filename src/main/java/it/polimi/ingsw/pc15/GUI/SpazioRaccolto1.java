@@ -4,6 +4,8 @@ import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.Container;
 import java.awt.Dimension;
+import java.awt.GridBagConstraints;
+import java.awt.GridBagLayout;
 import java.awt.Image;
 import java.awt.Toolkit;
 
@@ -16,39 +18,50 @@ import javax.swing.JPanel;
 public class SpazioRaccolto1 extends JPanel{
 
 	JLabel labelNorth;
-	JLabel labelEast;
 	JLabel labelWest;
 	JLabel labelSouth;
+	JLabel labelEast;
+	JLabel labelCenter;
 	Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
 	
-	JButton buttonCenter;
+	ButtonTransparent buttonFamiliare;
+	
+	ImageIcon imageIcon;
+	Image image, newImage;
+	
+	int altezzaSchermo;
+	int larghezzaSchermo;
+	int altezzaTotale;
+	int larghezzaTotale;
+	
+	float rapporto;
 	
 	public SpazioRaccolto1() {
 		
-		int altezzaSchermo = (int)screenSize.getHeight();
-		int larghezzaSchermo = (int)screenSize.getWidth()/2;
+		larghezzaTotale = mainGUI.larghezzaTotale;
+		altezzaTotale =  mainGUI.altezzaTotale;
+		rapporto = mainGUI.rapporto;
+		
+		altezzaSchermo = (int)screenSize.getHeight();
+		larghezzaSchermo = (int)(((float)screenSize.getWidth())*rapporto);
+		//larghezzaSchermo = (int)screenSize.getWidth()/2;
 		
 		this.setLayout(new BorderLayout());
 		
 		int altezzaECW = 432;
 		int altezzaN = 91;
 		int altezzaS = 143;
-		int larghezzaW = 85;//85
-		int larghezzaE = 66;
-		int larghezzaC = 401;//399
+		int larghezzaW = 88;//85
+		int larghezzaE = 68;//66
+		int larghezzaC = 416;//401//309
 		int larghezzaN = larghezzaW+larghezzaE+larghezzaC; //956
 		int larghezzaS = larghezzaN;
-		
-		int larghezzaTotale = 4076;
-		int altezzaTotale = 6530;
 		
 		labelNorth = new JLabel();
 		labelEast = new JLabel();
 		labelWest = new JLabel();
 		labelSouth = new JLabel();
-		
-		ImageIcon imageIcon;
-		Image image, newImage;
+		labelCenter = new JLabel();
 		
 		imageIcon = new ImageIcon("img\\Gameboard\\SpaziRaccolto\\1\\north.png");
 		image = imageIcon.getImage();
@@ -79,18 +92,31 @@ public class SpazioRaccolto1 extends JPanel{
 		labelEast.setIcon(imageEast);
 		labelWest.setIcon(imageWest);
 		labelSouth.setIcon(imageSouth);
+		labelCenter.setIcon(imageCenter);
 		
-		buttonCenter = new JButton();
-		buttonCenter.setActionCommand("spazioRaccolto1");
-		buttonCenter.setIcon(imageCenter);
-		buttonCenter.setBorder(null);
-		buttonCenter.addActionListener(new ButtonListenerSpazi());
+		labelCenter.setLayout(new GridBagLayout());
+		GridBagConstraints gbc = new GridBagConstraints();
+		gbc.gridwidth = GridBagConstraints.REMAINDER;
+		gbc.fill = GridBagConstraints.HORIZONTAL;
+		
+		buttonFamiliare = new ButtonTransparent("spazioRaccolto1",160,160);
+		
+		labelCenter.add(buttonFamiliare,gbc);
 		
 		this.add(labelNorth, BorderLayout.NORTH);
 		this.add(labelEast, BorderLayout.EAST);
 		this.add(labelWest, BorderLayout.WEST);
 		this.add(labelSouth, BorderLayout.SOUTH);
+		this.add(labelCenter, BorderLayout.CENTER);		
+	}
+	
+	public void inserisciFamiliare(String path) {
+		imageIcon = new ImageIcon(path);
+		image = imageIcon.getImage();
+		newImage = image.getScaledInstance(((int)(larghezzaSchermo*160)/larghezzaTotale),((int)(altezzaSchermo*160)/altezzaTotale),Image.SCALE_DEFAULT);
+		ImageIcon imageButton = new ImageIcon(newImage);
 		
-		this.add(buttonCenter, BorderLayout.CENTER);
+		buttonFamiliare.setIcon(imageButton);
+		buttonFamiliare.setBorder(null);
 	}
 }

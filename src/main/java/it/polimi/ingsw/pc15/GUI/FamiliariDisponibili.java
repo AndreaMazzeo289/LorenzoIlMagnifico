@@ -49,14 +49,18 @@ public class FamiliariDisponibili extends JPanel{
 	int altezzaS;
 	int larghezzaTotale;
 	int altezzaTotale;
-	
+	float rapporto;
 	int altezzaSchermo;
 	int larghezzaSchermo;
 	
 	public FamiliariDisponibili() {
 		
+		larghezzaTotale = mainGUI.larghezzaTotale;
+		altezzaTotale =  mainGUI.altezzaTotale;
+		rapporto = mainGUI.rapportoPlayerBoard;
+		
 		altezzaSchermo = (int)screenSize.getHeight();
-		larghezzaSchermo = (int)screenSize.getWidth()/2;
+		larghezzaSchermo = (int)(((float)screenSize.getWidth())*rapporto);
 		
 		this.setLayout(new BorderLayout());
 		
@@ -72,8 +76,6 @@ public class FamiliariDisponibili extends JPanel{
 		larghezzaN = larghezzaW+larghezzaE+larghezzaC; //686
 		larghezzaS = larghezzaN;
 		altezzaS = 197;
-		larghezzaTotale = 4076;
-		altezzaTotale = 6530;
 		
 		labelNorth = new JLabel();
 		labelEast = new JLabel();

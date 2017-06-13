@@ -16,12 +16,22 @@ public class CarteGioco extends JButton{
 	JLabel carta;
 	Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();	
 	
+	int altezzaTotale;
+	int larghezzaTotale;
+	float rapporto;
+	int altezzaSchermo;
+	int larghezzaSchermo;
+	
 	public CarteGioco(String path) {
 		
 		this.setActionCommand(path);
 		
-		int altezzaSchermo = (int)screenSize.getHeight();
-		int larghezzaSchermo = (int)screenSize.getWidth()/2;
+		larghezzaTotale = mainGUI.larghezzaTotale;
+		altezzaTotale =  mainGUI.altezzaTotale;
+		rapporto = mainGUI.rapportoPlayerBoard;
+		
+		altezzaSchermo = (int)screenSize.getHeight();
+		larghezzaSchermo = (int)(((float)screenSize.getWidth())*rapporto);
 		
 		int altezza = 800; //toDefine
 		int larghezza = 430; //582

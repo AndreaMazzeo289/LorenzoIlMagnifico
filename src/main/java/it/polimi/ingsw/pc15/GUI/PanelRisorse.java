@@ -26,7 +26,7 @@ public class PanelRisorse extends JPanel{
 	int altezzaNorth;
 	int altezzaSouth;
 	int larghezzaBlocco;
-	
+	float rapporto;
 	int larghezzaTotale;
 	int altezzaTotale;
 	
@@ -35,8 +35,12 @@ public class PanelRisorse extends JPanel{
 	
 	public PanelRisorse(String path){
 		
+		larghezzaTotale = mainGUI.larghezzaTotale;
+		altezzaTotale =  mainGUI.altezzaTotale;
+		rapporto = mainGUI.rapportoPlayerBoard;
+		
 		altezzaSchermo = (int)screenSize.getHeight();
-		larghezzaSchermo = (int)screenSize.getWidth()/2;
+		larghezzaSchermo = (int)(((float)screenSize.getWidth())*rapporto);
 		
 		altezzaCenter = 150;
 		altezzaNorth = 375;

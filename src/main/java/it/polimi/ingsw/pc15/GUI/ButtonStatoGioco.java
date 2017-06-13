@@ -16,13 +16,23 @@ public class ButtonStatoGioco extends JButton{
 	JLabel imageButton;
 	Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
 	
+	int altezzaTotale;
+	int larghezzaTotale;
+	float rapporto;
+	int altezzaSchermo;
+	int larghezzaSchermo;
+	
 	public ButtonStatoGioco() {
 		
 		this.setBackground(Color.decode("15394527"));
 		this.setActionCommand("buttonStatoGioco");
 		
-		int altezzaSchermo = (int)screenSize.getHeight();
-		int larghezzaSchermo = (int)screenSize.getWidth()/2;
+		larghezzaTotale = mainGUI.larghezzaTotale;
+		altezzaTotale =  mainGUI.altezzaTotale;
+		rapporto = mainGUI.rapportoPlayerBoard;
+		
+		altezzaSchermo = (int)screenSize.getHeight();
+		larghezzaSchermo = (int)(((float)screenSize.getWidth())*rapporto);
 		
 		this.setLayout(new BorderLayout());
 		

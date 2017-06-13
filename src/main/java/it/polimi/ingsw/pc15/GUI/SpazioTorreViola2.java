@@ -4,6 +4,8 @@ import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.Container;
 import java.awt.Dimension;
+import java.awt.GridBagConstraints;
+import java.awt.GridBagLayout;
 import java.awt.Image;
 import java.awt.Toolkit;
 
@@ -18,35 +20,47 @@ public class SpazioTorreViola2 extends JPanel{
 	JLabel labelNorth;
 	JLabel labelWest;
 	JLabel labelSouth;
+	JLabel labelEast;
 	Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
 	
 	JButton buttonCenter;
-	JButton buttonEast;
+	ButtonTransparent buttonFamiliare;
+	
+	ImageIcon imageIcon;
+	Image image, newImage;
+	
+	int altezzaSchermo;
+	int larghezzaSchermo;
+	int altezzaTotale;
+	int larghezzaTotale;
+	
+	float rapporto;
 	
 	public SpazioTorreViola2(String path) {
 		
-		int altezzaSchermo = (int)screenSize.getHeight();
-		int larghezzaSchermo = (int)screenSize.getWidth()/2;
+		larghezzaTotale = mainGUI.larghezzaTotale;
+		altezzaTotale =  mainGUI.altezzaTotale;
+		rapporto = mainGUI.rapporto;
+		
+		altezzaSchermo = (int)screenSize.getHeight();
+		larghezzaSchermo = (int)(((float)screenSize.getWidth())*rapporto);
+		//larghezzaSchermo = (int)screenSize.getWidth()/2;
 		
 		this.setLayout(new BorderLayout());
 		
 		int altezzaECW = 833;
-		int altezzaN = 6;
+		int altezzaN = 8;
 		int larghezzaW = 38; //37
 		int larghezzaE = 571;
 		int larghezzaC = 517;
 		int larghezzaN = larghezzaW+larghezzaE+larghezzaC; //1125
 		int larghezzaS = larghezzaN;
 		int altezzaS = 47;
-		int larghezzaTotale = 4076;
-		int altezzaTotale = 6450;
 		
 		labelNorth = new JLabel();
 		labelWest = new JLabel();
 		labelSouth = new JLabel();
-		
-		ImageIcon imageIcon;
-		Image image, newImage;
+		labelEast = new JLabel();
 		
 		imageIcon = new ImageIcon("img\\Gameboard\\SpaziTorre\\Viola\\1\\north.png");
 		image = imageIcon.getImage();
@@ -76,24 +90,37 @@ public class SpazioTorreViola2 extends JPanel{
 		labelNorth.setIcon(imageNorth);
 		labelWest.setIcon(imageWest);
 		labelSouth.setIcon(imageSouth);
+		labelEast.setIcon(imageEast);
 		
 		buttonCenter = new JButton();
 		buttonCenter.setIcon(imageCenter);
 		buttonCenter.setBorder(null);
 		//buttonCenter.addActionListener(new ButtonListener(path));
 		
-		buttonEast = new JButton();
-		buttonEast.setActionCommand("spazioTorreViola2");
-		buttonEast.setIcon(imageEast);
-		buttonEast.setBorder(null);
-		buttonEast.addActionListener(new ButtonListenerSpazi());
+		labelEast.setLayout(new GridBagLayout());
+		GridBagConstraints gbc = new GridBagConstraints();
+		gbc.gridwidth = GridBagConstraints.REMAINDER;
+		gbc.fill = GridBagConstraints.HORIZONTAL;
 		
+		buttonFamiliare = new ButtonTransparent("spazioTorreViola2",160,160);
+		
+		labelEast.add(buttonFamiliare,gbc);
 		
 		this.add(labelNorth, BorderLayout.NORTH);
 		this.add(labelWest, BorderLayout.WEST);
 		this.add(labelSouth, BorderLayout.SOUTH);
-		
 		this.add(buttonCenter, BorderLayout.CENTER);
-		this.add(buttonEast, BorderLayout.EAST);
+		this.add(labelEast, BorderLayout.EAST);
+		
+	}
+	
+	public void inserisciFamiliare(String path) {
+		imageIcon = new ImageIcon(path);
+		image = imageIcon.getImage();
+		newImage = image.getScaledInstance(((int)(larghezzaSchermo*160)/larghezzaTotale),((int)(altezzaSchermo*160)/altezzaTotale),Image.SCALE_DEFAULT);
+		ImageIcon imageButton = new ImageIcon(newImage);
+		
+		buttonFamiliare.setIcon(imageButton);
+		buttonFamiliare.setBorder(null);
 	}
 }

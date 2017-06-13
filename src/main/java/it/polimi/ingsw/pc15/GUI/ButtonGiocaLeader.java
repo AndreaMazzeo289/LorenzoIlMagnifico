@@ -16,19 +16,27 @@ public class ButtonGiocaLeader extends JButton{
 	JLabel imageButton;
 	Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
 	
+	int altezzaTotale;
+	int larghezzaTotale;
+	float rapporto;
+	int altezzaSchermo;
+	int larghezzaSchermo;
+	
 	public ButtonGiocaLeader() {
 		
 		setBackground(Color.decode("5724515"));
-		int altezzaSchermo = (int)screenSize.getHeight();
-		int larghezzaSchermo = (int)screenSize.getWidth()/2;
+		
+		larghezzaTotale = mainGUI.larghezzaTotale;
+		altezzaTotale =  mainGUI.altezzaTotale;
+		rapporto = mainGUI.rapportoPlayerBoard;
+		
+		altezzaSchermo = (int)screenSize.getHeight();
+		larghezzaSchermo = (int)(((float)screenSize.getWidth())*rapporto);
 		
 		this.setLayout(new BorderLayout());
 		
 		int altezza = 700;
 		int larghezza = 880; 
-		
-		int larghezzaTotale = 4076;
-		int altezzaTotale = 6530;
 		
 		imageButton = new JLabel();
 		
