@@ -23,7 +23,7 @@ public class SpazioTorreBlu1 extends JPanel{
 	JButton buttonCenter;
 	JButton buttonEast;
 	
-	public SpazioTorreBlu1() {
+	public SpazioTorreBlu1(String path) {
 		
 		int altezzaSchermo = (int)screenSize.getHeight();
 		int larghezzaSchermo = (int)screenSize.getWidth()/2;
@@ -63,7 +63,7 @@ public class SpazioTorreBlu1 extends JPanel{
 		newImage = image.getScaledInstance(((int)(larghezzaSchermo*larghezzaW)/larghezzaTotale),((int)(altezzaSchermo*altezzaECW)/altezzaTotale),Image.SCALE_DEFAULT);
 		ImageIcon imageWest = new ImageIcon(newImage);
 		
-		imageIcon = new ImageIcon("img\\Gameboard\\SpaziTorre\\Blu\\1\\center.png");
+		imageIcon = new ImageIcon(path);
 		image = imageIcon.getImage();
 		newImage = image.getScaledInstance(((int)(larghezzaSchermo*larghezzaC)/larghezzaTotale),((int)(altezzaSchermo*altezzaECW)/altezzaTotale),Image.SCALE_DEFAULT);
 		ImageIcon imageCenter = new ImageIcon(newImage);

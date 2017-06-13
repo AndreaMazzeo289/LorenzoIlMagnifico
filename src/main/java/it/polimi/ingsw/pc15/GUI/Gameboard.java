@@ -76,67 +76,67 @@ public class Gameboard extends JPanel {
 		//-----------------------//
 		gbc.gridx = 0;
 		gbc.gridy = 0;
-		spaziTorre.add(new SpazioTorreVerde1(), gbc);
+		spaziTorre.add(new SpazioTorreVerde1("img/DevCardsFront/devcards_f_en_c_1.png"), gbc);
 		
 		gbc.gridx = 1;
 		gbc.gridy = 0;
-		spaziTorre.add(new SpazioTorreBlu1(), gbc);
+		spaziTorre.add(new SpazioTorreBlu1("img/DevCardsFront/devcards_f_en_c_61.png"), gbc);
 		
 		gbc.gridx = 2;
 		gbc.gridy = 0;
-		spaziTorre.add(new SpazioTorreGialla1(), gbc);
+		spaziTorre.add(new SpazioTorreGialla1("img/DevCardsFront/devcards_f_en_c_25.png"), gbc);
 		
 		gbc.gridx = 3;
 		gbc.gridy = 0;
-		spaziTorre.add(new SpazioTorreViola1(), gbc);
+		spaziTorre.add(new SpazioTorreViola1("img/DevCardsFront/devcards_f_en_c_93.png"), gbc);
 		
 		gbc.gridx = 0;
 		gbc.gridy = 1;
-		spaziTorre.add(new SpazioTorreVerde2(), gbc);
+		spaziTorre.add(new SpazioTorreVerde2("img/DevCardsFront/devcards_f_en_c_2.png"), gbc);
 		
 		gbc.gridx = 1;
 		gbc.gridy = 1;
-		spaziTorre.add(new SpazioTorreBlu2(), gbc);
+		spaziTorre.add(new SpazioTorreBlu2("img/DevCardsFront/devcards_f_en_c_64.png"), gbc);
 		
 		gbc.gridx = 2;
 		gbc.gridy = 1;
-		spaziTorre.add(new SpazioTorreGialla2(), gbc);
+		spaziTorre.add(new SpazioTorreGialla2("img/DevCardsFront/devcards_f_en_c_26.png"), gbc);
 		
 		gbc.gridx = 3;
 		gbc.gridy = 1;
-		spaziTorre.add(new SpazioTorreViola2(), gbc);
+		spaziTorre.add(new SpazioTorreViola2("img/DevCardsFront/devcards_f_en_c_94.png"), gbc);
 		
 		gbc.gridx = 0;
 		gbc.gridy = 2;
-		spaziTorre.add(new SpazioTorreVerde3(), gbc);
+		spaziTorre.add(new SpazioTorreVerde3("img/DevCardsFront/devcards_f_en_c_3.png"), gbc);
 		
 		gbc.gridx = 1;
 		gbc.gridy = 2;
-		spaziTorre.add(new SpazioTorreBlu3(), gbc);
+		spaziTorre.add(new SpazioTorreBlu3("img/DevCardsFront/devcards_f_en_c_62.png"), gbc);
 		
 		gbc.gridx = 2;
 		gbc.gridy = 2;
-		spaziTorre.add(new SpazioTorreGialla3(), gbc);
+		spaziTorre.add(new SpazioTorreGialla3("img/DevCardsFront/devcards_f_en_c_27.png"), gbc);
 		
 		gbc.gridx = 3;
 		gbc.gridy = 2;
-		spaziTorre.add(new SpazioTorreViola3(), gbc);
+		spaziTorre.add(new SpazioTorreViola3("img/DevCardsFront/devcards_f_en_c_95.png"), gbc);
 		
 		gbc.gridx = 0;
 		gbc.gridy = 3;
-		spaziTorre.add(new SpazioTorreVerde4(), gbc);
+		spaziTorre.add(new SpazioTorreVerde4("img/DevCardsFront/devcards_f_en_c_4.png"), gbc);
 		
 		gbc.gridx = 1;
 		gbc.gridy = 3;
-		spaziTorre.add(new SpazioTorreBlu4(), gbc);
+		spaziTorre.add(new SpazioTorreBlu4("img/DevCardsFront/devcards_f_en_c_63.png"), gbc);
 		
 		gbc.gridx = 2;
 		gbc.gridy = 3;
-		spaziTorre.add(new SpazioTorreGialla4(), gbc);
+		spaziTorre.add(new SpazioTorreGialla4("img/DevCardsFront/devcards_f_en_c_28.png"), gbc);
 		
 		gbc.gridx = 3;
 		gbc.gridy = 3;
-		spaziTorre.add(new SpazioTorreViola4(), gbc);
+		spaziTorre.add(new SpazioTorreViola4("img/DevCardsFront/devcards_f_en_c_96.png"), gbc);
 		
 		//-------------------------------------------------------------------//
 		// ADD GAMEBOARD
@@ -163,9 +163,28 @@ public class Gameboard extends JPanel {
 		return (SpazioTorreVerde1) spaziTorre.getComponent(0);
 	}
 	
+	public SpazioProduzione1 getSpazioProduzione1() {
+		JPanel spazioProd = (JPanel) spazioFinale.getComponent(0);
+		return (SpazioProduzione1) spazioProd.getComponent(0);
+	}
+	
 	public SpazioProduzione2 getSpazioProduzione2() {
 		JPanel spazioProd = (JPanel) spazioFinale.getComponent(0);
 		return (SpazioProduzione2) spazioProd.getComponent(1);
+	}
+	
+	public SpazioRaccolto1 getSpazioRaccolto1() {
+		JPanel spazioProd = (JPanel) spazioFinale.getComponent(0);
+		return (SpazioRaccolto1) spazioProd.getComponent(2);
+	}
+	
+	public SpazioRaccolto2 getSpazioRaccolto2() {
+		JPanel spazioProd = (JPanel) spazioFinale.getComponent(0);
+		return (SpazioRaccolto2) spazioProd.getComponent(3);
+	}
+	
+	public SpazioConsiglio getSpazioConsiglio() {
+		return spazioConsiglio;
 	}
 	
 }

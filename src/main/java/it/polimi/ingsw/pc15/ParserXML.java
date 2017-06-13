@@ -77,8 +77,8 @@ public class ParserXML {
 		/*leggiScomunica(2);
 		leggiScomunica(3);*/
 		
-		getCarteXML(TipoCarta.PERSONAGGIO);
-		//leggiCartaLeader();
+		//getCarteXML(TipoCarta.PERSONAGGIO);
+		leggiCartaLeader();
 		
 		//leggiSetRisorseSpazio("verde1");
 	}
@@ -1229,7 +1229,7 @@ public class ParserXML {
 							
 							String tipoCarta = carta.getElementsByTagName("tipo").item(0).getFirstChild().getNodeValue();
 							int quantita = Integer.parseInt(carta.getElementsByTagName("quantita").item(0).getFirstChild().getNodeValue());
-							System.out.println("Devi avere "+quantita+" carte"+ tipoCarta);
+							//System.out.println("Devi avere "+quantita+" carte"+ tipoCarta);
 							TipoCarta tipoCartaEnum = null;
 							switch(tipoCarta.toUpperCase()) {
 								case "EDIFICIO" : tipoCartaEnum = TipoCarta.EDIFICIO;

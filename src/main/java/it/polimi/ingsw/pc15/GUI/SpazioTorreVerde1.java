@@ -36,7 +36,7 @@ public class SpazioTorreVerde1 extends JPanel{
 	int altezzaTotale;
 	int larghezzaTotale;
 	
-	public SpazioTorreVerde1() {
+	public SpazioTorreVerde1(String path) {
 		
 		altezzaSchermo = (int)screenSize.getHeight();
 		larghezzaSchermo = (int)screenSize.getWidth()/2;
@@ -76,7 +76,7 @@ public class SpazioTorreVerde1 extends JPanel{
 		newImage = image.getScaledInstance(((int)(larghezzaSchermo*larghezzaW)/larghezzaTotale),((int)(altezzaSchermo*altezzaECW)/altezzaTotale),Image.SCALE_DEFAULT);
 		ImageIcon imageWest = new ImageIcon(newImage);
 		
-		imageIcon = new ImageIcon("img\\Gameboard\\SpaziTorre\\Verde\\1\\center.png");
+		imageIcon = new ImageIcon(path);
 		image = imageIcon.getImage();
 		newImage = image.getScaledInstance(((int)(larghezzaSchermo*larghezzaC)/larghezzaTotale),((int)(altezzaSchermo*altezzaC)/altezzaTotale),Image.SCALE_DEFAULT);
 		ImageIcon imageCenter = new ImageIcon(newImage);

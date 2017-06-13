@@ -75,8 +75,6 @@ public class SpazioProduzione2 extends JPanel{
 		labelSouth = new JLabel();
 		labelCenter = new JLabel();
 		
-		
-		
 		imageIcon = new ImageIcon("img\\Gameboard\\SpaziProduzione\\2\\north.png");
 		image = imageIcon.getImage();
 		newImage = image.getScaledInstance(((int)(larghezzaSchermo*larghezzaN)/larghezzaTotale),((int)(altezzaSchermo*altezzaN)/altezzaTotale),Image.SCALE_DEFAULT);
@@ -112,22 +110,22 @@ public class SpazioProduzione2 extends JPanel{
 		JLabel labelButton = new JLabel();
 		labelButton.setLayout(new GridLayout(2,8));
 		
-		button1 = new ButtonTransparent("posizione1",100,85);
-		button2= new ButtonTransparent("posizione2",100,85);
-		button3 = new ButtonTransparent("posizione3",100,85);
-		button4 = new ButtonTransparent("posizione4",100,85);
-		button5 = new ButtonTransparent("posizione5",100,85);
-		button6 = new ButtonTransparent("posizione6",100,85);
-		button7 = new ButtonTransparent("posizione7",100,85);
-		button8 = new ButtonTransparent("posizione8",100,85);
-		button9 = new ButtonTransparent("posizione9",100,85);
-		button10 = new ButtonTransparent("posizione10",100,85);
-		button11 = new ButtonTransparent("posizione11",100,85);
-		button12 = new ButtonTransparent("posizione12",100,85);
-		button13 = new ButtonTransparent("posizione13",100,85);
-		button14 = new ButtonTransparent("posizione14",100,85);
-		button15 = new ButtonTransparent("posizione15",100,85);
-		button16 = new ButtonTransparent("posizione16",100,85);
+		button1 = new ButtonTransparent("SpazioProduzionePosizione1",100,85);
+		button2= new ButtonTransparent("SpazioProduzionePosizione2",100,85);
+		button3 = new ButtonTransparent("SpazioProduzionePosizione3",100,85);
+		button4 = new ButtonTransparent("SpazioProduzionePosizione4",100,85);
+		button5 = new ButtonTransparent("SpazioProduzionePosizione5",100,85);
+		button6 = new ButtonTransparent("SpazioProduzionePosizione6",100,85);
+		button7 = new ButtonTransparent("SpazioProduzionePosizione7",100,85);
+		button8 = new ButtonTransparent("SpazioProduzionePosizione8",100,85);
+		button9 = new ButtonTransparent("SpazioProduzionePosizione9",100,85);
+		button10 = new ButtonTransparent("SpazioProduzionePosizione10",100,85);
+		button11 = new ButtonTransparent("SpazioProduzionePosizione11",100,85);
+		button12 = new ButtonTransparent("SpazioProduzionePosizione12",100,85);
+		button13 = new ButtonTransparent("SpazioProduzionePosizione13",100,85);
+		button14 = new ButtonTransparent("SpazioProduzionePosizione14",100,85);
+		button15 = new ButtonTransparent("SpazioProduzionePosizione15",100,85);
+		button16 = new ButtonTransparent("SpazioProduzionePosizione16",100,85);
 		
 		labelButton.add(button1);
 		labelButton.add(button2);
