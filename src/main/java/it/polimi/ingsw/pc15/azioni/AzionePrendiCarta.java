@@ -24,13 +24,15 @@ public abstract class AzionePrendiCarta extends Azione{
 	int oroAggiuntivo = 0;
 			                                          
 	if (carta.getSpazio().getTorre().occupata() )    
-		oroAggiuntivo = 3;							  
-		
-	carta.getCosto().sottrai(player.getEffettiAttivi().getScontoCostoCarte(carta.getTipo()));
+		oroAggiuntivo = 3;		
+	
+	if (player.getEffettiAttivi().getScontoCostoCarte(carta.getTipo())!=null)	
+		carta.getCosto().sottrai(player.getEffettiAttivi().getScontoCostoCarte(carta.getTipo()));
 		
 	if (!(player.getSetRisorse().paragona(carta.getCosto()) &&                                                   
 			player.getSetRisorse().getRisorsa(TipoRisorsa.ORO).paragona(carta.getCosto().getRisorsa(TipoRisorsa.ORO).getQuantità() + oroAggiuntivo))) {
-		carta.getCosto().aggiungi(player.getEffettiAttivi().getScontoCostoCarte(carta.getTipo()));
+		if (player.getEffettiAttivi().getScontoCostoCarte(carta.getTipo())!=null)	
+			carta.getCosto().aggiungi(player.getEffettiAttivi().getScontoCostoCarte(carta.getTipo()));
 		return false;
 	}
 	

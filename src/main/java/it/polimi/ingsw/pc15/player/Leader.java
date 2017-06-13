@@ -23,7 +23,6 @@ public class Leader implements Serializable{
 	
 	private boolean giocato;
 	private boolean effettoAttivato;
-	private boolean scartato;
 	
 	public Leader (String nome, Set<Effetto> effettoPerTurno, Set<Effetto> effettoPermanente, SetRisorse requisitoRisorse, HashMap<TipoCarta, Integer> requisitoCarte) {
 		
@@ -37,7 +36,6 @@ public class Leader implements Serializable{
 		
 		this.giocato = false;
 		this.effettoAttivato = false;
-		this.scartato = false;
 		
 	}
 	
@@ -51,10 +49,6 @@ public class Leader implements Serializable{
 	
 	public void setGiocato() {
 		this.giocato = true;
-	}
-	
-	public void setScartato() {
-		this.scartato = true;
 	}
 	
 	//-----------------------------------------------------------------------------------------------------------//
@@ -81,10 +75,6 @@ public class Leader implements Serializable{
 		return this.giocato;
 	}
 	
-	public boolean scartato() {
-		return this.scartato;
-	}
-	
 	public Set<Effetto> getEffettoPerTurno() {
 		return this.effettoPerTurno;
 	}
@@ -107,16 +97,22 @@ public class Leader implements Serializable{
 			stringa += " ]  - EFFETTO PER TURNO: ";
 		}
 		
-		if (effettoPerTurno.isEmpty()||effettoPerTurno==null)
-			stringa += "nessuno  -";
-		else for (Effetto effetto : effettoPerTurno)
+		try {
+			for (Effetto effetto : effettoPerTurno)
 			stringa += effetto.toString() + " - ";
+		} catch (NullPointerException e) {
+				stringa += "nessuno  -";
+		}
 		
 		stringa += " EFFETTO PERMANENTE: ";
-		if (effettoPermanente.isEmpty()||effettoPermanente==null)
-			stringa += "nessuno";
-		else for (Effetto effetto : effettoPermanente)
-			stringa += effetto.toString() + " - ";
+		try {
+			for (Effetto effetto : effettoPermanente)
+				stringa += effetto.toString() + " - ";
+		} catch (NullPointerException e) {
+			stringa += "nessuno  -";
+		}
+
+
 		stringa += " )";
 		return stringa;
 	}
