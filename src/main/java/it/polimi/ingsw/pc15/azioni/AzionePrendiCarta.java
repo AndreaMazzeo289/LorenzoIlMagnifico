@@ -21,16 +21,16 @@ public abstract class AzionePrendiCarta extends Azione{
 
 	public boolean risorseSufficienti () {
 		
-		
 	int oroAggiuntivo = 0;
-			                                             //    se la torre è già occupata, il costo in oro della carta
-		if (carta.getSpazio().getTorre().occupata() ) {  //    aumenta di 3;
-			oroAggiuntivo = 3;							 // 
-		}
+			                                          
+	if (carta.getSpazio().getTorre().occupata() )    
+		oroAggiuntivo = 3;							  
+		
+	carta.getCosto().sottrai(player.getEffettiAttivi().getScontoCostoCarte(carta.getTipo()));
 		
 	if (!(player.getSetRisorse().paragona(carta.getCosto()) &&                                                   
 			player.getSetRisorse().getRisorsa(TipoRisorsa.ORO).paragona(carta.getCosto().getRisorsa(TipoRisorsa.ORO).getQuantità() + oroAggiuntivo))) {
-		System.out.println("Non hai risorse sufficienti per acquistare questa carta!");
+		carta.getCosto().aggiungi(player.getEffettiAttivi().getScontoCostoCarte(carta.getTipo()));
 		return false;
 	}
 	
