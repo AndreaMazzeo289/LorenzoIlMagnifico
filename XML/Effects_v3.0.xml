@@ -1106,7 +1106,8 @@
 	EFFETTI PARTICOLARI
 
 	****************************************************************************-->
-	<effetto nome="sconto1Pietra1Legna" idEffetto="sconto">
+	<effetto nome="sconto1Pietra1LegnaPerEdificio" idEffetto="sconto">
+        <tipoCarta>edificio</tipoCarta>
          <setRisorse>
             <risorsa tipo="legna">
                 <quantita>1</quantita>
@@ -1116,7 +1117,8 @@
             </risorsa>
 		</setRisorse>
 	</effetto>
-	<effetto nome="sconto1Oro" idEffetto="sconto">
+	<effetto nome="sconto1OroPerPersonaggio" idEffetto="sconto">
+        <tipoCarta>personaggio</tipoCarta>
          <setRisorse>
             <risorsa tipo="oro">
                 <quantita>1</quantita>
@@ -1170,7 +1172,7 @@
     
     <effetto nome="annullaRequisitoTerritori" idEffetto="requisitoTerritori">
     </effetto>
-    <effetto nome="noBonusSpazioTorre" idEffetto="noBonusTorre">
+    <effetto nome="noBonusSpazioAzione" idEffetto="noBonusTorre">
     </effetto>
     <effetto nome="occupaSpaziOccupati" idEffetto="spaziOccupati">
     </effetto>

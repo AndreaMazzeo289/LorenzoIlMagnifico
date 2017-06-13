@@ -873,7 +873,7 @@
 		</effettiImmediati>
 		<effettiPermanenti>
 			<effettoPermanente>bonusCarteGialle2</effettoPermanente>
-            <effettoPermanente>scontoPietra1Legna1</effettoPermanente>
+            <effettoPermanente>sconto1Pietra1LegnaPerEdificio</effettoPermanente>
 		</effettiPermanenti>
 	</carta>	
 	<carta id="51" tipo="personaggio">
@@ -888,7 +888,7 @@
 		</effettiImmediati>
 		<effettiPermanenti>
 			<effettoPermanente>bonusCarteBlu2</effettoPermanente>
-            <effettoPermanente>sconto1Oro</effettoPermanente>
+            <effettoPermanente>sconto1OroPerPersonaggio</effettoPermanente>
 		</effettiPermanenti>
 	</carta>	
 	<carta id="52" tipo="personaggio">

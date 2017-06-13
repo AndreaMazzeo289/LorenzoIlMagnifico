@@ -27,6 +27,7 @@ import it.polimi.ingsw.pc15.effetti.AnnullaRequisitoTerritori;
 import it.polimi.ingsw.pc15.effetti.AnnullaSovrapprezzoTorri;
 import it.polimi.ingsw.pc15.effetti.AumentaPrezzoServitori;
 import it.polimi.ingsw.pc15.effetti.AzionePrendiCartaAggiuntiva;
+import it.polimi.ingsw.pc15.effetti.AzionePrendiCartaAggiuntivaConSconto;
 import it.polimi.ingsw.pc15.effetti.Produzione;
 import it.polimi.ingsw.pc15.effetti.Raccolto;
 import it.polimi.ingsw.pc15.effetti.BonusDadoCarte;
@@ -46,6 +47,7 @@ import it.polimi.ingsw.pc15.effetti.RisorsePerCarte;
 import it.polimi.ingsw.pc15.effetti.RisorsePerRisorse;
 import it.polimi.ingsw.pc15.effetti.SaltaPrimoTurno;
 import it.polimi.ingsw.pc15.effetti.Scambio;
+import it.polimi.ingsw.pc15.effetti.ScontoCostoCarte;
 import it.polimi.ingsw.pc15.plancia.TesseraScomunica;
 import it.polimi.ingsw.pc15.player.ColoreFamiliare;
 import it.polimi.ingsw.pc15.player.Leader;
@@ -75,7 +77,7 @@ public class ParserXML {
 		/*leggiScomunica(2);
 		leggiScomunica(3);*/
 		
-		//getCarteXML(TipoCarta.IMPRESA);
+		getCarteXML(TipoCarta.PERSONAGGIO);
 		//leggiCartaLeader();
 		
 		//leggiSetRisorseSpazio("verde1");
@@ -324,6 +326,9 @@ public class ParserXML {
 					 	case "prendiCartaAggiuntiva":
 					 		effettoLetto = leggiEffettoAzionePrendiCartaAggiuntiva(effetto);
 					 		break;
+					 	case "prendiCartaSconto":
+					 		effettoLetto = leggiEffettoAzionePrendiCartaAggiuntivaConSconto(effetto);
+					 		break;
 					 	case "produzione":
 					 		effettoLetto = leggiEffettoProduzione(effetto);
 					 		break;
@@ -353,8 +358,12 @@ public class ParserXML {
 									break;
 							}
 							break;
+					 	case "sconto":
+					 		effettoLetto = leggiEffettoScontoCostoCarte(effetto);
+					 		break;
 					 	case "fissaFamiliare":
 					 		effettoLetto = leggiEffettoFissaValoreFamiliare(effetto);
+					 		break;
 					 	case "negaMercato":
 					 		effettoLetto = leggiEffettoNegaMercato();
 					 		break;
@@ -518,6 +527,95 @@ public class ParserXML {
 		}
 		
 		AzionePrendiCartaAggiuntiva azione = new AzionePrendiCartaAggiuntiva (tipoCartaEnum, valoreDadoCarta);
+		return azione;
+	}
+	
+	//--------------------------------------------------------------------------------------------------------------//
+	// LEGGI EFFETTO AZIONE CARTA CON SCONTO
+	//--------------------------------------------------------------------------------------------------------------//
+	/**
+	 * metodo che permette di estrarre gli effetti di tipo azione carta dal file XML
+	 * @param elemento dell'effetto specifico da estrarre (Classe Element)
+	 * @return istanza dell'effetto estratto (Classe AzioneCarta)
+	 */
+	
+	public static AzionePrendiCartaAggiuntivaConSconto leggiEffettoAzionePrendiCartaAggiuntivaConSconto (Element effetto) {
+		
+		int valoreDadoCarta = Integer.parseInt(effetto.getElementsByTagName("valoreDado").item(0).getFirstChild().getNodeValue());
+		String tipoCarta = effetto.getElementsByTagName("tipoCarta").item(0).getFirstChild().getNodeValue();
+		
+		TipoCarta tipoCartaEnum = null;
+		switch(tipoCarta.toUpperCase()){
+			case "TERRITORIO": 
+				tipoCartaEnum = TipoCarta.TERRITORIO;
+				break;
+			case "EDIFICIO": 
+				tipoCartaEnum = TipoCarta.EDIFICIO;
+				break;
+			case "PERSONAGGIO": 
+				tipoCartaEnum = TipoCarta.PERSONAGGIO;
+				break;
+			case "IMPRESA": 
+				tipoCartaEnum = TipoCarta.IMPRESA;
+				break;
+			case "ALL": 
+				tipoCartaEnum = TipoCarta.ALL;
+		}
+		
+		NodeList setRisorse = effetto.getElementsByTagName("setRisorse");
+		SetRisorse sconto=null;		
+		
+		for(int i=0; i<setRisorse.getLength(); ++i) {
+			
+			Element SingoloCosto = (Element) setRisorse.item(i);
+			HashSet<Risorsa> risorseMap = new HashSet<>();
+			NodeList risorse = SingoloCosto.getElementsByTagName("risorsa");
+	    	int contRisorse = risorse.getLength();
+	    	
+	    	for(int j=0; j<contRisorse; j++) {
+	    		 Element risorsa = (Element) risorse.item(j);
+	    		 int quantita = Integer.parseInt(risorsa.getElementsByTagName("quantita").item(0).getFirstChild().getNodeValue());
+	    		 
+	    		 switch(risorsa.getAttribute("tipo").toUpperCase()) {
+	    		 	case "LEGNA":
+	    		 		Legna legna = new Legna(quantita);
+	    		 		risorseMap.add(legna);
+	    		 		break;
+	    		 	case "PIETRA":
+	    		 		Pietra pietra = new Pietra(quantita);
+	    		 		risorseMap.add(pietra);
+	    		 		break;
+	    		 	case "ORO":
+	    		 		Oro oro = new Oro(quantita);
+	    		 		risorseMap.add(oro);
+	    		 		break;
+	    		 	case "SERVITORI":
+	    		 		Servitori servitori = new Servitori(quantita);
+	    		 		risorseMap.add(servitori);
+	    		 		break;
+	    		 	case "PUNTIMILITARI":
+	    		 		PuntiMilitari puntiMilitari = new PuntiMilitari(quantita);
+	    		 		risorseMap.add(puntiMilitari);
+	    		 		break;
+	    		 	case "PUNTIFEDE":
+	    		 		PuntiFede puntiFede = new PuntiFede(quantita);
+	    		 		risorseMap.add(puntiFede);
+	    		 		break;
+	    		 	case "PUNTIVITTORIA":
+	    		 		PuntiVittoria puntiVittoria = new PuntiVittoria(quantita);
+	    		 		risorseMap.add(puntiVittoria);
+	    		 		break;
+	    		 	case "PRIVILEGI":
+	    		 		Privilegi privilegi = new Privilegi(quantita);
+	    		 		risorseMap.add(privilegi);
+	    		 		break;
+	    		 }
+	    	}
+	    	
+	    	sconto = new SetRisorse (risorseMap);
+		}
+		
+		AzionePrendiCartaAggiuntivaConSconto azione = new AzionePrendiCartaAggiuntivaConSconto (tipoCartaEnum, valoreDadoCarta, sconto);
 		return azione;
 	}
 	
@@ -771,13 +869,12 @@ public class ParserXML {
 	 * @param elemento dell'effetto specifico da estrarre (Classe Element)
 	 * @return istanza dell'effetto estratto (Classe Scambio)
 	 */
-	public static Scambio leggiEffettoSconto(Element effetto) {
+	public static ScontoCostoCarte leggiEffettoScontoCostoCarte(Element effetto) {
+		
+		String tipoCarta = effetto.getElementsByTagName("tipoCarta").item(0).getFirstChild().getNodeValue();
 		
 		NodeList setRisorse = effetto.getElementsByTagName("setRisorse");
-		SetRisorse pagamento = null;
-		SetRisorse pagamento2 = null;
-		SetRisorse guadagno = null;
-		SetRisorse guadagno2 = null;		
+		SetRisorse sconto=null;		
 		
 		for(int i=0; i<setRisorse.getLength(); ++i) {
 			
@@ -826,25 +923,27 @@ public class ParserXML {
 	    		 }
 	    	}
 	    	
-	        switch(SingoloCosto.getAttribute("id")){
-			case "pagamento":
-				pagamento = new SetRisorse (risorseMap);
-				break;
-			case "guadagno":
-				guadagno = new SetRisorse (risorseMap);
-				break;
-			case "pagamento2":
-				pagamento2 = new SetRisorse (risorseMap);
-				break;
-			case "guadagno2":
-				guadagno2 = new SetRisorse (risorseMap);
-				break;
-			default:
-	        }
+	    	sconto = new SetRisorse (risorseMap);
 		}
 		
-		Scambio scambio = new Scambio (pagamento, guadagno, pagamento2, guadagno2);
-		return scambio;
+		TipoCarta tipoCartaEnum = null;
+		switch(tipoCarta.toUpperCase()) {
+		case "TERRITORIO":
+			tipoCartaEnum = TipoCarta.TERRITORIO;
+			break;
+		case "EDIFICIO":
+			tipoCartaEnum = TipoCarta.EDIFICIO;
+			break;
+		case "PERSONAGGIO":
+			tipoCartaEnum = TipoCarta.PERSONAGGIO;
+			break;
+		case "IMPRESA":
+			tipoCartaEnum = TipoCarta.IMPRESA;
+			break;
+		}
+		
+		ScontoCostoCarte scontoCostoCarte = new ScontoCostoCarte (sconto, tipoCartaEnum);
+		return scontoCostoCarte;
 	}
 	
 	//--------------------------------------------------------------------------------------------------------------//

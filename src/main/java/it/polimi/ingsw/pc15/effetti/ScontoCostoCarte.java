@@ -8,6 +8,11 @@ public class ScontoCostoCarte extends Effetto {
 	
 	private SetRisorse sconto;
 	private TipoCarta tipoCarta;
+	
+	public ScontoCostoCarte(SetRisorse sconto, TipoCarta tipoCarta) {
+		this.sconto=sconto;
+		this.tipoCarta=tipoCarta;
+	}
 
 	@Override
 	public void attiva(Player player) {
