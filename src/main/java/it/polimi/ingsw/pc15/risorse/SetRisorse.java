@@ -70,7 +70,9 @@ public class SetRisorse implements Serializable {
 	
 	public String toString() {
 		String stringa = "[ ";
-		for(Map.Entry<TipoRisorsa, Risorsa> risorsa : risorse.entrySet()) 
+		if (risorse.isEmpty())
+			stringa += "nessuno ";
+		else for(Map.Entry<TipoRisorsa, Risorsa> risorsa : risorse.entrySet()) 
 			stringa += (risorsa.getValue().toString() + ":" + risorsa.getValue().getQuantità() + " ");
 		stringa += "]";
 		return stringa;

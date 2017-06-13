@@ -85,10 +85,13 @@ public class Leader implements Serializable{
 	
 	public String toString() {
 		
-		String stringa = nome + " (REQUISITO: ";
+		String stringa = nome + " ( REQUISITO RISORSE: ";
 		
 		if (requisitoRisorse!=null)
 			stringa += requisitoRisorse.toString();
+		else stringa += "nessuno";
+		
+		stringa += "  - REQUISITO CARTE: ";
 		
 		if (requisitoCarte!=null) {
 			stringa += "[ ";
