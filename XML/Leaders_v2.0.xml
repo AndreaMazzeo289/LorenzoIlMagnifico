@@ -15,6 +15,9 @@
                 <risorsa tipo="oro">
                     <quantita>12</quantita>
                 </risorsa>
+                <risorsa tipo="puntiFede">
+                    <quantita>2</quantita>
+                </risorsa>
             </risorse>
         </requisito>
         <effetti tipo="permanente">
