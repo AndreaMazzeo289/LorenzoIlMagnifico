@@ -17,7 +17,7 @@ import it.polimi.ingsw.pc15.model.StatoPartita;
 import it.polimi.ingsw.pc15.player.Player;
 import it.polimi.ingsw.pc15.risorse.TipoRisorsa;
 
-public class Connection extends Observable implements Observer, Runnable, Serializable {
+public class SocketView extends ServerView implements Runnable, Serializable {
 
 	private Socket socket;
 	private Server server;
@@ -28,7 +28,7 @@ public class Connection extends Observable implements Observer, Runnable, Serial
 	private String name;
 	private ArrayList<String> input;
 	
-	public Connection(Socket socket, Server server) throws IOException{
+	public SocketView(Socket socket, Server server) throws IOException{
 		
 		this.socket = socket;
 		this.server = server;
