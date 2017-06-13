@@ -120,7 +120,7 @@ public class CLI extends View {
 					case 4: message.add("produzione");
 						break;
 					case 5: message.add("torre");
-							System.out.println("\nQuale torre vuoi occupare?\n  1. Verde\n  2. Blu\n  3. Gialla\n  4. Viola\n  5.\n (ANNULLA)");
+							System.out.println("\nQuale torre vuoi occupare?\n  1. Verde\n  2. Blu\n  3. Gialla\n  4. Viola\n\n  0. (ANNULLA)");
 							int sceltaSpazio;
 							switch(input.nextInt()) {
 							case 1: message.add("verde");
