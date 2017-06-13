@@ -270,7 +270,7 @@ public class CLI extends View {
 	    	case 4: System.out.println("\nAl momento possiedi le seguenti carte Leader:");
 	    			for (Leader leader : this.clientModel.getStatoGiocatore().getCarteLeader())
 	    				if (leader!=null)
-	    					System.out.println("  - " + leader.getNome());
+	    					System.out.println("  - " + leader.toString());
 					update(null, null);
 	    			break;
 		

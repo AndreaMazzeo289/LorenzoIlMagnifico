@@ -93,4 +93,32 @@ public class Leader implements Serializable{
 		return this.effettoPermanente;
 	}
 	
+	public String toString() {
+		
+		String stringa = nome + " (REQUISITO: ";
+		
+		if (requisitoRisorse!=null)
+			stringa += requisitoRisorse.toString();
+		
+		if (requisitoCarte!=null) {
+			stringa += "[ ";
+			for(Map.Entry<TipoCarta, Integer> requisitoCarta : requisitoCarte.entrySet())
+				stringa += " " + requisitoCarta.getKey().name() + ": " + requisitoCarta.getValue();
+			stringa += " ]  - EFFETTO PER TURNO: ";
+		}
+		
+		if (effettoPerTurno.isEmpty()||effettoPerTurno==null)
+			stringa += "nessuno  -";
+		else for (Effetto effetto : effettoPerTurno)
+			stringa += effetto.toString() + " - ";
+		
+		stringa += " EFFETTO PERMANENTE: ";
+		if (effettoPermanente.isEmpty()||effettoPermanente==null)
+			stringa += "nessuno";
+		else for (Effetto effetto : effettoPermanente)
+			stringa += effetto.toString() + " - ";
+		stringa += " )";
+		return stringa;
+	}
+	
 }

@@ -5,6 +5,7 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.HashSet;
 import java.util.Iterator;
+import java.util.Map.Entry;
 import java.util.Observable;
 import java.util.Observer;
 import java.util.Random;
@@ -296,9 +297,21 @@ public class Model extends Observable {
 		}
 		
 		classificaPM.get(classificaPM.firstKey()).getSetRisorse().getRisorsa(TipoRisorsa.PUNTIVITTORIA).aggiungi(5);
+		classificaPM.remove(classificaPM.firstKey());
+		classificaPM.get(classificaPM.firstKey()).getSetRisorse().getRisorsa(TipoRisorsa.PUNTIVITTORIA).aggiungi(2);
+		
+		for (Player giocatore : giocatori)
+			classificaPV.put(giocatore.getSetRisorse().getRisorsa(TipoRisorsa.PUNTIVITTORIA).getQuantità(), giocatore);
+		
+		notificaStatoPartita("\n  --- FINE PARTITA! ---\nClassifica dei giocatori:");
+		int i=1;
+		for(Entry<Integer, Player> giocatore : classificaPV.entrySet())
+			System.out.println("  " + i + ". " + giocatore.getValue().getNome());
 		
 		
 	}
+	
+	
 	
 	public void notificaStatoPartita (String messaggio) {
 		
