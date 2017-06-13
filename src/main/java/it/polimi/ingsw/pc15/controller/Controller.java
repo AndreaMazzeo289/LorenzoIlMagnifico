@@ -32,7 +32,7 @@ import it.polimi.ingsw.pc15.player.Familiare;
 import it.polimi.ingsw.pc15.player.Leader;
 import it.polimi.ingsw.pc15.player.Player;
 import it.polimi.ingsw.pc15.risorse.TipoRisorsa;
-import it.polimi.ingsw.pc15.server.Connection;
+import it.polimi.ingsw.pc15.server.ServerView;;
 
 public class Controller extends Observable implements Observer {
 	
@@ -46,7 +46,7 @@ public class Controller extends Observable implements Observer {
 	@Override
 	public synchronized void update(Observable o, Object input) {
 		
-		parseInput(((SocketView) o).getName(), (ArrayList<String>) input);
+		parseInput(((ServerView) o).getName(), (ArrayList<String>) input);
 	}
 	
 	public void parseInput(String nomeGiocatore, ArrayList<String> input) {
