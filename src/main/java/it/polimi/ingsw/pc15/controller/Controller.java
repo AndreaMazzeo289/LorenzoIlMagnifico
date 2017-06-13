@@ -46,7 +46,7 @@ public class Controller extends Observable implements Observer {
 	@Override
 	public synchronized void update(Observable o, Object input) {
 		
-		parseInput(((Connection) o).getName(), (ArrayList<String>) input);
+		parseInput(((SocketView) o).getName(), (ArrayList<String>) input);
 	}
 	
 	public void parseInput(String nomeGiocatore, ArrayList<String> input) {

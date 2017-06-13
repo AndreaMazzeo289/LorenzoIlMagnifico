@@ -19,12 +19,12 @@ public class Server {
 
 	private final static int PORT = 12879;
 	private ServerSocket serverSocket;
-	private HashMap<String, Connection> connections;
+	private HashMap<String, ServerView> views;
 	private int numeroGiocatori;
 	
 	public Server() throws IOException {
 		this.serverSocket = new ServerSocket(PORT);
-		this.connections = new HashMap<String, Connection>();
+		this.views = new HashMap<String, ServerView>();
 		this.numeroGiocatori = 0;
 	}
 
@@ -36,8 +36,8 @@ public class Server {
 		while (true) {
 		try {
 				Socket newSocket = serverSocket.accept();
-				Connection connection = new Connection(newSocket, this);	
-				new Thread(connection).start();
+				SocketView view = new SocketView(newSocket, this);	
+				new Thread(view).start();
 			} 
 			
 			catch (IOException e) {
@@ -47,14 +47,14 @@ public class Server {
 			
 	}
 	
-	public synchronized void connetti(Connection connection, String name){
+	public synchronized void connetti(ServerView view, String name){
 		
-		connections.put(name, connection);
+		views.put(name, view);
 		System.out.println("Giocatore connnesso: " + name);
 		numeroGiocatori++;
 		if (numeroGiocatori==2) {
 			avviaPartita();
-			this.connections = new HashMap<String, Connection>();
+			this.views = new HashMap<String, ServerView>();
 			numeroGiocatori=0;
 		}
 	}
@@ -64,17 +64,17 @@ public class Server {
 		
 		ArrayList<String> nomiGiocatoriConnessi = new ArrayList<String>();
 		
-		for(Map.Entry<String, Connection> giocatoriConnessi : connections.entrySet())
+		for(Map.Entry<String, ServerView> giocatoriConnessi : views.entrySet())
 			nomiGiocatoriConnessi.add(giocatoriConnessi.getKey());
 		
 		Model model = new Model(nomiGiocatoriConnessi, true);
 		
-		for(Map.Entry<String, Connection> connessione : connections.entrySet()) 
-			model.addObserver(connessione.getValue());
+		for(Map.Entry<String, ServerView> view : views.entrySet()) 
+			model.addObserver(view.getValue());
 			
 		Controller controller = new Controller(model);
 		
-		for(Map.Entry<String, Connection> giocatoriConnessi : connections.entrySet()) {
+		for(Map.Entry<String, ServerView> giocatoriConnessi : views.entrySet()) {
 			giocatoriConnessi.getValue().addObserver(controller);  //il Controller viene reso Observer di ogni connessione
 			giocatoriConnessi.getValue().sendLine("OK"); //notifica ai giocatori l'inizio partita
 		}
