@@ -4,6 +4,9 @@ import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.Container;
 import java.awt.Dimension;
+import java.awt.FlowLayout;
+import java.awt.GridBagConstraints;
+import java.awt.GridBagLayout;
 import java.awt.Image;
 import java.awt.Toolkit;
 
@@ -12,6 +15,7 @@ import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
+import javax.swing.SwingConstants;
 
 public class SpazioTorreVerde1 extends JPanel{
 
@@ -21,12 +25,21 @@ public class SpazioTorreVerde1 extends JPanel{
 	Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
 	
 	JButton buttonCenter;
-	JButton buttonEast;
+	JLabel buttonEast;
+	JButton buttonFamiliare;
+	
+	ImageIcon imageIcon;
+	Image image, newImage;
+	
+	int altezzaSchermo;
+	int larghezzaSchermo;
+	int altezzaTotale;
+	int larghezzaTotale;
 	
 	public SpazioTorreVerde1() {
 		
-		int altezzaSchermo = (int)screenSize.getHeight();
-		int larghezzaSchermo = (int)screenSize.getWidth()/2;
+		altezzaSchermo = (int)screenSize.getHeight();
+		larghezzaSchermo = (int)screenSize.getWidth()/2;
 		
 		this.setLayout(new BorderLayout());
 		
@@ -39,15 +52,14 @@ public class SpazioTorreVerde1 extends JPanel{
 		int larghezzaN = larghezzaW+larghezzaE+larghezzaC; //1041
 		int larghezzaS = larghezzaN;
 		int altezzaS = 47;
-		int larghezzaTotale = 4076;//4068
-		int altezzaTotale = 6530;
+		larghezzaTotale = 4076;//4068
+		altezzaTotale = 6530;
 		
 		labelNorth = new JLabel();
 		labelWest = new JLabel();
 		labelSouth = new JLabel();
 		
-		ImageIcon imageIcon;
-		Image image, newImage;
+		
 		
 		imageIcon = new ImageIcon("img\\Gameboard\\SpaziTorre\\Verde\\1\\north.png");
 		image = imageIcon.getImage();
@@ -83,12 +95,22 @@ public class SpazioTorreVerde1 extends JPanel{
 		buttonCenter.setBorder(null);
 		//buttonCenter.addActionListener(new ButtonListener(path));
 		
-		buttonEast = new JButton();
-		buttonEast.setActionCommand("spazioTorreVerde1");
+		buttonEast = new JLabel();
 		buttonEast.setIcon(imageEast);
-		buttonEast.setBorder(null);
-		buttonEast.addActionListener(new ButtonListenerSpazi());
+		buttonEast.setLayout(new GridBagLayout());
+		GridBagConstraints gbc = new GridBagConstraints();
+		gbc.gridwidth = GridBagConstraints.REMAINDER;
+		gbc.fill = GridBagConstraints.HORIZONTAL;
 		
+		buttonFamiliare = new JButton();
+		buttonFamiliare.setMinimumSize(new Dimension(160,160));
+		buttonFamiliare.setActionCommand("spazioTorreVerde1");
+		buttonFamiliare.setOpaque(false);
+		buttonFamiliare.setContentAreaFilled(false);
+		buttonFamiliare.setBorderPainted(false);
+		buttonFamiliare.addActionListener(new ButtonListenerSpazi());
+		
+		buttonEast.add(buttonFamiliare,gbc);
 		
 		this.add(labelNorth, BorderLayout.NORTH);
 		this.add(labelWest, BorderLayout.WEST);
@@ -97,5 +119,15 @@ public class SpazioTorreVerde1 extends JPanel{
 		this.add(buttonCenter, BorderLayout.CENTER);
 		this.add(buttonEast, BorderLayout.EAST);
 		
+	}
+	
+	public void inserisciFamiliare(String path) {
+		imageIcon = new ImageIcon(path);
+		image = imageIcon.getImage();
+		newImage = image.getScaledInstance(((int)(larghezzaSchermo*160)/larghezzaTotale),((int)(altezzaSchermo*160)/altezzaTotale),Image.SCALE_DEFAULT);
+		ImageIcon imageButton = new ImageIcon(newImage);
+		
+		buttonFamiliare.setIcon(imageButton);
+		buttonFamiliare.setBorder(null);
 	}
 }

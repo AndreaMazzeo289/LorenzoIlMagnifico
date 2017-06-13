@@ -153,6 +153,10 @@
 
 	****************************************************************************-->
 
+    <effetto nome="aggiungiRisorse1PM" idEffetto="addRisorsa">
+		<tipoRisorsa>puntiMilitari</tipoRisorsa>
+        <quantita>1</quantita>
+	</effetto>
 	<effetto nome="aggiungiRisorse2PM" idEffetto="addRisorsa">
 		<tipoRisorsa>puntiMilitari</tipoRisorsa>
         <quantita>2</quantita>
@@ -289,135 +293,139 @@
 
 	<!--****************************CARTE VERDI*********************************-->
 
-	<effetto nome="azionePrendiCartaAggiuntivaVerde1" idEffett="prendiCartaAggiuntiva">
+	<effetto nome="azionePrendiCartaAggiuntivaVerde1" idEffetto="prendiCartaAggiuntiva">
 		<valoreDado>1</valoreDado>
 		<tipoCarta>territorio</tipoCarta>
 	</effetto>
-	<effetto nome="azionePrendiCartaAggiuntivaVerde2" idEffett="prendiCartaAggiuntiva">
+	<effetto nome="azionePrendiCartaAggiuntivaVerde2" idEffetto="prendiCartaAggiuntiva">
 		<valoreDado>2</valoreDado>
 		<tipoCarta>territorio</tipoCarta>
 	</effetto>
-	<effetto nome="azionePrendiCartaAggiuntivaVerde3" idEffett="prendiCartaAggiuntiva">
+	<effetto nome="azionePrendiCartaAggiuntivaVerde3" idEffetto="prendiCartaAggiuntiva">
 		<valoreDado>3</valoreDado>
 		<tipoCarta>territorio</tipoCarta>
 	</effetto>
-	<effetto nome="azionePrendiCartaAggiuntivaVerde4" idEffett="prendiCartaAggiuntiva">
+	<effetto nome="azionePrendiCartaAggiuntivaVerde4" idEffetto="prendiCartaAggiuntiva">
 		<valoreDado>4</valoreDado>
 		<tipoCarta>territorio</tipoCarta>
 	</effetto>
-	<effetto nome="azionePrendiCartaAggiuntivaVerde5" idEffett="prendiCartaAggiuntiva">
+	<effetto nome="azionePrendiCartaAggiuntivaVerde5" idEffetto="prendiCartaAggiuntiva">
 		<valoreDado>5</valoreDado>
 		<tipoCarta>territorio</tipoCarta>
 	</effetto>
-	<effetto nome="azionePrendiCartaAggiuntivaVerde6" idEffett="prendiCartaAggiuntiva">
+	<effetto nome="azionePrendiCartaAggiuntivaVerde6" idEffetto="prendiCartaAggiuntiva">
 		<valoreDado>6</valoreDado>
 		<tipoCarta>territorio</tipoCarta>
 	</effetto>
 
 	<!--****************************CARTE GIALLE*********************************-->
 
-	<effetto nome="azionePrendiCartaAggiuntivaGialla1" idEffett="prendiCartaAggiuntiva">
+	<effetto nome="azionePrendiCartaAggiuntivaGialla1" idEffetto="prendiCartaAggiuntiva">
 		<valoreDado>1</valoreDado>
 		<tipoCarta>edificio</tipoCarta>
 	</effetto>
-	<effetto nome="azionePrendiCartaAggiuntivaGialla2" idEffett="prendiCartaAggiuntiva">
+	<effetto nome="azionePrendiCartaAggiuntivaGialla2" idEffetto="prendiCartaAggiuntiva">
 		<valoreDado>2</valoreDado>
 		<tipoCarta>edificio</tipoCarta>
 	</effetto>
-	<effetto nome="azionePrendiCartaAggiuntivaGialla3" idEffett="prendiCartaAggiuntiva">
+	<effetto nome="azionePrendiCartaAggiuntivaGialla3" idEffetto="prendiCartaAggiuntiva">
 		<valoreDado>3</valoreDado>
 		<tipoCarta>edificio</tipoCarta>
 	</effetto>
-	<effetto nome="azionePrendiCartaAggiuntivaGialla4" idEffett="prendiCartaAggiuntiva">
+	<effetto nome="azionePrendiCartaAggiuntivaGialla4" idEffetto="prendiCartaAggiuntiva">
 		<valoreDado>4</valoreDado>
 		<tipoCarta>edificio</tipoCarta>
 	</effetto>
-	<effetto nome="azionePrendiCartaAggiuntivaGialla5" idEffett="prendiCartaAggiuntiva">
+	<effetto nome="azionePrendiCartaAggiuntivaGialla5" idEffetto="prendiCartaAggiuntiva">
 		<valoreDado>5</valoreDado>
 		<tipoCarta>edificio</tipoCarta>
 	</effetto>
-	<effetto nome="azionePrendiCartaAggiuntivaGialla6" idEffett="prendiCartaAggiuntiva">
+	<effetto nome="azionePrendiCartaAggiuntivaGialla6" idEffetto="prendiCartaAggiuntiva">
 		<valoreDado>6</valoreDado>
 		<tipoCarta>edificio</tipoCarta>
 	</effetto>
 
 	<!--****************************CARTE BLU*********************************-->
 
-	<effetto nome="azionePrendiCartaAggiuntivaBlu1" idEffett="prendiCartaAggiuntiva">
+	<effetto nome="azionePrendiCartaAggiuntivaBlu1" idEffetto="prendiCartaAggiuntiva">
 		<valoreDado>1</valoreDado>
 		<tipoCarta>personaggio</tipoCarta>
 	</effetto>
-	<effetto nome="azionePrendiCartaAggiuntivaBlu2" idEffett="prendiCartaAggiuntiva">
+	<effetto nome="azionePrendiCartaAggiuntivaBlu2" idEffetto="prendiCartaAggiuntiva">
 		<valoreDado>2</valoreDado>
 		<tipoCarta>personaggio</tipoCarta>
 	</effetto>
-	<effetto nome="azionePrendiCartaAggiuntivaBlu3" idEffett="prendiCartaAggiuntiva">
+	<effetto nome="azionePrendiCartaAggiuntivaBlu3" idEffetto="prendiCartaAggiuntiva">
 		<valoreDado>3</valoreDado>
 		<tipoCarta>personaggio</tipoCarta>
 	</effetto>
-	<effetto nome="azionePrendiCartaAggiuntivaBlu4" idEffett="prendiCartaAggiuntiva">
+	<effetto nome="azionePrendiCartaAggiuntivaBlu4" idEffetto="prendiCartaAggiuntiva">
 		<valoreDado>4</valoreDado>
 		<tipoCarta>personaggio</tipoCarta>
 	</effetto>
-	<effetto nome="azionePrendiCartaAggiuntivaBlu5" idEffett="prendiCartaAggiuntiva">
+	<effetto nome="azionePrendiCartaAggiuntivaBlu5" idEffetto="prendiCartaAggiuntiva">
 		<valoreDado>5</valoreDado>
 		<tipoCarta>personaggio</tipoCarta>
 	</effetto>
-	<effetto nome="azionePrendiCartaAggiuntivaBlu6" idEffett="prendiCartaAggiuntiva">
+	<effetto nome="azionePrendiCartaAggiuntivaBlu6" idEffetto="prendiCartaAggiuntiva">
 		<valoreDado>6</valoreDado>
 		<tipoCarta>personaggio</tipoCarta>
 	</effetto>
 
 	<!--****************************CARTE VIOLA*********************************-->
 
-	<effetto nome="azionePrendiCartaAggiuntivaViola1" idEffett="prendiCartaAggiuntiva">
+	<effetto nome="azionePrendiCartaAggiuntivaViola1" idEffetto="prendiCartaAggiuntiva">
 		<valoreDado>1</valoreDado>
 		<tipoCarta>impresa</tipoCarta>
 	</effetto>
-	<effetto nome="azionePrendiCartaAggiuntivaViola2" idEffett="prendiCartaAggiuntiva">
+	<effetto nome="azionePrendiCartaAggiuntivaViola2" idEffetto="prendiCartaAggiuntiva">
 		<valoreDado>2</valoreDado>
 		<tipoCarta>impresa</tipoCarta>
 	</effetto>
-	<effetto nome="azionePrendiCartaAggiuntivaViola3" idEffett="prendiCartaAggiuntiva">
+	<effetto nome="azionePrendiCartaAggiuntivaViola3" idEffetto="prendiCartaAggiuntiva">
 		<valoreDado>3</valoreDado>
 		<tipoCarta>impresa</tipoCarta>
 	</effetto>
-	<effetto nome="azionePrendiCartaAggiuntivaViola4" idEffett="prendiCartaAggiuntiva">
+	<effetto nome="azionePrendiCartaAggiuntivaViola4" idEffetto="prendiCartaAggiuntiva">
 		<valoreDado>4</valoreDado>
 		<tipoCarta>impresa</tipoCarta>
 	</effetto>
-	<effetto nome="azionePrendiCartaAggiuntivaViola5" idEffett="prendiCartaAggiuntiva">
+	<effetto nome="azionePrendiCartaAggiuntivaViola5" idEffetto="prendiCartaAggiuntiva">
 		<valoreDado>5</valoreDado>
 		<tipoCarta>impresa</tipoCarta>
 	</effetto>
-	<effetto nome="azionePrendiCartaAggiuntivaViola6" idEffett="prendiCartaAggiuntiva">
+	<effetto nome="azionePrendiCartaAggiuntivaViola6" idEffetto="prendiCartaAggiuntiva">
 		<valoreDado>6</valoreDado>
 		<tipoCarta>impresa</tipoCarta>
 	</effetto>
 
 	<!--****************************CARTE ALL*********************************-->
 
-	<effetto nome="azionePrendiCartaAggiuntivaAll1" idEffett="prendiCartaAggiuntiva">
+	<effetto nome="azionePrendiCartaAggiuntivaAll1" idEffetto="prendiCartaAggiuntiva">
 		<valoreDado>1</valoreDado>
 		<tipoCarta>all</tipoCarta>
 	</effetto>
-	<effetto nome="azionePrendiCartaAggiuntivaAll2" idEffett="prendiCartaAggiuntiva">
+	<effetto nome="azionePrendiCartaAggiuntivaAll2" idEffetto="prendiCartaAggiuntiva">
 		<valoreDado>2</valoreDado>
 		<tipoCarta>all</tipoCarta>
 	</effetto>
-	<effetto nome="azionePrendiCartaAggiuntivaAll3" idEffett="prendiCartaAggiuntiva">
+	<effetto nome="azionePrendiCartaAggiuntivaAll3" idEffetto="prendiCartaAggiuntiva">
 		<valoreDado>3</valoreDado>
 		<tipoCarta>all</tipoCarta>
 	</effetto>
-	<effetto nome="azionePrendiCartaAggiuntivaAll4" idEffett="prendiCartaAggiuntiva">
+	<effetto nome="azionePrendiCartaAggiuntivaAll4" idEffetto="prendiCartaAggiuntiva">
 		<valoreDado>4</valoreDado>
 		<tipoCarta>all</tipoCarta>
 	</effetto>
-	<effetto nome="azionePrendiCartaAggiuntivaAll5" idEffett="prendiCartaAggiuntiva">
+	<effetto nome="azionePrendiCartaAggiuntivaAll5" idEffetto="prendiCartaAggiuntiva">
 		<valoreDado>5</valoreDado>
 		<tipoCarta>all</tipoCarta>
 	</effetto>
-	<effetto nome="azionePrendiCartaAggiuntivaAll6" idEffett="prendiCartaAggiuntiva">
+	<effetto nome="azionePrendiCartaAggiuntivaAll6" idEffetto="prendiCartaAggiuntiva">
+		<valoreDado>6</valoreDado>
+		<tipoCarta>all</tipoCarta>
+	</effetto>
+    <effetto nome="azionePrendiCartaAggiuntivaAll7" idEffetto="prendiCartaAggiuntiva">
 		<valoreDado>6</valoreDado>
 		<tipoCarta>all</tipoCarta>
 	</effetto>
@@ -432,7 +440,7 @@
 	***********************************************************************************************-->
 	
 	<effetto nome="moltiplicatore2VxGialla" idEffetto="moltiplicazione" tipoMolt="CxR">
-		<tipoCarta>cartaGialla</tipoCarta>
+		<tipoCarta>edificio</tipoCarta>
 		<quantita>1</quantita>
 		<setRisorse>
             <risorsa tipo="puntiVittoria">
@@ -441,7 +449,7 @@
 		</setRisorse>
 	</effetto>
 	<effetto nome="moltiplicatore2VxVerde" idEffetto="moltiplicazione" tipoMolt="CxR">
-		<tipoCarta>cartaVerde</tipoCarta>
+		<tipoCarta>territorio</tipoCarta>
 		<quantita>1</quantita>
         <setRisorse>
             <risorsa tipo="puntiVittoria">
@@ -450,7 +458,7 @@
 		</setRisorse>
 	</effetto>
 	<effetto nome="moltiplicatore2VxBlu" idEffetto="moltiplicazione" tipoMolt="CxR">
-		<tipoCarta>cartaBlu</tipoCarta>
+		<tipoCarta>personaggio</tipoCarta>
 		<quantita>1</quantita>
         <setRisorse>
             <risorsa tipo="puntiVittoria">
@@ -459,7 +467,7 @@
 		</setRisorse>
 	</effetto>
 	<effetto nome="moltiplicatore2VxViola" idEffetto="moltiplicazione" tipoMolt="CxR">
-		<tipoCarta>cartaViola</tipoCarta>
+		<tipoCarta>impresa</tipoCarta>
 		<quantita>1</quantita>
         <setRisorse>
             <risorsa tipo="puntiVittoria">
@@ -477,7 +485,7 @@
 		</setRisorse>
 	</effetto>
 	<effetto nome="moltiplicatore1OxGialla" idEffetto="moltiplicazione" tipoMolt="CxR">
-		<tipoCarta>cartaGialla</tipoCarta>
+		<tipoCarta>edificio</tipoCarta>
 		<quantita>1</quantita>
 		<setRisorse>
             <risorsa tipo="oro">
@@ -486,7 +494,7 @@
 		</setRisorse>
 	</effetto>
 	<effetto nome="moltiplicatore1OxVerde" idEffetto="moltiplicazione" tipoMolt="CxR">
-		<tipoCarta>cartaVerde</tipoCarta>
+		<tipoCarta>territorio</tipoCarta>
 		<quantita>1</quantita>
 		<setRisorse>
             <risorsa tipo="oro">
@@ -495,7 +503,7 @@
 		</setRisorse>
 	</effetto>
 	<effetto nome="moltiplicatore1VxBlu" idEffetto="moltiplicazione" tipoMolt="CxR">
-		<tipoCarta>cartaBlu</tipoCarta>
+		<tipoCarta>personaggio</tipoCarta>
 		<quantita>1</quantita>
 		<setRisorse>
             <risorsa tipo="puntiVittoria">
@@ -504,7 +512,7 @@
 		</setRisorse>
 	</effetto>
 	<effetto nome="moltiplicatore1VxViola" idEffetto="moltiplicazione" tipoMolt="CxR">
-		<tipoCarta>cartaViola</tipoCarta>
+		<tipoCarta>impresa</tipoCarta>
 		<quantita>1</quantita>
 		<setRisorse>
             <risorsa tipo="puntiVittoria">

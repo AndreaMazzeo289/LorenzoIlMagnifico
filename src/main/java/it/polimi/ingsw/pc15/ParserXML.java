@@ -75,8 +75,7 @@ public class ParserXML {
 		/*leggiScomunica(2);
 		leggiScomunica(3);*/
 		
-		//getCarteXML(ColoreCarta.VIOLA);
-		
+		//getCarteXML(TipoCarta.IMPRESA);
 		//leggiCartaLeader();
 		
 		//leggiSetRisorseSpazio("verde1");

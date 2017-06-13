@@ -80,7 +80,7 @@
 			<effettoImmediato>aggiungiRisorse1S</effettoImmediato>
 		</effettiImmediati>
 		<effettiPermanenti>
-			<effettoPermanente>aggiungiRisorse1Fand1P</effettoPermanente>
+			<effettoPermanente>aggiungiRisorse1F</effettoPermanente>
             <effettoPermanente>aggiungiRisorse1P</effettoPermanente>
 		</effettiPermanenti>
 	</carta>

@@ -30,12 +30,12 @@ public class SpazioRaccolto2 extends JPanel{
 		
 		this.setLayout(new BorderLayout());
 		
-		int altezzaECW = 432;
-		int altezzaN = 91;//91
-		int altezzaS = 143;
-		int larghezzaW = 65;//63
-		int larghezzaE = 417;
-		int larghezzaC = 1004;
+		int altezzaECW = 170;
+		int altezzaN = 207;//91
+		int altezzaS = 289;
+		int larghezzaW = 158;//63
+		int larghezzaE = 512;
+		int larghezzaC = 820;
 		int larghezzaN = larghezzaW+larghezzaE+larghezzaC; //956
 		int larghezzaS = larghezzaN;
 		

@@ -159,4 +159,13 @@ public class Gameboard extends JPanel {
 		this.setVisible(true);
 	}
 	
+	public SpazioTorreVerde1 getSpazioTorreVerde1() {
+		return (SpazioTorreVerde1) spaziTorre.getComponent(0);
+	}
+	
+	public SpazioProduzione2 getSpazioProduzione2() {
+		JPanel spazioProd = (JPanel) spazioFinale.getComponent(0);
+		return (SpazioProduzione2) spazioProd.getComponent(1);
+	}
+	
 }
