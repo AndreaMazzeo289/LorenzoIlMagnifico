@@ -104,6 +104,10 @@ public class EffettiAttivi implements Serializable{
 		this.permessoSpaziOccupati = true;
 	}
 	
+	public void setMoltiplicatoreRisorseCarte(int moltiplicatore) {
+		this.moltiplicatoreRisorseCarte = moltiplicatore;
+	}
+	
 	
 	
 	//-----------------------------------------------------------------------------------------------------------//
