@@ -97,8 +97,9 @@ public class Leader implements Serializable{
 			stringa += "[ ";
 			for(Map.Entry<TipoCarta, Integer> requisitoCarta : requisitoCarte.entrySet())
 				stringa += " " + requisitoCarta.getKey().name() + ": " + requisitoCarta.getValue();
-			stringa += " ]  - EFFETTO PER TURNO: ";
 		}
+		
+		stringa += " ]  - EFFETTO PER TURNO: ";
 		
 		try {
 			for (Effetto effetto : effettoPerTurno)
