@@ -872,8 +872,8 @@
 		<effettiImmediati>
 		</effettiImmediati>
 		<effettiPermanenti>
-			<effettoPermanente>bonusCarteGialle2andSconto1L</effettoPermanente>
-			<effettoPermanente>bonusCarteGialle2andSconto1P</effettoPermanente>
+			<effettoPermanente>bonusCarteGialle2</effettoPermanente>
+            <effettoPermanente>scontoPietra1Legna1</effettoPermanente>
 		</effettiPermanenti>
 	</carta>	
 	<carta id="51" tipo="personaggio">
@@ -887,7 +887,8 @@
 		<effettiImmediati>
 		</effettiImmediati>
 		<effettiPermanenti>
-			<effettoPermanente>bonusCarteBlu2andSconto1O</effettoPermanente>
+			<effettoPermanente>bonusCarteBlu2</effettoPermanente>
+            <effettoPermanente>sconto1Oro</effettoPermanente>
 		</effettiPermanenti>
 	</carta>	
 	<carta id="52" tipo="personaggio">
@@ -998,7 +999,7 @@
 			</risorsa>
 		</costoCarta>
 		<effettiImmediati>
-			<effettoImmediato>azionePrendiCartaAggiuntivaBlu6andSconto2O</effettoImmediato>
+			<effettoImmediato>azionePrendiCartaAggiuntivaGialla6sconto1L1P</effettoImmediato>
 		</effettiImmediati>
 		<effettiPermanenti>
 		</effettiPermanenti>
@@ -1012,7 +1013,7 @@
 			</risorsa>
 		</costoCarta>
 		<effettiImmediati>
-			<effettoImmediato>azionePrendiCartaAggiuntivaGialla6andSconto1Land1P</effettoImmediato>
+			<effettoImmediato>azionePrendiCartaAggiuntivaBlu6sconto1O</effettoImmediato>
 		</effettiImmediati>
 		<effettiPermanenti>
 		</effettiPermanenti>

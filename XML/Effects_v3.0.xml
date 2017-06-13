@@ -1106,14 +1106,46 @@
 	EFFETTI PARTICOLARI
 
 	****************************************************************************-->
-	<effetto nome="EffettoCostruttore">
+	<effetto nome="sconto1Pietra1Legna" idEffetto="sconto">
+         <setRisorse>
+            <risorsa tipo="legna">
+                <quantita>1</quantita>
+            </risorsa>
+            <risorsa tipo="pietra">
+                <quantita>1</quantita>
+            </risorsa>
+		</setRisorse>
 	</effetto>
-	<effetto nome="CarteBlu2andSconto1O">
+	<effetto nome="sconto1Oro" idEffetto="sconto">
+         <setRisorse>
+            <risorsa tipo="oro">
+                <quantita>1</quantita>
+            </risorsa>
+		</setRisorse>
 	</effetto>
-	<effetto nome="effettoBlu6andSconto2O">
+	<effetto nome="azionePrendiCartaAggiuntivaBlu6sconto1O" idEffetto="prendiCartaSconto">
+        <valoreDado>6</valoreDado>
+		<tipoCarta>edificio</tipoCarta>
+        <setRisorse>
+            <risorsa tipo="oro">
+                <quantita>2</quantita>
+            </risorsa>
+		</setRisorse>
 	</effetto>
-	<effetto nome="effettoGialla6andSconto1Land1P">
-	</effetto>
+    <effetto nome="azionePrendiCartaAggiuntivaGialla6sconto1L1P" idEffetto="prendiCartaSconto">
+        <valoreDado>6</valoreDado>
+		<tipoCarta>edificio</tipoCarta>
+        <setRisorse>
+            <risorsa tipo="legna">
+                <quantita>1</quantita>
+            </risorsa>
+            <risorsa tipo="pietra">
+                <quantita>1</quantita>
+            </risorsa>
+		</setRisorse>
+    </effetto>
+    
+    
 	<!--***************************************************************************
 
 	LEADER E SCOMUNICHE
@@ -1137,6 +1169,8 @@
 	</effetto>
     
     <effetto nome="annullaRequisitoTerritori" idEffetto="requisitoTerritori">
+    </effetto>
+    <effetto nome="noBonusSpazioTorre" idEffetto="noBonusTorre">
     </effetto>
     <effetto nome="occupaSpaziOccupati" idEffetto="spaziOccupati">
     </effetto>

@@ -26,7 +26,6 @@ import it.polimi.ingsw.pc15.effetti.AnnullaGuadagno;
 import it.polimi.ingsw.pc15.effetti.AnnullaRequisitoTerritori;
 import it.polimi.ingsw.pc15.effetti.AnnullaSovrapprezzoTorri;
 import it.polimi.ingsw.pc15.effetti.AumentaPrezzoServitori;
-import it.polimi.ingsw.pc15.effetti.AumentaValoreFamiliare;
 import it.polimi.ingsw.pc15.effetti.AzionePrendiCartaAggiuntiva;
 import it.polimi.ingsw.pc15.effetti.Produzione;
 import it.polimi.ingsw.pc15.effetti.Raccolto;
@@ -40,6 +39,7 @@ import it.polimi.ingsw.pc15.effetti.Effetto;
 import it.polimi.ingsw.pc15.effetti.FissaValoreFamiliare;
 import it.polimi.ingsw.pc15.effetti.FissaValoreFamiliareAScelta;
 import it.polimi.ingsw.pc15.effetti.Moltiplicazione;
+import it.polimi.ingsw.pc15.effetti.NegaBonusSpazioTorri;
 import it.polimi.ingsw.pc15.effetti.NegaMercato;
 import it.polimi.ingsw.pc15.effetti.OccupaSpaziOccupati;
 import it.polimi.ingsw.pc15.effetti.RisorsePerCarte;
@@ -360,6 +360,9 @@ public class ParserXML {
 					 		break;
 					 	case "perditaPrimoTurno":
 					 		effettoLetto = leggiEffettoSaltaPrimoTurno();
+					 		break;
+					 	case "noBonusTorre":
+					 		effettoLetto = leggiEffettoNegaBonusSpazioTorri();
 					 		break;
 					 	case "prezzoServitori":
 					 		effettoLetto = leggiEffettoAumentaPrezzoServitori();
@@ -761,6 +764,90 @@ public class ParserXML {
 	}
 	
 	//--------------------------------------------------------------------------------------------------------------//
+	// LEGGI EFFETTO SCONTO
+	//--------------------------------------------------------------------------------------------------------------//
+	/**
+	 * metodo che permette di estrarre gli effetti di tipo scambio dal file XML
+	 * @param elemento dell'effetto specifico da estrarre (Classe Element)
+	 * @return istanza dell'effetto estratto (Classe Scambio)
+	 */
+	public static Scambio leggiEffettoSconto(Element effetto) {
+		
+		NodeList setRisorse = effetto.getElementsByTagName("setRisorse");
+		SetRisorse pagamento = null;
+		SetRisorse pagamento2 = null;
+		SetRisorse guadagno = null;
+		SetRisorse guadagno2 = null;		
+		
+		for(int i=0; i<setRisorse.getLength(); ++i) {
+			
+			Element SingoloCosto = (Element) setRisorse.item(i);
+			HashSet<Risorsa> risorseMap = new HashSet<>();
+			NodeList risorse = SingoloCosto.getElementsByTagName("risorsa");
+	    	int contRisorse = risorse.getLength();
+	    	
+	    	for(int j=0; j<contRisorse; j++) {
+	    		 Element risorsa = (Element) risorse.item(j);
+	    		 int quantita = Integer.parseInt(risorsa.getElementsByTagName("quantita").item(0).getFirstChild().getNodeValue());
+	    		 
+	    		 switch(risorsa.getAttribute("tipo").toUpperCase()) {
+	    		 	case "LEGNA":
+	    		 		Legna legna = new Legna(quantita);
+	    		 		risorseMap.add(legna);
+	    		 		break;
+	    		 	case "PIETRA":
+	    		 		Pietra pietra = new Pietra(quantita);
+	    		 		risorseMap.add(pietra);
+	    		 		break;
+	    		 	case "ORO":
+	    		 		Oro oro = new Oro(quantita);
+	    		 		risorseMap.add(oro);
+	    		 		break;
+	    		 	case "SERVITORI":
+	    		 		Servitori servitori = new Servitori(quantita);
+	    		 		risorseMap.add(servitori);
+	    		 		break;
+	    		 	case "PUNTIMILITARI":
+	    		 		PuntiMilitari puntiMilitari = new PuntiMilitari(quantita);
+	    		 		risorseMap.add(puntiMilitari);
+	    		 		break;
+	    		 	case "PUNTIFEDE":
+	    		 		PuntiFede puntiFede = new PuntiFede(quantita);
+	    		 		risorseMap.add(puntiFede);
+	    		 		break;
+	    		 	case "PUNTIVITTORIA":
+	    		 		PuntiVittoria puntiVittoria = new PuntiVittoria(quantita);
+	    		 		risorseMap.add(puntiVittoria);
+	    		 		break;
+	    		 	case "PRIVILEGI":
+	    		 		Privilegi privilegi = new Privilegi(quantita);
+	    		 		risorseMap.add(privilegi);
+	    		 		break;
+	    		 }
+	    	}
+	    	
+	        switch(SingoloCosto.getAttribute("id")){
+			case "pagamento":
+				pagamento = new SetRisorse (risorseMap);
+				break;
+			case "guadagno":
+				guadagno = new SetRisorse (risorseMap);
+				break;
+			case "pagamento2":
+				pagamento2 = new SetRisorse (risorseMap);
+				break;
+			case "guadagno2":
+				guadagno2 = new SetRisorse (risorseMap);
+				break;
+			default:
+	        }
+		}
+		
+		Scambio scambio = new Scambio (pagamento, guadagno, pagamento2, guadagno2);
+		return scambio;
+	}
+	
+	//--------------------------------------------------------------------------------------------------------------//
 	// LEGGI BONUS RACCOLTA
 	//--------------------------------------------------------------------------------------------------------------//
 	/**
@@ -898,6 +985,14 @@ public class ParserXML {
 			fissaValoreFamiliare = new FissaValoreFamiliareAScelta(valoreFamiliare);
 		
 		return fissaValoreFamiliare;
+	}
+	
+	//--------------------------------------------------------------------------------------------------------------//
+	// LEGGI EFFETTO NO BONUS SPAZIO TORRI
+	//--------------------------------------------------------------------------------------------------------------//
+	public static NegaBonusSpazioTorri leggiEffettoNegaBonusSpazioTorri () {
+		NegaBonusSpazioTorri negaBonusSpaziTorre = new NegaBonusSpazioTorri ();
+		return negaBonusSpaziTorre;
 	}
 	
 	//--------------------------------------------------------------------------------------------------------------//
