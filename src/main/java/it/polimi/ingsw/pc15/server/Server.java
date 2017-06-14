@@ -1,8 +1,10 @@
 package it.polimi.ingsw.pc15.server;
 
 import java.io.IOException;
+import java.net.MalformedURLException;
 import java.net.ServerSocket;
 import java.net.Socket;
+import java.rmi.Naming;
 import java.rmi.RemoteException;
 import java.rmi.registry.LocateRegistry;
 import java.util.ArrayList;
@@ -30,6 +32,21 @@ public class Server {
 
 
 	public void run() throws InterruptedException {
+		
+		try {
+			LocateRegistry.createRegistry(1099);
+		} catch (RemoteException e) {
+			System.out.println("Registry giÃ  presente!");			
+		}	
+		
+		try {
+			ServerImplementation serverImplementation = new ServerImplementation(this);		
+			Naming.rebind("Server", serverImplementation);																  
+		} catch (MalformedURLException e) {
+			System.err.println("Impossibile registrare l'oggetto indicato!");
+		} catch (RemoteException e) {
+			System.err.println("Errore di connessione: " + e.getMessage() + "!");
+		}	
 		
 		System.out.println("Server avviato!\nIn attesa di giocatori...");
 
@@ -91,7 +108,7 @@ public class Server {
 		try {
 			server = new Server();
 			server.run();
-		} catch (IOException e) {
+		} catch (Exception e) {
 			System.err.println("Impossibile inizializzare il server: " + e.getMessage() + "!");
 		}	
 		

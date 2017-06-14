@@ -295,8 +295,13 @@ public class CLI extends View {
 						System.out.println("\nQuale Leader vuoi scartare?");
 						for (Leader leader : this.clientModel.getStatoGiocatore().getCarteLeader())
 							System.out.println("  " + (this.clientModel.getStatoGiocatore().getCarteLeader().lastIndexOf(leader)+1) +". " + leader.getNome());
-						message.add(String.valueOf(input.nextInt()-1));
-						setChanged();
+						System.out.println("\n  0. (ANNULLA)");
+						if (input.nextInt()==0)
+							update(null, null);
+						else {
+							message.add(String.valueOf(input.nextInt()-1));
+							setChanged();
+						}
 					} else {
 			    		System.out.println("--Inserire un comando valido!--");
 			    		update(null, null);

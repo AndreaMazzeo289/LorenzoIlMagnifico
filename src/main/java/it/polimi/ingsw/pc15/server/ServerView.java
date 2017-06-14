@@ -9,4 +9,10 @@ public abstract class ServerView extends Observable implements Observer {
 	
 	public abstract String getName();
 
+	@Override
+	public void update(Observable arg0, Object arg1) {
+
+		
+	}
+
 }

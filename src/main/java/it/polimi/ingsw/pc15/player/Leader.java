@@ -91,13 +91,12 @@ public class Leader implements Serializable{
 			stringa += requisitoRisorse.toString();
 		else stringa += "nessuno";
 		
-		stringa += "  - REQUISITO CARTE: ";
+		stringa += "  - REQUISITO CARTE: [ ";
 		
-		if (requisitoCarte!=null) {
-			stringa += "[ ";
+		if (requisitoCarte!=null)
 			for(Map.Entry<TipoCarta, Integer> requisitoCarta : requisitoCarte.entrySet())
 				stringa += " " + requisitoCarta.getKey().name() + ": " + requisitoCarta.getValue();
-		}
+		else stringa += "nessuno";
 		
 		stringa += " ]  - EFFETTO PER TURNO: ";
 		
