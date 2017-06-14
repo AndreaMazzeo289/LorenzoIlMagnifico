@@ -14,7 +14,7 @@ import java.util.Scanner;
 import it.polimi.ingsw.pc15.model.StatoPartita;
 import it.polimi.ingsw.pc15.risorse.TipoRisorsa;
 
-public class SocketHandler extends Observable implements Observer, Serializable {
+public class SocketHandler extends NetworkHandler {
 	
 	private Scanner in;
 	private PrintStream out;
@@ -80,7 +80,7 @@ public class SocketHandler extends Observable implements Observer, Serializable 
 	
 	public void send(Object message) throws IOException{
 		
-		//System.out.println("\nSono il clientController e sto inviando " + (ArrayList<String>) message);
+		//System.out.println("\nSono il SocketHandler e sto inviando " + (ArrayList<String>) message);
 		outObj.writeObject(message);
 	}
 }

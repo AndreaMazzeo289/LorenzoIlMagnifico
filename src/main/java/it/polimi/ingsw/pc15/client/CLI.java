@@ -17,14 +17,14 @@ import it.polimi.ingsw.pc15.player.Leader;
 import it.polimi.ingsw.pc15.player.Player;
 import it.polimi.ingsw.pc15.risorse.TipoRisorsa;
 
-public class CLI extends View {
+public class CLI extends ClientView {
 	
 	private Scanner input;
 	private boolean tuoTurno;
 	private final boolean regoleAvanzate;
 	
-	public CLI(SocketHandler clientController, ClientModel clientModel){
-		super(clientController, clientModel);
+	public CLI(NetworkHandler networkHandler, ClientModel clientModel){
+		super(networkHandler, clientModel);
 		this.input = new Scanner(System.in);
 		this.tuoTurno = true;
 		this.regoleAvanzate = true;
