@@ -98,7 +98,8 @@ public class SpazioTorreVerde1 extends JPanel{
 		buttonCenter = new JButton();
 		buttonCenter.setIcon(imageCenter);
 		buttonCenter.setBorder(null);
-		//buttonCenter.addActionListener(new ButtonListener(path));
+		buttonCenter.setActionCommand(path);
+		buttonCenter.addActionListener(new ButtonListenerCarte());
 		
 		labelEast.setLayout(new GridBagLayout());
 		GridBagConstraints gbc = new GridBagConstraints();

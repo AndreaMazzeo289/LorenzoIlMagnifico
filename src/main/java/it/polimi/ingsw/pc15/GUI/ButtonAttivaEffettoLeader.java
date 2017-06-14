@@ -25,7 +25,6 @@ public class ButtonAttivaEffettoLeader extends JButton{
 	public ButtonAttivaEffettoLeader() {
 			
 		this.setActionCommand("attivaEffettoLeader");
-		setBackground(Color.decode("3752777"));
 		
 		larghezzaTotale = mainGUI.larghezzaTotale;
 		altezzaTotale =  mainGUI.altezzaTotale;
@@ -36,21 +35,24 @@ public class ButtonAttivaEffettoLeader extends JButton{
 		
 		this.setLayout(new BorderLayout());
 		
-		int altezza = 700;
-		int larghezza = 880; 
+		int altezza = 1100;
+		int larghezza = 400; 
 		
 		imageButton = new JLabel();
 		
 		ImageIcon imageIcon;
 		Image image, newImage;
 		
-		imageIcon = new ImageIcon("img\\Punchboard\\Button\\effettoLeader.png");
+		imageIcon = new ImageIcon("img\\Punchboard\\Button\\buttonEffettoLeader.png");
 		image = imageIcon.getImage();
 		newImage = image.getScaledInstance(((int)(larghezzaSchermo*larghezza)/larghezzaTotale),((int)(altezzaSchermo*altezza)/altezzaTotale),Image.SCALE_DEFAULT);
 		ImageIcon imageAll = new ImageIcon(newImage);
 		
 		this.setIcon(imageAll);
 		this.setPreferredSize(new Dimension(larghezza,altezza));
+		this.setBorder(null);
+		this.setBorderPainted(false);
+		
 		
 	}
 }

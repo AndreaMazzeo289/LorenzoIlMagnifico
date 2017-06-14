@@ -23,7 +23,6 @@ public class ButtonScartaLeader extends JButton{
 	int larghezzaSchermo;
 	
 	public ButtonScartaLeader() {
-		setBackground(Color.decode("2436408"));
 		
 		larghezzaTotale = mainGUI.larghezzaTotale;
 		altezzaTotale =  mainGUI.altezzaTotale;
@@ -34,20 +33,22 @@ public class ButtonScartaLeader extends JButton{
 		
 		this.setLayout(new BorderLayout());
 		
-		int altezza = 700;
-		int larghezza = 880; 
+		int altezza = 1100;
+		int larghezza = 400; 
 		
 		imageButton = new JLabel();
 		
 		ImageIcon imageIcon;
 		Image image, newImage;
 		
-		imageIcon = new ImageIcon("img\\Punchboard\\Button\\scartaLeader.png");
+		imageIcon = new ImageIcon("img\\Punchboard\\Button\\buttonScartaLeader.png");
 		image = imageIcon.getImage();
 		newImage = image.getScaledInstance(((int)(larghezzaSchermo*larghezza)/larghezzaTotale),((int)(altezzaSchermo*altezza)/altezzaTotale),Image.SCALE_DEFAULT);
 		ImageIcon imageAll = new ImageIcon(newImage);
 		
 		this.setIcon(imageAll);
 		this.setPreferredSize(new Dimension(larghezza,altezza));
+		
+		this.setBorder(null);
 	}
 }

@@ -56,59 +56,78 @@ public class SpazioMercato3 extends JPanel{
 		int larghezzaN = larghezzaW+larghezzaE+larghezzaC; //956
 		int larghezzaS = larghezzaN;
 		
-		System.out.println("larghezzaspazio3 "+larghezzaN);
-		
-		labelNorth = new JLabel();
-		labelEast = new JLabel();
-		labelWest = new JLabel();
-		labelSouth = new JLabel();
 		labelCenter = new JLabel();
 		
-		imageIcon = new ImageIcon("img\\Gameboard\\SpaziMercato\\3\\north.png");
-		image = imageIcon.getImage();
-		newImage = image.getScaledInstance(((int)(larghezzaSchermo*larghezzaN)/larghezzaTotale),((int)(altezzaSchermo*altezzaN)/altezzaTotale),Image.SCALE_DEFAULT);
-		ImageIcon imageNorth = new ImageIcon(newImage);
+		if(mainGUI.numeroGiocatori==2)
+		{
+			int altezzaBlocco = altezzaECW+altezzaN+altezzaS-5;
+			
+			imageIcon = new ImageIcon("img\\Gameboard\\SpaziMercato\\3\\noMercato3.png");
+			image = imageIcon.getImage();
+			newImage = image.getScaledInstance(((int)(larghezzaSchermo*larghezzaN)/larghezzaTotale),((int)(altezzaSchermo*altezzaBlocco)/altezzaTotale),Image.SCALE_DEFAULT);
+			ImageIcon imageCenter = new ImageIcon(newImage);
+			labelCenter.setIcon(imageCenter);
+			this.add(labelCenter, BorderLayout.CENTER);
+		}
+		else
+		{
+			String path = "img\\Gameboard\\SpaziMercato\\3\\south.png";
+			if(mainGUI.numeroGiocatori==3)
+				path = "img\\Gameboard\\SpaziMercato\\3\\southNo4.png";
+			
+			labelNorth = new JLabel();
+			labelEast = new JLabel();
+			labelWest = new JLabel();
+			labelSouth = new JLabel();
+			
+			imageIcon = new ImageIcon("img\\Gameboard\\SpaziMercato\\3\\north.png");
+			image = imageIcon.getImage();
+			newImage = image.getScaledInstance(((int)(larghezzaSchermo*larghezzaN)/larghezzaTotale),((int)(altezzaSchermo*altezzaN)/altezzaTotale),Image.SCALE_DEFAULT);
+			ImageIcon imageNorth = new ImageIcon(newImage);
+			
+			imageIcon = new ImageIcon("img\\Gameboard\\SpaziMercato\\3\\east.png");
+			image = imageIcon.getImage();
+			newImage = image.getScaledInstance(((int)(larghezzaSchermo*larghezzaE)/larghezzaTotale),((int)(altezzaSchermo*altezzaECW)/altezzaTotale),Image.SCALE_DEFAULT);
+			ImageIcon imageEast = new ImageIcon(newImage);
+			
+			imageIcon = new ImageIcon("img\\Gameboard\\SpaziMercato\\3\\west.png");
+			image = imageIcon.getImage();
+			newImage = image.getScaledInstance(((int)(larghezzaSchermo*larghezzaW)/larghezzaTotale),((int)(altezzaSchermo*altezzaECW)/altezzaTotale),Image.SCALE_DEFAULT);
+			ImageIcon imageWest = new ImageIcon(newImage);
+			
+			imageIcon = new ImageIcon("img\\Gameboard\\SpaziMercato\\3\\center.png");
+			image = imageIcon.getImage();
+			newImage = image.getScaledInstance(((int)(larghezzaSchermo*larghezzaC)/larghezzaTotale),((int)(altezzaSchermo*altezzaECW)/altezzaTotale),Image.SCALE_DEFAULT);
+			ImageIcon imageCenter = new ImageIcon(newImage);
+			
+			imageIcon = new ImageIcon(path);
+			image = imageIcon.getImage();
+			newImage = image.getScaledInstance(((int)(larghezzaSchermo*larghezzaS)/larghezzaTotale),((int)(altezzaSchermo*altezzaS)/altezzaTotale),Image.SCALE_DEFAULT);
+			ImageIcon imageSouth = new ImageIcon(newImage);
+			
+			labelNorth.setIcon(imageNorth);
+			labelEast.setIcon(imageEast);
+			labelWest.setIcon(imageWest);
+			labelSouth.setIcon(imageSouth);
+			labelCenter.setIcon(imageCenter);
+			
+			labelCenter.setLayout(new GridBagLayout());
+			GridBagConstraints gbc = new GridBagConstraints();
+			gbc.gridwidth = GridBagConstraints.REMAINDER;
+			gbc.fill = GridBagConstraints.HORIZONTAL;
+			
+			buttonFamiliare = new ButtonTransparent("spazioMercato3",160,160);
+			
+			labelCenter.add(buttonFamiliare,gbc);
+			
+			this.add(labelNorth, BorderLayout.NORTH);
+			this.add(labelEast, BorderLayout.EAST);
+			this.add(labelWest, BorderLayout.WEST);
+			this.add(labelSouth, BorderLayout.SOUTH);
+			this.add(labelCenter, BorderLayout.CENTER);	
+		}
 		
-		imageIcon = new ImageIcon("img\\Gameboard\\SpaziMercato\\3\\east.png");
-		image = imageIcon.getImage();
-		newImage = image.getScaledInstance(((int)(larghezzaSchermo*larghezzaE)/larghezzaTotale),((int)(altezzaSchermo*altezzaECW)/altezzaTotale),Image.SCALE_DEFAULT);
-		ImageIcon imageEast = new ImageIcon(newImage);
 		
-		imageIcon = new ImageIcon("img\\Gameboard\\SpaziMercato\\3\\west.png");
-		image = imageIcon.getImage();
-		newImage = image.getScaledInstance(((int)(larghezzaSchermo*larghezzaW)/larghezzaTotale),((int)(altezzaSchermo*altezzaECW)/altezzaTotale),Image.SCALE_DEFAULT);
-		ImageIcon imageWest = new ImageIcon(newImage);
-		
-		imageIcon = new ImageIcon("img\\Gameboard\\SpaziMercato\\3\\center.png");
-		image = imageIcon.getImage();
-		newImage = image.getScaledInstance(((int)(larghezzaSchermo*larghezzaC)/larghezzaTotale),((int)(altezzaSchermo*altezzaECW)/altezzaTotale),Image.SCALE_DEFAULT);
-		ImageIcon imageCenter = new ImageIcon(newImage);
-		
-		imageIcon = new ImageIcon("img\\Gameboard\\SpaziMercato\\3\\south.png");
-		image = imageIcon.getImage();
-		newImage = image.getScaledInstance(((int)(larghezzaSchermo*larghezzaS)/larghezzaTotale),((int)(altezzaSchermo*altezzaS)/altezzaTotale),Image.SCALE_DEFAULT);
-		ImageIcon imageSouth = new ImageIcon(newImage);
-		
-		labelNorth.setIcon(imageNorth);
-		labelEast.setIcon(imageEast);
-		labelWest.setIcon(imageWest);
-		labelSouth.setIcon(imageSouth);
-		labelCenter.setIcon(imageCenter);
-		
-		labelCenter.setLayout(new GridBagLayout());
-		GridBagConstraints gbc = new GridBagConstraints();
-		gbc.gridwidth = GridBagConstraints.REMAINDER;
-		gbc.fill = GridBagConstraints.HORIZONTAL;
-		
-		buttonFamiliare = new ButtonTransparent("spazioMercato3",160,160);
-		
-		labelCenter.add(buttonFamiliare,gbc);
-		
-		this.add(labelNorth, BorderLayout.NORTH);
-		this.add(labelEast, BorderLayout.EAST);
-		this.add(labelWest, BorderLayout.WEST);
-		this.add(labelSouth, BorderLayout.SOUTH);
-		this.add(labelCenter, BorderLayout.CENTER);	
 	}
 	
 	public void inserisciFamiliare(String path) {

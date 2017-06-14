@@ -95,7 +95,8 @@ public class SpazioTorreViola1 extends JPanel{
 		buttonCenter = new JButton();
 		buttonCenter.setIcon(imageCenter);
 		buttonCenter.setBorder(null);
-		//buttonCenter.addActionListener(new ButtonListener(path));
+		buttonCenter.setActionCommand(path);
+		buttonCenter.addActionListener(new ButtonListenerCarte());
 		
 		buttonFamiliare = new ButtonTransparent("spazioTorreViola1",160,160);
 		

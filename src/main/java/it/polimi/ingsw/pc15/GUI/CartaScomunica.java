@@ -31,10 +31,8 @@ public class CartaScomunica extends JPanel{
 		
 		this.setLayout(new BorderLayout());
 		
-		int altezza = 1400; //toDefine
-		int larghezza = 586; //toDefine
-		
-		
+		int altezza = 1300; //toDefine
+		int larghezza = 400; //toDefine
 		
 		carta = new JLabel();
 		

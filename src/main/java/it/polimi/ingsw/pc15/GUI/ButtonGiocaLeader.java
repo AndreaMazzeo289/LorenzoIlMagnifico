@@ -24,8 +24,6 @@ public class ButtonGiocaLeader extends JButton{
 	
 	public ButtonGiocaLeader() {
 		
-		setBackground(Color.decode("5724515"));
-		
 		larghezzaTotale = mainGUI.larghezzaTotale;
 		altezzaTotale =  mainGUI.altezzaTotale;
 		rapporto = mainGUI.rapportoPlayerBoard;
@@ -35,20 +33,22 @@ public class ButtonGiocaLeader extends JButton{
 		
 		this.setLayout(new BorderLayout());
 		
-		int altezza = 700;
-		int larghezza = 880; 
+		int altezza = 1100;
+		int larghezza = 400;  
 		
 		imageButton = new JLabel();
 		
 		ImageIcon imageIcon;
 		Image image, newImage;
 		
-		imageIcon = new ImageIcon("img\\Punchboard\\Button\\attivaLeader.png");
+		imageIcon = new ImageIcon("img\\Punchboard\\Button\\buttonAttivaLeader.png");
 		image = imageIcon.getImage();
 		newImage = image.getScaledInstance(((int)(larghezzaSchermo*larghezza)/larghezzaTotale),((int)(altezzaSchermo*altezza)/altezzaTotale),Image.SCALE_DEFAULT);
 		ImageIcon imageAll = new ImageIcon(newImage);
 		
 		this.setIcon(imageAll);
 		this.setPreferredSize(new Dimension(larghezza,altezza));
+		
+		this.setBorder(null);
 	}
 }

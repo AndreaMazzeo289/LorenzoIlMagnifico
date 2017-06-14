@@ -64,7 +64,10 @@ public class SpazioDadi extends JPanel{
 		newImage = image.getScaledInstance(((int)(larghezzaSchermo*larghezzaBianco)/larghezzaTotale),((int)(altezzaSchermo*altezza)/altezzaTotale),Image.SCALE_DEFAULT);
 		ImageIcon imageDadoBianco = new ImageIcon(newImage);
 		
-		imageIcon = new ImageIcon("img\\Gameboard\\dadi\\arancione\\arancione_3.png");
+		if(mainGUI.numeroGiocatori<4)
+			imageIcon = new ImageIcon("img\\Gameboard\\dadi\\arancione\\arancione_3_no4.png");
+		else
+			imageIcon = new ImageIcon("img\\Gameboard\\dadi\\arancione\\arancione_3.png");
 		image = imageIcon.getImage();
 		newImage = image.getScaledInstance(((int)(larghezzaSchermo*larghezzaArancione)/larghezzaTotale),((int)(altezzaSchermo*altezza)/altezzaTotale),Image.SCALE_DEFAULT);
 		ImageIcon imageDadoArancione = new ImageIcon(newImage);
