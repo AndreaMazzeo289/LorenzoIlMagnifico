@@ -3,12 +3,15 @@ package it.polimi.ingsw.pc15.server;
 import java.rmi.RemoteException;
 import java.rmi.server.UnicastRemoteObject;
 
+import it.polimi.ingsw.pc15.client.RMIHandler;
+import it.polimi.ingsw.pc15.client.RMIHandlerInterface;
+
 public class RMIView  extends ServerView {
 	
-	private String name;
+	private RMIHandlerInterface rmiHandler;
 	
-	public RMIView (String name) {
-		this.name = name;
+	public RMIView (RMIHandlerInterface rmiHandler) {
+		this.rmiHandler = rmiHandler;
 	}
 	
 	@Override

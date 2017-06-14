@@ -7,25 +7,30 @@ import java.net.Socket;
 import java.rmi.Naming;
 import java.rmi.RemoteException;
 import java.rmi.registry.LocateRegistry;
+import java.rmi.server.UnicastRemoteObject;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Observer;
 
+import it.polimi.ingsw.pc15.client.RMIHandler;
+import it.polimi.ingsw.pc15.client.RMIHandlerInterface;
 import it.polimi.ingsw.pc15.controller.Controller;
 import it.polimi.ingsw.pc15.model.Model;
 import it.polimi.ingsw.pc15.player.Player;
 
 
-public class Server {
+public class Server extends UnicastRemoteObject implements ServerInterface {
 
 	private final static int PORT = 12879;
 	private ServerSocket serverSocket;
+	private ArrayList<RMIView> rmiViews;
 	private HashMap<String, ServerView> views;
 	private int numeroGiocatori;
 	
 	public Server() throws IOException {
 		this.serverSocket = new ServerSocket(PORT);
+		rmiViews = new ArrayList<RMIView>();
 		this.views = new HashMap<String, ServerView>();
 		this.numeroGiocatori = 0;
 	}
@@ -40,8 +45,7 @@ public class Server {
 		}	
 		
 		try {
-			ServerImplementation serverImplementation = new ServerImplementation(this);		
-			Naming.rebind("Server", serverImplementation);																  
+			Naming.rebind("Server", this);																  
 		} catch (MalformedURLException e) {
 			System.err.println("Impossibile registrare l'oggetto indicato!");
 		} catch (RemoteException e) {
@@ -114,5 +118,20 @@ public class Server {
 		
 		
 		
+	}
+
+
+	@Override
+	public int remoteConnetti(RMIHandlerInterface rmiHandler) throws RemoteException {
+		RMIView rmiView = new RMIView(rmiHandler);
+		this.rmiViews.add(rmiView);
+		connetti(rmiView, "CIAO");
+		return rmiViews.lastIndexOf(rmiView);
+	}
+
+
+	@Override
+	public void remoteNotify(Object o, int i) throws RemoteException {
+		this.rmiViews.get(i).notifyObservers(o);
 	}
 }
