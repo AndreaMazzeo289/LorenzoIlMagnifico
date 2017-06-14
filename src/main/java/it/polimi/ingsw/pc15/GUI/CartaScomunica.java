@@ -14,17 +14,25 @@ public class CartaScomunica extends JPanel{
 	JLabel carta;
 	Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();	
 	
+	int altezzaTotale;
+	int larghezzaTotale;
+	float rapporto;
+	int altezzaSchermo;
+	int larghezzaSchermo;
+	
 	public CartaScomunica(String path) {
-		int altezzaSchermo = (int)screenSize.getHeight();
-		int larghezzaSchermo = (int)screenSize.getWidth()/2;
+
+		larghezzaTotale = mainGUI.larghezzaTotale;
+		altezzaTotale =  mainGUI.altezzaTotale;
+		rapporto = mainGUI.rapportoPlayerBoard;
+		
+		altezzaSchermo = (int)screenSize.getHeight();
+		larghezzaSchermo = (int)(((float)screenSize.getWidth())*rapporto);
 		
 		this.setLayout(new BorderLayout());
 		
-		int altezza = 1400; //toDefine
-		int larghezza = 586; //toDefine
-		
-		int larghezzaTotale = 4076;
-		int altezzaTotale = 6530;
+		int altezza = 1300; //toDefine
+		int larghezza = 400; //toDefine
 		
 		carta = new JLabel();
 		

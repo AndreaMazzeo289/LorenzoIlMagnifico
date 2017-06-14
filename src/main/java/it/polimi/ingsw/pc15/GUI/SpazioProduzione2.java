@@ -50,10 +50,17 @@ public class SpazioProduzione2 extends JPanel{
 	ImageIcon imageIcon;
 	Image image, newImage;
 	
+	float rapporto;
+	
 	public SpazioProduzione2() {
 		
+		larghezzaTotale = mainGUI.larghezzaTotale;
+		altezzaTotale =  mainGUI.altezzaTotale;
+		rapporto = mainGUI.rapporto;
+		
 		altezzaSchermo = (int)screenSize.getHeight();
-		larghezzaSchermo = (int)screenSize.getWidth()/2;
+		larghezzaSchermo = (int)(((float)screenSize.getWidth())*rapporto);
+		//larghezzaSchermo = (int)screenSize.getWidth()/2;
 		
 		this.setLayout(new BorderLayout());
 		
@@ -65,9 +72,7 @@ public class SpazioProduzione2 extends JPanel{
 		int larghezzaC = 820;
 		int larghezzaN = larghezzaW+larghezzaE+larghezzaC; //956
 		int larghezzaS = larghezzaN;
-		
-		larghezzaTotale = 4076;
-		altezzaTotale = 6530;
+		System.out.println("larghezza spazio prod 2:" +larghezzaS);
 		
 		labelNorth = new JLabel();
 		labelEast = new JLabel();

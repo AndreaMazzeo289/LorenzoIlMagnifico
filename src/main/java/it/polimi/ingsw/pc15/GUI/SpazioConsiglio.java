@@ -45,13 +45,20 @@ public class SpazioConsiglio extends JPanel{
 	int larghezzaTotale;
 	int altezzaTotale;
 	
+	float rapporto;
+	
 	ImageIcon imageIcon;
 	Image image, newImage;
 	
 	public SpazioConsiglio() {
 		
+		larghezzaTotale = mainGUI.larghezzaTotale;
+		altezzaTotale =  mainGUI.altezzaTotale;
+		rapporto = mainGUI.rapporto;
+		
 		altezzaSchermo = (int)screenSize.getHeight();
-		larghezzaSchermo = (int)screenSize.getWidth()/2;
+		larghezzaSchermo = (int)(((float)screenSize.getWidth())*rapporto);
+		//larghezzaSchermo = (int)screenSize.getWidth()/2;
 		
 		this.setLayout(new BorderLayout());
 		
@@ -64,8 +71,7 @@ public class SpazioConsiglio extends JPanel{
 		int larghezzaS = larghezzaW+larghezzaE+larghezzaC;
 		int larghezzaN = larghezzaS;
 		
-		larghezzaTotale = 4076;
-		altezzaTotale = 6530;
+		
 		
 		labelEast = new JLabel();
 		labelWest = new JLabel();

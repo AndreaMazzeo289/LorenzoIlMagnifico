@@ -16,33 +16,41 @@ public class ButtonPosizionaFamiliare extends JButton{
 	JLabel imageButton;
 	Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
 	
+	int altezzaTotale;
+	int larghezzaTotale;
+	float rapporto;
+	int altezzaSchermo;
+	int larghezzaSchermo;
+	
 	public ButtonPosizionaFamiliare() {
 		
 		this.setActionCommand("posizionaFamiliare");
-		setBackground(Color.decode("7551812"));
 		
-		int altezzaSchermo = (int)screenSize.getHeight();
-		int larghezzaSchermo = (int)screenSize.getWidth()/2;
+		larghezzaTotale = mainGUI.larghezzaTotale;
+		altezzaTotale =  mainGUI.altezzaTotale;
+		rapporto = mainGUI.rapportoPlayerBoard;
+		
+		altezzaSchermo = (int)screenSize.getHeight();
+		larghezzaSchermo = (int)(((float)screenSize.getWidth())*rapporto);
 		
 		this.setLayout(new BorderLayout());
 		
-		int altezza = 700;
-		int larghezza = 880;//1019 
-		
-		int larghezzaTotale = 4076;
-		int altezzaTotale = 6530;
+		int altezza = 1100;
+		int larghezza = 400; 
 		
 		imageButton = new JLabel();
 		
 		ImageIcon imageIcon;
 		Image image, newImage;
 		
-		imageIcon = new ImageIcon("img\\Punchboard\\Button\\posizionaFamiliare.png");
+		imageIcon = new ImageIcon("img\\Punchboard\\Button\\buttonPosizionaFamiliare.png");
 		image = imageIcon.getImage();
 		newImage = image.getScaledInstance(((int)(larghezzaSchermo*larghezza)/larghezzaTotale),((int)(altezzaSchermo*altezza)/altezzaTotale),Image.SCALE_DEFAULT);
 		ImageIcon imageAll = new ImageIcon(newImage);
 		
 		this.setIcon(imageAll);
 		this.setPreferredSize(new Dimension(larghezza,altezza));
+		
+		this.setBorder(null);
 	}
 }

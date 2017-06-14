@@ -39,6 +39,7 @@ import it.polimi.ingsw.pc15.effetti.CopiaEffettoLeader;
 import it.polimi.ingsw.pc15.effetti.Effetto;
 import it.polimi.ingsw.pc15.effetti.FissaValoreFamiliare;
 import it.polimi.ingsw.pc15.effetti.FissaValoreFamiliareAScelta;
+import it.polimi.ingsw.pc15.effetti.MoltiplicaRisorseCarte;
 import it.polimi.ingsw.pc15.effetti.Moltiplicazione;
 import it.polimi.ingsw.pc15.effetti.NegaBonusSpazioTorri;
 import it.polimi.ingsw.pc15.effetti.NegaMercato;
@@ -367,6 +368,9 @@ public class ParserXML {
 					 	case "negaMercato":
 					 		effettoLetto = leggiEffettoNegaMercato();
 					 		break;
+					 	case "moltiplicaRisorseCarte":
+					 		effettoLetto = leggiEffettoMoltiplicaRisorseCarte();
+					 		break;
 					 	case "perditaPrimoTurno":
 					 		effettoLetto = leggiEffettoSaltaPrimoTurno();
 					 		break;
@@ -389,10 +393,10 @@ public class ParserXML {
 					 		effettoLetto = leggiEffettoCopiaEffettoLeader();
 					 		break;
 					 	case "sovrapprezzo":
-					 		effettoLetto = leggiEffettoBonusPVChiesa(effetto);
-					 		break;
-					 	case "fede":
 					 		effettoLetto = leggiEffettoAnnullaSovrapprezzoTorri();
+					 		break;
+					 	case "bonusFede":
+					 		effettoLetto = leggiEffettoBonusPVChiesa(effetto);
 					 		break;
 							
 					 	default:
@@ -406,7 +410,8 @@ public class ParserXML {
 		}
 		return effettoLetto;
 	}
-	
+
+
 	//--------------------------------------------------------------------------------------------------------------//
 	// LEGGI EFFETTO ADD RISORSA
 	//--------------------------------------------------------------------------------------------------------------//
@@ -940,6 +945,9 @@ public class ParserXML {
 		case "IMPRESA":
 			tipoCartaEnum = TipoCarta.IMPRESA;
 			break;
+		case "ALL":
+			tipoCartaEnum = TipoCarta.ALL;
+			break;
 		}
 		
 		ScontoCostoCarte scontoCostoCarte = new ScontoCostoCarte (sconto, tipoCartaEnum);
@@ -1158,6 +1166,14 @@ public class ParserXML {
 		BonusPVChiesa bonusPVChiesa = new BonusPVChiesa(valore);
 		return bonusPVChiesa;
 	}
+	
+	//--------------------------------------------------------------------------------------------------------------//
+	// LEGGI EFFETTO BONUS PV CHIESTA
+	//--------------------------------------------------------------------------------------------------------------//
+	public static MoltiplicaRisorseCarte leggiEffettoMoltiplicaRisorseCarte() {
+		MoltiplicaRisorseCarte effetto = new MoltiplicaRisorseCarte(2);
+		return effetto;
+	}
 		
 	
 	//--------------------------------------------------------------------------------------------------------------//
@@ -1196,9 +1212,6 @@ public class ParserXML {
 	 */
 	public static ArrayList<Leader> leggiCartaLeader (){
 		
-		Set<Effetto> effetti = new HashSet<Effetto>();
-		
-		
 		ArrayList<Leader> listaLeader = new ArrayList<Leader>();
 		
 		try{
@@ -1212,6 +1225,7 @@ public class ParserXML {
 			for(int i=0; i<leaders.getLength(); i++) {
 				
 				Leader leaderEstratto = null;
+				Set<Effetto> effetti = new HashSet<Effetto>();
 				HashSet<Risorsa> risorseMap = new HashSet<>();
 				Element leader = (Element) leaders.item(i);
 				String nomeLeader = leader.getElementsByTagName("nome").item(0).getFirstChild().getNodeValue();

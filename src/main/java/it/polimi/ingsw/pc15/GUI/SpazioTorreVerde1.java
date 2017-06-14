@@ -22,11 +22,11 @@ public class SpazioTorreVerde1 extends JPanel{
 	JLabel labelNorth;
 	JLabel labelWest;
 	JLabel labelSouth;
+	JLabel labelEast;
 	Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
 	
 	JButton buttonCenter;
-	JLabel buttonEast;
-	JButton buttonFamiliare;
+	ButtonTransparent buttonFamiliare;
 	
 	ImageIcon imageIcon;
 	Image image, newImage;
@@ -36,10 +36,17 @@ public class SpazioTorreVerde1 extends JPanel{
 	int altezzaTotale;
 	int larghezzaTotale;
 	
+	float rapporto;
+	
 	public SpazioTorreVerde1(String path) {
 		
+		larghezzaTotale = mainGUI.larghezzaTotale;
+		altezzaTotale =  mainGUI.altezzaTotale;
+		rapporto = mainGUI.rapporto;
+		
 		altezzaSchermo = (int)screenSize.getHeight();
-		larghezzaSchermo = (int)screenSize.getWidth()/2;
+		larghezzaSchermo = (int)(((float)screenSize.getWidth())*rapporto);
+		//larghezzaSchermo = (int)screenSize.getWidth()/2;
 		
 		this.setLayout(new BorderLayout());
 		
@@ -52,14 +59,11 @@ public class SpazioTorreVerde1 extends JPanel{
 		int larghezzaN = larghezzaW+larghezzaE+larghezzaC; //1041
 		int larghezzaS = larghezzaN;
 		int altezzaS = 47;
-		larghezzaTotale = 4076;//4068
-		altezzaTotale = 6530;
 		
 		labelNorth = new JLabel();
 		labelWest = new JLabel();
 		labelSouth = new JLabel();
-		
-		
+		labelEast = new JLabel();
 		
 		imageIcon = new ImageIcon("img\\Gameboard\\SpaziTorre\\Verde\\1\\north.png");
 		image = imageIcon.getImage();
@@ -89,35 +93,28 @@ public class SpazioTorreVerde1 extends JPanel{
 		labelNorth.setIcon(imageNorth);
 		labelWest.setIcon(imageWest);
 		labelSouth.setIcon(imageSouth);
+		labelEast.setIcon(imageEast);
 		
 		buttonCenter = new JButton();
 		buttonCenter.setIcon(imageCenter);
 		buttonCenter.setBorder(null);
-		//buttonCenter.addActionListener(new ButtonListener(path));
+		buttonCenter.setActionCommand(path);
+		buttonCenter.addActionListener(new ButtonListenerCarte());
 		
-		buttonEast = new JLabel();
-		buttonEast.setIcon(imageEast);
-		buttonEast.setLayout(new GridBagLayout());
+		labelEast.setLayout(new GridBagLayout());
 		GridBagConstraints gbc = new GridBagConstraints();
 		gbc.gridwidth = GridBagConstraints.REMAINDER;
 		gbc.fill = GridBagConstraints.HORIZONTAL;
 		
-		buttonFamiliare = new JButton();
-		buttonFamiliare.setMinimumSize(new Dimension(160,160));
-		buttonFamiliare.setActionCommand("spazioTorreVerde1");
-		buttonFamiliare.setOpaque(false);
-		buttonFamiliare.setContentAreaFilled(false);
-		buttonFamiliare.setBorderPainted(false);
-		buttonFamiliare.addActionListener(new ButtonListenerSpazi());
+		buttonFamiliare = new ButtonTransparent("spazioTorreVerde1",160,160);
 		
-		buttonEast.add(buttonFamiliare,gbc);
+		labelEast.add(buttonFamiliare,gbc);
 		
 		this.add(labelNorth, BorderLayout.NORTH);
 		this.add(labelWest, BorderLayout.WEST);
 		this.add(labelSouth, BorderLayout.SOUTH);
-		
 		this.add(buttonCenter, BorderLayout.CENTER);
-		this.add(buttonEast, BorderLayout.EAST);
+		this.add(labelEast, BorderLayout.EAST);
 		
 	}
 	

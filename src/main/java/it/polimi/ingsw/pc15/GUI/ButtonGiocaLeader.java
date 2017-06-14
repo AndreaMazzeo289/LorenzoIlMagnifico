@@ -16,31 +16,39 @@ public class ButtonGiocaLeader extends JButton{
 	JLabel imageButton;
 	Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
 	
+	int altezzaTotale;
+	int larghezzaTotale;
+	float rapporto;
+	int altezzaSchermo;
+	int larghezzaSchermo;
+	
 	public ButtonGiocaLeader() {
 		
-		setBackground(Color.decode("5724515"));
-		int altezzaSchermo = (int)screenSize.getHeight();
-		int larghezzaSchermo = (int)screenSize.getWidth()/2;
+		larghezzaTotale = mainGUI.larghezzaTotale;
+		altezzaTotale =  mainGUI.altezzaTotale;
+		rapporto = mainGUI.rapportoPlayerBoard;
+		
+		altezzaSchermo = (int)screenSize.getHeight();
+		larghezzaSchermo = (int)(((float)screenSize.getWidth())*rapporto);
 		
 		this.setLayout(new BorderLayout());
 		
-		int altezza = 700;
-		int larghezza = 880; 
-		
-		int larghezzaTotale = 4076;
-		int altezzaTotale = 6530;
+		int altezza = 1100;
+		int larghezza = 400;  
 		
 		imageButton = new JLabel();
 		
 		ImageIcon imageIcon;
 		Image image, newImage;
 		
-		imageIcon = new ImageIcon("img\\Punchboard\\Button\\attivaLeader.png");
+		imageIcon = new ImageIcon("img\\Punchboard\\Button\\buttonAttivaLeader.png");
 		image = imageIcon.getImage();
 		newImage = image.getScaledInstance(((int)(larghezzaSchermo*larghezza)/larghezzaTotale),((int)(altezzaSchermo*altezza)/altezzaTotale),Image.SCALE_DEFAULT);
 		ImageIcon imageAll = new ImageIcon(newImage);
 		
 		this.setIcon(imageAll);
 		this.setPreferredSize(new Dimension(larghezza,altezza));
+		
+		this.setBorder(null);
 	}
 }

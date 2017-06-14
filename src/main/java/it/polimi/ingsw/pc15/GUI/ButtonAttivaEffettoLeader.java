@@ -16,34 +16,43 @@ public class ButtonAttivaEffettoLeader extends JButton{
 	JLabel imageButton;
 	Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
 	
+	int altezzaTotale;
+	int larghezzaTotale;
+	float rapporto;
+	int altezzaSchermo;
+	int larghezzaSchermo;
+	
 	public ButtonAttivaEffettoLeader() {
 			
 		this.setActionCommand("attivaEffettoLeader");
-		setBackground(Color.decode("3752777"));
 		
-		int altezzaSchermo = (int)screenSize.getHeight();
-		int larghezzaSchermo = (int)screenSize.getWidth()/2;
+		larghezzaTotale = mainGUI.larghezzaTotale;
+		altezzaTotale =  mainGUI.altezzaTotale;
+		rapporto = mainGUI.rapportoPlayerBoard;
+		
+		altezzaSchermo = (int)screenSize.getHeight();
+		larghezzaSchermo = (int)(((float)screenSize.getWidth())*rapporto);
 		
 		this.setLayout(new BorderLayout());
 		
-		int altezza = 700;
-		int larghezza = 880; 
-		
-		int larghezzaTotale = 4076;
-		int altezzaTotale = 6530; //6420
+		int altezza = 1100;
+		int larghezza = 400; 
 		
 		imageButton = new JLabel();
 		
 		ImageIcon imageIcon;
 		Image image, newImage;
 		
-		imageIcon = new ImageIcon("img\\Punchboard\\Button\\effettoLeader.png");
+		imageIcon = new ImageIcon("img\\Punchboard\\Button\\buttonEffettoLeader.png");
 		image = imageIcon.getImage();
 		newImage = image.getScaledInstance(((int)(larghezzaSchermo*larghezza)/larghezzaTotale),((int)(altezzaSchermo*altezza)/altezzaTotale),Image.SCALE_DEFAULT);
 		ImageIcon imageAll = new ImageIcon(newImage);
 		
 		this.setIcon(imageAll);
 		this.setPreferredSize(new Dimension(larghezza,altezza));
+		this.setBorder(null);
+		this.setBorderPainted(false);
+		
 		
 	}
 }

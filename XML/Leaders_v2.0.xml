@@ -47,7 +47,7 @@
             </carta>
         </requisito>
         <effetti tipo="permanente">
-            <effetto>AnnullaSovrapprezzoTorri</effetto>
+            <effetto>annullaSovrapprezzoTorri</effetto>
         </effetti>
     </leader>
     
@@ -172,7 +172,7 @@
             </carta>
         </requisito>
         <effetti tipo="permanente">
-            <effetto>sconto3OroCarteSviluppo</effetto>
+            <effetto>sconto3OroPerQualunque</effetto>
         </effetti>
     </leader>
     
@@ -232,7 +232,9 @@
             </risorse>
         </requisito>
         <effetti tipo="turno">
-            <effetto>aggiungiRisorse1Land1Pand1O</effetto>
+            <effetto>aggiungiRisorse1L</effetto>
+            <effetto>aggiungiRisorse1P</effetto>
+            <effetto>aggiungiRisorse1O</effetto>
         </effetti>
     </leader>
     
@@ -263,7 +265,8 @@
             </risorse>
         </requisito>
         <effetti tipo="turno">
-            <effetto>aggiungiRisorse2PMand1V</effetto>
+            <effetto>aggiungiRisorse2PM</effetto>
+            <effetto>aggiungiRisorse1V</effetto> 
         </effetti>
     </leader>
     
@@ -298,7 +301,8 @@
             </carta>
         </requisito>
         <effetti tipo="turno">
-            <effetto>aggiungiRisorse3Sand1V</effetto>
+            <effetto>aggiungiRisorse3S</effetto>
+            <effetto>aggiungiRisorse1V</effetto>
         </effetti>
     </leader>
     

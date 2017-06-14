@@ -49,10 +49,17 @@ public class SpazioRaccolto2 extends JPanel{
 	ImageIcon imageIcon;
 	Image image, newImage;
 	
+	float rapporto;
+	
 	public SpazioRaccolto2() {
 		
+		larghezzaTotale = mainGUI.larghezzaTotale;
+		altezzaTotale =  mainGUI.altezzaTotale;
+		rapporto = mainGUI.rapporto;
+		
 		altezzaSchermo = (int)screenSize.getHeight();
-		larghezzaSchermo = (int)screenSize.getWidth()/2;
+		larghezzaSchermo = (int)(((float)screenSize.getWidth())*rapporto);
+		//larghezzaSchermo = (int)screenSize.getWidth()/2;
 		
 		this.setLayout(new BorderLayout());
 		
@@ -64,9 +71,6 @@ public class SpazioRaccolto2 extends JPanel{
 		int larghezzaC = 820;
 		int larghezzaN = larghezzaW+larghezzaE+larghezzaC; //956
 		int larghezzaS = larghezzaN;
-		
-		larghezzaTotale = 4076;
-		altezzaTotale = 6530;
 		
 		labelNorth = new JLabel();
 		labelEast = new JLabel();

@@ -30,7 +30,7 @@ public class ButtonListener implements ActionListener{
 		if (e.getActionCommand().equals("attivaEffettoLeader")) {
 			PlayerBoard playerBoard = (PlayerBoard)mainGUI.mainFrame.getContentPane().getComponent(1);
 			playerBoard.getPanelRisorseOro().writeIntoLabel(2);
-			playerBoard.getPanelFamiliariDisponibili().liberaFamiliare(ColoreFamiliare.NERO);
+			playerBoard.getPanelSpazioFamiliariDisponibili().liberaFamiliare(ColoreFamiliare.NERO);
 			
 		}
 		
@@ -52,7 +52,7 @@ public class ButtonListener implements ActionListener{
 		
 		if(e.getActionCommand().equals("buttonStatoGioco")) {
 			PlayerBoard playerBoard = (PlayerBoard)mainGUI.mainFrame.getContentPane().getComponent(1);
-			playerBoard.getPanelFamiliariDisponibili().utilizzaFamiliare(ColoreFamiliare.NERO);
+			playerBoard.getPanelSpazioFamiliariDisponibili().utilizzaFamiliare(ColoreFamiliare.NERO);
 		}
 		
 		
