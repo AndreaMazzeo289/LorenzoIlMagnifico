@@ -10,30 +10,35 @@ import java.util.ArrayList;
 import java.util.Observable;
 import java.util.Scanner;
 
-public class Client {
+public class SocketClient {
 	
 	private static String hostName;
-	private ClientController clientController;
+	private SocketHandler socketHandler;
 	private View view;
 	private ClientModel clientModel;
 	
-	public Client() throws IOException {
+	public SocketClient() throws IOException {
 		
 		this.clientModel = new ClientModel();
-		this.clientController = new ClientController(new Socket(hostName, 12879), clientModel);
-		this.view = new CLI(clientController, clientModel);
+		this.socketHandler = new SocketHandler(new Socket(hostName, 12879), clientModel);
+		this.view = new CLI(socketHandler, clientModel);
 	}
 	
 	public void connetti() {
-		if (clientController.connetti()) {
+		if (socketHandler.connetti()) {
 			new Thread(view).start();
-			clientController.run();
+			socketHandler.run();
 		}
 	}
 	
 	public static void main(String[] args) throws IOException, InterruptedException {
 		
-		Client client = new Client();
-		client.connetti();
+		
+		
+		
+		SocketClient socketClient = new SocketClient();
+		socketClient.connetti();
+		
+		
 	}
 }

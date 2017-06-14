@@ -8,7 +8,7 @@ public abstract class View extends Observable implements Observer, Runnable {
 	
 	protected ClientModel clientModel;
 	
-	public View(ClientController clientController, ClientModel clientModel)
+	public View(SocketHandler clientController, ClientModel clientModel)
 	{
 		this.clientModel = clientModel;
 		clientModel.addObserver(this);

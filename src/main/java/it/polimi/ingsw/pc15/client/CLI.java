@@ -23,7 +23,7 @@ public class CLI extends View {
 	private boolean tuoTurno;
 	private final boolean regoleAvanzate;
 	
-	public CLI(ClientController clientController, ClientModel clientModel){
+	public CLI(SocketHandler clientController, ClientModel clientModel){
 		super(clientController, clientModel);
 		this.input = new Scanner(System.in);
 		this.tuoTurno = true;

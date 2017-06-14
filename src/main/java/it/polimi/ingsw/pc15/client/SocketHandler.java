@@ -14,7 +14,7 @@ import java.util.Scanner;
 import it.polimi.ingsw.pc15.model.StatoPartita;
 import it.polimi.ingsw.pc15.risorse.TipoRisorsa;
 
-public class ClientController extends Observable implements Observer, Serializable {
+public class SocketHandler extends Observable implements Observer, Serializable {
 	
 	private Scanner in;
 	private PrintStream out;
@@ -23,7 +23,7 @@ public class ClientController extends Observable implements Observer, Serializab
 	private ClientModel clientModel;
 
 
-	public ClientController (Socket socket, ClientModel clientModel) throws IOException  {
+	public SocketHandler (Socket socket, ClientModel clientModel) throws IOException  {
 		
 		this.in = new Scanner(socket.getInputStream());
 		this.out = new PrintStream(socket.getOutputStream());	
