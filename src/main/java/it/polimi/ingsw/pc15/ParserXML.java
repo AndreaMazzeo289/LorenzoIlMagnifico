@@ -74,12 +74,12 @@ import it.polimi.ingsw.pc15.risorse.TipoRisorsa;
 public class ParserXML {
 	
 	public static void main (String args[]) {
-		/*leggiScomunica(1);*/
-		/*leggiScomunica(2);
-		leggiScomunica(3);*/
+		//leggiScomunica(1);
+		//leggiScomunica(2);
+		//leggiScomunica(3);
 		
-		//getCarteXML(TipoCarta.PERSONAGGIO);
-		leggiCartaLeader();
+		//getCarteXML(TipoCarta.TERRITORIO);
+		//leggiCartaLeader();
 		
 		//leggiSetRisorseSpazio("verde1");
 	}
@@ -127,10 +127,11 @@ public class ParserXML {
 	                
 	                int id = Integer.parseInt(carta.getAttribute("id"));
 	                int periodo = Integer.parseInt(carta.getElementsByTagName("periodo").item(0).getFirstChild().getNodeValue());
-	                
+	                String pathImg = "img/DevCardsFront/devcards_f_en_c_"+id+".png";
 	                
 	               /**********************************************************
 	                System.out.println("------------------------------------------------");
+	                System.out.println(pathImg);
 	                System.out.println("ID carta: " +id);
 	                System.out.println("Nome carta: " +nome);
 	                System.out.println("Tipo carta: " +tipo);
@@ -1232,6 +1233,10 @@ public class ParserXML {
 				SetRisorse requisitoMaterie;
 				HashMap<TipoCarta, Integer> requisitoCarte = new HashMap<TipoCarta, Integer>();	
 				
+				String id = leader.getAttribute("id");
+				String pathImg = "img/Leaders/leaders_f_c_"+id+".jpg";
+				
+				//System.out.println(pathImg);
 				/*System.out.println("-------------------------------------------");
 				System.out.println("Nome leader: "+nomeLeader);*/
 				
@@ -1370,7 +1375,6 @@ public class ParserXML {
 		ArrayList<TesseraScomunica> scomuniche = new ArrayList<TesseraScomunica>();
 		String effettoScomunica;
 		
-		
 		try{
 			DocumentBuilderFactory documentFactory = DocumentBuilderFactory.newInstance();
 			
@@ -1385,7 +1389,12 @@ public class ParserXML {
 				int periodoLetto = Integer.parseInt(scomunica.getElementsByTagName("periodo").item(0).getFirstChild().getNodeValue());
 				
 				if(periodoLetto == periodo){
-					int id = Integer.parseInt(scomunica.getAttribute("id"));
+					
+					String id =scomunica.getAttribute("id");
+					String pathImg = "img/Scomuniche/excomm_"+id.charAt(0)+"_"+id.charAt(1)+".png";
+					
+					//System.out.println(pathImg);
+					
 					Set<Effetto> effetti = new HashSet<Effetto>();
 					
 					NodeList listaEffetti = scomunica.getElementsByTagName("effetto");
@@ -1396,7 +1405,7 @@ public class ParserXML {
 			            effetti.add(effettoExt);
 			        }
 					
-			        TesseraScomunica tesseraScomunica = new TesseraScomunica (id,periodoLetto,effetti);
+			        TesseraScomunica tesseraScomunica = new TesseraScomunica (Integer.parseInt(id),periodoLetto,effetti);
 			        
 					scomuniche.add(tesseraScomunica);
 				}

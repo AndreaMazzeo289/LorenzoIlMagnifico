@@ -37,18 +37,6 @@ public class SpazioFamiliariDisponibili extends JPanel{
 	int larghezzaFamiliare;
 	int altezzaFamiliare;
 	
-	int altezzaECW;
-	int altezzaN;
-	int larghezzaFamBianco;
-	int larghezzaFamArancione;
-	int larghezzaFamNero;
-	int larghezzaFamNeutro;	
-	int larghezzaW;
-	int larghezzaE;
-	int larghezzaC;
-	int larghezzaN; //686
-	int larghezzaS;
-	int altezzaS;
 	int larghezzaTotale;
 	int altezzaTotale;
 	float rapporto;
@@ -69,19 +57,8 @@ public class SpazioFamiliariDisponibili extends JPanel{
 		altezzaBackground=700;
 		larghezzaBackground=850;//924
 		
-		altezzaECW = 303;
-		altezzaN = 200;
 		larghezzaFamiliare = 198;
 		altezzaFamiliare= 198;
-		larghezzaFamArancione = 207;
-		larghezzaFamNero = 208;
-		larghezzaFamNeutro = 196;	
-		larghezzaW = 52;
-		larghezzaE = 63;
-		larghezzaC = larghezzaFamBianco+larghezzaFamArancione+larghezzaFamNero+larghezzaFamNeutro;
-		larghezzaN = larghezzaW+larghezzaE+larghezzaC; //686
-		larghezzaS = larghezzaN;
-		altezzaS = 197;
 		
 		background = new JLabel();
 		labelNero = new JLabel();

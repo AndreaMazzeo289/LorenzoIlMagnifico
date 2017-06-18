@@ -4,6 +4,7 @@ import java.awt.BorderLayout;
 import java.awt.Dimension;
 import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;
+import java.awt.GridLayout;
 import java.awt.Image;
 import java.awt.Toolkit;
 
@@ -14,157 +15,108 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 
 public class SelezionaFamiliarePopup extends JFrame{
-
-	JLabel labelNorth;
-	JLabel labelEast;
-	JLabel labelWest;
-	JLabel labelCenter;
-	JLabel labelSouth;
 	
-	JPanel panelCentrale;
-	
-	JButton labelFamBianco;
-	JButton labelFamArancione;
-	JButton labelFamNero;
-	JButton labelFamNeutro;
+	JLabel north;
+	JLabel south;
+	JButton buttonNero;
+	JButton buttonBianco;
+	JButton buttonArancione;
+	JButton buttonNeutro;
+	JPanel	 panelCentrale;
 	
 	ImageIcon imageIcon;
 	Image image, newImage;
 	
-	int altezzaECW;
-	int altezzaN;
-	int larghezzaFamBianco;
-	int larghezzaFamArancione;
-	int larghezzaFamNero;
-	int larghezzaFamNeutro;	
-	int larghezzaW;
-	int larghezzaE;
-	int larghezzaC;
-	int larghezzaN;
-	int larghezzaS;
-	int altezzaS;
-	int larghezzaTotale;
-	int altezzaTotale;
+	int altezzaBackground;
+	int larghezzaBackground;
+	
+	int larghezzaFamiliare;
+	int altezzaFamiliare;
 	
 	public SelezionaFamiliarePopup(ButtonListener listener) {
 		
-		altezzaECW = 330;//303
-		altezzaN = 200;
-		larghezzaFamBianco = 198;
-		larghezzaFamArancione = 207;
-		larghezzaFamNero = 208;
-		larghezzaFamNeutro = 196;	
-		larghezzaW = 52;
-		larghezzaE = 63;
-		larghezzaC = larghezzaFamBianco+larghezzaFamArancione+larghezzaFamNero+larghezzaFamNeutro;
-		larghezzaN = larghezzaW+larghezzaE+larghezzaC; //686
-		larghezzaS = larghezzaN;
-		altezzaS = 197;
-		larghezzaTotale = larghezzaC+larghezzaW+larghezzaE;
-		altezzaTotale = altezzaN+altezzaECW+altezzaS;
+		this.setLayout(new BorderLayout());
 		
-		this.getContentPane().setLayout(new BorderLayout());
+		altezzaBackground=1000;
+		larghezzaBackground=1000;
 		
-		this.setSize(1000,1000);
-		this.setVisible(true);
-		this.setAlwaysOnTop(true);
+		larghezzaFamiliare = 250;
+		altezzaFamiliare= 250;
+	
+		north = new JLabel();
+		south = new JLabel();
+		buttonNero = new JButton();
+		buttonBianco = new JButton();
+		buttonArancione = new JButton();
+		buttonNeutro = new JButton();
 		
-		labelNorth = new JLabel();
-		labelEast = new JLabel();
-		labelWest = new JLabel();
-		labelCenter = new JLabel();
-		labelSouth = new JLabel();
-		
-		imageIcon = new ImageIcon("img\\Punchboard\\familiari\\north.png");
+		imageIcon = new ImageIcon("img/Punchboard/familiari/pedineFamiliari/blu/nero.png");
 		image = imageIcon.getImage();
-		newImage = image.getScaledInstance(larghezzaN,altezzaN,Image.SCALE_DEFAULT);
-		ImageIcon imageNorth = new ImageIcon(newImage);
-		
-		imageIcon = new ImageIcon("img\\Punchboard\\familiari\\east.png");
-		image = imageIcon.getImage();
-		newImage = image.getScaledInstance(larghezzaE,altezzaECW,Image.SCALE_DEFAULT);
-		ImageIcon imageEast = new ImageIcon(newImage);
-		
-		imageIcon = new ImageIcon("img\\Punchboard\\familiari\\west.png");
-		image = imageIcon.getImage();
-		newImage = image.getScaledInstance(larghezzaW,altezzaECW,Image.SCALE_DEFAULT);
-		ImageIcon imageWest = new ImageIcon(newImage);
-		
-		imageIcon = new ImageIcon("img\\Punchboard\\familiari\\familareBianco.png");
-		image = imageIcon.getImage();
-		newImage = image.getScaledInstance(larghezzaFamBianco,altezzaECW,Image.SCALE_DEFAULT);
-		ImageIcon imageFamiliareBianco = new ImageIcon(newImage);
-		
-		imageIcon = new ImageIcon("img\\Punchboard\\familiari\\familareArancione.png");
-		image = imageIcon.getImage();
-		newImage = image.getScaledInstance(larghezzaFamArancione,altezzaECW,Image.SCALE_DEFAULT);
-		ImageIcon imageFamiliareArancione = new ImageIcon(newImage);
-		
-		imageIcon = new ImageIcon("img\\Punchboard\\familiari\\familiareNero.png");
-		image = imageIcon.getImage();
-		newImage = image.getScaledInstance(larghezzaFamNero,altezzaECW,Image.SCALE_DEFAULT);
+		newImage = image.getScaledInstance(larghezzaFamiliare,altezzaFamiliare,Image.SCALE_DEFAULT);
 		ImageIcon imageFamiliareNero = new ImageIcon(newImage);
 		
-		imageIcon = new ImageIcon("img\\Punchboard\\familiari\\familiareNeutro.png");
+		imageIcon = new ImageIcon("img/Punchboard/familiari/pedineFamiliari/blu/bianco.png");
 		image = imageIcon.getImage();
-		newImage = image.getScaledInstance(larghezzaFamNeutro,altezzaECW,Image.SCALE_DEFAULT);
+		newImage = image.getScaledInstance(larghezzaFamiliare,altezzaFamiliare,Image.SCALE_DEFAULT);
+		ImageIcon imageFamiliareBianco = new ImageIcon(newImage);
+		
+		imageIcon = new ImageIcon("img/Punchboard/familiari/pedineFamiliari/blu/arancione.png");
+		image = imageIcon.getImage();
+		newImage = image.getScaledInstance(larghezzaFamiliare,altezzaFamiliare,Image.SCALE_DEFAULT);
+		ImageIcon imageFamiliareArancione = new ImageIcon(newImage);
+		
+		imageIcon = new ImageIcon("img/Punchboard/familiari/pedineFamiliari/blu/neutro.png");
+		image = imageIcon.getImage();
+		newImage = image.getScaledInstance(larghezzaFamiliare,altezzaFamiliare,Image.SCALE_DEFAULT);
 		ImageIcon imageFamiliareNeutro = new ImageIcon(newImage);
 		
-		panelCentrale = new JPanel (new GridBagLayout());
-		GridBagConstraints gbc = new GridBagConstraints();
+		Dimension dimension = new Dimension(325,325);
+		Dimension dimensionButton = new Dimension(250,250);
 		
-		labelFamBianco = new JButton();
-		labelFamArancione = new JButton();
-		labelFamNero = new JButton();
-		labelFamNeutro = new JButton();
+		north.setMinimumSize(dimension);
+		south.setMinimumSize(dimension);
 		
-		labelFamBianco.setBorder(null);
-		labelFamArancione.setBorder(null);
-		labelFamNero.setBorder(null);
-		labelFamNeutro.setBorder(null);
+		panelCentrale = new JPanel ();
+		panelCentrale.setLayout(new GridLayout(1,4));
 		
-		labelFamBianco.setActionCommand("selezionatoFamiliareBianco");
-		labelFamArancione.setActionCommand("selezionatoFamiliareArancione");
-		labelFamNero.setActionCommand("selezionatoFamiliareNero");
-		labelFamNeutro.setActionCommand("selezionatoFamiliareNeutro");
+		buttonBianco.setBorder(null);
+		buttonArancione.setBorder(null);
+		buttonNero.setBorder(null);
+		buttonNeutro.setBorder(null);
 		
-		labelFamBianco.addActionListener(listener);
-		labelFamArancione.addActionListener(listener);
-		labelFamNero.addActionListener(listener);
-		labelFamNeutro.addActionListener(listener);
+		buttonBianco.setMaximumSize(dimensionButton);
+		buttonArancione.setMaximumSize(dimensionButton);
+		buttonNero.setMaximumSize(dimensionButton);
+		buttonNeutro.setMaximumSize(dimensionButton);
 		
-		labelFamBianco.setIcon(imageFamiliareBianco);
-		labelFamArancione.setIcon(imageFamiliareArancione);
-		labelFamNero.setIcon(imageFamiliareNero);
-		labelFamNeutro.setIcon(imageFamiliareNeutro);
+		buttonBianco.setActionCommand("selezionatoFamiliareBianco");
+		buttonArancione.setActionCommand("selezionatoFamiliareArancione");
+		buttonNero.setActionCommand("selezionatoFamiliareNero");
+		buttonNeutro.setActionCommand("selezionatoFamiliareNeutro");
 		
-		gbc.gridx=0;
-		gbc.gridy=0;
-		panelCentrale.add(labelFamBianco,gbc);
-		gbc.gridx=1;
-		panelCentrale.add(labelFamArancione,gbc);
-		gbc.gridx=2;
-		panelCentrale.add(labelFamNero,gbc);
-		gbc.gridx=3;
-		panelCentrale.add(labelFamNeutro,gbc);
+		buttonBianco.setIcon(imageFamiliareBianco);
+		buttonArancione.setIcon(imageFamiliareArancione);
+		buttonNero.setIcon(imageFamiliareNero);
+		buttonNeutro.setIcon(imageFamiliareNeutro);
 		
-		imageIcon = new ImageIcon("img\\Punchboard\\familiari\\south.png");
-		image = imageIcon.getImage();
-		newImage = image.getScaledInstance(larghezzaS,altezzaS,Image.SCALE_DEFAULT);
-		ImageIcon imageSouth = new ImageIcon(newImage);
+		panelCentrale.add(buttonNero);
+		panelCentrale.add(buttonBianco);
+		panelCentrale.add(buttonArancione);
+		panelCentrale.add(buttonNeutro);
 		
-		labelNorth.setIcon(imageNorth);
-		labelEast.setIcon(imageEast);
-		labelWest.setIcon(imageWest);
-		labelSouth.setIcon(imageSouth);
-		
-		this.add(labelNorth, BorderLayout.NORTH);
-		this.add(labelEast, BorderLayout.EAST);
-		this.add(labelWest, BorderLayout.WEST);
+		panelCentrale.setAlignmentX(java.awt.Component.CENTER_ALIGNMENT);
+		panelCentrale.setAlignmentY(java.awt.Component.CENTER_ALIGNMENT);
+
+		this.add(north, BorderLayout.NORTH);
+		this.add(south, BorderLayout.SOUTH);
 		this.add(panelCentrale, BorderLayout.CENTER);
-		this.add(labelSouth, BorderLayout.SOUTH);
-		
-		this.setSize(larghezzaTotale,altezzaTotale);
+
+		buttonBianco.addActionListener(listener);
+		buttonArancione.addActionListener(listener);
+		buttonNero.addActionListener(listener);
+		buttonNeutro.addActionListener(listener);
+
+		this.setSize(larghezzaBackground,altezzaBackground);
 		this.setVisible(true);
 		this.setAlwaysOnTop(true);
 	}
