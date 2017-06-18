@@ -18,6 +18,7 @@ import it.polimi.ingsw.pc15.player.ColoreFamiliare;
 public class ButtonListener implements ActionListener{
 
 	public SelezionaFamiliarePopup selezionaFamiliarePopup;
+	public SelezionaNumeroServitori selezionaNumeroServitori;
 	
 	public ButtonListener() {
 	}
@@ -31,7 +32,7 @@ public class ButtonListener implements ActionListener{
 			PlayerBoard playerBoard = (PlayerBoard)mainGUI.mainFrame.getContentPane().getComponent(1);
 			playerBoard.getPanelRisorseOro().writeIntoLabel(2);
 			playerBoard.getPanelSpazioFamiliariDisponibili().liberaFamiliare(ColoreFamiliare.NERO);
-			
+			selezionaNumeroServitori = new SelezionaNumeroServitori(this);
 		}
 		
 		if (e.getActionCommand().equals("posizionaFamiliare")) {
@@ -51,7 +52,15 @@ public class ButtonListener implements ActionListener{
 			playerBoard.getPanelSpazioFamiliariDisponibili().utilizzaFamiliare(ColoreFamiliare.NERO);
 		}
 		
+		if(e.getActionCommand().equals("siServitori")) {
+			System.out.println("selezionato si");
+			selezionaNumeroServitori.dispose();
+		}
 		
+		if(e.getActionCommand().equals("noServitori")) {
+			System.out.println("selezionato no");
+			selezionaNumeroServitori.dispose();
+		}
 		
 	}	
 	
