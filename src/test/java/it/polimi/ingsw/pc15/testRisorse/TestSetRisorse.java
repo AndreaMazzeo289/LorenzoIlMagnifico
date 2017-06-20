@@ -4,7 +4,9 @@ import org.junit.Assert.*;
 
 import static org.junit.Assert.*;
 
+import java.util.Arrays;
 import java.util.HashSet;
+import java.util.Set;
 
 import org.junit.*;
 
@@ -38,6 +40,7 @@ public class TestSetRisorse {
 	PuntiMilitari puntiMilitari;
 	PuntiVittoria puntiVittoria;
 	Servitori servitori;
+	
 	
 	
 	@Before
@@ -90,6 +93,8 @@ public class TestSetRisorse {
 		setRisorse2 = new SetRisorse(risorsa2);
 		setRisultatoAggiunta = new SetRisorse(risultatoAggiunta);
 		setRisultatoSottrai = new SetRisorse(risultatoSottrai);
+		
+	
 		
 			
 			

@@ -32,7 +32,7 @@ public class Familiare implements Serializable{
 	}
 	
 	public void setValore (int valore) {
-		if (this.valoreFissato == false)
+		if (getValoreFissato() == false)
 			this.valore = valore;
 	}
 	
@@ -58,6 +58,11 @@ public class Familiare implements Serializable{
 	
 	public boolean disponibile() {
 		return this.disponibilità;
+	}
+	
+	public boolean getValoreFissato(){
+		
+		return this.valoreFissato;
 	}
 	
 	public void aggiungiServitori() {
