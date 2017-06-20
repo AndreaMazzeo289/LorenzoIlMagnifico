@@ -11,6 +11,7 @@ import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
+import javax.swing.JTextField;
 
 public class SelezionaNumeroServitori extends JFrame{
 
@@ -27,7 +28,14 @@ public class SelezionaNumeroServitori extends JFrame{
 	int altezzaButton;
 	int larghezzaButton;
 	
-	public SelezionaNumeroServitori(ButtonListener listener) {
+	JFrame frameNumeroServitori;
+	JTextField inputNumero;
+	
+	ButtonListener buttonListenerCall;
+	
+	public SelezionaNumeroServitori(ButtonListener buttonListener) {
+		
+		buttonListenerCall = buttonListener;
 		
 		altezzaButton = 200;
 		larghezzaButton = 200;
@@ -40,7 +48,7 @@ public class SelezionaNumeroServitori extends JFrame{
 		buttonNo = new JButton();
 		buttonSi = new JButton();
 		
-		imageIcon = new ImageIcon("img/Punchboard/Popup/SiButton.png");
+		/*imageIcon = new ImageIcon("img/Punchboard/Popup/SiButton.png");
 		image = imageIcon.getImage();
 		newImage = image.getScaledInstance(larghezzaButton,altezzaButton,Image.SCALE_DEFAULT);
 		ImageIcon imageButtonSi = new ImageIcon(newImage);
@@ -54,13 +62,16 @@ public class SelezionaNumeroServitori extends JFrame{
 		buttonNo.setIcon(imageButtonNo);
 		
 		buttonSi.setBorder(null);
-		buttonNo.setBorder(null);
+		buttonNo.setBorder(null);*/
 		
-		buttonSi.addActionListener(listener);
-		buttonNo.addActionListener(listener);
+		buttonSi.setText("SI");
+		buttonNo.setText("NO");
+		
+		buttonSi.addActionListener(buttonListenerCall);
+		buttonNo.addActionListener(buttonListenerCall);
 		
 		buttonSi.setActionCommand("siServitori");
-		buttonSi.setActionCommand("noServitori");
+		buttonNo.setActionCommand("noServitori");
 		
 		panelButton.add(buttonSi);
 		panelButton.add(buttonNo);
@@ -74,6 +85,39 @@ public class SelezionaNumeroServitori extends JFrame{
 		this.setSize(larghezzaButton*2, altezzaButton);
 		this.setVisible(true);
 		this.setAlwaysOnTop(true);
+	}
+	
+	public void numeroServitoriPopup() {
+		
+		frameNumeroServitori = new JFrame();
+		
+		JButton submit = new JButton("OK!");
+		submit.setActionCommand("submitNumeroServitori");
+		submit.addActionListener(buttonListenerCall);
+		
+		
+		inputNumero = new JTextField("Inserire il numero...");
+		
+		JLabel labelTitolo = new JLabel();
+		
+		labelTitolo.setText("INSERISCI IL NUMERO DI SERVITORI AGGIUNTIVI:");
+		
+		frameNumeroServitori.getContentPane().setLayout(new BorderLayout());
+		frameNumeroServitori.add(labelTitolo, BorderLayout.NORTH);
+		frameNumeroServitori.add(inputNumero, BorderLayout.CENTER);
+		frameNumeroServitori.add(submit, BorderLayout.SOUTH);
+		
+		frameNumeroServitori.setSize(larghezzaButton*2, altezzaButton);
+		frameNumeroServitori.setVisible(true);
+		frameNumeroServitori.setAlwaysOnTop(true);
+	}
+	
+	public JFrame getPopupNumeroServitori() {
+		return frameNumeroServitori;
+	}
+	
+	public int getInputNumero() {
+		return Integer.parseInt(inputNumero.getText());
 	}
 	
 }

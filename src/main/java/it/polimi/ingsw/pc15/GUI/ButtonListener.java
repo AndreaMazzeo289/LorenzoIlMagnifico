@@ -55,11 +55,17 @@ public class ButtonListener implements ActionListener{
 		if(e.getActionCommand().equals("siServitori")) {
 			System.out.println("selezionato si");
 			selezionaNumeroServitori.dispose();
+			selezionaNumeroServitori.numeroServitoriPopup();
 		}
 		
 		if(e.getActionCommand().equals("noServitori")) {
 			System.out.println("selezionato no");
 			selezionaNumeroServitori.dispose();
+		}
+		
+		if(e.getActionCommand().equals("submitNumeroServitori")) {
+			System.out.println(selezionaNumeroServitori.getInputNumero());
+			selezionaNumeroServitori.getPopupNumeroServitori().dispose();
 		}
 		
 	}	
