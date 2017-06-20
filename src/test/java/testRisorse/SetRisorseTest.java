@@ -1,4 +1,4 @@
-package it.polimi.ingsw.pc15.risorse;
+package testRisorse;
 
 import static org.junit.Assert.*;
 
@@ -7,6 +7,11 @@ import java.util.HashSet;
 
 import org.junit.Before;
 import org.junit.Test;
+
+import it.polimi.ingsw.pc15.risorse.Legna;
+import it.polimi.ingsw.pc15.risorse.Risorsa;
+import it.polimi.ingsw.pc15.risorse.SetRisorse;
+import it.polimi.ingsw.pc15.risorse.TipoRisorsa;
 
 public class SetRisorseTest {
 
