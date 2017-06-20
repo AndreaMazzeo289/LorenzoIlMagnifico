@@ -39,6 +39,13 @@ public class EffettiAttivi implements Serializable{
 		bonusDadoCarte.put(TipoCarta.EDIFICIO, 0);
 		bonusDadoCarte.put(TipoCarta.IMPRESA, 0);
 		
+		bonusDadoCarte.put(TipoCarta.TERRITORIO, 0);
+		bonusDadoCarte.put(TipoCarta.PERSONAGGIO, 0);
+		bonusDadoCarte.put(TipoCarta.EDIFICIO, 0);
+		bonusDadoCarte.put(TipoCarta.IMPRESA, 0);
+		
+		
+		
 		bonusPuntiVittoriaFinale = new HashMap<TipoCarta, Boolean>();
 		bonusPuntiVittoriaFinale.put(TipoCarta.TERRITORIO, true);
 		bonusPuntiVittoriaFinale.put(TipoCarta.PERSONAGGIO, true);
@@ -68,7 +75,7 @@ public class EffettiAttivi implements Serializable{
 	//-----------------------------------------------------------------------------------------------------------//
 	
 	public void incrementaBonusDadoCarte (TipoCarta colore, int valore) {
-		int valoreAggiornato = bonusDadoCarte.get(colore).intValue();
+		int valoreAggiornato = bonusDadoCarte.get(colore).intValue() + valore;
 		bonusDadoCarte.put(colore, valoreAggiornato);	
 	}
 	
@@ -108,6 +115,10 @@ public class EffettiAttivi implements Serializable{
 		this.moltiplicatoreRisorseCarte = moltiplicatore;
 	}
 	
+	public void setMoltiplicatoreRisorseSpazi(int moltiplicatore) {
+		this.moltiplicatoreRisorseSpazi = moltiplicatore;
+	}
+	
 	
 	
 	//-----------------------------------------------------------------------------------------------------------//
@@ -123,7 +134,7 @@ public class EffettiAttivi implements Serializable{
 	}
 	
 	public int getBonusDadoCarte (TipoCarta tipo) {
-		return this.bonusDadoCarte.get(tipo);
+		return this.bonusDadoCarte.get(tipo).intValue();
 	}
 	
 	public SetRisorse getScontoCostoCarte (TipoCarta tipo) {
