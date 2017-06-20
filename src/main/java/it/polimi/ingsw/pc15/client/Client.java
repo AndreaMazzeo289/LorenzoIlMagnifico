@@ -9,4 +9,5 @@ public abstract class Client {
 	protected ClientView view;
 	
 	public abstract void connetti();
+	
 }

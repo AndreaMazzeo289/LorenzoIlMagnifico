@@ -311,8 +311,7 @@ public class Model extends Observable {
 		
 	}
 	
-	
-	
+
 	public void notificaStatoPartita (String messaggio) {
 		
 		StatoPartita statoPartita = new StatoPartita(plancia, periodo, turno, giocatori, giocatoreCorrente, messaggio);

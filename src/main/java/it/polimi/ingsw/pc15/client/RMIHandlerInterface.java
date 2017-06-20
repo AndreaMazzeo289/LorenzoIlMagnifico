@@ -8,5 +8,7 @@ import it.polimi.ingsw.pc15.model.StatoPartita;
 public interface RMIHandlerInterface extends Remote {
 
 	public void aggiornaStatoPartita(StatoPartita statoPartita) throws RemoteException;
+	
+	public String getNome() throws RemoteException;
 
 }

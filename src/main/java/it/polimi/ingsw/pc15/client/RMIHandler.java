@@ -15,12 +15,11 @@ import it.polimi.ingsw.pc15.server.ServerInterface;
 
 public class RMIHandler extends NetworkHandler implements RMIHandlerInterface {
 	
-	private ClientModel clientModel;
 	private int numeroConnessione;
 	private ServerInterface server;
 	
-	public RMIHandler (ClientModel clientModel) {
-		this.clientModel = clientModel;
+	public RMIHandler (ClientModel clientModel, String name) {	
+		super(name, clientModel);
 	}
 	
 	@Override
@@ -38,9 +37,8 @@ public class RMIHandler extends NetworkHandler implements RMIHandlerInterface {
 		}
 
 	}
+
 	
-
-
 	@Override
 	public void update(Observable o, Object input) {
 		System.out.println("\nSono il Client controller RMI e ho ricevuto " + (ArrayList<String>) input);
@@ -56,6 +54,11 @@ public class RMIHandler extends NetworkHandler implements RMIHandlerInterface {
 
 		this.clientModel.aggiorna(statoPartita);
 		
+	}
+
+	@Override
+	public String getNome() throws RemoteException {
+		return this.name;
 	}
 	
 }

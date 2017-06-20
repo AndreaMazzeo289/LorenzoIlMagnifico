@@ -38,6 +38,8 @@ public class Server extends UnicastRemoteObject implements ServerInterface {
 
 	public void run() throws InterruptedException {
 		
+		////////////////////RMI///////////////////////////////////////
+		
 		try {
 			LocateRegistry.createRegistry(1099);
 		} catch (RemoteException e) {
@@ -53,6 +55,10 @@ public class Server extends UnicastRemoteObject implements ServerInterface {
 		}	
 		
 		System.out.println("Server avviato!\nIn attesa di giocatori...");
+		
+		//////////////////////////////////////////////////////////////////
+		
+		///////////////////////SOCKET/////////////////////////////////////
 
 		while (true) {
 		try {
@@ -65,6 +71,8 @@ public class Server extends UnicastRemoteObject implements ServerInterface {
 				System.out.println("Errore di connessione!");
 			}
 		}	
+		
+		//////////////////////////////////////////////////////////////////
 			
 	}
 	
@@ -96,7 +104,7 @@ public class Server extends UnicastRemoteObject implements ServerInterface {
 		Controller controller = new Controller(model);
 		
 		for(Map.Entry<String, ServerView> giocatoriConnessi : views.entrySet()) {
-			giocatoriConnessi.getValue().addObserver(controller);  //il Controller viene reso Observer di ogni connessione
+			giocatoriConnessi.getValue().addObserver(controller);  //il Controller viene reso Observer di ogni View
 			giocatoriConnessi.getValue().sendLine("OK"); //notifica ai giocatori l'inizio partita
 		}
 		
@@ -115,17 +123,15 @@ public class Server extends UnicastRemoteObject implements ServerInterface {
 		} catch (Exception e) {
 			System.err.println("Impossibile inizializzare il server: " + e.getMessage() + "!");
 		}	
-		
-		
-		
-	}
 
+	}
 
 	@Override
 	public int remoteConnetti(RMIHandlerInterface rmiHandler) throws RemoteException {
 		RMIView rmiView = new RMIView(rmiHandler);
+		new Thread(rmiView).start();
 		this.rmiViews.add(rmiView);
-		connetti(rmiView, "CIAO");
+		connetti(rmiView, rmiHandler.getNome());
 		return rmiViews.lastIndexOf(rmiView);
 	}
 
