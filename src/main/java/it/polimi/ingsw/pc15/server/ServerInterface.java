@@ -12,5 +12,4 @@ public interface ServerInterface extends Remote {
 
 	public int remoteConnetti(RMIHandlerInterface rmiHandler) throws RemoteException;
 
-
 }

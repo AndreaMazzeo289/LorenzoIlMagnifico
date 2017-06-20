@@ -17,7 +17,7 @@ import it.polimi.ingsw.pc15.model.StatoPartita;
 import it.polimi.ingsw.pc15.player.Player;
 import it.polimi.ingsw.pc15.risorse.TipoRisorsa;
 
-public class SocketView extends ServerView implements Runnable, Serializable {
+public class SocketView extends ServerView implements Serializable {
 
 	private Socket socket;
 	private Server server;
@@ -63,7 +63,7 @@ public class SocketView extends ServerView implements Runnable, Serializable {
 	public void update(Observable o, Object arg) {
 		
 		StatoPartita statoPartita = (StatoPartita)arg;
-		//System.out.println("\nSono la connection di " + name + " e ho ricevuto " + (statoPartita.getMessaggio()));
+		System.out.println("\nSono la connection di " + name + " e ho ricevuto " + (statoPartita.getMessaggio()));
 		statoPartita.setStatoGiocatore(name);
 		sendObj(statoPartita);
 		

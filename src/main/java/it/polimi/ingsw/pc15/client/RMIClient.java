@@ -8,19 +8,16 @@ public class RMIClient extends Client {
 	public RMIClient() throws IOException {
 		
 		this.clientModel = new ClientModel();
-		this.networkHandler = new RMIHandler(clientModel);
+		this.networkHandler = new RMIHandler(clientModel, "Player");
 		this.view = new CLI(networkHandler, clientModel);
 	}
 
 	@Override
 	public void connetti() {
-		
+		if (networkHandler.connetti()) {
+			new Thread(view).start();
+		}
 	}
 	
-	
-	
-	
-	
 }
-
 
