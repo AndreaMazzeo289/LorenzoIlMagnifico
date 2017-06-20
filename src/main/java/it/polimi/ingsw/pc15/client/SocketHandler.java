@@ -20,24 +20,19 @@ public class SocketHandler extends NetworkHandler {
 	private PrintStream out;
 	private ObjectInputStream inObj;
 	private ObjectOutputStream outObj;
-	private ClientModel clientModel;
 
-
-	public SocketHandler (Socket socket, ClientModel clientModel) throws IOException  {
+	public SocketHandler (Socket socket, ClientModel clientModel, String name) throws IOException  {
+		
+		super(name, clientModel);
 		
 		this.in = new Scanner(socket.getInputStream());
 		this.out = new PrintStream(socket.getOutputStream());	
 		this.inObj = new ObjectInputStream(socket.getInputStream());
 		this.outObj = new ObjectOutputStream(socket.getOutputStream());
-		this.clientModel = clientModel;
 	}	
 	
 	public boolean connetti() {
 		
-		String name;
-		Scanner input = new Scanner(System.in);
-		System.out.println("Tentativo di connessione!\nScrivi il tuo nome :");
-		name = input.nextLine();
 		out.println(name);  //manda il nome alla Connection
 		System.out.println("Connessione al server riuscita! In attesa di altri giocatori\n");
 		

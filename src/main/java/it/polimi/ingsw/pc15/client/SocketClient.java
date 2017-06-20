@@ -17,7 +17,7 @@ public class SocketClient extends Client {
 	public SocketClient() throws IOException {
 		
 		this.clientModel = new ClientModel();
-		this.networkHandler = new SocketHandler(new Socket(hostName, 12879), clientModel);
+		this.networkHandler = new SocketHandler(new Socket(hostName, 12879), clientModel, "Player");
 		this.view = new CLI(networkHandler, clientModel);
 	}
 	
