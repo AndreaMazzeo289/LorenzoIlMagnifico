@@ -161,32 +161,11 @@ public class TestEffettiAttivi {
 	@Test
 	public void testGetBonusDadoCarte(){
 		int val1 = bonusDadoCarte.get(TipoCarta.EDIFICIO);
-		
-		
-		
-		
-		
-		
 		int val2 = effettiAttivi.getBonusDadoCarte(TipoCarta.EDIFICIO);
 		assertEquals("Errore get bonus dado carte", val1 , val2);
 	}
 	
 	@Test
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
 	public void testGetScontoCostoCarte(){}
 	
 	@Test
@@ -194,13 +173,6 @@ public class TestEffettiAttivi {
 		
 		
 		assertTrue("Errore bonus punti vittoria finale", effettiAttivi.bonusPuntiVittoriaFinale(TipoCarta.TERRITORIO));
-		
-		
-		
-		
-		
-		
-		
 		
 		assertTrue("Errore bonus punti vittoria finale", effettiAttivi.bonusPuntiVittoriaFinale(TipoCarta.PERSONAGGIO));
 		
