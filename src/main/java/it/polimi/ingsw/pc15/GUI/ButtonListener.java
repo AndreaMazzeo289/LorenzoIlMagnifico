@@ -33,6 +33,7 @@ public class ButtonListener implements ActionListener{
 			playerBoard.getPanelRisorseOro().writeIntoLabel(2);
 			playerBoard.getPanelSpazioFamiliariDisponibili().liberaFamiliare(ColoreFamiliare.NERO);
 			selezionaNumeroServitori = new SelezionaNumeroServitori(this);
+			playerBoard.getCartaLeader1().leggiLabel();
 		}
 		
 		if (e.getActionCommand().equals("posizionaFamiliare")) {
@@ -50,6 +51,7 @@ public class ButtonListener implements ActionListener{
 		if(e.getActionCommand().equals("buttonStatoGioco")) {
 			PlayerBoard playerBoard = (PlayerBoard)mainGUI.mainFrame.getContentPane().getComponent(1);
 			playerBoard.getPanelSpazioFamiliariDisponibili().utilizzaFamiliare(ColoreFamiliare.NERO);
+			LeaderPopup leader = new LeaderPopup();
 		}
 		
 		if(e.getActionCommand().equals("siServitori")) {

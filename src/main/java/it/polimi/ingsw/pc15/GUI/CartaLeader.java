@@ -15,7 +15,8 @@ public class CartaLeader extends JPanel{
 
 	JButton carta;
 	JLabel stato;
-	Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();	
+	Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
+	String textLabel;
 	
 	int altezzaTotale;
 	int larghezzaTotale;
@@ -23,9 +24,14 @@ public class CartaLeader extends JPanel{
 	int altezzaSchermo;
 	int larghezzaSchermo;
 	
+	int altezzaRescale;
+	int larghezzaRescale;
+	
 	public CartaLeader(String path, String name) {
 		
 		this.setLayout(new BorderLayout());
+		
+		textLabel = "NON GIOCATO";
 		
 		larghezzaTotale = mainGUI.larghezzaTotale;
 		altezzaTotale =  mainGUI.altezzaTotale;
@@ -39,6 +45,9 @@ public class CartaLeader extends JPanel{
 		
 		int larghezzaTotale = 4076;
 		int altezzaTotale = 6530;
+		
+		larghezzaRescale = (int)(larghezzaSchermo*larghezza)/larghezzaTotale;
+		altezzaRescale = (int)(altezzaSchermo*altezza)/altezzaTotale;
 		
 		carta = new JButton();
 		stato = new JLabel();
@@ -78,5 +87,11 @@ public class CartaLeader extends JPanel{
 		stato.setOpaque(true);
 		stato.setBackground(Color.decode("15394527"));
 		stato.setText(testo);
+		textLabel = new String(text);
+		System.out.println(textLabel);
+	}
+	
+	public String leggiLabel() {
+		return textLabel;
 	}
 }
