@@ -48,6 +48,7 @@ public class ButtonGiocaLeader extends JButton{
 		
 		this.setIcon(imageAll);
 		this.setPreferredSize(new Dimension(larghezza,altezza));
+		this.setActionCommand("attivaCartaLeader");
 		
 		this.setBorder(null);
 	}

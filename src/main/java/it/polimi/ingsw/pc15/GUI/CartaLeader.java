@@ -27,7 +27,13 @@ public class CartaLeader extends JPanel{
 	int altezzaRescale;
 	int larghezzaRescale;
 	
+	String path;
+	String name;
+	
 	public CartaLeader(String path, String name) {
+		
+		this.path = path;
+		this.name = name;
 		
 		this.setLayout(new BorderLayout());
 		
@@ -64,7 +70,6 @@ public class CartaLeader extends JPanel{
 		carta.setIcon(imageAll);
 		carta.setPreferredSize(new Dimension(larghezza,altezza));
 		carta.setBackground(Color.decode("15394527"));
-		carta.setIcon(imageAll);
 		carta.addActionListener(new ButtonListenerCarte());
 		
 		Dimension dimensione = new Dimension(((int)(larghezzaSchermo*350)/larghezzaTotale),((int)(altezzaSchermo*100)/altezzaTotale));
@@ -93,5 +98,13 @@ public class CartaLeader extends JPanel{
 	
 	public String leggiLabel() {
 		return textLabel;
+	}
+	
+	public String getName() {
+		return name;
+	}
+	
+	public String getPath() {
+		return path;
 	}
 }
