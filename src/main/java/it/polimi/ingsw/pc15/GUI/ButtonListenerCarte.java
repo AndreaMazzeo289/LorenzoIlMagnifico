@@ -40,8 +40,6 @@ public class ButtonListenerCarte implements ActionListener{
 			  if(lettera == '-')
 			    write=true;
 		}
-		System.out.println("path: "+path);
-		System.out.println("tipo: "+tipo);
 		
 		JFrame zoomCard = new JFrame();
 		JPanel panelCard = new JPanel();
@@ -74,6 +72,11 @@ public class ButtonListenerCarte implements ActionListener{
 		if(tipo.equals("leader4")){
 			PlayerBoard playerBoard = (PlayerBoard)mainGUI.mainFrame.getContentPane().getComponent(1);
 			playerBoard.getCartaLeader4().scriviLabel("GIOCATO");
+		}
+		
+		if(tipo.equals("leader1Gioca")){
+			PlayerBoard playerBoard = (PlayerBoard)mainGUI.mainFrame.getContentPane().getComponent(1);
+			playerBoard.getCartaLeader1().scriviLabel("GIOCATO");
 		}
 	}
 }

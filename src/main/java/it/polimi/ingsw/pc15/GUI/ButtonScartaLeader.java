@@ -48,7 +48,7 @@ public class ButtonScartaLeader extends JButton{
 		
 		this.setIcon(imageAll);
 		this.setPreferredSize(new Dimension(larghezza,altezza));
-		
+		this.setActionCommand("scartaCartaLeader");
 		this.setBorder(null);
 	}
 }
