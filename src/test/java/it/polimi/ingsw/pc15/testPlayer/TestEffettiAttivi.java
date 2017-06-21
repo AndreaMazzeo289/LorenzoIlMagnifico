@@ -1,5 +1,8 @@
 package it.polimi.ingsw.pc15.testPlayer;
 
+
+
+
 import org.junit.*;
 
 import it.polimi.ingsw.pc15.carte.TipoCarta;
@@ -17,10 +20,14 @@ public class TestEffettiAttivi {
 	HashMap<TipoCarta, Integer> bonusDadoCarte;
 	HashMap<TipoCarta, SetRisorse> scontoCostoCarte;
 	HashMap<TipoCarta, Boolean> bonusPuntiVittoriaFinale;
+	
+	
 	Boolean bonusDisponibilitàMercato;
 	Boolean bonusSpazioTorre;
 	Boolean requisitoTerritori;
 	Boolean permessoSpaziOccupati;
+	
+	
 	
 	int bonusRaccolta;
 	int bonusProduzione;
@@ -45,8 +52,12 @@ public class TestEffettiAttivi {
 		bonusPuntiVittoriaFinale.put(TipoCarta.PERSONAGGIO, true);
 		bonusPuntiVittoriaFinale.put(TipoCarta.IMPRESA, true);
 		
+		
+		
 		bonusRaccolta = 0;
 		bonusProduzione = 0;
+		
+		
 		
 		bonusDisponibilitàMercato = true;
 		bonusSpazioTorre = true;
@@ -54,6 +65,8 @@ public class TestEffettiAttivi {
 		permessoSpaziOccupati = false;
 	
 	}
+	
+	
 	
 	@Test
 	public void testIncrementaBonusDadoCarte(){
@@ -69,11 +82,15 @@ public class TestEffettiAttivi {
 		
 	}
 	
+	
+	
 	@Test
 	public void testAggiungiScontoCarte(){
 		
 		
 	}
+	
+	
 	
 	@Test
 	public void testAnnullaBonusPuntiVittoriaFinale(){
@@ -81,6 +98,8 @@ public class TestEffettiAttivi {
 		effettiAttivi.annullaBonusPuntiVittoriaFinale(TipoCarta.TERRITORIO);
 		assertEquals("Errore annulla bonus punti vittoria finale", bonusPuntiVittoriaFinale.get(TipoCarta.TERRITORIO), effettiAttivi.bonusPuntiVittoriaFinale(TipoCarta.TERRITORIO));
 	}
+	
+	
 	
 	@Test
 	public void testIncrementaBonusRaccolta(){
@@ -90,6 +109,8 @@ public class TestEffettiAttivi {
 		assertEquals("Errore incrementa bonus raccolta", bonusRaccolta, effettiAttivi.getBonusRaccolta());
 		
 	}
+	
+	
 	
 	@Test
 	public void testIncrementaBonusProduzione(){
@@ -107,12 +128,16 @@ public class TestEffettiAttivi {
 		assertEquals("Errore annulla bonus disponibilità mercato", bonusDisponibilitàMercato, effettiAttivi.disponibilitàMercato());
 	}
 	
+	
+	
 	@Test
 	public void testAnnullaBonusSpazioTorre(){
 		bonusSpazioTorre = false;
 		effettiAttivi.annullaBonusSpazioTorre();
 		assertEquals("Errore annulla bonus spazio torre", bonusSpazioTorre, effettiAttivi.disponibilitàBonusSpazioTorri());
 	}
+	
+	
 	
 	@Test
 	public void testAnnullaRequisitoTerritori(){
@@ -121,12 +146,16 @@ public class TestEffettiAttivi {
 		assertEquals("Errore annulla requisito territorio attivo", requisitoTerritori, effettiAttivi.requisitoTerritoriAttivo());
 	}
 	
+	
+	
 	@Test
 	public void testConcediPermessoSpaziOccupati(){
 		permessoSpaziOccupati = true;
 		effettiAttivi.concediPermessoSpaziOccupati();
 		assertEquals("Errore concedi permesso spazi occupati", permessoSpaziOccupati, effettiAttivi.controllaPermessoSpaziOccupati());
 	}
+	
+	
 	
 	@Test
 	public void testSetMoltiplicatoreRisorseCarte(){
@@ -136,6 +165,8 @@ public class TestEffettiAttivi {
 		
 	}
 	
+	
+	
 	@Test
 	public void testSetMoltiplicatoreRisorseSpazi(){
 		int nuovoMoltiplicatoreRisorseSpazi = 2;
@@ -144,12 +175,16 @@ public class TestEffettiAttivi {
 		
 	}
 	
+	
+	
 	@Test
 	public void testGetBonusRaccolta(){
 		
 		assertEquals("Errore get bonus raccolta", bonusRaccolta, effettiAttivi.getBonusRaccolta());
 		
 	}
+	
+	
 	
 	@Test
 	public void testGetBonusProduzione(){
@@ -158,6 +193,8 @@ public class TestEffettiAttivi {
 		
 	}
 	
+	
+	
 	@Test
 	public void testGetBonusDadoCarte(){
 		int val1 = bonusDadoCarte.get(TipoCarta.EDIFICIO);
@@ -165,25 +202,34 @@ public class TestEffettiAttivi {
 		assertEquals("Errore get bonus dado carte", val1 , val2);
 	}
 	
+	
+	
 	@Test
-	public void testGetScontoCostoCarte(){}
+	public void testGetScontoCostoCarte(){
+		
+		
+	}
+	
+	
 	
 	@Test
 	public void testBonusPuntiVittoraFinale(){
 		
 		
 		assertTrue("Errore bonus punti vittoria finale", effettiAttivi.bonusPuntiVittoriaFinale(TipoCarta.TERRITORIO));
-		
 		assertTrue("Errore bonus punti vittoria finale", effettiAttivi.bonusPuntiVittoriaFinale(TipoCarta.PERSONAGGIO));
-		
 		assertTrue("Errore bonus punti vittoria finale", effettiAttivi.bonusPuntiVittoriaFinale(TipoCarta.IMPRESA));
 	}
+	
+	
 	
 	@Test
 	public void testDisponibilitàMercato(){
 		
 		assertTrue("Errore get disponibilità mercato", effettiAttivi.disponibilitàMercato());
 	}
+	
+	
 	
 	@Test
 	public void testDisponibilitàBonusSpazioTorri(){
@@ -197,11 +243,15 @@ public class TestEffettiAttivi {
 		assertTrue("Errore get requisito territori attivo", effettiAttivi.requisitoTerritoriAttivo());
 	}
 	
+	
+	
 	@Test
 	public void testControllaPermessoSpaziOccupati(){
 		
 		assertFalse("Errore controlla permesso spazi occupati", effettiAttivi.controllaPermessoSpaziOccupati());
 	}
+	
+	
 	
 	@Test
 	public void testGetMoltiplicatoreRisorseCarte(){
@@ -209,17 +259,23 @@ public class TestEffettiAttivi {
 		assertEquals("Errore get moltiplicatore risorse carte", 1, effettiAttivi.getMoltiplicatoreRisorseCarte());
 	}
 	
+	
+	
 	@Test
 	public void testGetMoltiplicatoreRisorseSpazi(){
 		
 		assertEquals("Errore get moltiplicatore risorse spazi", 1, effettiAttivi.getMoltiplicatoreRisorseSpazi());
 	}
 	
+	
+	
 	@Test 
 	public void testGetRisorseBonusSpazi(){
 		
 		
 	}
+	
+	
 	
 	@Test
 	public void testGetRisorseBonusCarte(){
