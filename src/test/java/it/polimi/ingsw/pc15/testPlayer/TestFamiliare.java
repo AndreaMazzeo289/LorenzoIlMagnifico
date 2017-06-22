@@ -1,9 +1,5 @@
 package it.polimi.ingsw.pc15.testPlayer;
 
-
-
-
-
 import static org.junit.Assert.*;
 import org.junit.*;
 
@@ -27,8 +23,6 @@ public class TestFamiliare {
 		valoreBonus = 0;
 	}
 	
-	
-	
 	@Test
 	public void testSetDisponibilità(){
 		
@@ -37,15 +31,11 @@ public class TestFamiliare {
 		
 	}
 	
-	
-	
 	@Test
 	public void testSetValoreFissato(){
 		familiare.setValoreFissato();
 		assertTrue("Errore set valore fissato", familiare.getValoreFissato());
 	}
-	
-	
 	
 	@Test
 	public void testSetValore(){
@@ -56,8 +46,6 @@ public class TestFamiliare {
 		
 	}
 	
-	
-	
 	@Test
 	public void testIncrementaValoreBonus(){
 		
@@ -66,15 +54,11 @@ public class TestFamiliare {
 		assertEquals("Errore incrementa valore bonus", valoreBonus, familiare.getValoreBonus());
 	}
 	
-	
-	
 	@Test
 	public void testGetColore(){
 		
 		assertEquals("Errore get colore", ColoreFamiliare.ARANCIONE, familiare.getColore());
 	}
-	
-	
 	
 	@Test
 	public void testGetPlayer(){
@@ -82,15 +66,11 @@ public class TestFamiliare {
 		assertEquals("Errore get player", "TonyEffe", player.getNome());
 	}
 	
-	
-	
 	@Test 
 	public void testGetValoreBonus(){
 		
 		assertEquals("Errore get valore bonus", valoreBonus, familiare.getValoreBonus());
 	}
-	
-	
 	
 	@Test
 	public void testGetValore(){
@@ -99,15 +79,11 @@ public class TestFamiliare {
 		assertEquals("Errore get valore", valoreTotaleFamiliare, familiare.getValore());
 	}
 	
-	
-	
 	@Test
 	public void testDisponibilità(){
 		
 		assertTrue("Errore disponibilità", familiare.disponibile());
 	}
-	
-	
 	
 	@Test
 	public void testGetValoreFissato(){
