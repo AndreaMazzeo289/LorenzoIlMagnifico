@@ -4,17 +4,26 @@ import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.Component;
 import java.awt.Dimension;
+import java.awt.FlowLayout;
+import java.awt.Font;
 import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;
 import java.awt.GridLayout;
 import java.awt.Image;
 import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Map;
 
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
+import javax.swing.SwingConstants;
+import javax.swing.text.html.HTMLDocument.Iterator;
+
+import it.polimi.ingsw.pc15.risorse.Risorsa;
+import it.polimi.ingsw.pc15.risorse.TipoRisorsa;
 
 public class FrameInformazioniPlayer extends JFrame{
 
@@ -22,10 +31,10 @@ public class FrameInformazioniPlayer extends JFrame{
 	int altezza;
 	int numeroPlayer=4;
 	
-	ArrayList<JPanel> listaInformazioniPlayer;
+	//ArrayList<JPanel> listaInformazioniPlayer;
+	HashMap<String, JPanel> listaPanelPlayer;
 	
 	JPanel panelCenter = new JPanel();
-	
 	JLabel labelNorth = new JLabel();
 	
 	ImageIcon imageIcon;
@@ -41,51 +50,49 @@ public class FrameInformazioniPlayer extends JFrame{
 	public FrameInformazioniPlayer() {
 		
 		altezzaComponent = 100;
-		larghezzaNome = 524;   //674
-		larghezzaPunti = 50;   //300
+		larghezzaNome = 550;   //674
+		larghezzaPunti = 65;   //300
 		larghezzaButton = 50; //400
 		larghezza = 1024;
-		altezza = 200 + (altezzaComponent*numeroPlayer);
+		altezza = 250 + (altezzaComponent*numeroPlayer);
 		
 		this.getContentPane().setLayout(new BorderLayout());
 		
-		ImageIcon imageNorth = new ImageIcon("img/InfoPlayer/titoloClassifica.png");
+		ImageIcon imageNorth = new ImageIcon("img/InfoPlayer/titoloClassificaMod.png");
 		labelNorth.setIcon(imageNorth);
 		
-		listaInformazioniPlayer = new ArrayList<JPanel>(numeroPlayer);
+		//listaInformazioniPlayer = new ArrayList<JPanel>(numeroPlayer);
+		listaPanelPlayer = new HashMap<String, JPanel>();
 		
 		for(int i=0; i<numeroPlayer; i++) {
-			//creazione record
 			
 			JPanel panelPlayer = new JPanel();
-			panelPlayer.setLayout(new GridBagLayout());
-			GridBagConstraints gbc = new GridBagConstraints();
+			panelPlayer.setLayout(new FlowLayout());
 			
-			JLabel nome = new JLabel();
-			JLabel puntiVittoria = new JLabel();
-			JLabel puntiMilitari = new JLabel();
-			JLabel puntiFede = new JLabel();
+			JLabel nome = new JLabel("nome del giocatore", SwingConstants.CENTER);
+			JLabel puntiVittoria = new JLabel("0", SwingConstants.CENTER);
+			JLabel puntiMilitari = new JLabel("0", SwingConstants.CENTER);
+			JLabel puntiFede = new JLabel("0", SwingConstants.CENTER);
 			JButton territorio = new JButton();
 			JButton edifico = new JButton();
 			JButton personaggio = new JButton();
 			JButton impresa = new JButton();
 			
-			nome.setName("nome");
-			puntiVittoria.setName("punti");
-			puntiMilitari.setName("punti");
-			puntiFede.setName("punti");
+			puntiVittoria.setName("puntiVittoria");
+			puntiMilitari.setName("puntiMilitari");
+			puntiFede.setName("puntiFede");
 			
 			dimension = new Dimension(larghezzaNome, altezzaComponent);
 			nome.setPreferredSize(new Dimension(larghezzaNome, altezzaComponent));
 			dimension = new Dimension(larghezzaPunti, altezzaComponent);
-			puntiVittoria.setMinimumSize(dimension);
-			puntiMilitari.setMinimumSize(dimension);
-			puntiFede.setMinimumSize(dimension);
+			puntiVittoria.setPreferredSize(dimension);
+			puntiMilitari.setPreferredSize(dimension);
+			puntiFede.setPreferredSize(dimension);
 			dimension = new Dimension(larghezzaButton, altezzaComponent);
-			territorio.setMinimumSize(dimension);
-			edifico.setMinimumSize(dimension);
-			personaggio.setMinimumSize(dimension);
-			impresa.setMinimumSize(dimension);
+			territorio.setPreferredSize(dimension);
+			edifico.setPreferredSize(dimension);
+			personaggio.setPreferredSize(dimension);
+			impresa.setPreferredSize(dimension);
 			
 			nome.setOpaque(true);
 			nome.setBackground(Color.decode("15394527"));
@@ -96,10 +103,7 @@ public class FrameInformazioniPlayer extends JFrame{
 			puntiMilitari.setOpaque(true);
 			puntiMilitari.setBackground(Color.decode("15394527"));
 
-			inserisciTesto(nome, "nome del giocatore");
-			inserisciTesto(puntiVittoria, "null");
-			inserisciTesto(puntiFede, "null");
-			inserisciTesto(puntiMilitari, "null");
+			nome.setFont((new Font("Courier New", Font.ITALIC, 12)));
 			
 			imageIcon = new ImageIcon("img/InfoPlayer/Territorio.png");
 			image = imageIcon.getImage();
@@ -128,30 +132,26 @@ public class FrameInformazioniPlayer extends JFrame{
 			personaggio.setBorder(null);
 			impresa.setBorder(null);
 			
-			gbc.gridy=0;
-			gbc.gridx=0;
-			panelPlayer.add(nome,gbc);
-			gbc.gridx=1;
-			panelPlayer.add(puntiVittoria,gbc);
-			gbc.gridx=2;
-			panelPlayer.add(puntiMilitari,gbc);
-			gbc.gridx=3;
-			panelPlayer.add(puntiFede,gbc);
-			gbc.gridx=4;
-			panelPlayer.add(territorio,gbc);
-			gbc.gridx=5;
-			panelPlayer.add(edifico,gbc);
-			gbc.gridx=6;
-			panelPlayer.add(personaggio,gbc);
-			gbc.gridx=7;
-			panelPlayer.add(impresa,gbc);
+			panelPlayer.add(nome);
+			panelPlayer.add(puntiMilitari);
+			panelPlayer.add(puntiFede);
+			panelPlayer.add(puntiVittoria);
+			panelPlayer.add(territorio);
+			panelPlayer.add(edifico);
+			panelPlayer.add(personaggio);
+			panelPlayer.add(impresa);
 			
-			listaInformazioniPlayer.add(panelPlayer);
+			//listaInformazioniPlayer.add(panelPlayer);
+			listaPanelPlayer.put("Player"+i, panelPlayer);	
 		}
 		
 		panelCenter.setLayout(new GridLayout(numeroPlayer,1));
-		for(JPanel panelGiocatore : listaInformazioniPlayer)
-			panelCenter.add(listaInformazioniPlayer.get(listaInformazioniPlayer.lastIndexOf(panelGiocatore)));
+		
+		/*for(JPanel panelGiocatore : listaInformazioniPlayer)
+			panelCenter.add(listaInformazioniPlayer.get(listaInformazioniPlayer.lastIndexOf(panelGiocatore)));*/
+		
+		for (String key : listaPanelPlayer.keySet())
+			panelCenter.add(listaPanelPlayer.get(key));
 		
 		this.setSize(larghezza, altezza);
 		this.add(labelNorth, BorderLayout.NORTH);
@@ -160,27 +160,28 @@ public class FrameInformazioniPlayer extends JFrame{
 		this.setAlwaysOnTop(true);
 	}
 	
-	public void inserisciTesto (JLabel label, String text) {
-
-		int larghezza;
-		int numeroSpazi;
-		String toStamp = new String("");
+	public void aggiornaRisorse(String player, String tipoRisorsa, int value) {
 		
-		if(label.getName().equals("nome"))
-			larghezza = larghezzaNome;
-		else
-			larghezza = larghezzaPunti;
+		JLabel label=null;
 		
-		numeroSpazi = (larghezza-(text.length()))/2;
-		System.out.println(numeroSpazi);
-		
-		for(int i=0; i<numeroSpazi/4; i++)
-			toStamp += ' ';
-		toStamp += text;
-		for(int i=0; i<numeroSpazi/4; i++)
-			toStamp += ' ';
-		
-		label.setText(toStamp);
+		for (String key : listaPanelPlayer.keySet()) {
+			
+			if(key.equals(player)) {
+				
+				switch(tipoRisorsa) {
+				case "puntiVittoria":
+					label = (JLabel) listaPanelPlayer.get(key).getComponent(3);
+					break;
+				case "puntiMilitari":
+					label = (JLabel) listaPanelPlayer.get(key).getComponent(1);
+					break;
+				case "puntiFede":
+					label = (JLabel) listaPanelPlayer.get(key).getComponent(2);
+					break;
+				}
+				
+				label.setText(Integer.toString(value));
+			}
+		}
 	}
-	
 }

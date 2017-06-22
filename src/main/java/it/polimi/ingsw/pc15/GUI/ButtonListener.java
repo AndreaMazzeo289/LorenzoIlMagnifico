@@ -65,8 +65,14 @@ public class ButtonListener implements ActionListener{
 		
 		if (e.getActionCommand().equals("scartaCartaLeader")) {
 			scartaLeaderPopup = new ScartaLeaderPopup(this);
+			/*PlayerBoard playerBoard = (PlayerBoard)mainGUI.mainFrame.getContentPane().getComponent(1);
+			playerBoard.getPanelRisorseOro().writeIntoLabel(2);*/
 		}
 		
+		if (e.getActionCommand().equals("buttonScomuniche")) {
+			System.out.println("scomunicaa");
+			CarteScomunica carteScomunica = new CarteScomunica("img/PunchboardCut/excomm_1_1.png","img/PunchboardCut/excomm_2_1.png","img/PunchboardCut/excomm_3_1.png");
+		}
 		
 		if (e.getActionCommand().equals("posizionaFamiliare")) {
 			selezionaFamiliarePopup = new SelezionaFamiliarePopup(this);

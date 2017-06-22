@@ -37,11 +37,11 @@ public class SelezionaFamiliarePopup extends JFrame{
 		
 		this.setLayout(new BorderLayout());
 		
-		altezzaBackground=1000;
-		larghezzaBackground=1000;
+		altezzaBackground=400;
+		larghezzaBackground=900;
 		
-		larghezzaFamiliare = 250;
-		altezzaFamiliare= 250;
+		larghezzaFamiliare = 200;
+		altezzaFamiliare= 200;
 	
 		north = new JLabel();
 		south = new JLabel();
