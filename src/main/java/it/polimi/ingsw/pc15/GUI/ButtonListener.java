@@ -22,6 +22,7 @@ public class ButtonListener implements ActionListener{
 	GiocaLeaderPopup giocaLeaderPopup;
 	AttivaLeaderPopup attivaLeaderPopup;
 	ScartaLeaderPopup scartaLeaderPopup;
+	FrameInformazioniPlayer frameInformazioniPlayer;
 	
 	public ButtonListener() {
 	}
@@ -80,8 +81,9 @@ public class ButtonListener implements ActionListener{
 		}
 		
 		if(e.getActionCommand().equals("buttonStatoGioco")) {
-			PlayerBoard playerBoard = (PlayerBoard)mainGUI.mainFrame.getContentPane().getComponent(1);
-			playerBoard.getPanelSpazioFamiliariDisponibili().utilizzaFamiliare(ColoreFamiliare.NERO);
+			/*PlayerBoard playerBoard = (PlayerBoard)mainGUI.mainFrame.getContentPane().getComponent(1);
+			playerBoard.getPanelSpazioFamiliariDisponibili().utilizzaFamiliare(ColoreFamiliare.NERO);*/
+			frameInformazioniPlayer = new FrameInformazioniPlayer();
 			System.out.println("premuto statogioco");
 		}
 		
