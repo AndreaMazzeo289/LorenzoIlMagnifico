@@ -25,7 +25,7 @@ public class mainGUI {
 	public static int larghezzaTotale = 4076;
 	public static float rapporto = (float) 4/11;
 	public static float rapportoPlayerBoard = (float)19/31;//13/21
-	public static int numeroGiocatori = 2;
+	public static int numeroGiocatori = 4;
 	
 	public static void main(String[] args) throws IOException {
 		

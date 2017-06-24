@@ -54,5 +54,6 @@ public class ButtonAttivaEffettoLeader extends JButton{
 		this.setBorderPainted(false);
 		
 		
+		
 	}
 }

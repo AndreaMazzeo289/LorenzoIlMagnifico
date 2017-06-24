@@ -36,6 +36,8 @@ public class SpazioTorreVerde4 extends JPanel{
 	
 	float rapporto;
 	
+	boolean occupato;
+	
 	public SpazioTorreVerde4(String path) {
 		
 		larghezzaTotale = mainGUI.larghezzaTotale;

@@ -78,6 +78,16 @@ public class FrameInformazioniPlayer extends JFrame{
 			JButton personaggio = new JButton();
 			JButton impresa = new JButton();
 			
+			territorio.addActionListener(new ButtonListener());
+			edifico.addActionListener(new ButtonListener());
+			personaggio.addActionListener(new ButtonListener());
+			impresa.addActionListener(new ButtonListener());
+			
+			territorio.setActionCommand("carteTerritorioAltriPlayer");
+			edifico.setActionCommand("carteEdificioAltriPlayer");
+			personaggio.setActionCommand("cartePersonaggioAltriPlayer");
+			impresa.setActionCommand("carteImpresaAltriPlayer");
+			
 			puntiVittoria.setName("puntiVittoria");
 			puntiMilitari.setName("puntiMilitari");
 			puntiFede.setName("puntiFede");

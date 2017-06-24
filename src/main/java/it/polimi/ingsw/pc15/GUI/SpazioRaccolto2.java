@@ -51,6 +51,8 @@ public class SpazioRaccolto2 extends JPanel{
 	
 	float rapporto;
 	
+	boolean occupato;
+	
 	public SpazioRaccolto2() {
 		
 		larghezzaTotale = mainGUI.larghezzaTotale;

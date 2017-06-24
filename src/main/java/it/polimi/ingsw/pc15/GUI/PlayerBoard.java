@@ -11,6 +11,8 @@ import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 
+import it.polimi.ingsw.pc15.carte.TipoCarta;
+
 public class PlayerBoard extends JPanel{
 
 	private CarteGioco carta;
@@ -59,7 +61,7 @@ public class PlayerBoard extends JPanel{
 		posizionaFamiliare = new ButtonPosizionaFamiliare();
 		cartePlayer.add(posizionaFamiliare,gbc);
 		for(int i=0; i<6; i++) {
-			carta = new CarteGioco("img/DevCardsBack/devcards_b_c_g_1.jdevcards_b_c_pdevcards_b_c_g.jdevcards_b_c_pg.jpg");
+			carta = new CarteGioco("img/DevCardsBack/devcards_b_c_g_1.jdevcards_b_c_pdevcards_b_c_g.jdevcards_b_c_pg.jpg", TipoCarta.TERRITORIO);
 			carta.addActionListener(new ButtonListenerCarte());
 			gbc.gridx=i+1;
 			cartePlayer.add(carta,gbc);
@@ -73,7 +75,7 @@ public class PlayerBoard extends JPanel{
 		attivaEffettoLeader = new ButtonAttivaEffettoLeader();
 		cartePlayer.add(attivaEffettoLeader,gbc);
 		for(int i=0; i<6; i++) {
-			carta = new CarteGioco("img/DevCardsBack/devcards_b_c_y_1.jdevcards_b_c_pdevcards_b_c_g.jdevcards_b_c_pg.jpg");
+			carta = new CarteGioco("img/DevCardsBack/devcards_b_c_y_1.jdevcards_b_c_pdevcards_b_c_g.jdevcards_b_c_pg.jpg", TipoCarta.EDIFICIO);
 			carta.addActionListener(new ButtonListenerCarte());
 			gbc.gridx=i+1;
 			cartePlayer.add(carta,gbc);
@@ -87,7 +89,7 @@ public class PlayerBoard extends JPanel{
 		giocaLeader = new ButtonGiocaLeader();
 		cartePlayer.add(giocaLeader,gbc);
 		for(int i=0; i<6; i++) {
-			carta = new CarteGioco("img/DevCardsBack/devcards_b_c_b_1.jdevcards_b_c_pdevcards_b_c_g.jdevcards_b_c_pg.jpg");
+			carta = new CarteGioco("img/DevCardsBack/devcards_b_c_b_1.jdevcards_b_c_pdevcards_b_c_g.jdevcards_b_c_pg.jpg", TipoCarta.PERSONAGGIO);
 			carta.addActionListener(new ButtonListenerCarte());
 			gbc.gridx=i+1;
 			cartePlayer.add(carta,gbc);
@@ -101,7 +103,7 @@ public class PlayerBoard extends JPanel{
 		scartaLeader = new ButtonScartaLeader();
 		cartePlayer.add(scartaLeader,gbc);
 		for(int i=0; i<6; i++) {
-			carta = new CarteGioco("img/DevCardsBack/devcards_b_c_p_1.jdevcards_b_c_pdevcards_b_c_g.jdevcards_b_c_pg.jpg");
+			carta = new CarteGioco("img/DevCardsBack/devcards_b_c_p_1.jdevcards_b_c_pdevcards_b_c_g.jdevcards_b_c_pg.jpg", TipoCarta.IMPRESA);
 			carta.addActionListener(new ButtonListenerCarte());
 			gbc.gridx=i+1;
 			cartePlayer.add(carta,gbc);

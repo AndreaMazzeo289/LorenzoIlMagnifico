@@ -36,6 +36,8 @@ public class SpazioProduzione1 extends JPanel{
 	
 	float rapporto;
 	
+	boolean occupato;
+	
 	public SpazioProduzione1() {
 		
 		larghezzaTotale = mainGUI.larghezzaTotale;

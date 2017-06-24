@@ -36,6 +36,8 @@ public class SpazioMercato3 extends JPanel{
 	
 	float rapporto;
 	
+	boolean occupato;
+	
 	public SpazioMercato3() {
 		
 		larghezzaTotale = mainGUI.larghezzaTotale;

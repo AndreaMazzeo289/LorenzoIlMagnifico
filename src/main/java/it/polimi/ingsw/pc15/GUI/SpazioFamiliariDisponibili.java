@@ -43,6 +43,8 @@ public class SpazioFamiliariDisponibili extends JPanel{
 	int altezzaSchermo;
 	int larghezzaSchermo;
 	
+	boolean occupato;
+	
 	public SpazioFamiliariDisponibili() {
 		
 		larghezzaTotale = mainGUI.larghezzaTotale;
