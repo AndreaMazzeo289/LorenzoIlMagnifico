@@ -7,6 +7,7 @@ import java.awt.Dimension;
 import java.awt.GridLayout;
 import java.awt.Image;
 import java.awt.Toolkit;
+import java.awt.event.ActionListener;
 
 import javax.swing.Box;
 import javax.swing.BoxLayout;
@@ -54,7 +55,7 @@ public class SpazioProduzione2 extends JPanel{
 	
 	boolean occupato;
 	
-	public SpazioProduzione2() {
+	public SpazioProduzione2(ActionListener listener) {
 		
 		larghezzaTotale = mainGUI.larghezzaTotale;
 		altezzaTotale =  mainGUI.altezzaTotale;
@@ -117,22 +118,22 @@ public class SpazioProduzione2 extends JPanel{
 		JLabel labelButton = new JLabel();
 		labelButton.setLayout(new GridLayout(2,8));
 		
-		button1 = new ButtonTransparent("SpazioProduzionePosizione1",100,85);
-		button2= new ButtonTransparent("SpazioProduzionePosizione2",100,85);
-		button3 = new ButtonTransparent("SpazioProduzionePosizione3",100,85);
-		button4 = new ButtonTransparent("SpazioProduzionePosizione4",100,85);
-		button5 = new ButtonTransparent("SpazioProduzionePosizione5",100,85);
-		button6 = new ButtonTransparent("SpazioProduzionePosizione6",100,85);
-		button7 = new ButtonTransparent("SpazioProduzionePosizione7",100,85);
-		button8 = new ButtonTransparent("SpazioProduzionePosizione8",100,85);
-		button9 = new ButtonTransparent("SpazioProduzionePosizione9",100,85);
-		button10 = new ButtonTransparent("SpazioProduzionePosizione10",100,85);
-		button11 = new ButtonTransparent("SpazioProduzionePosizione11",100,85);
-		button12 = new ButtonTransparent("SpazioProduzionePosizione12",100,85);
-		button13 = new ButtonTransparent("SpazioProduzionePosizione13",100,85);
-		button14 = new ButtonTransparent("SpazioProduzionePosizione14",100,85);
-		button15 = new ButtonTransparent("SpazioProduzionePosizione15",100,85);
-		button16 = new ButtonTransparent("SpazioProduzionePosizione16",100,85);
+		button1 = new ButtonTransparent("SpazioProduzionePosizione1",100,85,listener);
+		button2= new ButtonTransparent("SpazioProduzionePosizione2",100,85,listener);
+		button3 = new ButtonTransparent("SpazioProduzionePosizione3",100,85,listener);
+		button4 = new ButtonTransparent("SpazioProduzionePosizione4",100,85,listener);
+		button5 = new ButtonTransparent("SpazioProduzionePosizione5",100,85,listener);
+		button6 = new ButtonTransparent("SpazioProduzionePosizione6",100,85,listener);
+		button7 = new ButtonTransparent("SpazioProduzionePosizione7",100,85,listener);
+		button8 = new ButtonTransparent("SpazioProduzionePosizione8",100,85,listener);
+		button9 = new ButtonTransparent("SpazioProduzionePosizione9",100,85,listener);
+		button10 = new ButtonTransparent("SpazioProduzionePosizione10",100,85,listener);
+		button11 = new ButtonTransparent("SpazioProduzionePosizione11",100,85,listener);
+		button12 = new ButtonTransparent("SpazioProduzionePosizione12",100,85,listener);
+		button13 = new ButtonTransparent("SpazioProduzionePosizione13",100,85,listener);
+		button14 = new ButtonTransparent("SpazioProduzionePosizione14",100,85,listener);
+		button15 = new ButtonTransparent("SpazioProduzionePosizione15",100,85,listener);
+		button16 = new ButtonTransparent("SpazioProduzionePosizione16",100,85,listener);
 		
 		labelButton.add(button1);
 		labelButton.add(button2);

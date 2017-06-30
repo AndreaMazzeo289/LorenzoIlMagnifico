@@ -5,6 +5,7 @@ import java.awt.FlowLayout;
 import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;
 import java.awt.GridLayout;
+import java.awt.event.ActionListener;
 
 import javax.swing.JButton;
 import javax.swing.JFrame;
@@ -26,8 +27,9 @@ public class PlayerBoard extends JPanel{
 	JButton attivaEffettoLeader;
 	JButton giocaLeader;
 	JButton scartaLeader;
+	ButtonListener listener = new ButtonListener();
 	
-	public PlayerBoard() {
+	public PlayerBoard(ActionListener listener) {
 		
 		this.setLayout(new GridBagLayout());
 		
@@ -161,17 +163,37 @@ public class PlayerBoard extends JPanel{
 		
 		this.setVisible(true);	
 		
-		attivaEffettoLeader.addActionListener(new ButtonListener());
-		posizionaFamiliare.addActionListener(new ButtonListener());
-		scartaLeader.addActionListener(new ButtonListener());
-		giocaLeader.addActionListener(new ButtonListener());
-		statoGioco.addActionListener(new ButtonListener());
+		
+		
+		attivaEffettoLeader.addActionListener(listener);
+		posizionaFamiliare.addActionListener(listener);
+		scartaLeader.addActionListener(listener);
+		giocaLeader.addActionListener(listener);
+		statoGioco.addActionListener(listener);
 		
 	}
 	
 	//-------------------------------------------------------------------//
 	// METODI GET
 	//-------------------------------------------------------------------//
+	
+	// Button
+	//---------------------------//
+	public ButtonPosizionaFamiliare getButtonPosizionaFamiliare() {
+		return (ButtonPosizionaFamiliare) cartePlayer.getComponent(0);
+	}
+	
+	public ButtonAttivaEffettoLeader getButtonAttivaEffettoLeader() {
+		return (ButtonAttivaEffettoLeader) cartePlayer.getComponent(7);
+	}
+	
+	public ButtonGiocaLeader getButtonGiocaLeader() {
+		return (ButtonGiocaLeader) cartePlayer.getComponent(14);
+	}
+	
+	public ButtonScartaLeader getButtonScartaLeader() {
+		return (ButtonScartaLeader) cartePlayer.getComponent(21);
+	}
 	
 	// Panel risorse
 	//---------------------------//

@@ -7,6 +7,7 @@ import java.awt.GridBagLayout;
 import java.awt.GridLayout;
 import java.awt.Image;
 import java.awt.Toolkit;
+import java.awt.event.ActionListener;
 import java.io.IOException;
 
 import javax.swing.ImageIcon;
@@ -27,6 +28,8 @@ public class mainGUI {
 	public static float rapportoPlayerBoard = (float)19/31;//13/21
 	public static int numeroGiocatori = 4;
 	
+	static ButtonListener listener = new ButtonListener();
+	
 	public static void main(String[] args) throws IOException {
 		
 		mainFrame = new JFrame();
@@ -38,8 +41,8 @@ public class mainGUI {
 	    mainFrame.getContentPane().setBackground(Color.decode("15394527"));
 	   
 	    mainFrame.getContentPane().setLayout(new GridBagLayout());
-	    Gameboard gameboard = new Gameboard();
-	    PlayerBoard playerboard = new PlayerBoard();
+	    Gameboard gameboard = new Gameboard(listener);
+	    PlayerBoard playerboard = new PlayerBoard(listener);
 	    
 	    GridBagConstraints gbc = new GridBagConstraints();
 	    gbc.gridy=0;

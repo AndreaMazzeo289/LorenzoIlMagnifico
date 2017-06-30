@@ -14,6 +14,8 @@ import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 
+import it.polimi.ingsw.pc15.player.ColoreFamiliare;
+
 public class SelezionaFamiliarePopup extends JFrame{
 	
 	JLabel north;
@@ -22,7 +24,7 @@ public class SelezionaFamiliarePopup extends JFrame{
 	JButton buttonBianco;
 	JButton buttonArancione;
 	JButton buttonNeutro;
-	JPanel	 panelCentrale;
+	JPanel panelCentrale;
 	
 	ImageIcon imageIcon;
 	Image image, newImage;
@@ -32,6 +34,11 @@ public class SelezionaFamiliarePopup extends JFrame{
 	
 	int larghezzaFamiliare;
 	int altezzaFamiliare;
+	
+	String pathNero;
+	String pathBianco;
+	String pathArancione;
+	String pathNeutro;
 	
 	public SelezionaFamiliarePopup(ButtonListener listener) {
 		
@@ -50,22 +57,26 @@ public class SelezionaFamiliarePopup extends JFrame{
 		buttonArancione = new JButton();
 		buttonNeutro = new JButton();
 		
-		imageIcon = new ImageIcon("img/Punchboard/familiari/pedineFamiliari/blu/nero.png");
+		pathNero = "img/Punchboard/familiari/pedineFamiliari/blu/nero.png";
+		imageIcon = new ImageIcon(pathNero);
 		image = imageIcon.getImage();
 		newImage = image.getScaledInstance(larghezzaFamiliare,altezzaFamiliare,Image.SCALE_DEFAULT);
 		ImageIcon imageFamiliareNero = new ImageIcon(newImage);
 		
-		imageIcon = new ImageIcon("img/Punchboard/familiari/pedineFamiliari/blu/bianco.png");
+		pathBianco = "img/Punchboard/familiari/pedineFamiliari/blu/bianco.png";
+		imageIcon = new ImageIcon(pathBianco);
 		image = imageIcon.getImage();
 		newImage = image.getScaledInstance(larghezzaFamiliare,altezzaFamiliare,Image.SCALE_DEFAULT);
 		ImageIcon imageFamiliareBianco = new ImageIcon(newImage);
 		
-		imageIcon = new ImageIcon("img/Punchboard/familiari/pedineFamiliari/blu/arancione.png");
+		pathArancione = "img/Punchboard/familiari/pedineFamiliari/blu/arancione.png";
+		imageIcon = new ImageIcon(pathArancione);
 		image = imageIcon.getImage();
 		newImage = image.getScaledInstance(larghezzaFamiliare,altezzaFamiliare,Image.SCALE_DEFAULT);
 		ImageIcon imageFamiliareArancione = new ImageIcon(newImage);
 		
-		imageIcon = new ImageIcon("img/Punchboard/familiari/pedineFamiliari/blu/neutro.png");
+		pathNeutro = "img/Punchboard/familiari/pedineFamiliari/blu/neutro.png";
+		imageIcon = new ImageIcon(pathNeutro);
 		image = imageIcon.getImage();
 		newImage = image.getScaledInstance(larghezzaFamiliare,altezzaFamiliare,Image.SCALE_DEFAULT);
 		ImageIcon imageFamiliareNeutro = new ImageIcon(newImage);
@@ -119,6 +130,28 @@ public class SelezionaFamiliarePopup extends JFrame{
 		this.setSize(larghezzaBackground,altezzaBackground);
 		this.setVisible(true);
 		this.setAlwaysOnTop(true);
+	}
+	
+	public String readPath(ColoreFamiliare colore) {
+		
+		String path=null;
+		
+		switch(colore) {
+		case NERO:
+			path = pathNero;
+			break;
+		case BIANCO:
+			path = pathBianco;
+			break;
+		case ARANCIONE:
+			path = pathArancione;
+			break;
+		case NEUTRO:
+			path = pathNeutro;
+			break;
+		}
+		
+		return path;
 	}
 	
 }

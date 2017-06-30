@@ -55,4 +55,12 @@ public class ButtonStatoGioco extends JButton{
 		this.setIcon(imageAll);
 		this.setPreferredSize(new Dimension(larghezza,altezza));
 	}
+	
+	public void bloccaButton() {
+		this.setEnabled(false);
+	}
+	
+	public void sbloccaButton() {
+		this.setEnabled(true);
+	}
 }

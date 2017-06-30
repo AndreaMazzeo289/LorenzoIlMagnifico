@@ -8,6 +8,7 @@ import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;
 import java.awt.Image;
 import java.awt.Toolkit;
+import java.awt.event.ActionListener;
 
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
@@ -38,7 +39,7 @@ public class SpazioTorreVerde4 extends JPanel{
 	
 	boolean occupato;
 	
-	public SpazioTorreVerde4(String path) {
+	public SpazioTorreVerde4(String path, ActionListener listener) {
 		
 		larghezzaTotale = mainGUI.larghezzaTotale;
 		altezzaTotale =  mainGUI.altezzaTotale;
@@ -105,7 +106,7 @@ public class SpazioTorreVerde4 extends JPanel{
 		gbc.gridwidth = GridBagConstraints.REMAINDER;
 		gbc.fill = GridBagConstraints.HORIZONTAL;
 		
-		buttonFamiliare = new ButtonTransparent("spazioTorreVerde4",160,160);
+		buttonFamiliare = new ButtonTransparent("spazioTorreVerde4",160,160,listener);
 		
 		labelEast.add(buttonFamiliare,gbc);
 		

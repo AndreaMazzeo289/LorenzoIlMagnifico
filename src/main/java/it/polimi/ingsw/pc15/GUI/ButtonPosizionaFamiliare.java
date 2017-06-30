@@ -53,4 +53,12 @@ public class ButtonPosizionaFamiliare extends JButton{
 		
 		this.setBorder(null);
 	}
+	
+	public void bloccaButton() {
+		this.setEnabled(false);
+	}
+	
+	public void sbloccaButton() {
+		this.setEnabled(true);
+	}
 }

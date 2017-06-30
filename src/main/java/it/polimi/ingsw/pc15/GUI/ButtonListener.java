@@ -12,6 +12,8 @@ import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
+import javax.swing.JPanel;
+import javax.swing.Timer;
 
 import it.polimi.ingsw.pc15.carte.TipoCarta;
 import it.polimi.ingsw.pc15.player.ColoreFamiliare;
@@ -21,20 +23,24 @@ public class ButtonListener implements ActionListener{
 	public SelezionaFamiliarePopup selezionaFamiliarePopup;
 	public SelezionaNumeroServitori selezionaNumeroServitori;
 	GiocaLeaderPopup giocaLeaderPopup;
+	ColoreFamiliare coloreFamiliareScelto = null;
 	AttivaLeaderPopup attivaLeaderPopup;
 	ScartaLeaderPopup scartaLeaderPopup;
 	FrameInformazioniPlayer frameInformazioniPlayer;
-	boolean spaceSelected = false;
-	
+	boolean familiareScelto = false;
+
 	public ButtonListener() {
 	}
 
 	@Override
 	public void actionPerformed(ActionEvent e) {
 		
+		PlayerBoard playerBoard = (PlayerBoard)mainGUI.mainFrame.getContentPane().getComponent(1);
+		
 		String path = "";
 		String tipo = "";
 		boolean write=false;
+		
 		for(int i = 0; i < e.getActionCommand().length(); i++)
 		{
 			  char lettera = e.getActionCommand().charAt(i);
@@ -71,7 +77,7 @@ public class ButtonListener implements ActionListener{
 		}
 		
 		if (e.getActionCommand().equals("buttonScomuniche")) {
-			System.out.println("scomunicaa");
+			System.out.println("scomunica");
 			CarteScomunica carteScomunica = new CarteScomunica("img/PunchboardCut/excomm_1_1.png","img/PunchboardCut/excomm_2_1.png","img/PunchboardCut/excomm_3_1.png");
 		}
 		
@@ -79,48 +85,84 @@ public class ButtonListener implements ActionListener{
 			selezionaFamiliarePopup = new SelezionaFamiliarePopup(this);
 			System.out.println("Seleziona uno spazio libero");
 			
-			/*AutoResetEvent myEvent = new AutoResetEvent(false);*/
-			/*while(spaceSelected==false) {
-				
-			}*/
-			System.out.println("bravo");
+			
+			//flag seleziona familiare
+			
 		}
 		
-		if(e.getActionCommand().equals("selezionatoFamiliareBianco")||e.getActionCommand().equals("selezionatoFamiliareArancione")
-				||e.getActionCommand().equals("selezionatoFamiliareNero")||e.getActionCommand().equals("selezionatoFamiliareNeutro")) {
-			System.out.println("selezionato bianco");
-			selezionaFamiliarePopup.dispose();
-			//cambia colore JButton
-		}
-		
+		//------------------------------------------------------------------------------------//
+		// SELEZIONATO FAMILIARE BIANCO
+		//------------------------------------------------------------------------------------//
 		if(e.getActionCommand().equals("selezionatoFamiliareBianco")) {
-			PlayerBoard playerBoard = (PlayerBoard)mainGUI.mainFrame.getContentPane().getComponent(1);
 			playerBoard.getPanelSpazioFamiliariDisponibili().utilizzaFamiliare(ColoreFamiliare.BIANCO);
 			System.out.println("selezionato bianco");
+			coloreFamiliareScelto = ColoreFamiliare.BIANCO;
+
+			{
+				playerBoard.getButtonPosizionaFamiliare().bloccaButton();
+				playerBoard.getButtonAttivaEffettoLeader().bloccaButton();
+				playerBoard.getButtonGiocaLeader().bloccaButton();
+				playerBoard.getButtonScartaLeader().bloccaButton();
+			}
+			
+			//System.out.println("bravo hai selezionato");
 			// INSERIRE CHE OCCUPIAMO IL FAMILIARE //
 			selezionaFamiliarePopup.dispose();
 		}
 		
+		//------------------------------------------------------------------------------------//
+		// SELEZIONATO FAMILIARE ARANCIONE
+		//------------------------------------------------------------------------------------//
 		if(e.getActionCommand().equals("selezionatoFamiliareArancione")) {
-			PlayerBoard playerBoard = (PlayerBoard)mainGUI.mainFrame.getContentPane().getComponent(1);
 			playerBoard.getPanelSpazioFamiliariDisponibili().utilizzaFamiliare(ColoreFamiliare.ARANCIONE);
 			System.out.println("selezionato arancione");
+			coloreFamiliareScelto = ColoreFamiliare.ARANCIONE;
+			
+			{
+				playerBoard.getButtonPosizionaFamiliare().bloccaButton();
+				playerBoard.getButtonAttivaEffettoLeader().bloccaButton();
+				playerBoard.getButtonGiocaLeader().bloccaButton();
+				playerBoard.getButtonScartaLeader().bloccaButton();
+			}
+			
 			// INSERIRE CHE OCCUPIAMO IL FAMILIARE //
 			selezionaFamiliarePopup.dispose();
 		}
 		
+		//------------------------------------------------------------------------------------//
+		// SELEZIONATO FAMILIARE NERO
+		//------------------------------------------------------------------------------------//
 		if(e.getActionCommand().equals("selezionatoFamiliareNero")) {
-			PlayerBoard playerBoard = (PlayerBoard)mainGUI.mainFrame.getContentPane().getComponent(1);
 			playerBoard.getPanelSpazioFamiliariDisponibili().utilizzaFamiliare(ColoreFamiliare.NERO);
 			System.out.println("selezionato nero");
+			coloreFamiliareScelto = ColoreFamiliare.NERO;
+			
+			{
+				playerBoard.getButtonPosizionaFamiliare().bloccaButton();
+				playerBoard.getButtonAttivaEffettoLeader().bloccaButton();
+				playerBoard.getButtonGiocaLeader().bloccaButton();
+				playerBoard.getButtonScartaLeader().bloccaButton();
+			}
+			
 			// INSERIRE CHE OCCUPIAMO IL FAMILIARE //
 			selezionaFamiliarePopup.dispose();
 		}
 		
+		//------------------------------------------------------------------------------------//
+		// SELEZIONATO FAMILIARE NEUTRO
+		//------------------------------------------------------------------------------------//
 		if(e.getActionCommand().equals("selezionatoFamiliareNeutro")) {
-			PlayerBoard playerBoard = (PlayerBoard)mainGUI.mainFrame.getContentPane().getComponent(1);
 			playerBoard.getPanelSpazioFamiliariDisponibili().utilizzaFamiliare(ColoreFamiliare.NEUTRO);
 			System.out.println("selezionato neutro");
+			coloreFamiliareScelto = ColoreFamiliare.NEUTRO;
+			
+			{
+				playerBoard.getButtonPosizionaFamiliare().bloccaButton();
+				playerBoard.getButtonAttivaEffettoLeader().bloccaButton();
+				playerBoard.getButtonGiocaLeader().bloccaButton();
+				playerBoard.getButtonScartaLeader().bloccaButton();
+			}
+			
 			// INSERIRE CHE OCCUPIAMO IL FAMILIARE //
 			selezionaFamiliarePopup.dispose();
 		}
@@ -150,28 +192,24 @@ public class ButtonListener implements ActionListener{
 		
 		if(tipo.equals("leader1Gioca")){
 			
-			PlayerBoard playerBoard = (PlayerBoard)mainGUI.mainFrame.getContentPane().getComponent(1);
 			playerBoard.getCartaLeader1().scriviLabel("GIOCATO");
 			giocaLeaderPopup.dispose();
 		}
 		
 		if(tipo.equals("leader2Gioca")){
 					
-			PlayerBoard playerBoard = (PlayerBoard)mainGUI.mainFrame.getContentPane().getComponent(1);
 			playerBoard.getCartaLeader2().scriviLabel("GIOCATO");
 			giocaLeaderPopup.dispose();
 		}
 		
 		if(tipo.equals("leader3Gioca")){
 			
-			PlayerBoard playerBoard = (PlayerBoard)mainGUI.mainFrame.getContentPane().getComponent(1);
 			playerBoard.getCartaLeader3().scriviLabel("GIOCATO");
 			giocaLeaderPopup.dispose();
 		}
 		
 		if(tipo.equals("leader4Gioca")){
 			
-			PlayerBoard playerBoard = (PlayerBoard)mainGUI.mainFrame.getContentPane().getComponent(1);
 			playerBoard.getCartaLeader4().scriviLabel("GIOCATO");
 			giocaLeaderPopup.dispose();
 		}
@@ -199,28 +237,25 @@ public class ButtonListener implements ActionListener{
 		if(tipo.equals("leader1Scarta")){
 			scartaLeaderPopup.dispose();
 			System.out.println("leader 1 scartato");
-			PlayerBoard playerBoard = (PlayerBoard)mainGUI.mainFrame.getContentPane().getComponent(1);
 			playerBoard.getCartaLeader1().scriviLabel("SCARTATO");
 		}
 		
 		if(tipo.equals("leader2Scarta")){
 			scartaLeaderPopup.dispose();
 			System.out.println("leader 2 scartato");
-			PlayerBoard playerBoard = (PlayerBoard)mainGUI.mainFrame.getContentPane().getComponent(1);
 			playerBoard.getCartaLeader2().scriviLabel("SCARTATO");
 		}
 		
 		if(tipo.equals("leader3Scarta")){
 			scartaLeaderPopup.dispose();
 			System.out.println("leader 3 scartato");
-			PlayerBoard playerBoard = (PlayerBoard)mainGUI.mainFrame.getContentPane().getComponent(1);
 			playerBoard.getCartaLeader3().scriviLabel("SCARTATO");
 		}
 		
 		if(tipo.equals("leader4Scarta")){
 			scartaLeaderPopup.dispose();
 			System.out.println("leader 4 scartato");
-			PlayerBoard playerBoard = (PlayerBoard)mainGUI.mainFrame.getContentPane().getComponent(1);
+			
 			playerBoard.getCartaLeader4().scriviLabel("SCARTATO");
 		}
 		
@@ -245,65 +280,247 @@ public class ButtonListener implements ActionListener{
 		//------------------------------------------------------------------------------------------//
 		// SPAZI TORRE VERDE
 		//------------------------------------------------------------------------------------------//
-		if(e.getActionCommand().equals("spazioTorreVerde1"))
-		{
-			spaceSelected = true;
-			((Gameboard)mainGUI.mainFrame.getContentPane().getComponent(0)).getSpazioTorreVerde1().inserisciFamiliare("img/Punchboard/familiari/pedineFamiliari/blu/neutro.png");
+		// SPAZIO 1
+		//----------//
+		if(e.getActionCommand().equals("spazioTorreVerde1")) {
+			if(coloreFamiliareScelto!=null) {
+				((Gameboard)mainGUI.mainFrame.getContentPane().getComponent(0)).getSpazioTorreVerde1().inserisciFamiliare(selezionaFamiliarePopup.readPath(coloreFamiliareScelto));
+				{
+					playerBoard.getButtonPosizionaFamiliare().sbloccaButton();
+					playerBoard.getButtonAttivaEffettoLeader().sbloccaButton();
+					playerBoard.getButtonGiocaLeader().sbloccaButton();
+					playerBoard.getButtonScartaLeader().sbloccaButton();
+				}
+				coloreFamiliareScelto=null;
+			}
 		}
-		if(e.getActionCommand().equals("spazioTorreVerde2"))
-			((Gameboard)mainGUI.mainFrame.getContentPane().getComponent(0)).getSpazioTorreVerde2().inserisciFamiliare("img/Punchboard/familiari/pedineFamiliari/blu/neutro.png");
 		
-		if(e.getActionCommand().equals("spazioTorreVerde3"))
-			((Gameboard)mainGUI.mainFrame.getContentPane().getComponent(0)).getSpazioTorreVerde3().inserisciFamiliare("img/Punchboard/familiari/pedineFamiliari/blu/neutro.png");
+		// SPAZIO 2
+		//----------//
+		if(e.getActionCommand().equals("spazioTorreVerde2")) {
+			if(coloreFamiliareScelto!=null) {
+				((Gameboard)mainGUI.mainFrame.getContentPane().getComponent(0)).getSpazioTorreVerde2().inserisciFamiliare(selezionaFamiliarePopup.readPath(coloreFamiliareScelto));
+				{
+					playerBoard.getButtonPosizionaFamiliare().sbloccaButton();
+					playerBoard.getButtonAttivaEffettoLeader().sbloccaButton();
+					playerBoard.getButtonGiocaLeader().sbloccaButton();
+					playerBoard.getButtonScartaLeader().sbloccaButton();
+				}
+				coloreFamiliareScelto=null;
+			}
+		}
+			
+		// SPAZIO 3
+		//----------//
+		if(e.getActionCommand().equals("spazioTorreVerde3")) {
+			if(coloreFamiliareScelto!=null) {
+				((Gameboard)mainGUI.mainFrame.getContentPane().getComponent(0)).getSpazioTorreVerde3().inserisciFamiliare(selezionaFamiliarePopup.readPath(coloreFamiliareScelto));
+				{
+					playerBoard.getButtonPosizionaFamiliare().sbloccaButton();
+					playerBoard.getButtonAttivaEffettoLeader().sbloccaButton();
+					playerBoard.getButtonGiocaLeader().sbloccaButton();
+					playerBoard.getButtonScartaLeader().sbloccaButton();
+				}
+				coloreFamiliareScelto=null;
+			}
+		}
 		
-		if(e.getActionCommand().equals("spazioTorreVerde4"))
-			((Gameboard)mainGUI.mainFrame.getContentPane().getComponent(0)).getSpazioTorreVerde4().inserisciFamiliare("img/Punchboard/familiari/pedineFamiliari/blu/neutro.png");
+		// SPAZIO 4
+		//----------//
+		if(e.getActionCommand().equals("spazioTorreVerde4")) {
+			if(coloreFamiliareScelto!=null) {
+				((Gameboard)mainGUI.mainFrame.getContentPane().getComponent(0)).getSpazioTorreVerde4().inserisciFamiliare(selezionaFamiliarePopup.readPath(coloreFamiliareScelto));
+				{
+					playerBoard.getButtonPosizionaFamiliare().sbloccaButton();
+					playerBoard.getButtonAttivaEffettoLeader().sbloccaButton();
+					playerBoard.getButtonGiocaLeader().sbloccaButton();
+					playerBoard.getButtonScartaLeader().sbloccaButton();
+				}
+				coloreFamiliareScelto=null;
+			}
+		}
 		
 		//------------------------------------------------------------------------------------------//
 		// SPAZI TORRE BLU
 		//------------------------------------------------------------------------------------------//
-		if(e.getActionCommand().equals("spazioTorreBlu1"))
-			((Gameboard)mainGUI.mainFrame.getContentPane().getComponent(0)).getSpazioTorreBlu1().inserisciFamiliare("img/Punchboard/familiari/pedineFamiliari/blu/neutro.png");
+		// SPAZIO 1
+		//----------//
+		if(e.getActionCommand().equals("spazioTorreBlu1")) {
+			if(coloreFamiliareScelto!=null) {
+				((Gameboard)mainGUI.mainFrame.getContentPane().getComponent(0)).getSpazioTorreBlu1().inserisciFamiliare(selezionaFamiliarePopup.readPath(coloreFamiliareScelto));
+				{
+					playerBoard.getButtonPosizionaFamiliare().sbloccaButton();
+					playerBoard.getButtonAttivaEffettoLeader().sbloccaButton();
+					playerBoard.getButtonGiocaLeader().sbloccaButton();
+					playerBoard.getButtonScartaLeader().sbloccaButton();
+				}
+				coloreFamiliareScelto=null;
+			}
+		}
 		
-		if(e.getActionCommand().equals("spazioTorreBlu2"))
-			((Gameboard)mainGUI.mainFrame.getContentPane().getComponent(0)).getSpazioTorreBlu2().inserisciFamiliare("img/Punchboard/familiari/pedineFamiliari/blu/neutro.png");
+		// SPAZIO 2
+		//----------//
+		if(e.getActionCommand().equals("spazioTorreBlu2")) {
+			if(coloreFamiliareScelto!=null) {
+				((Gameboard)mainGUI.mainFrame.getContentPane().getComponent(0)).getSpazioTorreBlu2().inserisciFamiliare(selezionaFamiliarePopup.readPath(coloreFamiliareScelto));
+				{
+					playerBoard.getButtonPosizionaFamiliare().sbloccaButton();
+					playerBoard.getButtonAttivaEffettoLeader().sbloccaButton();
+					playerBoard.getButtonGiocaLeader().sbloccaButton();
+					playerBoard.getButtonScartaLeader().sbloccaButton();
+				}
+				coloreFamiliareScelto=null;
+			}
+		}
 		
-		if(e.getActionCommand().equals("spazioTorreBlu3"))
-			((Gameboard)mainGUI.mainFrame.getContentPane().getComponent(0)).getSpazioTorreBlu3().inserisciFamiliare("img/Punchboard/familiari/pedineFamiliari/blu/neutro.png");
+		// SPAZIO 3
+		//----------//
+		if(e.getActionCommand().equals("spazioTorreBlu3")) {
+			if(coloreFamiliareScelto!=null) {
+				((Gameboard)mainGUI.mainFrame.getContentPane().getComponent(0)).getSpazioTorreBlu3().inserisciFamiliare(selezionaFamiliarePopup.readPath(coloreFamiliareScelto));
+				{
+					playerBoard.getButtonPosizionaFamiliare().sbloccaButton();
+					playerBoard.getButtonAttivaEffettoLeader().sbloccaButton();
+					playerBoard.getButtonGiocaLeader().sbloccaButton();
+					playerBoard.getButtonScartaLeader().sbloccaButton();
+				}
+				coloreFamiliareScelto=null;
+			}
+		}
 		
-		if(e.getActionCommand().equals("spazioTorreBlu4"))
-			((Gameboard)mainGUI.mainFrame.getContentPane().getComponent(0)).getSpazioTorreBlu4().inserisciFamiliare("img/Punchboard/familiari/pedineFamiliari/blu/neutro.png");
-		
+		// SPAZIO 4
+		//----------//
+		if(e.getActionCommand().equals("spazioTorreBlu4")) {
+			if(coloreFamiliareScelto!=null) {
+				((Gameboard)mainGUI.mainFrame.getContentPane().getComponent(0)).getSpazioTorreBlu4().inserisciFamiliare(selezionaFamiliarePopup.readPath(coloreFamiliareScelto));
+				{
+					playerBoard.getButtonPosizionaFamiliare().sbloccaButton();
+					playerBoard.getButtonAttivaEffettoLeader().sbloccaButton();
+					playerBoard.getButtonGiocaLeader().sbloccaButton();
+					playerBoard.getButtonScartaLeader().sbloccaButton();
+				}
+				coloreFamiliareScelto=null;
+			}
+		}
+
 		//------------------------------------------------------------------------------------------//
 		// SPAZI TORRE VIOLA
 		//------------------------------------------------------------------------------------------//
-		if(e.getActionCommand().equals("spazioTorreViola1"))
-			((Gameboard)mainGUI.mainFrame.getContentPane().getComponent(0)).getSpazioTorreViola1().inserisciFamiliare("img/Punchboard/familiari/pedineFamiliari/blu/neutro.png");
-		
-		if(e.getActionCommand().equals("spazioTorreViola2"))
-			((Gameboard)mainGUI.mainFrame.getContentPane().getComponent(0)).getSpazioTorreViola2().inserisciFamiliare("img/Punchboard/familiari/pedineFamiliari/blu/neutro.png");
-		
-		if(e.getActionCommand().equals("spazioTorreViola3"))
-			((Gameboard)mainGUI.mainFrame.getContentPane().getComponent(0)).getSpazioTorreViola3().inserisciFamiliare("img/Punchboard/familiari/pedineFamiliari/blu/neutro.png");
-		
-		if(e.getActionCommand().equals("spazioTorreViola4"))
-			((Gameboard)mainGUI.mainFrame.getContentPane().getComponent(0)).getSpazioTorreViola4().inserisciFamiliare("img/Punchboard/familiari/pedineFamiliari/blu/neutro.png");
-				
+		// SPAZIO 1
+		//----------//
+		if(e.getActionCommand().equals("spazioTorreViola1")) {
+			if(coloreFamiliareScelto!=null) {
+				((Gameboard)mainGUI.mainFrame.getContentPane().getComponent(0)).getSpazioTorreViola1().inserisciFamiliare(selezionaFamiliarePopup.readPath(coloreFamiliareScelto));
+				{
+					playerBoard.getButtonPosizionaFamiliare().sbloccaButton();
+					playerBoard.getButtonAttivaEffettoLeader().sbloccaButton();
+					playerBoard.getButtonGiocaLeader().sbloccaButton();
+					playerBoard.getButtonScartaLeader().sbloccaButton();
+				}
+				coloreFamiliareScelto=null;
+			}
+		}
+		// SPAZIO 2
+		//----------//
+		if(e.getActionCommand().equals("spazioTorreViola2")) {
+			if(coloreFamiliareScelto!=null) {
+				((Gameboard)mainGUI.mainFrame.getContentPane().getComponent(0)).getSpazioTorreViola2().inserisciFamiliare(selezionaFamiliarePopup.readPath(coloreFamiliareScelto));
+				{
+					playerBoard.getButtonPosizionaFamiliare().sbloccaButton();
+					playerBoard.getButtonAttivaEffettoLeader().sbloccaButton();
+					playerBoard.getButtonGiocaLeader().sbloccaButton();
+					playerBoard.getButtonScartaLeader().sbloccaButton();
+				}
+				coloreFamiliareScelto=null;
+			}
+		}
+		// SPAZIO 3
+		//----------//
+		if(e.getActionCommand().equals("spazioTorreViola3")) {
+			if(coloreFamiliareScelto!=null) {
+				((Gameboard)mainGUI.mainFrame.getContentPane().getComponent(0)).getSpazioTorreViola3().inserisciFamiliare(selezionaFamiliarePopup.readPath(coloreFamiliareScelto));
+				{
+					playerBoard.getButtonPosizionaFamiliare().sbloccaButton();
+					playerBoard.getButtonAttivaEffettoLeader().sbloccaButton();
+					playerBoard.getButtonGiocaLeader().sbloccaButton();
+					playerBoard.getButtonScartaLeader().sbloccaButton();
+				}
+				coloreFamiliareScelto=null;
+			}
+		}
+		// SPAZIO 4
+		//----------//
+		if(e.getActionCommand().equals("spazioTorreViola4")) {
+			if(coloreFamiliareScelto!=null) {
+				((Gameboard)mainGUI.mainFrame.getContentPane().getComponent(0)).getSpazioTorreViola4().inserisciFamiliare(selezionaFamiliarePopup.readPath(coloreFamiliareScelto));
+				{
+					playerBoard.getButtonPosizionaFamiliare().sbloccaButton();
+					playerBoard.getButtonAttivaEffettoLeader().sbloccaButton();
+					playerBoard.getButtonGiocaLeader().sbloccaButton();
+					playerBoard.getButtonScartaLeader().sbloccaButton();
+				}
+				coloreFamiliareScelto=null;
+			}
+		}
 		//------------------------------------------------------------------------------------------//
 		// SPAZI TORRE GIALLA
 		//------------------------------------------------------------------------------------------//
-		if(e.getActionCommand().equals("spazioTorreGialla1"))
-			((Gameboard)mainGUI.mainFrame.getContentPane().getComponent(0)).getSpazioTorreGialla1().inserisciFamiliare("img/Punchboard/familiari/pedineFamiliari/blu/neutro.png");
-		
-		if(e.getActionCommand().equals("spazioTorreGialla2"))
-			((Gameboard)mainGUI.mainFrame.getContentPane().getComponent(0)).getSpazioTorreGialla2().inserisciFamiliare("img/Punchboard/familiari/pedineFamiliari/blu/neutro.png");
-		
-		if(e.getActionCommand().equals("spazioTorreGialla3"))
-			((Gameboard)mainGUI.mainFrame.getContentPane().getComponent(0)).getSpazioTorreGialla3().inserisciFamiliare("img/Punchboard/familiari/pedineFamiliari/blu/neutro.png");
-		
-		if(e.getActionCommand().equals("spazioTorreGialla4"))
-			((Gameboard)mainGUI.mainFrame.getContentPane().getComponent(0)).getSpazioTorreGialla4().inserisciFamiliare("img/Punchboard/familiari/pedineFamiliari/blu/neutro.png");
-		
+		// SPAZIO 1
+		//----------//
+		if(e.getActionCommand().equals("spazioTorreGialla1")) {
+			if(coloreFamiliareScelto!=null) {
+				((Gameboard)mainGUI.mainFrame.getContentPane().getComponent(0)).getSpazioTorreGialla1().inserisciFamiliare(selezionaFamiliarePopup.readPath(coloreFamiliareScelto));
+				{
+					playerBoard.getButtonPosizionaFamiliare().sbloccaButton();
+					playerBoard.getButtonAttivaEffettoLeader().sbloccaButton();
+					playerBoard.getButtonGiocaLeader().sbloccaButton();
+					playerBoard.getButtonScartaLeader().sbloccaButton();
+				}
+				coloreFamiliareScelto=null;
+			}
+		}
+		// SPAZIO 2
+		//----------//
+		if(e.getActionCommand().equals("spazioTorreGialla2")) {
+			if(coloreFamiliareScelto!=null) {
+				((Gameboard)mainGUI.mainFrame.getContentPane().getComponent(0)).getSpazioTorreGialla2().inserisciFamiliare(selezionaFamiliarePopup.readPath(coloreFamiliareScelto));
+				{
+					playerBoard.getButtonPosizionaFamiliare().sbloccaButton();
+					playerBoard.getButtonAttivaEffettoLeader().sbloccaButton();
+					playerBoard.getButtonGiocaLeader().sbloccaButton();
+					playerBoard.getButtonScartaLeader().sbloccaButton();
+				}
+				coloreFamiliareScelto=null;
+			}
+		}
+		// SPAZIO 3
+		//----------//
+		if(e.getActionCommand().equals("spazioTorreGialla3")) {
+			if(coloreFamiliareScelto!=null) {
+				((Gameboard)mainGUI.mainFrame.getContentPane().getComponent(0)).getSpazioTorreGialla3().inserisciFamiliare(selezionaFamiliarePopup.readPath(coloreFamiliareScelto));
+				{
+					playerBoard.getButtonPosizionaFamiliare().sbloccaButton();
+					playerBoard.getButtonAttivaEffettoLeader().sbloccaButton();
+					playerBoard.getButtonGiocaLeader().sbloccaButton();
+					playerBoard.getButtonScartaLeader().sbloccaButton();
+				}
+				coloreFamiliareScelto=null;
+			}
+		}
+		// SPAZIO 4
+		//----------//
+		if(e.getActionCommand().equals("spazioTorreGialla4")) {
+			if(coloreFamiliareScelto!=null) {
+				((Gameboard)mainGUI.mainFrame.getContentPane().getComponent(0)).getSpazioTorreGialla4().inserisciFamiliare(selezionaFamiliarePopup.readPath(coloreFamiliareScelto));
+				{
+					playerBoard.getButtonPosizionaFamiliare().sbloccaButton();
+					playerBoard.getButtonAttivaEffettoLeader().sbloccaButton();
+					playerBoard.getButtonGiocaLeader().sbloccaButton();
+					playerBoard.getButtonScartaLeader().sbloccaButton();
+				}
+				coloreFamiliareScelto=null;
+			}
+		}
 		//------------------------------------------------------------------------------------------//
 		// SPAZIO CONSIGLIO
 		//------------------------------------------------------------------------------------------//

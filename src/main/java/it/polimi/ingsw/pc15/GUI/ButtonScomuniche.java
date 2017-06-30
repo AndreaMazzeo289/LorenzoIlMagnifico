@@ -54,4 +54,12 @@ public class ButtonScomuniche extends JButton{
 		this.setActionCommand("buttonScomuniche");
 		this.addActionListener(new ButtonListener());
 	}
+	
+	public void bloccaButton() {
+		this.setEnabled(false);
+	}
+	
+	public void sbloccaButton() {
+		this.setEnabled(true);
+	}
 }

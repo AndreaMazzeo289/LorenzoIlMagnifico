@@ -8,6 +8,7 @@ import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;
 import java.awt.Image;
 import java.awt.Toolkit;
+import java.awt.event.ActionListener;
 
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
@@ -38,7 +39,7 @@ public class SpazioTorreViola1 extends JPanel{
 	
 	boolean occupato;
 	
-	public SpazioTorreViola1(String path) {
+	public SpazioTorreViola1(String path, ActionListener listener) {
 		
 		larghezzaTotale = mainGUI.larghezzaTotale;
 		altezzaTotale =  mainGUI.altezzaTotale;
@@ -100,7 +101,7 @@ public class SpazioTorreViola1 extends JPanel{
 		buttonCenter.setActionCommand(path);
 		buttonCenter.addActionListener(new ButtonListenerCarte());
 		
-		buttonFamiliare = new ButtonTransparent("spazioTorreViola1",160,160);
+		buttonFamiliare = new ButtonTransparent("spazioTorreViola1",160,160,listener);
 		
 		labelEast.setLayout(new GridBagLayout());
 		GridBagConstraints gbc = new GridBagConstraints();
