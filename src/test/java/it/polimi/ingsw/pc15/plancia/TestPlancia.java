@@ -271,37 +271,7 @@ public class TestPlancia {
 		assertFalse("La torre blu non è stata liberata completamente", risultatoLiberaSpazioPersonaggio);
 		assertFalse("La torre gialla non è stata liberata completamente", risultatoLiberaSpazioEdificio);
 		assertFalse("La torre viola non è stata liberata completamente", risultatoLiberaSpazioImpresa);
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
 	
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
 		
 	}
 }
