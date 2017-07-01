@@ -1,4 +1,4 @@
-package it.polimi.ingsw.pc15.effetti;
+/*package it.polimi.ingsw.pc15.effetti;
 
 import static org.junit.Assert.*;
 
@@ -33,7 +33,7 @@ public class AggiuntaRisorseTest {
 		setRisorse = new SetRisorse(risorse);
 	}
 	
-	@Test
+	/*@Test
 	public void aggiuntaTest() {
 		aggiuntaRisorse = new AggiuntaRisorse(setRisorse);
 		aggiuntaRisorse.attiva(player1);
@@ -43,5 +43,5 @@ public class AggiuntaRisorseTest {
 		assertEquals(3, player1.getSetRisorse().getRisorsa(TipoRisorsa.SERVITORI).getQuantità());
 	
 	}
+*/
 
-}

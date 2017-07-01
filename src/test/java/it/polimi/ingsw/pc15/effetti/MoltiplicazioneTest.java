@@ -1,4 +1,4 @@
-package it.polimi.ingsw.pc15.effetti;
+/*package it.polimi.ingsw.pc15.effetti;
 
 import static org.junit.Assert.*;
 
@@ -38,3 +38,4 @@ public class MoltiplicazioneTest {
 	}
 
 }
+*/

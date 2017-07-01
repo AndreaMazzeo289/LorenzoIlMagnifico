@@ -1,4 +1,4 @@
-package it.polimi.ingsw.pc15.effetti;
+/*package it.polimi.ingsw.pc15.effetti;
 
 import static org.junit.Assert.*;
 
@@ -44,3 +44,4 @@ public class ScambioTest {
 		assertEquals(13, player1.getSetRisorse().getRisorsa(TipoRisorsa.ORO).getQuantità());
 	}
 }
+*/
