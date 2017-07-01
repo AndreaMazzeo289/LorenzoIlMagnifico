@@ -17,9 +17,11 @@ public class RMIHandler extends NetworkHandler implements RMIHandlerInterface {
 	
 	private int numeroConnessione;
 	private ServerInterface server;
+	private boolean connesso;
 	
 	public RMIHandler (ClientModel clientModel, String name) {	
 		super(name, clientModel);
+		this.connesso = false;
 	}
 	
 	@Override
@@ -29,19 +31,20 @@ public class RMIHandler extends NetworkHandler implements RMIHandlerInterface {
 			this.server = (ServerInterface) Naming.lookup("//localhost/Server");
 			RMIHandlerInterface remoteRef = (RMIHandlerInterface) UnicastRemoteObject.exportObject(this, 0);
 			this.numeroConnessione = server.remoteConnetti(remoteRef);
-			return true;
+			while(!connesso);
 
 		} catch (MalformedURLException | RemoteException | NotBoundException e) {
 			e.printStackTrace();
 			return false;
 		}
+		
+		return true;
 
 	}
 
-	
 	@Override
 	public void update(Observable o, Object input) {
-		System.out.println("\nSono il Client controller RMI e ho ricevuto " + (ArrayList<String>) input);
+		System.out.println("\nSono il RMIHandler e ho ricevuto " + (ArrayList<String>) input);
 		try {
 			this.server.remoteNotify(input, numeroConnessione);
 		} catch (RemoteException e) {
@@ -51,14 +54,16 @@ public class RMIHandler extends NetworkHandler implements RMIHandlerInterface {
 
 	@Override
 	public void aggiornaStatoPartita(StatoPartita statoPartita) throws RemoteException {
-
-		this.clientModel.aggiorna(statoPartita);
-		
+		this.clientModel.aggiorna(statoPartita);	
 	}
 
 	@Override
-	public String getNome() throws RemoteException {
+	public String remoteGetNome() throws RemoteException {
 		return this.name;
+	}
+	
+	public void remoteOK() throws RemoteException {
+		this.connesso = true;
 	}
 	
 }

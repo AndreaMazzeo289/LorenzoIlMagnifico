@@ -54,7 +54,7 @@ public class Controller extends Observable implements Observer {
 		Azione azioneGiocatore;
 		Player giocatore = model.getPlayer(nomeGiocatore);	
 		
-		//System.out.println("\nSono il controller e ho ricevuto " + input + " da " + giocatore.getNome());
+		System.out.println("\nSono il controller e ho ricevuto " + input + " da " + giocatore.getNome());
 		
 		switch(input.get(0)) {
 		
@@ -117,20 +117,20 @@ public class Controller extends Observable implements Observer {
 				break;	
 			}		
 			
-			break;
+		break;
 		
 		case "gioca Leader": azioneGiocatore = new AzioneGiocaLeader (giocatore, giocatore.getCarteLeader().get(Integer.valueOf(input.get(1))));
-			break;
+		break;
 			
 		case "scarta Leader": azioneGiocatore = new AzioneScartaLeader (giocatore, giocatore.getCarteLeader().get(Integer.valueOf(input.get(1))));
-			break;
+		break;
 			
 		case "attiva effetto Leader": azioneGiocatore = new AzioneAttivaEffettoLeader (giocatore, giocatore.getCarteLeader().get(Integer.valueOf(input.get(1))));;
-			break;
+		break;
 			
 		default: System.out.println("ERRORE");
 			azioneGiocatore = null;
-			break;
+		break;
 		}
 		
 		RisultatoAzione risultatoAzione = azioneGiocatore.èValida();

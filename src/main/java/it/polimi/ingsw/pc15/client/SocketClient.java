@@ -14,10 +14,10 @@ public class SocketClient extends Client {
 	
 	private static String hostName;
 	
-	public SocketClient() throws IOException {
+	public SocketClient(String nome) throws IOException {
 		
 		this.clientModel = new ClientModel();
-		this.networkHandler = new SocketHandler(new Socket(hostName, 12879), clientModel, "Player");
+		this.networkHandler = new SocketHandler(new Socket(hostName, 12879), clientModel, nome);
 		this.view = new CLI(networkHandler, clientModel);
 	}
 	
@@ -25,7 +25,8 @@ public class SocketClient extends Client {
 	public void connetti() {
 		if (networkHandler.connetti()) {
 			new Thread(view).start();
-			((SocketHandler)networkHandler).run();
+			((SocketHandler) networkHandler).run();
 		}
+
 	}
 }

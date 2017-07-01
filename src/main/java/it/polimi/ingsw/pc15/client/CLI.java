@@ -19,14 +19,12 @@ import it.polimi.ingsw.pc15.risorse.TipoRisorsa;
 
 public class CLI extends ClientView {
 	
-	private Scanner input;
-	private boolean tuoTurno;
 	private final boolean regoleAvanzate;
+	private Scanner input;
 	
 	public CLI(NetworkHandler networkHandler, ClientModel clientModel){
 		super(networkHandler, clientModel);
 		this.input = new Scanner(System.in);
-		this.tuoTurno = true;
 		this.regoleAvanzate = true;
 	}
 	
@@ -40,7 +38,7 @@ public class CLI extends ClientView {
 			annulla = false;
 			
 	    	switch (input.nextInt()) {
-	    	case 0: if (tuoTurno) { 
+	    	case 0: if (tuoTurno()) { 
 	    		
 	    		message.add("posiziona familiare");
 	    	
@@ -68,7 +66,7 @@ public class CLI extends ClientView {
 						break;
 				case 0: annulla = true;
 						break;
-				default: System.out.println("--Inserire un comando valido!--");
+				default: System.out.println("\n--Inserire un comando valido!--");
 						annulla = true;
 						break;
 				}	
@@ -95,7 +93,7 @@ public class CLI extends ClientView {
 					case "N":
 					case "n": message.add("0");
 							break;
-					default: System.out.println("--Inserire un comando valido!--");
+					default: System.out.println("\n--Inserire un comando valido!--");
 						annulla=true;
 						break;
 					}
@@ -145,7 +143,7 @@ public class CLI extends ClientView {
 									break;
 							case 0: annulla=true;
 									break;
-							default: System.out.println("--Inserire un comando valido!--");
+							default: System.out.println("\n--Inserire un comando valido!--");
 									annulla=true;
 									break;
 							}
@@ -175,7 +173,7 @@ public class CLI extends ClientView {
 					System.out.println("  - Punti Militari: " + this.clientModel.getStatoGiocatore().getSetRisorse().getRisorsa(TipoRisorsa.PUNTIMILITARI).getQuantità());
 					System.out.println("  - Punti Fede: " + this.clientModel.getStatoGiocatore().getSetRisorse().getRisorsa(TipoRisorsa.PUNTIFEDE).getQuantità());
 					update(null, null);
-					break;
+			break;
 					
 					
 					
@@ -189,8 +187,9 @@ public class CLI extends ClientView {
 	    			if (this.clientModel.getStatoGiocatore().getFamiliare(ColoreFamiliare.NEUTRO).disponibile())
 	    				System.out.println("  - Familiare neutro - valore: " + this.clientModel.getStatoGiocatore().getFamiliare(ColoreFamiliare.NEUTRO).getValore());
 					update(null, null);
-	    			break;
+	    	break;
 	    			
+	    	
 	    	case 3: for (SpazioMercato spazioMercato : this.clientModel.getStatoPlancia().getSpaziMercato())
 	    				if (spazioMercato.vuoto())
 	    					System.out.println("  - Spazio del Mercato " + this.clientModel.getStatoPlancia().getSpaziMercato().lastIndexOf(spazioMercato) + ": LIBERO");
@@ -265,16 +264,18 @@ public class CLI extends ClientView {
 
 
 					update(null, null);
-	    			break;
+	    	break;
+	    	
 					
 	    	case 4: System.out.println("\nAl momento possiedi le seguenti carte Leader:");
 	    			for (Leader leader : this.clientModel.getStatoGiocatore().getCarteLeader())
 	    				if (leader!=null)
 	    					System.out.println("  - " + leader.toString());
 					update(null, null);
-	    			break;
+	    	break;
+	    	
 		
-			case 5: if (tuoTurno && regoleAvanzate) {
+			case 5: if (tuoTurno() && regoleAvanzate) {
 						message = new ArrayList<String>();
 						message.add("gioca Leader"); 
 						System.out.println("\nQuale Leader vuoi giocare?");
@@ -283,33 +284,30 @@ public class CLI extends ClientView {
 						message.add(String.valueOf(input.nextInt()-1));
 						setChanged();
 					} else {
-			    		System.out.println("--Inserire un comando valido!--");
+			    		System.out.println("\n--Inserire un comando valido!--");
 			    		update(null, null);
 			    	}
 			
-					break;	
-					
-			case 6: if (tuoTurno && regoleAvanzate) {
-						message = new ArrayList<String>();
-						message.add("scarta Leader"); 
-						System.out.println("\nQuale Leader vuoi scartare?");
-						for (Leader leader : this.clientModel.getStatoGiocatore().getCarteLeader())
-							System.out.println("  " + (this.clientModel.getStatoGiocatore().getCarteLeader().lastIndexOf(leader)+1) +". " + leader.getNome());
-						System.out.println("\n  0. (ANNULLA)");
-						if (input.nextInt()==0)
-							update(null, null);
-						else {
-							message.add(String.valueOf(input.nextInt()-1));
-							setChanged();
-						}
-					} else {
-			    		System.out.println("--Inserire un comando valido!--");
-			    		update(null, null);
-			    	}
+			break;	
 			
-					break;		
 					
-			case 7: if (tuoTurno && regoleAvanzate) {
+			case 6: if (tuoTurno() && regoleAvanzate) {
+				message = new ArrayList<String>();
+				message.add("scarta Leader"); 
+				System.out.println("\nQuale Leader vuoi scartare?");
+    			for (Leader leader : this.clientModel.getStatoGiocatore().getCarteLeader())
+    				System.out.println("  " + (this.clientModel.getStatoGiocatore().getCarteLeader().lastIndexOf(leader)+1) +". " + leader.getNome());
+				message.add(String.valueOf(input.nextInt()-1));
+				setChanged();
+			} else {
+	    		System.out.println("\n--Inserire un comando valido!--");
+	    		update(null, null);
+	    	}
+
+			break;	
+			
+					
+			case 7: if (tuoTurno() && regoleAvanzate) {
 						message = new ArrayList<String>();
 						message.add("attiva effetto Leader"); 
 						System.out.println("\nQuale Leader vuoi attivare?");
@@ -318,18 +316,19 @@ public class CLI extends ClientView {
 						message.add(String.valueOf(input.nextInt()-1));
 						setChanged();
 					} else {
-			    		System.out.println("--Inserire un comando valido!--");
+			    		System.out.println("\n--Inserire un comando valido!--");
 			    		update(null, null);
 			    	}
 	
-					break;
+			break;
 					
-			default: System.out.println("--Inserire un comando valido!--");
+			default: System.out.println("\n--Inserire un comando valido!--");
 					update(null, null);
-					break;
+			break;
 				
 	    	}	
 	    	
+	    	//System.out.println("Sono la cli di " + this.clientModel.getStatoGiocatore().getNome() + "e sto inviando " + message);
 	    	notifyObservers(message);
 	    	
 	  
@@ -339,17 +338,8 @@ public class CLI extends ClientView {
 	@Override
 	public void update(Observable arg0, Object arg1) {
 		
-		try {
-			Thread.sleep(500);
-		} catch (InterruptedException e1) {
-			e1.printStackTrace();
-		}
-    	
-    	if (this.clientModel.getGiocatoreCorrente().equals(this.clientModel.getStatoGiocatore().getNome()))
-    		tuoTurno = true;
-    	else tuoTurno = false;
-    	
-    	if (tuoTurno)
+		System.out.println("AGGIORNAMENTO: " + (String)arg1);
+    	if (tuoTurno())
     		System.out.println("\n(È il tuo turno!)");
     	else 
     		System.out.println("\n(È il turno di " + this.clientModel.getGiocatoreCorrente()+"!)");
@@ -357,12 +347,12 @@ public class CLI extends ClientView {
     	ArrayList<String> message = new ArrayList<String>();
 		
     	System.out.println("\n" + clientModel.getStatoGiocatore().getNome() + ", cosa vuoi fare?");
-    	if (tuoTurno)
+    	if (tuoTurno())
     		System.out.println("  0. Posiziona un familiare");
     	System.out.println("  1. Visualizza risorse\n  2. Visualizza familiari disponibili\n  3. Visualizza plancia");
     	if (regoleAvanzate) {
     		System.out.println("  4. Visualizza carte Leader");
-    		if (tuoTurno)
+    		if (tuoTurno())
     			System.out.println("  5. Gioca una carta Leader\n  6. Scarta una carta Leader\n  7. Attiva l'effetto di una carta Leader");
     	}
     	

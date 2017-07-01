@@ -54,14 +54,11 @@ public class Model extends Observable {
 	private int turno;
 	private int azione;
 	
-	private boolean regoleAvanzate;
 	
-	
-	public Model(ArrayList<String> nomiGiocatori, boolean regoleAvanzate){
+	public Model(ArrayList<String> nomiGiocatori){
 
 		this.numeroGiocatori = nomiGiocatori.size();
 		this.plancia = new Plancia(numeroGiocatori);
-		this.regoleAvanzate = regoleAvanzate;
 		
 		giocatori = new ArrayList<Player>();
 		for (int i=0; i<numeroGiocatori; i++)
@@ -81,8 +78,7 @@ public class Model extends Observable {
 		
 		generaCarteSviluppo();
 		
-		if (regoleAvanzate)
-			distribuisciCarteLeader();
+		distribuisciCarteLeader();
 		
 		distribuisciRisorse();
 		
