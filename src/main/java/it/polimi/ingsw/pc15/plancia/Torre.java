@@ -37,6 +37,8 @@ public class Torre implements Serializable {
 	public void libera() {
 		for (SpazioTorre spazio: this.spaziTorre)
 			spazio.rimuoviFamiliari();
+		
+		this.occupata = false;
 	}
 	
 	public ArrayList<SpazioTorre> getSpaziTorre() {

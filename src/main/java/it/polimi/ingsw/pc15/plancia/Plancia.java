@@ -113,7 +113,6 @@ public class Plancia implements Serializable {
 		
 		int n;
 		int numeroSpaziTorre = ParserXML.leggiValore("numeroSpaziTorre");
-		//System.out.println("Il numero di spazi torre è " + numeroSpaziTorre);
 		
 		n=0;
 		for(int i=0; i<carteTerritorio.size(); i++) {
