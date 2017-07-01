@@ -100,6 +100,7 @@ public class TestPlancia {
 		
 		
 		
+		
 		plancia = new Plancia(4);
 		
 		legna = new Legna(0);
@@ -170,6 +171,9 @@ public class TestPlancia {
 		//          TEST LIBERA                                                                                      //
 		//-----------------------------------------------------------------------------------------------------------//
 		
+		player = new Player("pippo");
+		
+		
 		arrayRisorse = new ArrayList<SetRisorse>();
 		arrayRisorse.add(setRisorsePlayer);
 		arrayRisorse.add(setRisorsePlayer);
@@ -181,14 +185,7 @@ public class TestPlancia {
 		torreEdificio = new Torre(4, arrayRisorse);
 		torreImpresa = new Torre(4, arrayRisorse);
 						
-				
-		
-		
-		
-		
-	
-		
-		
+		familiare = new Familiare(ColoreFamiliare.ARANCIONE, player);
 	}	
 	
 	
@@ -222,7 +219,10 @@ public class TestPlancia {
 		Boolean risultatoOccupaSpazioImpresa;
 		
 		
-		Boolean risultatoLibera;
+		Boolean risultatoLiberaSpazioTerritorio;
+		Boolean risultatoLiberaSpazioPersonaggio;
+		Boolean risultatoLiberaSpazioEdificio;
+		Boolean risultatoLiberaSpazioImpresa;
 		
 		
 		plancia.setCarte(1, arrayListCarteTerritorio, arrayListCartePersonaggio, arrayListCarteEdificio, arrayListCarteImpresa);
@@ -236,28 +236,64 @@ public class TestPlancia {
 		 *  
 		 */
 		
-		azioneOccupaSpazioTorreTerritorio = new AzioneOccupaSpazioTorre(player, familiare, torreTerritorio.getSpazio(1), 0);
-		azioneOccupaSpazioTorrePersonaggio = new AzioneOccupaSpazioTorre(player, familiare, torrePersonaggio.getSpazio(1), 0);
-		azioneOccupaSpazioTorreEdificio = new AzioneOccupaSpazioTorre(player, familiare, torreEdificio.getSpazio(1), 0);
-		azioneOccupaSpazioTorreImpresa = new AzioneOccupaSpazioTorre(player, familiare, torreImpresa.getSpazio(1), 0);
 		
+		azioneOccupaSpazioTorreTerritorio = new AzioneOccupaSpazioTorre(player, familiare, plancia.getTorre(TipoCarta.TERRITORIO).getSpazio(1), 0);
+		azioneOccupaSpazioTorrePersonaggio = new AzioneOccupaSpazioTorre(player, familiare, plancia.getTorre(TipoCarta.PERSONAGGIO).getSpazio(1), 0);
+		azioneOccupaSpazioTorreEdificio = new AzioneOccupaSpazioTorre(player, familiare, plancia.getTorre(TipoCarta.EDIFICIO).getSpazio(1), 0);
+		azioneOccupaSpazioTorreImpresa = new AzioneOccupaSpazioTorre(player, familiare, plancia.getTorre(TipoCarta.IMPRESA).getSpazio(1), 0);
 		
-		
+	
 		azioneOccupaSpazioTorreTerritorio.attiva();
 		azioneOccupaSpazioTorrePersonaggio.attiva();
 		azioneOccupaSpazioTorreEdificio.attiva();
 		azioneOccupaSpazioTorreImpresa.attiva();
 		
-		risultatoOccupaSpazioTerritorio = torreTerritorio.occupata();
-		risultatoOccupaSpazioPersonaggio = torrePersonaggio.occupata();
-		risultatoOccupaSpazioEdificio = torreEdificio.occupata();
-		risultatoOccupaSpazioImpresa = torreImpresa.occupata();
+		risultatoOccupaSpazioTerritorio = plancia.getTorre(TipoCarta.TERRITORIO).occupata();
+		risultatoOccupaSpazioPersonaggio = plancia.getTorre(TipoCarta.PERSONAGGIO).occupata();
+		risultatoOccupaSpazioEdificio = plancia.getTorre(TipoCarta.EDIFICIO).occupata();
+		risultatoOccupaSpazioImpresa = plancia.getTorre(TipoCarta.IMPRESA).occupata();
 		
 		
 		assertTrue("La torre verde non è stata occupata correttamente", risultatoOccupaSpazioTerritorio);
 		assertTrue("La torre blu non è stata occupata correttamente", risultatoOccupaSpazioPersonaggio);
 		assertTrue("La torre gialla non è stata occupata correttamente", risultatoOccupaSpazioEdificio);
 		assertTrue("La torre viola non è stata occupata correttamente", risultatoOccupaSpazioImpresa);
+		
+		
+		plancia.libera();
+		
+		risultatoLiberaSpazioTerritorio = plancia.getTorre(TipoCarta.TERRITORIO).occupata();
+		risultatoLiberaSpazioPersonaggio = plancia.getTorre(TipoCarta.PERSONAGGIO).occupata();
+		risultatoLiberaSpazioEdificio = plancia.getTorre(TipoCarta.EDIFICIO).occupata();
+		risultatoLiberaSpazioImpresa = plancia.getTorre(TipoCarta.IMPRESA).occupata();
+		
+		assertFalse("La torre verde non è stata liberata completamente", risultatoLiberaSpazioTerritorio);
+		assertFalse("La torre blu non è stata liberata completamente", risultatoLiberaSpazioPersonaggio);
+		assertFalse("La torre gialla non è stata liberata completamente", risultatoLiberaSpazioEdificio);
+		assertFalse("La torre viola non è stata liberata completamente", risultatoLiberaSpazioImpresa);
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+	
+		
+		
 		
 		
 		
