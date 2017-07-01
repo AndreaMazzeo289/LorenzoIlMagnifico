@@ -6,20 +6,6 @@ import it.polimi.ingsw.pc15.effetti.AggiuntaRisorse;
 import it.polimi.ingsw.pc15.risorse.Legna;
 import it.polimi.ingsw.pc15.risorse.Oro;
 import it.polimi.ingsw.pc15.risorse.Pietra;
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 import it.polimi.ingsw.pc15.risorse.Privilegi;
 import it.polimi.ingsw.pc15.risorse.PuntiFede;
 import it.polimi.ingsw.pc15.risorse.PuntiMilitari;
@@ -34,6 +20,10 @@ import static org.junit.Assert.*;
 
 public class TestSpazioConsiglio {
 
+	//-----------------------------------------------------------------------------------------------------------//
+	//          TEST GET EFFETTI                                                                                 //
+	//-----------------------------------------------------------------------------------------------------------//
+	
 	SpazioConsiglio spazioConsiglio;
 	
 	
@@ -57,7 +47,7 @@ public class TestSpazioConsiglio {
 		
 		
 		//-----------------------------------------------------------------------------------------------------------//
-		//          TEST GET EFFETTI                                                                                  //
+		//          TEST GET EFFETTI                                                                                 //
 		//-----------------------------------------------------------------------------------------------------------//
 		
 		
@@ -98,5 +88,7 @@ public class TestSpazioConsiglio {
 		aggiungiRisorse = (AggiuntaRisorse) spazioConsiglio.getEffetto();
 		
 		assertEquals("Errore test get effetto", aggiungiRisorse2.toString(), aggiungiRisorse.toString() );
+		
+		
 	}
 }
