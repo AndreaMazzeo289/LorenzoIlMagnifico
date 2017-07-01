@@ -54,7 +54,6 @@ public class RMIHandler extends NetworkHandler implements RMIHandlerInterface {
 
 	@Override
 	public void aggiornaStatoPartita(StatoPartita statoPartita) throws RemoteException {
-		System.out.println(statoPartita.getMessaggio());
 		this.clientModel.aggiorna(statoPartita);	
 	}
 

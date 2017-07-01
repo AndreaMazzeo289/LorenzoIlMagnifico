@@ -28,7 +28,7 @@ public class ClientModel extends Observable {
 		this.statoGiocatore = stato.getStatoGiocatore();
 		
 		setChanged();
-		notifyObservers();
+		notifyObservers(stato.getMessaggio());
 		
 	}
 	

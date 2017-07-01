@@ -42,21 +42,18 @@ public class SocketHandler extends NetworkHandler {
 		}
 		
 		return false;
-		
 	}
 		
 		public void run() {
 			
 			while (true) {
 				
-				try {
+					try {
 					StatoPartita statoPartita = (StatoPartita) inObj.readObject();
 					clientModel.aggiorna(statoPartita);
-					
 				} catch (ClassNotFoundException | IOException e) {
 					e.printStackTrace();}
 			}
-
 	}
 	
 	@Override

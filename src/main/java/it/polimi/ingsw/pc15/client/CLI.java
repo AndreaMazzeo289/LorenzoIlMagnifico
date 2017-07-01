@@ -30,12 +30,6 @@ public class CLI extends ClientView {
 	
 	public void run(){
 		
-		try {
-			Thread.sleep(5000);
-		} catch (InterruptedException e) {
-			e.printStackTrace();
-		}
-		
 		boolean annulla;
 		
 	    while (true) {
@@ -334,7 +328,7 @@ public class CLI extends ClientView {
 				
 	    	}	
 	    	
-	    	System.out.println("Sono la cli di " + this.clientModel.getStatoGiocatore().getNome() + "e sto inviando " + message);
+	    	//System.out.println("Sono la cli di " + this.clientModel.getStatoGiocatore().getNome() + "e sto inviando " + message);
 	    	notifyObservers(message);
 	    	
 	  
@@ -344,6 +338,7 @@ public class CLI extends ClientView {
 	@Override
 	public void update(Observable arg0, Object arg1) {
 		
+		System.out.println("AGGIORNAMENTO: " + (String)arg1);
     	if (tuoTurno())
     		System.out.println("\n(È il tuo turno!)");
     	else 
