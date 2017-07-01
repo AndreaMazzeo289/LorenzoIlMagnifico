@@ -8,11 +8,11 @@ public class AumentaPrezzoServitori extends Effetto {
 
 	@Override
 	public void attiva(Player player) {
-		
+		player.getEffettiAttivi().setSovrapprezzoServitori();
 	}
 	
 	public String toString() {
-		return "Aumenta il numero di servitori da spendere per aumentare il valore di un'azione";
+		return "Aumenta a due il numero di servitori da spendere per aumentare il valore di un familiare";
 	}
 
 }
