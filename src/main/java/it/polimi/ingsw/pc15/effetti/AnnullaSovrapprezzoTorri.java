@@ -8,7 +8,7 @@ public class AnnullaSovrapprezzoTorri extends Effetto {
 
 	@Override
 	public void attiva(Player player) {
-		
+		player.getEffettiAttivi().annullaSovrapprezzoTorri();
 	}
 	
 	public String toString() {

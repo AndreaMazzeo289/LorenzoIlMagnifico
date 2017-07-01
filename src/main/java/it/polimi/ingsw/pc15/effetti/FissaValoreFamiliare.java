@@ -28,7 +28,9 @@ public class FissaValoreFamiliare extends Effetto {
 	}
 	
 	public String toString() {
-		return ("Fissa il valore del familiare " + colore.name() + " di " + valore) ;
+		return ("Fissa il valore del familiare " + colore.name() + " a " + valore) ;
 	}
+	
+	
 
 }
