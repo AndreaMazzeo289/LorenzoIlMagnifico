@@ -148,13 +148,69 @@ public class TestPlancia {
 		arrayListCarteImpresa.add(cartaImpresa);
 		arrayListCarteImpresa.add(cartaImpresa);
 		
-		arrayRisorse = new ArrayList<SetRisorse>();
-		arrayRisorse.add(setRisorsePlayer);
-		arrayRisorse.add(setRisorsePlayer);
-		arrayRisorse.add(setRisorsePlayer);
-		arrayRisorse.add(setRisorsePlayer);
-		torre = new Torre(4, arrayRisorse);
-		spazioTorre = new SpazioTorre(1, setRisorsePlayer, torre);
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
 		
 		
 	}	
