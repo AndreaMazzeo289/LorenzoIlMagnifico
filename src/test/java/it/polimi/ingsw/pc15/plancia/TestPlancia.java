@@ -2,6 +2,7 @@ package it.polimi.ingsw.pc15.plancia;
 
 import org.junit.*;
 
+import it.polimi.ingsw.pc15.azioni.AzioneOccupaSpazioTorre;
 import it.polimi.ingsw.pc15.azioni.AzionePrendiCarta;
 import it.polimi.ingsw.pc15.azioni.AzionePrendiCartaPersonaggio;
 import it.polimi.ingsw.pc15.carte.Carta;
@@ -39,6 +40,13 @@ public class TestPlancia {
 
 	Plancia plancia;
 	
+	
+	//-----------------------------------------------------------------------------------------------------------//
+	//          TEST SET CARTE                                                                                   //
+	//-----------------------------------------------------------------------------------------------------------//
+	
+	
+	
 	Legna legna;
 	Oro oro;
 	Pietra pietra;
@@ -67,16 +75,21 @@ public class TestPlancia {
 	ArrayList<Carta> arrayListCarteImpresa;
 	
 	
-	Torre torre;
-	SpazioTorre spazioTorre;
+	//-----------------------------------------------------------------------------------------------------------//
+	//          TEST LIBERA                                                                                      //
+	//-----------------------------------------------------------------------------------------------------------//
+	
+	AzioneOccupaSpazioTorre azioneOccupaSpazioTorreTerritorio;
+	AzioneOccupaSpazioTorre azioneOccupaSpazioTorrePersonaggio;
+	AzioneOccupaSpazioTorre azioneOccupaSpazioTorreEdificio;
+	AzioneOccupaSpazioTorre azioneOccupaSpazioTorreImpresa;
+	Player player;
+	Torre torreTerritorio;
+	Torre torrePersonaggio;
+	Torre torreEdificio;
+	Torre torreImpresa;
+	Familiare familiare;
 	ArrayList<SetRisorse> arrayRisorse;
-	
-	
-	EffettiAttivi effettiAttivi1;
-	EffettiAttivi effettiAttivi2;
-	
-	Familiare familiare1;
-	Familiare familiare2;
 	
 	@Before 
 	public void setUp(){
@@ -84,6 +97,8 @@ public class TestPlancia {
 		//-----------------------------------------------------------------------------------------------------------//
 		//          TEST SET CARTE                                                                                   //
 		//-----------------------------------------------------------------------------------------------------------//
+		
+		
 		
 		plancia = new Plancia(4);
 		
@@ -155,6 +170,18 @@ public class TestPlancia {
 		//          TEST LIBERA                                                                                      //
 		//-----------------------------------------------------------------------------------------------------------//
 		
+		arrayRisorse = new ArrayList<SetRisorse>();
+		arrayRisorse.add(setRisorsePlayer);
+		arrayRisorse.add(setRisorsePlayer);
+		arrayRisorse.add(setRisorsePlayer);
+		arrayRisorse.add(setRisorsePlayer);
+		
+		torreTerritorio = new Torre(4, arrayRisorse);
+		torrePersonaggio = new Torre(4, arrayRisorse);
+		torreEdificio = new Torre(4, arrayRisorse);
+		torreImpresa = new Torre(4, arrayRisorse);
+						
+				
 		
 		
 		
@@ -181,6 +208,64 @@ public class TestPlancia {
 		assertEquals("Errore test set carte", cartaPersonaggioTest.toString(), cartaPersonaggio.toString());
 		assertEquals("Errore test set carte", cartaEdificioTest.toString(), cartaEdificio.toString());
 		assertEquals("Errore test set carte", cartaImpresaTest.toString(), cartaImpresa.toString());
+		
+	}
+	
+	
+	
+	@Test
+	public void testLibera(){
+		
+		Boolean risultatoOccupaSpazioTerritorio;
+		Boolean risultatoOccupaSpazioPersonaggio;
+		Boolean risultatoOccupaSpazioEdificio;
+		Boolean risultatoOccupaSpazioImpresa;
+		
+		
+		Boolean risultatoLibera;
+		
+		
+		plancia.setCarte(1, arrayListCarteTerritorio, arrayListCartePersonaggio, arrayListCarteEdificio, arrayListCarteImpresa);
+		
+		
+		
+		/*
+		 * 
+		 * 	Va fatto dopo aver riempito di carte la plancia altrimenti
+		 *  non può riconosce il tipo di AzionePrendiCarta da esguire.
+		 *  
+		 */
+		
+		azioneOccupaSpazioTorreTerritorio = new AzioneOccupaSpazioTorre(player, familiare, torreTerritorio.getSpazio(1), 0);
+		azioneOccupaSpazioTorrePersonaggio = new AzioneOccupaSpazioTorre(player, familiare, torrePersonaggio.getSpazio(1), 0);
+		azioneOccupaSpazioTorreEdificio = new AzioneOccupaSpazioTorre(player, familiare, torreEdificio.getSpazio(1), 0);
+		azioneOccupaSpazioTorreImpresa = new AzioneOccupaSpazioTorre(player, familiare, torreImpresa.getSpazio(1), 0);
+		
+		
+		
+		azioneOccupaSpazioTorreTerritorio.attiva();
+		azioneOccupaSpazioTorrePersonaggio.attiva();
+		azioneOccupaSpazioTorreEdificio.attiva();
+		azioneOccupaSpazioTorreImpresa.attiva();
+		
+		risultatoOccupaSpazioTerritorio = torreTerritorio.occupata();
+		risultatoOccupaSpazioPersonaggio = torrePersonaggio.occupata();
+		risultatoOccupaSpazioEdificio = torreEdificio.occupata();
+		risultatoOccupaSpazioImpresa = torreImpresa.occupata();
+		
+		
+		assertTrue("La torre verde non è stata occupata correttamente", risultatoOccupaSpazioTerritorio);
+		assertTrue("La torre blu non è stata occupata correttamente", risultatoOccupaSpazioPersonaggio);
+		assertTrue("La torre gialla non è stata occupata correttamente", risultatoOccupaSpazioEdificio);
+		assertTrue("La torre viola non è stata occupata correttamente", risultatoOccupaSpazioImpresa);
+		
+		
+		
+		
+		
+		
+		
+		
 		
 	}
 }
