@@ -8,6 +8,7 @@ import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;
 import java.awt.Image;
 import java.awt.Toolkit;
+import java.awt.event.ActionListener;
 
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
@@ -36,7 +37,9 @@ public class SpazioMercato3 extends JPanel{
 	
 	float rapporto;
 	
-	public SpazioMercato3() {
+	boolean occupato;
+	
+	public SpazioMercato3(ActionListener listener) {
 		
 		larghezzaTotale = mainGUI.larghezzaTotale;
 		altezzaTotale =  mainGUI.altezzaTotale;
@@ -116,7 +119,7 @@ public class SpazioMercato3 extends JPanel{
 			gbc.gridwidth = GridBagConstraints.REMAINDER;
 			gbc.fill = GridBagConstraints.HORIZONTAL;
 			
-			buttonFamiliare = new ButtonTransparent("spazioMercato3",160,160);
+			buttonFamiliare = new ButtonTransparent("spazioMercato3",160,160,listener);
 			
 			labelCenter.add(buttonFamiliare,gbc);
 			

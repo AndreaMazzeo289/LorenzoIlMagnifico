@@ -51,4 +51,12 @@ public class ButtonScartaLeader extends JButton{
 		this.setActionCommand("scartaCartaLeader");
 		this.setBorder(null);
 	}
+	
+	public void bloccaButton() {
+		this.setEnabled(false);
+	}
+	
+	public void sbloccaButton() {
+		this.setEnabled(true);
+	}
 }

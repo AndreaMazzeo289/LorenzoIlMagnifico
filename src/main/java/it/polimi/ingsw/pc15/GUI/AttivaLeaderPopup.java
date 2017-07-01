@@ -16,8 +16,8 @@ public class AttivaLeaderPopup extends JFrame{
 	
 	int altezza, larghezza;
 	
-	ImageIcon imageIcon;
-	Image image, newImage;
+	transient ImageIcon imageIcon;
+	transient Image image, newImage;
 	
 	public AttivaLeaderPopup(ButtonListener listener) {
 		

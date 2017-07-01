@@ -8,6 +8,7 @@ import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;
 import java.awt.Image;
 import java.awt.Toolkit;
+import java.awt.event.ActionListener;
 
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
@@ -36,7 +37,9 @@ public class SpazioRaccolto1 extends JPanel{
 	
 	float rapporto;
 	
-	public SpazioRaccolto1() {
+	boolean occupato;
+	
+	public SpazioRaccolto1(ActionListener listener) {
 		
 		larghezzaTotale = mainGUI.larghezzaTotale;
 		altezzaTotale =  mainGUI.altezzaTotale;
@@ -99,7 +102,7 @@ public class SpazioRaccolto1 extends JPanel{
 		gbc.gridwidth = GridBagConstraints.REMAINDER;
 		gbc.fill = GridBagConstraints.HORIZONTAL;
 		
-		buttonFamiliare = new ButtonTransparent("spazioRaccolto1",160,160);
+		buttonFamiliare = new ButtonTransparent("spazioRaccolto1",160,160,listener);
 		
 		labelCenter.add(buttonFamiliare,gbc);
 		

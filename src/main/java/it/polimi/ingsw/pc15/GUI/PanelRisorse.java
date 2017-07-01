@@ -3,6 +3,7 @@ package it.polimi.ingsw.pc15.GUI;
 import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.Dimension;
+import java.awt.Font;
 import java.awt.GridBagLayout;
 import java.awt.Image;
 import java.awt.Toolkit;
@@ -10,6 +11,7 @@ import java.awt.Toolkit;
 import javax.swing.ImageIcon;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
+import javax.swing.SwingConstants;
 
 public class PanelRisorse extends JPanel{
 
@@ -33,7 +35,7 @@ public class PanelRisorse extends JPanel{
 	ImageIcon imageIcon;
 	Image image, newImage;
 	
-	public PanelRisorse(String path){
+	public PanelRisorse(String path, int value){
 		
 		larghezzaTotale = mainGUI.larghezzaTotale;
 		altezzaTotale =  mainGUI.altezzaTotale;
@@ -53,7 +55,7 @@ public class PanelRisorse extends JPanel{
 		this.setLayout(new BorderLayout());
 		
 		labelNorth = new JLabel();
-		labelCenter = new JLabel();
+		labelCenter = new JLabel(Integer.toString(value), SwingConstants.CENTER);
 		labelSouth = new JLabel();
 		
 		imageIcon = new ImageIcon(path);
@@ -61,10 +63,9 @@ public class PanelRisorse extends JPanel{
 		newImage = image.getScaledInstance(((int)(larghezzaSchermo*larghezzaBlocco)/larghezzaTotale),((int)(altezzaSchermo*altezzaNorth)/altezzaTotale),Image.SCALE_DEFAULT);
 		ImageIcon imageNorth = new ImageIcon(newImage);
 		
-		imageIcon = new ImageIcon("img\\Punchboard\\Risorse\\center.png");
-		image = imageIcon.getImage();
-		newImage = image.getScaledInstance(((int)(larghezzaSchermo*larghezzaBlocco)/larghezzaTotale),((int)(altezzaSchermo*altezzaCenter)/altezzaTotale),Image.SCALE_DEFAULT);
-		ImageIcon imageCenter = new ImageIcon(newImage);
+		labelCenter.setFont(new Font("TimesRoman", Font.BOLD, 17)); 
+		labelCenter.setOpaque(true);
+		labelCenter.setBackground(Color.decode("15394527"));
 		
 		imageIcon = new ImageIcon("img\\Punchboard\\Risorse\\south.png");
 		image = imageIcon.getImage();
@@ -72,7 +73,6 @@ public class PanelRisorse extends JPanel{
 		ImageIcon imageSouth = new ImageIcon(newImage);
 		
 		labelNorth.setIcon(imageNorth);
-		labelCenter.setIcon(imageCenter);
 		labelSouth.setIcon(imageSouth);
 		
 		this.add(labelNorth, BorderLayout.NORTH);
@@ -82,13 +82,7 @@ public class PanelRisorse extends JPanel{
 	}
 	
 	public void writeIntoLabel (int numero) {
-		String text = "                "+numero;
-		labelCenter.setIcon(null);
-		Dimension dimensione = new Dimension(((int)(larghezzaSchermo*larghezzaBlocco)/larghezzaTotale),((int)(altezzaSchermo*altezzaCenter)/altezzaTotale));
-		labelCenter.setMinimumSize(dimensione);
-		labelCenter.setOpaque(true);
-		labelCenter.setBackground(Color.decode("15394527"));
-		labelCenter.setText(text);
+		labelCenter.setText(Integer.toString(numero));
 	}
 	
 }

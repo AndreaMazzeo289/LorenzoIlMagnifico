@@ -35,12 +35,12 @@ public class AggiuntaRisorseTest {
 	
 	/*@Test
 	public void aggiuntaTest() {
-		aggiuntaRisorse = new AggiuntaRisorse(setRisorse);
+		/*aggiuntaRisorse = new AggiuntaRisorse(setRisorse);
 		aggiuntaRisorse.attiva(player1);
 		assertEquals(11, player1.getSetRisorse().getRisorsa(TipoRisorsa.LEGNA).getQuantità());
 		assertEquals(13, player1.getSetRisorse().getRisorsa(TipoRisorsa.PIETRA).getQuantità());
 		assertEquals(11, player1.getSetRisorse().getRisorsa(TipoRisorsa.ORO).getQuantità());
-		assertEquals(3, player1.getSetRisorse().getRisorsa(TipoRisorsa.SERVITORI).getQuantità());
+		assertEquals(3, player1.getSetRisorse().getRisorsa(TipoRisorsa.SERVITORI).getQuantità());*/
 	
 	}
 */

@@ -8,6 +8,7 @@ import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;
 import java.awt.Image;
 import java.awt.Toolkit;
+import java.awt.event.ActionListener;
 
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
@@ -36,7 +37,9 @@ public class SpazioTorreVerde2 extends JPanel{
 	
 	float rapporto;
 	
-	public SpazioTorreVerde2(String path) {
+	boolean occupato;
+	
+	public SpazioTorreVerde2(String path, ActionListener listener) {
 		
 		larghezzaTotale = mainGUI.larghezzaTotale;
 		altezzaTotale =  mainGUI.altezzaTotale;
@@ -62,17 +65,17 @@ public class SpazioTorreVerde2 extends JPanel{
 		labelSouth = new JLabel();
 		labelEast = new JLabel();
 		
-		imageIcon = new ImageIcon("img\\Gameboard\\SpaziTorre\\Verde\\1\\north.png");
+		imageIcon = new ImageIcon("img\\Gameboard\\SpaziTorre\\Verde\\2\\north.png");
 		image = imageIcon.getImage();
 		newImage = image.getScaledInstance(((int)(larghezzaSchermo*larghezzaN)/larghezzaTotale),((int)(altezzaSchermo*altezzaN)/altezzaTotale),Image.SCALE_DEFAULT);
 		ImageIcon imageNorth = new ImageIcon(newImage);
 		
-		imageIcon = new ImageIcon("img\\Gameboard\\SpaziTorre\\Verde\\1\\east.png");
+		imageIcon = new ImageIcon("img\\Gameboard\\SpaziTorre\\Verde\\2\\east.png");
 		image = imageIcon.getImage();
 		newImage = image.getScaledInstance(((int)(larghezzaSchermo*larghezzaE)/larghezzaTotale),((int)(altezzaSchermo*altezzaECW)/altezzaTotale),Image.SCALE_DEFAULT);
 		ImageIcon imageEast = new ImageIcon(newImage);
 		
-		imageIcon = new ImageIcon("img\\Gameboard\\SpaziTorre\\Verde\\1\\west.png");
+		imageIcon = new ImageIcon("img\\Gameboard\\SpaziTorre\\Verde\\2\\west.png");
 		image = imageIcon.getImage();
 		newImage = image.getScaledInstance(((int)(larghezzaSchermo*larghezzaW)/larghezzaTotale),((int)(altezzaSchermo*altezzaECW)/altezzaTotale),Image.SCALE_DEFAULT);
 		ImageIcon imageWest = new ImageIcon(newImage);
@@ -82,7 +85,7 @@ public class SpazioTorreVerde2 extends JPanel{
 		newImage = image.getScaledInstance(((int)(larghezzaSchermo*larghezzaC)/larghezzaTotale),((int)(altezzaSchermo*altezzaECW)/altezzaTotale),Image.SCALE_DEFAULT);
 		ImageIcon imageCenter = new ImageIcon(newImage);
 		
-		imageIcon = new ImageIcon("img\\Gameboard\\SpaziTorre\\Verde\\1\\south.png");
+		imageIcon = new ImageIcon("img\\Gameboard\\SpaziTorre\\Verde\\2\\south.png");
 		image = imageIcon.getImage();
 		newImage = image.getScaledInstance(((int)(larghezzaSchermo*larghezzaS)/larghezzaTotale),((int)(altezzaSchermo*altezzaS)/altezzaTotale),Image.SCALE_DEFAULT);
 		ImageIcon imageSouth = new ImageIcon(newImage);
@@ -103,7 +106,7 @@ public class SpazioTorreVerde2 extends JPanel{
 		gbc.gridwidth = GridBagConstraints.REMAINDER;
 		gbc.fill = GridBagConstraints.HORIZONTAL;
 		
-		buttonFamiliare = new ButtonTransparent("spazioTorreVerde2",160,160);
+		buttonFamiliare = new ButtonTransparent("spazioTorreVerde2",160,160,listener);
 		
 		labelEast.add(buttonFamiliare,gbc);
 		

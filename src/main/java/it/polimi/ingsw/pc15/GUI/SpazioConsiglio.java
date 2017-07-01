@@ -7,6 +7,7 @@ import java.awt.Dimension;
 import java.awt.GridLayout;
 import java.awt.Image;
 import java.awt.Toolkit;
+import java.awt.event.ActionListener;
 
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
@@ -50,7 +51,7 @@ public class SpazioConsiglio extends JPanel{
 	ImageIcon imageIcon;
 	Image image, newImage;
 	
-	public SpazioConsiglio() {
+	public SpazioConsiglio(ActionListener listener) {
 		
 		larghezzaTotale = mainGUI.larghezzaTotale;
 		altezzaTotale =  mainGUI.altezzaTotale;
@@ -117,22 +118,22 @@ public class SpazioConsiglio extends JPanel{
 		JLabel labelButton = new JLabel();
 		labelButton.setLayout(new GridLayout(2,8));
 		
-		button1 = new ButtonTransparent("SpazioConsiglioPosizione1",100,85);
-		button2= new ButtonTransparent("SpazioConsiglioPosizione2",100,85);
-		button3 = new ButtonTransparent("SpazioConsiglioPosizione3",100,85);
-		button4 = new ButtonTransparent("SpazioConsiglioPosizione4",100,85);
-		button5 = new ButtonTransparent("SpazioConsiglioPosizione5",100,85);
-		button6 = new ButtonTransparent("SpazioConsiglioPosizione6",100,85);
-		button7 = new ButtonTransparent("SpazioConsiglioPosizione7",100,85);
-		button8 = new ButtonTransparent("SpazioConsiglioPosizione8",100,85);
-		button9 = new ButtonTransparent("SpazioConsiglioPosizione9",100,85);
-		button10 = new ButtonTransparent("SpazioConsiglioPosizione10",100,85);
-		button11 = new ButtonTransparent("SpazioConsiglioPosizione11",100,85);
-		button12 = new ButtonTransparent("SpazioConsiglioPosizione12",100,85);
-		button13 = new ButtonTransparent("SpazioConsiglioPosizione13",100,85);
-		button14 = new ButtonTransparent("SpazioConsiglioPosizione14",100,85);
-		button15 = new ButtonTransparent("SpazioConsiglioPosizione15",100,85);
-		button16 = new ButtonTransparent("SpazioConsiglioPosizione16",100,85);
+		button1 = new ButtonTransparent("SpazioConsiglioPosizione1",100,85,listener);
+		button2= new ButtonTransparent("SpazioConsiglioPosizione2",100,85,listener);
+		button3 = new ButtonTransparent("SpazioConsiglioPosizione3",100,85,listener);
+		button4 = new ButtonTransparent("SpazioConsiglioPosizione4",100,85,listener);
+		button5 = new ButtonTransparent("SpazioConsiglioPosizione5",100,85,listener);
+		button6 = new ButtonTransparent("SpazioConsiglioPosizione6",100,85,listener);
+		button7 = new ButtonTransparent("SpazioConsiglioPosizione7",100,85,listener);
+		button8 = new ButtonTransparent("SpazioConsiglioPosizione8",100,85,listener);
+		button9 = new ButtonTransparent("SpazioConsiglioPosizione9",100,85,listener);
+		button10 = new ButtonTransparent("SpazioConsiglioPosizione10",100,85,listener);
+		button11 = new ButtonTransparent("SpazioConsiglioPosizione11",100,85,listener);
+		button12 = new ButtonTransparent("SpazioConsiglioPosizione12",100,85,listener);
+		button13 = new ButtonTransparent("SpazioConsiglioPosizione13",100,85,listener);
+		button14 = new ButtonTransparent("SpazioConsiglioPosizione14",100,85,listener);
+		button15 = new ButtonTransparent("SpazioConsiglioPosizione15",100,85,listener);
+		button16 = new ButtonTransparent("SpazioConsiglioPosizione16",100,85,listener);
 		
 		labelButton.add(button1);
 		labelButton.add(button2);

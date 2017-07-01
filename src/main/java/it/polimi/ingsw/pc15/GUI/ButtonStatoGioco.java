@@ -37,7 +37,7 @@ public class ButtonStatoGioco extends JButton{
 		this.setLayout(new BorderLayout());
 		
 		int altezza = 400;
-		int larghezza = 4074;//1760 
+		int larghezza = 2500;//2574
 		
 		int larghezzaTotale = 4076;
 		int altezzaTotale = 6530; //6420
@@ -47,12 +47,20 @@ public class ButtonStatoGioco extends JButton{
 		ImageIcon imageIcon;
 		Image image, newImage;
 		
-		imageIcon = new ImageIcon("img\\Punchboard\\statoDelGiocoButton.png");
+		imageIcon = new ImageIcon("img\\Punchboard\\statoGioco.png");
 		image = imageIcon.getImage();
 		newImage = image.getScaledInstance(((int)(larghezzaSchermo*larghezza)/larghezzaTotale),((int)(altezzaSchermo*altezza)/altezzaTotale),Image.SCALE_DEFAULT);
 		ImageIcon imageAll = new ImageIcon(newImage);
 		
 		this.setIcon(imageAll);
 		this.setPreferredSize(new Dimension(larghezza,altezza));
+	}
+	
+	public void bloccaButton() {
+		this.setEnabled(false);
+	}
+	
+	public void sbloccaButton() {
+		this.setEnabled(true);
 	}
 }

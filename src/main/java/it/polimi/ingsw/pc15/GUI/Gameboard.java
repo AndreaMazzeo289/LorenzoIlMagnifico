@@ -11,6 +11,7 @@ import java.awt.GridBagLayout;
 import java.awt.GridLayout;
 import java.awt.Image;
 import java.awt.Toolkit;
+import java.awt.event.ActionListener;
 import java.awt.geom.AffineTransform;
 import java.awt.image.AffineTransformOp;
 import java.awt.image.BufferedImage;
@@ -31,10 +32,10 @@ import javax.swing.JTable;
 public class Gameboard extends JPanel {
 	
 	JPanel spaziTorre = new JPanel (new GridBagLayout());
-	SpazioConsiglio spazioConsiglio = new SpazioConsiglio ();
+	SpazioConsiglio spazioConsiglio;
 	JPanel spazioFinale = new JPanel (new GridLayout(1,2));
 	
-	public Gameboard() {
+	public Gameboard(ActionListener listener) {
 		
 		this.setLayout(new GridBagLayout());
 		
@@ -52,38 +53,38 @@ public class Gameboard extends JPanel {
 		JPanel spaziProdRacc = new JPanel (new GridBagLayout());
 		gbc.gridx = 0;
 		gbc.gridy = 0;
-		spaziProdRacc.add(new SpazioProduzione1(), gbc);
+		spaziProdRacc.add(new SpazioProduzione1(listener), gbc);
 		
 		gbc.gridx = 1;
 		gbc.gridy = 0;
-		spaziProdRacc.add(new SpazioProduzione2(), gbc);
+		spaziProdRacc.add(new SpazioProduzione2(listener), gbc);
 		
 		gbc.gridx = 0;
 		gbc.gridy = 1;
-		spaziProdRacc.add(new SpazioRaccolto1(), gbc);
+		spaziProdRacc.add(new SpazioRaccolto1(listener), gbc);
 		
 		gbc.gridx = 1;
 		gbc.gridy = 1;
-		spaziProdRacc.add(new SpazioRaccolto2(), gbc);
+		spaziProdRacc.add(new SpazioRaccolto2(listener), gbc);
 		
 		JPanel spaziMercatoDadi = new JPanel (new GridBagLayout());
 		
 		JPanel spazioMercato = new JPanel (new GridBagLayout());
 		gbc.gridx = 0;
 		gbc.gridy = 0;
-		spazioMercato.add(new SpazioMercato1(), gbc);
+		spazioMercato.add(new SpazioMercato1(listener), gbc);
 		
 		gbc.gridx = 1;
 		gbc.gridy = 0;
-		spazioMercato.add(new SpazioMercato2(), gbc);
+		spazioMercato.add(new SpazioMercato2(listener), gbc);
 		
 		gbc.gridx = 2;
 		gbc.gridy = 0;
-		spazioMercato.add(new SpazioMercato3(), gbc);
+		spazioMercato.add(new SpazioMercato3(listener), gbc);
 		
 		gbc.gridx = 3;
 		gbc.gridy = 0;
-		spazioMercato.add(new SpazioMercato4(), gbc);
+		spazioMercato.add(new SpazioMercato4(listener), gbc);
 		
 		gbc.gridx = 0;
 		gbc.gridy = 0;
@@ -99,73 +100,73 @@ public class Gameboard extends JPanel {
 		//-----------------------//
 		gbc.gridx = 0;
 		gbc.gridy = 0;
-		spaziTorre.add(new SpazioTorreVerde1("img/DevCardsFront/devcards_f_en_c_1.png"), gbc); //0
+		spaziTorre.add(new SpazioTorreVerde1("img/DevCardsFront/devcards_f_en_c_1.png",listener), gbc); //0
 		
 		gbc.gridx = 1;
 		gbc.gridy = 0;
-		spaziTorre.add(new SpazioTorreBlu1("img/DevCardsFront/devcards_f_en_c_61.png"), gbc); //1
+		spaziTorre.add(new SpazioTorreBlu1("img/DevCardsFront/devcards_f_en_c_61.png",listener), gbc); //1
 		
 		gbc.gridx = 2;
 		gbc.gridy = 0;
-		spaziTorre.add(new SpazioTorreGialla1("img/DevCardsFront/devcards_f_en_c_25.png"), gbc); //2
+		spaziTorre.add(new SpazioTorreGialla1("img/DevCardsFront/devcards_f_en_c_25.png",listener), gbc); //2
 		
 		gbc.gridx = 3;
 		gbc.gridy = 0;
-		spaziTorre.add(new SpazioTorreViola1("img/DevCardsFront/devcards_f_en_c_93.png"), gbc); //3
+		spaziTorre.add(new SpazioTorreViola1("img/DevCardsFront/devcards_f_en_c_93.png",listener), gbc); //3
 		
 		gbc.gridx = 0;
 		gbc.gridy = 1;
-		spaziTorre.add(new SpazioTorreVerde2("img/DevCardsFront/devcards_f_en_c_2.png"), gbc); //4
+		spaziTorre.add(new SpazioTorreVerde2("img/DevCardsFront/devcards_f_en_c_2.png",listener), gbc); //4
 		
 		gbc.gridx = 1;
 		gbc.gridy = 1;
-		spaziTorre.add(new SpazioTorreBlu2("img/DevCardsFront/devcards_f_en_c_64.png"), gbc); //5
+		spaziTorre.add(new SpazioTorreBlu2("img/DevCardsFront/devcards_f_en_c_64.png",listener), gbc); //5
 		
 		gbc.gridx = 2;
 		gbc.gridy = 1;
-		spaziTorre.add(new SpazioTorreGialla2("img/DevCardsFront/devcards_f_en_c_26.png"), gbc); //6
+		spaziTorre.add(new SpazioTorreGialla2("img/DevCardsFront/devcards_f_en_c_26.png",listener), gbc); //6
 		
 		gbc.gridx = 3;
 		gbc.gridy = 1;
-		spaziTorre.add(new SpazioTorreViola2("img/DevCardsFront/devcards_f_en_c_94.png"), gbc); //7
+		spaziTorre.add(new SpazioTorreViola2("img/DevCardsFront/devcards_f_en_c_94.png",listener), gbc); //7
 		
 		gbc.gridx = 0;
 		gbc.gridy = 2;
-		spaziTorre.add(new SpazioTorreVerde3("img/DevCardsFront/devcards_f_en_c_3.png"), gbc); //8
+		spaziTorre.add(new SpazioTorreVerde3("img/DevCardsFront/devcards_f_en_c_3.png",listener), gbc); //8
 		
 		gbc.gridx = 1;
 		gbc.gridy = 2;
-		spaziTorre.add(new SpazioTorreBlu3("img/DevCardsFront/devcards_f_en_c_62.png"), gbc); //9
+		spaziTorre.add(new SpazioTorreBlu3("img/DevCardsFront/devcards_f_en_c_62.png",listener), gbc); //9
 		
 		gbc.gridx = 2;
 		gbc.gridy = 2;
-		spaziTorre.add(new SpazioTorreGialla3("img/DevCardsFront/devcards_f_en_c_27.png"), gbc); //10
+		spaziTorre.add(new SpazioTorreGialla3("img/DevCardsFront/devcards_f_en_c_27.png",listener), gbc); //10
 		
 		gbc.gridx = 3;
 		gbc.gridy = 2;
-		spaziTorre.add(new SpazioTorreViola3("img/DevCardsFront/devcards_f_en_c_95.png"), gbc); //11
+		spaziTorre.add(new SpazioTorreViola3("img/DevCardsFront/devcards_f_en_c_95.png",listener), gbc); //11
 		
 		gbc.gridx = 0;
 		gbc.gridy = 3;
-		spaziTorre.add(new SpazioTorreVerde4("img/DevCardsFront/devcards_f_en_c_4.png"), gbc); //12
+		spaziTorre.add(new SpazioTorreVerde4("img/DevCardsFront/devcards_f_en_c_4.png",listener), gbc); //12
 		
 		gbc.gridx = 1;
 		gbc.gridy = 3;
-		spaziTorre.add(new SpazioTorreBlu4("img/DevCardsFront/devcards_f_en_c_63.png"), gbc); //13
+		spaziTorre.add(new SpazioTorreBlu4("img/DevCardsFront/devcards_f_en_c_63.png",listener), gbc); //13
 		
 		gbc.gridx = 2;
 		gbc.gridy = 3;
-		spaziTorre.add(new SpazioTorreGialla4("img/DevCardsFront/devcards_f_en_c_28.png"), gbc); //14
+		spaziTorre.add(new SpazioTorreGialla4("img/DevCardsFront/devcards_f_en_c_28.png",listener), gbc); //14
 		
 		gbc.gridx = 3;
 		gbc.gridy = 3;
-		spaziTorre.add(new SpazioTorreViola4("img/DevCardsFront/devcards_f_en_c_96.png"), gbc); //15
+		spaziTorre.add(new SpazioTorreViola4("img/DevCardsFront/devcards_f_en_c_96.png",listener), gbc); //15
 		
 		//-------------------------------------------------------------------//
 		// ADD GAMEBOARD
 		//-------------------------------------------------------------------//
 
-		spazioConsiglio = new SpazioConsiglio();
+		spazioConsiglio = new SpazioConsiglio(listener);
 		
 		gbc.gridx=0;
 		gbc.gridy=0;

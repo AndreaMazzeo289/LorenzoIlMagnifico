@@ -9,7 +9,7 @@ import javax.swing.ImageIcon;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 
-public class CartaScomunica extends JPanel{
+public class PersonalBonus extends JPanel{
 
 	JLabel carta;
 	Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();	
@@ -20,7 +20,7 @@ public class CartaScomunica extends JPanel{
 	int altezzaSchermo;
 	int larghezzaSchermo;
 	
-	public CartaScomunica(String path) {
+	public PersonalBonus(String path) {
 
 		larghezzaTotale = mainGUI.larghezzaTotale;
 		altezzaTotale =  mainGUI.altezzaTotale;
@@ -31,7 +31,7 @@ public class CartaScomunica extends JPanel{
 		
 		this.setLayout(new BorderLayout());
 		
-		int altezza = 1300; //toDefine
+		int altezza = 4700; //toDefine
 		int larghezza = 400; //toDefine
 		
 		carta = new JLabel();

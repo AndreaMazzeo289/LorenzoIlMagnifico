@@ -43,6 +43,8 @@ public class SpazioFamiliariDisponibili extends JPanel{
 	int altezzaSchermo;
 	int larghezzaSchermo;
 	
+	boolean occupato;
+	
 	public SpazioFamiliariDisponibili() {
 		
 		larghezzaTotale = mainGUI.larghezzaTotale;
@@ -55,7 +57,7 @@ public class SpazioFamiliariDisponibili extends JPanel{
 		this.setLayout(new BorderLayout());
 		
 		altezzaBackground=700;
-		larghezzaBackground=850;//924
+		larghezzaBackground=1080;//850
 		
 		larghezzaFamiliare = 198;
 		altezzaFamiliare= 198;

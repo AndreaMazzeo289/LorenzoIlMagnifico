@@ -52,7 +52,13 @@ public class ButtonAttivaEffettoLeader extends JButton{
 		this.setPreferredSize(new Dimension(larghezza,altezza));
 		this.setBorder(null);
 		this.setBorderPainted(false);
-		
-		
+	}
+	
+	public void bloccaButton() {
+		this.setEnabled(false);
+	}
+	
+	public void sbloccaButton() {
+		this.setEnabled(true);
 	}
 }

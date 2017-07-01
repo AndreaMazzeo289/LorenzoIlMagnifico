@@ -11,6 +11,8 @@ import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 
+import it.polimi.ingsw.pc15.carte.TipoCarta;
+
 public class CarteGioco extends JButton{
 
 	JButton carta;
@@ -21,17 +23,25 @@ public class CarteGioco extends JButton{
 	float rapporto;
 	int altezzaSchermo;
 	int larghezzaSchermo;
+	int altezzaRescale;
+	int larghezzaRescale;
+	TipoCarta tipoCarta;
 	
-	public CarteGioco(String path) {
+	String path;
+	
+	ImageIcon imageIcon;
+	Image image, newImage;
+	
+	public CarteGioco(String path, TipoCarta tipoCarta) {
 		
+		this.path = path;
+		
+		this.tipoCarta = tipoCarta;
 		this.setActionCommand(path);
 		
 		larghezzaTotale = mainGUI.larghezzaTotale;
 		altezzaTotale =  mainGUI.altezzaTotale;
 		rapporto = mainGUI.rapportoPlayerBoard;
-		
-		altezzaSchermo = (int)screenSize.getHeight();
-		larghezzaSchermo = (int)(((float)screenSize.getWidth())*rapporto);
 		
 		int altezza = 1100; //800
 		int larghezza = 370; //430
@@ -39,22 +49,31 @@ public class CarteGioco extends JButton{
 		int larghezzaTotale = 4076;
 		int altezzaTotale = 6530;
 		
-		carta = new JButton();
+		altezzaSchermo = (int)screenSize.getHeight();
+		larghezzaSchermo = (int)(((float)screenSize.getWidth())*rapporto);
+		larghezzaRescale = ((int)(larghezzaSchermo*larghezza)/larghezzaTotale);
+		altezzaRescale = ((int)(altezzaSchermo*altezza)/altezzaTotale);
 		
-		ImageIcon imageIcon;
-		Image image, newImage;
+		carta = new JButton();
 		
 		imageIcon = new ImageIcon(path);
 		image = imageIcon.getImage();
-		newImage = image.getScaledInstance(((int)(larghezzaSchermo*larghezza)/larghezzaTotale),((int)(altezzaSchermo*altezza)/altezzaTotale),Image.SCALE_DEFAULT);
-		ImageIcon imageAll = new ImageIcon(newImage);
+		newImage = image.getScaledInstance(larghezzaRescale,altezzaRescale,Image.SCALE_DEFAULT);
+		ImageIcon imageCard = new ImageIcon(newImage);
 		
-		carta.setIcon(imageAll);
+		carta.setIcon(imageCard);
 		
 		//this.add(carta, BorderLayout.CENTER);
-		this.setIcon(imageAll);
+		this.setIcon(imageCard);
 		this.setPreferredSize(new Dimension(larghezza,altezza));
 		this.setBackground(Color.decode("15394527"));
 	}
 	
+	public int getAltezzaRescale() {
+		return altezzaRescale;
+	}
+	
+	public int getLarghezzaRescale() {
+		return larghezzaRescale;
+	}
 }

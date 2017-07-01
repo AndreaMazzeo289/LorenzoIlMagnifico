@@ -7,6 +7,7 @@ import java.awt.Dimension;
 import java.awt.GridLayout;
 import java.awt.Image;
 import java.awt.Toolkit;
+import java.awt.event.ActionListener;
 
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
@@ -51,7 +52,9 @@ public class SpazioRaccolto2 extends JPanel{
 	
 	float rapporto;
 	
-	public SpazioRaccolto2() {
+	boolean occupato;
+	
+	public SpazioRaccolto2(ActionListener listener) {
 		
 		larghezzaTotale = mainGUI.larghezzaTotale;
 		altezzaTotale =  mainGUI.altezzaTotale;
@@ -116,22 +119,22 @@ public class SpazioRaccolto2 extends JPanel{
 		JLabel labelButton = new JLabel();
 		labelButton.setLayout(new GridLayout(2,8));
 		
-		button1 = new ButtonTransparent("SpazioRaccoltoPosizione1",100,85);
-		button2 = new ButtonTransparent("SpazioRaccoltoPosizione2",100,85);
-		button3 = new ButtonTransparent("SpazioRaccoltoPosizione3",100,85);
-		button4 = new ButtonTransparent("SpazioRaccoltoPosizione4",100,85);
-		button5 = new ButtonTransparent("SpazioRaccoltoPosizione5",100,85);
-		button6 = new ButtonTransparent("SpazioRaccoltoPosizione6",100,85);
-		button7 = new ButtonTransparent("SpazioRaccoltoPosizione7",100,85);
-		button8 = new ButtonTransparent("SpazioRaccoltoPosizione8",100,85);
-		button9 = new ButtonTransparent("SpazioRaccoltoPosizione9",100,85);
-		button10 = new ButtonTransparent("SpazioRaccoltoPosizione10",100,85);
-		button11 = new ButtonTransparent("SpazioRaccoltoPosizione11",100,85);
-		button12 = new ButtonTransparent("SpazioRaccoltoPosizione12",100,85);
-		button13 = new ButtonTransparent("SpazioRaccoltoPosizione13",100,85);
-		button14 = new ButtonTransparent("SpazioRaccoltoPosizione14",100,85);
-		button15 = new ButtonTransparent("SpazioRaccoltoPosizione15",100,85);
-		button16 = new ButtonTransparent("SpazioRaccoltoPosizione16",100,85);
+		button1 = new ButtonTransparent("SpazioRaccoltoPosizione1",100,85,listener);
+		button2 = new ButtonTransparent("SpazioRaccoltoPosizione2",100,85,listener);
+		button3 = new ButtonTransparent("SpazioRaccoltoPosizione3",100,85,listener);
+		button4 = new ButtonTransparent("SpazioRaccoltoPosizione4",100,85,listener);
+		button5 = new ButtonTransparent("SpazioRaccoltoPosizione5",100,85,listener);
+		button6 = new ButtonTransparent("SpazioRaccoltoPosizione6",100,85,listener);
+		button7 = new ButtonTransparent("SpazioRaccoltoPosizione7",100,85,listener);
+		button8 = new ButtonTransparent("SpazioRaccoltoPosizione8",100,85,listener);
+		button9 = new ButtonTransparent("SpazioRaccoltoPosizione9",100,85,listener);
+		button10 = new ButtonTransparent("SpazioRaccoltoPosizione10",100,85,listener);
+		button11 = new ButtonTransparent("SpazioRaccoltoPosizione11",100,85,listener);
+		button12 = new ButtonTransparent("SpazioRaccoltoPosizione12",100,85,listener);
+		button13 = new ButtonTransparent("SpazioRaccoltoPosizione13",100,85,listener);
+		button14 = new ButtonTransparent("SpazioRaccoltoPosizione14",100,85,listener);
+		button15 = new ButtonTransparent("SpazioRaccoltoPosizione15",100,85,listener);
+		button16 = new ButtonTransparent("SpazioRaccoltoPosizione16",100,85,listener);
 		
 		labelButton.add(button1);
 		labelButton.add(button2);

@@ -30,22 +30,22 @@ public class GiocaLeaderPopup extends JFrame{
 		
 		PlayerBoard playerBoard = (PlayerBoard)mainGUI.mainFrame.getContentPane().getComponent(1);
 		
-		if(!(playerBoard.getCartaLeader1().leggiLabel().equals("GIOCATO"))){
+		if((playerBoard.getCartaLeader1().leggiLabel().equals("NON GIOCATO"))){
 			CartaLeaderView cartaLeader = new CartaLeaderView(playerBoard.getCartaLeader1().getPath(), playerBoard.getCartaLeader1().getName(), "Gioca", listener);
 			this.add(cartaLeader);
 			larghezza+=350;
 		}
-		if(!(playerBoard.getCartaLeader2().leggiLabel().equals("GIOCATO"))){
+		if((playerBoard.getCartaLeader2().leggiLabel().equals("NON GIOCATO"))){
 			CartaLeaderView cartaLeader = new CartaLeaderView(playerBoard.getCartaLeader2().getPath(), playerBoard.getCartaLeader2().getName(), "Gioca", listener);
 			this.add(cartaLeader);
 			larghezza+=350;
 		}
-		if(!(playerBoard.getCartaLeader3().leggiLabel().equals("GIOCATO"))){
+		if((playerBoard.getCartaLeader3().leggiLabel().equals("NON GIOCATO"))){
 			CartaLeaderView cartaLeader = new CartaLeaderView(playerBoard.getCartaLeader3().getPath(), playerBoard.getCartaLeader3().getName(), "Gioca", listener);
 			this.add(cartaLeader);
 			larghezza+=350;
 		}
-		if(!(playerBoard.getCartaLeader4().leggiLabel().equals("GIOCATO"))){
+		if((playerBoard.getCartaLeader4().leggiLabel().equals("NON GIOCATO"))){
 			CartaLeaderView cartaLeader = new CartaLeaderView(playerBoard.getCartaLeader4().getPath(), playerBoard.getCartaLeader4().getName(), "Gioca", listener);
 			this.add(cartaLeader);
 			larghezza+=350;
