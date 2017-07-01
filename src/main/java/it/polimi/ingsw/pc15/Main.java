@@ -38,7 +38,7 @@ public class Main {
 		nomi.add("Fra");
 		nomi.add("Mazze");
 		
-		Model gioco = new Model(nomi, true);
+		Model gioco = new Model(nomi);
 		
 		gioco.iniziaPartita();
 		
