@@ -102,21 +102,67 @@ public class TestSetRisorse {
 			
 			Boolean result;
 			this.setRisorse1.aggiungi(this.setRisorse2);
+		
 			if(setRisorse1.paragona(setRisultatoAggiunta))
 				result = true;
 			else result = false;
 			assertTrue("Errore aggiunta", result);	
+			
+			/*
+			 * 
+			 * Test per con dichiarazioni conformi ai nuovi metodi di setRisorse.
+			 */
+			
+			HashSet<Risorsa> setProva1 = new HashSet<Risorsa>();
+			HashSet<Risorsa> setProva2 = new HashSet<Risorsa>();
+			HashSet<Risorsa> risProva = new HashSet<Risorsa>();
+		
+			setProva1.add(new Oro(2));
+			setProva2.add(new Pietra(2));
+			risProva.add(new Oro(2));
+			risProva.add(new Pietra(2));
+			
+			SetRisorse risorseProva1 = new SetRisorse(setProva1);
+			SetRisorse risorseProva2 = new SetRisorse(setProva2);
+			SetRisorse risorseRisultato = new SetRisorse(risProva);
+			
+			risorseProva1.aggiungi(risorseProva2);
+			assertEquals("Errore aggiungi setRisorse", risorseProva1.toString(), risorseRisultato.toString());
 		}
 	
 		@Test
 		public void testSottrai(){
 			
 			Boolean result;
+			System.out.println(setRisorse1.toString());
+			System.out.println(setRisorse2.toString());
 			this.setRisorse1.sottrai(this.setRisorse2);
+			System.out.println(setRisorse1.toString());
 			if(setRisultatoSottrai.paragona(setRisorse1))
 				result = true;
 			else result = false;
 			assertTrue("Errore sottrazione", result);
+			
+			
+			/*
+			 * 
+			 * Test per con dichiarazioni conformi ai nuovi metodi di setRisorse.
+			 */
+			
+			HashSet<Risorsa> setProva1 = new HashSet<Risorsa>();
+			HashSet<Risorsa> setProva2 = new HashSet<Risorsa>();
+			HashSet<Risorsa> risProva = new HashSet<Risorsa>();
+		
+			setProva1.add(new Oro(2));
+			setProva2.add(new Oro(6));
+			risProva.add(new Oro(0));
+			
+			SetRisorse risorseProva1 = new SetRisorse(setProva1);
+			SetRisorse risorseProva2 = new SetRisorse(setProva2);
+			SetRisorse risorseRisultato = new SetRisorse(risProva);
+			
+			risorseProva1.aggiungi(risorseProva2);
+			assertTrue("Errore sottrai setRisorse", risorseProva1.paragona(risorseRisultato));
 		}
 		
 		@Test

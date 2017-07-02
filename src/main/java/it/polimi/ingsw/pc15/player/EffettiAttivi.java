@@ -35,21 +35,13 @@ public class EffettiAttivi implements Serializable{
 		
 		bonusDadoCarte = new HashMap<TipoCarta, Integer>();
 		scontoCostoCarte = new HashMap<TipoCarta, SetRisorse>();
-		
-		bonusDadoCarte.put(TipoCarta.TERRITORIO, 0);
-		bonusDadoCarte.put(TipoCarta.PERSONAGGIO, 0);
-		bonusDadoCarte.put(TipoCarta.EDIFICIO, 0);
-		bonusDadoCarte.put(TipoCarta.IMPRESA, 0);
-		
-		bonusDadoCarte.put(TipoCarta.TERRITORIO, 0);
-		bonusDadoCarte.put(TipoCarta.PERSONAGGIO, 0);
-		bonusDadoCarte.put(TipoCarta.EDIFICIO, 0);
-		bonusDadoCarte.put(TipoCarta.IMPRESA, 0);
-		
 		bonusPuntiVittoriaFinale = new HashMap<TipoCarta, Boolean>();
-		bonusPuntiVittoriaFinale.put(TipoCarta.TERRITORIO, true);
-		bonusPuntiVittoriaFinale.put(TipoCarta.PERSONAGGIO, true);
-		bonusPuntiVittoriaFinale.put(TipoCarta.IMPRESA, true);
+		
+		for (TipoCarta tipoCarta : TipoCarta.values()) {
+			bonusDadoCarte.put(tipoCarta, 0);
+			scontoCostoCarte.put(tipoCarta, new SetRisorse(new HashSet<Risorsa>()));
+			bonusPuntiVittoriaFinale.put(tipoCarta, true);
+		}
 
 		this.bonusRaccolta = 0;
 		this.bonusProduzione = 0;

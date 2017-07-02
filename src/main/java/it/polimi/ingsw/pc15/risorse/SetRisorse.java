@@ -35,16 +35,18 @@ public class SetRisorse implements Serializable {
 	public void sottrai (SetRisorse setRisorse) {
 		
 		for (Map.Entry<TipoRisorsa, Risorsa> risorsa : setRisorse.getRisorse().entrySet()) {
-			this.risorse.get(risorsa.getKey()).aggiungi(risorsa.getValue().getQuantità());
-			if (this.risorse.get(risorsa.getKey()).getQuantità()<0)
-				this.risorse.get(risorsa.getKey()).aggiungi(-this.risorse.get(risorsa.getKey()).getQuantità());
+			if (this.risorse.containsKey(risorsa.getKey())) {
+				this.risorse.get(risorsa.getKey()).aggiungi(-risorsa.getValue().getQuantità());
+				if (this.risorse.get(risorsa.getKey()).getQuantità()<0)
+					this.risorse.get(risorsa.getKey()).aggiungi(-this.risorse.get(risorsa.getKey()).getQuantità());
+			}
 		}
 	}
 
 	public boolean paragona (SetRisorse setRisorse) { 
 		
 		for (Map.Entry<TipoRisorsa, Risorsa> risorsa : setRisorse.getRisorse().entrySet())
-			if (this.risorse.get(risorsa.getKey()).paragona(risorsa.getValue().getQuantità())==false)
+			if (!this.risorse.containsKey(risorsa.getKey()) || this.risorse.get(risorsa.getKey()).paragona(risorsa.getValue().getQuantità())==false)
 				return false;
 	
 		return true;
