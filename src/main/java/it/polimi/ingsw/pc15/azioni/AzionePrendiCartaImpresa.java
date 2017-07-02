@@ -1,6 +1,7 @@
 package it.polimi.ingsw.pc15.azioni;
 
 import java.io.IOException;
+import java.util.HashSet;
 import java.util.Scanner;
 
 import it.polimi.ingsw.pc15.ParserXML;
@@ -8,32 +9,31 @@ import it.polimi.ingsw.pc15.carte.Carta;
 import it.polimi.ingsw.pc15.carte.TipoCarta;
 import it.polimi.ingsw.pc15.carte.Impresa;
 import it.polimi.ingsw.pc15.player.Player;
+import it.polimi.ingsw.pc15.risorse.Oro;
+import it.polimi.ingsw.pc15.risorse.PuntiMilitari;
+import it.polimi.ingsw.pc15.risorse.Risorsa;
+import it.polimi.ingsw.pc15.risorse.SetRisorse;
 import it.polimi.ingsw.pc15.risorse.TipoRisorsa;
 
 public class AzionePrendiCartaImpresa extends AzionePrendiCarta {
 	
 		int scelta;
+		SetRisorse costoPuntiMilitari;
 		
-	public AzionePrendiCartaImpresa(Player player, Carta carta) {
+	public AzionePrendiCartaImpresa(Player player, Carta carta, int scelta) {
 		super(player, carta);
-		scelta = 0;
+		this.scelta = scelta;
+		this.costoPuntiMilitari = new SetRisorse(new HashSet<Risorsa>());
+		this.costoPuntiMilitari.aggiungi(new PuntiMilitari(((Impresa) carta).getCostoPuntiMilitari()));
 	}
 
 	@Override
 	public RisultatoAzione èValida() {
 		
-		if (carta.getCosto()!=null && ((Impresa)carta).getRequisitoPuntiMilitari() != 0) {
-			System.out.println("Vuoi pagare il costo normale (1) o il costo in Punti Militari (2) ?");
-			Scanner in = new Scanner(System.in);
-			scelta = in.nextInt();
-		}
-		
-		if (scelta == 1  || ((Impresa)carta).getRequisitoPuntiMilitari() == 0)
-			if (!risorseSufficienti())
+		if (scelta == 1 && risorseSufficienti()==false)
 				return new RisultatoAzione(false, "FRASE");
 		
-		if (scelta == 2  || carta.getCosto()== null)
-			if( puntiMilitariSufficienti() == false)
+		if (scelta == 2  && puntiMilitariSufficienti()==false)
 				return new RisultatoAzione(false, "FRASE");
 
 		if (player.getCarte(TipoCarta.EDIFICIO).size() == ParserXML.leggiValore("numeroMaxCarte")) {  
@@ -47,10 +47,10 @@ public class AzionePrendiCartaImpresa extends AzionePrendiCarta {
 	@Override
 	public void attiva() {
 		
-		if (scelta == 1  || ((Impresa)carta).getRequisitoPuntiMilitari() == 0)
-			pagaCosto();
-		if (scelta == 2 || carta.getCosto() == null)
-			pagaPuntiMilitari();
+		if (scelta == 1)
+			pagaCosto(costoFinale);
+		else if (scelta == 2)
+			pagaCosto(costoPuntiMilitari);
 		
 		daiCarta();
 		attivaEffettoIstantaneo();
@@ -62,17 +62,15 @@ public class AzionePrendiCartaImpresa extends AzionePrendiCarta {
 		if ( ((Impresa)carta).getRequisitoPuntiMilitari() > player.getSetRisorse().getRisorsa(TipoRisorsa.PUNTIMILITARI).getQuantità() ) 
 			return false;
 		
-		if (carta.getSpazio().getTorre().occupata() && player.getSetRisorse().getRisorsa(TipoRisorsa.ORO).getQuantità()<3 )
-			return false;
+		if (carta.getSpazio().getTorre().occupata() && player.getEffettiAttivi().sovrapprezzoTorri())
+			costoFinale.aggiungi(new Oro(3));
 		
-		if (((Impresa) carta).getCostoPuntiMilitari() > player.getSetRisorse().getRisorsa(TipoRisorsa.PUNTIMILITARI).getQuantità() )
-			return false;
-		
-		return true;
+		costoPuntiMilitari.sottrai(player.getEffettiAttivi().getScontoCostoCarte(carta.getTipo()));
+		costoPuntiMilitari.sottrai(player.getEffettiAttivi().getScontoCostoCarte(TipoCarta.ALL));
+			
+		return player.getSetRisorse().paragona(costoFinale);
 	}
 	
-	public void pagaPuntiMilitari() {
-		player.getSetRisorse().getRisorsa(TipoRisorsa.PUNTIMILITARI).aggiungi(-((Impresa) carta).getCostoPuntiMilitari());}
 }
 
 

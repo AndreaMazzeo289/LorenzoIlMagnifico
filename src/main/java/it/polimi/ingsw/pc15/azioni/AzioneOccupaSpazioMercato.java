@@ -10,6 +10,7 @@ public class AzioneOccupaSpazioMercato extends AzioneOccupaSpazio {
 
 	public AzioneOccupaSpazioMercato(Player player, Familiare familiare, SpazioMercato spazio, int servitoriAggiuntivi) {
 		super(player, familiare, spazio, servitoriAggiuntivi);
+		this.valoreAzione = familiare.getValore() + servitoriAggiuntivi;
 	}
 
 	@Override
@@ -33,11 +34,10 @@ public class AzioneOccupaSpazioMercato extends AzioneOccupaSpazio {
 		if (player.getEffettiAttivi().disponibilitàMercato() == false)
 			return new RisultatoAzione(false, "FRASE");
 		
-		if(familiare.getValore() + servitoriAggiuntivi < this.spazio.getValoreMin() ) 
+		if(this.valoreAzione < this.spazio.getValoreMin() ) 
 			return new RisultatoAzione(false, "FRASE");
 		
-		if (player.getEffettiAttivi().controllaPermessoSpaziOccupati() == false)
-			if (spazio.vuoto() == false)
+		if (spazio.vuoto() == false  &&  player.getEffettiAttivi().controllaPermessoSpaziOccupati()==false)
 				return new RisultatoAzione(false, "FRASE");
 		
 		return new RisultatoAzione(true, player.getNome() + " occupa lo spazio del Mercato!");

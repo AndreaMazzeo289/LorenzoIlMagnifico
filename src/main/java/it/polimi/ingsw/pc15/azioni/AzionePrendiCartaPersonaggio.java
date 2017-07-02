@@ -27,7 +27,7 @@ public class AzionePrendiCartaPersonaggio extends AzionePrendiCarta {
 	@Override
 	public void attiva() {
 		
-		pagaCosto();
+		pagaCosto(costoFinale);
 		daiCarta();
 		attivaEffettoIstantaneo();
 		attivaEffettoPermanente();

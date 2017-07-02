@@ -19,13 +19,6 @@ public class Impresa extends Carta {
 		this.costoPuntiMilitari = costoPuntiMilitari;
 		this.tipo = TipoCarta.IMPRESA;
 	}
-
-	@Override
-	public AzionePrendiCarta azionePrendiCarta(Player player) {
-		
-		AzionePrendiCarta azionePrendiCarta = new AzionePrendiCartaImpresa(player, this);
-		return azionePrendiCarta;
-	}
 	
 	public int getRequisitoPuntiMilitari() {
 		return this.requisitoPuntiMilitari;
@@ -33,5 +26,29 @@ public class Impresa extends Carta {
 	
 	public int getCostoPuntiMilitari() {
 		return this.costoPuntiMilitari;
+	}
+	
+	@Override
+	public String toString() {
+		String stringa = nome + " (COSTO: " + costo.toString() + "  - REQUISITO PUNTI MILITARI: ";
+		if (requisitoPuntiMilitari==0)
+			stringa += " nessuno";
+		else stringa += requisitoPuntiMilitari;
+		stringa += " - COSTO PUNTI MILITARI: ";
+		if (costoPuntiMilitari==0)
+			stringa += " nessuno";
+		else stringa += costoPuntiMilitari;
+		stringa +=  " - EFFETTO ISTANTANEO: ";
+		if (effettoIstantaneo.isEmpty())
+			stringa += "nessuno  -";
+		else for (Effetto effetto : effettoIstantaneo)
+			stringa += effetto.toString() + " - ";
+		stringa += " - EFFETTO PERMANENTE: ";
+		if (effettoPermanente.isEmpty())
+			stringa += "nessuno";
+		else for (Effetto effetto : effettoPermanente)
+			stringa += effetto.toString() + " - ";
+		stringa += " )";
+		return stringa;
 	}
 }

@@ -10,6 +10,7 @@ public class AzioneOccupaSpazioConsiglio extends AzioneOccupaSpazio {
 
 	public AzioneOccupaSpazioConsiglio(Player player, Familiare familiare, SpazioConsiglio spazio, int servitoriAggiuntivi) {
 		super(player, familiare, spazio, servitoriAggiuntivi);
+		this.valoreAzione = familiare.getValore() + servitoriAggiuntivi;
 	}
 
 	@Override
@@ -29,7 +30,7 @@ public class AzioneOccupaSpazioConsiglio extends AzioneOccupaSpazio {
 		if (familiare.disponibile() == false)
 			return new RisultatoAzione(false, "FRASE");
 		
-		if(familiare.getValore()+servitoriAggiuntivi < spazio.getValoreMin())		
+		if(this.valoreAzione < spazio.getValoreMin())		
 			return new RisultatoAzione(false, "FRASE");
 		
 		return new RisultatoAzione(true, player.getNome() + " occupa lo spazio del Consiglio!");

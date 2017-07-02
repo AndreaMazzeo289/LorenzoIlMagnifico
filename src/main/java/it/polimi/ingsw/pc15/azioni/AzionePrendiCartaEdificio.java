@@ -23,14 +23,7 @@ public class AzionePrendiCartaEdificio extends AzionePrendiCarta {
 		return new RisultatoAzione(true, player.getNome() + " prende la carta Edificio " + carta.getNome()+"!");
 	}
 
-	@Override
-	public void attiva() {
-		
-		pagaCosto();
-		daiCarta();
-		attivaEffettoIstantaneo();
-		
-	}
+
 
 
 }

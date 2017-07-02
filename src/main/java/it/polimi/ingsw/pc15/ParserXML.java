@@ -178,7 +178,7 @@ public class ParserXML {
 	                //------------------------------------------------------//
 	                //	FASE 5: ESTRAZIONE DEL COSTO [può non esistere]
 	                //------------------------------------------------------//
-	                SetRisorse costo=null;
+	                SetRisorse costo;
 	                try{
 	                	NodeList risorse = carta.getElementsByTagName("risorsa");
 	                	int contRisorse = risorse.getLength();
@@ -234,9 +234,6 @@ public class ParserXML {
 	                	}
 	                }catch(NullPointerException e){
 	                }
-	                
-	                if(risorseMap.isEmpty()) 
-	                	risorseMap.add(new Oro(0));
 	                
 	                costo = new SetRisorse (risorseMap);
 	                

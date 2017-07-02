@@ -13,15 +13,15 @@ import it.polimi.ingsw.pc15.risorse.SetRisorse;
 
 public abstract class Carta implements Serializable {
 	
-	private final String nome;
-	private final int id;
-	private final int periodo;
-	private final SetRisorse costo;
-	private final Set<Effetto> effettoIstantaneo;
-	private final Set<Effetto> effettoPermanente;
-	private final String imgPath;
-	private Player player;
-	private SpazioTorre spazio;
+	protected final String nome;
+	protected final int id;
+	protected final int periodo;
+	protected final SetRisorse costo;
+	protected final Set<Effetto> effettoIstantaneo;
+	protected final Set<Effetto> effettoPermanente;
+	protected final String imgPath;
+	protected Player player;
+	protected SpazioTorre spazio;
 	protected TipoCarta tipo;
 	
 	public Carta (String nome, int id, int periodo, SetRisorse costo, Set<Effetto> effettoIstantaneo, Set<Effetto> effettoPermanente, String imgPath) {
@@ -44,7 +44,7 @@ public abstract class Carta implements Serializable {
 		this.player = player;
 	}      
 	
-	public abstract AzionePrendiCarta azionePrendiCarta (Player player);
+	//public abstract AzionePrendiCarta azionePrendiCarta (Player player);
 	
 	
 	//-----------------------------------------------------------------------------------------------------------//
@@ -84,7 +84,7 @@ public abstract class Carta implements Serializable {
 	}
 	
 	public String toString() {
-		String stringa = nome + " (COSTO: " + costo.toString() + "  EFFETTO ISTANTANEO: ";
+		String stringa = nome + " (COSTO: " + costo.toString() + " -  EFFETTO ISTANTANEO: ";
 		if (effettoIstantaneo.isEmpty())
 			stringa += "nessuno  -";
 		else for (Effetto effetto : effettoIstantaneo)
