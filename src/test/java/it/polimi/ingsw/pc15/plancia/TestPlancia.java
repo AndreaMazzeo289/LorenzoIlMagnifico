@@ -3,8 +3,6 @@ package it.polimi.ingsw.pc15.plancia;
 import org.junit.*;
 
 import it.polimi.ingsw.pc15.azioni.AzioneOccupaSpazioTorre;
-import it.polimi.ingsw.pc15.azioni.AzionePrendiCarta;
-import it.polimi.ingsw.pc15.azioni.AzionePrendiCartaPersonaggio;
 import it.polimi.ingsw.pc15.carte.Carta;
 import it.polimi.ingsw.pc15.carte.Edificio;
 import it.polimi.ingsw.pc15.carte.Impresa;
@@ -13,10 +11,8 @@ import it.polimi.ingsw.pc15.carte.Territorio;
 import it.polimi.ingsw.pc15.carte.TipoCarta;
 import it.polimi.ingsw.pc15.effetti.AnnullaGuadagno;
 import it.polimi.ingsw.pc15.effetti.Effetto;
-import it.polimi.ingsw.pc15.plancia.SpazioTorre;
 import it.polimi.ingsw.pc15.plancia.Torre;
 import it.polimi.ingsw.pc15.player.ColoreFamiliare;
-import it.polimi.ingsw.pc15.player.EffettiAttivi;
 import it.polimi.ingsw.pc15.player.Familiare;
 import it.polimi.ingsw.pc15.player.Player;
 import it.polimi.ingsw.pc15.risorse.Legna;
@@ -38,15 +34,11 @@ import java.util.HashSet;
 
 public class TestPlancia {
 
-	Plancia plancia;
-	
-	
 	//-----------------------------------------------------------------------------------------------------------//
 	//          TEST SET CARTE                                                                                   //
 	//-----------------------------------------------------------------------------------------------------------//
 	
-	
-	
+	Plancia plancia;
 	Legna legna;
 	Oro oro;
 	Pietra pietra;
@@ -58,12 +50,10 @@ public class TestPlancia {
 	HashSet<Risorsa> risorsePlayer;
 	SetRisorse setRisorsePlayer;
 	
-	
 	Territorio cartaTerritorio;
 	Personaggio cartaPersonaggio;
 	Edificio cartaEdificio;
 	Impresa cartaImpresa;
-	
 	
 	HashSet<Effetto> effettoPermanente;
 	HashSet<Effetto> effettoIstantaneo;
@@ -73,7 +63,6 @@ public class TestPlancia {
 	ArrayList<Carta> arrayListCartePersonaggio;
 	ArrayList<Carta> arrayListCarteEdificio;
 	ArrayList<Carta> arrayListCarteImpresa;
-	
 	
 	//-----------------------------------------------------------------------------------------------------------//
 	//          TEST LIBERA                                                                                      //
@@ -98,9 +87,6 @@ public class TestPlancia {
 		//          TEST SET CARTE                                                                                   //
 		//-----------------------------------------------------------------------------------------------------------//
 		
-		
-		
-		
 		plancia = new Plancia(4);
 		
 		legna = new Legna(0);
@@ -111,9 +97,7 @@ public class TestPlancia {
 		puntiMilitari = new PuntiMilitari(0);
 		puntiVittoria = new PuntiVittoria(0);
 		servitori = new Servitori(0);
-		
 		risorsePlayer = new HashSet<Risorsa>();
-		
 		risorsePlayer.add(legna);
 		risorsePlayer.add(oro);
 		risorsePlayer.add(pietra);
@@ -124,7 +108,6 @@ public class TestPlancia {
 		risorsePlayer.add(servitori);
 		
 		setRisorsePlayer = new SetRisorse(risorsePlayer);
-		
 
 		effettoPermanente = new HashSet<Effetto>();
 		effettoIstantaneo = new HashSet<Effetto>();
@@ -133,7 +116,6 @@ public class TestPlancia {
 		arrayListCartePersonaggio = new ArrayList<Carta>();
 		arrayListCarteEdificio = new ArrayList<Carta>();
 		arrayListCarteImpresa = new ArrayList<Carta>();
-		
 		
 		annullaGuadagno = new AnnullaGuadagno(TipoCarta.PERSONAGGIO);
 		effettoPermanente.add(annullaGuadagno);
@@ -164,15 +146,11 @@ public class TestPlancia {
 		arrayListCarteImpresa.add(cartaImpresa);
 		arrayListCarteImpresa.add(cartaImpresa);
 		
-		
-		
-		
 		//-----------------------------------------------------------------------------------------------------------//
 		//          TEST LIBERA                                                                                      //
 		//-----------------------------------------------------------------------------------------------------------//
 		
 		player = new Player("pippo");
-		
 		
 		arrayRisorse = new ArrayList<SetRisorse>();
 		arrayRisorse.add(setRisorsePlayer);
@@ -188,11 +166,9 @@ public class TestPlancia {
 		familiare = new Familiare(ColoreFamiliare.ARANCIONE, player);
 	}	
 	
-	
 	@Test
 	public void testSetCarte()
 	{
-		
 		
 		plancia.setCarte(1, arrayListCarteTerritorio, arrayListCartePersonaggio, arrayListCarteEdificio, arrayListCarteImpresa);
 		
@@ -205,10 +181,7 @@ public class TestPlancia {
 		assertEquals("Errore test set carte", cartaPersonaggioTest.toString(), cartaPersonaggio.toString());
 		assertEquals("Errore test set carte", cartaEdificioTest.toString(), cartaEdificio.toString());
 		assertEquals("Errore test set carte", cartaImpresaTest.toString(), cartaImpresa.toString());
-		
 	}
-	
-	
 	
 	@Test
 	public void testLibera(){
@@ -218,31 +191,23 @@ public class TestPlancia {
 		Boolean risultatoOccupaSpazioEdificio;
 		Boolean risultatoOccupaSpazioImpresa;
 		
-		
 		Boolean risultatoLiberaSpazioTerritorio;
 		Boolean risultatoLiberaSpazioPersonaggio;
 		Boolean risultatoLiberaSpazioEdificio;
 		Boolean risultatoLiberaSpazioImpresa;
 		
-		
 		plancia.setCarte(1, arrayListCarteTerritorio, arrayListCartePersonaggio, arrayListCarteEdificio, arrayListCarteImpresa);
 		
-		
-		
 		/*
-		 * 
 		 * 	Va fatto dopo aver riempito di carte la plancia altrimenti
 		 *  non può riconosce il tipo di AzionePrendiCarta da esguire.
-		 *  
 		 */
-		
-		
+	
 		azioneOccupaSpazioTorreTerritorio = new AzioneOccupaSpazioTorre(player, familiare, plancia.getTorre(TipoCarta.TERRITORIO).getSpazio(1), 0);
 		azioneOccupaSpazioTorrePersonaggio = new AzioneOccupaSpazioTorre(player, familiare, plancia.getTorre(TipoCarta.PERSONAGGIO).getSpazio(1), 0);
 		azioneOccupaSpazioTorreEdificio = new AzioneOccupaSpazioTorre(player, familiare, plancia.getTorre(TipoCarta.EDIFICIO).getSpazio(1), 0);
 		azioneOccupaSpazioTorreImpresa = new AzioneOccupaSpazioTorre(player, familiare, plancia.getTorre(TipoCarta.IMPRESA).getSpazio(1), 0);
 		
-	
 		azioneOccupaSpazioTorreTerritorio.attiva();
 		azioneOccupaSpazioTorrePersonaggio.attiva();
 		azioneOccupaSpazioTorreEdificio.attiva();
@@ -252,13 +217,11 @@ public class TestPlancia {
 		risultatoOccupaSpazioPersonaggio = plancia.getTorre(TipoCarta.PERSONAGGIO).occupata();
 		risultatoOccupaSpazioEdificio = plancia.getTorre(TipoCarta.EDIFICIO).occupata();
 		risultatoOccupaSpazioImpresa = plancia.getTorre(TipoCarta.IMPRESA).occupata();
-		
-		
+			
 		assertTrue("La torre verde non è stata occupata correttamente", risultatoOccupaSpazioTerritorio);
 		assertTrue("La torre blu non è stata occupata correttamente", risultatoOccupaSpazioPersonaggio);
 		assertTrue("La torre gialla non è stata occupata correttamente", risultatoOccupaSpazioEdificio);
 		assertTrue("La torre viola non è stata occupata correttamente", risultatoOccupaSpazioImpresa);
-		
 		
 		plancia.libera();
 		
@@ -271,7 +234,5 @@ public class TestPlancia {
 		assertFalse("La torre blu non è stata liberata completamente", risultatoLiberaSpazioPersonaggio);
 		assertFalse("La torre gialla non è stata liberata completamente", risultatoLiberaSpazioEdificio);
 		assertFalse("La torre viola non è stata liberata completamente", risultatoLiberaSpazioImpresa);
-	
-		
 	}
 }

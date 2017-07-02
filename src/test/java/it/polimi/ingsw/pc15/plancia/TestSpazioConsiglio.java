@@ -16,8 +16,6 @@ import it.polimi.ingsw.pc15.risorse.SetRisorse;
 import org.junit.*;
 import static org.junit.Assert.*;
 
-
-
 public class TestSpazioConsiglio {
 
 	//-----------------------------------------------------------------------------------------------------------//
@@ -25,7 +23,6 @@ public class TestSpazioConsiglio {
 	//-----------------------------------------------------------------------------------------------------------//
 	
 	SpazioConsiglio spazioConsiglio;
-	
 	
 	Legna legna;
 	Oro oro;
@@ -43,15 +40,10 @@ public class TestSpazioConsiglio {
 	
 	@Before
 	public void setUp(){
-		
-		
-		
+			
 		//-----------------------------------------------------------------------------------------------------------//
 		//          TEST GET EFFETTI                                                                                 //
 		//-----------------------------------------------------------------------------------------------------------//
-		
-		
-		
 		
 		legna = new Legna(0);
 		oro = new Oro(0);
@@ -72,23 +64,16 @@ public class TestSpazioConsiglio {
 		risorse.add(puntiFede);
 		risorse.add(puntiVittoria);
 		risorse.add(servitori);
-		
 		setRisorse = new SetRisorse(risorse);
 		
 		spazioConsiglio = new SpazioConsiglio(1, setRisorse);
-		
 		aggiungiRisorse2 = new AggiuntaRisorse(setRisorse);
-		
 	}
-	
 	
 	@Test
 	public void testGetEffetto(){
 		
 		aggiungiRisorse = (AggiuntaRisorse) spazioConsiglio.getEffetto();
-		
 		assertEquals("Errore test get effetto", aggiungiRisorse2.toString(), aggiungiRisorse.toString() );
-		
-		
 	}
 }

@@ -113,11 +113,9 @@ public class TestPlayer {
 		//-----------------------------------------------------------------------------------------------------------//
 		//       TEST GET CARTA                                                                                      //
 		//-----------------------------------------------------------------------------------------------------------//
-		
-		
+	
 		effettoPermanente = new HashSet<Effetto>();
 		effettoIstantaneo = new HashSet<Effetto>();
-		
 		arrayListCarte = new ArrayList<Carta>();
 		
 		annullaGuadagno = new AnnullaGuadagno(TipoCarta.PERSONAGGIO);
@@ -136,7 +134,6 @@ public class TestPlayer {
 		torre = new Torre(4, arrayRisorse);
 		spazioTorre = new SpazioTorre(1, setRisorsePlayer, torre);
 		
-		
 		//-----------------------------------------------------------------------------------------------------------//
 		//       TEST GET FAMILIARE                                                                                  //
 		//-----------------------------------------------------------------------------------------------------------//
@@ -147,23 +144,17 @@ public class TestPlayer {
 	
 	@Test
 	public void testGetNome(){
-		
-		assertEquals("Errore get nome", "pippo", player.getNome());
-		
+		assertEquals("Errore get nome", "pippo", player.getNome());	
 	}
 	
 	@Test
 	public void testGetSetRisorse(){
 		
 		Boolean risultato;
-		
 		if(setRisorsePlayer.paragona(player.getSetRisorse()))
-		{
-			risultato = true;
-		} 
+			risultato = true; 
 		else risultato = false;
 		assertTrue("Errore get set risorse", risultato);
-		
 	}
 	
 	@Test 
@@ -173,22 +164,14 @@ public class TestPlayer {
 		ArrayList<Carta> arrayRisultato;
 		
 		carta.setSpazio(spazioTorre);
-		
 		arrayRisultato = new ArrayList<Carta>();
-		
 		azionePrendiCartaPersonaggio.daiCarta();
-		
 		arrayRisultato = player.getCarte(TipoCarta.PERSONAGGIO);
-		
 		if(arrayRisultato.equals(arrayListCarte))
-		{
 			testRisultatoCarte = true;
-			
-		}
 		else testRisultatoCarte = false;
 		
 		assertTrue("Errore test GetCarte", testRisultatoCarte);
-		
 	}
 	
 	@Test
@@ -197,12 +180,9 @@ public class TestPlayer {
 		Boolean risultato;
 		
 		this.familiare1 = player.getFamiliare(ColoreFamiliare.ARANCIONE);
-		
 		this.familiare2 = player.getFamiliare(ColoreFamiliare.ARANCIONE);
 		if(familiare1.equals(familiare2))
-		{
 			risultato = true;
-		}
 		else risultato = false;
 		
 		assertTrue("Errore test get familiare", risultato);
