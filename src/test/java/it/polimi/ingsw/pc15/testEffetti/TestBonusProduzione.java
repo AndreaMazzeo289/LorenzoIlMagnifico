@@ -1,10 +1,11 @@
-package it.polimi.ingsw.pc15.effetti;
+package it.polimi.ingsw.pc15.testEffetti;
 
 import static org.junit.Assert.*;
 
 
 import org.junit.*;
 
+import it.polimi.ingsw.pc15.effetti.BonusProduzione;
 import it.polimi.ingsw.pc15.player.Player;
 
 public class TestBonusProduzione {

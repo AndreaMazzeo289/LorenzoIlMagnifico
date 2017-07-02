@@ -1,4 +1,4 @@
-package it.polimi.ingsw.pc15.effetti;
+package it.polimi.ingsw.pc15.testEffetti;
 
 import static org.junit.Assert.*;
 
@@ -6,6 +6,7 @@ import java.util.HashSet;
 
 import org.junit.*;
 
+import it.polimi.ingsw.pc15.effetti.AggiuntaRisorse;
 import it.polimi.ingsw.pc15.player.Player;
 import it.polimi.ingsw.pc15.risorse.Legna;
 import it.polimi.ingsw.pc15.risorse.Oro;

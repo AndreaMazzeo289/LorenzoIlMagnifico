@@ -1,8 +1,9 @@
-package it.polimi.ingsw.pc15.plancia;
+package it.polimi.ingsw.pc15.testPlancia;
 
 import java.util.HashSet;
 
 import it.polimi.ingsw.pc15.effetti.AggiuntaRisorse;
+import it.polimi.ingsw.pc15.plancia.SpazioConsiglio;
 import it.polimi.ingsw.pc15.risorse.Legna;
 import it.polimi.ingsw.pc15.risorse.Oro;
 import it.polimi.ingsw.pc15.risorse.Pietra;

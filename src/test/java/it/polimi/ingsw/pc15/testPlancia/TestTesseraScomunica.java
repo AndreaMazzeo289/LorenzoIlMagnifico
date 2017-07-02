@@ -1,4 +1,4 @@
-package it.polimi.ingsw.pc15.plancia;
+package it.polimi.ingsw.pc15.testPlancia;
 
 import org.junit.*;
 

@@ -1,6 +1,7 @@
-package it.polimi.ingsw.pc15.effetti;
+package it.polimi.ingsw.pc15.testEffetti;
 
 
+import it.polimi.ingsw.pc15.effetti.OccupaSpaziOccupati;
 import it.polimi.ingsw.pc15.player.Player;
 
 import static org.junit.Assert.*;

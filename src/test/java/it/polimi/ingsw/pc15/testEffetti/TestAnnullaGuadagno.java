@@ -1,4 +1,4 @@
-package it.polimi.ingsw.pc15.effetti;
+package it.polimi.ingsw.pc15.testEffetti;
 
 import static org.junit.Assert.*;
 
@@ -7,6 +7,7 @@ import java.util.HashMap;
 import org.junit.*;
 
 import it.polimi.ingsw.pc15.carte.TipoCarta;
+import it.polimi.ingsw.pc15.effetti.AnnullaGuadagno;
 import it.polimi.ingsw.pc15.player.Player;
 
 public class TestAnnullaGuadagno {

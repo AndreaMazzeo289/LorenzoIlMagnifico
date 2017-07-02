@@ -1,3 +1,4 @@
+package it.polimi.ingsw.pc15.testEffetti;
 /*package it.polimi.ingsw.pc15.effetti;
 
 import static org.junit.Assert.*;

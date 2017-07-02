@@ -1,7 +1,9 @@
-package it.polimi.ingsw.pc15.effetti;
+package it.polimi.ingsw.pc15.testEffetti;
 
 import static org.junit.Assert.*;
 import org.junit.*;
+
+import it.polimi.ingsw.pc15.effetti.BonusRisorseSpazi;
 import it.polimi.ingsw.pc15.player.Player;
 import it.polimi.ingsw.pc15.risorse.TipoRisorsa;
 

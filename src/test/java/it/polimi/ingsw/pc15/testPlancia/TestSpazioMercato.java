@@ -1,4 +1,4 @@
-package it.polimi.ingsw.pc15.plancia;
+package it.polimi.ingsw.pc15.testPlancia;
 
 import static org.junit.Assert.*;
 
@@ -6,6 +6,7 @@ import java.util.HashSet;
 import org.junit.Before;
 import org.junit.Test;
 import it.polimi.ingsw.pc15.effetti.AggiuntaRisorse;
+import it.polimi.ingsw.pc15.plancia.SpazioMercato;
 import it.polimi.ingsw.pc15.risorse.Legna;
 import it.polimi.ingsw.pc15.risorse.Oro;
 import it.polimi.ingsw.pc15.risorse.Pietra;

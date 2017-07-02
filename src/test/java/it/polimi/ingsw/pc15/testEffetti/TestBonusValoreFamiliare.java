@@ -1,6 +1,8 @@
-package it.polimi.ingsw.pc15.effetti;
+package it.polimi.ingsw.pc15.testEffetti;
 
 import org.junit.*;
+
+import it.polimi.ingsw.pc15.effetti.BonusValoreFamiliare;
 import it.polimi.ingsw.pc15.player.ColoreFamiliare;
 import it.polimi.ingsw.pc15.player.Player;
 

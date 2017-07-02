@@ -1,4 +1,4 @@
-package it.polimi.ingsw.pc15.effetti;
+package it.polimi.ingsw.pc15.testEffetti;
 
 import org.junit.*;
 
@@ -10,6 +10,9 @@ import it.polimi.ingsw.pc15.carte.Impresa;
 import it.polimi.ingsw.pc15.carte.Personaggio;
 import it.polimi.ingsw.pc15.carte.Territorio;
 import it.polimi.ingsw.pc15.carte.TipoCarta;
+import it.polimi.ingsw.pc15.effetti.AggiuntaRisorse;
+import it.polimi.ingsw.pc15.effetti.Effetto;
+import it.polimi.ingsw.pc15.effetti.Produzione;
 import it.polimi.ingsw.pc15.plancia.Plancia;
 import it.polimi.ingsw.pc15.player.ColoreFamiliare;
 import it.polimi.ingsw.pc15.player.Player;
