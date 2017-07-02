@@ -16,6 +16,21 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.Timer;
 
+import it.polimi.ingsw.pc15.GUI.frame.AttivaLeaderPopup;
+import it.polimi.ingsw.pc15.GUI.frame.CarteScomunica;
+import it.polimi.ingsw.pc15.GUI.frame.FrameInformazioniPlayer;
+import it.polimi.ingsw.pc15.GUI.frame.FrameMostraCartePlayer;
+import it.polimi.ingsw.pc15.GUI.frame.GiocaLeaderPopup;
+import it.polimi.ingsw.pc15.GUI.frame.ScartaLeaderPopup;
+import it.polimi.ingsw.pc15.GUI.frame.SelezionaFamiliarePopup;
+import it.polimi.ingsw.pc15.GUI.frame.SelezionaNumeroServitori;
+import it.polimi.ingsw.pc15.GUI.gameboard.Gameboard;
+import it.polimi.ingsw.pc15.GUI.gameboard.SpazioConsiglio;
+import it.polimi.ingsw.pc15.GUI.gameboard.SpazioProduzione1;
+import it.polimi.ingsw.pc15.GUI.gameboard.SpazioProduzione2;
+import it.polimi.ingsw.pc15.GUI.gameboard.SpazioRaccolto1;
+import it.polimi.ingsw.pc15.GUI.gameboard.SpazioRaccolto2;
+import it.polimi.ingsw.pc15.GUI.playerboard.PlayerBoard;
 import it.polimi.ingsw.pc15.carte.TipoCarta;
 import it.polimi.ingsw.pc15.player.ColoreFamiliare;
 
