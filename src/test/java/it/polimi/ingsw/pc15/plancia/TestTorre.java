@@ -121,7 +121,7 @@ public class TestTorre {
 		effettoPermanente.add(annullaGuadagno);
 		effettoIstantaneo.add(annullaGuadagno);
 		
-		cartaTerritorio = new Territorio("Carta", 1, 1, setRisorseTest, effettoIstantaneo, effettoPermanente, 3);
+		cartaTerritorio = new Territorio("Carta", 1, 1, setRisorseTest, effettoIstantaneo, effettoPermanente, 3, "test");
 		arrayListCarteTerritorio = new ArrayList<Carta>();
 		
 		arrayListCarteTerritorio.add(cartaTerritorio);
@@ -133,9 +133,9 @@ public class TestTorre {
 		//          TEST LIBERA                                                                                      //
 		//-----------------------------------------------------------------------------------------------------------//
 		
-		cartaPersonaggio = new Personaggio("Carta", 1, 1, setRisorseTest, effettoIstantaneo, effettoPermanente);
-		cartaEdificio = new Edificio("Carta", 1, 1, setRisorseTest, effettoIstantaneo, effettoPermanente, 3);
-		cartaImpresa = new Impresa("Carta", 1, 1, setRisorseTest, effettoIstantaneo, effettoPermanente, 3, 3);
+		cartaPersonaggio = new Personaggio("Carta", 1, 1, setRisorseTest, effettoIstantaneo, effettoPermanente, "test");
+		cartaEdificio = new Edificio("Carta", 1, 1, setRisorseTest, effettoIstantaneo, effettoPermanente, 3, "test");
+		cartaImpresa = new Impresa("Carta", 1, 1, setRisorseTest, effettoIstantaneo, effettoPermanente, 3, 3, "test");
 		
 		arrayListCartePersonaggio = new ArrayList<Carta>();
 		arrayListCarteEdificio = new ArrayList<Carta>();

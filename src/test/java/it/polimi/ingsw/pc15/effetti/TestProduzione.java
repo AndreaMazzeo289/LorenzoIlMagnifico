@@ -168,10 +168,10 @@ public class TestProduzione {
 		effettoIstantaneo.add(aggiuntaRisorse1);
 		effettoPermanente.add(aggiuntaRisorse2);
 		
-		cartaTerritorio = new Territorio("Carta", 1, 1, costoCarta, effettoIstantaneo, effettoPermanente, 3);
-		cartaPersonaggio = new Personaggio("Carta", 1, 1, costoCarta, effettoIstantaneo, effettoPermanente);
-		cartaEdificio = new Edificio("Carta", 1, 1, costoCarta, effettoIstantaneo, effettoPermanente, 0);
-		cartaImpresa = new Impresa("Carta", 1, 1, costoCarta, effettoIstantaneo, effettoPermanente, 3, 3);
+		cartaTerritorio = new Territorio("Carta", 1, 1, costoCarta, effettoIstantaneo, effettoPermanente, 3,"test");
+		cartaPersonaggio = new Personaggio("Carta", 1, 1, costoCarta, effettoIstantaneo, effettoPermanente,"test");
+		cartaEdificio = new Edificio("Carta", 1, 1, costoCarta, effettoIstantaneo, effettoPermanente, 0,"test");
+		cartaImpresa = new Impresa("Carta", 1, 1, costoCarta, effettoIstantaneo, effettoPermanente, 3, 3,"test");
 		
 		arrayListCarteTerritorio = new ArrayList<Carta>();
 		arrayListCartePersonaggio = new ArrayList<Carta>();
