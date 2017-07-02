@@ -267,10 +267,11 @@ public class CLI extends ClientView {
 		    					System.out.println(familiare.getPlayer().getNome() + " ");
 	    				}
 	    			
+	    			/*
 	    			System.out.println("\n    SCOMUNICHE:");
 	    			for (Entry<Integer, TesseraScomunica> scomunica : this.clientModel.getStatoPlancia().getScomuniche().entrySet())
 	    				System.out.println("  - Periodo " + scomunica.getKey() + ": " + scomunica.getValue().toString());
-	    		
+	    			*/
 
 
 					update(this, "");
