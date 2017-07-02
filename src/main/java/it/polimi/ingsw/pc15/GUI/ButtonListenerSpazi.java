@@ -13,7 +13,7 @@ public class ButtonListenerSpazi implements ActionListener {
 		//------------------------------------------------------------------------------------------//
 		// SPAZI TORRE VERDE
 		//------------------------------------------------------------------------------------------//
-		if(arg0.getActionCommand().equals("spazioTorreVerde1"))
+		/*if(arg0.getActionCommand().equals("spazioTorreVerde1"))
 			((Gameboard)mainGUI.mainFrame.getContentPane().getComponent(0)).getSpazioTorreVerde1().inserisciFamiliare("img/Punchboard/familiari/pedineFamiliari/blu/neutro.png");
 		
 		if(arg0.getActionCommand().equals("spazioTorreVerde2"))
@@ -349,6 +349,6 @@ public class ButtonListenerSpazi implements ActionListener {
 		
 		if(arg0.getActionCommand().equals("spazioMercato4"))
 			((Gameboard)mainGUI.mainFrame.getContentPane().getComponent(0)).getSpazioMercato4().inserisciFamiliare("img/Punchboard/familiari/pedineFamiliari/blu/neutro.png");
+	}*/
 	}
-
 }

@@ -614,135 +614,16 @@ public class ButtonListener implements ActionListener{
 				coloreFamiliareScelto=null;
 			}
 		}
+		
 		//------------------------------------------------------------------------------------------//
 		// SPAZIO CONSIGLIO
 		//------------------------------------------------------------------------------------------//
-		if(e.getActionCommand().equals("SpazioConsiglioPosizione1")){
+		if(e.getActionCommand().startsWith("SpazioConsiglioPosizione")){
 			
-			message.add("consiglio");
-			
-			SpazioConsiglio spazioConsiglio = (SpazioConsiglio)((Gameboard)mainGUI.mainFrame.getContentPane().getComponent(0)).getSpazioConsiglio();
-			spazioConsiglio.inserisciFamiliare("img/Punchboard/familiari/pedineFamiliari/blu/neutro.png",spazioConsiglio.getButtonPosizione1());
-		}
-		
-		if(e.getActionCommand().equals("SpazioConsiglioPosizione2")){
-			
-			message.add("consiglio");
+			String index = e.getActionCommand().substring(24);
 			
 			SpazioConsiglio spazioConsiglio = (SpazioConsiglio)((Gameboard)mainGUI.mainFrame.getContentPane().getComponent(0)).getSpazioConsiglio();
-			spazioConsiglio.inserisciFamiliare("img/Punchboard/familiari/pedineFamiliari/blu/neutro.png",spazioConsiglio.getButtonPosizione2());
-		}
-		
-		if(e.getActionCommand().equals("SpazioConsiglioPosizione3")){
-			
-			message.add("consiglio");
-			
-			SpazioConsiglio spazioConsiglio = (SpazioConsiglio)((Gameboard)mainGUI.mainFrame.getContentPane().getComponent(0)).getSpazioConsiglio();
-			spazioConsiglio.inserisciFamiliare("img/Punchboard/familiari/pedineFamiliari/blu/neutro.png",spazioConsiglio.getButtonPosizione3());
-		}
-		
-		if(e.getActionCommand().equals("SpazioConsiglioPosizione4")){
-			
-			message.add("consiglio");
-			
-			SpazioConsiglio spazioConsiglio = (SpazioConsiglio)((Gameboard)mainGUI.mainFrame.getContentPane().getComponent(0)).getSpazioConsiglio();
-			spazioConsiglio.inserisciFamiliare("img/Punchboard/familiari/pedineFamiliari/blu/neutro.png",spazioConsiglio.getButtonPosizione4());
-		}
-		
-		if(e.getActionCommand().equals("SpazioConsiglioPosizione5")){
-			
-			message.add("consiglio");
-			
-			SpazioConsiglio spazioConsiglio = (SpazioConsiglio)((Gameboard)mainGUI.mainFrame.getContentPane().getComponent(0)).getSpazioConsiglio();
-			spazioConsiglio.inserisciFamiliare("img/Punchboard/familiari/pedineFamiliari/blu/neutro.png",spazioConsiglio.getButtonPosizione5());
-		}
-		
-		if(e.getActionCommand().equals("SpazioConsiglioPosizione6")){
-			
-			message.add("consiglio");
-			
-			SpazioConsiglio spazioConsiglio = (SpazioConsiglio)((Gameboard)mainGUI.mainFrame.getContentPane().getComponent(0)).getSpazioConsiglio();
-			spazioConsiglio.inserisciFamiliare("img/Punchboard/familiari/pedineFamiliari/blu/neutro.png",spazioConsiglio.getButtonPosizione6());
-		}
-		
-		if(e.getActionCommand().equals("SpazioConsiglioPosizione7")){
-			
-			message.add("consiglio");
-			
-			SpazioConsiglio spazioConsiglio = (SpazioConsiglio)((Gameboard)mainGUI.mainFrame.getContentPane().getComponent(0)).getSpazioConsiglio();
-			spazioConsiglio.inserisciFamiliare("img/Punchboard/familiari/pedineFamiliari/blu/neutro.png",spazioConsiglio.getButtonPosizione7());
-		}
-		
-		if(e.getActionCommand().equals("SpazioConsiglioPosizione8")){
-			
-			message.add("consiglio");
-			
-			SpazioConsiglio spazioConsiglio = (SpazioConsiglio)((Gameboard)mainGUI.mainFrame.getContentPane().getComponent(0)).getSpazioConsiglio();
-			spazioConsiglio.inserisciFamiliare("img/Punchboard/familiari/pedineFamiliari/blu/neutro.png",spazioConsiglio.getButtonPosizione8());
-		}
-		
-		if(e.getActionCommand().equals("SpazioConsiglioPosizione9")){
-			
-			message.add("consiglio");
-			
-			SpazioConsiglio spazioConsiglio = (SpazioConsiglio)((Gameboard)mainGUI.mainFrame.getContentPane().getComponent(0)).getSpazioConsiglio();
-			spazioConsiglio.inserisciFamiliare("img/Punchboard/familiari/pedineFamiliari/blu/neutro.png",spazioConsiglio.getButtonPosizione9());
-		}
-		
-		if(e.getActionCommand().equals("SpazioConsiglioPosizione10")){
-			
-			message.add("consiglio");
-			
-			SpazioConsiglio spazioConsiglio = (SpazioConsiglio)((Gameboard)mainGUI.mainFrame.getContentPane().getComponent(0)).getSpazioConsiglio();
-			spazioConsiglio.inserisciFamiliare("img/Punchboard/familiari/pedineFamiliari/blu/neutro.png",spazioConsiglio.getButtonPosizione10());
-		}
-		
-		if(e.getActionCommand().equals("SpazioConsiglioPosizione11")){
-			
-			message.add("consiglio");
-			
-			SpazioConsiglio spazioConsiglio = (SpazioConsiglio)((Gameboard)mainGUI.mainFrame.getContentPane().getComponent(0)).getSpazioConsiglio();
-			spazioConsiglio.inserisciFamiliare("img/Punchboard/familiari/pedineFamiliari/blu/neutro.png",spazioConsiglio.getButtonPosizione11());
-		}
-		
-		if(e.getActionCommand().equals("SpazioConsiglioPosizione12")){
-			
-			message.add("consiglio");
-			
-			SpazioConsiglio spazioConsiglio = (SpazioConsiglio)((Gameboard)mainGUI.mainFrame.getContentPane().getComponent(0)).getSpazioConsiglio();
-			spazioConsiglio.inserisciFamiliare("img/Punchboard/familiari/pedineFamiliari/blu/neutro.png",spazioConsiglio.getButtonPosizione12());
-		}
-		
-		if(e.getActionCommand().equals("SpazioConsiglioPosizione13")){
-			
-			message.add("consiglio");
-			
-			SpazioConsiglio spazioConsiglio = (SpazioConsiglio)((Gameboard)mainGUI.mainFrame.getContentPane().getComponent(0)).getSpazioConsiglio();
-			spazioConsiglio.inserisciFamiliare("img/Punchboard/familiari/pedineFamiliari/blu/neutro.png",spazioConsiglio.getButtonPosizione13());
-		}
-		
-		if(e.getActionCommand().equals("SpazioConsiglioPosizione14")){
-			
-			message.add("consiglio");
-			
-			SpazioConsiglio spazioConsiglio = (SpazioConsiglio)((Gameboard)mainGUI.mainFrame.getContentPane().getComponent(0)).getSpazioConsiglio();
-			spazioConsiglio.inserisciFamiliare("img/Punchboard/familiari/pedineFamiliari/blu/neutro.png",spazioConsiglio.getButtonPosizione14());
-		}
-		
-		if(e.getActionCommand().equals("SpazioConsiglioPosizione15")){
-			
-			message.add("consiglio");
-			
-			SpazioConsiglio spazioConsiglio = (SpazioConsiglio)((Gameboard)mainGUI.mainFrame.getContentPane().getComponent(0)).getSpazioConsiglio();
-			spazioConsiglio.inserisciFamiliare("img/Punchboard/familiari/pedineFamiliari/blu/neutro.png",spazioConsiglio.getButtonPosizione15());
-		}
-		
-		if(e.getActionCommand().equals("SpazioConsiglioPosizione16")){
-			
-			message.add("consiglio");
-			
-			SpazioConsiglio spazioConsiglio = (SpazioConsiglio)((Gameboard)mainGUI.mainFrame.getContentPane().getComponent(0)).getSpazioConsiglio();
-			spazioConsiglio.inserisciFamiliare("img/Punchboard/familiari/pedineFamiliari/blu/neutro.png",spazioConsiglio.getButtonPosizione16());
+			spazioConsiglio.inserisciFamiliare("img/Punchboard/familiari/pedineFamiliari/blu/neutro.png",spazioConsiglio.getButton(Integer.parseInt(index)));
 		}
 		
 		//------------------------------------------------------------------------------------------//
@@ -759,132 +640,12 @@ public class ButtonListener implements ActionListener{
 		//------------------------------------------------------------------------------------------//
 		// SPAZIO PRODUZIONE 2 LISTENER
 		//------------------------------------------------------------------------------------------//
-		if(e.getActionCommand().equals("SpazioProduzionePosizione1")){
+		if(e.getActionCommand().startsWith("SpazioProduzionePosizione")){
 			
-			message.add("produzione");
-			
-			SpazioProduzione2 spazioProduzione2 = (SpazioProduzione2)((Gameboard)mainGUI.mainFrame.getContentPane().getComponent(0)).getSpazioProduzione2();
-			spazioProduzione2.inserisciFamiliare("img/Punchboard/familiari/pedineFamiliari/blu/neutro.png",spazioProduzione2.getButtonPosizione1());
-		}
-		
-		if(e.getActionCommand().equals("SpazioProduzionePosizione2")){
-			
-			message.add("produzione");
+			String index = e.getActionCommand().substring(25);
 			
 			SpazioProduzione2 spazioProduzione2 = (SpazioProduzione2)((Gameboard)mainGUI.mainFrame.getContentPane().getComponent(0)).getSpazioProduzione2();
-			spazioProduzione2.inserisciFamiliare("img/Punchboard/familiari/pedineFamiliari/blu/neutro.png",spazioProduzione2.getButtonPosizione2());
-		}
-		
-		if(e.getActionCommand().equals("SpazioProduzionePosizione3")){
-			
-			message.add("produzione");
-			
-			SpazioProduzione2 spazioProduzione2 = (SpazioProduzione2)((Gameboard)mainGUI.mainFrame.getContentPane().getComponent(0)).getSpazioProduzione2();
-			spazioProduzione2.inserisciFamiliare("img/Punchboard/familiari/pedineFamiliari/blu/neutro.png",spazioProduzione2.getButtonPosizione3());
-		}
-		
-		if(e.getActionCommand().equals("SpazioProduzionePosizione4")){
-			
-			message.add("produzione");
-			
-			SpazioProduzione2 spazioProduzione2 = (SpazioProduzione2)((Gameboard)mainGUI.mainFrame.getContentPane().getComponent(0)).getSpazioProduzione2();
-			spazioProduzione2.inserisciFamiliare("img/Punchboard/familiari/pedineFamiliari/blu/neutro.png",spazioProduzione2.getButtonPosizione4());
-		}
-		
-		if(e.getActionCommand().equals("SpazioProduzionePosizione5")){
-			
-			message.add("produzione");
-			
-			SpazioProduzione2 spazioProduzione2 = (SpazioProduzione2)((Gameboard)mainGUI.mainFrame.getContentPane().getComponent(0)).getSpazioProduzione2();
-			spazioProduzione2.inserisciFamiliare("img/Punchboard/familiari/pedineFamiliari/blu/neutro.png",spazioProduzione2.getButtonPosizione5());
-		}
-		
-		if(e.getActionCommand().equals("SpazioProduzionePosizione6")){
-			
-			message.add("produzione");
-			
-			SpazioProduzione2 spazioProduzione2 = (SpazioProduzione2)((Gameboard)mainGUI.mainFrame.getContentPane().getComponent(0)).getSpazioProduzione2();
-			spazioProduzione2.inserisciFamiliare("img/Punchboard/familiari/pedineFamiliari/blu/neutro.png",spazioProduzione2.getButtonPosizione6());
-		}
-		
-		if(e.getActionCommand().equals("SpazioProduzionePosizione7")){
-			
-			message.add("produzione");
-			
-			SpazioProduzione2 spazioProduzione2 = (SpazioProduzione2)((Gameboard)mainGUI.mainFrame.getContentPane().getComponent(0)).getSpazioProduzione2();
-			spazioProduzione2.inserisciFamiliare("img/Punchboard/familiari/pedineFamiliari/blu/neutro.png",spazioProduzione2.getButtonPosizione7());
-		}
-		
-		if(e.getActionCommand().equals("SpazioProduzionePosizione8")){
-			
-			message.add("produzione");
-			
-			SpazioProduzione2 spazioProduzione2 = (SpazioProduzione2)((Gameboard)mainGUI.mainFrame.getContentPane().getComponent(0)).getSpazioProduzione2();
-			spazioProduzione2.inserisciFamiliare("img/Punchboard/familiari/pedineFamiliari/blu/neutro.png",spazioProduzione2.getButtonPosizione8());
-		}
-		
-		if(e.getActionCommand().equals("SpazioProduzionePosizione9")){
-			
-			message.add("produzione");
-			
-			SpazioProduzione2 spazioProduzione2 = (SpazioProduzione2)((Gameboard)mainGUI.mainFrame.getContentPane().getComponent(0)).getSpazioProduzione2();
-			spazioProduzione2.inserisciFamiliare("img/Punchboard/familiari/pedineFamiliari/blu/neutro.png",spazioProduzione2.getButtonPosizione9());
-		}
-		
-		if(e.getActionCommand().equals("SpazioProduzionePosizione10")){
-			
-			message.add("produzione");
-			
-			SpazioProduzione2 spazioProduzione2 = (SpazioProduzione2)((Gameboard)mainGUI.mainFrame.getContentPane().getComponent(0)).getSpazioProduzione2();
-			spazioProduzione2.inserisciFamiliare("img/Punchboard/familiari/pedineFamiliari/blu/neutro.png",spazioProduzione2.getButtonPosizione10());
-		}
-		
-		if(e.getActionCommand().equals("SpazioProduzionePosizione11")){
-			
-			message.add("produzione");
-			
-			SpazioProduzione2 spazioProduzione2 = (SpazioProduzione2)((Gameboard)mainGUI.mainFrame.getContentPane().getComponent(0)).getSpazioProduzione2();
-			spazioProduzione2.inserisciFamiliare("img/Punchboard/familiari/pedineFamiliari/blu/neutro.png",spazioProduzione2.getButtonPosizione11());
-		}
-		
-		if(e.getActionCommand().equals("SpazioProduzionePosizione12")){
-			
-			message.add("produzione");
-			
-			SpazioProduzione2 spazioProduzione2 = (SpazioProduzione2)((Gameboard)mainGUI.mainFrame.getContentPane().getComponent(0)).getSpazioProduzione2();
-			spazioProduzione2.inserisciFamiliare("img/Punchboard/familiari/pedineFamiliari/blu/neutro.png",spazioProduzione2.getButtonPosizione12());
-		}
-		
-		if(e.getActionCommand().equals("SpazioProduzionePosizione13")){
-			
-			message.add("produzione");
-			
-			SpazioProduzione2 spazioProduzione2 = (SpazioProduzione2)((Gameboard)mainGUI.mainFrame.getContentPane().getComponent(0)).getSpazioProduzione2();
-			spazioProduzione2.inserisciFamiliare("img/Punchboard/familiari/pedineFamiliari/blu/neutro.png",spazioProduzione2.getButtonPosizione13());
-		}
-		
-		if(e.getActionCommand().equals("SpazioProduzionePosizione14")){
-			
-			message.add("produzione");
-			
-			SpazioProduzione2 spazioProduzione2 = (SpazioProduzione2)((Gameboard)mainGUI.mainFrame.getContentPane().getComponent(0)).getSpazioProduzione2();
-			spazioProduzione2.inserisciFamiliare("img/Punchboard/familiari/pedineFamiliari/blu/neutro.png",spazioProduzione2.getButtonPosizione14());
-		}
-		
-		if(e.getActionCommand().equals("SpazioProduzionePosizione15")){
-			
-			message.add("produzione");
-			
-			SpazioProduzione2 spazioProduzione2 = (SpazioProduzione2)((Gameboard)mainGUI.mainFrame.getContentPane().getComponent(0)).getSpazioProduzione2();
-			spazioProduzione2.inserisciFamiliare("img/Punchboard/familiari/pedineFamiliari/blu/neutro.png",spazioProduzione2.getButtonPosizione15());
-		}
-		
-		if(e.getActionCommand().equals("SpazioProduzionePosizione16")){
-			
-			message.add("produzione");
-			
-			SpazioProduzione2 spazioProduzione2 = (SpazioProduzione2)((Gameboard)mainGUI.mainFrame.getContentPane().getComponent(0)).getSpazioProduzione2();
-			spazioProduzione2.inserisciFamiliare("img/Punchboard/familiari/pedineFamiliari/blu/neutro.png",spazioProduzione2.getButtonPosizione16());
+			spazioProduzione2.inserisciFamiliare("img/Punchboard/familiari/pedineFamiliari/blu/neutro.png",spazioProduzione2.getButton(Integer.parseInt(index)));
 		}
 		
 		//------------------------------------------------------------------------------------------//
@@ -901,132 +662,12 @@ public class ButtonListener implements ActionListener{
 		//------------------------------------------------------------------------------------------//
 		// SPAZIO RACCOLTO 2 LISTENER
 		//------------------------------------------------------------------------------------------//
-		if(e.getActionCommand().equals("SpazioRaccoltoPosizione1")){
+		if(e.getActionCommand().startsWith("SpazioRaccoltoPosizione")){
 			
-			message.add("raccolta");
+			String index = e.getActionCommand().substring(23);
 			
-			SpazioRaccolto2 spazioRaccolto = (SpazioRaccolto2)((Gameboard)mainGUI.mainFrame.getContentPane().getComponent(0)).getSpazioRaccolto2();
-			spazioRaccolto.inserisciFamiliare("img/Punchboard/familiari/pedineFamiliari/blu/neutro.png",spazioRaccolto.getButtonPosizione1());
-		}
-		
-		if(e.getActionCommand().equals("SpazioRaccoltoPosizione2")){
-			
-			message.add("raccolta");
-			
-			SpazioRaccolto2 spazioRaccolto = (SpazioRaccolto2)((Gameboard)mainGUI.mainFrame.getContentPane().getComponent(0)).getSpazioRaccolto2();
-			spazioRaccolto.inserisciFamiliare("img/Punchboard/familiari/pedineFamiliari/blu/neutro.png",spazioRaccolto.getButtonPosizione2());
-		}
-		
-		if(e.getActionCommand().equals("SpazioRaccoltoPosizione3")){
-			
-			message.add("raccolta");
-			
-			SpazioRaccolto2 spazioRaccolto = (SpazioRaccolto2)((Gameboard)mainGUI.mainFrame.getContentPane().getComponent(0)).getSpazioRaccolto2();
-			spazioRaccolto.inserisciFamiliare("img/Punchboard/familiari/pedineFamiliari/blu/neutro.png",spazioRaccolto.getButtonPosizione3());
-		}
-		
-		if(e.getActionCommand().equals("SpazioRaccoltoPosizione4")){
-			
-			message.add("raccolta");
-			
-			SpazioRaccolto2 spazioRaccolto = (SpazioRaccolto2)((Gameboard)mainGUI.mainFrame.getContentPane().getComponent(0)).getSpazioRaccolto2();
-			spazioRaccolto.inserisciFamiliare("img/Punchboard/familiari/pedineFamiliari/blu/neutro.png",spazioRaccolto.getButtonPosizione4());
-		}
-		
-		if(e.getActionCommand().equals("SpazioRaccoltoPosizione5")){
-			
-			message.add("raccolta");
-			
-			SpazioRaccolto2 spazioRaccolto = (SpazioRaccolto2)((Gameboard)mainGUI.mainFrame.getContentPane().getComponent(0)).getSpazioRaccolto2();
-			spazioRaccolto.inserisciFamiliare("img/Punchboard/familiari/pedineFamiliari/blu/neutro.png",spazioRaccolto.getButtonPosizione5());
-		}
-		
-		if(e.getActionCommand().equals("SpazioRaccoltoPosizione6")){
-			
-			message.add("raccolta");
-			
-			SpazioRaccolto2 spazioRaccolto = (SpazioRaccolto2)((Gameboard)mainGUI.mainFrame.getContentPane().getComponent(0)).getSpazioRaccolto2();
-			spazioRaccolto.inserisciFamiliare("img/Punchboard/familiari/pedineFamiliari/blu/neutro.png",spazioRaccolto.getButtonPosizione6());
-		}
-		
-		if(e.getActionCommand().equals("SpazioRaccoltoPosizione7")){
-			
-			message.add("raccolta");
-			
-			SpazioRaccolto2 spazioRaccolto = (SpazioRaccolto2)((Gameboard)mainGUI.mainFrame.getContentPane().getComponent(0)).getSpazioRaccolto2();
-			spazioRaccolto.inserisciFamiliare("img/Punchboard/familiari/pedineFamiliari/blu/neutro.png",spazioRaccolto.getButtonPosizione7());
-		}
-		
-		if(e.getActionCommand().equals("SpazioRaccoltoPosizione8")){
-			
-			message.add("raccolta");
-			
-			SpazioRaccolto2 spazioRaccolto = (SpazioRaccolto2)((Gameboard)mainGUI.mainFrame.getContentPane().getComponent(0)).getSpazioRaccolto2();
-			spazioRaccolto.inserisciFamiliare("img/Punchboard/familiari/pedineFamiliari/blu/neutro.png",spazioRaccolto.getButtonPosizione8());
-		}
-		
-		if(e.getActionCommand().equals("SpazioRaccoltoPosizione9")){
-			
-			message.add("raccolta");
-			
-			SpazioRaccolto2 spazioRaccolto = (SpazioRaccolto2)((Gameboard)mainGUI.mainFrame.getContentPane().getComponent(0)).getSpazioRaccolto2();
-			spazioRaccolto.inserisciFamiliare("img/Punchboard/familiari/pedineFamiliari/blu/neutro.png",spazioRaccolto.getButtonPosizione9());
-		}
-		
-		if(e.getActionCommand().equals("SpazioRaccoltoPosizione10")){
-			
-			message.add("raccolta");
-			
-			SpazioRaccolto2 spazioRaccolto = (SpazioRaccolto2)((Gameboard)mainGUI.mainFrame.getContentPane().getComponent(0)).getSpazioRaccolto2();
-			spazioRaccolto.inserisciFamiliare("img/Punchboard/familiari/pedineFamiliari/blu/neutro.png",spazioRaccolto.getButtonPosizione10());
-		}
-		
-		if(e.getActionCommand().equals("SpazioRaccoltoPosizione11")){
-			
-			message.add("raccolta");
-			
-			SpazioRaccolto2 spazioRaccolto = (SpazioRaccolto2)((Gameboard)mainGUI.mainFrame.getContentPane().getComponent(0)).getSpazioRaccolto2();
-			spazioRaccolto.inserisciFamiliare("img/Punchboard/familiari/pedineFamiliari/blu/neutro.png",spazioRaccolto.getButtonPosizione11());
-		}
-		
-		if(e.getActionCommand().equals("SpazioRaccoltoPosizione12")){
-			
-			message.add("raccolta");
-			
-			SpazioRaccolto2 spazioRaccolto = (SpazioRaccolto2)((Gameboard)mainGUI.mainFrame.getContentPane().getComponent(0)).getSpazioRaccolto2();
-			spazioRaccolto.inserisciFamiliare("img/Punchboard/familiari/pedineFamiliari/blu/neutro.png",spazioRaccolto.getButtonPosizione12());
-		}
-		
-		if(e.getActionCommand().equals("SpazioRaccoltoPosizione13")){
-			
-			message.add("raccolta");
-			
-			SpazioRaccolto2 spazioRaccolto = (SpazioRaccolto2)((Gameboard)mainGUI.mainFrame.getContentPane().getComponent(0)).getSpazioRaccolto2();
-			spazioRaccolto.inserisciFamiliare("img/Punchboard/familiari/pedineFamiliari/blu/neutro.png",spazioRaccolto.getButtonPosizione13());
-		}
-		
-		if(e.getActionCommand().equals("SpazioRaccoltoPosizione14")){
-			
-			message.add("raccolta");
-			
-			SpazioRaccolto2 spazioRaccolto = (SpazioRaccolto2)((Gameboard)mainGUI.mainFrame.getContentPane().getComponent(0)).getSpazioRaccolto2();
-			spazioRaccolto.inserisciFamiliare("img/Punchboard/familiari/pedineFamiliari/blu/neutro.png",spazioRaccolto.getButtonPosizione14());
-		}
-		
-		if(e.getActionCommand().equals("SpazioRaccoltoPosizione15")){
-			
-			message.add("raccolta");
-			
-			SpazioRaccolto2 spazioRaccolto = (SpazioRaccolto2)((Gameboard)mainGUI.mainFrame.getContentPane().getComponent(0)).getSpazioRaccolto2();
-			spazioRaccolto.inserisciFamiliare("img/Punchboard/familiari/pedineFamiliari/blu/neutro.png",spazioRaccolto.getButtonPosizione15());
-		}
-		
-		if(e.getActionCommand().equals("SpazioRaccoltoPosizione16")){
-			
-			message.add("raccolta");
-			
-			SpazioRaccolto2 spazioRaccolto = (SpazioRaccolto2)((Gameboard)mainGUI.mainFrame.getContentPane().getComponent(0)).getSpazioRaccolto2();
-			spazioRaccolto.inserisciFamiliare("img/Punchboard/familiari/pedineFamiliari/blu/neutro.png",spazioRaccolto.getButtonPosizione16());
+			SpazioRaccolto2 spazioRaccolto2 = (SpazioRaccolto2)((Gameboard)mainGUI.mainFrame.getContentPane().getComponent(0)).getSpazioRaccolto2();
+			spazioRaccolto2.inserisciFamiliare("img/Punchboard/familiari/pedineFamiliari/blu/neutro.png",spazioRaccolto2.getButton(Integer.parseInt(index)));
 		}
 		
 		//------------------------------------------------------------------------------------------//
