@@ -18,45 +18,36 @@ public class SetRisorse implements Serializable {
 			this.risorse.put(risorsa.getTipoRisorsa(), risorsa);
 	}
 	
-	public void aggiungi (SetRisorse setRisorse) {  //aggiunge al setRisorse corrente le risorse del setRisorse passato come parametro
+	public void aggiungi (SetRisorse setRisorse) {  
 		
-		try{
-			for(Map.Entry<TipoRisorsa, Risorsa> risorsa1 : risorse.entrySet()) {
-				for(Map.Entry<TipoRisorsa, Risorsa> risorsa2 : setRisorse.getRisorse().entrySet()) {
-					if(risorsa1.getKey().equals(risorsa2.getKey()))
-						risorsa1.getValue().aggiungi(risorsa2.getValue().getQuantità());
+		for (Map.Entry<TipoRisorsa, Risorsa> risorsa : setRisorse.getRisorse().entrySet())
+			if (this.risorse.containsKey(risorsa.getKey())==false) {
+				try {
+					risorse.put(risorsa.getKey(), risorsa.getValue().copia());
+				} catch (CloneNotSupportedException e) {
+					e.printStackTrace();
 				}
 			}
-		}catch(NullPointerException e){
-			System.out.println("Eccezione aggiunta risorse bonus!");
-		}
+	
+			else this.risorse.get(risorsa.getKey()).aggiungi(risorsa.getValue().getQuantità());
 	}
 	
-	public void sottrai (SetRisorse setRisorse) {  //aggiunge al setRisorse corrente le risorse del setRisorse passato come parametro
+	public void sottrai (SetRisorse setRisorse) {
 		
-		for(Map.Entry<TipoRisorsa, Risorsa> risorsa1 : risorse.entrySet()) {
-			for(Map.Entry<TipoRisorsa, Risorsa> risorsa2 : setRisorse.getRisorse().entrySet()) {
-				if(risorsa1.getKey().equals(risorsa2.getKey()))
-					risorsa1.getValue().aggiungi(-risorsa2.getValue().getQuantità());
-			}
+		for (Map.Entry<TipoRisorsa, Risorsa> risorsa : setRisorse.getRisorse().entrySet()) {
+			this.risorse.get(risorsa.getKey()).aggiungi(risorsa.getValue().getQuantità());
+			if (this.risorse.get(risorsa.getKey()).getQuantità()<0)
+				this.risorse.get(risorsa.getKey()).aggiungi(-this.risorse.get(risorsa.getKey()).getQuantità());
 		}
-		
 	}
 
 	public boolean paragona (SetRisorse setRisorse) { 
 		
-		boolean risultato = true;
-		
-		for(Map.Entry<TipoRisorsa, Risorsa> risorsa1 : risorse.entrySet()) {
-			for(Map.Entry<TipoRisorsa, Risorsa> risorsa2 : setRisorse.getRisorse().entrySet()) {
-				if(risorsa1.getKey().equals(risorsa2.getKey())) {
-					if (!risorsa1.getValue().paragona(risorsa2.getValue().getQuantità()))
-						risultato = false;
-				}
-			}
-		}
-		
-		return risultato;
+		for (Map.Entry<TipoRisorsa, Risorsa> risorsa : setRisorse.getRisorse().entrySet())
+			if (this.risorse.get(risorsa.getKey()).paragona(risorsa.getValue().getQuantità())==false)
+				return false;
+	
+		return true;
 	}
 	
 	public Risorsa getRisorsa(TipoRisorsa tipoRisorsa){
