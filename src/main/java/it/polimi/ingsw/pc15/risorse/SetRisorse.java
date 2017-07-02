@@ -36,7 +36,7 @@ public class SetRisorse implements Serializable {
 		
 		for (Map.Entry<TipoRisorsa, Risorsa> risorsa : setRisorse.getRisorse().entrySet()) {
 			if (this.risorse.containsKey(risorsa.getKey())) {
-				this.risorse.get(risorsa.getKey()).aggiungi(risorsa.getValue().getQuantità());
+				this.risorse.get(risorsa.getKey()).aggiungi(-risorsa.getValue().getQuantità());
 				if (this.risorse.get(risorsa.getKey()).getQuantità()<0)
 					this.risorse.get(risorsa.getKey()).aggiungi(-this.risorse.get(risorsa.getKey()).getQuantità());
 			}
