@@ -13,7 +13,7 @@ public class Edificio extends Carta {
 	
 	private int requisitoProduzione;
 	
-	public Edificio (String nome, int id, int periodo, SetRisorse costo, Set<Effetto> effettoPermanente, Set<Effetto> effettoIstantaneo, int requisitoProduzione) {
+	public Edificio (String nome, int id, int periodo, SetRisorse costo, Set<Effetto> effettoIstantaneo, Set<Effetto> effettoPermanente,  int requisitoProduzione) {
 		super(nome, id, periodo, costo, effettoIstantaneo, effettoPermanente);
 		this.requisitoProduzione = requisitoProduzione;
 		this.tipo = TipoCarta.EDIFICIO;

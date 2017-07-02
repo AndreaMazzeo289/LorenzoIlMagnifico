@@ -40,9 +40,9 @@ public class AzioneOccupaSpazioTorre extends AzioneOccupaSpazio {
 		if (player.getEffettiAttivi().disponibilitàBonusSpazioTorri())
 			((SpazioTorre) spazio).getBonusRisorse().attiva(player);
 		
-		((SpazioTorre) spazio).getTorre().setOccupata(true);
-		
 		azionePrendiCarta.attiva();	
+		
+		((SpazioTorre) spazio).getTorre().setOccupata(true);
 	}
 
 	@Override

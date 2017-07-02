@@ -24,8 +24,8 @@ public class Produzione extends Effetto {
 			if (valore + player.getEffettiAttivi().getBonusProduzione()>= ((Edificio) edificio).getRequisitoProduzione() ) {
 				System.out.println("Attivo produzione in " + edificio.getNome());
 				for (Effetto effetto : edificio.getEffettoPermanente())
-					if (effetto instanceof Incrementabile)
-						((Incrementabile) effetto).attivaDaCarta(player);
+					if (effetto instanceof Incrementabile){
+						((Incrementabile) effetto).attivaDaCarta(player);}
 					else effetto.attiva(player);
 			}
 			
