@@ -1,23 +1,18 @@
 package it.polimi.ingsw.pc15.GUI;
 
 import java.awt.BorderLayout;
-import java.awt.Color;
-import java.awt.Container;
 import java.awt.Dimension;
-import java.awt.GridBagConstraints;
-import java.awt.GridBagLayout;
 import java.awt.GridLayout;
 import java.awt.Image;
 import java.awt.Toolkit;
+import java.io.Serializable;
 
 import javax.swing.ImageIcon;
-import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
-
 import it.polimi.ingsw.pc15.player.ColoreFamiliare;
 
-public class SpazioFamiliariDisponibili extends JPanel{
+public class SpazioFamiliariDisponibili extends JPanel implements Serializable{
 
 	JLabel background;
 	JLabel labelNero;

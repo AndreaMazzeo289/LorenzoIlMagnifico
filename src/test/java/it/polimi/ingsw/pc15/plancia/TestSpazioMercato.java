@@ -3,36 +3,12 @@ package it.polimi.ingsw.pc15.plancia;
 import static org.junit.Assert.*;
 
 import java.util.HashSet;
-
 import org.junit.Before;
 import org.junit.Test;
-
 import it.polimi.ingsw.pc15.effetti.AggiuntaRisorse;
 import it.polimi.ingsw.pc15.risorse.Legna;
 import it.polimi.ingsw.pc15.risorse.Oro;
 import it.polimi.ingsw.pc15.risorse.Pietra;
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 import it.polimi.ingsw.pc15.risorse.Privilegi;
 import it.polimi.ingsw.pc15.risorse.PuntiFede;
 import it.polimi.ingsw.pc15.risorse.PuntiMilitari;
@@ -43,11 +19,10 @@ import it.polimi.ingsw.pc15.risorse.SetRisorse;
 
 public class TestSpazioMercato {
 	//-----------------------------------------------------------------------------------------------------------//
-		//          TEST GET EFFETTI                                                                                 //
-		//-----------------------------------------------------------------------------------------------------------//
+	//          TEST GET EFFETTI                                                                                 //
+	//-----------------------------------------------------------------------------------------------------------//
 		
 		SpazioMercato spazioMercato;
-		
 		
 		Legna legna;
 		Oro oro;
@@ -66,14 +41,9 @@ public class TestSpazioMercato {
 		@Before
 		public void setUp(){
 			
-			
-			
 			//-----------------------------------------------------------------------------------------------------------//
 			//          TEST GET EFFETTI                                                                                 //
 			//-----------------------------------------------------------------------------------------------------------//
-			
-			
-			
 			
 			legna = new Legna(0);
 			oro = new Oro(0);
@@ -94,23 +64,16 @@ public class TestSpazioMercato {
 			risorse.add(puntiFede);
 			risorse.add(puntiVittoria);
 			risorse.add(servitori);
-			
 			setRisorse = new SetRisorse(risorse);
 			
 			spazioMercato = new SpazioMercato(0, setRisorse);
-			
 			aggiungiRisorse2 = new AggiuntaRisorse(setRisorse);
-			
 		}
-		
 		
 		@Test
 		public void testGetEffetto(){
 			
 			aggiungiRisorse = (AggiuntaRisorse) spazioMercato.getEffetto();
-			
 			assertEquals("Errore test get effetto", aggiungiRisorse2.toString(), aggiungiRisorse.toString() );
-			
-			
 		}
 }

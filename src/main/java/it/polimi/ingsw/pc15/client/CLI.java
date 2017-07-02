@@ -12,6 +12,10 @@ import java.util.Scanner;
 import it.polimi.ingsw.pc15.carte.Carta;
 import it.polimi.ingsw.pc15.carte.TipoCarta;
 import it.polimi.ingsw.pc15.effetti.Effetto;
+<<<<<<< HEAD
+=======
+/*import it.polimi.ingsw.pc15.effetti.EffettoAScelta;*/
+>>>>>>> 3100d7d4b54f28841f2211074778e3b2bed2fc8b
 import it.polimi.ingsw.pc15.plancia.SpazioMercato;
 import it.polimi.ingsw.pc15.plancia.SpazioTorre;
 import it.polimi.ingsw.pc15.plancia.TesseraScomunica;
@@ -355,6 +359,12 @@ public class CLI extends ClientView {
 		    				System.out.println("  " + (this.clientModel.getStatoGiocatore().getCarteLeader().lastIndexOf(leader)+1) +". " + leader.getNome());
 						int leaderScelto = input.nextInt()-1;
 		    			message.add(String.valueOf(leaderScelto));
+		    			ArrayList<String> scelte = new ArrayList<String>();
+		    			for (Effetto effetto : this.clientModel.getStatoGiocatore().getCarteLeader().get(leaderScelto).getEffettoPerTurno())
+		    			/*	if (effetto instanceof EffettoAScelta) {
+		    					System.out.println(((EffettoAScelta) effetto).getScelta());
+		    					scelte.add(String.valueOf(input.nextInt()));	
+		    				}*/
 						setChanged();
 					} else {
 			    		System.out.println("\n--Inserire un comando valido!--");

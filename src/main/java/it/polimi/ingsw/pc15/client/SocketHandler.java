@@ -14,7 +14,7 @@ import java.util.Scanner;
 import it.polimi.ingsw.pc15.model.StatoPartita;
 import it.polimi.ingsw.pc15.risorse.TipoRisorsa;
 
-public class SocketHandler extends NetworkHandler {
+public class SocketHandler extends NetworkHandler implements Serializable{
 	
 	private Scanner in;
 	private PrintStream out;

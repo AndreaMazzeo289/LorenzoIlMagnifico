@@ -10,7 +10,6 @@ import static org.junit.Assert.*;
 
 import java.util.HashMap;
 
-
 public class TestEffettiAttivi {
 
 	EffettiAttivi effettiAttivi;
@@ -71,10 +70,7 @@ public class TestEffettiAttivi {
 	}
 	
 	@Test
-	public void testAggiungiScontoCarte(){
-		
-		
-	}
+	public void testAggiungiScontoCarte(){}
 	
 	@Test
 	public void testAnnullaBonusPuntiVittoriaFinale(){
@@ -89,7 +85,6 @@ public class TestEffettiAttivi {
 		bonusRaccolta+= valoreRaccoltaBonus;
 		effettiAttivi.incrementaBonusRaccolta(valoreRaccoltaBonus);		
 		assertEquals("Errore incrementa bonus raccolta", bonusRaccolta, effettiAttivi.getBonusRaccolta());
-		
 	}
 	
 	@Test
@@ -98,7 +93,6 @@ public class TestEffettiAttivi {
 		bonusProduzione+= valoreProduzioneBonus;
 		effettiAttivi.incrementaBonusProduzione(valoreProduzioneBonus);
 		assertEquals("Errore incrementa bonus produzione", bonusProduzione, effettiAttivi.getBonusProduzione());
-		
 	}
 	
 	@Test
@@ -167,14 +161,10 @@ public class TestEffettiAttivi {
 	}
 	
 	@Test
-	public void testGetScontoCostoCarte(){
-		
-		
-	}
+	public void testGetScontoCostoCarte(){}
 	
 	@Test
 	public void testBonusPuntiVittoraFinale(){
-		
 		
 		assertTrue("Errore bonus punti vittoria finale", effettiAttivi.bonusPuntiVittoriaFinale(TipoCarta.TERRITORIO));
 		assertTrue("Errore bonus punti vittoria finale", effettiAttivi.bonusPuntiVittoriaFinale(TipoCarta.PERSONAGGIO));
@@ -183,49 +173,37 @@ public class TestEffettiAttivi {
 	
 	@Test
 	public void testDisponibilitàMercato(){
-		
 		assertTrue("Errore get disponibilità mercato", effettiAttivi.disponibilitàMercato());
 	}
 	
 	@Test
 	public void testDisponibilitàBonusSpazioTorri(){
-		
 		assertTrue("Errore get disponibilità spazio torri", effettiAttivi.disponibilitàBonusSpazioTorri());
 	}
 	
 	@Test
 	public void testRequisitoTerritoriAttivo(){
-		
 		assertTrue("Errore get requisito territori attivo", effettiAttivi.requisitoTerritoriAttivo());
 	}
 	
 	@Test
 	public void testControllaPermessoSpaziOccupati(){
-		
 		assertFalse("Errore controlla permesso spazi occupati", effettiAttivi.controllaPermessoSpaziOccupati());
 	}
 	
 	@Test
 	public void testGetMoltiplicatoreRisorseCarte(){
-		
 		assertEquals("Errore get moltiplicatore risorse carte", 1, effettiAttivi.getMoltiplicatoreRisorseCarte());
 	}
 		
 	@Test
 	public void testGetMoltiplicatoreRisorseSpazi(){
-		
 		assertEquals("Errore get moltiplicatore risorse spazi", 1, effettiAttivi.getMoltiplicatoreRisorseSpazi());
 	}
 	
 	@Test 
-	public void testGetRisorseBonusSpazi(){
-		
-		
-	}
+	public void testGetRisorseBonusSpazi(){}
 		
 	@Test
-	public void testGetRisorseBonusCarte(){
-		
-		
-	}
+	public void testGetRisorseBonusCarte(){}
 }

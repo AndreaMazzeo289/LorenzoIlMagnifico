@@ -4,6 +4,7 @@ import org.junit.Assert.*;
 
 import static org.junit.Assert.*;
 
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.HashSet;
 import java.util.Set;
@@ -41,8 +42,6 @@ public class TestSetRisorse {
 	PuntiVittoria puntiVittoria;
 	Servitori servitori;
 	
-	
-	
 	@Before
 	public void setUp() throws Exception {
 		
@@ -78,7 +77,6 @@ public class TestSetRisorse {
 		risultatoAggiunta.add(new PuntiVittoria(6));
 		risultatoAggiunta.add(new Servitori(6));
 		
-		
 		risultatoSottrai.add(new Legna(0));
 		risultatoSottrai.add(new Oro(0));
 		risultatoSottrai.add(new Pietra(0));
@@ -88,43 +86,42 @@ public class TestSetRisorse {
 		risultatoSottrai.add(new PuntiVittoria(0));
 		risultatoSottrai.add(new Servitori(0));
 		
-		
 		setRisorse1 = new SetRisorse(risorsa1);
 		setRisorse2 = new SetRisorse(risorsa2);
 		setRisultatoAggiunta = new SetRisorse(risultatoAggiunta);
 		setRisultatoSottrai = new SetRisorse(risultatoSottrai);
-		
-	
-		
-			
-			
 		}
+	
+		@Test
+		public void testParagona(){
+			assertTrue("Errore paragona", this.setRisorse1.paragona(this.setRisorse2));
+		}
+		
 		@Test
 		public void testAggiungi(){
+			
+			Boolean result;
 			this.setRisorse1.aggiungi(this.setRisorse2);
-			assertEquals("Errore aggiunta", this.setRisultatoAggiunta.toString(), this.setRisorse1.toString());		
-
+			if(setRisorse1.paragona(setRisultatoAggiunta))
+				result = true;
+			else result = false;
+			assertTrue("Errore aggiunta", result);	
 		}
 	
 		@Test
 		public void testSottrai(){
 			
+			Boolean result;
 			this.setRisorse1.sottrai(this.setRisorse2);
-			assertEquals("Errore sottrazione", this.setRisultatoSottrai.toString(), this.setRisorse1.toString());
-			
-		}
-		
-		@Test
-		public void testParagona(){
-			
-			assertTrue("Errore paragona", this.setRisorse1.paragona(this.setRisorse2));
+			if(setRisultatoSottrai.paragona(setRisorse1))
+				result = true;
+			else result = false;
+			assertTrue("Errore sottrazione", result);
 		}
 		
 		@Test
 		public void testGetRisorsa(){
-			
 			Legna legna = new Legna(3);
 			assertEquals("Errore getRisorsa", legna.toString(), setRisorse1.getRisorsa(TipoRisorsa.LEGNA).toString());
 		}
-	
 }

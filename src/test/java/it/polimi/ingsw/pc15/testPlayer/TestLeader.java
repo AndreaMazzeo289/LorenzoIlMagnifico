@@ -1,8 +1,5 @@
 package it.polimi.ingsw.pc15.testPlayer;
 
-
-
-
 import org.junit.*;
 
 import it.polimi.ingsw.pc15.carte.TipoCarta;
@@ -79,7 +76,6 @@ public class TestLeader {
 		assertTrue("Errore effetto attivato", leader.effettoGiàAttivato());
 	}
 	
-	
 	@Test
 	public void testSetGiocato(){
 		
@@ -87,13 +83,11 @@ public class TestLeader {
 		assertTrue("Errore leader giocato", leader.giocato());
 	}
 	
-	
 	@Test
 	public void testGetNome(){
 		
 		assertEquals("Errore get nome", nome, leader.getNome());
 	}
-	
 	
 	@Test
 	public void testEffettoGiàAttivato(){
@@ -108,26 +102,14 @@ public class TestLeader {
 	}
 	
 	@Test
-	public void testGetRequisitoCarte(){
-		
-		
-	}
+	public void testGetRequisitoCarte(){}
 	
 	@Test
-	public void testGetRequisitoRisorse(){
-		
-		
-	}
+	public void testGetRequisitoRisorse(){}
 	
 	@Test
-	public void testGetEffettoPerTurno(){
-		
-		
-	}
+	public void testGetEffettoPerTurno(){}
 	
 	@Test
-	public void testGetEffettoPermanente(){
-		
-		
-	}
+	public void testGetEffettoPermanente(){}
 }
