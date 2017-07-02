@@ -7,11 +7,8 @@ import java.util.Scanner;
 import it.polimi.ingsw.pc15.player.Leader;
 import it.polimi.ingsw.pc15.player.Player;
 
-<<<<<<< HEAD
-public class CopiaEffettoLeader extends Effetto {
-=======
+
 public class CopiaEffettoLeader extends Effetto /*implements EffettoAScelta*/ {
->>>>>>> 3100d7d4b54f28841f2211074778e3b2bed2fc8b
 
 	@Override
 	public void attiva(Player player) {
@@ -23,8 +20,6 @@ public class CopiaEffettoLeader extends Effetto /*implements EffettoAScelta*/ {
 		return "Copia l'effetto di un altro Leader in gioco" ;
 	}
 
-<<<<<<< HEAD
-=======
 
 
 	/*@Override
@@ -48,5 +43,4 @@ public class CopiaEffettoLeader extends Effetto /*implements EffettoAScelta*/ {
 
 	}*/
 
->>>>>>> 3100d7d4b54f28841f2211074778e3b2bed2fc8b
 }
