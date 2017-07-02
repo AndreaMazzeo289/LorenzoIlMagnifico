@@ -28,7 +28,6 @@ public class TestFamiliare {
 		
 		familiare.setDisponibilità(false);
 		assertFalse("Errore set disponibilità", familiare.disponibile());
-		
 	}
 	
 	@Test
@@ -43,7 +42,6 @@ public class TestFamiliare {
 		valore += 4;
 		int risultatoValore = valore + valoreBonus;
 		assertEquals("Errose set valore", risultatoValore, familiare.getValore());
-		
 	}
 	
 	@Test
@@ -56,40 +54,32 @@ public class TestFamiliare {
 	
 	@Test
 	public void testGetColore(){
-		
 		assertEquals("Errore get colore", ColoreFamiliare.ARANCIONE, familiare.getColore());
 	}
 	
 	@Test
 	public void testGetPlayer(){
-		
 		assertEquals("Errore get player", "TonyEffe", player.getNome());
 	}
 	
 	@Test 
 	public void testGetValoreBonus(){
-		
 		assertEquals("Errore get valore bonus", valoreBonus, familiare.getValoreBonus());
 	}
 	
 	@Test
 	public void testGetValore(){
-		
 		int valoreTotaleFamiliare = valore+valoreBonus;
 		assertEquals("Errore get valore", valoreTotaleFamiliare, familiare.getValore());
 	}
 	
 	@Test
 	public void testDisponibilità(){
-		
 		assertTrue("Errore disponibilità", familiare.disponibile());
 	}
 	
 	@Test
 	public void testGetValoreFissato(){
-		
 		assertFalse("Errore get valore fissato", familiare.getValoreFissato());
 	}
-	
-	
 }

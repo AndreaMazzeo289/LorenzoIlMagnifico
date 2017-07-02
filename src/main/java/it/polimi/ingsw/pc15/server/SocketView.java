@@ -25,7 +25,6 @@ public class SocketView extends ServerView implements Serializable {
 	private ObjectOutputStream outObj;
 	private Scanner in;
 	private PrintStream out;
-	private String name;
 	private ArrayList<String> input;
 	
 	public SocketView(Socket socket, Server server) throws IOException{
@@ -73,23 +72,18 @@ public class SocketView extends ServerView implements Serializable {
 		out.println(messaggio);
 	}
 	
+	public String getName() {
+		return this.name;
+	}
+	
 	public synchronized void sendObj(Object obj) {	
 		
 		try {
 			outObj.writeObject(obj);
-		} catch (IOException e) {
-			e.printStackTrace();
-		}
-		
-		try {
 			outObj.reset();
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
+		
 	}
-	
-	public String getName() {
-		return this.name;
-	}
-
 }

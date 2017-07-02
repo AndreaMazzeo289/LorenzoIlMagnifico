@@ -22,13 +22,19 @@ public class FissaValoreFamiliare extends Effetto {
 	}
 	
 	public void fissaValore(Player player) {
+		
+		
 		player.getFamiliare(colore).setValore(valore);
 		player.getFamiliare(colore).setValoreFissato();
+		
+		
 		
 	}
 	
 	public String toString() {
-		return ("Fissa il valore del familiare " + colore.name() + " di " + valore) ;
+		return ("Fissa il valore del familiare " + colore.name() + " a " + valore) ;
 	}
+	
+	
 
 }

@@ -15,6 +15,7 @@ import java.util.Observer;
 
 import it.polimi.ingsw.pc15.client.RMIHandler;
 import it.polimi.ingsw.pc15.client.RMIHandlerInterface;
+import it.polimi.ingsw.pc15.client.SocketHandler;
 import it.polimi.ingsw.pc15.controller.Controller;
 import it.polimi.ingsw.pc15.model.Model;
 import it.polimi.ingsw.pc15.player.Player;
@@ -81,7 +82,7 @@ public class Server extends UnicastRemoteObject implements ServerInterface {
 		views.put(name, view);
 		System.out.println("Giocatore connnesso: " + name);
 		numeroGiocatori++;
-		if (numeroGiocatori==2) {
+		if (numeroGiocatori==1) {
 			avviaPartita();
 			this.views = new HashMap<String, ServerView>();
 			numeroGiocatori=0;
@@ -91,21 +92,24 @@ public class Server extends UnicastRemoteObject implements ServerInterface {
 	
 	public void avviaPartita() {
 		
-		ArrayList<String> nomiGiocatoriConnessi = new ArrayList<String>();
+		ArrayList<String> nomiGiocatori = new ArrayList<String>();
 		
 		for(Map.Entry<String, ServerView> giocatoriConnessi : views.entrySet())
-			nomiGiocatoriConnessi.add(giocatoriConnessi.getKey());
+			nomiGiocatori.add(giocatoriConnessi.getKey());
 		
-		Model model = new Model(nomiGiocatoriConnessi, true);
+		Model model = new Model(nomiGiocatori);
 		
 		for(Map.Entry<String, ServerView> view : views.entrySet()) 
 			model.addObserver(view.getValue());
 			
 		Controller controller = new Controller(model);
 		
-		for(Map.Entry<String, ServerView> giocatoriConnessi : views.entrySet()) {
-			giocatoriConnessi.getValue().addObserver(controller);  //il Controller viene reso Observer di ogni View
-			giocatoriConnessi.getValue().sendLine("OK"); //notifica ai giocatori l'inizio partita
+		for(Map.Entry<String, ServerView> giocatoreConnesso : views.entrySet()) {
+			giocatoreConnesso.getValue().addObserver(controller);  //il Controller viene reso Observer di ogni View
+			if (giocatoreConnesso.getValue() instanceof SocketView)
+				giocatoreConnesso.getValue().sendLine("OK"); //notifica ai giocatori l'inizio partita
+			else if (giocatoreConnesso.getValue() instanceof RMIView)
+				((RMIView) giocatoreConnesso.getValue()).sendOK();
 		}
 		
 		model.iniziaPartita();
@@ -131,13 +135,16 @@ public class Server extends UnicastRemoteObject implements ServerInterface {
 		RMIView rmiView = new RMIView(rmiHandler);
 		new Thread(rmiView).start();
 		this.rmiViews.add(rmiView);
-		connetti(rmiView, rmiHandler.getNome());
+		connetti(rmiView, rmiHandler.remoteGetNome());
 		return rmiViews.lastIndexOf(rmiView);
 	}
 
 
 	@Override
 	public void remoteNotify(Object o, int i) throws RemoteException {
-		this.rmiViews.get(i).notifyObservers(o);
+		ArrayList<String> message = (ArrayList<String>)o;
+		System.out.println("Sono il server e ho ricevuto " + message);
+		this.rmiViews.get(i).notificaOsservatori(message);
+		
 	}
 }

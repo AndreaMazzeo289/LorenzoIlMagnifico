@@ -32,7 +32,7 @@ public class AzioneOccupaSpazioTorre extends AzioneOccupaSpazio {
 	@Override
 	public void attiva() {
 		
-		player.getSetRisorse().getRisorsa(TipoRisorsa.SERVITORI).aggiungi(-servitoriAggiuntivi);
+		pagaServitori();
 		
 		spazio.aggiungiFamiliare(familiare);
 		familiare.setDisponibilità(false);
@@ -49,16 +49,16 @@ public class AzioneOccupaSpazioTorre extends AzioneOccupaSpazio {
 	public RisultatoAzione èValida() {
 		
 		if (familiare.disponibile() == false)
-			return new RisultatoAzione(false, "FRASE");
+			return new RisultatoAzione(false, player.getNome() + " cerca di posizionare un familiare ma questo non è disponibile");
 		
 		if (spazio.vuoto() == false)
-			return new RisultatoAzione(false, "FRASE");
+			return new RisultatoAzione(false, player.getNome() + " cerca di posizionare un familiare ma lo spazio scelto è occupato");
 		
 		if (controlloFamiliariTorre() == false)
-			return new RisultatoAzione(false, "FRASE");
+			return new RisultatoAzione(false, player.getNome() + "non può piazzare il familiare poichè nella torre ne ha già posizionato un altro(non neutro)");
 		
 		if ( familiare.getValore() + servitoriAggiuntivi + player.getEffettiAttivi().getBonusDadoCarte(((SpazioTorre) spazio).getCarta().getTipo()) < spazio.getValoreMin() )
-			return new RisultatoAzione(false, "FRASE");
+			return new RisultatoAzione(false, player.getNome() + " non può piazzare il familiare poichè il suo valore non soddisfa i requisiti della torre");
 		
 		return this.azionePrendiCarta.èValida();
 	}
@@ -67,8 +67,8 @@ public class AzioneOccupaSpazioTorre extends AzioneOccupaSpazio {
 		
 		for (SpazioTorre spazioTorre : ((SpazioTorre) spazio).getTorre().getSpaziTorre())
 			if (spazioTorre.vuoto()==false)
-			if (spazioTorre.getFamiliare().getPlayer().equals(player) && !(this.familiare.getColore().equals(ColoreFamiliare.NEUTRO) || spazioTorre.getFamiliare().getColore().equals(ColoreFamiliare.NEUTRO)))
-				return false;
+				if (spazioTorre.getFamiliare().getPlayer().equals(player) && !(this.familiare.getColore().equals(ColoreFamiliare.NEUTRO) || spazioTorre.getFamiliare().getColore().equals(ColoreFamiliare.NEUTRO)))
+					return false;
 		
 		return true;
 		

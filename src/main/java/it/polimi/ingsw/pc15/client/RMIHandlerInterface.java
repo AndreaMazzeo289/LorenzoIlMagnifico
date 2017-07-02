@@ -9,6 +9,8 @@ public interface RMIHandlerInterface extends Remote {
 
 	public void aggiornaStatoPartita(StatoPartita statoPartita) throws RemoteException;
 	
-	public String getNome() throws RemoteException;
+	public String remoteGetNome() throws RemoteException;
+	
+	public void remoteOK() throws RemoteException;
 
 }

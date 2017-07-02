@@ -2,6 +2,7 @@ package it.polimi.ingsw.pc15.server;
 
 import java.rmi.RemoteException;
 import java.rmi.server.UnicastRemoteObject;
+import java.util.ArrayList;
 import java.util.Observable;
 
 import it.polimi.ingsw.pc15.client.RMIHandler;
@@ -14,6 +15,11 @@ public class RMIView extends ServerView {
 	
 	public RMIView (RMIHandlerInterface rmiHandler) {
 		this.rmiHandler = rmiHandler;
+		try {
+			this.name = rmiHandler.remoteGetNome();
+		} catch (RemoteException e) {
+			e.printStackTrace();
+		}
 	}
 	
 	@Override
@@ -22,15 +28,11 @@ public class RMIView extends ServerView {
 	}
 
 	@Override
-	public String getName() {
-		return null;
-	}
-
-	@Override
 	public void update(Observable arg0, Object arg) {
 
 		StatoPartita statoPartita = (StatoPartita)arg;
-		System.out.println("\nSono la connection di  e ho ricevuto " + (statoPartita.getMessaggio()));
+		System.out.println("\nSono la connection di " + name + " e ho ricevuto " + statoPartita.getMessaggio());
+		statoPartita.setStatoGiocatore(name);
 		
 		try {
 			rmiHandler.aggiornaStatoPartita(statoPartita);
@@ -39,11 +41,23 @@ public class RMIView extends ServerView {
 		}
 		
 	}
+	
+	public void notificaOsservatori(ArrayList<String> message) {
+		setChanged();
+		notifyObservers(message);
+	}
+	
+	public void sendOK() {
+		try {
+			this.rmiHandler.remoteOK();
+		} catch (RemoteException e) {
+			e.printStackTrace();
+		}
+	}
 
 	@Override
 	public void run() {
-		// TODO Auto-generated method stub
-		
+
 	}
 
 }

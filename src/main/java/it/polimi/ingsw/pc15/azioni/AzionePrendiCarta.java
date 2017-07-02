@@ -23,7 +23,7 @@ public abstract class AzionePrendiCarta extends Azione{
 		
 	int oroAggiuntivo = 0;
 			                                          
-	if (carta.getSpazio().getTorre().occupata() )    
+	if (carta.getSpazio().getTorre().occupata() && player.getEffettiAttivi().sovrapprezzoTorri())    
 		oroAggiuntivo = 3;		
 	
 	if (player.getEffettiAttivi().getScontoCostoCarte(carta.getTipo())!=null)	
@@ -41,7 +41,7 @@ public abstract class AzionePrendiCarta extends Azione{
 	}    
 
 	public void pagaCosto() {
-		if (carta.getSpazio().getTorre().occupata() ) 
+		if (carta.getSpazio().getTorre().occupata() && player.getEffettiAttivi().sovrapprezzoTorri()) 
 			carta.getCosto().getRisorsa(TipoRisorsa.ORO).aggiungi(3);
 		player.getSetRisorse().sottrai(carta.getCosto());
 	}

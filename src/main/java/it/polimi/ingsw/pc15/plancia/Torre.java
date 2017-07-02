@@ -15,7 +15,7 @@ public class Torre implements Serializable {
 	
 	public Torre (int numeroSpaziTorre, ArrayList<SetRisorse> arraySetRisorse) {
 
-		this.spaziTorre = new ArrayList(numeroSpaziTorre);
+		this.spaziTorre = new ArrayList<SpazioTorre>(numeroSpaziTorre);
 		for (int i=0; i<numeroSpaziTorre; i++) {
 			spaziTorre.add(i, new SpazioTorre(2*i+1, arraySetRisorse.get(i), this));	
 		}
@@ -37,6 +37,8 @@ public class Torre implements Serializable {
 	public void libera() {
 		for (SpazioTorre spazio: this.spaziTorre)
 			spazio.rimuoviFamiliari();
+		
+		this.occupata = false;
 	}
 	
 	public ArrayList<SpazioTorre> getSpaziTorre() {

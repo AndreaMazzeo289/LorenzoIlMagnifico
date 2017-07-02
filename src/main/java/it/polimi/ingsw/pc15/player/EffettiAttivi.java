@@ -22,6 +22,8 @@ public class EffettiAttivi implements Serializable{
 	private boolean bonusSpazioTorri;
 	private boolean requisitoTerritori;
 	private boolean permessoSpaziOccupati;
+	private boolean sovrapprezzoServitori;
+	private boolean sovrapprezzoTorri;
 
 	private SetRisorse risorseBonusCarte;
 	private SetRisorse risorseBonusSpazi;
@@ -44,8 +46,6 @@ public class EffettiAttivi implements Serializable{
 		bonusDadoCarte.put(TipoCarta.EDIFICIO, 0);
 		bonusDadoCarte.put(TipoCarta.IMPRESA, 0);
 		
-		
-		
 		bonusPuntiVittoriaFinale = new HashMap<TipoCarta, Boolean>();
 		bonusPuntiVittoriaFinale.put(TipoCarta.TERRITORIO, true);
 		bonusPuntiVittoriaFinale.put(TipoCarta.PERSONAGGIO, true);
@@ -58,7 +58,8 @@ public class EffettiAttivi implements Serializable{
 		this.bonusSpazioTorri = true;
 		this.requisitoTerritori = true;
 		this.permessoSpaziOccupati = false;
-		
+		this.sovrapprezzoTorri = true;
+		this.sovrapprezzoServitori = false;
 
 		risorseBonusCarte = new SetRisorse(new HashSet<Risorsa>());
 		risorseBonusSpazi = new SetRisorse(new HashSet<Risorsa>());
@@ -119,6 +120,13 @@ public class EffettiAttivi implements Serializable{
 		this.moltiplicatoreRisorseSpazi = moltiplicatore;
 	}
 	
+	public void setSovrapprezzoServitori() {
+		this.sovrapprezzoServitori = true;
+	}
+	
+	public void annullaSovrapprezzoTorri() {
+		this.sovrapprezzoTorri = false;
+	}
 	
 	
 	//-----------------------------------------------------------------------------------------------------------//
@@ -175,6 +183,14 @@ public class EffettiAttivi implements Serializable{
 	
 	public int getMoltiplicatoreRisorseCarte() {
 		return this.moltiplicatoreRisorseCarte;
+	}
+	
+	public boolean sovrapprezzoTorri() {
+		return this.sovrapprezzoTorri;
+	}
+	
+	public boolean sovrapprezzoServitori() {
+		return this.sovrapprezzoServitori;
 	}
 	
 }

@@ -20,10 +20,8 @@ public class Produzione extends Effetto {
 	@Override
 	public void attiva(Player player){
 		
-		valore += player.getEffettiAttivi().getBonusProduzione();
-		
 		for (Carta edificio : player.getCarte(TipoCarta.EDIFICIO)) {
-			if (valore >= ((Edificio) edificio).getRequisitoProduzione() ) {
+			if (valore + player.getEffettiAttivi().getBonusProduzione()>= ((Edificio) edificio).getRequisitoProduzione() ) {
 				System.out.println("Attivo produzione in " + edificio.getNome());
 				for (Effetto effetto : edificio.getEffettoPermanente())
 					if (effetto instanceof Incrementabile)
@@ -33,8 +31,6 @@ public class Produzione extends Effetto {
 			
 			else System.out.println("Il valore del familiare non è sufficiente per attivare la produzione in " + edificio.getNome());
 		}
-		
-		valore -= player.getEffettiAttivi().getBonusProduzione();
 	}
 	
 	public String toString() {
