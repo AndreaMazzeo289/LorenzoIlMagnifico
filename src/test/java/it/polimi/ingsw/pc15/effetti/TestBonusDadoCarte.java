@@ -12,7 +12,6 @@ import it.polimi.ingsw.pc15.player.Player;
 
 public class TestBonusDadoCarte {
 	
-	
 	BonusDadoCarte bonusDadoCarte;
 	Player player;
 	
@@ -27,11 +26,7 @@ public class TestBonusDadoCarte {
 	public void testAttiva(){
 		
 		bonusDadoCarte.attiva(player);
-		
 		assertEquals("Errore attiva effetto bonus dado carte", 2, player.getEffettiAttivi().getBonusDadoCarte(TipoCarta.TERRITORIO));
 		
-		
 	}
-	
-	
 }

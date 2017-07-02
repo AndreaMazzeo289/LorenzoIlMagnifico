@@ -21,18 +21,12 @@ public class TestAnnullaGuadagno {
 		player = new Player("test");
 		annullaGuadagno = new AnnullaGuadagno(TipoCarta.PERSONAGGIO);
 		bonusPuntiVittoria = new HashMap<TipoCarta, Boolean>();
-		
-		
 	}
 	
 	@Test
 	public void testAttiva(){
 		
-		
-		
-
 		annullaGuadagno.attiva(player);
-		
 		assertFalse("Errore attivazione annulla guadagno", player.getEffettiAttivi().bonusPuntiVittoriaFinale(TipoCarta.PERSONAGGIO));
 	}
 }

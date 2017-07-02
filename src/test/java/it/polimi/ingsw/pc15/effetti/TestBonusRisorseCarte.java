@@ -1,11 +1,7 @@
 package it.polimi.ingsw.pc15.effetti;
 
 import static org.junit.Assert.*;
-
-
 import org.junit.*;
-
-
 import it.polimi.ingsw.pc15.player.Player;
 import it.polimi.ingsw.pc15.risorse.TipoRisorsa;
 
@@ -21,9 +17,7 @@ public class TestBonusRisorseCarte {
 		player = new Player("test");
 	}
 	
-	
 	/*
-	 * 
 	 * L'effetto attiva in questione deve ancora essere definito
 	 */
 	
@@ -31,10 +25,6 @@ public class TestBonusRisorseCarte {
 	public void testAttiva(){
 		
 		bonusRisorseCarte.attiva(player);
-		
-		
-		
-		
 	}
 	
 }

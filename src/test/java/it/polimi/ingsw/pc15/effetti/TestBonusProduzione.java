@@ -23,10 +23,7 @@ public class TestBonusProduzione {
 	public void testAttiva(){
 		
 		bonusProduzione.attiva(player);
-		
 		assertEquals("Errore attiva effetto bonus dado carte", 2, player.getEffettiAttivi().getBonusProduzione());
 		
-		
 	}
-	
 }

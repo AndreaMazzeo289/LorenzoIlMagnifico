@@ -7,9 +7,6 @@ import org.junit.*;
 
 import it.polimi.ingsw.pc15.player.Player;
 
-
-
-
 public class TestBonusPVChiesa {
 
 	BonusPVChiesa bonusPVChiesa;
@@ -23,20 +20,12 @@ public class TestBonusPVChiesa {
 	}
 	
 	/*
-	 * 
 	 * L'effetto in questione deve ancora essere definito.
 	 */
 	
 	@Test
 	public void testAttiva(){
 		
-		bonusPVChiesa.attiva(player);
-		
-		
-		
-		
+		bonusPVChiesa.attiva(player);	
 	}
-	
-	
-	
 }

@@ -18,16 +18,12 @@ public class TestAnnullaSovrapprezzoTorri {
 		
 		player = new Player("test");
 		annullaSovrapprezzoTorri = new AnnullaSovrapprezzoTorri();
-		
-		
-		
 	}
 	
 	@Test
 	public void testAttiva(){
 		
 		annullaSovrapprezzoTorri.attiva(player);
-		
 		assertFalse("Errore attivazione annulla sovrapprezzo torri", player.getEffettiAttivi().sovrapprezzoTorri());
 	}
 }

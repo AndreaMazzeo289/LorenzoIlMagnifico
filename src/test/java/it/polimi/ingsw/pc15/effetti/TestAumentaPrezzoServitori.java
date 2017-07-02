@@ -19,18 +19,12 @@ public class TestAumentaPrezzoServitori {
 		
 		player = new Player("test");
 		aumentaPrezzoServitori = new AumentaPrezzoServitori();
-		
-		
-		
 	}
 	
 	@Test
 	public void testAttiva(){
 		
 		aumentaPrezzoServitori.attiva(player);
-		
 		assertTrue("Errore attivazione sovrapprezzo territori", player.getEffettiAttivi().sovrapprezzoServitori());
 	}
-	
-	
 }

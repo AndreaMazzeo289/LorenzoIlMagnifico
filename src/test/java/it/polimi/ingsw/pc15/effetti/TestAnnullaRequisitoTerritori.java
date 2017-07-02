@@ -18,16 +18,12 @@ public class TestAnnullaRequisitoTerritori {
 		
 		player = new Player("test");
 		annullaRequisitoTerritori = new AnnullaRequisitoTerritori();
-		
-		
-		
 	}
 	
 	@Test
 	public void testAttiva(){
 		
 		annullaRequisitoTerritori.attiva(player);
-		
 		assertFalse("Errore attivazione annulla requisito territori", player.getEffettiAttivi().requisitoTerritoriAttivo());
 	}
 }

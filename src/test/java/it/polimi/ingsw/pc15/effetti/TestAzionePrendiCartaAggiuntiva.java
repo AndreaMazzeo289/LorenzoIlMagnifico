@@ -14,18 +14,13 @@ public class TestAzionePrendiCartaAggiuntiva {
 	AzionePrendiCartaAggiuntiva azionePrendiCartaAggiuntiva;
 	Player player;
 	
-	
-	
-	
 	@Before
 	public void setUp(){
 		
 		player = new Player("test");
-		
 		azionePrendiCartaAggiuntiva = new AzionePrendiCartaAggiuntiva(TipoCarta.ALL, 5);
 		
 	}
-	
 	
 	/*
 	 * L'effetto in questione deve essere ancora definito.
@@ -34,6 +29,4 @@ public class TestAzionePrendiCartaAggiuntiva {
 	
 	@Test
 	public void testAttiva(){}
-	
-	
 }
