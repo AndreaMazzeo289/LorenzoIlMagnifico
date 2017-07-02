@@ -11,6 +11,7 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 
 import it.polimi.ingsw.pc15.GUI.mainGUI;
+import it.polimi.ingsw.pc15.player.ColoreFamiliare;
 
 public class SpazioDadi extends JPanel{
 
@@ -95,4 +96,38 @@ public class SpazioDadi extends JPanel{
 		this.add(labelSouth, BorderLayout.SOUTH);
 	}
 	
+	public void modificaImmagineDadi(ColoreFamiliare coloreFamiliare, int valoreDado) {
+		
+		String path = "img\\Gameboard\\dadi\\";
+		int larghezza=0;
+		JLabel dadoDaModificare = null;
+		
+		switch(coloreFamiliare) {
+		case NERO:
+			path+="nero\\nero_"+valoreDado+".png";
+			larghezza = larghezzaNero;
+			dadoDaModificare = dadoNero;
+			break;
+		case BIANCO:
+			path+="bianco\\bianco_"+valoreDado+".png";
+			larghezza = larghezzaBianco;
+			dadoDaModificare = dadoBianco;
+			break;
+		case ARANCIONE:
+			path+="arancione\\arancione_"+valoreDado+"";
+			if(mainGUI.numeroGiocatori<4)
+				path+="_no4.png";
+			else
+				path+=".png";
+			larghezza = larghezzaArancione;
+			dadoDaModificare = dadoArancione;
+			break;
+		}
+		
+		imageIcon = new ImageIcon(path);
+		image = imageIcon.getImage();
+		newImage = image.getScaledInstance(((int)(larghezzaSchermo*larghezza)/larghezzaTotale),((int)(altezzaSchermo*altezza)/altezzaTotale),Image.SCALE_DEFAULT);
+		ImageIcon imageToSet = new ImageIcon(newImage);
+		dadoDaModificare.setIcon(imageToSet);
+	}
 }

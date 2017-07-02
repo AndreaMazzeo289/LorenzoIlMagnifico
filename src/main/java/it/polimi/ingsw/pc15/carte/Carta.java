@@ -75,6 +75,10 @@ public abstract class Carta implements Serializable {
 		return this.player;
 	}
 	
+	public String getImagePath() {
+		return this.imgPath;
+	}
+	
 	public Set<Effetto> getEffettoPermanente() {
 		return this.effettoPermanente;
 	}

@@ -10,24 +10,29 @@ import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 
+import it.polimi.ingsw.pc15.GUI.GUI;
 import it.polimi.ingsw.pc15.carte.TipoCarta;
+import it.polimi.ingsw.pc15.player.Player;
 
 public class FrameMostraCartePlayer extends JFrame{
 
-	String path;
+	private String path;
 	
-	ArrayList<JLabel> arrayCarte;
+	private ArrayList<JLabel> arrayCarte;
 	
-	JPanel panelCarte;
-	JLabel carta;
+	private JPanel panelCarte;
+	private JLabel carta;
 	
-	int altezza, larghezza;
-	int altezzaCarta, larghezzaCarta;
+	private int altezza;
+	private int larghezza;
+	private int altezzaCarta;
+	private int larghezzaCarta;
+	private int numCarte;
 	
 	transient ImageIcon imageIcon;
 	transient Image image, newImage;
 	
-	public FrameMostraCartePlayer(TipoCarta tipoCarta) {
+	public FrameMostraCartePlayer(TipoCarta tipoCarta, Player player) {
 		
 		//foreach card in set add in frame 
 		
@@ -38,24 +43,12 @@ public class FrameMostraCartePlayer extends JFrame{
 		arrayCarte = new ArrayList<JLabel>();
 		panelCarte = new JPanel(new GridLayout(1,6));
 		
-		switch(tipoCarta) {
-		case TERRITORIO:
-			path = "img/DevCardsBack/devcards_b_c_g_1.jdevcards_b_c_pdevcards_b_c_g.jdevcards_b_c_pg.jpg";
-			break;
-		case EDIFICIO:
-			path = "img/DevCardsBack/devcards_b_c_y_1.jdevcards_b_c_pdevcards_b_c_g.jdevcards_b_c_pg.jpg";
-			break;
-		case PERSONAGGIO:
-			path = "img/DevCardsBack/devcards_b_c_b_1.jdevcards_b_c_pdevcards_b_c_g.jdevcards_b_c_pg.jpg";
-			break;
-		case IMPRESA:
-			path = "img/DevCardsBack/devcards_b_c_p_1.jdevcards_b_c_pdevcards_b_c_g.jdevcards_b_c_pg.jpg";
-			break;
-		}
+		numCarte = player.getCarte(tipoCarta).size();
 		
-		for(int i=0; i<6; i++) {
+		for(int i=0; i<numCarte; i++) {
 			
 			carta = new JLabel();
+			path = player.getCarte(tipoCarta).get(i).getImagePath();
 			imageIcon = new ImageIcon(path);
 			image = imageIcon.getImage();
 			newImage = image.getScaledInstance(larghezzaCarta,altezzaCarta,Image.SCALE_DEFAULT);

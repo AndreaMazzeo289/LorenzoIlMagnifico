@@ -11,11 +11,13 @@ public class TesseraScomunica implements Serializable {
 	private final int id;
 	private final int periodo;
 	private final Set<Effetto> scomunica;
+	private final String pathImg;
 		
-	public TesseraScomunica (int id, int periodo, Set<Effetto> scomunica) {
+	public TesseraScomunica (int id, int periodo, Set<Effetto> scomunica, String pathImg) {
 		this.id = id;
 		this.periodo = periodo;
 		this.scomunica = scomunica;
+		this.pathImg = pathImg;
 	}
 	
 	public void infliggiScomunica(Player player) {
@@ -25,6 +27,10 @@ public class TesseraScomunica implements Serializable {
 	
 	public int getPeriodo() {
 		return this.periodo;
+	}
+	
+	public String getPathImg() {
+		return this.pathImg;
 	}
 	
 	public int getID() {

@@ -23,6 +23,7 @@ import javax.swing.SwingConstants;
 import javax.swing.text.html.HTMLDocument.Iterator;
 
 import it.polimi.ingsw.pc15.GUI.ButtonListener;
+import it.polimi.ingsw.pc15.player.Player;
 import it.polimi.ingsw.pc15.risorse.Risorsa;
 import it.polimi.ingsw.pc15.risorse.TipoRisorsa;
 
@@ -30,7 +31,7 @@ public class FrameInformazioniPlayer extends JFrame{
 
 	private int larghezza;
 	private int altezza;
-	private int numeroPlayer=4;
+	private int numeroPlayer;
 	
 	private HashMap<String, JPanel> listaPanelPlayer;
 	
@@ -48,14 +49,16 @@ public class FrameInformazioniPlayer extends JFrame{
 	private int larghezzaPunti;
 	private int larghezzaButton;
 	
-	public FrameInformazioniPlayer() {
+	public FrameInformazioniPlayer(ArrayList<Player> arrayListAvversari) {
+		
+		numeroPlayer = arrayListAvversari.size();
 		
 		altezzaComponent = 100;
 		larghezzaNome = 550;
 		larghezzaPunti = 65;
 		larghezzaButton = 50;
 		larghezza = 1024;
-		altezza = 250 + (altezzaComponent*numeroPlayer);
+		altezza = 400 + (altezzaComponent*numeroPlayer);
 		
 		this.getContentPane().setLayout(new BorderLayout());
 		
@@ -69,10 +72,10 @@ public class FrameInformazioniPlayer extends JFrame{
 			JPanel panelPlayer = new JPanel();
 			panelPlayer.setLayout(new FlowLayout());
 			
-			JLabel nome = new JLabel("nome del giocatore", SwingConstants.CENTER);
-			JLabel puntiVittoria = new JLabel("0", SwingConstants.CENTER);
-			JLabel puntiMilitari = new JLabel("0", SwingConstants.CENTER);
-			JLabel puntiFede = new JLabel("0", SwingConstants.CENTER);
+			JLabel nome = new JLabel(arrayListAvversari.get(i).getNome(), SwingConstants.CENTER);
+			JLabel puntiVittoria = new JLabel(Integer.toString(arrayListAvversari.get(i).getSetRisorse().getRisorsa(TipoRisorsa.PUNTIVITTORIA).getQuantità()), SwingConstants.CENTER);
+			JLabel puntiMilitari = new JLabel(Integer.toString(arrayListAvversari.get(i).getSetRisorse().getRisorsa(TipoRisorsa.PUNTIMILITARI).getQuantità()), SwingConstants.CENTER);
+			JLabel puntiFede = new JLabel(Integer.toString(arrayListAvversari.get(i).getSetRisorse().getRisorsa(TipoRisorsa.PUNTIFEDE).getQuantità()), SwingConstants.CENTER);
 			JButton territorio = new JButton();
 			JButton edifico = new JButton();
 			JButton personaggio = new JButton();
@@ -83,10 +86,10 @@ public class FrameInformazioniPlayer extends JFrame{
 			personaggio.addActionListener(new ButtonListener());
 			impresa.addActionListener(new ButtonListener());
 			
-			territorio.setActionCommand("carteTerritorioAltriPlayer");
-			edifico.setActionCommand("carteEdificioAltriPlayer");
-			personaggio.setActionCommand("cartePersonaggioAltriPlayer");
-			impresa.setActionCommand("carteImpresaAltriPlayer");
+			territorio.setActionCommand("carteTerritorioPlayer"+i);
+			edifico.setActionCommand("carteEdificioPlayer"+i);
+			personaggio.setActionCommand("cartePersonaggioPlayer"+i);
+			impresa.setActionCommand("carteImpresaPlayer"+i);
 			
 			puntiVittoria.setName("puntiVittoria");
 			puntiMilitari.setName("puntiMilitari");

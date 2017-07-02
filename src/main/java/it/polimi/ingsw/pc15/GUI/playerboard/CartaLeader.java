@@ -96,6 +96,15 @@ public class CartaLeader extends JPanel{
 		System.out.println(textLabel);
 	}
 	
+	public void modificaImmagineCarta(String path) {
+		imageIcon = new ImageIcon(path);
+		image = imageIcon.getImage();
+		newImage = image.getScaledInstance(((int)(larghezzaSchermo*larghezza)/larghezzaTotale),((int)(altezzaSchermo*altezza)/altezzaTotale),Image.SCALE_DEFAULT);
+		ImageIcon imageAll = new ImageIcon(newImage);
+		carta.setIcon(imageAll);
+		this.path = path;
+	}
+	
 	public String leggiLabel() {
 		return textLabel;
 	}

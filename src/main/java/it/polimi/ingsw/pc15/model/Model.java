@@ -58,7 +58,6 @@ public class Model extends Observable {
 	private int turno;
 	private int azione;
 	
-	
 	public Model(ArrayList<String> nomiGiocatori){
 
 		this.numeroGiocatori = nomiGiocatori.size();
@@ -239,9 +238,9 @@ public class Model extends Observable {
 	}
 
 	public ArrayList<Player> getPlayers() {
-	return this.giocatori;
-}
-
+		return this.giocatori;
+	}
+	
 	public Plancia getPlancia() {
 		return this.plancia;
 	}
