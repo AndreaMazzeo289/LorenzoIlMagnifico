@@ -4,6 +4,7 @@ import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.ArrayList;
+import java.util.Map.Entry;
 import java.util.Observable;
 import java.util.Observer;
 import java.util.Scanner;
@@ -11,9 +12,9 @@ import java.util.Scanner;
 import it.polimi.ingsw.pc15.carte.Carta;
 import it.polimi.ingsw.pc15.carte.TipoCarta;
 import it.polimi.ingsw.pc15.effetti.Effetto;
-import it.polimi.ingsw.pc15.effetti.EffettoAScelta;
 import it.polimi.ingsw.pc15.plancia.SpazioMercato;
 import it.polimi.ingsw.pc15.plancia.SpazioTorre;
+import it.polimi.ingsw.pc15.plancia.TesseraScomunica;
 import it.polimi.ingsw.pc15.player.ColoreFamiliare;
 import it.polimi.ingsw.pc15.player.Familiare;
 import it.polimi.ingsw.pc15.player.Leader;
@@ -85,10 +86,12 @@ public class CLI extends ClientView {
 							case "s":
 							case "sì":
 							case "si": System.out.println("\nQuanti servitori vuoi spendere? (Servitori in tuo possesso: " + clientModel.getStatoGiocatore().getSetRisorse().getRisorsa(TipoRisorsa.SERVITORI).getQuantità() + ")");
-									int scelta2 = input.nextInt();
-									if (scelta2 > clientModel.getStatoGiocatore().getSetRisorse().getRisorsa(TipoRisorsa.SERVITORI).getQuantità())
+									int numeroServitori = input.nextInt();
+									if (this.clientModel.getStatoGiocatore().getEffettiAttivi().sovrapprezzoServitori())
+										numeroServitori /= 2;
+									if (numeroServitori > clientModel.getStatoGiocatore().getSetRisorse().getRisorsa(TipoRisorsa.SERVITORI).getQuantità())
 										System.out.println("Non possiedi abbastanza servitori");
-									else message.add(String.valueOf(scelta2));
+									else message.add(String.valueOf(numeroServitori));
 									break;
 							case "no":
 							case "N":
@@ -263,6 +266,10 @@ public class CLI extends ClientView {
 		    				for (Familiare familiare : spazio.getFamiliari())
 		    					System.out.println(familiare.getPlayer().getNome() + " ");
 	    				}
+	    			
+	    			System.out.println("\n    SCOMUNICHE:");
+	    			for (Entry<Integer, TesseraScomunica> scomunica : this.clientModel.getStatoPlancia().getScomuniche().entrySet())
+	    				System.out.println("  - Periodo " + scomunica.getKey() + ": " + scomunica.getValue().toString());
 	    		
 
 
@@ -348,12 +355,6 @@ public class CLI extends ClientView {
 		    				System.out.println("  " + (this.clientModel.getStatoGiocatore().getCarteLeader().lastIndexOf(leader)+1) +". " + leader.getNome());
 						int leaderScelto = input.nextInt()-1;
 		    			message.add(String.valueOf(leaderScelto));
-		    			ArrayList<String> scelte = new ArrayList<String>();
-		    			for (Effetto effetto : this.clientModel.getStatoGiocatore().getCarteLeader().get(leaderScelto).getEffettoPerTurno())
-		    				if (effetto instanceof EffettoAScelta) {
-		    					System.out.println(((EffettoAScelta) effetto).getScelta());
-		    					scelte.add(String.valueOf(input.nextInt()));	
-		    				}
 						setChanged();
 					} else {
 			    		System.out.println("\n--Inserire un comando valido!--");
@@ -366,11 +367,7 @@ public class CLI extends ClientView {
 					update(this, "");
 			break;
 				
-	    	}	
-	    	
-	    	//System.out.println("Sono la cli di " + this.clientModel.getStatoGiocatore().getNome() + "e sto inviando " + message);
-	    	notifyObservers(message);
-	    	
+	    	}		    	
 	  
 	    }			
 	}

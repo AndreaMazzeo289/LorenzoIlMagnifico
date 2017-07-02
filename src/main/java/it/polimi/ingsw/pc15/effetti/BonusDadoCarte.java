@@ -10,10 +10,8 @@ public class BonusDadoCarte extends Bonus {
 	private TipoCarta tipoCarta;
 	
 	public BonusDadoCarte (TipoCarta tipoCarta, int valore){
-		
 		super(valore);
 		this.tipoCarta = tipoCarta;
-		
 	}
 	
 	@Override
