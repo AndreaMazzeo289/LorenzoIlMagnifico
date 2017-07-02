@@ -18,26 +18,33 @@ import javax.swing.JPanel;
 
 public class SpazioMercato3 extends JPanel{
 
-	JLabel labelNorth;
-	JLabel labelWest;
-	JLabel labelSouth;
-	JLabel labelEast;
-	JLabel labelCenter;
-	Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
+	private JLabel labelNorth;
+	private JLabel  labelWest;
+	private JLabel labelSouth;
+	private JLabel labelEast;
+	private JLabel labelCenter;
 	
-	ButtonTransparent buttonFamiliare;
+	private Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
 	
-	ImageIcon imageIcon;
-	Image image, newImage;
+	private ButtonTransparent buttonFamiliare;
 	
-	int altezzaSchermo;
-	int larghezzaSchermo;
-	int altezzaTotale;
-	int larghezzaTotale;
+	transient ImageIcon imageIcon;
+	transient Image image, newImage;
 	
-	float rapporto;
+	private int altezzaSchermo;
+	private int larghezzaSchermo;
+	private int altezzaTotale;
+	private int larghezzaTotale;
 	
-	boolean occupato;
+	private float rapporto;
+	
+	private int altezzaCenter;
+	private int altezzaNorth;
+	private int altezzaSouth;
+	private int larghezza;
+	private int larghezzaCenter;
+	private int larghezzaEast;
+	private int larghezzaWest;
 	
 	public SpazioMercato3(ActionListener listener) {
 		
@@ -50,24 +57,23 @@ public class SpazioMercato3 extends JPanel{
 		
 		this.setLayout(new BorderLayout());
 		
-		int altezzaECW = 322;
-		int altezzaN = 430;
-		int altezzaS = 297;
-		int larghezzaW = 56;
-		int larghezzaE = 25;
-		int larghezzaC = 310;
-		int larghezzaN = larghezzaW+larghezzaE+larghezzaC; //956
-		int larghezzaS = larghezzaN;
+		altezzaCenter = 322;
+		altezzaNorth = 430;
+		altezzaSouth = 297;
+		larghezzaWest = 56;
+		larghezzaEast = 25;
+		larghezzaCenter = 310;
+		larghezza = larghezzaWest+larghezzaEast+larghezzaCenter;
 		
 		labelCenter = new JLabel();
 		
 		if(mainGUI.numeroGiocatori==2)
 		{
-			int altezzaBlocco = altezzaECW+altezzaN+altezzaS-5;
+			int altezzaBlocco = altezzaCenter+altezzaNorth+altezzaSouth-5;
 			
 			imageIcon = new ImageIcon("img\\Gameboard\\SpaziMercato\\3\\noMercato3.png");
 			image = imageIcon.getImage();
-			newImage = image.getScaledInstance(((int)(larghezzaSchermo*larghezzaN)/larghezzaTotale),((int)(altezzaSchermo*altezzaBlocco)/altezzaTotale),Image.SCALE_DEFAULT);
+			newImage = image.getScaledInstance(((int)(larghezzaSchermo*larghezza)/larghezzaTotale),((int)(altezzaSchermo*altezzaBlocco)/altezzaTotale),Image.SCALE_DEFAULT);
 			ImageIcon imageCenter = new ImageIcon(newImage);
 			labelCenter.setIcon(imageCenter);
 			this.add(labelCenter, BorderLayout.CENTER);
@@ -85,27 +91,27 @@ public class SpazioMercato3 extends JPanel{
 			
 			imageIcon = new ImageIcon("img\\Gameboard\\SpaziMercato\\3\\north.png");
 			image = imageIcon.getImage();
-			newImage = image.getScaledInstance(((int)(larghezzaSchermo*larghezzaN)/larghezzaTotale),((int)(altezzaSchermo*altezzaN)/altezzaTotale),Image.SCALE_DEFAULT);
+			newImage = image.getScaledInstance(((int)(larghezzaSchermo*larghezza)/larghezzaTotale),((int)(altezzaSchermo*altezzaNorth)/altezzaTotale),Image.SCALE_DEFAULT);
 			ImageIcon imageNorth = new ImageIcon(newImage);
 			
 			imageIcon = new ImageIcon("img\\Gameboard\\SpaziMercato\\3\\east.png");
 			image = imageIcon.getImage();
-			newImage = image.getScaledInstance(((int)(larghezzaSchermo*larghezzaE)/larghezzaTotale),((int)(altezzaSchermo*altezzaECW)/altezzaTotale),Image.SCALE_DEFAULT);
+			newImage = image.getScaledInstance(((int)(larghezzaSchermo*larghezzaEast)/larghezzaTotale),((int)(altezzaSchermo*altezzaCenter)/altezzaTotale),Image.SCALE_DEFAULT);
 			ImageIcon imageEast = new ImageIcon(newImage);
 			
 			imageIcon = new ImageIcon("img\\Gameboard\\SpaziMercato\\3\\west.png");
 			image = imageIcon.getImage();
-			newImage = image.getScaledInstance(((int)(larghezzaSchermo*larghezzaW)/larghezzaTotale),((int)(altezzaSchermo*altezzaECW)/altezzaTotale),Image.SCALE_DEFAULT);
+			newImage = image.getScaledInstance(((int)(larghezzaSchermo*larghezzaWest)/larghezzaTotale),((int)(altezzaSchermo*altezzaCenter)/altezzaTotale),Image.SCALE_DEFAULT);
 			ImageIcon imageWest = new ImageIcon(newImage);
 			
 			imageIcon = new ImageIcon("img\\Gameboard\\SpaziMercato\\3\\center.png");
 			image = imageIcon.getImage();
-			newImage = image.getScaledInstance(((int)(larghezzaSchermo*larghezzaC)/larghezzaTotale),((int)(altezzaSchermo*altezzaECW)/altezzaTotale),Image.SCALE_DEFAULT);
+			newImage = image.getScaledInstance(((int)(larghezzaSchermo*larghezzaCenter)/larghezzaTotale),((int)(altezzaSchermo*altezzaCenter)/altezzaTotale),Image.SCALE_DEFAULT);
 			ImageIcon imageCenter = new ImageIcon(newImage);
 			
 			imageIcon = new ImageIcon(path);
 			image = imageIcon.getImage();
-			newImage = image.getScaledInstance(((int)(larghezzaSchermo*larghezzaS)/larghezzaTotale),((int)(altezzaSchermo*altezzaS)/altezzaTotale),Image.SCALE_DEFAULT);
+			newImage = image.getScaledInstance(((int)(larghezzaSchermo*larghezza)/larghezzaTotale),((int)(altezzaSchermo*altezzaSouth)/altezzaTotale),Image.SCALE_DEFAULT);
 			ImageIcon imageSouth = new ImageIcon(newImage);
 			
 			labelNorth.setIcon(imageNorth);
@@ -129,8 +135,6 @@ public class SpazioMercato3 extends JPanel{
 			this.add(labelSouth, BorderLayout.SOUTH);
 			this.add(labelCenter, BorderLayout.CENTER);	
 		}
-		
-		
 	}
 	
 	public void inserisciFamiliare(String path) {

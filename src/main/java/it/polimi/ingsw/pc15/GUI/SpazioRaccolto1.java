@@ -9,6 +9,7 @@ import java.awt.GridBagLayout;
 import java.awt.Image;
 import java.awt.Toolkit;
 import java.awt.event.ActionListener;
+import java.util.ArrayList;
 
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
@@ -18,26 +19,33 @@ import javax.swing.JPanel;
 
 public class SpazioRaccolto1 extends JPanel{
 
-	JLabel labelNorth;
-	JLabel labelWest;
-	JLabel labelSouth;
-	JLabel labelEast;
-	JLabel labelCenter;
-	Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
+	private JLabel labelEast;
+	private JLabel labelWest;
+	private JLabel labelSouth;
+	private JLabel labelNorth;
+	private JLabel labelCenter;
 	
-	ButtonTransparent buttonFamiliare;
+	private ButtonTransparent buttonFamiliare;
 	
-	ImageIcon imageIcon;
-	Image image, newImage;
+	private Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
 	
-	int altezzaSchermo;
-	int larghezzaSchermo;
-	int altezzaTotale;
-	int larghezzaTotale;
+	private int altezzaSchermo;
+	private int larghezzaSchermo;
+	private int larghezzaTotale;
+	private int altezzaTotale;
 	
-	float rapporto;
+	private float rapporto;
 	
-	boolean occupato;
+	transient ImageIcon imageIcon;
+	transient Image image, newImage;
+	
+	private int altezzaCenter;
+	private int altezzaNorth;
+	private int altezzaSouth;
+	private int larghezza;
+	private int larghezzaCenter;
+	private int larghezzaEast;
+	private int larghezzaWest;
 	
 	public SpazioRaccolto1(ActionListener listener) {
 		
@@ -51,14 +59,13 @@ public class SpazioRaccolto1 extends JPanel{
 		
 		this.setLayout(new BorderLayout());
 		
-		int altezzaECW = 432;
-		int altezzaN = 91;
-		int altezzaS = 143;
-		int larghezzaW = 88;//85
-		int larghezzaE = 68;//66
-		int larghezzaC = 416;//401//309
-		int larghezzaN = larghezzaW+larghezzaE+larghezzaC; //956
-		int larghezzaS = larghezzaN;
+		altezzaCenter = 432;
+		altezzaNorth = 91;
+		altezzaSouth = 143;
+		larghezzaWest = 88;
+		larghezzaEast = 68;
+		larghezzaCenter = 416;
+		larghezza = larghezzaWest+larghezzaEast+larghezzaCenter;
 		
 		labelNorth = new JLabel();
 		labelEast = new JLabel();
@@ -68,27 +75,27 @@ public class SpazioRaccolto1 extends JPanel{
 		
 		imageIcon = new ImageIcon("img\\Gameboard\\SpaziRaccolto\\1\\north.png");
 		image = imageIcon.getImage();
-		newImage = image.getScaledInstance(((int)(larghezzaSchermo*larghezzaN)/larghezzaTotale),((int)(altezzaSchermo*altezzaN)/altezzaTotale),Image.SCALE_DEFAULT);
+		newImage = image.getScaledInstance(((int)(larghezzaSchermo*larghezza)/larghezzaTotale),((int)(altezzaSchermo*altezzaNorth)/altezzaTotale),Image.SCALE_DEFAULT);
 		ImageIcon imageNorth = new ImageIcon(newImage);
 		
 		imageIcon = new ImageIcon("img\\Gameboard\\SpaziRaccolto\\1\\east.png");
 		image = imageIcon.getImage();
-		newImage = image.getScaledInstance(((int)(larghezzaSchermo*larghezzaE)/larghezzaTotale),((int)(altezzaSchermo*altezzaECW)/altezzaTotale),Image.SCALE_DEFAULT);
+		newImage = image.getScaledInstance(((int)(larghezzaSchermo*larghezzaEast)/larghezzaTotale),((int)(altezzaSchermo*altezzaCenter)/altezzaTotale),Image.SCALE_DEFAULT);
 		ImageIcon imageEast = new ImageIcon(newImage);
 		
 		imageIcon = new ImageIcon("img\\Gameboard\\SpaziRaccolto\\1\\west.png");
 		image = imageIcon.getImage();
-		newImage = image.getScaledInstance(((int)(larghezzaSchermo*larghezzaW)/larghezzaTotale),((int)(altezzaSchermo*altezzaECW)/altezzaTotale),Image.SCALE_DEFAULT);
+		newImage = image.getScaledInstance(((int)(larghezzaSchermo*larghezzaWest)/larghezzaTotale),((int)(altezzaSchermo*altezzaCenter)/altezzaTotale),Image.SCALE_DEFAULT);
 		ImageIcon imageWest = new ImageIcon(newImage);
 		
 		imageIcon = new ImageIcon("img\\Gameboard\\SpaziRaccolto\\1\\center.png");
 		image = imageIcon.getImage();
-		newImage = image.getScaledInstance(((int)(larghezzaSchermo*larghezzaC)/larghezzaTotale),((int)(altezzaSchermo*altezzaECW)/altezzaTotale),Image.SCALE_DEFAULT);
+		newImage = image.getScaledInstance(((int)(larghezzaSchermo*larghezzaCenter)/larghezzaTotale),((int)(altezzaSchermo*altezzaCenter)/altezzaTotale),Image.SCALE_DEFAULT);
 		ImageIcon imageCenter = new ImageIcon(newImage);
 		
 		imageIcon = new ImageIcon("img\\Gameboard\\SpaziRaccolto\\1\\south.png");
 		image = imageIcon.getImage();
-		newImage = image.getScaledInstance(((int)(larghezzaSchermo*larghezzaS)/larghezzaTotale),((int)(altezzaSchermo*altezzaS)/altezzaTotale),Image.SCALE_DEFAULT);
+		newImage = image.getScaledInstance(((int)(larghezzaSchermo*larghezza)/larghezzaTotale),((int)(altezzaSchermo*altezzaSouth)/altezzaTotale),Image.SCALE_DEFAULT);
 		ImageIcon imageSouth = new ImageIcon(newImage);
 		
 		labelNorth.setIcon(imageNorth);

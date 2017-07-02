@@ -122,7 +122,7 @@ public class TestPlayer {
 		effettoPermanente.add(annullaGuadagno);
 		effettoIstantaneo.add(annullaGuadagno);
 		
-		carta = new Personaggio("Carta", 1, 1, setRisorsePlayer, effettoIstantaneo, effettoPermanente);
+		carta = new Personaggio("Carta", 1, 1, setRisorsePlayer, effettoIstantaneo, effettoPermanente, "test");
 		arrayListCarte.add(carta);
 		azionePrendiCartaPersonaggio = new AzionePrendiCartaPersonaggio(player, carta);
 		
