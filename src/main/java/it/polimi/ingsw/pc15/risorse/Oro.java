@@ -14,4 +14,5 @@ public class Oro extends Risorsa {
 	public String toString() {
 		return "Oro";
 	}
+
 }

@@ -18,7 +18,7 @@ public class AzioneOccupaSpazioRaccolta extends AzioneOccupaSpazio {
 	@Override
 	public void attiva() {
 		
-		player.getSetRisorse().getRisorsa(TipoRisorsa.SERVITORI).aggiungi(-servitoriAggiuntivi);
+		pagaServitori();
 		
 		spazio.aggiungiFamiliare(familiare);
 		familiare.setDisponibilità(false);

@@ -34,7 +34,7 @@ public class Player implements Serializable {
 	
 	private final String nome;
 	private SetRisorse setRisorse;
-	private Set<Familiare> familiari;
+	private HashMap<ColoreFamiliare, Familiare> familiari;
 	private HashMap <TipoCarta, ArrayList> carteSviluppo;
 	private EffettiAttivi effettiAttivi;
 	private ArrayList<Leader> carteLeader;
@@ -48,38 +48,12 @@ public class Player implements Serializable {
 		this.carteLeader = new ArrayList<Leader>();
 		this.avversari = null;
 		
-		//-----------------------------------------------------------------------------------------------------------//
-		//          FAMILIARI                                                                                        //
-		//-----------------------------------------------------------------------------------------------------------//
+		this.familiari = new HashMap<ColoreFamiliare, Familiare>();
 		
-		this.familiari = new HashSet<Familiare>();
+		for (ColoreFamiliare colore : ColoreFamiliare.values())
+			familiari.put(colore, new Familiare(colore, this));
 		
-		Familiare familiareNero = new Familiare (ColoreFamiliare.NERO, this);
-		Familiare familiareBianco = new Familiare (ColoreFamiliare.BIANCO, this);
-		Familiare familiareArancione = new Familiare (ColoreFamiliare.ARANCIONE, this);
-		Familiare familiareNeutro = new Familiare (ColoreFamiliare.NEUTRO, this);
-		
-		this.familiari.add(familiareBianco);
-		this.familiari.add(familiareNero);
-		this.familiari.add(familiareArancione);
-		this.familiari.add(familiareNeutro);
-			
-		//-----------------------------------------------------------------------------------------------------------//
-		//          RISORSE                                                                                          //
-		//-----------------------------------------------------------------------------------------------------------//
-		
-		HashSet<Risorsa> risorse = new HashSet<Risorsa>();
-		
-		risorse.add(new Oro(0));
-		risorse.add(new Legna(0));
-		risorse.add(new Pietra(0));
-		risorse.add(new Servitori(0));
-		risorse.add(new PuntiMilitari(0));
-		risorse.add(new PuntiFede(0));
-		risorse.add(new PuntiVittoria(0));
-		risorse.add(new Privilegi(0));
-		
-		this.setRisorse = new SetRisorse(risorse);
+		this.setRisorse = new SetRisorse(new HashSet<Risorsa>());
 			
 		//-----------------------------------------------------------------------------------------------------------//
 		//          CARTE                                                                                            //
@@ -135,15 +109,7 @@ public class Player implements Serializable {
 	}
 	
 	public Familiare getFamiliare(ColoreFamiliare coloreFamiliare){
-		
-		Familiare familiareReturn = null;
-		
-		for(Familiare familiare : familiari) {
-			if(familiare.getColore().equals(coloreFamiliare))
-				familiareReturn = familiare;
-		}
-		
-		return familiareReturn;
+		return this.familiari.get(coloreFamiliare);
 	}
 	
 	public ArrayList<Leader> getCarteLeader () {

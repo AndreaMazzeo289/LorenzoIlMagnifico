@@ -8,7 +8,7 @@ import java.io.Serializable;
  *
  */
 
-public abstract class Risorsa implements Serializable {
+public abstract class Risorsa implements Serializable, Cloneable {
 	
 	private int quantità;
 	protected TipoRisorsa tipoRisorsa;
@@ -53,4 +53,9 @@ public abstract class Risorsa implements Serializable {
 		return this.quantità;
 	}
 	
+	public Risorsa copia() throws CloneNotSupportedException {
+		return (Risorsa) this.clone();
+	}
 }
+	
+

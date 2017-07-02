@@ -251,4 +251,5 @@ public class PlayerBoard extends JPanel{
 		return (CartaLeader) panelCarteLeader.getComponent(3);
 	}
 	
+	
 }

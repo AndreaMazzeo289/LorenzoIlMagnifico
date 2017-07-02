@@ -12,8 +12,8 @@ public class Territorio extends Carta {
 	
 	private int requisitoRaccolta;
 	
-	public Territorio (String nome, int id, int periodo, SetRisorse costo, Set<Effetto> effettoIstantaneo, Set<Effetto> effettoPermanente, int requisitoRaccolta) {
-		super(nome, id, periodo, costo, effettoIstantaneo, effettoPermanente);
+	public Territorio (String nome, int id, int periodo, SetRisorse costo, Set<Effetto> effettoIstantaneo, Set<Effetto> effettoPermanente, int requisitoRaccolta, String imgPath) {
+		super(nome, id, periodo, costo, effettoIstantaneo, effettoPermanente, imgPath);
 		this.requisitoRaccolta = requisitoRaccolta;
 		this.tipo = TipoCarta.TERRITORIO;
 	}
