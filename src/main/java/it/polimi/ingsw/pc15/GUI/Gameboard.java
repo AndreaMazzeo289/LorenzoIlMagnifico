@@ -35,7 +35,7 @@ public class Gameboard extends JPanel {
 	SpazioConsiglio spazioConsiglio;
 	JPanel spazioFinale = new JPanel (new GridLayout(1,2));
 	
-	public Gameboard(ActionListener listener) {
+	public Gameboard(ButtonListener listener) {
 		
 		this.setLayout(new GridBagLayout());
 		
@@ -98,21 +98,34 @@ public class Gameboard extends JPanel {
 		
 		// ADD SPAZI TORRE
 		//-----------------------//
+		String path;
 		gbc.gridx = 0;
 		gbc.gridy = 0;
-		spaziTorre.add(new SpazioTorreVerde1("img/DevCardsFront/devcards_f_en_c_1.png",listener), gbc); //0
+		path = "img\\Gameboard\\SpaziTorre\\Verde\\1\\";
+		spaziTorre.add(new SpazioTorre(listener, 833, 181, 47, 517, 395, 129, path+"north.png", path+"south.png", path+"east.png", path+"west.png",
+				"img/DevCardsFront/devcards_f_en_c_1.png", "spazioTorreVerde1"),gbc);
+		//spaziTorre.add(new SpazioTorreVerde1("img/DevCardsFront/devcards_f_en_c_1.png",listener), gbc); //0
 		
 		gbc.gridx = 1;
 		gbc.gridy = 0;
-		spaziTorre.add(new SpazioTorreBlu1("img/DevCardsFront/devcards_f_en_c_61.png",listener), gbc); //1
+		path = "img\\Gameboard\\SpaziTorre\\Blu\\1\\";
+		spaziTorre.add(new SpazioTorre(listener, 833, 181, 47, 517, 395, 38, path+"north.png", path+"south.png", path+"east.png", path+"west.png",
+				"img/DevCardsFront/devcards_f_en_c_61.png", "spazioTorreBlu1"),gbc);
+		//spaziTorre.add(new SpazioTorreBlu1("img/DevCardsFront/devcards_f_en_c_61.png",listener), gbc); //1
 		
 		gbc.gridx = 2;
 		gbc.gridy = 0;
-		spaziTorre.add(new SpazioTorreGialla1("img/DevCardsFront/devcards_f_en_c_25.png",listener), gbc); //2
+		path = "img\\Gameboard\\SpaziTorre\\Gialla\\1\\";
+		spaziTorre.add(new SpazioTorre(listener, 833, 181, 47, 517, 395, 38, path+"north.png", path+"south.png", path+"east.png", path+"west.png",
+				"img/DevCardsFront/devcards_f_en_c_25.png", "spazioTorreGialla1"),gbc);
+		//spaziTorre.add(new SpazioTorreGialla1("img/DevCardsFront/devcards_f_en_c_25.png",listener), gbc); //2
 		
 		gbc.gridx = 3;
 		gbc.gridy = 0;
-		spaziTorre.add(new SpazioTorreViola1("img/DevCardsFront/devcards_f_en_c_93.png",listener), gbc); //3
+		path = "img\\Gameboard\\SpaziTorre\\Viola\\1\\";
+		spaziTorre.add(new SpazioTorre(listener, 833, 181, 47, 517, 571, 38, path+"north.png", path+"south.png", path+"east.png", path+"west.png",
+				"img/DevCardsFront/devcards_f_en_c_93.png", "spazioTorreViola1"),gbc);
+		//spaziTorre.add(new SpazioTorreViola1("img/DevCardsFront/devcards_f_en_c_93.png",listener), gbc); //3
 		
 		gbc.gridx = 0;
 		gbc.gridy = 1;

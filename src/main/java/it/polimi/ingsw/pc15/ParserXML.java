@@ -263,19 +263,19 @@ public class ParserXML {
 	                //------------------------------------------------------//
 	                switch(tipo.toUpperCase()) {
 	                    case "TERRITORIO": 
-	                        Territorio territorio = new Territorio (nome, id, periodo, costo, effettiImmediatiSet, effettiPermanentiSet, valoreDado);
+	                        Territorio territorio = new Territorio (nome, id, periodo, costo, effettiImmediatiSet, effettiPermanentiSet, valoreDado, pathImg);
 	                        arrayCarte.add(territorio);
 	                        break;
 	                    case "EDIFICIO":
-	                        Edificio edificio = new Edificio (nome, id, periodo, costo, effettiImmediatiSet, effettiPermanentiSet, valoreDado);
+	                        Edificio edificio = new Edificio (nome, id, periodo, costo, effettiImmediatiSet, effettiPermanentiSet, valoreDado, pathImg);
 	                        arrayCarte.add(edificio);
 	                        break;
 	                    case "PERSONAGGIO":
-	                        Personaggio personaggio = new Personaggio (nome, id, periodo, costo, effettiImmediatiSet, effettiPermanentiSet);
+	                        Personaggio personaggio = new Personaggio (nome, id, periodo, costo, effettiImmediatiSet, effettiPermanentiSet, pathImg);
 	                        arrayCarte.add(personaggio);
 	                        break;
 	                    case "IMPRESA":
-	                        Impresa impresa = new Impresa (nome, id, periodo, costo, effettiImmediatiSet, effettiPermanentiSet, requisito, costoPt);
+	                        Impresa impresa = new Impresa (nome, id, periodo, costo, effettiImmediatiSet, effettiPermanentiSet, requisito, costoPt, pathImg);
 	                        arrayCarte.add(impresa);
 	                        break;
 	                }

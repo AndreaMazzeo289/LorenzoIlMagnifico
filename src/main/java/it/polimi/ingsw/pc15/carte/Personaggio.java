@@ -12,8 +12,8 @@ public class Personaggio extends Carta {
 	
 	private Effetto effettoPermanente;
 	
-	public Personaggio (String nome, int id, int periodo, SetRisorse costo, Set<Effetto> effettoIstantaneo, Set<Effetto> effettoPermanente) {
-		super(nome, id, periodo, costo, effettoIstantaneo, effettoPermanente);
+	public Personaggio (String nome, int id, int periodo, SetRisorse costo, Set<Effetto> effettoIstantaneo, Set<Effetto> effettoPermanente, String imgPath) {
+		super(nome, id, periodo, costo, effettoIstantaneo, effettoPermanente, imgPath);
 		this.tipo = TipoCarta.PERSONAGGIO;
 		}
 

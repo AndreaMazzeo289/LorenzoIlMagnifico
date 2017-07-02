@@ -19,11 +19,12 @@ public abstract class Carta implements Serializable {
 	private final SetRisorse costo;
 	private final Set<Effetto> effettoIstantaneo;
 	private final Set<Effetto> effettoPermanente;
+	private final String imgPath;
 	private Player player;
 	private SpazioTorre spazio;
 	protected TipoCarta tipo;
 	
-	public Carta (String nome, int id, int periodo, SetRisorse costo, Set<Effetto> effettoIstantaneo, Set<Effetto> effettoPermanente) {
+	public Carta (String nome, int id, int periodo, SetRisorse costo, Set<Effetto> effettoIstantaneo, Set<Effetto> effettoPermanente, String imgPath) {
 		this.nome = nome;
 		this.id = id;
 		this.periodo = periodo;
@@ -32,6 +33,7 @@ public abstract class Carta implements Serializable {
 		this.effettoPermanente = effettoPermanente;
 		this.player = null;
 		this.spazio = null;
+		this.imgPath = imgPath;
 	}
 		
 	public void setSpazio(SpazioTorre spazio) {

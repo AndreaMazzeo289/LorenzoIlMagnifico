@@ -24,7 +24,7 @@ public class ButtonListenerCarte implements ActionListener{
 		// TODO Auto-generated method stub
 	
 		String path = "";
-		String tipo = ""; 
+		String tipo = "";
 		boolean write=false;
 		for(int i = 0; i < e.getActionCommand().length(); i++)
 		{

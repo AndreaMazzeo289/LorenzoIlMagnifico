@@ -37,6 +37,17 @@ public class SpazioTorreVerde1 extends JPanel{
 	int altezzaTotale;
 	int larghezzaTotale;
 	
+	int altezzaECW;
+	int altezzaC;
+	int altezzaN;
+	int larghezzaW;
+	int larghezzaE;
+	int larghezzaC;
+	int larghezzaN;
+	int larghezzaS;
+	int altezzaS;
+	
+	
 	float rapporto;
 	
 	boolean occupato;
@@ -53,15 +64,15 @@ public class SpazioTorreVerde1 extends JPanel{
 		
 		this.setLayout(new BorderLayout());
 		
-		int altezzaECW = 833;
-		int altezzaC = 833;
-		int altezzaN = 181;
-		int larghezzaW = 129;
-		int larghezzaE = 395;
-		int larghezzaC = 517;//517
-		int larghezzaN = larghezzaW+larghezzaE+larghezzaC; //1041
-		int larghezzaS = larghezzaN;
-		int altezzaS = 47;
+		altezzaECW = 833;
+		altezzaC = 833;
+		altezzaN = 181;
+		larghezzaW = 129;
+		larghezzaE = 395;
+		larghezzaC = 517;//517
+		larghezzaN = larghezzaW+larghezzaE+larghezzaC; //1041
+		larghezzaS = larghezzaN;
+		altezzaS = 47;
 		
 		labelNorth = new JLabel();
 		labelWest = new JLabel();
@@ -129,5 +140,13 @@ public class SpazioTorreVerde1 extends JPanel{
 		
 		buttonFamiliare.setIcon(imageButton);
 		buttonFamiliare.setBorder(null);
+	}
+	
+	public void modificaImmagineCarta (String path) {
+		imageIcon = new ImageIcon(path);
+		image = imageIcon.getImage();
+		newImage = image.getScaledInstance(((int)(larghezzaSchermo*larghezzaC)/larghezzaTotale),((int)(altezzaSchermo*altezzaC)/altezzaTotale),Image.SCALE_DEFAULT);
+		ImageIcon imageCenter = new ImageIcon(newImage);
+		buttonCenter.setIcon(imageCenter);
 	}
 }
