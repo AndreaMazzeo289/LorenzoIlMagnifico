@@ -28,14 +28,15 @@ public class AggiuntaRisorse extends Effetto implements Incrementabile  {
 	public void attivaDaSpazio(Player player) {
 		
 		for(Map.Entry<TipoRisorsa, Risorsa> risorsa : this.setRisorse.getRisorse().entrySet())
-			risorsa.getValue().aggiungi(risorsa.getValue().getQuantità()*player.getEffettiAttivi().getMoltiplicatoreRisorseSpazi()-1);
+			risorsa.getValue().aggiungi(risorsa.getValue().getQuantità()*(player.getEffettiAttivi().getMoltiplicatoreRisorseSpazi()-1));
 		this.setRisorse.aggiungi (player.getEffettiAttivi().getRisorseBonusSpazi());
 		
 		attiva(player);
 		
 		this.setRisorse.sottrai (player.getEffettiAttivi().getRisorseBonusSpazi());
 		for(Map.Entry<TipoRisorsa, Risorsa> risorsa : this.setRisorse.getRisorse().entrySet())
-			risorsa.getValue().aggiungi(-risorsa.getValue().getQuantità()/player.getEffettiAttivi().getMoltiplicatoreRisorseSpazi()*(player.getEffettiAttivi().getMoltiplicatoreRisorseSpazi()-1));
+			if(player.getEffettiAttivi().getMoltiplicatoreRisorseCarte()!=1)
+				risorsa.getValue().aggiungi(-risorsa.getValue().getQuantità()/(player.getEffettiAttivi().getMoltiplicatoreRisorseSpazi()*(player.getEffettiAttivi().getMoltiplicatoreRisorseSpazi()-1)));
 		
 		
 	}
@@ -44,15 +45,16 @@ public class AggiuntaRisorse extends Effetto implements Incrementabile  {
 	public void attivaDaCarta(Player player) {
 		
 		for(Map.Entry<TipoRisorsa, Risorsa> risorsa : this.setRisorse.getRisorse().entrySet())
-			risorsa.getValue().aggiungi(risorsa.getValue().getQuantità()*player.getEffettiAttivi().getMoltiplicatoreRisorseCarte()-1);
+			risorsa.getValue().aggiungi(risorsa.getValue().getQuantità()*(player.getEffettiAttivi().getMoltiplicatoreRisorseCarte()-1));
 		this.setRisorse.aggiungi (player.getEffettiAttivi().getRisorseBonusCarte());
 		
 		attiva(player);
 		
 		this.setRisorse.sottrai (player.getEffettiAttivi().getRisorseBonusCarte());
-		for(Map.Entry<TipoRisorsa, Risorsa> risorsa : this.setRisorse.getRisorse().entrySet())
-			risorsa.getValue().aggiungi(-risorsa.getValue().getQuantità()/player.getEffettiAttivi().getMoltiplicatoreRisorseCarte()*(player.getEffettiAttivi().getMoltiplicatoreRisorseCarte()-1));
-		
+		for(Map.Entry<TipoRisorsa, Risorsa> risorsa : this.setRisorse.getRisorse().entrySet()){
+			if(player.getEffettiAttivi().getMoltiplicatoreRisorseCarte()!=1)
+				risorsa.getValue().aggiungi(-risorsa.getValue().getQuantità()/(player.getEffettiAttivi().getMoltiplicatoreRisorseCarte()*(player.getEffettiAttivi().getMoltiplicatoreRisorseCarte()-1)));
+		}
 	}
 	
 	public String toString() {
