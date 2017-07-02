@@ -1346,9 +1346,9 @@ public class ParserXML {
 		        }
 			        
 		        if(tipologia.equals("turno"))
-		        	leaderEstratto = new Leader (nomeLeader, effetti, null, requisitoMaterie, requisitoCarte);
+		        	leaderEstratto = new Leader (nomeLeader, effetti, null, requisitoMaterie, requisitoCarte, pathImg);
 		        if(tipologia.equals("permanente"))
-		        	leaderEstratto = new Leader (nomeLeader, null, effetti, requisitoMaterie, requisitoCarte);
+		        	leaderEstratto = new Leader (nomeLeader, null, effetti, requisitoMaterie, requisitoCarte, pathImg);
 		        
 		        listaLeader.add(leaderEstratto);
 			}
@@ -1402,7 +1402,7 @@ public class ParserXML {
 			            effetti.add(effettoExt);
 			        }
 					
-			        TesseraScomunica tesseraScomunica = new TesseraScomunica (Integer.parseInt(id),periodoLetto,effetti);
+			        TesseraScomunica tesseraScomunica = new TesseraScomunica (Integer.parseInt(id),periodoLetto,effetti,pathImg);
 			        
 					scomuniche.add(tesseraScomunica);
 				}

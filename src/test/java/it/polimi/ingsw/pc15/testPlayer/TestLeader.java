@@ -27,6 +27,7 @@ public class TestLeader {
 	
 	Leader leader;
 	String nome;
+	String imgPath;
 	Set<Effetto> effettoPermanente;
 	Set<Effetto> effettoPerTurno;
 	SetRisorse requisitoRisorse;
@@ -42,7 +43,7 @@ public class TestLeader {
 		effettoPermanente = new HashSet<Effetto>();
 		effettoPerTurno = new HashSet<Effetto>();
 		risorse = new HashSet<Risorsa>();
-		
+		imgPath = "";
 		
 		Legna legna = new Legna(0);
 		Oro oro = new Oro(0);
@@ -64,7 +65,7 @@ public class TestLeader {
 		requisitoRisorse = new SetRisorse(risorse);
 		
 		requisitoCarte = new HashMap<TipoCarta, Integer>();
-		leader = new Leader(nome, effettoPerTurno, effettoPermanente, requisitoRisorse, requisitoCarte);
+		leader = new Leader(nome, effettoPerTurno, effettoPermanente, requisitoRisorse, requisitoCarte, imgPath);
 		
 		player = null;
 	}
