@@ -92,6 +92,20 @@ public class TestProduzione {
 	public void setUp(){
 		
 		player = new Player("test");
+		
+		
+		player.getSetRisorse().aggiungi(new Legna(0));
+		player.getSetRisorse().aggiungi(new Oro(0));
+		player.getSetRisorse().aggiungi(new Pietra(0));
+		player.getSetRisorse().aggiungi(new Privilegi(0));
+		player.getSetRisorse().aggiungi(new PuntiFede(0));
+		player.getSetRisorse().aggiungi(new PuntiMilitari(0));
+		player.getSetRisorse().aggiungi(new PuntiVittoria(0));
+		player.getSetRisorse().aggiungi(new Servitori(0));
+		
+		
+		
+		
 		produzione = new Produzione(3);
 		plancia = new Plancia(4);
 		
@@ -207,9 +221,13 @@ public class TestProduzione {
 		
 		plancia.setCarte(1, arrayListCarteTerritorio, arrayListCartePersonaggio, arrayListCarteEdificio, arrayListCarteImpresa);
 		player.getFamiliare(ColoreFamiliare.NERO).setValore(6);
-		this.azioneOccupaSpazioTorre = new AzioneOccupaSpazioTorre(player, player.getFamiliare(ColoreFamiliare.NERO), plancia.getSpazioTorre(TipoCarta.EDIFICIO, 0), 0);
+		this.azioneOccupaSpazioTorre = new AzioneOccupaSpazioTorre(player, player.getFamiliare(ColoreFamiliare.NERO), plancia.getSpazioTorre(TipoCarta.EDIFICIO, 0), 0, 1);
 		this.azioneOccupaSpazioTorre.controlloFamiliariTorre();
 		assertTrue("Errore fallisce il controllo torre", azioneOccupaSpazioTorre.controlloFamiliariTorre());
+		
+
+		
+		
 		
 		this.risultatoAzione = azioneOccupaSpazioTorre.èValida();
 		System.out.println(risultatoAzione.getCommento());
@@ -220,8 +238,8 @@ public class TestProduzione {
 		assertTrue("Errore fallsce è valida", risultatoAzione.getRisultato());
 		
 		this.azioneOccupaSpazioTorre.attiva();
-		System.out.println(costoCarta.toString());
-		System.out.println(player.getCarte(TipoCarta.EDIFICIO).toString());
+		
+		
 		produzione.attiva(player);
 		
 		if(player.getSetRisorse().paragona(setRisorseTest2))

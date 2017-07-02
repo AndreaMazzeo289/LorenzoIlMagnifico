@@ -197,6 +197,8 @@ public class TestTorre {
 		Boolean risultatoLiberaSpazioEdificio;
 		Boolean risultatoLiberaSpazioImpresa;
 		
+		player.getSetRisorse().aggiungi(new Servitori(3));
+		
 		plancia.setCarte(1, arrayListCarteTerritorio, arrayListCartePersonaggio, arrayListCarteEdificio, arrayListCarteImpresa);
 		
 		/*
@@ -204,10 +206,10 @@ public class TestTorre {
 		 *  non può riconosce il tipo di AzionePrendiCarta da esguire.
 		 */
 		
-		azioneOccupaSpazioTorreTerritorio = new AzioneOccupaSpazioTorre(player, familiare, plancia.getTorre(TipoCarta.TERRITORIO).getSpazio(1), 0);
-		azioneOccupaSpazioTorrePersonaggio = new AzioneOccupaSpazioTorre(player, familiare, plancia.getTorre(TipoCarta.PERSONAGGIO).getSpazio(1), 0);
-		azioneOccupaSpazioTorreEdificio = new AzioneOccupaSpazioTorre(player, familiare, plancia.getTorre(TipoCarta.EDIFICIO).getSpazio(1), 0);
-		azioneOccupaSpazioTorreImpresa = new AzioneOccupaSpazioTorre(player, familiare, plancia.getTorre(TipoCarta.IMPRESA).getSpazio(1), 0);
+		azioneOccupaSpazioTorreTerritorio = new AzioneOccupaSpazioTorre(player, familiare, plancia.getTorre(TipoCarta.TERRITORIO).getSpazio(1), 0, 1);
+		azioneOccupaSpazioTorrePersonaggio = new AzioneOccupaSpazioTorre(player, familiare, plancia.getTorre(TipoCarta.PERSONAGGIO).getSpazio(1), 0, 1);
+		azioneOccupaSpazioTorreEdificio = new AzioneOccupaSpazioTorre(player, familiare, plancia.getTorre(TipoCarta.EDIFICIO).getSpazio(1), 0, 1);
+		azioneOccupaSpazioTorreImpresa = new AzioneOccupaSpazioTorre(player, familiare, plancia.getTorre(TipoCarta.IMPRESA).getSpazio(1), 0, 1);
 		
 		azioneOccupaSpazioTorreTerritorio.attiva();
 		azioneOccupaSpazioTorrePersonaggio.attiva();

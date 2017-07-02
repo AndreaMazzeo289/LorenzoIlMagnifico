@@ -24,5 +24,4 @@ public abstract class AzioneOccupaSpazio extends Azione {
 			player.getSetRisorse().getRisorsa(TipoRisorsa.SERVITORI).aggiungi(-2*servitoriAggiuntivi);
 		else player.getSetRisorse().getRisorsa(TipoRisorsa.SERVITORI).aggiungi(-servitoriAggiuntivi);
 	}
-
 }
