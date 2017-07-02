@@ -37,4 +37,8 @@ public class TestFissaValoreFamiliare {
 		assertTrue("Errore attivazione effetto valore familiare non bloccato", player.getFamiliare(ColoreFamiliare.NERO).getValoreFissato());
 	}
 	
+	
+	
+	
+	
 }
