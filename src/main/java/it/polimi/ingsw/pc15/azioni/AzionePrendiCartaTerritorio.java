@@ -31,13 +31,4 @@ public class AzionePrendiCartaTerritorio extends AzionePrendiCarta {
 		return new RisultatoAzione(true, player.getNome() + " prende la carta Territorio " + carta.getNome());
 	}
 
-
-	@Override
-	public void attiva() {
-		
-		pagaCosto();
-		daiCarta();
-		attivaEffettoIstantaneo();
-	}
-
 }

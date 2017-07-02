@@ -10,6 +10,7 @@ public abstract class AzioneOccupaSpazio extends Azione {
 	protected Spazio spazio;
 	protected Familiare familiare;
 	protected int servitoriAggiuntivi;
+	protected int valoreAzione;
 
 	public AzioneOccupaSpazio(Player player, Familiare familiare, Spazio spazio, int servitoriAggiuntivi) {
 		super (player);

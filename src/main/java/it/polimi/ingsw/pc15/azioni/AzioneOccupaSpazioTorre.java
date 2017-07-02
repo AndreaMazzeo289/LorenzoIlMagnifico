@@ -1,5 +1,6 @@
 package it.polimi.ingsw.pc15.azioni;
 
+import it.polimi.ingsw.pc15.carte.TipoCarta;
 import it.polimi.ingsw.pc15.plancia.Spazio;
 import it.polimi.ingsw.pc15.plancia.SpazioTorre;
 import it.polimi.ingsw.pc15.player.ColoreFamiliare;
@@ -10,22 +11,19 @@ import it.polimi.ingsw.pc15.risorse.TipoRisorsa;
 public class AzioneOccupaSpazioTorre extends AzioneOccupaSpazio {
 	
 	AzionePrendiCarta azionePrendiCarta;
+	int scelta;
 
-	public AzioneOccupaSpazioTorre(Player player, Familiare familiare, SpazioTorre spazio, int servitoriAggiuntivi) {
+	public AzioneOccupaSpazioTorre(Player player, Familiare familiare, SpazioTorre spazio, int servitoriAggiuntivi, int scelta) {
 		super(player, familiare, spazio, servitoriAggiuntivi);
+		this.scelta = scelta;
+		
+		this.valoreAzione = familiare.getValore() + servitoriAggiuntivi + player.getEffettiAttivi().getBonusDadoCarte(spazio.getCarta().getTipo()) + player.getEffettiAttivi().getBonusDadoCarte(TipoCarta.ALL);
 		
 		switch (((SpazioTorre) this.spazio).getCarta().getTipo() ) {
-
-		case EDIFICIO: azionePrendiCarta = new AzionePrendiCartaEdificio (this.player, ((SpazioTorre) this.spazio).getCarta());
-			break;
-		case IMPRESA:azionePrendiCarta = new AzionePrendiCartaImpresa (this.player, ((SpazioTorre) this.spazio).getCarta());
-			break;
-		case PERSONAGGIO: azionePrendiCarta = new AzionePrendiCartaPersonaggio (this.player, ((SpazioTorre) this.spazio).getCarta());
-			break;
-		case TERRITORIO: azionePrendiCarta = new AzionePrendiCartaTerritorio (this.player, ((SpazioTorre) this.spazio).getCarta());
-			break;
-		default:azionePrendiCarta = null;
-			break;
+		case EDIFICIO: azionePrendiCarta = new AzionePrendiCartaEdificio (this.player, ((SpazioTorre) this.spazio).getCarta()); break;
+		case IMPRESA:azionePrendiCarta = new AzionePrendiCartaImpresa (this.player, ((SpazioTorre) this.spazio).getCarta(), scelta); 	break;
+		case PERSONAGGIO: azionePrendiCarta = new AzionePrendiCartaPersonaggio (this.player, ((SpazioTorre) this.spazio).getCarta()); break;
+		case TERRITORIO: azionePrendiCarta = new AzionePrendiCartaTerritorio (this.player, ((SpazioTorre) this.spazio).getCarta()); break;
 		}
 	}
 

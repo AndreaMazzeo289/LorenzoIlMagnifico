@@ -30,6 +30,10 @@ import it.polimi.ingsw.pc15.player.Player;
 import it.polimi.ingsw.pc15.risorse.Legna;
 import it.polimi.ingsw.pc15.risorse.Oro;
 import it.polimi.ingsw.pc15.risorse.Pietra;
+import it.polimi.ingsw.pc15.risorse.Privilegi;
+import it.polimi.ingsw.pc15.risorse.PuntiFede;
+import it.polimi.ingsw.pc15.risorse.PuntiMilitari;
+import it.polimi.ingsw.pc15.risorse.PuntiVittoria;
 import it.polimi.ingsw.pc15.risorse.Risorsa;
 import it.polimi.ingsw.pc15.risorse.Servitori;
 import it.polimi.ingsw.pc15.risorse.SetRisorse;
@@ -93,6 +97,10 @@ public class Model extends Observable {
 		risorseGiocatore.add(new Legna(2));
 		risorseGiocatore.add(new Pietra(2));
 		risorseGiocatore.add(new Servitori(3));
+		risorseGiocatore.add(new PuntiMilitari(0));
+		risorseGiocatore.add(new PuntiVittoria(0));
+		risorseGiocatore.add(new PuntiFede(0));
+		risorseGiocatore.add(new Privilegi(0));
 		SetRisorse setRisorseGiocatore = new SetRisorse(risorseGiocatore);
 		
 		for(int i=0; i<numeroGiocatori; i++) {

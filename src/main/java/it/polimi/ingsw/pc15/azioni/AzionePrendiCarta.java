@@ -1,49 +1,50 @@
 package it.polimi.ingsw.pc15.azioni;
 
+import java.util.HashSet;
+
 import it.polimi.ingsw.pc15.carte.Carta;
+import it.polimi.ingsw.pc15.carte.TipoCarta;
 import it.polimi.ingsw.pc15.effetti.Effetto;
 import it.polimi.ingsw.pc15.effetti.Incrementabile;
 import it.polimi.ingsw.pc15.player.Player;
+import it.polimi.ingsw.pc15.risorse.Oro;
 import it.polimi.ingsw.pc15.risorse.SetRisorse;
 import it.polimi.ingsw.pc15.risorse.TipoRisorsa;
 
 public abstract class AzionePrendiCarta extends Azione{
 	
 	protected final Carta carta;
+	protected SetRisorse costoFinale;
 	
 	public AzionePrendiCarta (Player player, Carta carta) {
 		super(player);
 		this.carta = carta;
+		this.costoFinale = carta.getCosto();
 	}
 	
-	public abstract void attiva();
 	public abstract RisultatoAzione èValida();
+	
+	public void attiva() {	
+		
+		pagaCosto(costoFinale);
+		daiCarta();
+		attivaEffettoIstantaneo();
+	}
 
 	public boolean risorseSufficienti () {
-		
-	int oroAggiuntivo = 0;
 			                                          
-	if (carta.getSpazio().getTorre().occupata() && player.getEffettiAttivi().sovrapprezzoTorri())    
-		oroAggiuntivo = 3;		
-	
-	if (player.getEffettiAttivi().getScontoCostoCarte(carta.getTipo())!=null)	
-		carta.getCosto().sottrai(player.getEffettiAttivi().getScontoCostoCarte(carta.getTipo()));
+		if (carta.getSpazio().getTorre().occupata() && player.getEffettiAttivi().sovrapprezzoTorri())
+			costoFinale.aggiungi(new Oro(3));
 		
-	if (!(player.getSetRisorse().paragona(carta.getCosto()) &&                                                   
-			player.getSetRisorse().getRisorsa(TipoRisorsa.ORO).paragona(carta.getCosto().getRisorsa(TipoRisorsa.ORO).getQuantità() + oroAggiuntivo))) {
-		if (player.getEffettiAttivi().getScontoCostoCarte(carta.getTipo())!=null)	
-			carta.getCosto().aggiungi(player.getEffettiAttivi().getScontoCostoCarte(carta.getTipo()));
-		return false;
-	}
-	
-	return true;
+		costoFinale.sottrai(player.getEffettiAttivi().getScontoCostoCarte(carta.getTipo()));
+		costoFinale.sottrai(player.getEffettiAttivi().getScontoCostoCarte(TipoCarta.ALL));
+			
+		return player.getSetRisorse().paragona(costoFinale);
 		
 	}    
 
-	public void pagaCosto() {
-		if (carta.getSpazio().getTorre().occupata() && player.getEffettiAttivi().sovrapprezzoTorri()) 
-			carta.getCosto().getRisorsa(TipoRisorsa.ORO).aggiungi(3);
-		player.getSetRisorse().sottrai(carta.getCosto());
+	public void pagaCosto(SetRisorse costo) {
+		player.getSetRisorse().sottrai(costo);
 	}
 	
 	public void daiCarta() {
@@ -62,5 +63,8 @@ public abstract class AzionePrendiCarta extends Azione{
 				((Incrementabile) effetto).attivaDaCarta(player);
 		}
 	}
+	
+	
+
 	
 }

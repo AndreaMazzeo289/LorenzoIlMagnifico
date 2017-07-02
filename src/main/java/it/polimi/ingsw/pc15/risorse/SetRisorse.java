@@ -18,6 +18,17 @@ public class SetRisorse implements Serializable {
 			this.risorse.put(risorsa.getTipoRisorsa(), risorsa);
 	}
 	
+	public void aggiungi (Risorsa risorsa){
+		if (this.risorse.containsKey(risorsa.getTipoRisorsa()))
+			this.risorse.get(risorsa.getTipoRisorsa()).aggiungi(risorsa.getQuantità());
+		else
+			try {
+				risorse.put(risorsa.getTipoRisorsa(), risorsa.copia());
+			} catch (CloneNotSupportedException e) {
+				e.printStackTrace();
+			}
+	}
+	
 	public void aggiungi (SetRisorse setRisorse) {  
 		
 		for (Map.Entry<TipoRisorsa, Risorsa> risorsa : setRisorse.getRisorse().entrySet())

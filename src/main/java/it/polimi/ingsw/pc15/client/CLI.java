@@ -146,6 +146,7 @@ public class CLI extends ClientView {
 											System.out.println("Quale spazio della torre?");
 											sceltaSpazio = input.nextInt();
 											message.add(String.valueOf(sceltaSpazio-1));
+											if (this.clientModel.getStatoPlancia().getSpazioTorre(TipoCarta.IMPRESA, sceltaSpazio-1).getCarta().getCosto().getRisorse().isEmpty()==false);
 											break;
 									case 0: annulla=true;
 											break;
@@ -354,10 +355,7 @@ public class CLI extends ClientView {
 						System.out.println("\nQuale Leader vuoi attivare?");
 		    			for (Leader leader : this.clientModel.getStatoGiocatore().getCarteLeader())
 		    				System.out.println("  " + (this.clientModel.getStatoGiocatore().getCarteLeader().lastIndexOf(leader)+1) +". " + leader.getNome());
-						int leaderScelto = input.nextInt()-1;
-		    			message.add(String.valueOf(leaderScelto));
-		    			ArrayList<String> scelte = new ArrayList<String>();
-		    			for (Effetto effetto : this.clientModel.getStatoGiocatore().getCarteLeader().get(leaderScelto).getEffettoPerTurno())
+		    			message.add(String.valueOf(input.nextInt()-1));
 						setChanged();
 					} else {
 			    		System.out.println("\n--Inserire un comando valido!--");
@@ -370,7 +368,9 @@ public class CLI extends ClientView {
 					update(this, "");
 			break;
 				
-	    	}		    	
+	    	}		 
+	    	
+	    	notifyObservers(message);
 	  
 	    }			
 	}

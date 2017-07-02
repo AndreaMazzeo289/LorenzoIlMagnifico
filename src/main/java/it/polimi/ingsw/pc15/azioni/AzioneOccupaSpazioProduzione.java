@@ -13,6 +13,7 @@ public class AzioneOccupaSpazioProduzione extends AzioneOccupaSpazio {
 
 	public AzioneOccupaSpazioProduzione(Player player, Familiare familiare, SpazioProduzione spazio, int servitoriAggiuntivi) {
 		super(player, familiare, spazio, servitoriAggiuntivi);
+		this.valoreAzione = familiare.getValore() + servitoriAggiuntivi + player.getEffettiAttivi().getBonusProduzione();
 	}
 
 	@Override
@@ -37,12 +38,13 @@ public class AzioneOccupaSpazioProduzione extends AzioneOccupaSpazio {
 			if (familiare.getPlayer().equals(player) && !(familiare.getColore().equals(ColoreFamiliare.NEUTRO) || this.familiare.getColore().equals(ColoreFamiliare.NEUTRO)))
 				return new RisultatoAzione(false, "FRASE");
 		
-		int valoreAzione = familiare.getValore() + servitoriAggiuntivi;
+		if (spazio.vuoto()==false && player.getEffettiAttivi().controllaPermessoSpaziOccupati()==false)
+			valoreAzione -= 3;
 		
 		if(valoreAzione >= spazio.getValoreMin())
-				return new RisultatoAzione(true, player.getNome() + " occupa lo spazio produzione!");
+			return new RisultatoAzione(true, player.getNome() + " occupa lo spazio produzione!");
 		else 
-				return new RisultatoAzione(false, "Il valore del tuo familiare è troppo basso!");
+			return new RisultatoAzione(false, "Il valore del tuo familiare è troppo basso!");
 	}
 
 }

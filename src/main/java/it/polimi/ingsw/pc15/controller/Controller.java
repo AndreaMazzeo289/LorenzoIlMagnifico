@@ -109,7 +109,7 @@ public class Controller extends Observable implements Observer {
 				}
 				
 				spazioAzione = torreAzione.getSpazio(Integer.valueOf(input.get(5)));
-				azioneGiocatore = new AzioneOccupaSpazioTorre(giocatore, familiareAzione, (SpazioTorre) spazioAzione, Integer.valueOf(input.get(2)));
+				azioneGiocatore = new AzioneOccupaSpazioTorre(giocatore, familiareAzione, (SpazioTorre) spazioAzione, Integer.valueOf(input.get(2)), 1);
 				break;
 				
 			default: System.out.println("Errore lettura scelta spazio");

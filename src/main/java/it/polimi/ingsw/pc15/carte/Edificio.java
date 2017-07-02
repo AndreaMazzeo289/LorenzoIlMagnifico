@@ -23,11 +23,11 @@ public class Edificio extends Carta {
 		return this.requisitoProduzione;
 	}
 
-	@Override
+	/*@Override
 	public AzionePrendiCarta azionePrendiCarta(Player player) {
 		
 		AzionePrendiCarta azionePrendiCarta = new AzionePrendiCartaEdificio(player, this);
 		return azionePrendiCarta;
-	}
+	}*/
 
 }

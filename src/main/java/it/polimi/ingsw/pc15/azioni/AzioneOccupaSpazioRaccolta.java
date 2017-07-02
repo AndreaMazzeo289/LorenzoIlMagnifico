@@ -13,6 +13,7 @@ public class AzioneOccupaSpazioRaccolta extends AzioneOccupaSpazio {
 
 	public AzioneOccupaSpazioRaccolta(Player player, Familiare familiare, SpazioRaccolta spazio, int servitoriAggiuntivi) {
 		super(player, familiare, spazio, servitoriAggiuntivi);
+		this.valoreAzione = familiare.getValore() + servitoriAggiuntivi + player.getEffettiAttivi().getBonusProduzione();
 	}
 
 	@Override
@@ -25,7 +26,6 @@ public class AzioneOccupaSpazioRaccolta extends AzioneOccupaSpazio {
 		
 		Effetto effetto = new Raccolto (familiare.getValore() + player.getEffettiAttivi().getBonusProduzione());
 		effetto.attiva(familiare.getPlayer());
-
 	}
 
 	@Override
@@ -38,7 +38,8 @@ public class AzioneOccupaSpazioRaccolta extends AzioneOccupaSpazio {
 			if (familiare.getPlayer().equals(player) && !(familiare.getColore().equals(ColoreFamiliare.NEUTRO) || this.familiare.getColore().equals(ColoreFamiliare.NEUTRO)))
 				return new RisultatoAzione(false, "non puoi posizionare altri familiari in questo spazio");
 		
-		int valoreAzione = familiare.getValore() + servitoriAggiuntivi;
+		if (spazio.vuoto()==false && player.getEffettiAttivi().controllaPermessoSpaziOccupati()==false)
+			valoreAzione -= 3;
 		
 		if(valoreAzione >= spazio.getValoreMin())
 			return new RisultatoAzione(true, player.getNome() + " occupa lo spazio raccolta!");

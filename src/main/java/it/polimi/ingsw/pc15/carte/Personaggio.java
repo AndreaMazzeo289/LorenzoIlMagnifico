@@ -17,10 +17,10 @@ public class Personaggio extends Carta {
 		this.tipo = TipoCarta.PERSONAGGIO;
 		}
 
-	@Override
+	/*@Override
 	public AzionePrendiCarta azionePrendiCarta(Player player) {
 		
 		AzionePrendiCarta azionePrendiCarta = new AzionePrendiCartaPersonaggio(player, this);
 		return azionePrendiCarta;
-	}
+	}*/
 }

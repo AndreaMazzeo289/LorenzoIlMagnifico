@@ -27,82 +27,80 @@ public class Scambio extends Effetto implements Incrementabile {
 	@Override
 	public void attiva(Player player) {
 		
-		int scelta = 0;
-		
-		if (pagamento1 != null && pagamento2 != null) {
-			System.out.println("Quale scambio vuoi attivare?");
-			Scanner in = new Scanner (System.in);
-			scelta = in.nextInt();
-		}
-		
-		if (scelta==1 || pagamento2 == null) {
-			if(player.getSetRisorse().paragona(pagamento1)) {
-				player.getSetRisorse().sottrai(pagamento1);
-				player.getSetRisorse().aggiungi(guadagno1);
-			}
-			else System.out.println("Non hai risorse sufficienti per attivare questo scambio!");
-		}
-		
-		if (scelta==2 || pagamento1 == null) {
-			if(player.getSetRisorse().paragona(pagamento2)) {
-				player.getSetRisorse().sottrai(pagamento2);
-				player.getSetRisorse().aggiungi(guadagno2);
-			}
-			else System.out.println("Non hai risorse sufficienti per attivare questo scambio!");
-		}
 	}
 	
 	
 	@Override
 	public void attivaDaSpazio(Player player) {
 		
-		for(Map.Entry<TipoRisorsa, Risorsa> risorsa : this.guadagno1.getRisorse().entrySet())
-			risorsa.getValue().aggiungi(risorsa.getValue().getQuantità()*player.getEffettiAttivi().getMoltiplicatoreRisorseSpazi()-1);
-		this.guadagno1.aggiungi (player.getEffettiAttivi().getRisorseBonusSpazi());
+		if (guadagno1 != null) {
+			for (Risorsa risorsa : this.guadagno1.getRisorse().values()) {
+				risorsa.aggiungi(risorsa.getQuantità()*player.getEffettiAttivi().getMoltiplicatoreRisorseSpazi()-1);
+				risorsa.aggiungi(player.getEffettiAttivi().getRisorsaBonusSpazi(risorsa.getTipoRisorsa()));
+			}
+		}
 		
-		for(Map.Entry<TipoRisorsa, Risorsa> risorsa : this.guadagno2.getRisorse().entrySet())
-			risorsa.getValue().aggiungi(risorsa.getValue().getQuantità()*player.getEffettiAttivi().getMoltiplicatoreRisorseSpazi()-1);
-		this.guadagno2.aggiungi (player.getEffettiAttivi().getRisorseBonusSpazi());
+		if (guadagno2 != null) {
+			for (Risorsa risorsa : this.guadagno2.getRisorse().values()) {
+				risorsa.aggiungi(risorsa.getQuantità()*player.getEffettiAttivi().getMoltiplicatoreRisorseSpazi()-1);
+				risorsa.aggiungi(player.getEffettiAttivi().getRisorsaBonusSpazi(risorsa.getTipoRisorsa()));
+			}
+		}
 		
 		attiva(player);
 		
-		this.guadagno1.sottrai (player.getEffettiAttivi().getRisorseBonusSpazi());
-		for(Map.Entry<TipoRisorsa, Risorsa> risorsa : this.guadagno1.getRisorse().entrySet())
-			risorsa.getValue().aggiungi(-risorsa.getValue().getQuantità()/player.getEffettiAttivi().getMoltiplicatoreRisorseSpazi()*(player.getEffettiAttivi().getMoltiplicatoreRisorseSpazi()-1));
+		if (guadagno1 != null) {
+			for (Risorsa risorsa : this.guadagno1.getRisorse().values()) {
+				risorsa.aggiungi(-player.getEffettiAttivi().getRisorsaBonusSpazi(risorsa.getTipoRisorsa()));
+				if(player.getEffettiAttivi().getMoltiplicatoreRisorseSpazi()!=1)
+					risorsa.aggiungi(-risorsa.getQuantità()/(player.getEffettiAttivi().getMoltiplicatoreRisorseSpazi()*(player.getEffettiAttivi().getMoltiplicatoreRisorseSpazi()-1)));
+			}
+		}
 		
-		this.guadagno2.sottrai (player.getEffettiAttivi().getRisorseBonusSpazi());
-		for(Map.Entry<TipoRisorsa, Risorsa> risorsa : this.guadagno2.getRisorse().entrySet())
-			risorsa.getValue().aggiungi(-risorsa.getValue().getQuantità()/player.getEffettiAttivi().getMoltiplicatoreRisorseSpazi()*(player.getEffettiAttivi().getMoltiplicatoreRisorseSpazi()-1));
+		if (guadagno2 != null) {
+			for (Risorsa risorsa : this.guadagno2.getRisorse().values()) {
+				risorsa.aggiungi(-player.getEffettiAttivi().getRisorsaBonusSpazi(risorsa.getTipoRisorsa()));
+				if(player.getEffettiAttivi().getMoltiplicatoreRisorseSpazi()!=1)
+					risorsa.aggiungi(-risorsa.getQuantità()/(player.getEffettiAttivi().getMoltiplicatoreRisorseSpazi()*(player.getEffettiAttivi().getMoltiplicatoreRisorseSpazi()-1)));
+			}
+		}
 		
 	}
 
 	@Override
 	public void attivaDaCarta(Player player) {
 		
-		for(Map.Entry<TipoRisorsa, Risorsa> risorsa : this.guadagno1.getRisorse().entrySet())
-			risorsa.getValue().aggiungi(risorsa.getValue().getQuantità()*player.getEffettiAttivi().getMoltiplicatoreRisorseCarte()-1);
-		this.guadagno1.aggiungi (player.getEffettiAttivi().getRisorseBonusCarte());
+		if (guadagno1 != null) {
+			for (Risorsa risorsa : this.guadagno1.getRisorse().values()) {
+				risorsa.aggiungi(risorsa.getQuantità()*player.getEffettiAttivi().getMoltiplicatoreRisorseCarte()-1);
+				risorsa.aggiungi(player.getEffettiAttivi().getRisorsaBonusCarte(risorsa.getTipoRisorsa()));
+			}
+		}
 		
-		for(Map.Entry<TipoRisorsa, Risorsa> risorsa : this.guadagno2.getRisorse().entrySet())
-			risorsa.getValue().aggiungi(risorsa.getValue().getQuantità()*player.getEffettiAttivi().getMoltiplicatoreRisorseCarte()-1);
-		this.guadagno2.aggiungi (player.getEffettiAttivi().getRisorseBonusCarte());
+		if (guadagno2 != null) {
+			for (Risorsa risorsa : this.guadagno2.getRisorse().values()) {
+				risorsa.aggiungi(risorsa.getQuantità()*player.getEffettiAttivi().getMoltiplicatoreRisorseCarte()-1);
+				risorsa.aggiungi(player.getEffettiAttivi().getRisorsaBonusCarte(risorsa.getTipoRisorsa()));
+			}
+		}
 		
 		attiva(player);
 		
-		this.guadagno1.sottrai (player.getEffettiAttivi().getRisorseBonusCarte());
-		for(Map.Entry<TipoRisorsa, Risorsa> risorsa : this.guadagno1.getRisorse().entrySet())
-			risorsa.getValue().aggiungi(-risorsa.getValue().getQuantità()/player.getEffettiAttivi().getMoltiplicatoreRisorseCarte()*(player.getEffettiAttivi().getMoltiplicatoreRisorseCarte()-1));
+		if (guadagno1 != null) {
+			for (Risorsa risorsa : this.guadagno1.getRisorse().values()) {
+				risorsa.aggiungi(-player.getEffettiAttivi().getRisorsaBonusCarte(risorsa.getTipoRisorsa()));
+				if(player.getEffettiAttivi().getMoltiplicatoreRisorseCarte()!=1)
+					risorsa.aggiungi(-risorsa.getQuantità()/(player.getEffettiAttivi().getMoltiplicatoreRisorseCarte()*(player.getEffettiAttivi().getMoltiplicatoreRisorseCarte()-1)));
+			}
+		}
 		
-		this.guadagno2.sottrai (player.getEffettiAttivi().getRisorseBonusCarte());
-		for(Map.Entry<TipoRisorsa, Risorsa> risorsa : this.guadagno2.getRisorse().entrySet())
-			risorsa.getValue().aggiungi(-risorsa.getValue().getQuantità()/player.getEffettiAttivi().getMoltiplicatoreRisorseCarte()*(player.getEffettiAttivi().getMoltiplicatoreRisorseCarte()-1));
+		if (guadagno2 != null) {
+			for (Risorsa risorsa : this.guadagno2.getRisorse().values()) {
+				risorsa.aggiungi(-player.getEffettiAttivi().getRisorsaBonusCarte(risorsa.getTipoRisorsa()));
+				if(player.getEffettiAttivi().getMoltiplicatoreRisorseCarte()!=1)
+					risorsa.aggiungi(-risorsa.getQuantità()/(player.getEffettiAttivi().getMoltiplicatoreRisorseCarte()*(player.getEffettiAttivi().getMoltiplicatoreRisorseCarte()-1)));
+			}
+		}
 		
-	}
-	
-	public String toString() {
-		String stringa = "Puoi pagare " + pagamento1.toString() + " per guadagnare " + guadagno1.toString();
-		if (pagamento2 != null)
-			stringa += " o pagare " + pagamento2.toString() + " per guadagnare " + guadagno2.toString();
-		return stringa;
 	}
 }

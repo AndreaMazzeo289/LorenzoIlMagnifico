@@ -14,6 +14,8 @@ public class EffettiAttivi implements Serializable{
 	private HashMap<TipoCarta, Integer> bonusDadoCarte;
 	private HashMap<TipoCarta, SetRisorse> scontoCostoCarte;
 	private HashMap<TipoCarta, Boolean> bonusPuntiVittoriaFinale;
+	private HashMap<TipoRisorsa, Integer> risorseBonusCarte;
+	private HashMap<TipoRisorsa, Integer> risorseBonusSpazi;
 	
 	private int bonusRaccolta;
 	private int bonusProduzione;
@@ -25,8 +27,6 @@ public class EffettiAttivi implements Serializable{
 	private boolean sovrapprezzoServitori;
 	private boolean sovrapprezzoTorri;
 
-	private SetRisorse risorseBonusCarte;
-	private SetRisorse risorseBonusSpazi;
 	private int moltiplicatoreRisorseCarte;
 	private int moltiplicatoreRisorseSpazi;
 	
@@ -36,11 +36,18 @@ public class EffettiAttivi implements Serializable{
 		bonusDadoCarte = new HashMap<TipoCarta, Integer>();
 		scontoCostoCarte = new HashMap<TipoCarta, SetRisorse>();
 		bonusPuntiVittoriaFinale = new HashMap<TipoCarta, Boolean>();
+		risorseBonusCarte = new HashMap<TipoRisorsa, Integer>();
+		risorseBonusSpazi = new HashMap<TipoRisorsa, Integer>();
 		
 		for (TipoCarta tipoCarta : TipoCarta.values()) {
 			bonusDadoCarte.put(tipoCarta, 0);
 			scontoCostoCarte.put(tipoCarta, new SetRisorse(new HashSet<Risorsa>()));
 			bonusPuntiVittoriaFinale.put(tipoCarta, true);
+		}
+		
+		for (TipoRisorsa tipoRisorsa : TipoRisorsa.values()) {
+			risorseBonusCarte.put(tipoRisorsa, 0);
+			risorseBonusSpazi.put(tipoRisorsa, 0);
 		}
 
 		this.bonusRaccolta = 0;
@@ -53,8 +60,7 @@ public class EffettiAttivi implements Serializable{
 		this.sovrapprezzoTorri = true;
 		this.sovrapprezzoServitori = false;
 
-		risorseBonusCarte = new SetRisorse(new HashSet<Risorsa>());
-		risorseBonusSpazi = new SetRisorse(new HashSet<Risorsa>());
+
 		moltiplicatoreRisorseCarte = 1;
 		moltiplicatoreRisorseSpazi = 1;
 		
@@ -73,7 +79,9 @@ public class EffettiAttivi implements Serializable{
 	}
 	
 	public void aggiungiScontoCostoCarte (TipoCarta tipo, SetRisorse sconto) {
-		this.scontoCostoCarte.put(tipo, sconto);
+		SetRisorse scontoAggiornato = this.scontoCostoCarte.get(tipo);
+		scontoAggiornato.aggiungi(sconto);
+		this.scontoCostoCarte.put(tipo, scontoAggiornato);
 	}
 	
 	public void annullaBonusPuntiVittoriaFinale (TipoCarta colore) {
@@ -104,6 +112,14 @@ public class EffettiAttivi implements Serializable{
 		this.permessoSpaziOccupati = true;
 	}
 	
+	public void setSovrapprezzoServitori() {
+		this.sovrapprezzoServitori = true;
+	}
+	
+	public void annullaSovrapprezzoTorri() {
+		this.sovrapprezzoTorri = false;
+	}
+	
 	public void setMoltiplicatoreRisorseCarte(int moltiplicatore) {
 		this.moltiplicatoreRisorseCarte = moltiplicatore;
 	}
@@ -112,13 +128,17 @@ public class EffettiAttivi implements Serializable{
 		this.moltiplicatoreRisorseSpazi = moltiplicatore;
 	}
 	
-	public void setSovrapprezzoServitori() {
-		this.sovrapprezzoServitori = true;
+	public void incrementaRisorseBonusCarte(TipoRisorsa tipoRisorsa, int i) {
+		int valoreAggiornato = risorseBonusCarte.get(tipoRisorsa).intValue() + i;
+		risorseBonusCarte.put(tipoRisorsa, valoreAggiornato);
 	}
 	
-	public void annullaSovrapprezzoTorri() {
-		this.sovrapprezzoTorri = false;
+	public void incrementaRisorseBonusSpazi(TipoRisorsa tipoRisorsa, int i) {
+		int valoreAggiornato = risorseBonusCarte.get(tipoRisorsa).intValue() + i;
+		risorseBonusCarte.put(tipoRisorsa, valoreAggiornato);
 	}
+	
+
 	
 	
 	//-----------------------------------------------------------------------------------------------------------//
@@ -161,12 +181,20 @@ public class EffettiAttivi implements Serializable{
 		return this.permessoSpaziOccupati;
 	}
 	
-	public SetRisorse getRisorseBonusSpazi() {
+	public HashMap<TipoRisorsa, Integer> getRisorseBonusSpazi() {
 		return this.risorseBonusSpazi;
 	}
 	
-	public SetRisorse getRisorseBonusCarte() {
+	public HashMap<TipoRisorsa, Integer> getRisorseBonusCarte() {
 		return this.risorseBonusCarte;
+	}
+	
+	public boolean sovrapprezzoTorri() {
+		return this.sovrapprezzoTorri;
+	}
+	
+	public boolean sovrapprezzoServitori() {
+		return this.sovrapprezzoServitori;
 	}
 	
 	public int getMoltiplicatoreRisorseSpazi() {
@@ -177,12 +205,14 @@ public class EffettiAttivi implements Serializable{
 		return this.moltiplicatoreRisorseCarte;
 	}
 	
-	public boolean sovrapprezzoTorri() {
-		return this.sovrapprezzoTorri;
+	public int getRisorsaBonusCarte(TipoRisorsa tipoRisorsa) {
+		return this.risorseBonusCarte.get(tipoRisorsa);
 	}
 	
-	public boolean sovrapprezzoServitori() {
-		return this.sovrapprezzoServitori;
+	public int getRisorsaBonusSpazi(TipoRisorsa tipoRisorsa) {
+		return this.risorseBonusSpazi.get(tipoRisorsa);
 	}
+	
+
 	
 }
