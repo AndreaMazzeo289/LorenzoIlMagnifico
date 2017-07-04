@@ -45,19 +45,21 @@ public class ButtonListener implements ActionListener{
 	ScartaLeaderPopup scartaLeaderPopup;
 	FrameInformazioniPlayer frameInformazioniPlayer;
 	boolean familiareScelto = false;
-
-	ArrayList<String> message;
+	GUI gui;
 	
-	public ButtonListener() {
+	//private ArrayList<String> message;
+	
+	public ButtonListener(GUI gui) {
+		this.gui = gui;
 	}
 
 	@Override
 	public void actionPerformed(ActionEvent e) {
 		
-		message = new ArrayList();
+		//message = new ArrayList();
 		
-		PlayerBoard playerBoard = (PlayerBoard) GUI.mainFrame.getContentPane().getComponent(1);
-		Gameboard gameboard = (Gameboard) GUI.mainFrame.getContentPane().getComponent(0);
+		PlayerBoard playerBoard = (PlayerBoard) gui.mainFrame.getContentPane().getComponent(1);
+		Gameboard gameboard = (Gameboard) gui.mainFrame.getContentPane().getComponent(0);
 		
 		String path = "";
 		String tipo = "";
@@ -79,41 +81,33 @@ public class ButtonListener implements ActionListener{
 		}
 		
 		if(e.getActionCommand().equals("attivaCartaLeader")) {
-			giocaLeaderPopup = new GiocaLeaderPopup(this);
+			if(gui.getTurnoGiocatore())
+				giocaLeaderPopup = new GiocaLeaderPopup(this, gui);
 		}
 		
 		if (e.getActionCommand().equals("attivaEffettoLeader")) {
-			/*PlayerBoard playerBoard = (PlayerBoard)mainGUI.mainFrame.getContentPane().getComponent(1);
-			playerBoard.getPanelRisorseOro().writeIntoLabel(2);
-			playerBoard.getPanelSpazioFamiliariDisponibili().liberaFamiliare(ColoreFamiliare.NERO);
-			selezionaNumeroServitori = new SelezionaNumeroServitori(this);
-			playerBoard.getCartaLeader1().leggiLabel();*/
-			
-			attivaLeaderPopup = new AttivaLeaderPopup(this);
+			if(gui.getTurnoGiocatore())
+				attivaLeaderPopup = new AttivaLeaderPopup(this, gui);
 		}
 		
 		if (e.getActionCommand().equals("scartaCartaLeader")) {
-			scartaLeaderPopup = new ScartaLeaderPopup(this);
-			/*PlayerBoard playerBoard = (PlayerBoard)mainGUI.mainFrame.getContentPane().getComponent(1);
-			playerBoard.getPanelRisorseOro().writeIntoLabel(2);*/
+			if(gui.getTurnoGiocatore())
+				scartaLeaderPopup = new ScartaLeaderPopup(this, gui);
 		}
 		
 		if (e.getActionCommand().equals("buttonScomuniche")) {
-			System.out.println("scomunica");
-			CarteScomunica carteScomunica = new CarteScomunica(GUI.getPathCartaScomunica1(),GUI.getPathCartaScomunica2(),GUI.getPathCartaScomunica3());
+			CarteScomunica carteScomunica = new CarteScomunica(gui.getPathCartaScomunica1(),gui.getPathCartaScomunica2(),gui.getPathCartaScomunica3());
 		}
 		
+		if(e.getActionCommand().equals("buttonStatoGioco")) {
+			frameInformazioniPlayer = new FrameInformazioniPlayer(gui.getarrayListAvversari(), gui);
+		}
 		
 		if (e.getActionCommand().equals("posizionaFamiliare")) {
-			
-			selezionaFamiliarePopup = new SelezionaFamiliarePopup(this);
-			System.out.println("Seleziona uno spazio libero");
-			
-			message.add("posiziona familiare");
-			
-			
-			//flag seleziona familiare
-			
+			if(gui.getTurnoGiocatore()) {
+				selezionaFamiliarePopup = new SelezionaFamiliarePopup(this,gui.getPlayerCorrente());
+				gui.writeMessage("posiziona familiare");
+			}
 		}
 		
 		//------------------------------------------------------------------------------------//
@@ -121,7 +115,7 @@ public class ButtonListener implements ActionListener{
 		//------------------------------------------------------------------------------------//
 		if(e.getActionCommand().equals("selezionatoFamiliareBianco")) {
 			playerBoard.getPanelSpazioFamiliariDisponibili().utilizzaFamiliare(ColoreFamiliare.BIANCO);
-			message.add("familiare bianco");
+			gui.writeMessage("familiare bianco");
 			coloreFamiliareScelto = ColoreFamiliare.BIANCO;
 
 			{
@@ -143,7 +137,7 @@ public class ButtonListener implements ActionListener{
 		//------------------------------------------------------------------------------------//
 		if(e.getActionCommand().equals("selezionatoFamiliareArancione")) {
 			playerBoard.getPanelSpazioFamiliariDisponibili().utilizzaFamiliare(ColoreFamiliare.ARANCIONE);
-			message.add("familiare arancione");
+			gui.writeMessage("familiare arancione");
 			coloreFamiliareScelto = ColoreFamiliare.ARANCIONE;
 			
 			{
@@ -164,7 +158,7 @@ public class ButtonListener implements ActionListener{
 		//------------------------------------------------------------------------------------//
 		if(e.getActionCommand().equals("selezionatoFamiliareNero")) {
 			playerBoard.getPanelSpazioFamiliariDisponibili().utilizzaFamiliare(ColoreFamiliare.NERO);
-			message.add("familiare nero");
+			gui.writeMessage("familiare nero");
 			coloreFamiliareScelto = ColoreFamiliare.NERO;
 			
 			{
@@ -183,7 +177,7 @@ public class ButtonListener implements ActionListener{
 		//------------------------------------------------------------------------------------//
 		if(e.getActionCommand().equals("selezionatoFamiliareNeutro")) {
 			playerBoard.getPanelSpazioFamiliariDisponibili().utilizzaFamiliare(ColoreFamiliare.NEUTRO);
-			message.add("familiare neutro");
+			gui.writeMessage("familiare neutro");
 			coloreFamiliareScelto = ColoreFamiliare.NEUTRO;
 			
 			{
@@ -197,12 +191,7 @@ public class ButtonListener implements ActionListener{
 			selezionaFamiliarePopup.dispose();
 		}
 		
-		if(e.getActionCommand().equals("buttonStatoGioco")) {
-			/*PlayerBoard playerBoard = (PlayerBoard)mainGUI.mainFrame.getContentPane().getComponent(1);
-			playerBoard.getPanelSpazioFamiliariDisponibili().utilizzaFamiliare(ColoreFamiliare.NERO);*/
-			frameInformazioniPlayer = new FrameInformazioniPlayer(GUI.getarrayListAvversari());
-			System.out.println("premuto statogioco");
-		}
+		
 		
 		if(e.getActionCommand().equals("siServitori")) {
 			System.out.println("selezionato si");
@@ -217,7 +206,7 @@ public class ButtonListener implements ActionListener{
 		
 		if(e.getActionCommand().equals("submitNumeroServitori")) {
 			System.out.println(selezionaNumeroServitori.getInputNumero());
-			message.add(Integer.toString(selezionaNumeroServitori.getInputNumero()));
+			gui.writeMessage(Integer.toString(selezionaNumeroServitori.getInputNumero()));
 			selezionaNumeroServitori.getPopupNumeroServitori().dispose();
 		}
 		
@@ -292,25 +281,25 @@ public class ButtonListener implements ActionListener{
 		
 		if(e.getActionCommand().startsWith("carteTerritorioPlayer")) {
 			String index = e.getActionCommand().substring(21);
-			Player player = GUI.getarrayListAvversari().get(Integer.parseInt(index));
+			Player player = gui.getarrayListAvversari().get(Integer.parseInt(index));
 			FrameMostraCartePlayer frame = new FrameMostraCartePlayer(TipoCarta.TERRITORIO, player);
 		}
 		
 		if(e.getActionCommand().equals("carteEdificioAltriPlayer")) {
 			String index = e.getActionCommand().substring(21);
-			Player player = GUI.getarrayListAvversari().get(Integer.parseInt(index));
+			Player player = gui.getarrayListAvversari().get(Integer.parseInt(index));
 			FrameMostraCartePlayer frame = new FrameMostraCartePlayer(TipoCarta.EDIFICIO, player);
 		}
 		
 		if(e.getActionCommand().equals("cartePersonaggioAltriPlayer")) {
 			String index = e.getActionCommand().substring(21);
-			Player player = GUI.getarrayListAvversari().get(Integer.parseInt(index));
+			Player player = gui.getarrayListAvversari().get(Integer.parseInt(index));
 			FrameMostraCartePlayer frame = new FrameMostraCartePlayer(TipoCarta.PERSONAGGIO, player);
 		}
 		
 		if(e.getActionCommand().equals("carteImpresaAltriPlayer")) {
 			String index = e.getActionCommand().substring(21);
-			Player player = GUI.getarrayListAvversari().get(Integer.parseInt(index));
+			Player player = gui.getarrayListAvversari().get(Integer.parseInt(index));
 			FrameMostraCartePlayer frame = new FrameMostraCartePlayer(TipoCarta.IMPRESA, player);
 		}
 		
@@ -322,9 +311,9 @@ public class ButtonListener implements ActionListener{
 		if(e.getActionCommand().equals("spazioTorreVerde1")) {
 			if(coloreFamiliareScelto!=null) {
 				
-				message.add("torre");
-				message.add("verde");
-				message.add("1");
+				gui.writeMessage("torre");
+				gui.writeMessage("verde");
+				gui.writeMessage("1");
 				
 				gameboard.getSpazioTorreVerde1().inserisciFamiliare(selezionaFamiliarePopup.readPath(coloreFamiliareScelto));
 				{
@@ -334,6 +323,7 @@ public class ButtonListener implements ActionListener{
 					playerBoard.getButtonScartaLeader().sbloccaButton();
 				}
 				coloreFamiliareScelto=null;
+				gui.notifyObservers(gui.getMessage());
 			}
 		}
 		
@@ -342,9 +332,9 @@ public class ButtonListener implements ActionListener{
 		if(e.getActionCommand().equals("spazioTorreVerde2")) {
 			if(coloreFamiliareScelto!=null) {
 				
-				message.add("torre");
-				message.add("verde");
-				message.add("2");
+				gui.writeMessage("torre");
+				gui.writeMessage("verde");
+				gui.writeMessage("2");
 				
 				gameboard.getSpazioTorreVerde2().inserisciFamiliare(selezionaFamiliarePopup.readPath(coloreFamiliareScelto));
 				{
@@ -362,9 +352,9 @@ public class ButtonListener implements ActionListener{
 		if(e.getActionCommand().equals("spazioTorreVerde3")) {
 			if(coloreFamiliareScelto!=null) {
 				
-				message.add("torre");
-				message.add("verde");
-				message.add("3");
+				gui.writeMessage("torre");
+				gui.writeMessage("verde");
+				gui.writeMessage("3");
 				
 				gameboard.getSpazioTorreVerde3().inserisciFamiliare(selezionaFamiliarePopup.readPath(coloreFamiliareScelto));
 				{
@@ -382,9 +372,9 @@ public class ButtonListener implements ActionListener{
 		if(e.getActionCommand().equals("spazioTorreVerde4")) {
 			if(coloreFamiliareScelto!=null) {
 				
-				message.add("torre");
-				message.add("verde");
-				message.add("4");
+				gui.writeMessage("torre");
+				gui.writeMessage("verde");
+				gui.writeMessage("4");
 				
 				gameboard.getSpazioTorreVerde4().inserisciFamiliare(selezionaFamiliarePopup.readPath(coloreFamiliareScelto));
 				{
@@ -405,9 +395,9 @@ public class ButtonListener implements ActionListener{
 		if(e.getActionCommand().equals("spazioTorreBlu1")) {
 			if(coloreFamiliareScelto!=null) {
 				
-				message.add("torre");
-				message.add("blu");
-				message.add("1");
+				gui.writeMessage("torre");
+				gui.writeMessage("blu");
+				gui.writeMessage("1");
 				
 				gameboard.getSpazioTorreBlu1().inserisciFamiliare(selezionaFamiliarePopup.readPath(coloreFamiliareScelto));
 				{
@@ -425,9 +415,9 @@ public class ButtonListener implements ActionListener{
 		if(e.getActionCommand().equals("spazioTorreBlu2")) {
 			if(coloreFamiliareScelto!=null) {
 				
-				message.add("torre");
-				message.add("blu");
-				message.add("2");
+				gui.writeMessage("torre");
+				gui.writeMessage("blu");
+				gui.writeMessage("2");
 				
 				gameboard.getSpazioTorreBlu2().inserisciFamiliare(selezionaFamiliarePopup.readPath(coloreFamiliareScelto));
 				{
@@ -445,9 +435,9 @@ public class ButtonListener implements ActionListener{
 		if(e.getActionCommand().equals("spazioTorreBlu3")) {
 			if(coloreFamiliareScelto!=null) {
 				
-				message.add("torre");
-				message.add("blu");
-				message.add("3");
+				gui.writeMessage("torre");
+				gui.writeMessage("blu");
+				gui.writeMessage("3");
 				
 				gameboard.getSpazioTorreBlu3().inserisciFamiliare(selezionaFamiliarePopup.readPath(coloreFamiliareScelto));
 				{
@@ -465,9 +455,9 @@ public class ButtonListener implements ActionListener{
 		if(e.getActionCommand().equals("spazioTorreBlu4")) {
 			if(coloreFamiliareScelto!=null) {
 				
-				message.add("torre");
-				message.add("blu");
-				message.add("4");
+				gui.writeMessage("torre");
+				gui.writeMessage("blu");
+				gui.writeMessage("4");
 				
 				gameboard.getSpazioTorreBlu4().inserisciFamiliare(selezionaFamiliarePopup.readPath(coloreFamiliareScelto));
 				{
@@ -488,9 +478,9 @@ public class ButtonListener implements ActionListener{
 		if(e.getActionCommand().equals("spazioTorreViola1")) {
 			if(coloreFamiliareScelto!=null) {
 				
-				message.add("torre");
-				message.add("viola");
-				message.add("1");
+				gui.writeMessage("torre");
+				gui.writeMessage("viola");
+				gui.writeMessage("1");
 				
 				gameboard.getSpazioTorreViola1().inserisciFamiliare(selezionaFamiliarePopup.readPath(coloreFamiliareScelto));
 				{
@@ -507,9 +497,9 @@ public class ButtonListener implements ActionListener{
 		if(e.getActionCommand().equals("spazioTorreViola2")) {
 			if(coloreFamiliareScelto!=null) {
 				
-				message.add("torre");
-				message.add("viola");
-				message.add("2");
+				gui.writeMessage("torre");
+				gui.writeMessage("viola");
+				gui.writeMessage("2");
 				
 				gameboard.getSpazioTorreViola2().inserisciFamiliare(selezionaFamiliarePopup.readPath(coloreFamiliareScelto));
 				{
@@ -526,9 +516,9 @@ public class ButtonListener implements ActionListener{
 		if(e.getActionCommand().equals("spazioTorreViola3")) {
 			if(coloreFamiliareScelto!=null) {
 				
-				message.add("torre");
-				message.add("viola");
-				message.add("3");
+				gui.writeMessage("torre");
+				gui.writeMessage("viola");
+				gui.writeMessage("3");
 				
 				gameboard.getSpazioTorreViola3().inserisciFamiliare(selezionaFamiliarePopup.readPath(coloreFamiliareScelto));
 				{
@@ -545,9 +535,9 @@ public class ButtonListener implements ActionListener{
 		if(e.getActionCommand().equals("spazioTorreViola4")) {
 			if(coloreFamiliareScelto!=null) {
 				
-				message.add("torre");
-				message.add("viola");
-				message.add("4");
+				gui.writeMessage("torre");
+				gui.writeMessage("viola");
+				gui.writeMessage("4");
 				
 				gameboard.getSpazioTorreViola4().inserisciFamiliare(selezionaFamiliarePopup.readPath(coloreFamiliareScelto));
 				{
@@ -567,9 +557,9 @@ public class ButtonListener implements ActionListener{
 		if(e.getActionCommand().equals("spazioTorreGialla1")) {
 			if(coloreFamiliareScelto!=null) {
 				
-				message.add("torre");
-				message.add("gialla");
-				message.add("1");
+				gui.writeMessage("torre");
+				gui.writeMessage("gialla");
+				gui.writeMessage("1");
 				
 				gameboard.getSpazioTorreGialla1().inserisciFamiliare(selezionaFamiliarePopup.readPath(coloreFamiliareScelto));
 				{
@@ -586,9 +576,9 @@ public class ButtonListener implements ActionListener{
 		if(e.getActionCommand().equals("spazioTorreGialla2")) {
 			if(coloreFamiliareScelto!=null) {
 				
-				message.add("torre");
-				message.add("gialla");
-				message.add("2");
+				gui.writeMessage("torre");
+				gui.writeMessage("gialla");
+				gui.writeMessage("2");
 				
 				gameboard.getSpazioTorreGialla2().inserisciFamiliare(selezionaFamiliarePopup.readPath(coloreFamiliareScelto));
 				{
@@ -605,9 +595,9 @@ public class ButtonListener implements ActionListener{
 		if(e.getActionCommand().equals("spazioTorreGialla3")) {
 			if(coloreFamiliareScelto!=null) {
 				
-				message.add("torre");
-				message.add("gialla");
-				message.add("3");
+				gui.writeMessage("torre");
+				gui.writeMessage("gialla");
+				gui.writeMessage("3");
 				
 				gameboard.getSpazioTorreGialla3().inserisciFamiliare(selezionaFamiliarePopup.readPath(coloreFamiliareScelto));
 				{
@@ -624,9 +614,9 @@ public class ButtonListener implements ActionListener{
 		if(e.getActionCommand().equals("spazioTorreGialla4")) {
 			if(coloreFamiliareScelto!=null) {
 				
-				message.add("torre");
-				message.add("gialla");
-				message.add("4");
+				gui.writeMessage("torre");
+				gui.writeMessage("gialla");
+				gui.writeMessage("4");
 				
 				gameboard.getSpazioTorreGialla4().inserisciFamiliare(selezionaFamiliarePopup.readPath(coloreFamiliareScelto));
 				{
@@ -643,11 +633,23 @@ public class ButtonListener implements ActionListener{
 		// SPAZIO CONSIGLIO
 		//------------------------------------------------------------------------------------------//
 		if(e.getActionCommand().startsWith("SpazioConsiglioPosizione")){
+			if(coloreFamiliareScelto!=null) {
 			
-			String index = e.getActionCommand().substring(24);
+				gui.writeMessage("consiglio");
+				String index = e.getActionCommand().substring(24);
 			
-			SpazioConsiglio spazioConsiglio = (SpazioConsiglio)((Gameboard)mainGUI.mainFrame.getContentPane().getComponent(0)).getSpazioConsiglio();
-			spazioConsiglio.inserisciFamiliare("img/Punchboard/familiari/pedineFamiliari/blu/neutro.png",spazioConsiglio.getButton(Integer.parseInt(index)));
+				SpazioConsiglio spazioConsiglio = (SpazioConsiglio)gameboard.getSpazioConsiglio();
+				spazioConsiglio.inserisciFamiliare(selezionaFamiliarePopup.readPath(coloreFamiliareScelto),spazioConsiglio.getButton(Integer.parseInt(index)));
+			
+				{
+					playerBoard.getButtonPosizionaFamiliare().sbloccaButton();
+					playerBoard.getButtonAttivaEffettoLeader().sbloccaButton();
+					playerBoard.getButtonGiocaLeader().sbloccaButton();
+					playerBoard.getButtonScartaLeader().sbloccaButton();
+				}
+				
+				coloreFamiliareScelto=null;
+			}
 		}
 		
 		//------------------------------------------------------------------------------------------//
@@ -655,21 +657,45 @@ public class ButtonListener implements ActionListener{
 		//------------------------------------------------------------------------------------------//
 		if(e.getActionCommand().equals("spazioProduzione1")){
 			
-			message.add("produzione");
+			if(coloreFamiliareScelto!=null) {
+				
+				gui.writeMessage("produzione");
 			
-			SpazioProduzione1 spazioProduzione1 = (SpazioProduzione1)gameboard.getSpazioProduzione1();
-			spazioProduzione1.inserisciFamiliare("img/Punchboard/familiari/pedineFamiliari/blu/neutro.png");
+				SpazioProduzione1 spazioProduzione1 = (SpazioProduzione1)gameboard.getSpazioProduzione1();
+				spazioProduzione1.inserisciFamiliare(selezionaFamiliarePopup.readPath(coloreFamiliareScelto));
+				
+				{
+					playerBoard.getButtonPosizionaFamiliare().sbloccaButton();
+					playerBoard.getButtonAttivaEffettoLeader().sbloccaButton();
+					playerBoard.getButtonGiocaLeader().sbloccaButton();
+					playerBoard.getButtonScartaLeader().sbloccaButton();
+				}
+				
+				coloreFamiliareScelto=null;
+			}
 		}
 		
 		//------------------------------------------------------------------------------------------//
 		// SPAZIO PRODUZIONE 2 LISTENER
 		//------------------------------------------------------------------------------------------//
 		if(e.getActionCommand().startsWith("SpazioProduzionePosizione")){
+			if(coloreFamiliareScelto!=null) {
+				
+				gui.writeMessage("consiglio");
+				String index = e.getActionCommand().substring(25);
 			
-			String index = e.getActionCommand().substring(25);
-			
-			SpazioProduzione2 spazioProduzione2 = (SpazioProduzione2)gameboard.getSpazioProduzione2();
-			spazioProduzione2.inserisciFamiliare("img/Punchboard/familiari/pedineFamiliari/blu/neutro.png",spazioProduzione2.getButton(Integer.parseInt(index)));
+				SpazioProduzione2 spazioProduzione2 = (SpazioProduzione2)gameboard.getSpazioProduzione2();
+				spazioProduzione2.inserisciFamiliare(selezionaFamiliarePopup.readPath(coloreFamiliareScelto),spazioProduzione2.getButton(Integer.parseInt(index)));
+				
+				{
+					playerBoard.getButtonPosizionaFamiliare().sbloccaButton();
+					playerBoard.getButtonAttivaEffettoLeader().sbloccaButton();
+					playerBoard.getButtonGiocaLeader().sbloccaButton();
+					playerBoard.getButtonScartaLeader().sbloccaButton();
+				}
+				
+				coloreFamiliareScelto=null;
+			}
 		}
 		
 		//------------------------------------------------------------------------------------------//
@@ -677,48 +703,125 @@ public class ButtonListener implements ActionListener{
 		//------------------------------------------------------------------------------------------//
 		if(e.getActionCommand().equals("spazioRaccolto1")){
 			
-			message.add("raccolta");
-			
-			SpazioRaccolto1 spazioRaccolto1 = (SpazioRaccolto1)gameboard.getSpazioRaccolto1();
-			spazioRaccolto1.inserisciFamiliare("img/Punchboard/familiari/pedineFamiliari/blu/neutro.png");
+			if(coloreFamiliareScelto!=null) {
+				
+				gui.writeMessage("raccolta");
+				
+				SpazioRaccolto1 spazioRaccolto1 = (SpazioRaccolto1)gameboard.getSpazioRaccolto1();
+				spazioRaccolto1.inserisciFamiliare(selezionaFamiliarePopup.readPath(coloreFamiliareScelto));
+				
+				{
+					playerBoard.getButtonPosizionaFamiliare().sbloccaButton();
+					playerBoard.getButtonAttivaEffettoLeader().sbloccaButton();
+					playerBoard.getButtonGiocaLeader().sbloccaButton();
+					playerBoard.getButtonScartaLeader().sbloccaButton();
+				}
+				
+				coloreFamiliareScelto=null;
+			}
 		}
 		
 		//------------------------------------------------------------------------------------------//
 		// SPAZIO RACCOLTO 2 LISTENER
 		//------------------------------------------------------------------------------------------//
 		if(e.getActionCommand().startsWith("SpazioRaccoltoPosizione")){
+			if(coloreFamiliareScelto!=null) {
+		
+				gui.writeMessage("raccolta");
+				String index = e.getActionCommand().substring(23);
 			
-			String index = e.getActionCommand().substring(23);
-			
-			SpazioRaccolto2 spazioRaccolto2 = (SpazioRaccolto2)gameboard.getSpazioRaccolto2();
-			spazioRaccolto2.inserisciFamiliare("img/Punchboard/familiari/pedineFamiliari/blu/neutro.png",spazioRaccolto2.getButton(Integer.parseInt(index)));
+				SpazioRaccolto2 spazioRaccolto2 = (SpazioRaccolto2)gameboard.getSpazioRaccolto2();
+				spazioRaccolto2.inserisciFamiliare(selezionaFamiliarePopup.readPath(coloreFamiliareScelto),spazioRaccolto2.getButton(Integer.parseInt(index)));
+				
+				{
+					playerBoard.getButtonPosizionaFamiliare().sbloccaButton();
+					playerBoard.getButtonAttivaEffettoLeader().sbloccaButton();
+					playerBoard.getButtonGiocaLeader().sbloccaButton();
+					playerBoard.getButtonScartaLeader().sbloccaButton();
+				}
+				
+				coloreFamiliareScelto=null;
+			}
 		}
 		
 		//------------------------------------------------------------------------------------------//
 		// SPAZIO MERCATO
 		//------------------------------------------------------------------------------------------//
 		if(e.getActionCommand().equals("spazioMercato1")) {
-			gameboard.getSpazioMercato1().inserisciFamiliare("img/Punchboard/familiari/pedineFamiliari/blu/neutro.png");
-			message.add("mercato");
-			message.add("1");
+			
+			if(coloreFamiliareScelto!=null) {	
+				
+				gui.writeMessage("mercato");
+				gui.writeMessage("1");	
+				gameboard.getSpazioMercato1().inserisciFamiliare(selezionaFamiliarePopup.readPath(coloreFamiliareScelto));
+				
+				{
+					playerBoard.getButtonPosizionaFamiliare().sbloccaButton();
+					playerBoard.getButtonAttivaEffettoLeader().sbloccaButton();
+					playerBoard.getButtonGiocaLeader().sbloccaButton();
+					playerBoard.getButtonScartaLeader().sbloccaButton();
+				}
+				
+				coloreFamiliareScelto=null;
+				
+			}
 		}
 		
 		if(e.getActionCommand().equals("spazioMercato2")) {
-			gameboard.getSpazioMercato2().inserisciFamiliare("img/Punchboard/familiari/pedineFamiliari/blu/neutro.png");
-			message.add("mercato");
-			message.add("2");
+			
+			if(coloreFamiliareScelto!=null) {	
+				
+				gui.writeMessage("mercato");
+				gui.writeMessage("2");	
+				gameboard.getSpazioMercato2().inserisciFamiliare(selezionaFamiliarePopup.readPath(coloreFamiliareScelto));
+				
+				{
+					playerBoard.getButtonPosizionaFamiliare().sbloccaButton();
+					playerBoard.getButtonAttivaEffettoLeader().sbloccaButton();
+					playerBoard.getButtonGiocaLeader().sbloccaButton();
+					playerBoard.getButtonScartaLeader().sbloccaButton();
+				}
+				
+				coloreFamiliareScelto=null;
+			}
 		}
 		
 		if(e.getActionCommand().equals("spazioMercato3")) {
-			gameboard.getSpazioMercato3().inserisciFamiliare("img/Punchboard/familiari/pedineFamiliari/blu/neutro.png");
-			message.add("mercato");
-			message.add("3");
+			
+			if(coloreFamiliareScelto!=null) {	
+				
+				gui.writeMessage("mercato");
+				gui.writeMessage("3");	
+				gameboard.getSpazioMercato3().inserisciFamiliare(selezionaFamiliarePopup.readPath(coloreFamiliareScelto));
+				
+				{
+					playerBoard.getButtonPosizionaFamiliare().sbloccaButton();
+					playerBoard.getButtonAttivaEffettoLeader().sbloccaButton();
+					playerBoard.getButtonGiocaLeader().sbloccaButton();
+					playerBoard.getButtonScartaLeader().sbloccaButton();
+				}
+				
+				coloreFamiliareScelto=null;
+			}
 		}
 		
 		if(e.getActionCommand().equals("spazioMercato4")) {
-			gameboard.getSpazioMercato4().inserisciFamiliare("img/Punchboard/familiari/pedineFamiliari/blu/neutro.png");
-			message.add("mercato");
-			message.add("4");
+			
+			if(coloreFamiliareScelto!=null) {	
+				
+				gui.writeMessage("mercato");
+				gui.writeMessage("4");	
+				gameboard.getSpazioMercato4().inserisciFamiliare(selezionaFamiliarePopup.readPath(coloreFamiliareScelto));
+				
+				{
+					playerBoard.getButtonPosizionaFamiliare().sbloccaButton();
+					playerBoard.getButtonAttivaEffettoLeader().sbloccaButton();
+					playerBoard.getButtonGiocaLeader().sbloccaButton();
+					playerBoard.getButtonScartaLeader().sbloccaButton();
+				}
+				
+				coloreFamiliareScelto=null;
+			}
 		}
 	}
 }

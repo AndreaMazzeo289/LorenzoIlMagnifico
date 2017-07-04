@@ -16,7 +16,7 @@ import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 
-import it.polimi.ingsw.pc15.GUI.mainGUI;
+import it.polimi.ingsw.pc15.GUI.GUI;
 
 public class SpazioConsiglio extends JPanel{
 
@@ -48,11 +48,11 @@ public class SpazioConsiglio extends JPanel{
 	private int larghezzaEast;
 	private int larghezzaWest;
 	
-	public SpazioConsiglio(ActionListener listener) {
+	public SpazioConsiglio(ActionListener listener, GUI gui) {
 		
-		larghezzaTotale = mainGUI.larghezzaTotale;
-		altezzaTotale =  mainGUI.altezzaTotale;
-		rapporto = mainGUI.rapporto;
+		larghezzaTotale = gui.larghezzaTotale;
+		altezzaTotale =  gui.altezzaTotale;
+		rapporto = gui.rapporto;
 		
 		altezzaSchermo = (int)screenSize.getHeight();
 		larghezzaSchermo = (int)(((float)screenSize.getWidth())*rapporto);

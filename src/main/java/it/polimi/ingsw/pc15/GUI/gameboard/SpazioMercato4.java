@@ -16,7 +16,7 @@ import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 
-import it.polimi.ingsw.pc15.GUI.mainGUI;
+import it.polimi.ingsw.pc15.GUI.GUI;
 
 public class SpazioMercato4 extends JPanel{
 
@@ -48,11 +48,11 @@ public class SpazioMercato4 extends JPanel{
 	private int larghezzaEast;
 	private int larghezzaWest;
 	
-	public SpazioMercato4(ActionListener listener) {
+	public SpazioMercato4(ActionListener listener, GUI gui) {
 		
-		larghezzaTotale = mainGUI.larghezzaTotale;
-		altezzaTotale =  mainGUI.altezzaTotale;
-		rapporto = mainGUI.rapporto;
+		larghezzaTotale = gui.larghezzaTotale;
+		altezzaTotale =  gui.altezzaTotale;
+		rapporto = gui.rapporto;
 		
 		altezzaSchermo = (int)screenSize.getHeight();
 		larghezzaSchermo = (int)(((float)screenSize.getWidth())*rapporto);
@@ -67,7 +67,7 @@ public class SpazioMercato4 extends JPanel{
 
 		labelCenter = new JLabel();
 		
-		if(mainGUI.numeroGiocatori==4)
+		if(gui.getNumeroGiocatori()==4)
 		{
 			labelNorth = new JLabel();
 			labelEast = new JLabel();
@@ -107,7 +107,7 @@ public class SpazioMercato4 extends JPanel{
 		else
 		{
 			String path;
-			if(mainGUI.numeroGiocatori==3)
+			if(gui.getNumeroGiocatori()==3)
 				path = "img\\Gameboard\\SpaziMercato\\4\\noMercato4.png";
 			else
 				path = "img\\Gameboard\\SpaziMercato\\4\\noMercato4no3.png";

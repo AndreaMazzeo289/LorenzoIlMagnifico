@@ -23,6 +23,7 @@ import javax.swing.SwingConstants;
 import javax.swing.text.html.HTMLDocument.Iterator;
 
 import it.polimi.ingsw.pc15.GUI.ButtonListener;
+import it.polimi.ingsw.pc15.GUI.GUI;
 import it.polimi.ingsw.pc15.player.Player;
 import it.polimi.ingsw.pc15.risorse.Risorsa;
 import it.polimi.ingsw.pc15.risorse.TipoRisorsa;
@@ -49,7 +50,7 @@ public class FrameInformazioniPlayer extends JFrame{
 	private int larghezzaPunti;
 	private int larghezzaButton;
 	
-	public FrameInformazioniPlayer(ArrayList<Player> arrayListAvversari) {
+	public FrameInformazioniPlayer(ArrayList<Player> arrayListAvversari, GUI gui) {
 		
 		numeroPlayer = arrayListAvversari.size();
 		
@@ -81,10 +82,10 @@ public class FrameInformazioniPlayer extends JFrame{
 			JButton personaggio = new JButton();
 			JButton impresa = new JButton();
 			
-			territorio.addActionListener(new ButtonListener());
-			edifico.addActionListener(new ButtonListener());
-			personaggio.addActionListener(new ButtonListener());
-			impresa.addActionListener(new ButtonListener());
+			territorio.addActionListener(new ButtonListener(gui));
+			edifico.addActionListener(new ButtonListener(gui));
+			personaggio.addActionListener(new ButtonListener(gui));
+			impresa.addActionListener(new ButtonListener(gui));
 			
 			territorio.setActionCommand("carteTerritorioPlayer"+i);
 			edifico.setActionCommand("carteEdificioPlayer"+i);

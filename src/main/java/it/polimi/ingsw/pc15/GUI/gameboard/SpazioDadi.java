@@ -10,7 +10,7 @@ import javax.swing.ImageIcon;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 
-import it.polimi.ingsw.pc15.GUI.mainGUI;
+import it.polimi.ingsw.pc15.GUI.GUI;
 import it.polimi.ingsw.pc15.player.ColoreFamiliare;
 
 public class SpazioDadi extends JPanel{
@@ -38,12 +38,14 @@ public class SpazioDadi extends JPanel{
 	private int larghezzaArancione;
 	private int altezzaSouth;
 	private int larghezza;
+	GUI gui;
 	
-	public SpazioDadi() {
+	public SpazioDadi(GUI gui) {
 		
-		larghezzaTotale = mainGUI.larghezzaTotale;
-		altezzaTotale =  mainGUI.altezzaTotale;
-		rapporto = mainGUI.rapporto;
+		this.gui = gui;
+		larghezzaTotale = gui.larghezzaTotale;
+		altezzaTotale =  gui.altezzaTotale;
+		rapporto = gui.rapporto;
 		
 		altezzaSchermo = (int)screenSize.getHeight();
 		larghezzaSchermo = (int)(((float)screenSize.getWidth())*rapporto);
@@ -72,7 +74,7 @@ public class SpazioDadi extends JPanel{
 		newImage = image.getScaledInstance(((int)(larghezzaSchermo*larghezzaBianco)/larghezzaTotale),((int)(altezzaSchermo*altezza)/altezzaTotale),Image.SCALE_DEFAULT);
 		ImageIcon imageDadoBianco = new ImageIcon(newImage);
 		
-		if(mainGUI.numeroGiocatori<4)
+		if(gui.getNumeroGiocatori()<4)
 			imageIcon = new ImageIcon("img\\Gameboard\\dadi\\arancione\\arancione_3_no4.png");
 		else
 			imageIcon = new ImageIcon("img\\Gameboard\\dadi\\arancione\\arancione_3.png");
@@ -115,7 +117,7 @@ public class SpazioDadi extends JPanel{
 			break;
 		case ARANCIONE:
 			path+="arancione\\arancione_"+valoreDado+"";
-			if(mainGUI.numeroGiocatori<4)
+			if(gui.getNumeroGiocatori()<4)
 				path+="_no4.png";
 			else
 				path+=".png";

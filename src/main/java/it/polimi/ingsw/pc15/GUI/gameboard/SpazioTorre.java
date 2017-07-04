@@ -15,7 +15,7 @@ import javax.swing.JPanel;
 
 import it.polimi.ingsw.pc15.GUI.ButtonListener;
 import it.polimi.ingsw.pc15.GUI.ButtonListenerCarte;
-import it.polimi.ingsw.pc15.GUI.mainGUI;
+import it.polimi.ingsw.pc15.GUI.GUI;
 
 public class SpazioTorre extends JPanel{
 	
@@ -46,12 +46,12 @@ public class SpazioTorre extends JPanel{
 
 	private float rapporto;
 	
-	public SpazioTorre (ButtonListener listener, int altezzaCenter, int altezzaNorth, int altezzaSouth, int larghezzaCenter, int larghezzaEast,
+	public SpazioTorre (ButtonListener listener, GUI gui, int altezzaCenter, int altezzaNorth, int altezzaSouth, int larghezzaCenter, int larghezzaEast,
 			int larghezzaWest, String imgNorth, String imgSouth, String imgEast, String imgWest, String imgCenter, String actionCommandFamiliare) 
 	{	
-		larghezzaTotale = mainGUI.larghezzaTotale;
-		altezzaTotale =  mainGUI.altezzaTotale;
-		rapporto = mainGUI.rapporto;
+		larghezzaTotale = gui.larghezzaTotale;
+		altezzaTotale =  gui.altezzaTotale;
+		rapporto = gui.rapporto;
 		
 		altezzaSchermo = (int)screenSize.getHeight();
 		larghezzaSchermo = (int)(((float)screenSize.getWidth())*rapporto);
@@ -105,7 +105,7 @@ public class SpazioTorre extends JPanel{
 		buttonCenter.setIcon(imageCenter);
 		buttonCenter.setBorder(null);
 		buttonCenter.setActionCommand(imgCenter);
-		buttonCenter.addActionListener(new ButtonListenerCarte());
+		buttonCenter.addActionListener(new ButtonListenerCarte(gui));
 		
 		labelEast.setLayout(new GridBagLayout());
 		GridBagConstraints gbc = new GridBagConstraints();

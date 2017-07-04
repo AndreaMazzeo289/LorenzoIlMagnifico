@@ -12,7 +12,7 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 
 import it.polimi.ingsw.pc15.GUI.ButtonListenerCarte;
-import it.polimi.ingsw.pc15.GUI.mainGUI;
+import it.polimi.ingsw.pc15.GUI.GUI;
 
 public class CartaLeader extends JPanel{
 
@@ -36,7 +36,7 @@ public class CartaLeader extends JPanel{
 	private int altezza;
 	private int larghezza;
 	
-	public CartaLeader(String path, String name) {
+	public CartaLeader(String path, String name, GUI gui) {
 		
 		this.path = path;
 		this.name = name;
@@ -45,9 +45,9 @@ public class CartaLeader extends JPanel{
 		
 		textLabel = "NON GIOCATO";
 		
-		larghezzaTotale = mainGUI.larghezzaTotale;
-		altezzaTotale =  mainGUI.altezzaTotale;
-		rapporto = mainGUI.rapportoPlayerBoard;
+		larghezzaTotale = gui.larghezzaTotale;
+		altezzaTotale =  gui.altezzaTotale;
+		rapporto = gui.rapportoPlayerBoard;
 		
 		altezzaSchermo = (int)screenSize.getHeight();
 		larghezzaSchermo = (int)(((float)screenSize.getWidth())*rapporto);
@@ -70,7 +70,7 @@ public class CartaLeader extends JPanel{
 		carta.setIcon(imageAll);
 		carta.setPreferredSize(new Dimension(larghezza,altezza));
 		carta.setBackground(Color.decode("15394527"));
-		carta.addActionListener(new ButtonListenerCarte());
+		carta.addActionListener(new ButtonListenerCarte(gui));
 		
 		Dimension dimensione = new Dimension(((int)(larghezzaSchermo*350)/larghezzaTotale),((int)(altezzaSchermo*100)/altezzaTotale));
 		stato.setMinimumSize(dimensione);
