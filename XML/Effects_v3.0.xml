@@ -1178,6 +1178,38 @@
         <tipoCarta>impresa</tipoCarta>
 	</effetto>
     
+    <effetto nome="riduzioneGuadagnoPuntiMilitariCarte" idEffetto="riduciGuadagnoCarte">
+        <risorsa>puntiMilitari</risorsa>
+    </effetto>
+    <effetto nome="riduzioneGuadagnoOroCarte" idEffetto="riduciGuadagnoCarte">
+        <risorsa>oro</risorsa>
+    </effetto>
+    <effetto nome="riduzioneGuadagnoServitoriCarte" idEffetto="riduciGuadagnoCarte">
+        <risorsa>servitori</risorsa>
+    </effetto>
+    <effetto nome="riduzioneGuadagnoLegnoCarte" idEffetto="riduciGuadagnoCarte">
+       <risorsa>legna</risorsa>
+    </effetto>
+    <effetto nome="riduzioneGuadagnoPietraCarte" idEffetto="riduciGuadagnoCarte">
+        <risorsa>pietra</risorsa>
+    </effetto>
+    
+    <effetto nome="riduzioneGuadagnoPuntiMilitariSpazi" idEffetto="riduciGuadagnoSpazi">
+        <risorsa>puntiMilitari</risorsa>
+    </effetto>
+    <effetto nome="riduzioneGuadagnoOroSpazi" idEffetto="riduciGuadagnoSpazi">
+       <risorsa>oro</risorsa>
+    </effetto>
+    <effetto nome="riduzioneGuadagnoServitoriSpazi" idEffetto="riduciGuadagnoSpazi">
+        <risorsa>servitori</risorsa>
+    </effetto>
+    <effetto nome="riduzioneGuadagnoLegnoSpazi" idEffetto="riduciGuadagnoSpazi">
+        <risorsa>legna</risorsa>
+    </effetto>
+    <effetto nome="riduzioneGuadagnoPietraSpazi" idEffetto="riduciGuadagnoSpazi">
+        <risorsa>pietra</risorsa>
+    </effetto>
+    
     <effetto nome="annullaRequisitoTerritori" idEffetto="requisitoTerritori">
     </effetto>
     <effetto nome="noBonusSpazioAzione" idEffetto="noBonusTorre">

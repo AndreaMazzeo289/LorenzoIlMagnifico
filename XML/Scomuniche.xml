@@ -6,25 +6,31 @@
     <scomunica id="11">
         <periodo>1</periodo>
         <effetti>
-            <effetto>riduzioneGuadagnoPuntiMilitari</effetto>
+            <effetto>riduzioneGuadagnoPuntiMilitariSpazi</effetto>
+            <effetto>riduzioneGuadagnoPuntiMilitariCarte</effetto>
         </effetti>
     </scomunica>
     <scomunica id="12">
         <periodo>1</periodo>
         <effetti>
-            <effetto>riduzioneGuadagnoOro</effetto>
+            <effetto>riduzioneGuadagnoOroSpazi</effetto>
+            <effetto>riduzioneGuadagnoOroCarte</effetto>
         </effetti>
     </scomunica>
     <scomunica id="13">
         <periodo>1</periodo>
         <effetti>
-            <effetto>riduzioneGuadagnoServitori</effetto>
+            <effetto>riduzioneGuadagnoServitoriSpazi</effetto>
+            <effetto>riduzioneGuadagnoServitoriCarte</effetto>
         </effetti>
     </scomunica>
     <scomunica id="14">
         <periodo>1</periodo>
         <effetti>
-            <effetto>riduzioneGuadagnoLegnoOrPietra</effetto>
+            <effetto>riduzioneGuadagnoLegnoSpazi</effetto>
+            <effetto>riduzioneGuadagnoPietraSpazi</effetto>
+            <effetto>riduzioneGuadagnoLegnoCarte</effetto>
+            <effetto>riduzioneGuadagnoPietraCarte</effetto>
         </effetti>
     </scomunica>
     <scomunica id="15">

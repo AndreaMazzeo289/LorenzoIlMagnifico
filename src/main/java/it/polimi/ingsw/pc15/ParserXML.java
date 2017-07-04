@@ -34,6 +34,8 @@ import it.polimi.ingsw.pc15.effetti.BonusDadoCarte;
 import it.polimi.ingsw.pc15.effetti.BonusPVChiesa;
 import it.polimi.ingsw.pc15.effetti.BonusProduzione;
 import it.polimi.ingsw.pc15.effetti.BonusRaccolta;
+import it.polimi.ingsw.pc15.effetti.BonusRisorseCarte;
+import it.polimi.ingsw.pc15.effetti.BonusRisorseSpazi;
 import it.polimi.ingsw.pc15.effetti.BonusValoreFamiliare;
 import it.polimi.ingsw.pc15.effetti.CopiaEffettoLeader;
 import it.polimi.ingsw.pc15.effetti.Effetto;
@@ -374,6 +376,12 @@ public class ParserXML {
 					 		break;
 					 	case "noBonusTorre":
 					 		effettoLetto = leggiEffettoNegaBonusSpazioTorri();
+					 		break;
+					 	case "riduciGuadagnoCarte":
+					 		effettoLetto = leggiEffettoRiduciGuadagnoCarte(effetto);
+					 		break;
+					 	case "riduciGuadagnoSpazi":
+					 		effettoLetto = leggiEffettoRiduciGuadagnoSpazi(effetto);
 					 		break;
 					 	case "prezzoServitori":
 					 		effettoLetto = leggiEffettoAumentaPrezzoServitori();
@@ -950,6 +958,84 @@ public class ParserXML {
 		
 		ScontoCostoCarte scontoCostoCarte = new ScontoCostoCarte (sconto, tipoCartaEnum);
 		return scontoCostoCarte;
+	}
+	
+	//--------------------------------------------------------------------------------------------------------------//
+	// LEGGI EFFETTO RIDUCI GUADAGNO CARTE
+	//--------------------------------------------------------------------------------------------------------------//
+	public static BonusRisorseCarte leggiEffettoRiduciGuadagnoCarte (Element effetto) {
+		
+		String risorsa = effetto.getElementsByTagName("risorsa").item(0).getFirstChild().getNodeValue();
+		TipoRisorsa tipoRisorsa = null;
+		
+		switch(risorsa.toUpperCase()) {
+	 	case "LEGNA":
+	 		tipoRisorsa = TipoRisorsa.LEGNA;
+	 		break;
+	 	case "PIETRA":
+	 		tipoRisorsa = TipoRisorsa.PIETRA;
+	 		break;
+	 	case "ORO":
+	 		tipoRisorsa = TipoRisorsa.ORO;
+	 		break;
+	 	case "SERVITORI":
+	 		tipoRisorsa = TipoRisorsa.SERVITORI;
+	 		break;
+	 	case "PUNTIMILITARI":
+	 		tipoRisorsa = TipoRisorsa.PUNTIMILITARI;
+	 		break;
+	 	case "PUNTIFEDE":
+	 		tipoRisorsa = TipoRisorsa.PUNTIFEDE;
+	 		break;
+	 	case "PUNTIVITTORIA":
+	 		tipoRisorsa = TipoRisorsa.PUNTIVITTORIA;
+	 		break;
+	 	case "PRIVILEGI":
+	 		tipoRisorsa = TipoRisorsa.PRIVILEGI;
+	 		break;
+		}
+		
+		return new BonusRisorseCarte(-1, tipoRisorsa);
+		
+	}
+	
+	//--------------------------------------------------------------------------------------------------------------//
+	// LEGGI EFFETTO RIDUCI GUADAGNO SPAZI
+	//--------------------------------------------------------------------------------------------------------------//
+	public static BonusRisorseSpazi leggiEffettoRiduciGuadagnoSpazi (Element effetto) {
+		
+		String risorsa = effetto.getElementsByTagName("risorsa").item(0).getFirstChild().getNodeValue();
+		TipoRisorsa tipoRisorsa = null;
+		
+		switch(risorsa.toUpperCase()) {
+	 	case "LEGNA":
+	 		tipoRisorsa = TipoRisorsa.LEGNA;
+	 		break;
+	 	case "PIETRA":
+	 		tipoRisorsa = TipoRisorsa.PIETRA;
+	 		break;
+	 	case "ORO":
+	 		tipoRisorsa = TipoRisorsa.ORO;
+	 		break;
+	 	case "SERVITORI":
+	 		tipoRisorsa = TipoRisorsa.SERVITORI;
+	 		break;
+	 	case "PUNTIMILITARI":
+	 		tipoRisorsa = TipoRisorsa.PUNTIMILITARI;
+	 		break;
+	 	case "PUNTIFEDE":
+	 		tipoRisorsa = TipoRisorsa.PUNTIFEDE;
+	 		break;
+	 	case "PUNTIVITTORIA":
+	 		tipoRisorsa = TipoRisorsa.PUNTIVITTORIA;
+	 		break;
+	 	case "PRIVILEGI":
+	 		tipoRisorsa = TipoRisorsa.PRIVILEGI;
+	 		break;
+		}
+		
+		return new BonusRisorseSpazi(-1, tipoRisorsa);
+		
 	}
 	
 	//--------------------------------------------------------------------------------------------------------------//

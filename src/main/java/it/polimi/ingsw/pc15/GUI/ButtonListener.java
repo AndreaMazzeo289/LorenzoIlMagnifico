@@ -451,6 +451,7 @@ public class ButtonListener implements ActionListener{
 				}
 				
 				coloreFamiliareScelto=null;
+				gui.inviaMessaggio();
 			}
 		}
 		
@@ -473,6 +474,7 @@ public class ButtonListener implements ActionListener{
 				}
 				
 				coloreFamiliareScelto=null;
+				gui.inviaMessaggio();
 				
 			}
 		}
@@ -493,6 +495,7 @@ public class ButtonListener implements ActionListener{
 				}
 				
 				coloreFamiliareScelto=null;
+				gui.inviaMessaggio();
 			}
 		}
 		
@@ -512,6 +515,7 @@ public class ButtonListener implements ActionListener{
 				}
 				
 				coloreFamiliareScelto=null;
+				gui.inviaMessaggio();
 			}
 		}
 		
@@ -531,6 +535,7 @@ public class ButtonListener implements ActionListener{
 				}
 				
 				coloreFamiliareScelto=null;
+				gui.inviaMessaggio();
 			}
 		}
 	}
