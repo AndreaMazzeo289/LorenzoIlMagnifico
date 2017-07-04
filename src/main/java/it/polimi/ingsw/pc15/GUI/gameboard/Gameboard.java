@@ -51,6 +51,7 @@ public class Gameboard extends JPanel {
 		spaziTorreGiallo = new ArrayList<SpazioTorre>();
 		spaziTorreViola = new ArrayList<SpazioTorre>();
 		spaziTorreBlu = new ArrayList<SpazioTorre>();
+		
 		spaziTorreMap = new HashMap<TipoCarta,ArrayList<SpazioTorre>>();
 		
 		path = "img\\Gameboard\\SpaziTorre\\Verde\\1\\";

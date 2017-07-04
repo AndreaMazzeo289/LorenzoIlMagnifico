@@ -12,6 +12,7 @@ import java.util.Observable;
 import javax.swing.JFrame;
 
 import it.polimi.ingsw.pc15.GUI.gameboard.Gameboard;
+import it.polimi.ingsw.pc15.GUI.playerboard.CarteGioco;
 import it.polimi.ingsw.pc15.GUI.playerboard.PlayerBoard;
 import it.polimi.ingsw.pc15.carte.Carta;
 import it.polimi.ingsw.pc15.carte.TipoCarta;
@@ -130,22 +131,6 @@ public class GUI extends ClientView{
 		
 		// Carte player
 		//---------------------------//
-		System.out.println("UPDATE");
-		
-		/*for(TipoCarta tipo : TipoCarta.values()) {
-			if(tipo.equals(TipoCarta.ALL));
-			else
-				for(int i=0; i<4; i++) {
-					int spazio = Math.abs(i-3);
-					try {
-						gameboard.getSpazioTorre(tipo, i).modificaImmagineCarta(this.clientModel.getStatoPlancia().getSpazioTorre(tipo, spazio).getCarta().getImagePath());
-					}catch(NullPointerException e) {
-						System.out.println("errore in " + tipo.name());
-						gameboard.getSpazioTorre(tipo, i).modificaImmagineCarta(retroCarte.get(tipo));
-					}
-				}
-		}*/
-		
 		ArrayList<Carta> listaCarteTerritorio = this.clientModel.getStatoGiocatore().getCarte(TipoCarta.TERRITORIO);
 		int i=0;
 		for(Carta carta : listaCarteTerritorio) {
@@ -208,107 +193,6 @@ public class GUI extends ClientView{
 		mainFrame.getContentPane().setLayout(new GridBagLayout());
 		gameboard = new Gameboard(listener,this);
 		playerboard = new PlayerBoard(listener,this);
-		
-		
-		
-		/*//----------------------------------------------------------//
-		// AGGIORNAMENTO GAMEBOARD IN FUNZIONE DEL MODEL
-		//----------------------------------------------------------//
-		
-		//playerCorrente = this.clientModel.getStatoGiocatore();
-		//arrayListAvversari = this.clientModel.getStatoAvversari();
-		//pathCartaScomunica1 = this.clientModel.getStatoPlancia().getTesseraScomunica(1).getPathImg();
-		//pathCartaScomunica2 = this.clientModel.getStatoPlancia().getTesseraScomunica(2).getPathImg();
-		//pathCartaScomunica3 = this.clientModel.getStatoPlancia().getTesseraScomunica(3).getPathImg();
-		
-		//------------------------------------//
-		// CARTE TORRI
-		//------------------------------------//
-		
-		//String immagineCartaModel;
-		
-		//immagineCartaModel = this.clientModel.getStatoPlancia().getSpazioTorre(TipoCarta.TERRITROIO, 0).getCarta().getImagePath();
-		gameboard.getSpazioTorreVerde1().modificaImmagineCarta(immagineCartaModel);
-		//immagineCartaModel = this.clientModel.getStatoPlancia().getSpazioTorre(TipoCarta.TERRITORIO, 1).getCarta().getImagePath();
-		gameboard.getSpazioTorreVerde2().modificaImmagineCarta(immagineCartaModel);
-		//immagineCartaModel = this.clientModel.getStatoPlancia().getSpazioTorre(TipoCarta.TERRITORIO, 2).getCarta().getImagePath();
-		gameboard.getSpazioTorreVerde3().modificaImmagineCarta(immagineCartaModel);
-		//immagineCartaModel = this.clientModel.getStatoPlancia().getSpazioTorre(TipoCarta.TERRITORIO, 3).getCarta().getImagePath();
-		gameboard.getSpazioTorreVerde4().modificaImmagineCarta(immagineCartaModel);
-		
-		//immagineCartaModel = this.clientModel.getStatoPlancia().getSpazioTorre(TipoCarta.PERSONAGGIO, 0).getCarta().getImagePath();
-		gameboard.getSpazioTorreBlu1().modificaImmagineCarta(immagineCartaModel);
-		//immagineCartaModel = this.clientModel.getStatoPlancia().getSpazioTorre(TipoCarta.PERSONAGGIO, 1).getCarta().getImagePath();
-		gameboard.getSpazioTorreBlu2().modificaImmagineCarta(immagineCartaModel);
-		//immagineCartaModel = this.clientModel.getStatoPlancia().getSpazioTorre(TipoCarta.PERSONAGGIO, 2).getCarta().getImagePath();
-		gameboard.getSpazioTorreBlu3().modificaImmagineCarta(immagineCartaModel);
-		//immagineCartaModel = this.clientModel.getStatoPlancia().getSpazioTorre(TipoCarta.PERSONAGGIO, 3).getCarta().getImagePath();
-		gameboard.getSpazioTorreBlu4().modificaImmagineCarta(immagineCartaModel);
-		
-		//immagineCartaModel = this.clientModel.getStatoPlancia().getSpazioTorre(TipoCarta.EDIFICIO, 0).getCarta().getImagePath();
-		gameboard.getSpazioTorreGialla1().modificaImmagineCarta(immagineCartaModel);
-		//immagineCartaModel = this.clientModel.getStatoPlancia().getSpazioTorre(TipoCarta.EDIFICIO, 1).getCarta().getImagePath();
-		gameboard.getSpazioTorreGialla2().modificaImmagineCarta(immagineCartaModel);
-		//immagineCartaModel = this.clientModel.getStatoPlancia().getSpazioTorre(TipoCarta.EDIFICIO, 2).getCarta().getImagePath();
-		gameboard.getSpazioTorreGialla3().modificaImmagineCarta(immagineCartaModel);
-		//immagineCartaModel = this.clientModel.getStatoPlancia().getSpazioTorre(TipoCarta.EDIFICIO, 3).getCarta().getImagePath();
-		gameboard.getSpazioTorreGialla4().modificaImmagineCarta(immagineCartaModel);
-		
-		//immagineCartaModel = this.clientModel.getStatoPlancia().getSpazioTorre(TipoCarta.IMPRESA, 0).getCarta().getImagePath();
-		gameboard.getSpazioTorreViola1().modificaImmagineCarta(immagineCartaModel);
-		//immagineCartaModel = this.clientModel.getStatoPlancia().getSpazioTorre(TipoCarta.IMPRESA, 1).getCarta().getImagePath();
-		gameboard.getSpazioTorreViola2().modificaImmagineCarta(immagineCartaModel);
-		//immagineCartaModel = this.clientModel.getStatoPlancia().getSpazioTorre(TipoCarta.IMPRESA, 2).getCarta().getImagePath();
-		gameboard.getSpazioTorreViola3().modificaImmagineCarta(immagineCartaModel);
-		//immagineCartaModel = this.clientModel.getStatoPlancia().getSpazioTorre(TipoCarta.IMPRESA, 3).getCarta().getImagePath();
-		gameboard.getSpazioTorreViola4().modificaImmagineCarta(immagineCartaModel);
-		
-		//------------------------------------//
-		// DADI
-		//------------------------------------//
-		//int valoreDadoNero = this.clientModel.getStatoGiocatore().getFamiliare(ColoreFamiliare.NERO).getValore();
-		//int valoreDadoBianco = this.clientModel.getStatoGiocatore().getFamiliare(ColoreFamiliare.BIANCO).getValore();
-		//int valoreDadoArancione = this.clientModel.getStatoGiocatore().getFamiliare(ColoreFamiliare.ARANCIONE).getValore();
-	    
-		gameboard.getSpazioDadi().modificaImmagineDadi(ColoreFamiliare.NERO, valoreDadoNero);
-		gameboard.getSpazioDadi().modificaImmagineDadi(ColoreFamiliare.BIANCO, valoreDadoBianco);
-		gameboard.getSpazioDadi().modificaImmagineDadi(ColoreFamiliare.ARANCIONE, valoreDadoArancione);
-		
-		//----------------------------------------------------------//
-		// AGGIORNAMENTO PLAYERBOARD IN FUNZIONE DEL MODEL
-		//----------------------------------------------------------//
-		
-		//------------------------------------//
-		// LEADER
-		//------------------------------------//
-		//immagineCartaModel = this.clientModel.getStatoGiocatore().getCarteLeader().get(0).getPathImg(); 
-		playerboard.getCartaLeader1().modificaImmagineCarta(immagineCartaModel);
-		//immagineCartaModel = this.clientModel.getStatoGiocatore().getCarteLeader().get(1).getPathImg(); 
-		playerboard.getCartaLeader2().modificaImmagineCarta(immagineCartaModel);
-		//immagineCartaModel = this.clientModel.getStatoGiocatore().getCarteLeader().get(2).getPathImg(); 
-		playerboard.getCartaLeader3().modificaImmagineCarta(immagineCartaModel);
-		//immagineCartaModel = this.clientModel.getStatoGiocatore().getCarteLeader().get(3).getPathImg(); 
-		playerboard.getCartaLeader4().modificaImmagineCarta(immagineCartaModel);
-		*/
-		/*//------------------------------------//
-		// SET RISORSE
-		//------------------------------------//
-		int quantitaRisorsa;
-		
-		//quantitaRisorsa = this.clientModel.getStatoGiocatore().getSetRisorse().getRisorsa(TipoRisorsa.ORO).getQuantità();
-		playerboard.getPanelRisorseOro().writeIntoLabel(quantitaRisorsa);
-		//quantitaRisorsa = this.clientModel.getStatoGiocatore().getSetRisorse().getRisorsa(TipoRisorsa.LEGNA).getQuantità();
-		playerboard.getPanelRisorseLegna().writeIntoLabel(quantitaRisorsa);
-		//quantitaRisorsa = this.clientModel.getStatoGiocatore().getSetRisorse().getRisorsa(TipoRisorsa.PIETRA).getQuantità();
-		playerboard.getPanelRisorsePietra().writeIntoLabel(quantitaRisorsa);
-		//quantitaRisorsa = this.clientModel.getStatoGiocatore().getSetRisorse().getRisorsa(TipoRisorsa.SERVITORI).getQuantità();
-		playerboard.getPanelRisorseServitori().writeIntoLabel(quantitaRisorsa);
-		//quantitaRisorsa = this.clientModel.getStatoGiocatore().getSetRisorse().getRisorsa(TipoRisorsa.PUNTIMILITARI).getQuantità();
-		playerboard.getPanelRisorsePuntiMilitari().writeIntoLabel(quantitaRisorsa);
-		//quantitaRisorsa = this.clientModel.getStatoGiocatore().getSetRisorse().getRisorsa(TipoRisorsa.PUNTIFEDE).getQuantità();
-		playerboard.getPanelRisorsePuntiFede().writeIntoLabel(quantitaRisorsa);
-		//quantitaRisorsa = this.clientModel.getStatoGiocatore().getSetRisorse().getRisorsa(TipoRisorsa.PUNTIVITTORIA).getQuantità();
-		playerboard.getPanelRisorsePuntiVittoria().writeIntoLabel(quantitaRisorsa);*/
 		
     	GridBagConstraints gbc = new GridBagConstraints();
 	    gbc.gridy=0;

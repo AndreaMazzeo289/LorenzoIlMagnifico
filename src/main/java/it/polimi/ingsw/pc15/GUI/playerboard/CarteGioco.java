@@ -11,6 +11,7 @@ import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 
+import it.polimi.ingsw.pc15.GUI.ButtonListenerCarte;
 import it.polimi.ingsw.pc15.GUI.GUI;
 import it.polimi.ingsw.pc15.carte.TipoCarta;
 
@@ -42,6 +43,7 @@ public class CarteGioco extends JButton{
 		
 		this.tipoCarta = tipoCarta;
 		this.setActionCommand(path);
+		this.addActionListener(new ButtonListenerCarte(gui));
 		
 		larghezzaTotale = gui.larghezzaTotale;
 		altezzaTotale =  gui.altezzaTotale;
@@ -86,7 +88,7 @@ public class CarteGioco extends JButton{
 		image = imageIcon.getImage();
 		newImage = image.getScaledInstance(larghezzaRescale,altezzaRescale,Image.SCALE_DEFAULT);
 		ImageIcon imageCard = new ImageIcon(newImage);
-		carta.setIcon(imageCard);
+		this.setIcon(imageCard);
 		this.path = path;
 	}
 }

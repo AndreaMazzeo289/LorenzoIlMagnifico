@@ -3,6 +3,8 @@ package it.polimi.ingsw.pc15.GUI.playerboard;
 import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;
 import java.awt.GridLayout;
+import java.util.ArrayList;
+import java.util.HashMap;
 
 import javax.swing.JButton;
 import javax.swing.JPanel;
@@ -24,6 +26,13 @@ public class PlayerBoard extends JPanel{
 	private JPanel presentationPanel;
 	private JPanel panelPersonalBonus;
 	
+	private ArrayList<CarteGioco> cartePlayerVerdi;
+	private ArrayList<CarteGioco> cartePlayerBlu;
+	private ArrayList<CarteGioco> cartePlayerGialle;
+	private ArrayList<CarteGioco> cartePlayerViola;
+	
+	private HashMap<TipoCarta,ArrayList<CarteGioco>> cartePlayerMap;
+	
 	public PlayerBoard(ButtonListener listener, GUI gui) {
 		
 		this.setLayout(new GridBagLayout());
@@ -35,6 +44,14 @@ public class PlayerBoard extends JPanel{
 		panelPersonalBonus = new JPanel();
 		panelCarteLeader = new JPanel(new GridLayout(4,1));
 		
+		cartePlayerVerdi = new ArrayList<CarteGioco>();
+		cartePlayerBlu = new ArrayList<CarteGioco>();
+		cartePlayerGialle = new ArrayList<CarteGioco>();
+		cartePlayerViola = new ArrayList<CarteGioco>();
+		
+		cartePlayerMap = new HashMap<TipoCarta,ArrayList<CarteGioco>>();
+		
+		
 		GridBagConstraints gbc = new GridBagConstraints();
 		
 		// Presentation panel
@@ -45,43 +62,55 @@ public class PlayerBoard extends JPanel{
 		gbc.gridx=1;
 		presentationPanel.add(new GraphicButton(1500, 400,"img\\Punchboard\\scomunicheButton.png", "buttonScomuniche", listener,true,gui),gbc);
 		
+		for(int i=0; i<6; i++) 
+			cartePlayerVerdi.add(new CarteGioco("img/DevCardsBack/devcards_b_c_g_1.jdevcards_b_c_pdevcards_b_c_g.jdevcards_b_c_pg.jpg", TipoCarta.TERRITORIO,gui));
+		for(int i=0; i<6; i++) 
+			cartePlayerBlu.add(new CarteGioco("img/DevCardsBack/devcards_b_c_y_1.jdevcards_b_c_pdevcards_b_c_g.jdevcards_b_c_pg.jpg", TipoCarta.TERRITORIO,gui));
+		for(int i=0; i<6; i++) 
+			cartePlayerGialle.add(new CarteGioco("img/DevCardsBack/devcards_b_c_b_1.jdevcards_b_c_pdevcards_b_c_g.jdevcards_b_c_pg.jpg", TipoCarta.TERRITORIO,gui));
+		for(int i=0; i<6; i++) 
+			cartePlayerViola.add(new CarteGioco("img/DevCardsBack/devcards_b_c_p_1.jdevcards_b_c_pdevcards_b_c_g.jdevcards_b_c_pg.jpg", TipoCarta.TERRITORIO,gui));
+		
+		cartePlayerMap.put(TipoCarta.TERRITORIO,cartePlayerVerdi);
+		cartePlayerMap.put(TipoCarta.PERSONAGGIO,cartePlayerBlu);
+		cartePlayerMap.put(TipoCarta.EDIFICIO,cartePlayerGialle);
+		cartePlayerMap.put(TipoCarta.IMPRESA,cartePlayerViola);
+		
+		
+		
 		// Panel carte
 		//-----------------------//
 		gbc.gridx=0;
 		gbc.gridy=0;
 		cartePlayer.add(new GraphicButton(400,1100,"img\\Punchboard\\Button\\buttonPosizionaFamiliare.png","posizionaFamiliare", listener, false,gui),gbc);
 		for(int i=0; i<6; i++) {
-			carta = new CarteGioco("img/DevCardsBack/devcards_b_c_g_1.jdevcards_b_c_pdevcards_b_c_g.jdevcards_b_c_pg.jpg", TipoCarta.TERRITORIO,gui);
-			carta.addActionListener(new ButtonListenerCarte(gui));
 			gbc.gridx=i+1;
-			cartePlayer.add(carta,gbc);
+			//cartePlayer.add(new CarteGioco("img/DevCardsBack/devcards_b_c_g_1.jdevcards_b_c_pdevcards_b_c_g.jdevcards_b_c_pg.jpg", TipoCarta.TERRITORIO,gui),gbc);
+			cartePlayer.add(cartePlayerVerdi.get(i),gbc);
 		}
 		gbc.gridx=0;
 		gbc.gridy=1;
 		cartePlayer.add(new GraphicButton(400,1100,"img\\Punchboard\\Button\\buttonEffettoLeader.png","attivaEffettoLeader", listener, false,gui),gbc);
 		for(int i=0; i<6; i++) {
-			carta = new CarteGioco("img/DevCardsBack/devcards_b_c_y_1.jdevcards_b_c_pdevcards_b_c_g.jdevcards_b_c_pg.jpg", TipoCarta.EDIFICIO,gui);
-			carta.addActionListener(new ButtonListenerCarte(gui));
 			gbc.gridx=i+1;
-			cartePlayer.add(carta,gbc);
+			//cartePlayer.add(new CarteGioco("img/DevCardsBack/devcards_b_c_g_1.jdevcards_b_c_pdevcards_b_c_g.jdevcards_b_c_pg.jpg", TipoCarta.EDIFICIO,gui),gbc);
+			cartePlayer.add(cartePlayerBlu.get(i),gbc);
 		}
 		gbc.gridx=0;
 		gbc.gridy=2;
 		cartePlayer.add(new GraphicButton(400,1100,"img\\Punchboard\\Button\\buttonAttivaLeader.png","attivaCartaLeader",listener, false,gui),gbc);
 		for(int i=0; i<6; i++) {
-			carta = new CarteGioco("img/DevCardsBack/devcards_b_c_b_1.jdevcards_b_c_pdevcards_b_c_g.jdevcards_b_c_pg.jpg", TipoCarta.PERSONAGGIO,gui);
-			carta.addActionListener(new ButtonListenerCarte(gui));
 			gbc.gridx=i+1;
-			cartePlayer.add(carta,gbc);
+			//cartePlayer.add(new CarteGioco("img/DevCardsBack/devcards_b_c_g_1.jdevcards_b_c_pdevcards_b_c_g.jdevcards_b_c_pg.jpg", TipoCarta.PERSONAGGIO,gui),gbc);
+			cartePlayer.add(cartePlayerGialle.get(i),gbc);
 		}
 		gbc.gridx=0;
 		gbc.gridy=3;
 		cartePlayer.add(new GraphicButton(400,1100,"img\\Punchboard\\Button\\buttonScartaLeader.png","scartaCartaLeader", listener, false,gui),gbc);
 		for(int i=0; i<6; i++) {
-			carta = new CarteGioco("img/DevCardsBack/devcards_b_c_p_1.jdevcards_b_c_pdevcards_b_c_g.jdevcards_b_c_pg.jpg", TipoCarta.IMPRESA,gui);
-			carta.addActionListener(new ButtonListenerCarte(gui));
 			gbc.gridx=i+1;
-			cartePlayer.add(carta,gbc);
+			//cartePlayer.add(new CarteGioco("img/DevCardsBack/devcards_b_c_g_1.jdevcards_b_c_pdevcards_b_c_g.jdevcards_b_c_pg.jpg", TipoCarta.IMPRESA,gui),gbc);
+			cartePlayer.add(cartePlayerViola.get(i),gbc);
 		}
 		
 		gbc.gridx=0;
@@ -215,23 +244,6 @@ public class PlayerBoard extends JPanel{
 	// Carte gioco
 	//---------------------------//
 	public CarteGioco getCartaGioco(TipoCarta tipoCarta, int numero) {
-		
-		CarteGioco carta = null;
-	
-		switch(tipoCarta) {
-		case TERRITORIO: 
-			numero+=1;
-			carta= (CarteGioco) cartePlayer.getComponent(numero);
-		case PERSONAGGIO:
-			numero+=8;
-			carta= (CarteGioco) cartePlayer.getComponent(numero);
-		case EDIFICIO: 
-			numero+=16;
-			return (CarteGioco) cartePlayer.getComponent(numero);
-		case IMPRESA:
-			numero+=24;
-			carta= (CarteGioco) cartePlayer.getComponent(numero);
-		}
-		return carta;
+		return this.cartePlayerMap.get(tipoCarta).get(numero);
 	}
 }
