@@ -155,19 +155,21 @@ public class Model extends Observable {
 	
 	private void finisciTurno() {
 		
+		System.out.println("PERIODO: " + periodo + " , TURNO : " + turno);
+		
 		notificaStatoPartita("Fine del turno!");
 		
-		if (turno==ParserXML.leggiValore("numeroTurniPeriodo"))
+		if (turno==ParserXML.leggiValore("numeroTurniPerPeriodo"))
 			rapportoInVaticano(periodo);
 		
 		turno++;
 		
-		if (turno==ParserXML.leggiValore("numeroTurniPeriodo")+1) {
+		if (turno==ParserXML.leggiValore("numeroTurniPerPeriodo")+1) {
 			periodo++;
 			turno=1;
 		}
 		
-		if (periodo==ParserXML.leggiValore("numeroTurniPeriodo")+1)
+		if (periodo==ParserXML.leggiValore("numeroPeriodi")+1)
 			calcolaPunteggio();
 		
 		else 
@@ -208,7 +210,7 @@ public class Model extends Observable {
 		
 		if (ordine.lastIndexOf(giocatoreCorrente)==ordine.size()-1) {
 			azione++;
-			if (azione==5)  {
+			if (azione==2)  {
 				azione=1;
 				finisciTurno();	
 			}
@@ -318,8 +320,11 @@ public class Model extends Observable {
 		
 		Random random = new Random();	
 		int valoreDadoNero = random.nextInt(6) + 1;
+		System.out.println("Valore dado NERO: " + valoreDadoNero);
 		int valoreDadoBianco = random.nextInt(6) + 1;
+		System.out.println("Valore dado BIANCO: " + valoreDadoBianco);
 		int valoreDadoArancione = random.nextInt(6) + 1;
+		System.out.println("Valore dado ARANCIONE: " + valoreDadoArancione);
 		
 		for(Player player : giocatori) {
 			

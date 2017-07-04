@@ -39,10 +39,9 @@ public class TesseraScomunica implements Serializable {
 	
 	@Override
 	public String toString() {
-		String stringa = "[ ";
+		String stringa = new String();
 		for (Effetto effetto : this.scomunica)
-			stringa += effetto.toString();
-		stringa += " ]";
+			stringa += effetto.toString() + " - ";
 		return stringa;
 	}
 
