@@ -82,7 +82,7 @@ public class Server extends UnicastRemoteObject implements ServerInterface {
 		views.put(name, view);
 		System.out.println("Giocatore connnesso: " + name);
 		numeroGiocatori++;
-		if (numeroGiocatori==1) {
+		if (numeroGiocatori==2) {
 			avviaPartita();
 			this.views = new HashMap<String, ServerView>();
 			numeroGiocatori=0;

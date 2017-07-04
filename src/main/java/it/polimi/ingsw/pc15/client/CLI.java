@@ -11,6 +11,8 @@ import java.util.Scanner;
 
 import it.polimi.ingsw.pc15.carte.Carta;
 import it.polimi.ingsw.pc15.carte.TipoCarta;
+import it.polimi.ingsw.pc15.carte.Impresa;
+
 import it.polimi.ingsw.pc15.effetti.Effetto;
 import it.polimi.ingsw.pc15.plancia.SpazioMercato;
 import it.polimi.ingsw.pc15.plancia.SpazioTorre;
@@ -20,6 +22,7 @@ import it.polimi.ingsw.pc15.player.Familiare;
 import it.polimi.ingsw.pc15.player.Leader;
 import it.polimi.ingsw.pc15.player.Player;
 import it.polimi.ingsw.pc15.risorse.TipoRisorsa;
+
 
 public class CLI extends ClientView {
 	
@@ -89,8 +92,10 @@ public class CLI extends ClientView {
 									int numeroServitori = input.nextInt();
 									if (this.clientModel.getStatoGiocatore().getEffettiAttivi().sovrapprezzoServitori())
 										numeroServitori /= 2;
-									if (numeroServitori > clientModel.getStatoGiocatore().getSetRisorse().getRisorsa(TipoRisorsa.SERVITORI).getQuantità())
+									if (numeroServitori > clientModel.getStatoGiocatore().getSetRisorse().getRisorsa(TipoRisorsa.SERVITORI).getQuantità()) {
 										System.out.println("Non possiedi abbastanza servitori");
+										annulla = true;
+									}
 									else message.add(String.valueOf(numeroServitori));
 									break;
 							case "no":
@@ -146,7 +151,18 @@ public class CLI extends ClientView {
 											System.out.println("Quale spazio della torre?");
 											sceltaSpazio = input.nextInt();
 											message.add(String.valueOf(sceltaSpazio-1));
-											if (this.clientModel.getStatoPlancia().getSpazioTorre(TipoCarta.IMPRESA, sceltaSpazio-1).getCarta().getCosto().getRisorse().isEmpty()==false);
+											if (this.clientModel.getStatoPlancia().getSpazioTorre(TipoCarta.IMPRESA, sceltaSpazio-1).getCarta().getCosto().getRisorse().isEmpty()==false && ((Impresa) this.clientModel.getStatoPlancia().getSpazioTorre(TipoCarta.IMPRESA, sceltaSpazio-1).getCarta()).getRequisitoPuntiMilitari()!=0) {
+												System.out.println("Vuoi pagare il costo in risorse (1) o in punti militari (2) ?");
+												message.add(String.valueOf(input.nextInt()));
+											}
+											else {
+												if (this.clientModel.getStatoPlancia().getSpazioTorre(TipoCarta.IMPRESA, sceltaSpazio-1).getCarta().getCosto().getRisorse().isEmpty())
+													message.add(String.valueOf(2));
+												else message.add(String.valueOf(1));
+											}
+												
+											
+											
 											break;
 									case 0: annulla=true;
 											break;
