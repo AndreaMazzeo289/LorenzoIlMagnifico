@@ -197,14 +197,14 @@ public class CLI extends ClientView {
 		    				if (spazioMercato.vuoto())
 		    					System.out.println("  - Spazio del Mercato " + this.clientModel.getStatoPlancia().getSpaziMercato().lastIndexOf(spazioMercato) + ": LIBERO");
 		    				else 
-		    					System.out.print("  - Spazio del Mercato " + this.clientModel.getStatoPlancia().getSpaziMercato().lastIndexOf(spazioMercato) + ": Occupato da " + spazioMercato.getFamiliari().get(0).getPlayer().getNome());
+		    					System.out.print("  - Spazio del Mercato " + this.clientModel.getStatoPlancia().getSpaziMercato().lastIndexOf(spazioMercato) + ": Occupato dal familiare  " + spazioMercato.getFamiliari().get(0).getColore().name() + " di " + spazioMercato.getFamiliari().get(0).getPlayer().getNome());
 						
 		    			if (this.clientModel.getStatoPlancia().getSpazioRaccolta().vuoto())
 							System.out.println("\n  - Spazio raccolta : LIBERO");
 		    			else {
-		    				System.out.print("\n  - Spazio raccolta: Occupato da ");
+		    				System.out.print("\n  - Spazio raccolta: Occupato da: ");
 		    				for (Familiare familiare : this.clientModel.getStatoPlancia().getSpazioRaccolta().getFamiliari())
-		    					System.out.println(familiare.getPlayer().getNome() + " ");
+		    					System.out.print("familiare " + familiare.getColore().name() + " di " + familiare.getPlayer().getNome() + " - ");
 		    			}
 		    			
 		    			if (this.clientModel.getStatoPlancia().getSpazioProduzione().vuoto())
@@ -212,7 +212,7 @@ public class CLI extends ClientView {
 		    			else {
 		    				System.out.print("  - Spazio produzione: Occupato da ");
 		    				for (Familiare familiare : this.clientModel.getStatoPlancia().getSpazioProduzione().getFamiliari())
-		    					System.out.println(familiare.getPlayer().getNome() + " ");
+		    					System.out.print("familiare " + familiare.getColore().name() + " di " + familiare.getPlayer().getNome() + " - ");
 		    			}
 		    			
 		    			if (this.clientModel.getStatoPlancia().getSpazioConsiglio().vuoto())
@@ -220,7 +220,7 @@ public class CLI extends ClientView {
 		    			else {
 		    				System.out.print("\n  - Spazio del Consiglio: Occupato da ");
 		    				for (Familiare familiare : this.clientModel.getStatoPlancia().getSpazioConsiglio().getFamiliari())
-		    					System.out.println(familiare.getPlayer().getNome() + " ");
+		    					System.out.print("familiare " + familiare.getColore().name() + " di " + familiare.getPlayer().getNome() + " - ");
 		    			}
 		    			
 		    			System.out.println("\n    Torre VERDE:");
@@ -228,9 +228,9 @@ public class CLI extends ClientView {
 		    				if (spazio.vuoto())
 		    					System.out.println("  - Spazio " + (this.clientModel.getStatoPlancia().getTorre(TipoCarta.TERRITORIO).getSpaziTorre().lastIndexOf(spazio)+1) + ": LIBERO - Carta Territorio presente: " + spazio.getCarta().toString());
 		    				else {
-		    					System.out.print("  - Spazio " + (this.clientModel.getStatoPlancia().getTorre(TipoCarta.TERRITORIO).getSpaziTorre().lastIndexOf(spazio)+1) + ": occupato da ");
+		    					System.out.print("  - Spazio " + (this.clientModel.getStatoPlancia().getTorre(TipoCarta.TERRITORIO).getSpaziTorre().lastIndexOf(spazio)+1) + ": occupato dal familiare ");
 			    				for (Familiare familiare : spazio.getFamiliari())
-			    					System.out.println(familiare.getPlayer().getNome() + " ");
+			    					System.out.println(familiare.getColore().name() + " di " + familiare.getPlayer().getNome() + " ");
 		    				}
 		    			
 		    			System.out.println("\n    Torre VIOLA:");
@@ -240,7 +240,7 @@ public class CLI extends ClientView {
 		    				else {
 		    					System.out.print("  - Spazio " + (this.clientModel.getStatoPlancia().getTorre(TipoCarta.IMPRESA).getSpaziTorre().lastIndexOf(spazio)+1) + ": occupato da ");
 			    				for (Familiare familiare : spazio.getFamiliari())
-			    					System.out.println(familiare.getPlayer().getNome() + " ");
+			    					System.out.println(familiare.getColore().name() + " di " + familiare.getPlayer().getNome() + " ");
 		    				}
 		    			
 		    			
@@ -251,7 +251,7 @@ public class CLI extends ClientView {
 		    				else {
 		    					System.out.print("  - Spazio " + (this.clientModel.getStatoPlancia().getTorre(TipoCarta.EDIFICIO).getSpaziTorre().lastIndexOf(spazio)+1) + ": occupato da ");
 			    				for (Familiare familiare : spazio.getFamiliari())
-			    					System.out.println(familiare.getPlayer().getNome() + " ");
+			    					System.out.println(familiare.getColore().name() + " di " + familiare.getPlayer().getNome() + " ");
 		    				}
 		    			
 		    			System.out.println("\n    Torre BLU:");
@@ -261,7 +261,7 @@ public class CLI extends ClientView {
 		    				else {
 		    					System.out.print("  - Spazio " + (this.clientModel.getStatoPlancia().getTorre(TipoCarta.PERSONAGGIO).getSpaziTorre().lastIndexOf(spazio)+1) + ": occupato da ");
 			    				for (Familiare familiare : spazio.getFamiliari())
-			    					System.out.println(familiare.getPlayer().getNome() + " ");
+			    					System.out.println(familiare.getColore().name() + " di " + familiare.getPlayer().getNome() + " ");
 		    				}
 		    			
 		    			/*
