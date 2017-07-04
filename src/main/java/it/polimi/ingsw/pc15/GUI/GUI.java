@@ -89,6 +89,9 @@ public class GUI extends ClientView{
 			playerboard.getCartaGioco(TipoCarta.IMPRESA, i).modificaImmagineCarta(carta.getImagePath());
 			i++;
 		}
+		// Panel risorse
+		//---------------------------//
+		playerboard.getPanelRisorseOro().writeIntoLabel(this.clientModel.getStatoGiocatore().getSetRisorse().getRisorsa(TipoRisorsa.LEGNA).getQuantità());
 		
 	}
 
@@ -247,6 +250,10 @@ public class GUI extends ClientView{
 		message.add(text);
 	}
 	public ArrayList<String> getMessage() {
-		return message;
+		return this.message;
+	}
+	public void inviaMessaggio() {
+		this.setChanged();
+		this.notifyObservers(this.message);
 	}
 }

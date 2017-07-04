@@ -323,7 +323,7 @@ public class ButtonListener implements ActionListener{
 					playerBoard.getButtonScartaLeader().sbloccaButton();
 				}
 				coloreFamiliareScelto=null;
-				gui.notifyObservers(gui.getMessage());
+				gui.inviaMessaggio();
 			}
 		}
 		
