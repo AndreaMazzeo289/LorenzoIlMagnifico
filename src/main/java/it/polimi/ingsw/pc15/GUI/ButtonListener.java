@@ -1,20 +1,7 @@
 package it.polimi.ingsw.pc15.GUI;
 
-import java.awt.BorderLayout;
-import java.awt.Component;
-import java.awt.Dimension;
-import java.awt.Image;
-import java.awt.Toolkit;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.util.ArrayList;
-
-import javax.swing.ImageIcon;
-import javax.swing.JButton;
-import javax.swing.JFrame;
-import javax.swing.JLabel;
-import javax.swing.JPanel;
-import javax.swing.Timer;
 
 import it.polimi.ingsw.pc15.GUI.frame.AttivaLeaderPopup;
 import it.polimi.ingsw.pc15.GUI.frame.CarteScomunica;
@@ -81,17 +68,17 @@ public class ButtonListener implements ActionListener{
 		}
 		
 		if(e.getActionCommand().equals("attivaCartaLeader")) {
-			if(gui.getTurnoGiocatore())
+			if(gui.tuoTurno())
 				giocaLeaderPopup = new GiocaLeaderPopup(this, gui);
 		}
 		
 		if (e.getActionCommand().equals("attivaEffettoLeader")) {
-			if(gui.getTurnoGiocatore())
+			if(gui.tuoTurno())
 				attivaLeaderPopup = new AttivaLeaderPopup(this, gui);
 		}
 		
 		if (e.getActionCommand().equals("scartaCartaLeader")) {
-			if(gui.getTurnoGiocatore())
+			if(gui.tuoTurno())
 				scartaLeaderPopup = new ScartaLeaderPopup(this, gui);
 		}
 		
@@ -104,7 +91,7 @@ public class ButtonListener implements ActionListener{
 		}
 		
 		if (e.getActionCommand().equals("posizionaFamiliare")) {
-			if(gui.getTurnoGiocatore()) {
+			if(gui.tuoTurno()) {
 				selezionaFamiliarePopup = new SelezionaFamiliarePopup(this,gui.getPlayerCorrente());
 				gui.writeMessage("posiziona familiare");
 			}
@@ -345,6 +332,7 @@ public class ButtonListener implements ActionListener{
 					playerBoard.getButtonScartaLeader().sbloccaButton();
 				}
 				coloreFamiliareScelto=null;
+				gui.inviaMessaggio();
 			}
 		}
 			
@@ -365,6 +353,7 @@ public class ButtonListener implements ActionListener{
 					playerBoard.getButtonScartaLeader().sbloccaButton();
 				}
 				coloreFamiliareScelto=null;
+				gui.inviaMessaggio();
 			}
 		}
 		
@@ -385,6 +374,7 @@ public class ButtonListener implements ActionListener{
 					playerBoard.getButtonScartaLeader().sbloccaButton();
 				}
 				coloreFamiliareScelto=null;
+				gui.inviaMessaggio();
 			}
 		}
 		
@@ -408,6 +398,7 @@ public class ButtonListener implements ActionListener{
 					playerBoard.getButtonScartaLeader().sbloccaButton();
 				}
 				coloreFamiliareScelto=null;
+				gui.inviaMessaggio();
 			}
 		}
 		
@@ -428,6 +419,7 @@ public class ButtonListener implements ActionListener{
 					playerBoard.getButtonScartaLeader().sbloccaButton();
 				}
 				coloreFamiliareScelto=null;
+				gui.inviaMessaggio();
 			}
 		}
 		
@@ -448,6 +440,7 @@ public class ButtonListener implements ActionListener{
 					playerBoard.getButtonScartaLeader().sbloccaButton();
 				}
 				coloreFamiliareScelto=null;
+				gui.inviaMessaggio();
 			}
 		}
 		
@@ -468,6 +461,7 @@ public class ButtonListener implements ActionListener{
 					playerBoard.getButtonScartaLeader().sbloccaButton();
 				}
 				coloreFamiliareScelto=null;
+				gui.inviaMessaggio();
 			}
 		}
 
@@ -491,6 +485,7 @@ public class ButtonListener implements ActionListener{
 					playerBoard.getButtonScartaLeader().sbloccaButton();
 				}
 				coloreFamiliareScelto=null;
+				gui.inviaMessaggio();
 			}
 		}
 		// SPAZIO 2
@@ -510,6 +505,7 @@ public class ButtonListener implements ActionListener{
 					playerBoard.getButtonScartaLeader().sbloccaButton();
 				}
 				coloreFamiliareScelto=null;
+				gui.inviaMessaggio();
 			}
 		}
 		// SPAZIO 3
@@ -529,6 +525,7 @@ public class ButtonListener implements ActionListener{
 					playerBoard.getButtonScartaLeader().sbloccaButton();
 				}
 				coloreFamiliareScelto=null;
+				gui.inviaMessaggio();
 			}
 		}
 		// SPAZIO 4
@@ -548,6 +545,7 @@ public class ButtonListener implements ActionListener{
 					playerBoard.getButtonScartaLeader().sbloccaButton();
 				}
 				coloreFamiliareScelto=null;
+				gui.inviaMessaggio();
 			}
 		}
 		//------------------------------------------------------------------------------------------//
@@ -570,6 +568,7 @@ public class ButtonListener implements ActionListener{
 					playerBoard.getButtonScartaLeader().sbloccaButton();
 				}
 				coloreFamiliareScelto=null;
+				gui.inviaMessaggio();
 			}
 		}
 		// SPAZIO 2
@@ -589,6 +588,7 @@ public class ButtonListener implements ActionListener{
 					playerBoard.getButtonScartaLeader().sbloccaButton();
 				}
 				coloreFamiliareScelto=null;
+				gui.inviaMessaggio();
 			}
 		}
 		// SPAZIO 3
@@ -608,6 +608,7 @@ public class ButtonListener implements ActionListener{
 					playerBoard.getButtonScartaLeader().sbloccaButton();
 				}
 				coloreFamiliareScelto=null;
+				gui.inviaMessaggio();
 			}
 		}
 		// SPAZIO 4
@@ -627,6 +628,7 @@ public class ButtonListener implements ActionListener{
 					playerBoard.getButtonScartaLeader().sbloccaButton();
 				}
 				coloreFamiliareScelto=null;
+				gui.inviaMessaggio();
 			}
 		}
 		
@@ -650,6 +652,7 @@ public class ButtonListener implements ActionListener{
 				}
 				
 				coloreFamiliareScelto=null;
+				gui.inviaMessaggio();
 			}
 		}
 		
@@ -673,6 +676,7 @@ public class ButtonListener implements ActionListener{
 				}
 				
 				coloreFamiliareScelto=null;
+				gui.inviaMessaggio();
 			}
 		}
 		
@@ -696,6 +700,7 @@ public class ButtonListener implements ActionListener{
 				}
 				
 				coloreFamiliareScelto=null;
+				gui.inviaMessaggio();
 			}
 		}
 		
@@ -719,6 +724,7 @@ public class ButtonListener implements ActionListener{
 				}
 				
 				coloreFamiliareScelto=null;
+				gui.inviaMessaggio();
 			}
 		}
 		

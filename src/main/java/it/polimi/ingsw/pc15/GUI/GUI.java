@@ -18,7 +18,6 @@ import it.polimi.ingsw.pc15.client.ClientModel;
 import it.polimi.ingsw.pc15.client.ClientView;
 import it.polimi.ingsw.pc15.client.NetworkHandler;
 import it.polimi.ingsw.pc15.player.ColoreFamiliare;
-import it.polimi.ingsw.pc15.player.Leader;
 import it.polimi.ingsw.pc15.player.Player;
 import it.polimi.ingsw.pc15.risorse.TipoRisorsa;
 
@@ -40,8 +39,6 @@ public class GUI extends ClientView{
 	private int numeroGiocatori = 2;
 	private Player playerCorrente;
 	private ArrayList<Player> arrayListAvversari;
-	private boolean turnoGiocatore;
-	
 	private ArrayList<String> message = new ArrayList<String>();;
 	
 	public GUI(NetworkHandler networkHandler, ClientModel clientModel) {
@@ -55,19 +52,17 @@ public class GUI extends ClientView{
 
 		arrayListAvversari = this.clientModel.getStatoAvversari();
 		playerCorrente = this.clientModel.getStatoGiocatore();
-		if(playerCorrente.getNome().equals(this.clientModel.getGiocatoreCorrente()))
-			turnoGiocatore = true;
-		else
-			turnoGiocatore = false;
 		
 		//----------------------------------------------------------//
 		// AGGIORNAMENTO PLAYERBOARD IN FUNZIONE DEL MODEL
 		//----------------------------------------------------------//
 		// Carte player
 		//---------------------------//
+		System.out.println("ciao");
 		ArrayList<Carta> listaCarteTerritorio = this.clientModel.getStatoGiocatore().getCarte(TipoCarta.TERRITORIO);
 		int i=0;
 		for(Carta carta : listaCarteTerritorio) {
+			
 			playerboard.getCartaGioco(TipoCarta.TERRITORIO, i).modificaImmagineCarta(carta.getImagePath());
 			i++;
 		}
@@ -94,6 +89,7 @@ public class GUI extends ClientView{
 		int quantitaRisorsa;
 		
 		quantitaRisorsa = this.clientModel.getStatoGiocatore().getSetRisorse().getRisorsa(TipoRisorsa.ORO).getQuantità();
+		System.out.println(quantitaRisorsa);
 		playerboard.getPanelRisorseOro().writeIntoLabel(quantitaRisorsa);
 		quantitaRisorsa = this.clientModel.getStatoGiocatore().getSetRisorse().getRisorsa(TipoRisorsa.LEGNA).getQuantità();
 		playerboard.getPanelRisorseLegna().writeIntoLabel(quantitaRisorsa);
@@ -134,10 +130,6 @@ public class GUI extends ClientView{
 		pathCartaScomunica1 = this.clientModel.getStatoPlancia().getTesseraScomunica(1).getPathImg();
 		pathCartaScomunica2 = this.clientModel.getStatoPlancia().getTesseraScomunica(2).getPathImg();
 		pathCartaScomunica3 = this.clientModel.getStatoPlancia().getTesseraScomunica(3).getPathImg();
-		if(playerCorrente.getNome().equals(this.clientModel.getGiocatoreCorrente()))
-			turnoGiocatore = true;
-		else
-			turnoGiocatore = false;
 		
 		//------------------------------------//
 		// CARTE TORRI
@@ -257,9 +249,6 @@ public class GUI extends ClientView{
 	}
 	public Player getPlayerCorrente() {
 		return this.playerCorrente;
-	}
-	public boolean getTurnoGiocatore() {
-		return this.turnoGiocatore;
 	}
 	public void writeMessage(String text) {
 		this.message.add(text);
