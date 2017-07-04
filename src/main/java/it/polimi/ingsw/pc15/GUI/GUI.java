@@ -92,9 +92,9 @@ public class GUI extends ClientView{
 				for(int i=0; i<4; i++) {
 					int spazio = Math.abs(i-3);
 					try {
-						gameboard.getSpazioTorre(tipo, i).modificaImmagineCarta(this.clientModel.getStatoPlancia().getSpazioTorre(tipo, spazio).getCarta().getImagePath());
+						gameboard.getSpazioTorre(tipo, i).modificaImmagineCarta(this.clientModel.getStatoPlancia().getSpazioTorre(tipo, i).getCarta().getImagePath());
 					}catch(NullPointerException e) {
-						System.out.println("cazzo");
+						System.out.println("errore in " + tipo.name());
 						gameboard.getSpazioTorre(tipo, i).modificaImmagineCarta(retroCarte.get(tipo));
 					}
 				}

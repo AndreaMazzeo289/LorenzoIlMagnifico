@@ -32,27 +32,27 @@ public class ClientModel extends Observable {
 		
 	}
 	
-	public Plancia getStatoPlancia() {
+	public synchronized Plancia getStatoPlancia() {
 		return this.statoPlancia;
 	}
 	
-	public int getPeriodo() {
+	public synchronized int getPeriodo() {
 		return this.periodo;
 	}
 	
-	public int getTurno() {
+	public synchronized int getTurno() {
 		return this.turno;
 	}
 	
-	public Player getStatoGiocatore() {
+	public synchronized Player getStatoGiocatore() {
 		return this.statoGiocatore;
 	}
 	
-	public ArrayList<Player> getStatoAvversari() {
+	public synchronized ArrayList<Player> getStatoAvversari() {
 		return this.statoAvversari;
 	}
 	
-	public String getGiocatoreCorrente() {
+	public synchronized String getGiocatoreCorrente() {
 		return this.giocatoreCorrente;
 	}	
 

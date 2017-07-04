@@ -97,10 +97,13 @@ public class Controller extends Observable implements Observer {
 				int scelta;
 				switch(input.get(4)) {
 				case "verde": torreAzione = model.getPlancia().getTorre(TipoCarta.TERRITORIO);
+					input.add("0");
 					break;
 				case "blu": torreAzione = model.getPlancia().getTorre(TipoCarta.PERSONAGGIO);
+					input.add("0");
 					break;
 				case "gialla": torreAzione = model.getPlancia().getTorre(TipoCarta.EDIFICIO);
+					input.add("0");
 					break;
 				case "viola": torreAzione = model.getPlancia().getTorre(TipoCarta.IMPRESA);
 					scelta = Integer.valueOf(input.get(6));
@@ -111,7 +114,7 @@ public class Controller extends Observable implements Observer {
 				}
 				
 				spazioAzione = torreAzione.getSpazio(Integer.valueOf(input.get(5)));
-				azioneGiocatore = new AzioneOccupaSpazioTorre(giocatore, familiareAzione, (SpazioTorre) spazioAzione, Integer.valueOf(input.get(2)), 0);
+				azioneGiocatore = new AzioneOccupaSpazioTorre(giocatore, familiareAzione, (SpazioTorre) spazioAzione, Integer.valueOf(input.get(2)), Integer.valueOf(input.get(6)));
 				break;
 				
 			default: System.out.println("Errore lettura scelta spazio");

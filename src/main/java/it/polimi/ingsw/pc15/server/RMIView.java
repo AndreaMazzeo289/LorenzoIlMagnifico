@@ -31,7 +31,7 @@ public class RMIView extends ServerView {
 	public void update(Observable arg0, Object arg) {
 
 		StatoPartita statoPartita = (StatoPartita)arg;
-		System.out.println("\nSono la connection di " + name + " e ho ricevuto " + statoPartita.getMessaggio());
+		System.out.println("\nSono la RMIView di " + name + " e ho ricevuto " + statoPartita.getMessaggio());
 		statoPartita.setStatoGiocatore(name);
 		
 		try {

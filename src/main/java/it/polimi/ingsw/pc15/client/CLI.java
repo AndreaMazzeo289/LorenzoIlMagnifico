@@ -118,6 +118,7 @@ public class CLI extends ClientView {
 							case 1: message.add("mercato");
 								System.out.println("\nQuale spazio del mercato vuoi occupare?");
 								for (SpazioMercato spazio : this.clientModel.getStatoPlancia().getSpaziMercato())
+									if (spazio.vuoto())
 									System.out.println("  " + (this.clientModel.getStatoPlancia().getSpaziMercato().lastIndexOf(spazio)+1) + ") " + spazio.getEffetto().toString());
 								int scelta = input.nextInt();
 								message.add(String.valueOf(scelta-1));

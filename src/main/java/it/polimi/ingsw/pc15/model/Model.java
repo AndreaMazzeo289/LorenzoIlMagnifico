@@ -52,6 +52,7 @@ public class Model extends Observable {
 	private ArrayList<Carta> cartePersonaggio;
 	private ArrayList<Carta> carteEdificio;
 	private ArrayList<Carta> carteImpresa;
+	
 	private ArrayList<Leader> carteLeader;
 	
 	private int periodo;

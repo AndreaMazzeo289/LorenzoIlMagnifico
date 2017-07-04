@@ -16,12 +16,13 @@ public class SocketClient extends Client {
 	
 	private static String hostName;
 	
-	public SocketClient(String nome) throws IOException {
-		
-		this.clientModel = new ClientModel();
+	public SocketClient(String nome, int tipoView) throws IOException {
+		super();
 		this.networkHandler = new SocketHandler(new Socket(hostName, 12879), clientModel, nome);
-		//this.view = new CLI(networkHandler, clientModel);
-		this.view = new GUI(networkHandler, clientModel);
+		if (tipoView==1)
+			this.view = new CLI(this.networkHandler, this.clientModel);
+		else this.view = new GUI(this.networkHandler, this.clientModel);
+
 	}
 	
 	@Override
