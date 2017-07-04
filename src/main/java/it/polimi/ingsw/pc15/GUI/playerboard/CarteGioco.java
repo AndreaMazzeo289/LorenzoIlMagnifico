@@ -11,7 +11,7 @@ import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 
-import it.polimi.ingsw.pc15.GUI.mainGUI;
+import it.polimi.ingsw.pc15.GUI.GUI;
 import it.polimi.ingsw.pc15.carte.TipoCarta;
 
 public class CarteGioco extends JButton{
@@ -36,16 +36,16 @@ public class CarteGioco extends JButton{
 	private int altezza;
 	private int larghezza;
 	
-	public CarteGioco(String path, TipoCarta tipoCarta) {
+	public CarteGioco(String path, TipoCarta tipoCarta, GUI gui) {
 		
 		this.path = path;
 		
 		this.tipoCarta = tipoCarta;
 		this.setActionCommand(path);
 		
-		larghezzaTotale = mainGUI.larghezzaTotale;
-		altezzaTotale =  mainGUI.altezzaTotale;
-		rapporto = mainGUI.rapportoPlayerBoard;
+		larghezzaTotale = gui.larghezzaTotale;
+		altezzaTotale =  gui.altezzaTotale;
+		rapporto = gui.rapportoPlayerBoard;
 		
 		altezza = 1100;
 		larghezza = 370;
@@ -79,5 +79,14 @@ public class CarteGioco extends JButton{
 	
 	public int getLarghezzaRescale() {
 		return larghezzaRescale;
+	}
+	
+	public void modificaImmagineCarta(String path) {
+		imageIcon = new ImageIcon(path);
+		image = imageIcon.getImage();
+		newImage = image.getScaledInstance(larghezzaRescale,altezzaRescale,Image.SCALE_DEFAULT);
+		ImageIcon imageCard = new ImageIcon(newImage);
+		carta.setIcon(imageCard);
+		this.path = path;
 	}
 }

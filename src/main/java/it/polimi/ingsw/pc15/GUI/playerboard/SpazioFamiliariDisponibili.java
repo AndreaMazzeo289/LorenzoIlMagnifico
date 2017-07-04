@@ -11,7 +11,7 @@ import javax.swing.ImageIcon;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 
-import it.polimi.ingsw.pc15.GUI.mainGUI;
+import it.polimi.ingsw.pc15.GUI.GUI;
 import it.polimi.ingsw.pc15.player.ColoreFamiliare;
 
 public class SpazioFamiliariDisponibili extends JPanel implements Serializable{
@@ -40,11 +40,11 @@ public class SpazioFamiliariDisponibili extends JPanel implements Serializable{
 	private int altezzaSchermo;
 	private int larghezzaSchermo;
 	
-	public SpazioFamiliariDisponibili() {
+	public SpazioFamiliariDisponibili(GUI gui) {
 		
-		larghezzaTotale = mainGUI.larghezzaTotale;
-		altezzaTotale =  mainGUI.altezzaTotale;
-		rapporto = mainGUI.rapportoPlayerBoard;
+		larghezzaTotale = gui.larghezzaTotale;
+		altezzaTotale =  gui.altezzaTotale;
+		rapporto = gui.rapportoPlayerBoard;
 		
 		altezzaSchermo = (int)screenSize.getHeight();
 		larghezzaSchermo = (int)(((float)screenSize.getWidth())*rapporto);

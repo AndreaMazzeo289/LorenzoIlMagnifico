@@ -16,6 +16,7 @@ import javax.swing.JPanel;
 
 import it.polimi.ingsw.pc15.GUI.ButtonListener;
 import it.polimi.ingsw.pc15.player.ColoreFamiliare;
+import it.polimi.ingsw.pc15.player.Player;
 
 public class SelezionaFamiliarePopup extends JFrame{
 	
@@ -41,7 +42,7 @@ public class SelezionaFamiliarePopup extends JFrame{
 	private String pathArancione;
 	private String pathNeutro;
 	
-	public SelezionaFamiliarePopup(ButtonListener listener) {
+	public SelezionaFamiliarePopup(ButtonListener listener, Player player) {
 		
 		this.setLayout(new BorderLayout());
 		
@@ -128,6 +129,15 @@ public class SelezionaFamiliarePopup extends JFrame{
 		buttonNero.addActionListener(listener);
 		buttonNeutro.addActionListener(listener);
 
+		if(!player.getFamiliare(ColoreFamiliare.NERO).disponibile())
+			buttonNero.setEnabled(false);
+		if(!player.getFamiliare(ColoreFamiliare.BIANCO).disponibile())
+			buttonBianco.setEnabled(false);
+		if(!player.getFamiliare(ColoreFamiliare.ARANCIONE).disponibile())
+			buttonArancione.setEnabled(false);
+		if(!player.getFamiliare(ColoreFamiliare.NEUTRO).disponibile())
+			buttonNeutro.setEnabled(false);
+		
 		this.setSize(larghezzaBackground,altezzaBackground);
 		this.setVisible(true);
 		this.setAlwaysOnTop(true);

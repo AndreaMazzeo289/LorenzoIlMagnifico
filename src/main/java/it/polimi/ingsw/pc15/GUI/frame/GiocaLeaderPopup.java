@@ -12,7 +12,6 @@ import javax.swing.JLabel;
 
 import it.polimi.ingsw.pc15.GUI.ButtonListener;
 import it.polimi.ingsw.pc15.GUI.GUI;
-import it.polimi.ingsw.pc15.GUI.mainGUI;
 import it.polimi.ingsw.pc15.GUI.playerboard.CartaLeader;
 import it.polimi.ingsw.pc15.GUI.playerboard.PlayerBoard;
 
@@ -25,7 +24,7 @@ public class GiocaLeaderPopup extends JFrame{
 	transient ImageIcon imageIcon;
 	transient Image image, newImage;
 	
-	public GiocaLeaderPopup(ButtonListener listener) {
+	public GiocaLeaderPopup(ButtonListener listener, GUI gui) {
 		
 		altezza = 500;
 		larghezza= 0;
@@ -34,7 +33,7 @@ public class GiocaLeaderPopup extends JFrame{
 		
 		leaders = new ArrayList<CartaLeader>();
 		
-		PlayerBoard playerBoard = (PlayerBoard)GUI.mainFrame.getContentPane().getComponent(1);
+		PlayerBoard playerBoard = (PlayerBoard)gui.mainFrame.getContentPane().getComponent(1);
 		
 		if((playerBoard.getCartaLeader1().leggiLabel().equals("NON GIOCATO"))){
 			CartaLeaderView cartaLeader = new CartaLeaderView(playerBoard.getCartaLeader1().getPath(), playerBoard.getCartaLeader1().getName(), "Gioca", listener);

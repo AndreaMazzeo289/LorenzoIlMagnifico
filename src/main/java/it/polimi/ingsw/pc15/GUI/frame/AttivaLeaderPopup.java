@@ -12,7 +12,6 @@ import javax.swing.JLabel;
 
 import it.polimi.ingsw.pc15.GUI.ButtonListener;
 import it.polimi.ingsw.pc15.GUI.GUI;
-import it.polimi.ingsw.pc15.GUI.mainGUI;
 import it.polimi.ingsw.pc15.GUI.playerboard.CartaLeader;
 import it.polimi.ingsw.pc15.GUI.playerboard.PlayerBoard;
 
@@ -26,7 +25,7 @@ public class AttivaLeaderPopup extends JFrame{
 	transient ImageIcon imageIcon;
 	transient Image image, newImage;
 	
-	public AttivaLeaderPopup(ButtonListener listener) {
+	public AttivaLeaderPopup(ButtonListener listener, GUI gui) {
 		
 		altezza = 500;
 		larghezza= 0;
@@ -35,7 +34,7 @@ public class AttivaLeaderPopup extends JFrame{
 		
 		leaders = new ArrayList<CartaLeader>();
 		
-		PlayerBoard playerBoard = (PlayerBoard)GUI.mainFrame.getContentPane().getComponent(1);
+		PlayerBoard playerBoard = (PlayerBoard)gui.mainFrame.getContentPane().getComponent(1);
 		
 		if(playerBoard.getCartaLeader1().leggiLabel().equals("GIOCATO")){
 			CartaLeaderView cartaLeader = new CartaLeaderView(playerBoard.getCartaLeader1().getPath(), playerBoard.getCartaLeader1().getName(), "Attiva", listener);

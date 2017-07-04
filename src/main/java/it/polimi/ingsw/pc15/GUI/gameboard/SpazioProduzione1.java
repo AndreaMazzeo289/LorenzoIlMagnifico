@@ -17,7 +17,7 @@ import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 
-import it.polimi.ingsw.pc15.GUI.mainGUI;
+import it.polimi.ingsw.pc15.GUI.GUI;
 
 public class SpazioProduzione1 extends JPanel{
 
@@ -49,11 +49,11 @@ public class SpazioProduzione1 extends JPanel{
 	private int larghezzaEast;
 	private int larghezzaWest;
 	
-	public SpazioProduzione1(ActionListener listener) {
+	public SpazioProduzione1(ActionListener listener, GUI gui) {
 		
-		larghezzaTotale = mainGUI.larghezzaTotale;
-		altezzaTotale =  mainGUI.altezzaTotale;
-		rapporto = mainGUI.rapporto;
+		larghezzaTotale = gui.larghezzaTotale;
+		altezzaTotale =  gui.altezzaTotale;
+		rapporto = gui.rapporto;
 		
 		altezzaSchermo = (int)screenSize.getHeight();
 		larghezzaSchermo = (int)(((float)screenSize.getWidth())*rapporto);

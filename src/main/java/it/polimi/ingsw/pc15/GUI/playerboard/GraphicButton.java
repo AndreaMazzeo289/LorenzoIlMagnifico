@@ -11,7 +11,7 @@ import javax.swing.JButton;
 import javax.swing.JLabel;
 
 import it.polimi.ingsw.pc15.GUI.ButtonListener;
-import it.polimi.ingsw.pc15.GUI.mainGUI;
+import it.polimi.ingsw.pc15.GUI.GUI;
 
 public class GraphicButton extends JButton{
 
@@ -24,11 +24,11 @@ public class GraphicButton extends JButton{
 	private int altezzaSchermo;
 	private int larghezzaSchermo;
 	
-	public GraphicButton(int larghezza, int altezza, String imgPath, String actionCommand, ButtonListener listener, boolean border) {
+	public GraphicButton(int larghezza, int altezza, String imgPath, String actionCommand, ButtonListener listener, boolean border, GUI gui) {
 		
-		larghezzaTotale = mainGUI.larghezzaTotale;
-		altezzaTotale =  mainGUI.altezzaTotale;
-		rapporto = mainGUI.rapportoPlayerBoard;
+		larghezzaTotale = gui.larghezzaTotale;
+		altezzaTotale =  gui.altezzaTotale;
+		rapporto = gui.rapportoPlayerBoard;
 		
 		altezzaSchermo = (int)screenSize.getHeight();
 		larghezzaSchermo = (int)(((float)screenSize.getWidth())*rapporto);

@@ -12,6 +12,7 @@ import javax.swing.JFrame;
 
 import it.polimi.ingsw.pc15.GUI.gameboard.Gameboard;
 import it.polimi.ingsw.pc15.GUI.playerboard.PlayerBoard;
+import it.polimi.ingsw.pc15.carte.Carta;
 import it.polimi.ingsw.pc15.carte.TipoCarta;
 import it.polimi.ingsw.pc15.client.ClientModel;
 import it.polimi.ingsw.pc15.client.ClientView;
@@ -23,30 +24,71 @@ import it.polimi.ingsw.pc15.risorse.TipoRisorsa;
 
 public class GUI extends ClientView{
 
-	public static JFrame mainFrame;
+	public JFrame mainFrame;
 	public int altezzaTotale = 6650; //6530
 	public int larghezzaTotale = 4076;
 	public float rapporto = (float) 4/11;
 	public float rapportoPlayerBoard = (float)19/31;//13/21
-	public int numeroGiocatori = 4;
 	ButtonListener listener;
 	
-	private static String pathCartaScomunica1;
-	private static String pathCartaScomunica2;
-	private static String pathCartaScomunica3;
+	private PlayerBoard playerboard;
+	private Gameboard gameboard;
 	
-	private static ArrayList<Player> arrayListAvversari;
+	private String pathCartaScomunica1;
+	private String pathCartaScomunica2;
+	private String pathCartaScomunica3;
+	private int numeroGiocatori = 2;
+	private Player playerCorrente;
+	private ArrayList<Player> arrayListAvversari;
+	private boolean turnoGiocatore;
+	
+	private ArrayList<String> message = new ArrayList<String>();;
 	
 	public GUI(NetworkHandler networkHandler, ClientModel clientModel) {
 		super(networkHandler, clientModel);
 		
-		listener = new ButtonListener();
+		listener = new ButtonListener(this);
 	}
 
 	@Override
 	public void update(Observable arg0, Object arg1) {
 
 		arrayListAvversari = this.clientModel.getStatoAvversari();
+		playerCorrente = this.clientModel.getStatoGiocatore();
+		if(playerCorrente.getNome().equals(this.clientModel.getGiocatoreCorrente()))
+			turnoGiocatore = true;
+		else
+			turnoGiocatore = false;
+		
+		//----------------------------------------------------------//
+		// AGGIORNAMENTO PLAYERBOARD IN FUNZIONE DEL MODEL
+		//----------------------------------------------------------//
+		// Carte player
+		//---------------------------//
+		ArrayList<Carta> listaCarteTerritorio = this.clientModel.getStatoGiocatore().getCarte(TipoCarta.TERRITORIO);
+		int i=0;
+		for(Carta carta : listaCarteTerritorio) {
+			playerboard.getCartaGioco(TipoCarta.TERRITORIO, i).modificaImmagineCarta(carta.getImagePath());
+			i++;
+		}
+		ArrayList<Carta> listaCartePersonaggio = this.clientModel.getStatoGiocatore().getCarte(TipoCarta.PERSONAGGIO);
+		i=0;
+		for(Carta carta : listaCartePersonaggio) {
+			playerboard.getCartaGioco(TipoCarta.PERSONAGGIO, i).modificaImmagineCarta(carta.getImagePath());
+			i++;
+		}
+		ArrayList<Carta> listaCarteEdificio = this.clientModel.getStatoGiocatore().getCarte(TipoCarta.EDIFICIO);
+		i=0;
+		for(Carta carta : listaCarteEdificio) {
+			playerboard.getCartaGioco(TipoCarta.EDIFICIO, i).modificaImmagineCarta(carta.getImagePath());
+			i++;
+		}
+		ArrayList<Carta> listaCarteImpresa = this.clientModel.getStatoGiocatore().getCarte(TipoCarta.IMPRESA);
+		i=0;
+		for(Carta carta : listaCarteImpresa) {
+			playerboard.getCartaGioco(TipoCarta.IMPRESA, i).modificaImmagineCarta(carta.getImagePath());
+			i++;
+		}
 		
 	}
 
@@ -62,17 +104,22 @@ public class GUI extends ClientView{
 		mainFrame.getContentPane().setBackground(Color.decode("15394527"));
 	   
 		mainFrame.getContentPane().setLayout(new GridBagLayout());
-		Gameboard gameboard = new Gameboard(listener);
-		PlayerBoard playerboard = new PlayerBoard(listener);
+		gameboard = new Gameboard(listener,this);
+		playerboard = new PlayerBoard(listener,this);
 	   
 		//----------------------------------------------------------//
 		// AGGIORNAMENTO GAMEBOARD IN FUNZIONE DEL MODEL
 		//----------------------------------------------------------//
 		
+		playerCorrente = this.clientModel.getStatoGiocatore();
 		arrayListAvversari = this.clientModel.getStatoAvversari();
 		pathCartaScomunica1 = this.clientModel.getStatoPlancia().getTesseraScomunica(1).getPathImg();
 		pathCartaScomunica2 = this.clientModel.getStatoPlancia().getTesseraScomunica(2).getPathImg();
 		pathCartaScomunica3 = this.clientModel.getStatoPlancia().getTesseraScomunica(3).getPathImg();
+		if(playerCorrente.getNome().equals(this.clientModel.getGiocatoreCorrente()))
+			turnoGiocatore = true;
+		else
+			turnoGiocatore = false;
 		
 		//------------------------------------//
 		// CARTE TORRI
@@ -172,20 +219,34 @@ public class GUI extends ClientView{
 	    mainFrame.setVisible(true);
 	    mainFrame.setAlwaysOnTop(true);
 		
+	    notifyObservers(message);
 	}
 
-	public static ArrayList<Player> getarrayListAvversari() {
+	public ArrayList<Player> getarrayListAvversari() {
 		return arrayListAvversari;
 	}
-	public static String getPathCartaScomunica1() {
+	public String getPathCartaScomunica1() {
 		return pathCartaScomunica1;
 	}
-	public static String getPathCartaScomunica2() {
+	public String getPathCartaScomunica2() {
 		return pathCartaScomunica2;
 	}
-	public static String getPathCartaScomunica3() {
+	public String getPathCartaScomunica3() {
 		return pathCartaScomunica3;
 	}
-	
-	
+	public int getNumeroGiocatori() {
+		return numeroGiocatori;
+	}
+	public Player getPlayerCorrente() {
+		return playerCorrente;
+	}
+	public boolean getTurnoGiocatore() {
+		return turnoGiocatore;
+	}
+	public void writeMessage(String text) {
+		message.add(text);
+	}
+	public ArrayList<String> getMessage() {
+		return message;
+	}
 }

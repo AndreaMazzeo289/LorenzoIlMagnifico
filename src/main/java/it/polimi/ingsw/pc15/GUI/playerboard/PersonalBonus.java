@@ -9,7 +9,7 @@ import javax.swing.ImageIcon;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 
-import it.polimi.ingsw.pc15.GUI.mainGUI;
+import it.polimi.ingsw.pc15.GUI.GUI;
 
 public class PersonalBonus extends JPanel{
 
@@ -28,11 +28,11 @@ public class PersonalBonus extends JPanel{
 	private int altezza;
 	private int larghezza;
 	
-	public PersonalBonus(String path) {
+	public PersonalBonus(String path, GUI gui) {
 
-		larghezzaTotale = mainGUI.larghezzaTotale;
-		altezzaTotale =  mainGUI.altezzaTotale;
-		rapporto = mainGUI.rapportoPlayerBoard;
+		larghezzaTotale = gui.larghezzaTotale;
+		altezzaTotale =  gui.altezzaTotale;
+		rapporto = gui.rapportoPlayerBoard;
 		
 		altezzaSchermo = (int)screenSize.getHeight();
 		larghezzaSchermo = (int)(((float)screenSize.getWidth())*rapporto);

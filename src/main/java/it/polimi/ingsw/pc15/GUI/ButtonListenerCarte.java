@@ -17,8 +17,10 @@ public class ButtonListenerCarte implements ActionListener{
 
 	private int larghezza = 500;
 	private int altezza = 800;
+	GUI gui;
 	
-	 public ButtonListenerCarte() {
+	 public ButtonListenerCarte(GUI gui) {
+		 this.gui = gui;
 	  }
 
 	@Override
@@ -60,24 +62,24 @@ public class ButtonListenerCarte implements ActionListener{
 		zoomCard.setAlwaysOnTop(true);
 
 		if(tipo.equals("leader1")){
-			PlayerBoard playerBoard = (PlayerBoard)mainGUI.mainFrame.getContentPane().getComponent(1);
+			PlayerBoard playerBoard = (PlayerBoard)gui.mainFrame.getContentPane().getComponent(1);
 			playerBoard.getCartaLeader1().scriviLabel("GIOCATO");
 		}
 		if(tipo.equals("leader2")){
-			PlayerBoard playerBoard = (PlayerBoard)mainGUI.mainFrame.getContentPane().getComponent(1);
+			PlayerBoard playerBoard = (PlayerBoard)gui.mainFrame.getContentPane().getComponent(1);
 			playerBoard.getCartaLeader2().scriviLabel("GIOCATO");
 		}
 		if(tipo.equals("leader3")){
-			PlayerBoard playerBoard = (PlayerBoard)mainGUI.mainFrame.getContentPane().getComponent(1);
+			PlayerBoard playerBoard = (PlayerBoard)gui.mainFrame.getContentPane().getComponent(1);
 			playerBoard.getCartaLeader3().scriviLabel("GIOCATO");
 		}
 		if(tipo.equals("leader4")){
-			PlayerBoard playerBoard = (PlayerBoard)mainGUI.mainFrame.getContentPane().getComponent(1);
+			PlayerBoard playerBoard = (PlayerBoard)gui.mainFrame.getContentPane().getComponent(1);
 			playerBoard.getCartaLeader4().scriviLabel("GIOCATO");
 		}
 		
 		if(tipo.equals("leader1Gioca")){
-			PlayerBoard playerBoard = (PlayerBoard)mainGUI.mainFrame.getContentPane().getComponent(1);
+			PlayerBoard playerBoard = (PlayerBoard)gui.mainFrame.getContentPane().getComponent(1);
 			playerBoard.getCartaLeader1().scriviLabel("GIOCATO");
 		}
 	}
