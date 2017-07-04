@@ -51,9 +51,9 @@ public class GUI extends ClientView{
 		
 		this.retroCarte = new HashMap<TipoCarta,String>();
 		this.retroCarte.put(TipoCarta.TERRITORIO, "img/DevCardsBack/devcards_b_c_g_1.jdevcards_b_c_pdevcards_b_c_g.jdevcards_b_c_pg.jpg");
-		this.retroCarte.put(TipoCarta.PERSONAGGIO, "img/DevCardsBack/devcards_b_c_g_1.jdevcards_b_c_pdevcards_b_c_g.jdevcards_b_c_pg.jpg");
-		this.retroCarte.put(TipoCarta.IMPRESA, "img/DevCardsBack/devcards_b_c_g_1.jdevcards_b_c_pdevcards_b_c_g.jdevcards_b_c_pg.jpg");
-		this.retroCarte.put(TipoCarta.EDIFICIO, "img/DevCardsBack/devcards_b_c_g_1.jdevcards_b_c_pdevcards_b_c_g.jdevcards_b_c_pg.jpg");
+		this.retroCarte.put(TipoCarta.PERSONAGGIO, "img/DevCardsBack/devcards_b_c_b_1.jdevcards_b_c_pdevcards_b_c_g.jdevcards_b_c_pg.jpg");
+		this.retroCarte.put(TipoCarta.IMPRESA, "img/DevCardsBack/devcards_b_c_p_1.jdevcards_b_c_pdevcards_b_c_g.jdevcards_b_c_pg.jpg");
+		this.retroCarte.put(TipoCarta.EDIFICIO, "img/DevCardsBack/devcards_b_c_y_1.jdevcards_b_c_pdevcards_b_c_g.jdevcards_b_c_pg.jpg");
 		
 	}
 
@@ -92,7 +92,7 @@ public class GUI extends ClientView{
 				for(int i=0; i<4; i++) {
 					int spazio = Math.abs(i-3);
 					try {
-						gameboard.getSpazioTorre(tipo, i).modificaImmagineCarta(this.clientModel.getStatoPlancia().getSpazioTorre(tipo, i).getCarta().getImagePath());
+						gameboard.getSpazioTorre(tipo, i).modificaImmagineCarta(this.clientModel.getStatoPlancia().getSpazioTorre(tipo, spazio).getCarta().getImagePath());
 					}catch(NullPointerException e) {
 						System.out.println("errore in " + tipo.name());
 						gameboard.getSpazioTorre(tipo, i).modificaImmagineCarta(retroCarte.get(tipo));
@@ -131,6 +131,21 @@ public class GUI extends ClientView{
 		// Carte player
 		//---------------------------//
 		System.out.println("UPDATE");
+		
+		/*for(TipoCarta tipo : TipoCarta.values()) {
+			if(tipo.equals(TipoCarta.ALL));
+			else
+				for(int i=0; i<4; i++) {
+					int spazio = Math.abs(i-3);
+					try {
+						gameboard.getSpazioTorre(tipo, i).modificaImmagineCarta(this.clientModel.getStatoPlancia().getSpazioTorre(tipo, spazio).getCarta().getImagePath());
+					}catch(NullPointerException e) {
+						System.out.println("errore in " + tipo.name());
+						gameboard.getSpazioTorre(tipo, i).modificaImmagineCarta(retroCarte.get(tipo));
+					}
+				}
+		}*/
+		
 		ArrayList<Carta> listaCarteTerritorio = this.clientModel.getStatoGiocatore().getCarte(TipoCarta.TERRITORIO);
 		int i=0;
 		for(Carta carta : listaCarteTerritorio) {

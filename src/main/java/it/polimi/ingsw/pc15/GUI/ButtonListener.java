@@ -290,12 +290,56 @@ public class ButtonListener implements ActionListener{
 			FrameMostraCartePlayer frame = new FrameMostraCartePlayer(TipoCarta.IMPRESA, player);
 		}
 		
+		
+		if(e.getActionCommand().startsWith("spazioTorre")){
+			
+			if(coloreFamiliareScelto!=null) {
+				gui.writeMessage("0");
+				gui.writeMessage("torre");
+				String coloreTorre = e.getActionCommand().substring(11, e.getActionCommand().length()-1);
+				String numeroTorre = e.getActionCommand().substring(coloreTorre.length()+11);
+				int numeroTorreInt = Integer.parseInt(numeroTorre)-1;
+				gui.writeMessage(coloreTorre.toLowerCase());
+				gui.writeMessage(Integer.toString(numeroTorreInt));
+				
+				int index = Math.abs(numeroTorreInt-3);
+				
+				TipoCarta tipoCarta=null;
+				
+				switch(coloreTorre.toUpperCase()){
+				case "VERDE":
+					tipoCarta = TipoCarta.TERRITORIO;
+					break;
+				case "GIALLA":
+					tipoCarta = TipoCarta.EDIFICIO;
+					break;
+				case "BLU":
+					tipoCarta = TipoCarta.PERSONAGGIO;
+					break;
+				case "VIOLA":
+					tipoCarta = TipoCarta.IMPRESA;
+					break;
+				}
+				
+				gameboard.getSpazioTorre(tipoCarta,index).inserisciFamiliare(selezionaFamiliarePopup.readPath(coloreFamiliareScelto));
+				{
+					playerBoard.getButtonPosizionaFamiliare().sbloccaButton();
+					playerBoard.getButtonAttivaEffettoLeader().sbloccaButton();
+					playerBoard.getButtonGiocaLeader().sbloccaButton();
+					playerBoard.getButtonScartaLeader().sbloccaButton();
+				}
+				coloreFamiliareScelto=null;
+				gui.inviaMessaggio();	
+			}
+		}
+		
+		
 		//------------------------------------------------------------------------------------------//
 		// SPAZI TORRE VERDE
 		//------------------------------------------------------------------------------------------//
 		// SPAZIO 1
 		//----------//
-		if(e.getActionCommand().equals("spazioTorreVerde1")) {
+		/*if(e.getActionCommand().equals("spazioTorreVerde1")) {
 			if(coloreFamiliareScelto!=null) {
 				
 				gui.writeMessage("0");
@@ -303,7 +347,7 @@ public class ButtonListener implements ActionListener{
 				gui.writeMessage("verde");
 				gui.writeMessage("1");
 				
-				gameboard.getSpazioTorreVerde1().inserisciFamiliare(selezionaFamiliarePopup.readPath(coloreFamiliareScelto));
+				gameboard.getSpazioTorre(TipoCarta.TERRITORIO,3).inserisciFamiliare(selezionaFamiliarePopup.readPath(coloreFamiliareScelto));
 				{
 					playerBoard.getButtonPosizionaFamiliare().sbloccaButton();
 					playerBoard.getButtonAttivaEffettoLeader().sbloccaButton();
@@ -324,7 +368,7 @@ public class ButtonListener implements ActionListener{
 				gui.writeMessage("verde");
 				gui.writeMessage("2");
 				
-				gameboard.getSpazioTorreVerde2().inserisciFamiliare(selezionaFamiliarePopup.readPath(coloreFamiliareScelto));
+				gameboard.getSpazioTorre(TipoCarta.TERRITORIO,2).inserisciFamiliare(selezionaFamiliarePopup.readPath(coloreFamiliareScelto));
 				{
 					playerBoard.getButtonPosizionaFamiliare().sbloccaButton();
 					playerBoard.getButtonAttivaEffettoLeader().sbloccaButton();
@@ -345,7 +389,7 @@ public class ButtonListener implements ActionListener{
 				gui.writeMessage("verde");
 				gui.writeMessage("3");
 				
-				gameboard.getSpazioTorreVerde3().inserisciFamiliare(selezionaFamiliarePopup.readPath(coloreFamiliareScelto));
+				gameboard.getSpazioTorre(TipoCarta.TERRITORIO,1).inserisciFamiliare(selezionaFamiliarePopup.readPath(coloreFamiliareScelto));
 				{
 					playerBoard.getButtonPosizionaFamiliare().sbloccaButton();
 					playerBoard.getButtonAttivaEffettoLeader().sbloccaButton();
@@ -366,7 +410,7 @@ public class ButtonListener implements ActionListener{
 				gui.writeMessage("verde");
 				gui.writeMessage("4");
 				
-				gameboard.getSpazioTorreVerde4().inserisciFamiliare(selezionaFamiliarePopup.readPath(coloreFamiliareScelto));
+				gameboard.getSpazioTorre(TipoCarta.TERRITORIO,0).inserisciFamiliare(selezionaFamiliarePopup.readPath(coloreFamiliareScelto));
 				{
 					playerBoard.getButtonPosizionaFamiliare().sbloccaButton();
 					playerBoard.getButtonAttivaEffettoLeader().sbloccaButton();
@@ -390,7 +434,7 @@ public class ButtonListener implements ActionListener{
 				gui.writeMessage("blu");
 				gui.writeMessage("1");
 				
-				gameboard.getSpazioTorreBlu1().inserisciFamiliare(selezionaFamiliarePopup.readPath(coloreFamiliareScelto));
+				gameboard.getSpazioTorre(TipoCarta.PERSONAGGIO,3).inserisciFamiliare(selezionaFamiliarePopup.readPath(coloreFamiliareScelto));
 				{
 					playerBoard.getButtonPosizionaFamiliare().sbloccaButton();
 					playerBoard.getButtonAttivaEffettoLeader().sbloccaButton();
@@ -411,7 +455,7 @@ public class ButtonListener implements ActionListener{
 				gui.writeMessage("blu");
 				gui.writeMessage("2");
 				
-				gameboard.getSpazioTorreBlu2().inserisciFamiliare(selezionaFamiliarePopup.readPath(coloreFamiliareScelto));
+				gameboard.getSpazioTorre(TipoCarta.PERSONAGGIO,2).inserisciFamiliare(selezionaFamiliarePopup.readPath(coloreFamiliareScelto));
 				{
 					playerBoard.getButtonPosizionaFamiliare().sbloccaButton();
 					playerBoard.getButtonAttivaEffettoLeader().sbloccaButton();
@@ -432,7 +476,7 @@ public class ButtonListener implements ActionListener{
 				gui.writeMessage("blu");
 				gui.writeMessage("3");
 				
-				gameboard.getSpazioTorreBlu3().inserisciFamiliare(selezionaFamiliarePopup.readPath(coloreFamiliareScelto));
+				gameboard.getSpazioTorre(TipoCarta.PERSONAGGIO,1).inserisciFamiliare(selezionaFamiliarePopup.readPath(coloreFamiliareScelto));
 				{
 					playerBoard.getButtonPosizionaFamiliare().sbloccaButton();
 					playerBoard.getButtonAttivaEffettoLeader().sbloccaButton();
@@ -453,7 +497,7 @@ public class ButtonListener implements ActionListener{
 				gui.writeMessage("blu");
 				gui.writeMessage("4");
 				
-				gameboard.getSpazioTorreBlu4().inserisciFamiliare(selezionaFamiliarePopup.readPath(coloreFamiliareScelto));
+				gameboard.getSpazioTorre(TipoCarta.PERSONAGGIO,0).inserisciFamiliare(selezionaFamiliarePopup.readPath(coloreFamiliareScelto));
 				{
 					playerBoard.getButtonPosizionaFamiliare().sbloccaButton();
 					playerBoard.getButtonAttivaEffettoLeader().sbloccaButton();
@@ -477,7 +521,7 @@ public class ButtonListener implements ActionListener{
 				gui.writeMessage("viola");
 				gui.writeMessage("1");
 				
-				gameboard.getSpazioTorreViola1().inserisciFamiliare(selezionaFamiliarePopup.readPath(coloreFamiliareScelto));
+				gameboard.getSpazioTorre(TipoCarta.IMPRESA,3).inserisciFamiliare(selezionaFamiliarePopup.readPath(coloreFamiliareScelto));
 				{
 					playerBoard.getButtonPosizionaFamiliare().sbloccaButton();
 					playerBoard.getButtonAttivaEffettoLeader().sbloccaButton();
@@ -497,7 +541,7 @@ public class ButtonListener implements ActionListener{
 				gui.writeMessage("viola");
 				gui.writeMessage("2");
 				
-				gameboard.getSpazioTorreViola2().inserisciFamiliare(selezionaFamiliarePopup.readPath(coloreFamiliareScelto));
+				gameboard.getSpazioTorre(TipoCarta.IMPRESA,2).inserisciFamiliare(selezionaFamiliarePopup.readPath(coloreFamiliareScelto));
 				{
 					playerBoard.getButtonPosizionaFamiliare().sbloccaButton();
 					playerBoard.getButtonAttivaEffettoLeader().sbloccaButton();
@@ -517,7 +561,7 @@ public class ButtonListener implements ActionListener{
 				gui.writeMessage("viola");
 				gui.writeMessage("3");
 				
-				gameboard.getSpazioTorreViola3().inserisciFamiliare(selezionaFamiliarePopup.readPath(coloreFamiliareScelto));
+				gameboard.getSpazioTorre(TipoCarta.IMPRESA,1).inserisciFamiliare(selezionaFamiliarePopup.readPath(coloreFamiliareScelto));
 				{
 					playerBoard.getButtonPosizionaFamiliare().sbloccaButton();
 					playerBoard.getButtonAttivaEffettoLeader().sbloccaButton();
@@ -537,7 +581,7 @@ public class ButtonListener implements ActionListener{
 				gui.writeMessage("viola");
 				gui.writeMessage("4");
 				
-				gameboard.getSpazioTorreViola4().inserisciFamiliare(selezionaFamiliarePopup.readPath(coloreFamiliareScelto));
+				gameboard.getSpazioTorre(TipoCarta.IMPRESA,0).inserisciFamiliare(selezionaFamiliarePopup.readPath(coloreFamiliareScelto));
 				{
 					playerBoard.getButtonPosizionaFamiliare().sbloccaButton();
 					playerBoard.getButtonAttivaEffettoLeader().sbloccaButton();
@@ -560,7 +604,7 @@ public class ButtonListener implements ActionListener{
 				gui.writeMessage("gialla");
 				gui.writeMessage("1");
 				
-				gameboard.getSpazioTorreGialla1().inserisciFamiliare(selezionaFamiliarePopup.readPath(coloreFamiliareScelto));
+				gameboard.getSpazioTorre(TipoCarta.EDIFICIO,3).inserisciFamiliare(selezionaFamiliarePopup.readPath(coloreFamiliareScelto));
 				{
 					playerBoard.getButtonPosizionaFamiliare().sbloccaButton();
 					playerBoard.getButtonAttivaEffettoLeader().sbloccaButton();
@@ -580,7 +624,7 @@ public class ButtonListener implements ActionListener{
 				gui.writeMessage("gialla");
 				gui.writeMessage("2");
 				
-				gameboard.getSpazioTorreGialla2().inserisciFamiliare(selezionaFamiliarePopup.readPath(coloreFamiliareScelto));
+				gameboard.getSpazioTorre(TipoCarta.EDIFICIO,2).inserisciFamiliare(selezionaFamiliarePopup.readPath(coloreFamiliareScelto));
 				{
 					playerBoard.getButtonPosizionaFamiliare().sbloccaButton();
 					playerBoard.getButtonAttivaEffettoLeader().sbloccaButton();
@@ -600,7 +644,7 @@ public class ButtonListener implements ActionListener{
 				gui.writeMessage("gialla");
 				gui.writeMessage("3");
 				
-				gameboard.getSpazioTorreGialla3().inserisciFamiliare(selezionaFamiliarePopup.readPath(coloreFamiliareScelto));
+				gameboard.getSpazioTorre(TipoCarta.EDIFICIO,1).inserisciFamiliare(selezionaFamiliarePopup.readPath(coloreFamiliareScelto));
 				{
 					playerBoard.getButtonPosizionaFamiliare().sbloccaButton();
 					playerBoard.getButtonAttivaEffettoLeader().sbloccaButton();
@@ -620,7 +664,7 @@ public class ButtonListener implements ActionListener{
 				gui.writeMessage("gialla");
 				gui.writeMessage("4");
 				
-				gameboard.getSpazioTorreGialla4().inserisciFamiliare(selezionaFamiliarePopup.readPath(coloreFamiliareScelto));
+				gameboard.getSpazioTorre(TipoCarta.EDIFICIO,0).inserisciFamiliare(selezionaFamiliarePopup.readPath(coloreFamiliareScelto));
 				{
 					playerBoard.getButtonPosizionaFamiliare().sbloccaButton();
 					playerBoard.getButtonAttivaEffettoLeader().sbloccaButton();
@@ -631,7 +675,7 @@ public class ButtonListener implements ActionListener{
 				gui.inviaMessaggio();
 			}
 		}
-		
+		*/
 		//------------------------------------------------------------------------------------------//
 		// SPAZIO CONSIGLIO
 		//------------------------------------------------------------------------------------------//

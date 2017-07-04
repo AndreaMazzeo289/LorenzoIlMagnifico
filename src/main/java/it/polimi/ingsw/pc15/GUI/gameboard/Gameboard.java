@@ -55,55 +55,55 @@ public class Gameboard extends JPanel {
 		
 		path = "img\\Gameboard\\SpaziTorre\\Verde\\1\\";
 		spaziTorreVerde.add(new SpazioTorre(listener, gui, 833, 181, 47, 517, 395, 129, path+"north.png", path+"south.png", path+"east.png", path+"west.png",
-				"img/DevCardsFront/devcards_f_en_c_1.png", "spazioTorreVerde1"));
+				"img/DevCardsFront/devcards_f_en_c_1.png", "spazioTorreVerde4"));
 		path = "img\\Gameboard\\SpaziTorre\\Verde\\2\\";
 		spaziTorreVerde.add(new SpazioTorre(listener, gui, 833, 8, 47, 517, 395, 129, path+"north.png", path+"south.png", path+"east.png", path+"west.png",
-				"img/DevCardsFront/devcards_f_en_c_2.png", "spazioTorreVerde2"));
+				"img/DevCardsFront/devcards_f_en_c_2.png", "spazioTorreVerde3"));
 		path = "img\\Gameboard\\SpaziTorre\\Verde\\3\\";
 		spaziTorreVerde.add(new SpazioTorre(listener, gui, 833, 8, 47, 517, 395, 129, path+"north.png", path+"south.png", path+"east.png", path+"west.png",
-				"img/DevCardsFront/devcards_f_en_c_3.png", "spazioTorreVerde3"));
+				"img/DevCardsFront/devcards_f_en_c_3.png", "spazioTorreVerde2"));
 		path = "img\\Gameboard\\SpaziTorre\\Verde\\4\\";
 		spaziTorreVerde.add(new SpazioTorre(listener, gui, 833, 8, 47, 517, 395, 129, path+"north.png", path+"south.png", path+"east.png", path+"west.png",
-				"img/DevCardsFront/devcards_f_en_c_3.png", "spazioTorreVerde4"));
+				"img/DevCardsFront/devcards_f_en_c_3.png", "spazioTorreVerde1"));
 		
 		path = "img\\Gameboard\\SpaziTorre\\Blu\\1\\";
 		spaziTorreBlu.add(new SpazioTorre(listener, gui, 833, 181, 47, 517, 395, 38, path+"north.png", path+"south.png", path+"east.png", path+"west.png",
-				"img/DevCardsFront/devcards_f_en_c_61.png", "spazioTorreBlu1"));
+				"img/DevCardsFront/devcards_f_en_c_61.png", "spazioTorreBlu4"));
 		path = "img\\Gameboard\\SpaziTorre\\Blu\\2\\";
 		spaziTorreBlu.add(new SpazioTorre(listener, gui, 833, 8, 47, 517, 395, 38, path+"north.png", path+"south.png", path+"east.png", path+"west.png",
-				"img/DevCardsFront/devcards_f_en_c_64.png", "spazioTorreBlu2"));
+				"img/DevCardsFront/devcards_f_en_c_64.png", "spazioTorreBlu3"));
 		path = "img\\Gameboard\\SpaziTorre\\Blu\\3\\";
 		spaziTorreBlu.add(new SpazioTorre(listener, gui, 833, 8, 47, 517, 395, 38, path+"north.png", path+"south.png", path+"east.png", path+"west.png",
-				"img/DevCardsFront/devcards_f_en_c_62.png", "spazioTorreBlu3"));
+				"img/DevCardsFront/devcards_f_en_c_62.png", "spazioTorreBlu2"));
 		path = "img\\Gameboard\\SpaziTorre\\Blu\\4\\";
 		spaziTorreBlu.add(new SpazioTorre(listener, gui, 833, 8, 47, 517, 395, 38, path+"north.png", path+"south.png", path+"east.png", path+"west.png",
-				"img/DevCardsFront/devcards_f_en_c_63.png", "spazioTorreBlu4"));
+				"img/DevCardsFront/devcards_f_en_c_63.png", "spazioTorreBlu1"));
 		
 		path = "img\\Gameboard\\SpaziTorre\\Gialla\\1\\";
 		spaziTorreGiallo.add(new SpazioTorre(listener, gui, 833, 181, 47, 517, 395, 38, path+"north.png", path+"south.png", path+"east.png", path+"west.png",
-				"img/DevCardsFront/devcards_f_en_c_25.png", "spazioTorreGialla1"));
+				"img/DevCardsFront/devcards_f_en_c_25.png", "spazioTorreGialla4"));
 		path = "img\\Gameboard\\SpaziTorre\\Gialla\\2\\";
 		spaziTorreGiallo.add(new SpazioTorre(listener, gui, 833, 8, 47, 517, 395, 38, path+"north.png", path+"south.png", path+"east.png", path+"west.png",
-				"img/DevCardsFront/devcards_f_en_c_26.png", "spazioTorreGialla2"));
+				"img/DevCardsFront/devcards_f_en_c_26.png", "spazioTorreGialla3"));
 		path = "img\\Gameboard\\SpaziTorre\\Gialla\\3\\";
 		spaziTorreGiallo.add(new SpazioTorre(listener, gui, 833, 8, 47, 517, 395, 38, path+"north.png", path+"south.png", path+"east.png", path+"west.png",
-				"img/DevCardsFront/devcards_f_en_c_27.png", "spazioTorreGialla3"));
+				"img/DevCardsFront/devcards_f_en_c_27.png", "spazioTorreGialla2"));
 		path = "img\\Gameboard\\SpaziTorre\\Gialla\\4\\";
 		spaziTorreGiallo.add(new SpazioTorre(listener, gui, 833, 8, 47, 517, 395, 38, path+"north.png", path+"south.png", path+"east.png", path+"west.png",
-				"img/DevCardsFront/devcards_f_en_c_28.png", "spazioTorreGialla4"));
+				"img/DevCardsFront/devcards_f_en_c_28.png", "spazioTorreGialla1"));
 		
 		path = "img\\Gameboard\\SpaziTorre\\Viola\\1\\";
 		spaziTorreViola.add(new SpazioTorre(listener, gui, 833, 181, 47, 517, 571, 38, path+"north.png", path+"south.png", path+"east.png", path+"west.png",
-				"img/DevCardsFront/devcards_f_en_c_93.png", "spazioTorreViola1"));
+				"img/DevCardsFront/devcards_f_en_c_93.png", "spazioTorreViola4"));
 		path = "img\\Gameboard\\SpaziTorre\\Viola\\2\\";
 		spaziTorreViola.add(new SpazioTorre(listener, gui, 833, 8, 47, 517, 571, 38, path+"north.png", path+"south.png", path+"east.png", path+"west.png",
-				"img/DevCardsFront/devcards_f_en_c_94.png", "spazioTorreViola2"));
+				"img/DevCardsFront/devcards_f_en_c_94.png", "spazioTorreViola3"));
 		path = "img\\Gameboard\\SpaziTorre\\Viola\\3\\";
 		spaziTorreViola.add(new SpazioTorre(listener, gui, 833, 8, 47, 517, 571, 38, path+"north.png", path+"south.png", path+"east.png", path+"west.png",
-				"img/DevCardsFront/devcards_f_en_c_95.png", "spazioTorreViola3"));
+				"img/DevCardsFront/devcards_f_en_c_95.png", "spazioTorreViola2"));
 		path = "img\\Gameboard\\SpaziTorre\\Viola\\4\\";
 		spaziTorreViola.add(new SpazioTorre(listener, gui, 833, 8, 47, 517, 571, 38, path+"north.png", path+"south.png", path+"east.png", path+"west.png",
-				"img/DevCardsFront/devcards_f_en_c_96.png", "spazioTorreViola4"));
+				"img/DevCardsFront/devcards_f_en_c_96.png", "spazioTorreViola1"));
 		
 		this.spaziTorreMap.put(TipoCarta.TERRITORIO, spaziTorreVerde);
 		this.spaziTorreMap.put(TipoCarta.PERSONAGGIO, spaziTorreBlu);
@@ -267,7 +267,7 @@ public class Gameboard extends JPanel {
 		return this.spaziTorreMap.get(tipoCarta).get(numero);
 	}
 	
-	public SpazioTorre getSpazioTorreVerde1() {
+	/*public SpazioTorre getSpazioTorreVerde1() {
 		return (SpazioTorre) spaziTorre.getComponent(0);
 	}
 	
@@ -336,7 +336,7 @@ public class Gameboard extends JPanel {
 	
 	public SpazioTorre getSpazioTorreViola4() {
 		return (SpazioTorre) spaziTorre.getComponent(15);
-	}
+	}*/
 	
 	// Spazio produzione
 	//---------------------------//
