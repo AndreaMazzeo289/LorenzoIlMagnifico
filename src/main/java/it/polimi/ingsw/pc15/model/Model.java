@@ -69,8 +69,6 @@ public class Model extends Observable {
 			giocatori.add(new Player(nomiGiocatori.get(i)));
 		
 		this.ordine = nomiGiocatori;
-		Collections.shuffle(nomiGiocatori);
-		this.giocatoreCorrente = nomiGiocatori.get(0);
 		
 		this.periodo = 1;
 		this.turno = 1;
@@ -143,53 +141,13 @@ public class Model extends Observable {
 
 	public void iniziaNuovoTurno() {
 		
-		if (!(periodo==1 && turno==1)) {
-			
-			boolean nuovoGiocatore;
-			ArrayList<String> nuovoOrdine = new ArrayList<String>();
-			for (Familiare familiare : this.plancia.getSpazioConsiglio().getFamiliari()) {   //per ogni familiare in spazio consiglio
-				nuovoGiocatore=true;
-				for (String nomeGiocatore : nuovoOrdine)									// controlla i giocatori già aggiunti.
-					if (familiare.getPlayer().getNome().equals(nomeGiocatore))			//se hai già aggiunto il proprietario di quel 
-						nuovoGiocatore = false;											//familiare, metti false
-				if (nuovoGiocatore)
-					nuovoOrdine.add(familiare.getPlayer().getNome());                   //altrimenti aggiungilo
-			}
-			
-			for (String nomeGiocatore1 : this.ordine) {                   //per ogni nomeGiocatore nel vecchio ordine
-				nuovoGiocatore = true;
-				for (String nomeGiocatore2 : nuovoOrdine)                //controlla i giocatori già aggiunti
-					if (nomeGiocatore1.equals(nomeGiocatore2))           //se hai giò aggiunto quel nome metti false
-						nuovoGiocatore=false;
-				if (nuovoGiocatore)
-					nuovoOrdine.add(nomeGiocatore1);                     //altrimenti aggiungilo
-			}	
-			
-			this.ordine = nuovoOrdine;
-		}
+		
 		
 		plancia.setCarte(periodo, carteTerritorio, cartePersonaggio, carteEdificio, carteImpresa);
+		
 		plancia.libera();
 		
-		Random random = new Random();	
-		int valoreDadoNero = random.nextInt(6) + 1;
-		int valoreDadoBianco = random.nextInt(6) + 1;
-		int valoreDadoArancione = random.nextInt(6) + 1;
-		
-		for(Player player : giocatori) {
-			
-			player.getFamiliare(ColoreFamiliare.NEUTRO).setValore(0);
-			player.getFamiliare(ColoreFamiliare.NERO).setValore(valoreDadoNero);
-			player.getFamiliare(ColoreFamiliare.BIANCO).setValore(valoreDadoBianco);
-			player.getFamiliare(ColoreFamiliare.ARANCIONE).setValore(valoreDadoArancione);
-			
-			player.getFamiliare(ColoreFamiliare.NEUTRO).setDisponibilità(true);
-			player.getFamiliare(ColoreFamiliare.NERO).setDisponibilità(true);
-			player.getFamiliare(ColoreFamiliare.BIANCO).setDisponibilità(true);
-			player.getFamiliare(ColoreFamiliare.ARANCIONE).setDisponibilità(true);
-					
-		}
-		
+		tiraIDadi();
 
 		notificaStatoPartita("\nÈ iniziato un nuovo turno! (Periodo: " + periodo + ", Turno: " + turno + ")");
 
@@ -199,17 +157,17 @@ public class Model extends Observable {
 		
 		notificaStatoPartita("Fine del turno!");
 		
-		if (turno==2)
+		if (turno==ParserXML.leggiValore("numeroTurniPeriodo"))
 			rapportoInVaticano(periodo);
 		
 		turno++;
 		
-		if (turno==3) {
+		if (turno==ParserXML.leggiValore("numeroTurniPeriodo")+1) {
 			periodo++;
 			turno=1;
 		}
 		
-		if (periodo==4)
+		if (periodo==ParserXML.leggiValore("numeroTurniPeriodo")+1)
 			calcolaPunteggio();
 		
 		else 
@@ -315,12 +273,67 @@ public class Model extends Observable {
 		
 	}
 	
-
+	public void impostaOrdineGiocatori() {
+		
+		if (periodo==1 && turno==1) {	
+			Collections.shuffle(ordine);
+			this.giocatoreCorrente = ordine.get(0);
+		}
+		
+		else {
+					
+					boolean nuovoGiocatore;
+					ArrayList<String> nuovoOrdine = new ArrayList<String>();
+					for (Familiare familiare : this.plancia.getSpazioConsiglio().getFamiliari()) {   //per ogni familiare in spazio consiglio
+						nuovoGiocatore=true;
+						for (String nomeGiocatore : nuovoOrdine)									// controlla i giocatori già aggiunti.
+							if (familiare.getPlayer().getNome().equals(nomeGiocatore))			//se hai già aggiunto il proprietario di quel 
+								nuovoGiocatore = false;											//familiare, metti false
+						if (nuovoGiocatore)
+							nuovoOrdine.add(familiare.getPlayer().getNome());                   //altrimenti aggiungilo
+					}
+					
+					for (String nomeGiocatore1 : this.ordine) {                   //per ogni nomeGiocatore nel vecchio ordine
+						nuovoGiocatore = true;
+						for (String nomeGiocatore2 : nuovoOrdine)                //controlla i giocatori già aggiunti
+							if (nomeGiocatore1.equals(nomeGiocatore2))           //se hai giò aggiunto quel nome metti false
+								nuovoGiocatore=false;
+						if (nuovoGiocatore)
+							nuovoOrdine.add(nomeGiocatore1);                     //altrimenti aggiungilo
+					}	
+					
+					this.ordine = nuovoOrdine;
+				}
+		
+	}
+	
 	public void notificaStatoPartita (String messaggio) {
 		
 		StatoPartita statoPartita = new StatoPartita(plancia, periodo, turno, giocatori, giocatoreCorrente, messaggio);
 		setChanged();
-		notifyObservers(statoPartita);
+		notifyObservers(statoPartita);	
+	}
+	
+	public void tiraIDadi() {
+		
+		Random random = new Random();	
+		int valoreDadoNero = random.nextInt(6) + 1;
+		int valoreDadoBianco = random.nextInt(6) + 1;
+		int valoreDadoArancione = random.nextInt(6) + 1;
+		
+		for(Player player : giocatori) {
+			
+			player.getFamiliare(ColoreFamiliare.NEUTRO).setValore(0);
+			player.getFamiliare(ColoreFamiliare.NERO).setValore(valoreDadoNero);
+			player.getFamiliare(ColoreFamiliare.BIANCO).setValore(valoreDadoBianco);
+			player.getFamiliare(ColoreFamiliare.ARANCIONE).setValore(valoreDadoArancione);
+			
+			player.getFamiliare(ColoreFamiliare.NEUTRO).setDisponibilità(true);
+			player.getFamiliare(ColoreFamiliare.NERO).setDisponibilità(true);
+			player.getFamiliare(ColoreFamiliare.BIANCO).setDisponibilità(true);
+			player.getFamiliare(ColoreFamiliare.ARANCIONE).setDisponibilità(true);
+					
+		}
 		
 	}
 

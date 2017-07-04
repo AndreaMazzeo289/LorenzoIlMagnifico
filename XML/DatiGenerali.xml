@@ -62,4 +62,10 @@
     <nomeValore nome="numeroCarteLeader">
         <valore>4</valore>
     </nomeValore>
+    <nomeValore nome="numeroTurniPeriodo">
+        <valore>2</valore>
+    </nomeValore>
+    <nomeValore nome="numeroPeriodi">
+        <valore>3</valore>
+    </nomeValore>
 </datiGenerali>
