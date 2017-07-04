@@ -141,7 +141,7 @@ public class Model extends Observable {
 
 	public void iniziaNuovoTurno() {
 		
-		
+		impostaOrdineGiocatori();
 		
 		plancia.setCarte(periodo, carteTerritorio, cartePersonaggio, carteEdificio, carteImpresa);
 		

@@ -13,6 +13,7 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Observer;
 
+import it.polimi.ingsw.pc15.ParserXML;
 import it.polimi.ingsw.pc15.client.RMIHandler;
 import it.polimi.ingsw.pc15.client.RMIHandlerInterface;
 import it.polimi.ingsw.pc15.client.SocketHandler;
@@ -85,12 +86,12 @@ public class Server extends UnicastRemoteObject implements ServerInterface {
 		views.put(name, view);
 		System.out.println("Giocatore connnesso: " + name);
 		numeroGiocatori++;
-		if (numeroGiocatori==2) {
+		if (numeroGiocatori==ParserXML.leggiValore("numeroMinGiocatori")) {
 			ServerTimer timer = new ServerTimer(views, this);
 			timerThread = new Thread(timer);
 			timerThread.start();
 		}
-		if (numeroGiocatori==3) {
+		if (numeroGiocatori==ParserXML.leggiValore("numeroMaxGiocatori")) {
 			timerThread.interrupt();
 			avviaPartita();
 			

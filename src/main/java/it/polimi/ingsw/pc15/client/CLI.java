@@ -4,6 +4,7 @@ import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.InputMismatchException;
 import java.util.Map.Entry;
 import java.util.Observable;
@@ -223,46 +224,21 @@ public class CLI extends ClientView {
 		    					System.out.print("familiare " + familiare.getColore().name() + " di " + familiare.getPlayer().getNome() + " - ");
 		    			}
 		    			
-		    			System.out.println("\n    Torre VERDE:");
-		    			for (SpazioTorre spazio : this.clientModel.getStatoPlancia().getTorre(TipoCarta.TERRITORIO).getSpaziTorre())
-		    				if (spazio.vuoto())
-		    					System.out.println("  - Spazio " + (this.clientModel.getStatoPlancia().getTorre(TipoCarta.TERRITORIO).getSpaziTorre().lastIndexOf(spazio)+1) + ": LIBERO - Carta Territorio presente: " + spazio.getCarta().toString());
+		    			for (TipoCarta tipo: TipoCarta.values()) {
+		    				if (tipo.equals(TipoCarta.ALL));
 		    				else {
-		    					System.out.print("  - Spazio " + (this.clientModel.getStatoPlancia().getTorre(TipoCarta.TERRITORIO).getSpaziTorre().lastIndexOf(spazio)+1) + ": occupato dal familiare ");
-			    				for (Familiare familiare : spazio.getFamiliari())
-			    					System.out.println(familiare.getColore().name() + " di " + familiare.getPlayer().getNome() + " ");
-		    				}
-		    			
-		    			System.out.println("\n    Torre VIOLA:");
-		    			for (SpazioTorre spazio : this.clientModel.getStatoPlancia().getTorre(TipoCarta.IMPRESA).getSpaziTorre())
-		    				if (spazio.vuoto())
-		    					System.out.println("  - Spazio " + (this.clientModel.getStatoPlancia().getTorre(TipoCarta.IMPRESA).getSpaziTorre().lastIndexOf(spazio)+1) + ": LIBERO - Carta Impresa presente: " + spazio.getCarta().toString());
-		    				else {
-		    					System.out.print("  - Spazio " + (this.clientModel.getStatoPlancia().getTorre(TipoCarta.IMPRESA).getSpaziTorre().lastIndexOf(spazio)+1) + ": occupato da ");
-			    				for (Familiare familiare : spazio.getFamiliari())
-			    					System.out.println(familiare.getColore().name() + " di " + familiare.getPlayer().getNome() + " ");
-		    				}
-		    			
-		    			
-		    			System.out.println("\n    Torre GIALLA:");
-		    			for (SpazioTorre spazio : this.clientModel.getStatoPlancia().getTorre(TipoCarta.EDIFICIO).getSpaziTorre())
-		    				if (spazio.vuoto())
-		    					System.out.println("  - Spazio " + (this.clientModel.getStatoPlancia().getTorre(TipoCarta.EDIFICIO).getSpaziTorre().lastIndexOf(spazio)+1) + ": LIBERO - Carta Edificio presente: " + spazio.getCarta().toString());
-		    				else {
-		    					System.out.print("  - Spazio " + (this.clientModel.getStatoPlancia().getTorre(TipoCarta.EDIFICIO).getSpaziTorre().lastIndexOf(spazio)+1) + ": occupato da ");
-			    				for (Familiare familiare : spazio.getFamiliari())
-			    					System.out.println(familiare.getColore().name() + " di " + familiare.getPlayer().getNome() + " ");
-		    				}
-		    			
-		    			System.out.println("\n    Torre BLU:");
-		    			for (SpazioTorre spazio : this.clientModel.getStatoPlancia().getTorre(TipoCarta.PERSONAGGIO).getSpaziTorre())
-		    				if (spazio.vuoto())
-		    					System.out.println("  - Spazio " + (this.clientModel.getStatoPlancia().getTorre(TipoCarta.PERSONAGGIO).getSpaziTorre().lastIndexOf(spazio)+1) + ": LIBERO - Carta Personaggio presente: " + spazio.getCarta().toString());
-		    				else {
-		    					System.out.print("  - Spazio " + (this.clientModel.getStatoPlancia().getTorre(TipoCarta.PERSONAGGIO).getSpaziTorre().lastIndexOf(spazio)+1) + ": occupato da ");
-			    				for (Familiare familiare : spazio.getFamiliari())
-			    					System.out.println(familiare.getColore().name() + " di " + familiare.getPlayer().getNome() + " ");
-		    				}
+		    					
+				    			System.out.println("\n    Torre " + tipo.name());
+				    			for (SpazioTorre spazio : this.clientModel.getStatoPlancia().getTorre(tipo).getSpaziTorre())
+				    				if (spazio.vuoto())
+				    					System.out.println("  - Spazio " + (this.clientModel.getStatoPlancia().getTorre(tipo).getSpaziTorre().lastIndexOf(spazio)+1) + ": LIBERO - Carta " + tipo.name() + " presente: " + spazio.getCarta().toString());
+				    				else {
+				    					System.out.print("  - Spazio " + (this.clientModel.getStatoPlancia().getTorre(tipo).getSpaziTorre().lastIndexOf(spazio)+1) + ": occupato dal familiare ");
+					    				for (Familiare familiare : spazio.getFamiliari())
+					    					System.out.println(familiare.getColore().name() + " di " + familiare.getPlayer().getNome() + " ");
+				    				}
+		    					}
+		    			}
 		    			
 		    			/*
 		    			System.out.println("\n    SCOMUNICHE:");
@@ -285,30 +261,18 @@ public class CLI extends ClientView {
 		    	
 		    	case "5": System.out.println("\nAl momento possiedi le seguenti carte Sviluppo:");
 		    	
-		    			System.out.println(" carte TERRITORIO:");
-		    			if (this.clientModel.getStatoGiocatore().getCarte(TipoCarta.TERRITORIO).isEmpty())
-		    				System.out.println("  [nessuna]");
-		    			else for (Carta carta : this.clientModel.getStatoGiocatore().getCarte(TipoCarta.TERRITORIO))
-							System.out.println("  - " + carta.getNome() + " (EFFETTO PERMANENTE: " + carta.getEffettoPermanente().toString() + ")");
-							
-			    		System.out.println(" carte PERSONAGGIO:");
-		    			if (this.clientModel.getStatoGiocatore().getCarte(TipoCarta.PERSONAGGIO).isEmpty())
-		    				System.out.println("  [nessuna]");
-		    			else for (Carta carta : this.clientModel.getStatoGiocatore().getCarte(TipoCarta.PERSONAGGIO))
-							System.out.println("  - " + carta.getNome() + " (EFFETTO PERMANENTE: " + carta.getEffettoPermanente().toString() + ")");
-								
-				    	System.out.println(" carte EDIFICIO:");
-		    			if (this.clientModel.getStatoGiocatore().getCarte(TipoCarta.EDIFICIO).isEmpty())
-		    				System.out.println("  [nessuna]");
-		    			else for (Carta carta : this.clientModel.getStatoGiocatore().getCarte(TipoCarta.EDIFICIO))
-							System.out.println("  - " + carta.getNome() + " (EFFETTO PERMANENTE: " + carta.getEffettoPermanente().toString() + ")");
-								
-				    	System.out.println(" carte IMPRESA:");
-		    			if (this.clientModel.getStatoGiocatore().getCarte(TipoCarta.IMPRESA).isEmpty())
-		    				System.out.println("  [nessuna]");
-		    			else for (Carta carta : this.clientModel.getStatoGiocatore().getCarte(TipoCarta.IMPRESA))
-							System.out.println("  - " + carta.getNome() + " (EFFETTO PERMANENTE: " + carta.getEffettoPermanente().toString() + ")");
-	
+		    			for (TipoCarta tipo : TipoCarta.values()) {
+		    				if (tipo.equals(TipoCarta.ALL));
+		    				else {
+		    					
+				    			System.out.println(" carte " + tipo.name() + ": ");
+				    			if (this.clientModel.getStatoGiocatore().getCarte(tipo).isEmpty())
+				    				System.out.println("  [nessuna]");
+				    			else for (Carta carta : this.clientModel.getStatoGiocatore().getCarte(tipo))
+									System.out.println("  - " + carta.getNome() + " (EFFETTO PERMANENTE: " + carta.getEffettoPermanente().toString() + ")");
+		    				}		    				
+		    			}
+		    			
 						update(this, "");
 				break;
 		    	
