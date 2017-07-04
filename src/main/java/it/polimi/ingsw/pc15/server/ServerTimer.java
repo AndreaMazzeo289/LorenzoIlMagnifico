@@ -20,7 +20,7 @@ public class ServerTimer implements Runnable {
 			} catch (InterruptedException e) {
 			}
 			
-			//System.out.println(i + " secondi all'inizio della partita");
+			System.out.println(i + " secondi all'inizio della partita");
 			
 		}
 		
