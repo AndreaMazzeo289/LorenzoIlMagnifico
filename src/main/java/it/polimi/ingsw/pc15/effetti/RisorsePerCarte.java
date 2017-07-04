@@ -22,6 +22,6 @@ public class RisorsePerCarte extends Moltiplicazione {
 		}
 	
 	public String toString() {
-		return ("Guadagni " + setRisorse.toString() + " per ogni " + quantità + " carte " + tipoCarta.toString()) ;
+		return ("Ottieni " + setRisorse.toString() + " per ogni " + quantità + " carte " + tipoCarta.toString()) ;
 	}
 }

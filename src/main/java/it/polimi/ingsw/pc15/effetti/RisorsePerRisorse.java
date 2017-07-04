@@ -24,7 +24,7 @@ public class RisorsePerRisorse extends Moltiplicazione {
 	}
 	
 	public String toString() {
-		return ("Guadagni " + setRisorse.toString() + " per ogni " + quantità + " di " + tipoRisorsa.toString()) ;
+		return ("Ottieni " + setRisorse.toString() + " per ogni " + quantità + " di " + tipoRisorsa.toString()) ;
 	}
 
 }
