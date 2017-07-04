@@ -311,6 +311,7 @@ public class ButtonListener implements ActionListener{
 		if(e.getActionCommand().equals("spazioTorreVerde1")) {
 			if(coloreFamiliareScelto!=null) {
 				
+				gui.writeMessage("0");
 				gui.writeMessage("torre");
 				gui.writeMessage("verde");
 				gui.writeMessage("1");

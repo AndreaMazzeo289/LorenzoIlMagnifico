@@ -91,7 +91,22 @@ public class GUI extends ClientView{
 		}
 		// Panel risorse
 		//---------------------------//
-		playerboard.getPanelRisorseOro().writeIntoLabel(this.clientModel.getStatoGiocatore().getSetRisorse().getRisorsa(TipoRisorsa.LEGNA).getQuantità());
+		int quantitaRisorsa;
+		
+		quantitaRisorsa = this.clientModel.getStatoGiocatore().getSetRisorse().getRisorsa(TipoRisorsa.ORO).getQuantità();
+		playerboard.getPanelRisorseOro().writeIntoLabel(quantitaRisorsa);
+		quantitaRisorsa = this.clientModel.getStatoGiocatore().getSetRisorse().getRisorsa(TipoRisorsa.LEGNA).getQuantità();
+		playerboard.getPanelRisorseLegna().writeIntoLabel(quantitaRisorsa);
+		quantitaRisorsa = this.clientModel.getStatoGiocatore().getSetRisorse().getRisorsa(TipoRisorsa.PIETRA).getQuantità();
+		playerboard.getPanelRisorsePietra().writeIntoLabel(quantitaRisorsa);
+		quantitaRisorsa = this.clientModel.getStatoGiocatore().getSetRisorse().getRisorsa(TipoRisorsa.SERVITORI).getQuantità();
+		playerboard.getPanelRisorseServitori().writeIntoLabel(quantitaRisorsa);
+		quantitaRisorsa = this.clientModel.getStatoGiocatore().getSetRisorse().getRisorsa(TipoRisorsa.PUNTIMILITARI).getQuantità();
+		playerboard.getPanelRisorsePuntiMilitari().writeIntoLabel(quantitaRisorsa);
+		quantitaRisorsa = this.clientModel.getStatoGiocatore().getSetRisorse().getRisorsa(TipoRisorsa.PUNTIFEDE).getQuantità();
+		playerboard.getPanelRisorsePuntiFede().writeIntoLabel(quantitaRisorsa);
+		quantitaRisorsa = this.clientModel.getStatoGiocatore().getSetRisorse().getRisorsa(TipoRisorsa.PUNTIVITTORIA).getQuantità();
+		playerboard.getPanelRisorsePuntiVittoria().writeIntoLabel(quantitaRisorsa);
 		
 	}
 
@@ -226,28 +241,28 @@ public class GUI extends ClientView{
 	}
 
 	public ArrayList<Player> getarrayListAvversari() {
-		return arrayListAvversari;
+		return this.arrayListAvversari;
 	}
 	public String getPathCartaScomunica1() {
-		return pathCartaScomunica1;
+		return this.pathCartaScomunica1;
 	}
 	public String getPathCartaScomunica2() {
-		return pathCartaScomunica2;
+		return this.pathCartaScomunica2;
 	}
 	public String getPathCartaScomunica3() {
-		return pathCartaScomunica3;
+		return this.pathCartaScomunica3;
 	}
 	public int getNumeroGiocatori() {
-		return numeroGiocatori;
+		return this.numeroGiocatori;
 	}
 	public Player getPlayerCorrente() {
-		return playerCorrente;
+		return this.playerCorrente;
 	}
 	public boolean getTurnoGiocatore() {
-		return turnoGiocatore;
+		return this.turnoGiocatore;
 	}
 	public void writeMessage(String text) {
-		message.add(text);
+		this.message.add(text);
 	}
 	public ArrayList<String> getMessage() {
 		return this.message;
