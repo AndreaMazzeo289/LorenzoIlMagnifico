@@ -33,6 +33,7 @@ public abstract class AzionePrendiCarta extends Azione{
 
 	public boolean risorseSufficienti () {
 			                                          
+
 		if (carta.getSpazio().getTorre().occupata() && player.getEffettiAttivi().sovrapprezzoTorri())
 			costoFinale.aggiungi(new Oro(3));
 		

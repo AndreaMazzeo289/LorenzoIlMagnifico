@@ -28,7 +28,7 @@ public class AggiuntaRisorse extends Effetto implements Incrementabile  {
 	public void attivaDaSpazio(Player player) {
 		
 		for (Risorsa risorsa : this.setRisorse.getRisorse().values()) {
-			risorsa.aggiungi(risorsa.getQuantità()*player.getEffettiAttivi().getMoltiplicatoreRisorseSpazi()-1);
+			risorsa.aggiungi(risorsa.getQuantità()*(player.getEffettiAttivi().getMoltiplicatoreRisorseSpazi()-1));
 			risorsa.aggiungi(player.getEffettiAttivi().getRisorsaBonusSpazi(risorsa.getTipoRisorsa()));
 		}
 		
@@ -46,7 +46,7 @@ public class AggiuntaRisorse extends Effetto implements Incrementabile  {
 	public void attivaDaCarta(Player player) {
 		
 		for (Risorsa risorsa : this.setRisorse.getRisorse().values()) {
-			risorsa.aggiungi(risorsa.getQuantità()*player.getEffettiAttivi().getMoltiplicatoreRisorseCarte()-1);
+			risorsa.aggiungi(risorsa.getQuantità()*(player.getEffettiAttivi().getMoltiplicatoreRisorseCarte()-1));
 			risorsa.aggiungi(player.getEffettiAttivi().getRisorsaBonusCarte(risorsa.getTipoRisorsa()));
 		}
 		

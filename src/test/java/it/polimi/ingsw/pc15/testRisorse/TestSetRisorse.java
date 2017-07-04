@@ -134,10 +134,9 @@ public class TestSetRisorse {
 		public void testSottrai(){
 			
 			Boolean result;
-			System.out.println(setRisorse1.toString());
-			System.out.println(setRisorse2.toString());
+		
 			this.setRisorse1.sottrai(this.setRisorse2);
-			System.out.println(setRisorse1.toString());
+			
 			if(setRisultatoSottrai.paragona(setRisorse1))
 				result = true;
 			else result = false;
@@ -169,5 +168,27 @@ public class TestSetRisorse {
 		public void testGetRisorsa(){
 			Legna legna = new Legna(3);
 			assertEquals("Errore getRisorsa", legna.toString(), setRisorse1.getRisorsa(TipoRisorsa.LEGNA).toString());
+		}
+		
+		@Test
+		public void testAggiungiSingolaRisorsa(){
+			
+			
+			HashSet<Risorsa> setProva1 = new HashSet<Risorsa>();
+			HashSet<Risorsa> setProva2 = new HashSet<Risorsa>();
+			
+			setProva1.add(new Oro(2));
+			setProva1.add(new Pietra(2));
+			setProva2.add(new Oro(3));
+			setProva1.add(new Pietra(2));
+			
+			SetRisorse risorseProva1 = new SetRisorse(setProva1);
+			SetRisorse risorseProva2 = new SetRisorse(setProva2);
+			
+			risorseProva1.aggiungi(new Oro(1));
+			
+			assertTrue("Errore aggiunta singola risorsa", risorseProva1.paragona(risorseProva2));
+			
+			
 		}
 }

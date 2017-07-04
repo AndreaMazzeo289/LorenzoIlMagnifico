@@ -17,6 +17,7 @@ public class Leader implements Serializable{
 	private Player player;
 	private final Set<Effetto> effettoPerTurno;
 	private final Set<Effetto> effettoPermanente;
+	private final String pathImg;
 	
 	private SetRisorse requisitoRisorse;
 	private HashMap<TipoCarta, Integer> requisitoCarte;
@@ -24,12 +25,13 @@ public class Leader implements Serializable{
 	private boolean giocato;
 	private boolean effettoAttivato;
 	
-	public Leader (String nome, Set<Effetto> effettoPerTurno, Set<Effetto> effettoPermanente, SetRisorse requisitoRisorse, HashMap<TipoCarta, Integer> requisitoCarte) {
+	public Leader (String nome, Set<Effetto> effettoPerTurno, Set<Effetto> effettoPermanente, SetRisorse requisitoRisorse, HashMap<TipoCarta, Integer> requisitoCarte, String pathImg) {
 		
 		this.nome = nome;
 		this.player = null;
 		this.effettoPerTurno = effettoPerTurno;
 		this.effettoPermanente = effettoPermanente;
+		this.pathImg = pathImg;
 		
 		this.requisitoRisorse = requisitoRisorse;
 		this.requisitoCarte = requisitoCarte;
@@ -63,6 +65,10 @@ public class Leader implements Serializable{
 		return this.requisitoCarte;
 	}
 	
+	public String getPathImg() {
+		return this.pathImg;
+	}
+
 	public SetRisorse getRequisitoRisorse() {
 		return this.requisitoRisorse;
 	}

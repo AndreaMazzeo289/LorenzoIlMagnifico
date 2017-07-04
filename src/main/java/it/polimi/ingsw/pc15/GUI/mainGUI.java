@@ -18,6 +18,9 @@ import java.awt.BorderLayout;
 import javax.swing.JLabel;
 import javax.swing.SwingConstants;
 
+import it.polimi.ingsw.pc15.GUI.gameboard.Gameboard;
+import it.polimi.ingsw.pc15.GUI.playerboard.PlayerBoard;
+
 
 public class mainGUI {
 	
