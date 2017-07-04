@@ -6,6 +6,7 @@ import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;
 import java.awt.Toolkit;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.Observable;
 
 import javax.swing.JFrame;
@@ -18,7 +19,6 @@ import it.polimi.ingsw.pc15.client.ClientModel;
 import it.polimi.ingsw.pc15.client.ClientView;
 import it.polimi.ingsw.pc15.client.NetworkHandler;
 import it.polimi.ingsw.pc15.player.ColoreFamiliare;
-import it.polimi.ingsw.pc15.player.Leader;
 import it.polimi.ingsw.pc15.player.Player;
 import it.polimi.ingsw.pc15.risorse.TipoRisorsa;
 
@@ -40,31 +40,97 @@ public class GUI extends ClientView{
 	private int numeroGiocatori = 2;
 	private Player playerCorrente;
 	private ArrayList<Player> arrayListAvversari;
-	private boolean turnoGiocatore;
+	private ArrayList<String> message = new ArrayList<String>();
 	
-	private ArrayList<String> message = new ArrayList<String>();;
+	private HashMap<TipoCarta,String> retroCarte;
 	
 	public GUI(NetworkHandler networkHandler, ClientModel clientModel) {
 		super(networkHandler, clientModel);
 		
 		listener = new ButtonListener(this);
+		
+		this.retroCarte = new HashMap<TipoCarta,String>();
+		this.retroCarte.put(TipoCarta.TERRITORIO, "img/DevCardsBack/devcards_b_c_g_1.jdevcards_b_c_pdevcards_b_c_g.jdevcards_b_c_pg.jpg");
+		this.retroCarte.put(TipoCarta.PERSONAGGIO, "img/DevCardsBack/devcards_b_c_g_1.jdevcards_b_c_pdevcards_b_c_g.jdevcards_b_c_pg.jpg");
+		this.retroCarte.put(TipoCarta.IMPRESA, "img/DevCardsBack/devcards_b_c_g_1.jdevcards_b_c_pdevcards_b_c_g.jdevcards_b_c_pg.jpg");
+		this.retroCarte.put(TipoCarta.EDIFICIO, "img/DevCardsBack/devcards_b_c_g_1.jdevcards_b_c_pdevcards_b_c_g.jdevcards_b_c_pg.jpg");
+		
 	}
 
 	@Override
 	public void update(Observable arg0, Object arg1) {
-
+		
+		try {
+			Thread.sleep(2000);
+		} catch (InterruptedException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
 		arrayListAvversari = this.clientModel.getStatoAvversari();
 		playerCorrente = this.clientModel.getStatoGiocatore();
-		if(playerCorrente.getNome().equals(this.clientModel.getGiocatoreCorrente()))
-			turnoGiocatore = true;
-		else
-			turnoGiocatore = false;
+		
+		//----------------------------------------------------------//
+		// AGGIORNAMENTO GAMEBOARD IN FUNZIONE DEL MODEL
+		//----------------------------------------------------------//
+		
+		playerCorrente = this.clientModel.getStatoGiocatore();
+		arrayListAvversari = this.clientModel.getStatoAvversari();
+		pathCartaScomunica1 = this.clientModel.getStatoPlancia().getTesseraScomunica(1).getPathImg();
+		pathCartaScomunica2 = this.clientModel.getStatoPlancia().getTesseraScomunica(2).getPathImg();
+		pathCartaScomunica3 = this.clientModel.getStatoPlancia().getTesseraScomunica(3).getPathImg();
+		
+		//------------------------------------//
+		// CARTE TORRI
+		//------------------------------------//
+		
+		String immagineCartaModel;
+		
+		for(TipoCarta tipo : TipoCarta.values()) {
+			if(tipo.equals(TipoCarta.ALL));
+			else
+				for(int i=0; i<4; i++) {
+					int spazio = Math.abs(i-3);
+					try {
+						gameboard.getSpazioTorre(tipo, i).modificaImmagineCarta(this.clientModel.getStatoPlancia().getSpazioTorre(tipo, spazio).getCarta().getImagePath());
+					}catch(NullPointerException e) {
+						System.out.println("cazzo");
+						gameboard.getSpazioTorre(tipo, i).modificaImmagineCarta(retroCarte.get(tipo));
+					}
+				}
+		}
+			
+		//------------------------------------//
+		// DADI
+		//------------------------------------//
+		int valoreDadoNero = this.clientModel.getStatoGiocatore().getFamiliare(ColoreFamiliare.NERO).getValore();
+		int valoreDadoBianco = this.clientModel.getStatoGiocatore().getFamiliare(ColoreFamiliare.BIANCO).getValore();
+		int valoreDadoArancione = this.clientModel.getStatoGiocatore().getFamiliare(ColoreFamiliare.ARANCIONE).getValore();
+			    
+		gameboard.getSpazioDadi().modificaImmagineDadi(ColoreFamiliare.NERO, valoreDadoNero);
+		gameboard.getSpazioDadi().modificaImmagineDadi(ColoreFamiliare.BIANCO, valoreDadoBianco);
+		gameboard.getSpazioDadi().modificaImmagineDadi(ColoreFamiliare.ARANCIONE, valoreDadoArancione);
 		
 		//----------------------------------------------------------//
 		// AGGIORNAMENTO PLAYERBOARD IN FUNZIONE DEL MODEL
 		//----------------------------------------------------------//
+		
+		//------------------------------------//
+		// LEADER
+		//------------------------------------//
+		immagineCartaModel = this.clientModel.getStatoGiocatore().getCarteLeader().get(0).getPathImg(); 
+		playerboard.getCartaLeader1().modificaImmagineCarta(immagineCartaModel);
+		immagineCartaModel = this.clientModel.getStatoGiocatore().getCarteLeader().get(1).getPathImg(); 
+		playerboard.getCartaLeader2().modificaImmagineCarta(immagineCartaModel);
+		immagineCartaModel = this.clientModel.getStatoGiocatore().getCarteLeader().get(2).getPathImg(); 
+		playerboard.getCartaLeader3().modificaImmagineCarta(immagineCartaModel);
+		immagineCartaModel = this.clientModel.getStatoGiocatore().getCarteLeader().get(3).getPathImg(); 
+		playerboard.getCartaLeader4().modificaImmagineCarta(immagineCartaModel);
+		
+		
 		// Carte player
 		//---------------------------//
+		System.out.println("UPDATE");
 		ArrayList<Carta> listaCarteTerritorio = this.clientModel.getStatoGiocatore().getCarte(TipoCarta.TERRITORIO);
 		int i=0;
 		for(Carta carta : listaCarteTerritorio) {
@@ -94,6 +160,7 @@ public class GUI extends ClientView{
 		int quantitaRisorsa;
 		
 		quantitaRisorsa = this.clientModel.getStatoGiocatore().getSetRisorse().getRisorsa(TipoRisorsa.ORO).getQuantità();
+		System.out.println(quantitaRisorsa);
 		playerboard.getPanelRisorseOro().writeIntoLabel(quantitaRisorsa);
 		quantitaRisorsa = this.clientModel.getStatoGiocatore().getSetRisorse().getRisorsa(TipoRisorsa.LEGNA).getQuantità();
 		playerboard.getPanelRisorseLegna().writeIntoLabel(quantitaRisorsa);
@@ -113,6 +180,8 @@ public class GUI extends ClientView{
 	@Override
 	public void run() {
 		
+		System.out.println("RUN");
+		
 		mainFrame = new JFrame();
 		
 		Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
@@ -124,68 +193,67 @@ public class GUI extends ClientView{
 		mainFrame.getContentPane().setLayout(new GridBagLayout());
 		gameboard = new Gameboard(listener,this);
 		playerboard = new PlayerBoard(listener,this);
-	   
-		//----------------------------------------------------------//
+		
+		
+		
+		/*//----------------------------------------------------------//
 		// AGGIORNAMENTO GAMEBOARD IN FUNZIONE DEL MODEL
 		//----------------------------------------------------------//
 		
-		playerCorrente = this.clientModel.getStatoGiocatore();
-		arrayListAvversari = this.clientModel.getStatoAvversari();
-		pathCartaScomunica1 = this.clientModel.getStatoPlancia().getTesseraScomunica(1).getPathImg();
-		pathCartaScomunica2 = this.clientModel.getStatoPlancia().getTesseraScomunica(2).getPathImg();
-		pathCartaScomunica3 = this.clientModel.getStatoPlancia().getTesseraScomunica(3).getPathImg();
-		if(playerCorrente.getNome().equals(this.clientModel.getGiocatoreCorrente()))
-			turnoGiocatore = true;
-		else
-			turnoGiocatore = false;
+		//playerCorrente = this.clientModel.getStatoGiocatore();
+		//arrayListAvversari = this.clientModel.getStatoAvversari();
+		//pathCartaScomunica1 = this.clientModel.getStatoPlancia().getTesseraScomunica(1).getPathImg();
+		//pathCartaScomunica2 = this.clientModel.getStatoPlancia().getTesseraScomunica(2).getPathImg();
+		//pathCartaScomunica3 = this.clientModel.getStatoPlancia().getTesseraScomunica(3).getPathImg();
 		
 		//------------------------------------//
 		// CARTE TORRI
 		//------------------------------------//
-		String immagineCartaModel;
 		
-		immagineCartaModel = this.clientModel.getStatoPlancia().getSpazioTorre(TipoCarta.TERRITORIO, 0).getCarta().getImagePath();
+		//String immagineCartaModel;
+		
+		//immagineCartaModel = this.clientModel.getStatoPlancia().getSpazioTorre(TipoCarta.TERRITROIO, 0).getCarta().getImagePath();
 		gameboard.getSpazioTorreVerde1().modificaImmagineCarta(immagineCartaModel);
-		immagineCartaModel = this.clientModel.getStatoPlancia().getSpazioTorre(TipoCarta.TERRITORIO, 1).getCarta().getImagePath();
+		//immagineCartaModel = this.clientModel.getStatoPlancia().getSpazioTorre(TipoCarta.TERRITORIO, 1).getCarta().getImagePath();
 		gameboard.getSpazioTorreVerde2().modificaImmagineCarta(immagineCartaModel);
-		immagineCartaModel = this.clientModel.getStatoPlancia().getSpazioTorre(TipoCarta.TERRITORIO, 2).getCarta().getImagePath();
+		//immagineCartaModel = this.clientModel.getStatoPlancia().getSpazioTorre(TipoCarta.TERRITORIO, 2).getCarta().getImagePath();
 		gameboard.getSpazioTorreVerde3().modificaImmagineCarta(immagineCartaModel);
-		immagineCartaModel = this.clientModel.getStatoPlancia().getSpazioTorre(TipoCarta.TERRITORIO, 3).getCarta().getImagePath();
+		//immagineCartaModel = this.clientModel.getStatoPlancia().getSpazioTorre(TipoCarta.TERRITORIO, 3).getCarta().getImagePath();
 		gameboard.getSpazioTorreVerde4().modificaImmagineCarta(immagineCartaModel);
 		
-		immagineCartaModel = this.clientModel.getStatoPlancia().getSpazioTorre(TipoCarta.PERSONAGGIO, 0).getCarta().getImagePath();
+		//immagineCartaModel = this.clientModel.getStatoPlancia().getSpazioTorre(TipoCarta.PERSONAGGIO, 0).getCarta().getImagePath();
 		gameboard.getSpazioTorreBlu1().modificaImmagineCarta(immagineCartaModel);
-		immagineCartaModel = this.clientModel.getStatoPlancia().getSpazioTorre(TipoCarta.PERSONAGGIO, 1).getCarta().getImagePath();
+		//immagineCartaModel = this.clientModel.getStatoPlancia().getSpazioTorre(TipoCarta.PERSONAGGIO, 1).getCarta().getImagePath();
 		gameboard.getSpazioTorreBlu2().modificaImmagineCarta(immagineCartaModel);
-		immagineCartaModel = this.clientModel.getStatoPlancia().getSpazioTorre(TipoCarta.PERSONAGGIO, 2).getCarta().getImagePath();
+		//immagineCartaModel = this.clientModel.getStatoPlancia().getSpazioTorre(TipoCarta.PERSONAGGIO, 2).getCarta().getImagePath();
 		gameboard.getSpazioTorreBlu3().modificaImmagineCarta(immagineCartaModel);
-		immagineCartaModel = this.clientModel.getStatoPlancia().getSpazioTorre(TipoCarta.PERSONAGGIO, 3).getCarta().getImagePath();
+		//immagineCartaModel = this.clientModel.getStatoPlancia().getSpazioTorre(TipoCarta.PERSONAGGIO, 3).getCarta().getImagePath();
 		gameboard.getSpazioTorreBlu4().modificaImmagineCarta(immagineCartaModel);
 		
-		immagineCartaModel = this.clientModel.getStatoPlancia().getSpazioTorre(TipoCarta.EDIFICIO, 0).getCarta().getImagePath();
+		//immagineCartaModel = this.clientModel.getStatoPlancia().getSpazioTorre(TipoCarta.EDIFICIO, 0).getCarta().getImagePath();
 		gameboard.getSpazioTorreGialla1().modificaImmagineCarta(immagineCartaModel);
-		immagineCartaModel = this.clientModel.getStatoPlancia().getSpazioTorre(TipoCarta.EDIFICIO, 1).getCarta().getImagePath();
+		//immagineCartaModel = this.clientModel.getStatoPlancia().getSpazioTorre(TipoCarta.EDIFICIO, 1).getCarta().getImagePath();
 		gameboard.getSpazioTorreGialla2().modificaImmagineCarta(immagineCartaModel);
-		immagineCartaModel = this.clientModel.getStatoPlancia().getSpazioTorre(TipoCarta.EDIFICIO, 2).getCarta().getImagePath();
+		//immagineCartaModel = this.clientModel.getStatoPlancia().getSpazioTorre(TipoCarta.EDIFICIO, 2).getCarta().getImagePath();
 		gameboard.getSpazioTorreGialla3().modificaImmagineCarta(immagineCartaModel);
-		immagineCartaModel = this.clientModel.getStatoPlancia().getSpazioTorre(TipoCarta.EDIFICIO, 3).getCarta().getImagePath();
+		//immagineCartaModel = this.clientModel.getStatoPlancia().getSpazioTorre(TipoCarta.EDIFICIO, 3).getCarta().getImagePath();
 		gameboard.getSpazioTorreGialla4().modificaImmagineCarta(immagineCartaModel);
 		
-		immagineCartaModel = this.clientModel.getStatoPlancia().getSpazioTorre(TipoCarta.IMPRESA, 0).getCarta().getImagePath();
+		//immagineCartaModel = this.clientModel.getStatoPlancia().getSpazioTorre(TipoCarta.IMPRESA, 0).getCarta().getImagePath();
 		gameboard.getSpazioTorreViola1().modificaImmagineCarta(immagineCartaModel);
-		immagineCartaModel = this.clientModel.getStatoPlancia().getSpazioTorre(TipoCarta.IMPRESA, 1).getCarta().getImagePath();
+		//immagineCartaModel = this.clientModel.getStatoPlancia().getSpazioTorre(TipoCarta.IMPRESA, 1).getCarta().getImagePath();
 		gameboard.getSpazioTorreViola2().modificaImmagineCarta(immagineCartaModel);
-		immagineCartaModel = this.clientModel.getStatoPlancia().getSpazioTorre(TipoCarta.IMPRESA, 2).getCarta().getImagePath();
+		//immagineCartaModel = this.clientModel.getStatoPlancia().getSpazioTorre(TipoCarta.IMPRESA, 2).getCarta().getImagePath();
 		gameboard.getSpazioTorreViola3().modificaImmagineCarta(immagineCartaModel);
-		immagineCartaModel = this.clientModel.getStatoPlancia().getSpazioTorre(TipoCarta.IMPRESA, 3).getCarta().getImagePath();
+		//immagineCartaModel = this.clientModel.getStatoPlancia().getSpazioTorre(TipoCarta.IMPRESA, 3).getCarta().getImagePath();
 		gameboard.getSpazioTorreViola4().modificaImmagineCarta(immagineCartaModel);
 		
 		//------------------------------------//
 		// DADI
 		//------------------------------------//
-		int valoreDadoNero = this.clientModel.getStatoGiocatore().getFamiliare(ColoreFamiliare.NERO).getValore();
-		int valoreDadoBianco = this.clientModel.getStatoGiocatore().getFamiliare(ColoreFamiliare.BIANCO).getValore();
-		int valoreDadoArancione = this.clientModel.getStatoGiocatore().getFamiliare(ColoreFamiliare.ARANCIONE).getValore();
+		//int valoreDadoNero = this.clientModel.getStatoGiocatore().getFamiliare(ColoreFamiliare.NERO).getValore();
+		//int valoreDadoBianco = this.clientModel.getStatoGiocatore().getFamiliare(ColoreFamiliare.BIANCO).getValore();
+		//int valoreDadoArancione = this.clientModel.getStatoGiocatore().getFamiliare(ColoreFamiliare.ARANCIONE).getValore();
 	    
 		gameboard.getSpazioDadi().modificaImmagineDadi(ColoreFamiliare.NERO, valoreDadoNero);
 		gameboard.getSpazioDadi().modificaImmagineDadi(ColoreFamiliare.BIANCO, valoreDadoBianco);
@@ -198,34 +266,34 @@ public class GUI extends ClientView{
 		//------------------------------------//
 		// LEADER
 		//------------------------------------//
-		immagineCartaModel = this.clientModel.getStatoGiocatore().getCarteLeader().get(0).getPathImg(); 
+		//immagineCartaModel = this.clientModel.getStatoGiocatore().getCarteLeader().get(0).getPathImg(); 
 		playerboard.getCartaLeader1().modificaImmagineCarta(immagineCartaModel);
-		immagineCartaModel = this.clientModel.getStatoGiocatore().getCarteLeader().get(1).getPathImg(); 
+		//immagineCartaModel = this.clientModel.getStatoGiocatore().getCarteLeader().get(1).getPathImg(); 
 		playerboard.getCartaLeader2().modificaImmagineCarta(immagineCartaModel);
-		immagineCartaModel = this.clientModel.getStatoGiocatore().getCarteLeader().get(2).getPathImg(); 
+		//immagineCartaModel = this.clientModel.getStatoGiocatore().getCarteLeader().get(2).getPathImg(); 
 		playerboard.getCartaLeader3().modificaImmagineCarta(immagineCartaModel);
-		immagineCartaModel = this.clientModel.getStatoGiocatore().getCarteLeader().get(3).getPathImg(); 
+		//immagineCartaModel = this.clientModel.getStatoGiocatore().getCarteLeader().get(3).getPathImg(); 
 		playerboard.getCartaLeader4().modificaImmagineCarta(immagineCartaModel);
-		
-		//------------------------------------//
+		*/
+		/*//------------------------------------//
 		// SET RISORSE
 		//------------------------------------//
 		int quantitaRisorsa;
 		
-		quantitaRisorsa = this.clientModel.getStatoGiocatore().getSetRisorse().getRisorsa(TipoRisorsa.ORO).getQuantità();
+		//quantitaRisorsa = this.clientModel.getStatoGiocatore().getSetRisorse().getRisorsa(TipoRisorsa.ORO).getQuantità();
 		playerboard.getPanelRisorseOro().writeIntoLabel(quantitaRisorsa);
-		quantitaRisorsa = this.clientModel.getStatoGiocatore().getSetRisorse().getRisorsa(TipoRisorsa.LEGNA).getQuantità();
+		//quantitaRisorsa = this.clientModel.getStatoGiocatore().getSetRisorse().getRisorsa(TipoRisorsa.LEGNA).getQuantità();
 		playerboard.getPanelRisorseLegna().writeIntoLabel(quantitaRisorsa);
-		quantitaRisorsa = this.clientModel.getStatoGiocatore().getSetRisorse().getRisorsa(TipoRisorsa.PIETRA).getQuantità();
+		//quantitaRisorsa = this.clientModel.getStatoGiocatore().getSetRisorse().getRisorsa(TipoRisorsa.PIETRA).getQuantità();
 		playerboard.getPanelRisorsePietra().writeIntoLabel(quantitaRisorsa);
-		quantitaRisorsa = this.clientModel.getStatoGiocatore().getSetRisorse().getRisorsa(TipoRisorsa.SERVITORI).getQuantità();
+		//quantitaRisorsa = this.clientModel.getStatoGiocatore().getSetRisorse().getRisorsa(TipoRisorsa.SERVITORI).getQuantità();
 		playerboard.getPanelRisorseServitori().writeIntoLabel(quantitaRisorsa);
-		quantitaRisorsa = this.clientModel.getStatoGiocatore().getSetRisorse().getRisorsa(TipoRisorsa.PUNTIMILITARI).getQuantità();
+		//quantitaRisorsa = this.clientModel.getStatoGiocatore().getSetRisorse().getRisorsa(TipoRisorsa.PUNTIMILITARI).getQuantità();
 		playerboard.getPanelRisorsePuntiMilitari().writeIntoLabel(quantitaRisorsa);
-		quantitaRisorsa = this.clientModel.getStatoGiocatore().getSetRisorse().getRisorsa(TipoRisorsa.PUNTIFEDE).getQuantità();
+		//quantitaRisorsa = this.clientModel.getStatoGiocatore().getSetRisorse().getRisorsa(TipoRisorsa.PUNTIFEDE).getQuantità();
 		playerboard.getPanelRisorsePuntiFede().writeIntoLabel(quantitaRisorsa);
-		quantitaRisorsa = this.clientModel.getStatoGiocatore().getSetRisorse().getRisorsa(TipoRisorsa.PUNTIVITTORIA).getQuantità();
-		playerboard.getPanelRisorsePuntiVittoria().writeIntoLabel(quantitaRisorsa);
+		//quantitaRisorsa = this.clientModel.getStatoGiocatore().getSetRisorse().getRisorsa(TipoRisorsa.PUNTIVITTORIA).getQuantità();
+		playerboard.getPanelRisorsePuntiVittoria().writeIntoLabel(quantitaRisorsa);*/
 		
     	GridBagConstraints gbc = new GridBagConstraints();
 	    gbc.gridy=0;
@@ -236,8 +304,6 @@ public class GUI extends ClientView{
 	    
 	    mainFrame.setVisible(true);
 	    mainFrame.setAlwaysOnTop(true);
-		
-	    notifyObservers(message);
 	}
 
 	public ArrayList<Player> getarrayListAvversari() {
@@ -257,9 +323,6 @@ public class GUI extends ClientView{
 	}
 	public Player getPlayerCorrente() {
 		return this.playerCorrente;
-	}
-	public boolean getTurnoGiocatore() {
-		return this.turnoGiocatore;
 	}
 	public void writeMessage(String text) {
 		this.message.add(text);

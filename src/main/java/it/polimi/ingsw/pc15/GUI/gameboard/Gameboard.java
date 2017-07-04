@@ -17,6 +17,8 @@ import java.awt.image.AffineTransformOp;
 import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.HashMap;
 
 import javax.imageio.ImageIO;
 import javax.swing.BorderFactory;
@@ -31,6 +33,7 @@ import javax.swing.JTable;
 
 import it.polimi.ingsw.pc15.GUI.ButtonListener;
 import it.polimi.ingsw.pc15.GUI.GUI;
+import it.polimi.ingsw.pc15.carte.TipoCarta;
 
 public class Gameboard extends JPanel {
 	
@@ -38,7 +41,75 @@ public class Gameboard extends JPanel {
 	SpazioConsiglio spazioConsiglio;
 	JPanel spazioFinale = new JPanel (new GridLayout(1,2));
 	
+	ArrayList<SpazioTorre> spaziTorreVerde, spaziTorreGiallo, spaziTorreViola, spaziTorreBlu;
+	HashMap<TipoCarta,ArrayList<SpazioTorre>> spaziTorreMap;
+	
 	public Gameboard(ButtonListener listener, GUI gui) {
+		
+		String path;
+		spaziTorreVerde = new ArrayList<SpazioTorre>();
+		spaziTorreGiallo = new ArrayList<SpazioTorre>();
+		spaziTorreViola = new ArrayList<SpazioTorre>();
+		spaziTorreBlu = new ArrayList<SpazioTorre>();
+		spaziTorreMap = new HashMap<TipoCarta,ArrayList<SpazioTorre>>();
+		
+		path = "img\\Gameboard\\SpaziTorre\\Verde\\1\\";
+		spaziTorreVerde.add(new SpazioTorre(listener, gui, 833, 181, 47, 517, 395, 129, path+"north.png", path+"south.png", path+"east.png", path+"west.png",
+				"img/DevCardsFront/devcards_f_en_c_1.png", "spazioTorreVerde1"));
+		path = "img\\Gameboard\\SpaziTorre\\Verde\\2\\";
+		spaziTorreVerde.add(new SpazioTorre(listener, gui, 833, 8, 47, 517, 395, 129, path+"north.png", path+"south.png", path+"east.png", path+"west.png",
+				"img/DevCardsFront/devcards_f_en_c_2.png", "spazioTorreVerde2"));
+		path = "img\\Gameboard\\SpaziTorre\\Verde\\3\\";
+		spaziTorreVerde.add(new SpazioTorre(listener, gui, 833, 8, 47, 517, 395, 129, path+"north.png", path+"south.png", path+"east.png", path+"west.png",
+				"img/DevCardsFront/devcards_f_en_c_3.png", "spazioTorreVerde3"));
+		path = "img\\Gameboard\\SpaziTorre\\Verde\\4\\";
+		spaziTorreVerde.add(new SpazioTorre(listener, gui, 833, 8, 47, 517, 395, 129, path+"north.png", path+"south.png", path+"east.png", path+"west.png",
+				"img/DevCardsFront/devcards_f_en_c_3.png", "spazioTorreVerde4"));
+		
+		path = "img\\Gameboard\\SpaziTorre\\Blu\\1\\";
+		spaziTorreBlu.add(new SpazioTorre(listener, gui, 833, 181, 47, 517, 395, 38, path+"north.png", path+"south.png", path+"east.png", path+"west.png",
+				"img/DevCardsFront/devcards_f_en_c_61.png", "spazioTorreBlu1"));
+		path = "img\\Gameboard\\SpaziTorre\\Blu\\2\\";
+		spaziTorreBlu.add(new SpazioTorre(listener, gui, 833, 8, 47, 517, 395, 38, path+"north.png", path+"south.png", path+"east.png", path+"west.png",
+				"img/DevCardsFront/devcards_f_en_c_64.png", "spazioTorreBlu2"));
+		path = "img\\Gameboard\\SpaziTorre\\Blu\\3\\";
+		spaziTorreBlu.add(new SpazioTorre(listener, gui, 833, 8, 47, 517, 395, 38, path+"north.png", path+"south.png", path+"east.png", path+"west.png",
+				"img/DevCardsFront/devcards_f_en_c_62.png", "spazioTorreBlu3"));
+		path = "img\\Gameboard\\SpaziTorre\\Blu\\4\\";
+		spaziTorreBlu.add(new SpazioTorre(listener, gui, 833, 8, 47, 517, 395, 38, path+"north.png", path+"south.png", path+"east.png", path+"west.png",
+				"img/DevCardsFront/devcards_f_en_c_63.png", "spazioTorreBlu4"));
+		
+		path = "img\\Gameboard\\SpaziTorre\\Gialla\\1\\";
+		spaziTorreGiallo.add(new SpazioTorre(listener, gui, 833, 181, 47, 517, 395, 38, path+"north.png", path+"south.png", path+"east.png", path+"west.png",
+				"img/DevCardsFront/devcards_f_en_c_25.png", "spazioTorreGialla1"));
+		path = "img\\Gameboard\\SpaziTorre\\Gialla\\2\\";
+		spaziTorreGiallo.add(new SpazioTorre(listener, gui, 833, 8, 47, 517, 395, 38, path+"north.png", path+"south.png", path+"east.png", path+"west.png",
+				"img/DevCardsFront/devcards_f_en_c_26.png", "spazioTorreGialla2"));
+		path = "img\\Gameboard\\SpaziTorre\\Gialla\\3\\";
+		spaziTorreGiallo.add(new SpazioTorre(listener, gui, 833, 8, 47, 517, 395, 38, path+"north.png", path+"south.png", path+"east.png", path+"west.png",
+				"img/DevCardsFront/devcards_f_en_c_27.png", "spazioTorreGialla3"));
+		path = "img\\Gameboard\\SpaziTorre\\Gialla\\4\\";
+		spaziTorreGiallo.add(new SpazioTorre(listener, gui, 833, 8, 47, 517, 395, 38, path+"north.png", path+"south.png", path+"east.png", path+"west.png",
+				"img/DevCardsFront/devcards_f_en_c_28.png", "spazioTorreGialla4"));
+		
+		path = "img\\Gameboard\\SpaziTorre\\Viola\\1\\";
+		spaziTorreViola.add(new SpazioTorre(listener, gui, 833, 181, 47, 517, 571, 38, path+"north.png", path+"south.png", path+"east.png", path+"west.png",
+				"img/DevCardsFront/devcards_f_en_c_93.png", "spazioTorreViola1"));
+		path = "img\\Gameboard\\SpaziTorre\\Viola\\2\\";
+		spaziTorreViola.add(new SpazioTorre(listener, gui, 833, 8, 47, 517, 571, 38, path+"north.png", path+"south.png", path+"east.png", path+"west.png",
+				"img/DevCardsFront/devcards_f_en_c_94.png", "spazioTorreViola2"));
+		path = "img\\Gameboard\\SpaziTorre\\Viola\\3\\";
+		spaziTorreViola.add(new SpazioTorre(listener, gui, 833, 8, 47, 517, 571, 38, path+"north.png", path+"south.png", path+"east.png", path+"west.png",
+				"img/DevCardsFront/devcards_f_en_c_95.png", "spazioTorreViola3"));
+		path = "img\\Gameboard\\SpaziTorre\\Viola\\4\\";
+		spaziTorreViola.add(new SpazioTorre(listener, gui, 833, 8, 47, 517, 571, 38, path+"north.png", path+"south.png", path+"east.png", path+"west.png",
+				"img/DevCardsFront/devcards_f_en_c_96.png", "spazioTorreViola4"));
+		
+		this.spaziTorreMap.put(TipoCarta.TERRITORIO, spaziTorreVerde);
+		this.spaziTorreMap.put(TipoCarta.PERSONAGGIO, spaziTorreBlu);
+		this.spaziTorreMap.put(TipoCarta.EDIFICIO, spaziTorreGiallo);
+		this.spaziTorreMap.put(TipoCarta.IMPRESA, spaziTorreViola);
+		
 		
 		this.setLayout(new GridBagLayout());
 		
@@ -98,116 +169,68 @@ public class Gameboard extends JPanel {
 		
 		// ADD SPAZI TORRE
 		//-----------------------//
-		String path;
+		
 		
 		//Livello 1:
 		//---------------------//
 		gbc.gridx = 0;
 		gbc.gridy = 0;
-		path = "img\\Gameboard\\SpaziTorre\\Verde\\1\\";
-		spaziTorre.add(new SpazioTorre(listener, gui, 833, 181, 47, 517, 395, 129, path+"north.png", path+"south.png", path+"east.png", path+"west.png",
-				"img/DevCardsFront/devcards_f_en_c_1.png", "spazioTorreVerde1"),gbc);
-		//spaziTorre.add(new SpazioTorreVerde1("img/DevCardsFront/devcards_f_en_c_1.png",listener), gbc); //0
+		spaziTorre.add(spaziTorreVerde.get(0),gbc);
 		
 		gbc.gridx = 1;
-		path = "img\\Gameboard\\SpaziTorre\\Blu\\1\\";
-		spaziTorre.add(new SpazioTorre(listener, gui, 833, 181, 47, 517, 395, 38, path+"north.png", path+"south.png", path+"east.png", path+"west.png",
-				"img/DevCardsFront/devcards_f_en_c_61.png", "spazioTorreBlu1"),gbc);
-		//spaziTorre.add(new SpazioTorreBlu1("img/DevCardsFront/devcards_f_en_c_61.png",listener), gbc); //1
+		spaziTorre.add(spaziTorreBlu.get(0),gbc);
 		
 		gbc.gridx = 2;
-		path = "img\\Gameboard\\SpaziTorre\\Gialla\\1\\";
-		spaziTorre.add(new SpazioTorre(listener, gui, 833, 181, 47, 517, 395, 38, path+"north.png", path+"south.png", path+"east.png", path+"west.png",
-				"img/DevCardsFront/devcards_f_en_c_25.png", "spazioTorreGialla1"),gbc);
-		//spaziTorre.add(new SpazioTorreGialla1("img/DevCardsFront/devcards_f_en_c_25.png",listener), gbc); //2
+		spaziTorre.add(spaziTorreGiallo.get(0),gbc);
 		
 		gbc.gridx = 3;
-		path = "img\\Gameboard\\SpaziTorre\\Viola\\1\\";
-		spaziTorre.add(new SpazioTorre(listener, gui, 833, 181, 47, 517, 571, 38, path+"north.png", path+"south.png", path+"east.png", path+"west.png",
-				"img/DevCardsFront/devcards_f_en_c_93.png", "spazioTorreViola1"),gbc);
-		//spaziTorre.add(new SpazioTorreViola1("img/DevCardsFront/devcards_f_en_c_93.png",listener), gbc); //3
+		spaziTorre.add(spaziTorreViola.get(0),gbc);
 		
 		
 		//Livello 2:
 		//---------------------//
 		gbc.gridx = 0;
 		gbc.gridy = 1;
-		path = "img\\Gameboard\\SpaziTorre\\Verde\\2\\";
-		spaziTorre.add(new SpazioTorre(listener, gui, 833, 8, 47, 517, 395, 129, path+"north.png", path+"south.png", path+"east.png", path+"west.png",
-				"img/DevCardsFront/devcards_f_en_c_2.png", "spazioTorreVerde2"),gbc);
-		//spaziTorre.add(new SpazioTorreVerde2("img/DevCardsFront/devcards_f_en_c_2.png",listener), gbc); //4
+		spaziTorre.add(spaziTorreVerde.get(1),gbc);
 		
 		gbc.gridx = 1;
-		path = "img\\Gameboard\\SpaziTorre\\Blu\\2\\";
-		spaziTorre.add(new SpazioTorre(listener, gui, 833, 8, 47, 517, 395, 38, path+"north.png", path+"south.png", path+"east.png", path+"west.png",
-				"img/DevCardsFront/devcards_f_en_c_64.png", "spazioTorreBlu2"),gbc);
-		//spaziTorre.add(new SpazioTorreBlu2("img/DevCardsFront/devcards_f_en_c_64.png",listener), gbc); //5
+		spaziTorre.add(spaziTorreBlu.get(1),gbc);
 		
 		gbc.gridx = 2;
-		path = "img\\Gameboard\\SpaziTorre\\Gialla\\2\\";
-		spaziTorre.add(new SpazioTorre(listener, gui, 833, 8, 47, 517, 395, 38, path+"north.png", path+"south.png", path+"east.png", path+"west.png",
-				"img/DevCardsFront/devcards_f_en_c_26.png", "spazioTorreGialla2"),gbc);
-		//spaziTorre.add(new SpazioTorreGialla2("img/DevCardsFront/devcards_f_en_c_26.png",listener), gbc); //6
+		spaziTorre.add(spaziTorreGiallo.get(1),gbc);
 		
 		gbc.gridx = 3;
-		path = "img\\Gameboard\\SpaziTorre\\Viola\\2\\";
-		spaziTorre.add(new SpazioTorre(listener, gui, 833, 8, 47, 517, 571, 38, path+"north.png", path+"south.png", path+"east.png", path+"west.png",
-				"img/DevCardsFront/devcards_f_en_c_94.png", "spazioTorreViola2"),gbc);
-		//spaziTorre.add(new SpazioTorreViola2("img/DevCardsFront/devcards_f_en_c_94.png",listener), gbc); //7
+		spaziTorre.add(spaziTorreViola.get(1),gbc);
 		
 		//Livello 3:
 		//---------------------//
 		gbc.gridx = 0;
 		gbc.gridy = 2;
-		path = "img\\Gameboard\\SpaziTorre\\Verde\\3\\";
-		spaziTorre.add(new SpazioTorre(listener, gui, 833, 8, 47, 517, 395, 129, path+"north.png", path+"south.png", path+"east.png", path+"west.png",
-				"img/DevCardsFront/devcards_f_en_c_3.png", "spazioTorreVerde3"),gbc);
-		//spaziTorre.add(new SpazioTorreVerde3("img/DevCardsFront/devcards_f_en_c_3.png",listener), gbc); //8
+		spaziTorre.add(spaziTorreVerde.get(2),gbc);
 		
 		gbc.gridx = 1;
-		path = "img\\Gameboard\\SpaziTorre\\Blu\\3\\";
-		spaziTorre.add(new SpazioTorre(listener, gui, 833, 8, 47, 517, 395, 38, path+"north.png", path+"south.png", path+"east.png", path+"west.png",
-				"img/DevCardsFront/devcards_f_en_c_62.png", "spazioTorreBlu3"),gbc);
-		//spaziTorre.add(new SpazioTorreBlu3("img/DevCardsFront/devcards_f_en_c_62.png",listener), gbc); //9
+		spaziTorre.add(spaziTorreBlu.get(2),gbc);
 		
 		gbc.gridx = 2;
-		path = "img\\Gameboard\\SpaziTorre\\Gialla\\3\\";
-		spaziTorre.add(new SpazioTorre(listener, gui, 833, 8, 47, 517, 395, 38, path+"north.png", path+"south.png", path+"east.png", path+"west.png",
-				"img/DevCardsFront/devcards_f_en_c_27.png", "spazioTorreGialla3"),gbc);
-		//spaziTorre.add(new SpazioTorreGialla3("img/DevCardsFront/devcards_f_en_c_27.png",listener), gbc); //10
+		spaziTorre.add(spaziTorreGiallo.get(2),gbc);
 		
 		gbc.gridx = 3;
-		path = "img\\Gameboard\\SpaziTorre\\Viola\\3\\";
-		spaziTorre.add(new SpazioTorre(listener, gui, 833, 8, 47, 517, 571, 38, path+"north.png", path+"south.png", path+"east.png", path+"west.png",
-				"img/DevCardsFront/devcards_f_en_c_95.png", "spazioTorreViola3"),gbc);
-		//spaziTorre.add(new SpazioTorreViola3("img/DevCardsFront/devcards_f_en_c_95.png",listener), gbc); //11
+		spaziTorre.add(spaziTorreViola.get(2),gbc);
 		
 		//Livello 4:
 		//---------------------//
 		gbc.gridx = 0;
 		gbc.gridy = 3;
-		path = "img\\Gameboard\\SpaziTorre\\Verde\\4\\";
-		spaziTorre.add(new SpazioTorre(listener, gui, 833, 8, 47, 517, 395, 129, path+"north.png", path+"south.png", path+"east.png", path+"west.png",
-				"img/DevCardsFront/devcards_f_en_c_3.png", "spazioTorreVerde4"),gbc);
-		//spaziTorre.add(new SpazioTorreVerde4("img/DevCardsFront/devcards_f_en_c_4.png",listener), gbc); //12
+		spaziTorre.add(spaziTorreVerde.get(3),gbc);
 		
 		gbc.gridx = 1;
-		path = "img\\Gameboard\\SpaziTorre\\Blu\\4\\";
-		spaziTorre.add(new SpazioTorre(listener, gui, 833, 8, 47, 517, 395, 38, path+"north.png", path+"south.png", path+"east.png", path+"west.png",
-				"img/DevCardsFront/devcards_f_en_c_63.png", "spazioTorreBlu4"),gbc);
-		//spaziTorre.add(new SpazioTorreBlu4("img/DevCardsFront/devcards_f_en_c_63.png",listener), gbc); //13
+		spaziTorre.add(spaziTorreBlu.get(3),gbc);
 		
 		gbc.gridx = 2;
-		path = "img\\Gameboard\\SpaziTorre\\Gialla\\4\\";
-		spaziTorre.add(new SpazioTorre(listener, gui, 833, 8, 47, 517, 395, 38, path+"north.png", path+"south.png", path+"east.png", path+"west.png",
-				"img/DevCardsFront/devcards_f_en_c_28.png", "spazioTorreGialla4"),gbc);
-		//spaziTorre.add(new SpazioTorreGialla4("img/DevCardsFront/devcards_f_en_c_28.png",listener), gbc); //14
+		spaziTorre.add(spaziTorreGiallo.get(3),gbc);
 		
 		gbc.gridx = 3;
-		path = "img\\Gameboard\\SpaziTorre\\Viola\\4\\";
-		spaziTorre.add(new SpazioTorre(listener, gui, 833, 8, 47, 517, 571, 38, path+"north.png", path+"south.png", path+"east.png", path+"west.png",
-				"img/DevCardsFront/devcards_f_en_c_96.png", "spazioTorreViola4"),gbc);
-		//spaziTorre.add(new SpazioTorreViola4("img/DevCardsFront/devcards_f_en_c_96.png",listener), gbc); //15
+		spaziTorre.add(spaziTorreViola.get(3),gbc);
 		
 		//-------------------------------------------------------------------//
 		// ADD GAMEBOARD
@@ -240,6 +263,10 @@ public class Gameboard extends JPanel {
 		return (SpazioTorreVerde1) spaziTorre.getComponent(0);
 	}*/
 
+	public SpazioTorre getSpazioTorre (TipoCarta tipoCarta, int numero) {
+		return this.spaziTorreMap.get(tipoCarta).get(numero);
+	}
+	
 	public SpazioTorre getSpazioTorreVerde1() {
 		return (SpazioTorre) spaziTorre.getComponent(0);
 	}
