@@ -696,8 +696,8 @@ public class ParserXML {
 	    		break;
 	        case "PUNTIVITTORIA": tipoRisorsaEnum = TipoRisorsa.PUNTIVITTORIA;
 	    		break;
-	        case "PRIVILEGI": tipoRisorsaEnum = TipoRisorsa.PRIVILEGI;
-	    		break;
+	        /*case "PRIVILEGI": tipoRisorsaEnum = TipoRisorsa.PRIVILEGI;
+	    		break;*/
         }
         
         RisorsePerRisorse moltiplicazione = new RisorsePerRisorse(setRisorse, quantitaRisorsa, tipoRisorsaEnum);

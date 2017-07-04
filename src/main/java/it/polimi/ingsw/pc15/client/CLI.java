@@ -4,6 +4,7 @@ import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.ArrayList;
+import java.util.InputMismatchException;
 import java.util.Map.Entry;
 import java.util.Observable;
 import java.util.Observer;
@@ -35,53 +36,45 @@ public class CLI extends ClientView {
 	
 	public void run(){
 		
-		boolean annulla;
-		
 	    while (true) {
 			
 			ArrayList<String> message = new ArrayList<String>();
-			annulla = false;
 			
-	    	switch (input.nextInt()) {
-	    	case 0: if (tuoTurno()) { 
-	    		
-			    		message.add("posiziona familiare");
-			    	
-						/////////////SCELTA FAMILIARE///////////////////////////////
-			
-						System.out.println("\nQuale familiare vuoi posizionare?");		
-						if (this.clientModel.getStatoGiocatore().getFamiliare(ColoreFamiliare.NERO).disponibile())
-							System.out.println("  1. familiare NERO (valore: " + this.clientModel.getStatoGiocatore().getFamiliare(ColoreFamiliare.NERO).getValore() +")");
-						if (this.clientModel.getStatoGiocatore().getFamiliare(ColoreFamiliare.BIANCO).disponibile())
-							System.out.println("  2. familiare BIANCO (valore: " + this.clientModel.getStatoGiocatore().getFamiliare(ColoreFamiliare.BIANCO).getValore() +")");
-						if (this.clientModel.getStatoGiocatore().getFamiliare(ColoreFamiliare.ARANCIONE).disponibile())
-							System.out.println("  3. familiare ARANCIONE (valore: " + this.clientModel.getStatoGiocatore().getFamiliare(ColoreFamiliare.ARANCIONE).getValore() +")");
-						if (this.clientModel.getStatoGiocatore().getFamiliare(ColoreFamiliare.NEUTRO).disponibile())
-							System.out.println("  4. familiare NEUTRO (valore: " + this.clientModel.getStatoGiocatore().getFamiliare(ColoreFamiliare.NEUTRO).getValore() +")");
-						System.out.println("\n  0. (ANNULLA)");
-						
-						switch(input.nextInt()) {
-						case 1: message.add("familiare nero");
-								break;
-						case 2: message.add("familiare bianco");
-								break;
-						case 3: message.add("familiare arancione");
-								break;
-						case 4: message.add("familiare neutro");
-								break;
-						case 0: annulla = true;
-								break;
-						default: System.out.println("\n--Inserire un comando valido!--");
-								annulla = true;
-								break;
-						}	
-						
-						//////////////FINE SCELTA FAMILIARE///////////////////////////
-						
-						////////////////SCELTA SERVITORI/////////////////////////////
-						
-						if (annulla==false) {
-							 
+			try {
+		    	switch (input.next()) {
+		    	case "0": if (tuoTurno()) { 
+		    		
+				    		message.add("posiziona familiare");
+				    	
+							/////////////SCELTA FAMILIARE///////////////////////////////
+				
+							System.out.println("\nQuale familiare vuoi posizionare?");		
+							if (this.clientModel.getStatoGiocatore().getFamiliare(ColoreFamiliare.NERO).disponibile())
+								System.out.println("  1. familiare NERO (valore: " + this.clientModel.getStatoGiocatore().getFamiliare(ColoreFamiliare.NERO).getValore() +")");
+							if (this.clientModel.getStatoGiocatore().getFamiliare(ColoreFamiliare.BIANCO).disponibile())
+								System.out.println("  2. familiare BIANCO (valore: " + this.clientModel.getStatoGiocatore().getFamiliare(ColoreFamiliare.BIANCO).getValore() +")");
+							if (this.clientModel.getStatoGiocatore().getFamiliare(ColoreFamiliare.ARANCIONE).disponibile())
+								System.out.println("  3. familiare ARANCIONE (valore: " + this.clientModel.getStatoGiocatore().getFamiliare(ColoreFamiliare.ARANCIONE).getValore() +")");
+							if (this.clientModel.getStatoGiocatore().getFamiliare(ColoreFamiliare.NEUTRO).disponibile())
+								System.out.println("  4. familiare NEUTRO (valore: " + this.clientModel.getStatoGiocatore().getFamiliare(ColoreFamiliare.NEUTRO).getValore() +")");
+							
+							switch(input.nextInt()) {
+							case 1: message.add("familiare nero");
+									break;
+							case 2: message.add("familiare bianco");
+									break;
+							case 3: message.add("familiare arancione");
+									break;
+							case 4: message.add("familiare neutro");
+									break;
+							default: throw new InputMismatchException();
+							}	
+							
+							//////////////FINE SCELTA FAMILIARE///////////////////////////
+							
+							////////////////SCELTA SERVITORI/////////////////////////////
+							
+								 
 							System.out.println("\nVuoi spendere dei servitori per aumentare il valore della tua azione?  (S/N)");
 							String in = input.next();
 							switch (in) {
@@ -92,27 +85,21 @@ public class CLI extends ClientView {
 									int numeroServitori = input.nextInt();
 									if (this.clientModel.getStatoGiocatore().getEffettiAttivi().sovrapprezzoServitori())
 										numeroServitori /= 2;
-									if (numeroServitori > clientModel.getStatoGiocatore().getSetRisorse().getRisorsa(TipoRisorsa.SERVITORI).getQuantità()) {
-										System.out.println("Non possiedi abbastanza servitori");
-										annulla = true;
-									}
+									if (numeroServitori > clientModel.getStatoGiocatore().getSetRisorse().getRisorsa(TipoRisorsa.SERVITORI).getQuantità())
+										throw new InputMismatchException();
 									else message.add(String.valueOf(numeroServitori));
-									break;
+										break;
 							case "no":
 							case "N":
 							case "n": message.add("0");
 									break;
-							default: System.out.println("\n--Inserire un comando valido!--");
-								annulla=true;
-								break;
+							default: throw new InputMismatchException();
 							}
-						}
-						
-						//////////////FINE SCELTA SERVITORI////////////////////////////////
-						
-						/////////////SCELTA SPAZIO/////////////////////////////////////////
-						
-						if (annulla==false) {
+							
+							//////////////FINE SCELTA SERVITORI////////////////////////////////
+							
+							/////////////SCELTA SPAZIO/////////////////////////////////////////
+							
 							System.out.println("\nQuale spazio vuoi occupare?\n  1. Spazio del Mercato\n  2. Spazio del Consiglio\n  3. Spazio raccolta\n  4. Spazio produzione\n  5. Spazio di una torre");
 							switch (input.nextInt()) {
 							case 1: message.add("mercato");
@@ -161,231 +148,218 @@ public class CLI extends ClientView {
 													message.add(String.valueOf(2));
 												else message.add(String.valueOf(1));
 											}
+
 												
-											
-											
 											break;
-									case 0: annulla=true;
-											break;
-									default: System.out.println("\n--Inserire un comando valido!--");
-											annulla=true;
-											break;
+
+									default: throw new InputMismatchException();
 									}
-									break;
+									
+								break;
+									
+							default: throw new InputMismatchException();
 							} 
-							
-							////////////FINE SCELTA SPAZIO///////////////////////////////////
-						}
-						
-						if (annulla==false)
+								
+								////////////FINE SCELTA SPAZIO///////////////////////////////////
 							setChanged();
-						else update(this, "");
+		    	
+		    	}  else throw new InputMismatchException();
+					
+				break;		
+					
+		    	case "1": System.out.println("\nAl momento possiedi le seguenti risorse: ");
+						System.out.println("  - Oro: " + this.clientModel.getStatoGiocatore().getSetRisorse().getRisorsa(TipoRisorsa.ORO).getQuantità());
+						System.out.println("  - Legna: " + this.clientModel.getStatoGiocatore().getSetRisorse().getRisorsa(TipoRisorsa.LEGNA).getQuantità());
+						System.out.println("  - Pietra: " + this.clientModel.getStatoGiocatore().getSetRisorse().getRisorsa(TipoRisorsa.PIETRA).getQuantità());
+						System.out.println("  - Servitori: " + this.clientModel.getStatoGiocatore().getSetRisorse().getRisorsa(TipoRisorsa.SERVITORI).getQuantità());
+						System.out.println("\n  - Punti Vittoria: " + this.clientModel.getStatoGiocatore().getSetRisorse().getRisorsa(TipoRisorsa.PUNTIVITTORIA).getQuantità());
+						System.out.println("  - Punti Militari: " + this.clientModel.getStatoGiocatore().getSetRisorse().getRisorsa(TipoRisorsa.PUNTIMILITARI).getQuantità());
+						System.out.println("  - Punti Fede: " + this.clientModel.getStatoGiocatore().getSetRisorse().getRisorsa(TipoRisorsa.PUNTIFEDE).getQuantità());
+						update(this, "");
+				break;
 						
-			    	} else {
-			    		System.out.println("--Inserire un comando valido!--");
-			    		update(this, "");
-			    	}
-				
-			break;		
-				
-	    	case 1: System.out.println("\nAl momento possiedi le seguenti risorse: ");
-					System.out.println("  - Oro: " + this.clientModel.getStatoGiocatore().getSetRisorse().getRisorsa(TipoRisorsa.ORO).getQuantità());
-					System.out.println("  - Legna: " + this.clientModel.getStatoGiocatore().getSetRisorse().getRisorsa(TipoRisorsa.LEGNA).getQuantità());
-					System.out.println("  - Pietra: " + this.clientModel.getStatoGiocatore().getSetRisorse().getRisorsa(TipoRisorsa.PIETRA).getQuantità());
-					System.out.println("  - Servitori: " + this.clientModel.getStatoGiocatore().getSetRisorse().getRisorsa(TipoRisorsa.SERVITORI).getQuantità());
-					System.out.println("\n  - Punti Vittoria: " + this.clientModel.getStatoGiocatore().getSetRisorse().getRisorsa(TipoRisorsa.PUNTIVITTORIA).getQuantità());
-					System.out.println("  - Punti Militari: " + this.clientModel.getStatoGiocatore().getSetRisorse().getRisorsa(TipoRisorsa.PUNTIMILITARI).getQuantità());
-					System.out.println("  - Punti Fede: " + this.clientModel.getStatoGiocatore().getSetRisorse().getRisorsa(TipoRisorsa.PUNTIFEDE).getQuantità());
-					update(this, "");
-			break;
-					
-					
-					
-	    	case 2: System.out.println("\nI tuoi familiari disponibili sono i seguenti: ");
-	    			if (this.clientModel.getStatoGiocatore().getFamiliare(ColoreFamiliare.NERO).disponibile())
-	    				System.out.println("  - Familiare nero - valore: " + this.clientModel.getStatoGiocatore().getFamiliare(ColoreFamiliare.NERO).getValore());
-	    			if (this.clientModel.getStatoGiocatore().getFamiliare(ColoreFamiliare.BIANCO).disponibile())
-	    				System.out.println("  - Familiare bianco - valore: " + this.clientModel.getStatoGiocatore().getFamiliare(ColoreFamiliare.BIANCO).getValore());
-	    			if (this.clientModel.getStatoGiocatore().getFamiliare(ColoreFamiliare.ARANCIONE).disponibile())
-	    				System.out.println("  - Familiare arancione - valore: " + this.clientModel.getStatoGiocatore().getFamiliare(ColoreFamiliare.ARANCIONE).getValore());
-	    			if (this.clientModel.getStatoGiocatore().getFamiliare(ColoreFamiliare.NEUTRO).disponibile())
-	    				System.out.println("  - Familiare neutro - valore: " + this.clientModel.getStatoGiocatore().getFamiliare(ColoreFamiliare.NEUTRO).getValore());
-					update(this, "");
-	    	break;
-	    			
-	    	
-	    	case 3: for (SpazioMercato spazioMercato : this.clientModel.getStatoPlancia().getSpaziMercato())
-	    				if (spazioMercato.vuoto())
-	    					System.out.println("  - Spazio del Mercato " + this.clientModel.getStatoPlancia().getSpaziMercato().lastIndexOf(spazioMercato) + ": LIBERO");
-	    				else 
-	    					System.out.print("  - Spazio del Mercato " + this.clientModel.getStatoPlancia().getSpaziMercato().lastIndexOf(spazioMercato) + ": Occupato da " + spazioMercato.getFamiliari().get(0).getPlayer().getNome());
-					
-	    			if (this.clientModel.getStatoPlancia().getSpazioRaccolta().vuoto())
-						System.out.println("\n  - Spazio raccolta : LIBERO");
-	    			else {
-	    				System.out.print("\n  - Spazio raccolta: Occupato da ");
-	    				for (Familiare familiare : this.clientModel.getStatoPlancia().getSpazioRaccolta().getFamiliari())
-	    					System.out.println(familiare.getPlayer().getNome() + " ");
-	    			}
-	    			
-	    			if (this.clientModel.getStatoPlancia().getSpazioProduzione().vuoto())
-						System.out.println("  - Spazio produzione : LIBERO");
-	    			else {
-	    				System.out.print("  - Spazio produzione: Occupato da ");
-	    				for (Familiare familiare : this.clientModel.getStatoPlancia().getSpazioProduzione().getFamiliari())
-	    					System.out.println(familiare.getPlayer().getNome() + " ");
-	    			}
-	    			
-	    			if (this.clientModel.getStatoPlancia().getSpazioConsiglio().vuoto())
-						System.out.println("\n  - Spazio del Consiglio : LIBERO");
-	    			else {
-	    				System.out.print("\n  - Spazio del Consiglio: Occupato da ");
-	    				for (Familiare familiare : this.clientModel.getStatoPlancia().getSpazioConsiglio().getFamiliari())
-	    					System.out.println(familiare.getPlayer().getNome() + " ");
-	    			}
-	    			
-	    			System.out.println("\n    Torre VERDE:");
-	    			for (SpazioTorre spazio : this.clientModel.getStatoPlancia().getTorre(TipoCarta.TERRITORIO).getSpaziTorre())
-	    				if (spazio.vuoto())
-	    					System.out.println("  - Spazio " + (this.clientModel.getStatoPlancia().getTorre(TipoCarta.TERRITORIO).getSpaziTorre().lastIndexOf(spazio)+1) + ": LIBERO - Carta Territorio presente: " + spazio.getCarta().toString());
-	    				else {
-	    					System.out.print("  - Spazio " + (this.clientModel.getStatoPlancia().getTorre(TipoCarta.TERRITORIO).getSpaziTorre().lastIndexOf(spazio)+1) + ": occupato da ");
-		    				for (Familiare familiare : spazio.getFamiliari())
-		    					System.out.println(familiare.getPlayer().getNome() + " ");
-	    				}
-	    			
-	    			System.out.println("\n    Torre VIOLA:");
-	    			for (SpazioTorre spazio : this.clientModel.getStatoPlancia().getTorre(TipoCarta.IMPRESA).getSpaziTorre())
-	    				if (spazio.vuoto())
-	    					System.out.println("  - Spazio " + (this.clientModel.getStatoPlancia().getTorre(TipoCarta.IMPRESA).getSpaziTorre().lastIndexOf(spazio)+1) + ": LIBERO - Carta Impresa presente: " + spazio.getCarta().toString());
-	    				else {
-	    					System.out.print("  - Spazio " + (this.clientModel.getStatoPlancia().getTorre(TipoCarta.IMPRESA).getSpaziTorre().lastIndexOf(spazio)+1) + ": occupato da ");
-		    				for (Familiare familiare : spazio.getFamiliari())
-		    					System.out.println(familiare.getPlayer().getNome() + " ");
-	    				}
-	    			
-	    			
-	    			System.out.println("\n    Torre GIALLA:");
-	    			for (SpazioTorre spazio : this.clientModel.getStatoPlancia().getTorre(TipoCarta.EDIFICIO).getSpaziTorre())
-	    				if (spazio.vuoto())
-	    					System.out.println("  - Spazio " + (this.clientModel.getStatoPlancia().getTorre(TipoCarta.EDIFICIO).getSpaziTorre().lastIndexOf(spazio)+1) + ": LIBERO - Carta Edificio presente: " + spazio.getCarta().toString());
-	    				else {
-	    					System.out.print("  - Spazio " + (this.clientModel.getStatoPlancia().getTorre(TipoCarta.EDIFICIO).getSpaziTorre().lastIndexOf(spazio)+1) + ": occupato da ");
-		    				for (Familiare familiare : spazio.getFamiliari())
-		    					System.out.println(familiare.getPlayer().getNome() + " ");
-	    				}
-	    			
-	    			System.out.println("\n    Torre BLU:");
-	    			for (SpazioTorre spazio : this.clientModel.getStatoPlancia().getTorre(TipoCarta.PERSONAGGIO).getSpaziTorre())
-	    				if (spazio.vuoto())
-	    					System.out.println("  - Spazio " + (this.clientModel.getStatoPlancia().getTorre(TipoCarta.PERSONAGGIO).getSpaziTorre().lastIndexOf(spazio)+1) + ": LIBERO - Carta Personaggio presente: " + spazio.getCarta().toString());
-	    				else {
-	    					System.out.print("  - Spazio " + (this.clientModel.getStatoPlancia().getTorre(TipoCarta.PERSONAGGIO).getSpaziTorre().lastIndexOf(spazio)+1) + ": occupato da ");
-		    				for (Familiare familiare : spazio.getFamiliari())
-		    					System.out.println(familiare.getPlayer().getNome() + " ");
-	    				}
-	    			
-	    			/*
-	    			System.out.println("\n    SCOMUNICHE:");
-	    			for (Entry<Integer, TesseraScomunica> scomunica : this.clientModel.getStatoPlancia().getScomuniche().entrySet())
-	    				System.out.println("  - Periodo " + scomunica.getKey() + ": " + scomunica.getValue().toString());
-	    			*/
-
-
-					update(this, "");
-	    	break;
-	    	
-					
-	    	case 4: System.out.println("\nAl momento possiedi le seguenti carte Leader:");
-	    			for (Leader leader : this.clientModel.getStatoGiocatore().getCarteLeader())
-	    				if (leader!=null)
-	    					System.out.println("  - " + leader.toString());
-					update(this, "");
-	    	break;
-	    	
-	    	
-	    	case 5: System.out.println("\nAl momento possiedi le seguenti carte Sviluppo:");
-	    	
-	    			System.out.println(" carte TERRITORIO:");
-	    			if (this.clientModel.getStatoGiocatore().getCarte(TipoCarta.TERRITORIO).isEmpty())
-	    				System.out.println("  [nessuna]");
-	    			else for (Carta carta : this.clientModel.getStatoGiocatore().getCarte(TipoCarta.TERRITORIO))
-						System.out.println("  - " + carta.getNome() + " (EFFETTO PERMANENTE: " + carta.getEffettoPermanente().toString() + ")");
 						
-		    		System.out.println(" carte PERSONAGGIO:");
-	    			if (this.clientModel.getStatoGiocatore().getCarte(TipoCarta.PERSONAGGIO).isEmpty())
-	    				System.out.println("  [nessuna]");
-	    			else for (Carta carta : this.clientModel.getStatoGiocatore().getCarte(TipoCarta.PERSONAGGIO))
-						System.out.println("  - " + carta.getNome() + " (EFFETTO PERMANENTE: " + carta.getEffettoPermanente().toString() + ")");
-							
-			    	System.out.println(" carte EDIFICIO:");
-	    			if (this.clientModel.getStatoGiocatore().getCarte(TipoCarta.EDIFICIO).isEmpty())
-	    				System.out.println("  [nessuna]");
-	    			else for (Carta carta : this.clientModel.getStatoGiocatore().getCarte(TipoCarta.EDIFICIO))
-						System.out.println("  - " + carta.getNome() + " (EFFETTO PERMANENTE: " + carta.getEffettoPermanente().toString() + ")");
-							
-			    	System.out.println(" carte IMPRESA:");
-	    			if (this.clientModel.getStatoGiocatore().getCarte(TipoCarta.IMPRESA).isEmpty())
-	    				System.out.println("  [nessuna]");
-	    			else for (Carta carta : this.clientModel.getStatoGiocatore().getCarte(TipoCarta.IMPRESA))
-						System.out.println("  - " + carta.getNome() + " (EFFETTO PERMANENTE: " + carta.getEffettoPermanente().toString() + ")");
-
-					update(this, "");
-			break;
-	    	
-		
-			case 6: if (tuoTurno()) {
-						message = new ArrayList<String>();
-						message.add("gioca Leader"); 
-						System.out.println("\nQuale Leader vuoi giocare?");
-		    			for (Leader leader : this.clientModel.getStatoGiocatore().getCarteLeader())
-		    				System.out.println("  " + (this.clientModel.getStatoGiocatore().getCarteLeader().lastIndexOf(leader)+1) +". " + leader.getNome());
-						message.add(String.valueOf(input.nextInt()-1));
-						setChanged();
-					} else {
-			    		System.out.println("\n--Inserire un comando valido!--");
-			    		update(this, "");
-			    	}
-			
-			break;	
-			
-					
-			case 7: if (tuoTurno()) {
-				message = new ArrayList<String>();
-				message.add("scarta Leader"); 
-				System.out.println("\nQuale Leader vuoi scartare?");
-    			for (Leader leader : this.clientModel.getStatoGiocatore().getCarteLeader())
-    				System.out.println("  " + (this.clientModel.getStatoGiocatore().getCarteLeader().lastIndexOf(leader)+1) +". " + leader.getNome());
-				message.add(String.valueOf(input.nextInt()-1));
-				setChanged();
-			} else {
-	    		System.out.println("\n--Inserire un comando valido!--");
-	    		update(this, "");
-	    	}
-
-			break;	
-			
-					
-			case 8: if (tuoTurno()) {
-						message = new ArrayList<String>();
-						message.add("attiva effetto Leader"); 
-						System.out.println("\nQuale Leader vuoi attivare?");
-		    			for (Leader leader : this.clientModel.getStatoGiocatore().getCarteLeader())
-		    				System.out.println("  " + (this.clientModel.getStatoGiocatore().getCarteLeader().lastIndexOf(leader)+1) +". " + leader.getNome());
-		    			message.add(String.valueOf(input.nextInt()-1));
-						setChanged();
-					} else {
-			    		System.out.println("\n--Inserire un comando valido!--");
-			    		update(this, "");
-			    	}
+						
+		    	case "2": System.out.println("\nI tuoi familiari disponibili sono i seguenti: ");
+		    			if (this.clientModel.getStatoGiocatore().getFamiliare(ColoreFamiliare.NERO).disponibile())
+		    				System.out.println("  - Familiare nero - valore: " + this.clientModel.getStatoGiocatore().getFamiliare(ColoreFamiliare.NERO).getValore());
+		    			if (this.clientModel.getStatoGiocatore().getFamiliare(ColoreFamiliare.BIANCO).disponibile())
+		    				System.out.println("  - Familiare bianco - valore: " + this.clientModel.getStatoGiocatore().getFamiliare(ColoreFamiliare.BIANCO).getValore());
+		    			if (this.clientModel.getStatoGiocatore().getFamiliare(ColoreFamiliare.ARANCIONE).disponibile())
+		    				System.out.println("  - Familiare arancione - valore: " + this.clientModel.getStatoGiocatore().getFamiliare(ColoreFamiliare.ARANCIONE).getValore());
+		    			if (this.clientModel.getStatoGiocatore().getFamiliare(ColoreFamiliare.NEUTRO).disponibile())
+		    				System.out.println("  - Familiare neutro - valore: " + this.clientModel.getStatoGiocatore().getFamiliare(ColoreFamiliare.NEUTRO).getValore());
+						update(this, "");
+		    	break;
+		    			
+		    	
+		    	case "3": for (SpazioMercato spazioMercato : this.clientModel.getStatoPlancia().getSpaziMercato())
+		    				if (spazioMercato.vuoto())
+		    					System.out.println("  - Spazio del Mercato " + this.clientModel.getStatoPlancia().getSpaziMercato().lastIndexOf(spazioMercato) + ": LIBERO");
+		    				else 
+		    					System.out.print("  - Spazio del Mercato " + this.clientModel.getStatoPlancia().getSpaziMercato().lastIndexOf(spazioMercato) + ": Occupato da " + spazioMercato.getFamiliari().get(0).getPlayer().getNome());
+						
+		    			if (this.clientModel.getStatoPlancia().getSpazioRaccolta().vuoto())
+							System.out.println("\n  - Spazio raccolta : LIBERO");
+		    			else {
+		    				System.out.print("\n  - Spazio raccolta: Occupato da ");
+		    				for (Familiare familiare : this.clientModel.getStatoPlancia().getSpazioRaccolta().getFamiliari())
+		    					System.out.println(familiare.getPlayer().getNome() + " ");
+		    			}
+		    			
+		    			if (this.clientModel.getStatoPlancia().getSpazioProduzione().vuoto())
+							System.out.println("  - Spazio produzione : LIBERO");
+		    			else {
+		    				System.out.print("  - Spazio produzione: Occupato da ");
+		    				for (Familiare familiare : this.clientModel.getStatoPlancia().getSpazioProduzione().getFamiliari())
+		    					System.out.println(familiare.getPlayer().getNome() + " ");
+		    			}
+		    			
+		    			if (this.clientModel.getStatoPlancia().getSpazioConsiglio().vuoto())
+							System.out.println("\n  - Spazio del Consiglio : LIBERO");
+		    			else {
+		    				System.out.print("\n  - Spazio del Consiglio: Occupato da ");
+		    				for (Familiare familiare : this.clientModel.getStatoPlancia().getSpazioConsiglio().getFamiliari())
+		    					System.out.println(familiare.getPlayer().getNome() + " ");
+		    			}
+		    			
+		    			System.out.println("\n    Torre VERDE:");
+		    			for (SpazioTorre spazio : this.clientModel.getStatoPlancia().getTorre(TipoCarta.TERRITORIO).getSpaziTorre())
+		    				if (spazio.vuoto())
+		    					System.out.println("  - Spazio " + (this.clientModel.getStatoPlancia().getTorre(TipoCarta.TERRITORIO).getSpaziTorre().lastIndexOf(spazio)+1) + ": LIBERO - Carta Territorio presente: " + spazio.getCarta().toString());
+		    				else {
+		    					System.out.print("  - Spazio " + (this.clientModel.getStatoPlancia().getTorre(TipoCarta.TERRITORIO).getSpaziTorre().lastIndexOf(spazio)+1) + ": occupato da ");
+			    				for (Familiare familiare : spazio.getFamiliari())
+			    					System.out.println(familiare.getPlayer().getNome() + " ");
+		    				}
+		    			
+		    			System.out.println("\n    Torre VIOLA:");
+		    			for (SpazioTorre spazio : this.clientModel.getStatoPlancia().getTorre(TipoCarta.IMPRESA).getSpaziTorre())
+		    				if (spazio.vuoto())
+		    					System.out.println("  - Spazio " + (this.clientModel.getStatoPlancia().getTorre(TipoCarta.IMPRESA).getSpaziTorre().lastIndexOf(spazio)+1) + ": LIBERO - Carta Impresa presente: " + spazio.getCarta().toString());
+		    				else {
+		    					System.out.print("  - Spazio " + (this.clientModel.getStatoPlancia().getTorre(TipoCarta.IMPRESA).getSpaziTorre().lastIndexOf(spazio)+1) + ": occupato da ");
+			    				for (Familiare familiare : spazio.getFamiliari())
+			    					System.out.println(familiare.getPlayer().getNome() + " ");
+		    				}
+		    			
+		    			
+		    			System.out.println("\n    Torre GIALLA:");
+		    			for (SpazioTorre spazio : this.clientModel.getStatoPlancia().getTorre(TipoCarta.EDIFICIO).getSpaziTorre())
+		    				if (spazio.vuoto())
+		    					System.out.println("  - Spazio " + (this.clientModel.getStatoPlancia().getTorre(TipoCarta.EDIFICIO).getSpaziTorre().lastIndexOf(spazio)+1) + ": LIBERO - Carta Edificio presente: " + spazio.getCarta().toString());
+		    				else {
+		    					System.out.print("  - Spazio " + (this.clientModel.getStatoPlancia().getTorre(TipoCarta.EDIFICIO).getSpaziTorre().lastIndexOf(spazio)+1) + ": occupato da ");
+			    				for (Familiare familiare : spazio.getFamiliari())
+			    					System.out.println(familiare.getPlayer().getNome() + " ");
+		    				}
+		    			
+		    			System.out.println("\n    Torre BLU:");
+		    			for (SpazioTorre spazio : this.clientModel.getStatoPlancia().getTorre(TipoCarta.PERSONAGGIO).getSpaziTorre())
+		    				if (spazio.vuoto())
+		    					System.out.println("  - Spazio " + (this.clientModel.getStatoPlancia().getTorre(TipoCarta.PERSONAGGIO).getSpaziTorre().lastIndexOf(spazio)+1) + ": LIBERO - Carta Personaggio presente: " + spazio.getCarta().toString());
+		    				else {
+		    					System.out.print("  - Spazio " + (this.clientModel.getStatoPlancia().getTorre(TipoCarta.PERSONAGGIO).getSpaziTorre().lastIndexOf(spazio)+1) + ": occupato da ");
+			    				for (Familiare familiare : spazio.getFamiliari())
+			    					System.out.println(familiare.getPlayer().getNome() + " ");
+		    				}
+		    			
+		    			/*
+		    			System.out.println("\n    SCOMUNICHE:");
+		    			for (Entry<Integer, TesseraScomunica> scomunica : this.clientModel.getStatoPlancia().getScomuniche().entrySet())
+		    				System.out.println("  - Periodo " + scomunica.getKey() + ": " + scomunica.getValue().toString());
+		    			*/
 	
-			break;
-					
-			default: System.out.println("\n--Inserire un comando valido!--");
-					update(this, "");
-			break;
+	
+						update(this, "");
+		    	break;
+		    	
+						
+		    	case "4": System.out.println("\nAl momento possiedi le seguenti carte Leader:");
+		    			for (Leader leader : this.clientModel.getStatoGiocatore().getCarteLeader())
+		    				if (leader!=null)
+		    					System.out.println("  - " + leader.toString());
+						update(this, "");
+		    	break;
+		    	
+		    	
+		    	case "5": System.out.println("\nAl momento possiedi le seguenti carte Sviluppo:");
+		    	
+		    			System.out.println(" carte TERRITORIO:");
+		    			if (this.clientModel.getStatoGiocatore().getCarte(TipoCarta.TERRITORIO).isEmpty())
+		    				System.out.println("  [nessuna]");
+		    			else for (Carta carta : this.clientModel.getStatoGiocatore().getCarte(TipoCarta.TERRITORIO))
+							System.out.println("  - " + carta.getNome() + " (EFFETTO PERMANENTE: " + carta.getEffettoPermanente().toString() + ")");
+							
+			    		System.out.println(" carte PERSONAGGIO:");
+		    			if (this.clientModel.getStatoGiocatore().getCarte(TipoCarta.PERSONAGGIO).isEmpty())
+		    				System.out.println("  [nessuna]");
+		    			else for (Carta carta : this.clientModel.getStatoGiocatore().getCarte(TipoCarta.PERSONAGGIO))
+							System.out.println("  - " + carta.getNome() + " (EFFETTO PERMANENTE: " + carta.getEffettoPermanente().toString() + ")");
+								
+				    	System.out.println(" carte EDIFICIO:");
+		    			if (this.clientModel.getStatoGiocatore().getCarte(TipoCarta.EDIFICIO).isEmpty())
+		    				System.out.println("  [nessuna]");
+		    			else for (Carta carta : this.clientModel.getStatoGiocatore().getCarte(TipoCarta.EDIFICIO))
+							System.out.println("  - " + carta.getNome() + " (EFFETTO PERMANENTE: " + carta.getEffettoPermanente().toString() + ")");
+								
+				    	System.out.println(" carte IMPRESA:");
+		    			if (this.clientModel.getStatoGiocatore().getCarte(TipoCarta.IMPRESA).isEmpty())
+		    				System.out.println("  [nessuna]");
+		    			else for (Carta carta : this.clientModel.getStatoGiocatore().getCarte(TipoCarta.IMPRESA))
+							System.out.println("  - " + carta.getNome() + " (EFFETTO PERMANENTE: " + carta.getEffettoPermanente().toString() + ")");
+	
+						update(this, "");
+				break;
+		    	
+			
+				case "6": if (tuoTurno()) {
+							message = new ArrayList<String>();
+							message.add("gioca Leader"); 
+							System.out.println("\nQuale Leader vuoi giocare?");
+			    			for (Leader leader : this.clientModel.getStatoGiocatore().getCarteLeader())
+			    				System.out.println("  " + (this.clientModel.getStatoGiocatore().getCarteLeader().lastIndexOf(leader)+1) +". " + leader.getNome());
+							message.add(String.valueOf(input.nextInt()-1));
+							setChanged();
+						} else throw new InputMismatchException();
 				
-	    	}		 
+				break;	
+				
+						
+				case "7": if (tuoTurno()) {
+					message = new ArrayList<String>();
+					message.add("scarta Leader"); 
+					System.out.println("\nQuale Leader vuoi scartare?");
+	    			for (Leader leader : this.clientModel.getStatoGiocatore().getCarteLeader())
+	    				System.out.println("  " + (this.clientModel.getStatoGiocatore().getCarteLeader().lastIndexOf(leader)+1) +". " + leader.getNome());
+					message.add(String.valueOf(input.nextInt()-1));
+					setChanged();
+				} else throw new InputMismatchException();
+	
+				break;	
+				
+						
+				case "8": if (tuoTurno()) {
+							message = new ArrayList<String>();
+							message.add("attiva effetto Leader"); 
+							System.out.println("\nQuale Leader vuoi attivare?");
+			    			for (Leader leader : this.clientModel.getStatoGiocatore().getCarteLeader())
+			    				System.out.println("  " + (this.clientModel.getStatoGiocatore().getCarteLeader().lastIndexOf(leader)+1) +". " + leader.getNome());
+			    			message.add(String.valueOf(input.nextInt()-1));
+							setChanged();
+						} else throw new InputMismatchException();
+		
+				break;
+						
+				default: throw new InputMismatchException();
+					
+		    	}	
+		    	
+			} catch (InputMismatchException e) {
+	    		System.out.println("\n--Inserire un comando valido!--");
+				update(this, "");
+				
+			}
 	    	
 	    	notifyObservers(message);
 	  

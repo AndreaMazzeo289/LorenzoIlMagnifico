@@ -14,7 +14,6 @@ public class AzioneScartaLeader extends AzioneLeader {
 	public void attiva() {	
 		
 		player.getCarteLeader().remove(leader);
-		player.getSetRisorse().getRisorsa(TipoRisorsa.PRIVILEGI).aggiungi(1);		
 	}
 
 	@Override

@@ -21,10 +21,12 @@ public class ClientMain {
 		while (sceltaConnessione!=1 && sceltaConnessione!=2) {
 			try {
 				sceltaConnessione = Integer.valueOf(in.next());
+				if (sceltaConnessione!=1 && sceltaConnessione!=2)
+					throw new NumberFormatException();
 			} catch (java.lang.NumberFormatException e) {
 				System.out.println("  --- ERRORE: inserire una scelta valida ---");
-				System.out.println("Vuoi connetterti con RMI (1) o con Socket (2) ?");
-				
+				System.out.println("\nVuoi connetterti con RMI (1) o con Socket (2) ?");
+	
 			}
 		}
 		
@@ -33,9 +35,11 @@ public class ClientMain {
 		while (sceltaView!=1 && sceltaView!=2) {
 			try {
 				sceltaView = Integer.valueOf(in.next());
+				if (sceltaView!=1 && sceltaView!=2)
+					throw new NumberFormatException();
 			} catch (java.lang.NumberFormatException e) {
 				System.out.println("  --- ERRORE: inserire una scelta valida ---");
-				System.out.println("Vuoi giocare tramite CLI (1) o tramte GUI (2) ?");
+				System.out.println("\nVuoi giocare tramite CLI (1) o tramte GUI (2) ?");
 				
 			}
 		}

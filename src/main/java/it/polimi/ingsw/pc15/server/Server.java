@@ -28,12 +28,14 @@ public class Server extends UnicastRemoteObject implements ServerInterface {
 	private ArrayList<RMIView> rmiViews;
 	private HashMap<String, ServerView> views;
 	private int numeroGiocatori;
+	private ArrayList<Partita> partite;
 	
 	public Server() throws IOException {
 		this.serverSocket = new ServerSocket(PORT);
-		rmiViews = new ArrayList<RMIView>();
+		this.rmiViews = new ArrayList<RMIView>();
 		this.views = new HashMap<String, ServerView>();
 		this.numeroGiocatori = 0;
+		this.partite = new ArrayList<Partita>();
 	}
 
 
@@ -83,37 +85,12 @@ public class Server extends UnicastRemoteObject implements ServerInterface {
 		System.out.println("Giocatore connnesso: " + name);
 		numeroGiocatori++;
 		if (numeroGiocatori==2) {
-			avviaPartita();
+			Partita partita = new Partita(this.views);
+			this.partite.add(partita);
+			partita.avvia();
 			this.views = new HashMap<String, ServerView>();
 			numeroGiocatori=0;
 		}
-	}
-	
-	
-	public void avviaPartita() {
-		
-		ArrayList<String> nomiGiocatori = new ArrayList<String>();
-		
-		for(Map.Entry<String, ServerView> giocatoriConnessi : views.entrySet())
-			nomiGiocatori.add(giocatoriConnessi.getKey());
-		
-		Model model = new Model(nomiGiocatori);
-		
-		for(Map.Entry<String, ServerView> view : views.entrySet()) 
-			model.addObserver(view.getValue());
-			
-		Controller controller = new Controller(model);
-		
-		for(Map.Entry<String, ServerView> giocatoreConnesso : views.entrySet()) {
-			giocatoreConnesso.getValue().addObserver(controller);  //il Controller viene reso Observer di ogni View
-			if (giocatoreConnesso.getValue() instanceof SocketView)
-				giocatoreConnesso.getValue().sendLine("OK"); //notifica ai giocatori l'inizio partita
-			else if (giocatoreConnesso.getValue() instanceof RMIView)
-				((RMIView) giocatoreConnesso.getValue()).sendOK();
-		}
-		
-		model.iniziaPartita();
-		
 	}
 
 	
