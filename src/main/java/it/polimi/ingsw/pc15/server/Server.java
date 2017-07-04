@@ -29,6 +29,7 @@ public class Server extends UnicastRemoteObject implements ServerInterface {
 	private HashMap<String, ServerView> views;
 	private int numeroGiocatori;
 	private ArrayList<Partita> partite;
+	private Thread timerThread;
 	
 	public Server() throws IOException {
 		this.serverSocket = new ServerSocket(PORT);
@@ -85,11 +86,14 @@ public class Server extends UnicastRemoteObject implements ServerInterface {
 		System.out.println("Giocatore connnesso: " + name);
 		numeroGiocatori++;
 		if (numeroGiocatori==2) {
-			Partita partita = new Partita(this.views);
-			this.partite.add(partita);
-			partita.avvia();
-			this.views = new HashMap<String, ServerView>();
-			numeroGiocatori=0;
+			ServerTimer timer = new ServerTimer(views, this);
+			timerThread = new Thread(timer);
+			timerThread.start();
+		}
+		if (numeroGiocatori==3) {
+			timerThread.interrupt();
+			avviaPartita();
+			
 		}
 	}
 
@@ -123,5 +127,13 @@ public class Server extends UnicastRemoteObject implements ServerInterface {
 		System.out.println("Sono il server e ho ricevuto " + message);
 		this.rmiViews.get(i).notificaOsservatori(message);
 		
+	}
+	
+	public void avviaPartita() {
+		Partita partita = new Partita(this.views);
+		this.partite.add(partita);
+		partita.avvia();
+		this.views = new HashMap<String, ServerView>();
+		numeroGiocatori=0;
 	}
 }
