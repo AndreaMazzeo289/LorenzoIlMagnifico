@@ -93,6 +93,7 @@ public class ButtonListener implements ActionListener{
 		if (e.getActionCommand().equals("posizionaFamiliare")) {
 			if(gui.tuoTurno()) {
 				selezionaFamiliarePopup = new SelezionaFamiliarePopup(this,gui.getPlayerCorrente());
+				gui.clearMessage();
 				gui.writeMessage("posiziona familiare");
 			}
 		}

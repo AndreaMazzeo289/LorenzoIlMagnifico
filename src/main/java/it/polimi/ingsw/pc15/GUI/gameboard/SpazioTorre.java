@@ -139,5 +139,6 @@ public class SpazioTorre extends JPanel{
 		newImage = image.getScaledInstance(((int)(larghezzaSchermo*larghezzaCenter)/larghezzaTotale),((int)(altezzaSchermo*altezzaCenter)/altezzaTotale),Image.SCALE_DEFAULT);
 		ImageIcon imageCenter = new ImageIcon(newImage);
 		buttonCenter.setIcon(imageCenter);
+		buttonCenter.setActionCommand(path);
 	}
 }

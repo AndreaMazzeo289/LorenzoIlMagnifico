@@ -90,5 +90,6 @@ public class CarteGioco extends JButton{
 		ImageIcon imageCard = new ImageIcon(newImage);
 		this.setIcon(imageCard);
 		this.path = path;
+		this.setActionCommand(path);
 	}
 }

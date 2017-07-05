@@ -233,4 +233,7 @@ public class GUI extends ClientView{
 		this.setChanged();
 		this.notifyObservers(this.message);
 	}
+	public void clearMessage() {
+		this.message.clear();
+	}
 }
