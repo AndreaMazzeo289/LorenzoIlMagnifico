@@ -235,15 +235,15 @@ public class GUI extends ClientView{
 		
 		
 		playerboard.scriviMessaggio((String)arg1);
-		if(tuoTurno()) {
-			try {
-				Thread.sleep(3000);
-			} catch (InterruptedException e) {
-				e.printStackTrace();
-			}
-			
-			playerboard.scriviMessaggio("È il tuo turno!");
+		try {
+			Thread.sleep(3000);
+		} catch (InterruptedException e) {
+			e.printStackTrace();
 		}
+		if(tuoTurno())
+			playerboard.scriviMessaggio("È il tuo turno!");
+		else
+			playerboard.scriviMessaggio("È il turno di "+this.clientModel.getGiocatoreCorrente()+"!");
 	}
 
 	@Override
@@ -300,6 +300,7 @@ public class GUI extends ClientView{
 	}
 	public void inviaMessaggio() {
 		this.setChanged();
+		System.out.println("Sono la gui e sto mandando:"+this.message);
 		this.notifyObservers(this.message);
 	}
 	public void clearMessage() {
