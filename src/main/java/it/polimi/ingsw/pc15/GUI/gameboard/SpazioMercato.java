@@ -13,4 +13,7 @@ public abstract class SpazioMercato extends JPanel{
 	public void inserisciFamiliare(String path) {
 	}
 	
+	public void rimuoviFamiliare() {
+	}
+	
 }

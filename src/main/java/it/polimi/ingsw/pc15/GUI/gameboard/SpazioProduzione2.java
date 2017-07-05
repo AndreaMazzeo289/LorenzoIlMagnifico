@@ -144,5 +144,4 @@ public class SpazioProduzione2 extends JPanel{
 		return button.get(posizione);
 	}
 	
-	
 }

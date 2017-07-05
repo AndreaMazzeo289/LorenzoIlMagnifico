@@ -161,6 +161,8 @@ public class GUI extends ClientView{
 		for(SpazioMercato spazio : this.clientModel.getStatoPlancia().getSpaziMercato())
 			if(!spazio.vuoto())
 				gameboard.getSpazioMercato(this.clientModel.getStatoPlancia().getSpaziMercato().lastIndexOf(spazio)).inserisciFamiliare(this.mappaGiocatori.get(spazio.getFamiliari().get(0).getPlayer().getColore()).get(spazio.getFamiliari().get(0).getColore()));
+			else
+				gameboard.getSpazioMercato(this.clientModel.getStatoPlancia().getSpaziMercato().lastIndexOf(spazio)).rimuoviFamiliare();
 		
 		for(TipoCarta tipo : TipoCarta.values())
 			if(tipo.equals(TipoCarta.ALL));
@@ -170,8 +172,11 @@ public class GUI extends ClientView{
 						int index = Math.abs(this.clientModel.getStatoPlancia().getTorre(tipo).getSpaziTorre().lastIndexOf(spazio)-3);
 						gameboard.getSpazioTorre(tipo, index).inserisciFamiliare(this.mappaGiocatori.get(spazio.getFamiliari().get(0).getPlayer().getColore()).get(spazio.getFamiliari().get(0).getColore()));
 					}
-		
-		
+					else{
+						int index = Math.abs(this.clientModel.getStatoPlancia().getTorre(tipo).getSpaziTorre().lastIndexOf(spazio)-3);
+						gameboard.getSpazioTorre(tipo, index).rimuoviFamiliare();
+					}
+						
 		
 		//----------------------------------------------------------//
 		// AGGIORNAMENTO PLAYERBOARD IN FUNZIONE DEL MODEL

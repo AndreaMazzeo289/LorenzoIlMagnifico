@@ -120,6 +120,7 @@ public class SpazioMercato2 extends SpazioMercato{
 		this.add(labelCenter, BorderLayout.CENTER);	
 	}
 	
+	@Override
 	public void inserisciFamiliare(String path) {
 		imageIcon = new ImageIcon(path);
 		image = imageIcon.getImage();
@@ -128,5 +129,10 @@ public class SpazioMercato2 extends SpazioMercato{
 		
 		buttonFamiliare.setIcon(imageButton);
 		buttonFamiliare.setBorder(null);
+	}
+	
+	@Override
+	public void rimuoviFamiliare() {
+		buttonFamiliare.setIcon(null);
 	}
 }

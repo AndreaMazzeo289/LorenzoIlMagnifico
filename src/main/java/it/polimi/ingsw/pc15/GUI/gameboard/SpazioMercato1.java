@@ -132,4 +132,8 @@ public class SpazioMercato1 extends SpazioMercato{
 		buttonFamiliare.setBorder(null);
 	}
 	
+	@Override
+	public void rimuoviFamiliare() {
+		buttonFamiliare.setIcon(null);
+	}
 }

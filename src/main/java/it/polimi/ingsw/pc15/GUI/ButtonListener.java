@@ -116,8 +116,7 @@ public class ButtonListener implements ActionListener{
 			//System.out.println("bravo hai selezionato");
 			// INSERIRE CHE OCCUPIAMO IL FAMILIARE //
 			selezionaFamiliarePopup.dispose();
-			
-			//selezionaNumeroServitori = new SelezionaNumeroServitori(this);
+			selezionaNumeroServitori = new SelezionaNumeroServitori(this);
 		}
 		
 		//------------------------------------------------------------------------------------//
@@ -137,7 +136,7 @@ public class ButtonListener implements ActionListener{
 			
 			// INSERIRE CHE OCCUPIAMO IL FAMILIARE //
 			selezionaFamiliarePopup.dispose();
-			
+			selezionaNumeroServitori = new SelezionaNumeroServitori(this);
 			
 		}
 		
@@ -158,6 +157,7 @@ public class ButtonListener implements ActionListener{
 			
 			// INSERIRE CHE OCCUPIAMO IL FAMILIARE //
 			selezionaFamiliarePopup.dispose();
+			selezionaNumeroServitori = new SelezionaNumeroServitori(this);
 		}
 		
 		//------------------------------------------------------------------------------------//
@@ -177,6 +177,7 @@ public class ButtonListener implements ActionListener{
 			
 			// INSERIRE CHE OCCUPIAMO IL FAMILIARE //
 			selezionaFamiliarePopup.dispose();
+			selezionaNumeroServitori = new SelezionaNumeroServitori(this);
 		}
 		
 		
@@ -297,7 +298,6 @@ public class ButtonListener implements ActionListener{
 		if(e.getActionCommand().startsWith("spazioTorre")){
 			
 			if(coloreFamiliareScelto!=null) {
-				gui.writeMessage("0");
 				gui.writeMessage("torre");
 				String coloreTorre = e.getActionCommand().substring(11, e.getActionCommand().length()-1);
 				String numeroTorre = e.getActionCommand().substring(coloreTorre.length()+11);

@@ -59,25 +59,27 @@ public class SelezionaFamiliarePopup extends JFrame{
 		buttonArancione = new JButton();
 		buttonNeutro = new JButton();
 		
-		pathNero = "img/Punchboard/familiari/pedineFamiliari/blu/nero.png";
+		String colorePlayer = player.getColore().toString().toLowerCase();
+		
+		pathNero = "img/Punchboard/familiari/pedineFamiliari/"+colorePlayer+"/nero.png";
 		imageIcon = new ImageIcon(pathNero);
 		image = imageIcon.getImage();
 		newImage = image.getScaledInstance(larghezzaFamiliare,altezzaFamiliare,Image.SCALE_DEFAULT);
 		ImageIcon imageFamiliareNero = new ImageIcon(newImage);
 		
-		pathBianco = "img/Punchboard/familiari/pedineFamiliari/blu/bianco.png";
+		pathBianco = "img/Punchboard/familiari/pedineFamiliari/"+colorePlayer+"/bianco.png";
 		imageIcon = new ImageIcon(pathBianco);
 		image = imageIcon.getImage();
 		newImage = image.getScaledInstance(larghezzaFamiliare,altezzaFamiliare,Image.SCALE_DEFAULT);
 		ImageIcon imageFamiliareBianco = new ImageIcon(newImage);
 		
-		pathArancione = "img/Punchboard/familiari/pedineFamiliari/blu/arancione.png";
+		pathArancione = "img/Punchboard/familiari/pedineFamiliari/"+colorePlayer+"/arancione.png";
 		imageIcon = new ImageIcon(pathArancione);
 		image = imageIcon.getImage();
 		newImage = image.getScaledInstance(larghezzaFamiliare,altezzaFamiliare,Image.SCALE_DEFAULT);
 		ImageIcon imageFamiliareArancione = new ImageIcon(newImage);
 		
-		pathNeutro = "img/Punchboard/familiari/pedineFamiliari/blu/neutro.png";
+		pathNeutro = "img/Punchboard/familiari/pedineFamiliari/"+colorePlayer+"/neutro.png";
 		imageIcon = new ImageIcon(pathNeutro);
 		image = imageIcon.getImage();
 		newImage = image.getScaledInstance(larghezzaFamiliare,altezzaFamiliare,Image.SCALE_DEFAULT);

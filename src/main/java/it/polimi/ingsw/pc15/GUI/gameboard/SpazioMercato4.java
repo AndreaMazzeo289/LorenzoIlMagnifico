@@ -125,6 +125,7 @@ public class SpazioMercato4 extends SpazioMercato{
 		
 	}
 	
+	@Override
 	public void inserisciFamiliare(String path) {
 		imageIcon = new ImageIcon(path);
 		image = imageIcon.getImage();
@@ -133,5 +134,10 @@ public class SpazioMercato4 extends SpazioMercato{
 		
 		buttonFamiliare.setIcon(imageButton);
 		buttonFamiliare.setBorder(null);
+	}
+	
+	@Override
+	public void rimuoviFamiliare() {
+		buttonFamiliare.setIcon(null);
 	}
 }

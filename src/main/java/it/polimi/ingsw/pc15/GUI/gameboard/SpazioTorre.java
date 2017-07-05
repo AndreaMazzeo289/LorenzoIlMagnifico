@@ -141,4 +141,8 @@ public class SpazioTorre extends JPanel{
 		buttonCenter.setIcon(imageCenter);
 		buttonCenter.setActionCommand(path);
 	}
+	
+	public void rimuoviFamiliare() {
+		buttonFamiliare.setIcon(null);
+	}
 }

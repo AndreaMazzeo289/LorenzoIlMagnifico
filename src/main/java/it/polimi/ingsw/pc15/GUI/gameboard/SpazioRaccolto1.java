@@ -131,4 +131,8 @@ public class SpazioRaccolto1 extends JPanel{
 		buttonFamiliare.setIcon(imageButton);
 		buttonFamiliare.setBorder(null);
 	}
+	
+	public void rimuoviFamiliare() {
+		buttonFamiliare.setIcon(null);
+	}
 }
