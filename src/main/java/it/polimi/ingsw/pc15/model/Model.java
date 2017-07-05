@@ -24,6 +24,7 @@ import it.polimi.ingsw.pc15.carte.TipoCarta;
 import it.polimi.ingsw.pc15.effetti.Effetto;
 import it.polimi.ingsw.pc15.plancia.Plancia;
 import it.polimi.ingsw.pc15.player.ColoreFamiliare;
+import it.polimi.ingsw.pc15.player.ColorePlayer;
 import it.polimi.ingsw.pc15.player.Familiare;
 import it.polimi.ingsw.pc15.player.Leader;
 import it.polimi.ingsw.pc15.player.Player;
@@ -65,8 +66,8 @@ public class Model extends Observable {
 		this.plancia = new Plancia(numeroGiocatori);
 		
 		giocatori = new ArrayList<Player>();
-		for (int i=0; i<numeroGiocatori; i++)
-			giocatori.add(new Player(nomiGiocatori.get(i)));
+		for (int i=0; i<numeroGiocatori; i++) 
+			giocatori.add(new Player(nomiGiocatori.get(i), ColorePlayer.values()[i]));
 		
 		this.ordine = nomiGiocatori;
 		
@@ -143,9 +144,9 @@ public class Model extends Observable {
 		
 		impostaOrdineGiocatori();
 		
-		plancia.setCarte(periodo, carteTerritorio, cartePersonaggio, carteEdificio, carteImpresa);
-		
 		plancia.libera();
+		
+		plancia.setCarte(periodo, carteTerritorio, cartePersonaggio, carteEdificio, carteImpresa);
 		
 		tiraIDadi();
 
@@ -210,7 +211,7 @@ public class Model extends Observable {
 		
 		if (ordine.lastIndexOf(giocatoreCorrente)==ordine.size()-1) {
 			azione++;
-			if (azione==2)  {
+			if (azione==3)  {
 				azione=1;
 				finisciTurno();	
 			}
@@ -333,10 +334,9 @@ public class Model extends Observable {
 			player.getFamiliare(ColoreFamiliare.BIANCO).setValore(valoreDadoBianco);
 			player.getFamiliare(ColoreFamiliare.ARANCIONE).setValore(valoreDadoArancione);
 			
-			player.getFamiliare(ColoreFamiliare.NEUTRO).setDisponibilità(true);
-			player.getFamiliare(ColoreFamiliare.NERO).setDisponibilità(true);
-			player.getFamiliare(ColoreFamiliare.BIANCO).setDisponibilità(true);
-			player.getFamiliare(ColoreFamiliare.ARANCIONE).setDisponibilità(true);
+			for (ColoreFamiliare colore : ColoreFamiliare.values())	
+				player.getFamiliare(colore).setDisponibilità(true);
+
 					
 		}
 		

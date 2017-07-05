@@ -33,6 +33,7 @@ import it.polimi.ingsw.pc15.risorse.TipoRisorsa;
 public class Player implements Serializable {
 	
 	private final String nome;
+	private ColorePlayer colore;
 	private SetRisorse setRisorse;
 	private HashMap<ColoreFamiliare, Familiare> familiari;
 	private HashMap <TipoCarta, ArrayList> carteSviluppo;
@@ -41,17 +42,18 @@ public class Player implements Serializable {
 	private Set<Player> avversari;
 	
 	
-	public Player (String nome) {
+	public Player (String nome, ColorePlayer colore) {
 		
 		this.nome = nome;
+		this.colore = colore;
 		this.effettiAttivi = new EffettiAttivi();	
 		this.carteLeader = new ArrayList<Leader>();
 		this.avversari = null;
 		
 		this.familiari = new HashMap<ColoreFamiliare, Familiare>();
 		
-		for (ColoreFamiliare colore : ColoreFamiliare.values())
-			familiari.put(colore, new Familiare(colore, this));
+		for (ColoreFamiliare coloreFamiliare : ColoreFamiliare.values())
+			familiari.put(coloreFamiliare, new Familiare(coloreFamiliare, this));
 		
 		this.setRisorse = new SetRisorse(new HashSet<Risorsa>());
 			
@@ -118,6 +120,10 @@ public class Player implements Serializable {
 	
 	public Set<Player> getAvversari() {
 		return this.avversari;
+	}
+	
+	public ColorePlayer getColore() {
+		return this.colore;
 	}
 
 }

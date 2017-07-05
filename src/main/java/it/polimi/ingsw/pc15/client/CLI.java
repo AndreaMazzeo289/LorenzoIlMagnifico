@@ -206,6 +206,7 @@ public class CLI extends ClientView {
 		    				System.out.print("\n  - Spazio raccolta: Occupato da: ");
 		    				for (Familiare familiare : this.clientModel.getStatoPlancia().getSpazioRaccolta().getFamiliari())
 		    					System.out.print("familiare " + familiare.getColore().name() + " di " + familiare.getPlayer().getNome() + " - ");
+		    				System.out.println("");
 		    			}
 		    			
 		    			if (this.clientModel.getStatoPlancia().getSpazioProduzione().vuoto())
@@ -214,6 +215,7 @@ public class CLI extends ClientView {
 		    				System.out.print("  - Spazio produzione: Occupato da ");
 		    				for (Familiare familiare : this.clientModel.getStatoPlancia().getSpazioProduzione().getFamiliari())
 		    					System.out.print("familiare " + familiare.getColore().name() + " di " + familiare.getPlayer().getNome() + " - ");
+		    				System.out.println("");
 		    			}
 		    			
 		    			if (this.clientModel.getStatoPlancia().getSpazioConsiglio().vuoto())
