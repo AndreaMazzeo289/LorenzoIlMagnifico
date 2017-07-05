@@ -9,6 +9,7 @@ import java.rmi.server.UnicastRemoteObject;
 import java.util.ArrayList;
 import java.util.Observable;
 import java.util.Observer;
+import java.util.Scanner;
 
 import it.polimi.ingsw.pc15.model.StatoPartita;
 import it.polimi.ingsw.pc15.server.ServerInterface;
@@ -17,28 +18,25 @@ public class RMIHandler extends NetworkHandler implements RMIHandlerInterface {
 	
 	private int numeroConnessione;
 	private ServerInterface server;
-	private boolean connesso;
+	private Scanner scan = new Scanner(System.in);
 	
 	public RMIHandler (ClientModel clientModel, String name) {	
 		super(name, clientModel);
-		this.connesso = false;
 	}
 	
 	@Override
-	public boolean connetti() {
+	public void connetti() {
+		
+		System.out.println("RMIHandler: tentativo di connessione...");
 		
 		try {
 			this.server = (ServerInterface) Naming.lookup("//localhost/Server");
 			RMIHandlerInterface remoteRef = (RMIHandlerInterface) UnicastRemoteObject.exportObject(this, 0);
 			this.numeroConnessione = server.remoteConnetti(remoteRef);
-			while(!connesso);
 
 		} catch (MalformedURLException | RemoteException | NotBoundException e) {
 			e.printStackTrace();
-			return false;
-		}
-		
-		return true;
+		}		
 
 	}
 
@@ -63,7 +61,10 @@ public class RMIHandler extends NetworkHandler implements RMIHandlerInterface {
 	}
 	
 	public void remoteOK() throws RemoteException {
-		this.connesso = true;
+		setChanged();
+		notifyObservers();
 	}
+	
+
 	
 }
