@@ -1,5 +1,7 @@
 package it.polimi.ingsw.pc15.GUI.playerboard;
 
+import java.awt.Color;
+import java.awt.Font;
 import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;
 import java.awt.GridLayout;
@@ -7,7 +9,9 @@ import java.util.ArrayList;
 import java.util.HashMap;
 
 import javax.swing.JButton;
+import javax.swing.JLabel;
 import javax.swing.JPanel;
+import javax.swing.SwingConstants;
 
 import it.polimi.ingsw.pc15.GUI.ButtonListener;
 import it.polimi.ingsw.pc15.GUI.ButtonListenerCarte;
@@ -25,6 +29,7 @@ public class PlayerBoard extends JPanel{
 	private JPanel contentPanel;
 	private JPanel presentationPanel;
 	private JPanel panelPersonalBonus;
+	private JLabel labelTesto;
 	
 	private ArrayList<CarteGioco> cartePlayerVerdi;
 	private ArrayList<CarteGioco> cartePlayerBlu;
@@ -147,15 +152,21 @@ public class PlayerBoard extends JPanel{
 		gbc.gridx=7;
 		risorsePlayer.add(new SpazioFamiliariDisponibili(gui), gbc);
 		
+		labelTesto = new JLabel("testo",SwingConstants.CENTER);
+		labelTesto.setText("TESTO");
+		labelTesto.setFont((new Font("Courier New", Font.ITALIC, 22)));
 		
 		gbc.gridx=0;
-		gbc.gridy=0;
-		this.add(presentationPanel,gbc);
-		gbc.gridx=0;
 		gbc.gridy=1;
-		this.add(contentPanel,gbc);
+		this.add(labelTesto,gbc);
 		gbc.gridx=0;
 		gbc.gridy=2;
+		this.add(presentationPanel,gbc);
+		gbc.gridx=0;
+		gbc.gridy=3;
+		this.add(contentPanel,gbc);
+		gbc.gridx=0;
+		gbc.gridy=4;
 		this.add(risorsePlayer, gbc);
 		
 		this.setVisible(true);	
@@ -243,5 +254,9 @@ public class PlayerBoard extends JPanel{
 	//---------------------------//
 	public CarteGioco getCartaGioco(TipoCarta tipoCarta, int numero) {
 		return this.cartePlayerMap.get(tipoCarta).get(numero);
+	}
+	
+	public void scriviMessaggio(String text) {
+		labelTesto.setText(text);
 	}
 }

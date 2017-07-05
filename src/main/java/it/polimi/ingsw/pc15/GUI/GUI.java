@@ -114,6 +114,8 @@ public class GUI extends ClientView{
 		arrayListAvversari = this.clientModel.getStatoAvversari();
 		playerCorrente = this.clientModel.getStatoGiocatore();
 		
+		
+		
 		//----------------------------------------------------------//
 		// AGGIORNAMENTO GAMEBOARD IN FUNZIONE DEL MODEL
 		//----------------------------------------------------------//
@@ -185,7 +187,6 @@ public class GUI extends ClientView{
 		immagineCartaModel = this.clientModel.getStatoGiocatore().getCarteLeader().get(3).getPathImg(); 
 		playerboard.getCartaLeader4().modificaImmagineCarta(immagineCartaModel);
 		
-		
 		// Carte player
 		//---------------------------//
 		ArrayList<Carta> listaCarteTerritorio = this.clientModel.getStatoGiocatore().getCarte(TipoCarta.TERRITORIO);
@@ -232,6 +233,17 @@ public class GUI extends ClientView{
 		quantitaRisorsa = this.clientModel.getStatoGiocatore().getSetRisorse().getRisorsa(TipoRisorsa.PUNTIVITTORIA).getQuantità();
 		playerboard.getPanelRisorsePuntiVittoria().writeIntoLabel(quantitaRisorsa);
 		
+		
+		playerboard.scriviMessaggio((String)arg1);
+		if(tuoTurno()) {
+			try {
+				Thread.sleep(3000);
+			} catch (InterruptedException e) {
+				e.printStackTrace();
+			}
+			
+			playerboard.scriviMessaggio("È il tuo turno!");
+		}
 	}
 
 	@Override

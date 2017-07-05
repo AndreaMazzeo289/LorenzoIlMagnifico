@@ -117,7 +117,7 @@ public class ButtonListener implements ActionListener{
 			// INSERIRE CHE OCCUPIAMO IL FAMILIARE //
 			selezionaFamiliarePopup.dispose();
 			
-			selezionaNumeroServitori = new SelezionaNumeroServitori(this);
+			//selezionaNumeroServitori = new SelezionaNumeroServitori(this);
 		}
 		
 		//------------------------------------------------------------------------------------//
