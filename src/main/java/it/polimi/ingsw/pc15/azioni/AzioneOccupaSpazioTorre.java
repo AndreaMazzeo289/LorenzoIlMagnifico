@@ -47,16 +47,16 @@ public class AzioneOccupaSpazioTorre extends AzioneOccupaSpazio {
 	public RisultatoAzione èValida() {
 		
 		if (familiare.disponibile() == false)
-			return new RisultatoAzione(false, player.getNome() + " cerca di posizionare un familiare ma questo non è disponibile");
+			return new RisultatoAzione(false, player.getNome() + "cerca di posizionare il suo familiare " + familiare.getColore().name() + " ma lo ha già posizionato!");
 		
 		if (spazio.vuoto() == false)
 			return new RisultatoAzione(false, player.getNome() + " cerca di posizionare un familiare ma lo spazio scelto è occupato");
 		
 		if (controlloFamiliariTorre() == false)
-			return new RisultatoAzione(false, player.getNome() + "non può piazzare il familiare poichè nella torre ne ha già posizionato un altro(non neutro)");
+			return new RisultatoAzione(false, player.getNome() + "cerca di posizionare un familiare in una torre ma ne ha già posizionato un altro");
 		
 		if ( familiare.getValore() + servitoriAggiuntivi + player.getEffettiAttivi().getBonusDadoCarte(((SpazioTorre) spazio).getCarta().getTipo()) < spazio.getValoreMin() )
-			return new RisultatoAzione(false, player.getNome() + " non può piazzare il familiare poichè il suo valore non soddisfa i requisiti della torre");
+			return new RisultatoAzione(false, player.getNome() + " cerca di prendere la carta " + ((SpazioTorre) spazio).getCarta().getTipo().name() + " " + ((SpazioTorre) spazio).getCarta().getNome() + "ma il valore del suo familiare è troppo basso!");
 		
 		return this.azionePrendiCarta.èValida();
 	}

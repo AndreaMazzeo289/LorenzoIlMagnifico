@@ -28,10 +28,10 @@ public class AzioneOccupaSpazioConsiglio extends AzioneOccupaSpazio {
 	public RisultatoAzione èValida() {
 		
 		if (familiare.disponibile() == false)
-			return new RisultatoAzione(false, "FRASE");
+			return new RisultatoAzione(false, player.getNome() + "vuole posizionare il suo familiare " + familiare.getColore().name() + " ma lo ha già posizionato!");
 		
 		if(this.valoreAzione < spazio.getValoreMin())		
-			return new RisultatoAzione(false, "FRASE");
+			return new RisultatoAzione(false, player.getNome() + "cerca di posizionare il suo familiare " + familiare.getColore().name() + " nello spazio del Consiglio, ma il suo valore è troppo basso!");
 		
 		return new RisultatoAzione(true, player.getNome() + " occupa lo spazio del Consiglio!");
 	}
