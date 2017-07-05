@@ -19,7 +19,9 @@ import it.polimi.ingsw.pc15.carte.TipoCarta;
 import it.polimi.ingsw.pc15.client.ClientModel;
 import it.polimi.ingsw.pc15.client.ClientView;
 import it.polimi.ingsw.pc15.client.NetworkHandler;
+import it.polimi.ingsw.pc15.plancia.SpazioMercato;
 import it.polimi.ingsw.pc15.player.ColoreFamiliare;
+import it.polimi.ingsw.pc15.player.ColorePlayer;
 import it.polimi.ingsw.pc15.player.Player;
 import it.polimi.ingsw.pc15.risorse.TipoRisorsa;
 
@@ -42,12 +44,20 @@ public class GUI extends ClientView{
 	private Player playerCorrente;
 	private ArrayList<Player> arrayListAvversari;
 	private ArrayList<String> message = new ArrayList<String>();
+	private boolean loadDone;
 	
 	private HashMap<TipoCarta,String> retroCarte;
+	private HashMap<ColoreFamiliare,String> mappaFamiliareGiocatoreVerde;
+	private HashMap<ColoreFamiliare,String> mappaFamiliareGiocatoreBlu;
+	private HashMap<ColoreFamiliare,String> mappaFamiliareGiocatoreRosso;
+	private HashMap<ColoreFamiliare,String> mappaFamiliareGiocatoreGiallo;
+	
+	private HashMap<ColorePlayer, HashMap<ColoreFamiliare,String>> mappaGiocatori;
 	
 	public GUI(NetworkHandler networkHandler, ClientModel clientModel) {
 		super(networkHandler, clientModel);
 		
+		loadDone=false;
 		listener = new ButtonListener(this);
 		
 		this.retroCarte = new HashMap<TipoCarta,String>();
@@ -56,16 +66,48 @@ public class GUI extends ClientView{
 		this.retroCarte.put(TipoCarta.IMPRESA, "img/DevCardsBack/devcards_b_c_p_1.jdevcards_b_c_pdevcards_b_c_g.jdevcards_b_c_pg.jpg");
 		this.retroCarte.put(TipoCarta.EDIFICIO, "img/DevCardsBack/devcards_b_c_y_1.jdevcards_b_c_pdevcards_b_c_g.jdevcards_b_c_pg.jpg");
 		
+		this.mappaFamiliareGiocatoreVerde = new HashMap<ColoreFamiliare,String>();
+		this.mappaFamiliareGiocatoreVerde.put(ColoreFamiliare.NERO, "img/Punchboard/familiari/pedineFamiliari/verde/nero.png");
+		this.mappaFamiliareGiocatoreVerde.put(ColoreFamiliare.BIANCO, "img/Punchboard/familiari/pedineFamiliari/verde/bianco.png");
+		this.mappaFamiliareGiocatoreVerde.put(ColoreFamiliare.ARANCIONE, "img/Punchboard/familiari/pedineFamiliari/verde/arancione.png");
+		this.mappaFamiliareGiocatoreVerde.put(ColoreFamiliare.NEUTRO, "img/Punchboard/familiari/pedineFamiliari/verde/neutro.png");
+		
+		this.mappaFamiliareGiocatoreBlu = new HashMap<ColoreFamiliare,String>();
+		this.mappaFamiliareGiocatoreBlu.put(ColoreFamiliare.NERO, "img/Punchboard/familiari/pedineFamiliari/blu/nero.png");
+		this.mappaFamiliareGiocatoreBlu.put(ColoreFamiliare.BIANCO, "img/Punchboard/familiari/pedineFamiliari/blu/bianco.png");
+		this.mappaFamiliareGiocatoreBlu.put(ColoreFamiliare.ARANCIONE, "img/Punchboard/familiari/pedineFamiliari/blu/arancione.png");
+		this.mappaFamiliareGiocatoreBlu.put(ColoreFamiliare.NEUTRO, "img/Punchboard/familiari/pedineFamiliari/blu/neutro.png");
+		
+		this.mappaFamiliareGiocatoreGiallo = new HashMap<ColoreFamiliare,String>();
+		this.mappaFamiliareGiocatoreGiallo.put(ColoreFamiliare.NERO, "img/Punchboard/familiari/pedineFamiliari/giallo/nero.png");
+		this.mappaFamiliareGiocatoreGiallo.put(ColoreFamiliare.BIANCO, "img/Punchboard/familiari/pedineFamiliari/giallo/bianco.png");
+		this.mappaFamiliareGiocatoreGiallo.put(ColoreFamiliare.ARANCIONE, "img/Punchboard/familiari/pedineFamiliari/giallo/arancione.png");
+		this.mappaFamiliareGiocatoreGiallo.put(ColoreFamiliare.NEUTRO, "img/Punchboard/familiari/pedineFamiliari/giallo/neutro.png");
+		
+		this.mappaFamiliareGiocatoreRosso = new HashMap<ColoreFamiliare,String>();
+		this.mappaFamiliareGiocatoreRosso.put(ColoreFamiliare.NERO, "img/Punchboard/familiari/pedineFamiliari/rosso/nero.png");
+		this.mappaFamiliareGiocatoreRosso.put(ColoreFamiliare.BIANCO, "img/Punchboard/familiari/pedineFamiliari/rosso/bianco.png");
+		this.mappaFamiliareGiocatoreRosso.put(ColoreFamiliare.ARANCIONE, "img/Punchboard/familiari/pedineFamiliari/rosso/arancione.png");
+		this.mappaFamiliareGiocatoreRosso.put(ColoreFamiliare.NEUTRO, "img/Punchboard/familiari/pedineFamiliari/rosso/neutro.png");
+		
+		this.mappaGiocatori = new HashMap<ColorePlayer, HashMap<ColoreFamiliare,String>>();
+		this.mappaGiocatori.put(ColorePlayer.VERDE, mappaFamiliareGiocatoreVerde);
+		this.mappaGiocatori.put(ColorePlayer.BLU, mappaFamiliareGiocatoreBlu);
+		this.mappaGiocatori.put(ColorePlayer.GIALLO, mappaFamiliareGiocatoreGiallo);
+		this.mappaGiocatori.put(ColorePlayer.ROSSO, mappaFamiliareGiocatoreGiallo);
 	}
 
 	@Override
 	public void update(Observable arg0, Object arg1) {
 		
-		try {
-			Thread.sleep(2000);
-		} catch (InterruptedException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
+		if(!loadDone) {
+			try {
+				Thread.sleep(4000);
+			} catch (InterruptedException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+		loadDone=true;
 		}
 		
 		arrayListAvversari = this.clientModel.getStatoAvversari();
@@ -84,9 +126,7 @@ public class GUI extends ClientView{
 		//------------------------------------//
 		// CARTE TORRI
 		//------------------------------------//
-		
 		String immagineCartaModel;
-		
 		for(TipoCarta tipo : TipoCarta.values()) {
 			if(tipo.equals(TipoCarta.ALL));
 			else
@@ -111,6 +151,15 @@ public class GUI extends ClientView{
 		gameboard.getSpazioDadi().modificaImmagineDadi(ColoreFamiliare.NERO, valoreDadoNero);
 		gameboard.getSpazioDadi().modificaImmagineDadi(ColoreFamiliare.BIANCO, valoreDadoBianco);
 		gameboard.getSpazioDadi().modificaImmagineDadi(ColoreFamiliare.ARANCIONE, valoreDadoArancione);
+		
+		//------------------------------------//
+		// FAMILIARI SPAZI
+		//------------------------------------//
+		for(SpazioMercato spazio : this.clientModel.getStatoPlancia().getSpaziMercato())
+			if(!spazio.vuoto())
+				gameboard.getSpazioMercato(this.clientModel.getStatoPlancia().getSpaziMercato().lastIndexOf(spazio)).inserisciFamiliare(this.mappaGiocatori.get(spazio.getFamiliari().get(0).getPlayer().getColore()).get(spazio.getFamiliari().get(0).getColore()));
+			
+		
 		
 		//----------------------------------------------------------//
 		// AGGIORNAMENTO PLAYERBOARD IN FUNZIONE DEL MODEL

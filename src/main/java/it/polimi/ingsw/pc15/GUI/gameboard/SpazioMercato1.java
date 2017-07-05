@@ -19,7 +19,7 @@ import javax.swing.JPanel;
 
 import it.polimi.ingsw.pc15.GUI.GUI;
 
-public class SpazioMercato1 extends JPanel{
+public class SpazioMercato1 extends SpazioMercato{
 
 	private JLabel labelNorth;
 	private JLabel  labelWest;
@@ -121,6 +121,7 @@ public class SpazioMercato1 extends JPanel{
 		this.add(labelCenter, BorderLayout.CENTER);	
 	}
 	
+	@Override
 	public void inserisciFamiliare(String path) {
 		imageIcon = new ImageIcon(path);
 		image = imageIcon.getImage();
@@ -130,4 +131,5 @@ public class SpazioMercato1 extends JPanel{
 		buttonFamiliare.setIcon(imageButton);
 		buttonFamiliare.setBorder(null);
 	}
+	
 }

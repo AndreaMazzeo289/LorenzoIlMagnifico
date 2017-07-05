@@ -65,9 +65,9 @@ public class PlayerBoard extends JPanel{
 		for(int i=0; i<6; i++) 
 			cartePlayerVerdi.add(new CarteGioco("img/DevCardsBack/devcards_b_c_g_1.jdevcards_b_c_pdevcards_b_c_g.jdevcards_b_c_pg.jpg", TipoCarta.TERRITORIO,gui));
 		for(int i=0; i<6; i++) 
-			cartePlayerBlu.add(new CarteGioco("img/DevCardsBack/devcards_b_c_y_1.jdevcards_b_c_pdevcards_b_c_g.jdevcards_b_c_pg.jpg", TipoCarta.TERRITORIO,gui));
+			cartePlayerBlu.add(new CarteGioco("img/DevCardsBack/devcards_b_c_b_1.jdevcards_b_c_pdevcards_b_c_g.jdevcards_b_c_pg.jpg", TipoCarta.TERRITORIO,gui));
 		for(int i=0; i<6; i++) 
-			cartePlayerGialle.add(new CarteGioco("img/DevCardsBack/devcards_b_c_b_1.jdevcards_b_c_pdevcards_b_c_g.jdevcards_b_c_pg.jpg", TipoCarta.TERRITORIO,gui));
+			cartePlayerGialle.add(new CarteGioco("img/DevCardsBack/devcards_b_c_y_1.jdevcards_b_c_pdevcards_b_c_g.jdevcards_b_c_pg.jpg", TipoCarta.TERRITORIO,gui));
 		for(int i=0; i<6; i++) 
 			cartePlayerViola.add(new CarteGioco("img/DevCardsBack/devcards_b_c_p_1.jdevcards_b_c_pdevcards_b_c_g.jdevcards_b_c_pg.jpg", TipoCarta.TERRITORIO,gui));
 		

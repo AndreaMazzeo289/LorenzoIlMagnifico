@@ -346,7 +346,7 @@ public class ButtonListener implements ActionListener{
 				String index = e.getActionCommand().substring(24);
 			
 				SpazioConsiglio spazioConsiglio = (SpazioConsiglio)gameboard.getSpazioConsiglio();
-				spazioConsiglio.inserisciFamiliare(selezionaFamiliarePopup.readPath(coloreFamiliareScelto),spazioConsiglio.getButton(Integer.parseInt(index)));
+				spazioConsiglio.inserisciFamiliare(selezionaFamiliarePopup.readPath(coloreFamiliareScelto));
 			
 				{
 					playerBoard.getButtonPosizionaFamiliare().sbloccaButton();
@@ -465,7 +465,6 @@ public class ButtonListener implements ActionListener{
 				
 				gui.writeMessage("mercato");
 				gui.writeMessage("1");	
-				gameboard.getSpazioMercato1().inserisciFamiliare(selezionaFamiliarePopup.readPath(coloreFamiliareScelto));
 				
 				{
 					playerBoard.getButtonPosizionaFamiliare().sbloccaButton();
@@ -486,7 +485,6 @@ public class ButtonListener implements ActionListener{
 				
 				gui.writeMessage("mercato");
 				gui.writeMessage("2");	
-				gameboard.getSpazioMercato2().inserisciFamiliare(selezionaFamiliarePopup.readPath(coloreFamiliareScelto));
 				
 				{
 					playerBoard.getButtonPosizionaFamiliare().sbloccaButton();
@@ -506,7 +504,6 @@ public class ButtonListener implements ActionListener{
 				
 				gui.writeMessage("mercato");
 				gui.writeMessage("3");	
-				gameboard.getSpazioMercato3().inserisciFamiliare(selezionaFamiliarePopup.readPath(coloreFamiliareScelto));
 				
 				{
 					playerBoard.getButtonPosizionaFamiliare().sbloccaButton();
@@ -526,7 +523,6 @@ public class ButtonListener implements ActionListener{
 				
 				gui.writeMessage("mercato");
 				gui.writeMessage("4");	
-				gameboard.getSpazioMercato4().inserisciFamiliare(selezionaFamiliarePopup.readPath(coloreFamiliareScelto));
 				
 				{
 					playerBoard.getButtonPosizionaFamiliare().sbloccaButton();

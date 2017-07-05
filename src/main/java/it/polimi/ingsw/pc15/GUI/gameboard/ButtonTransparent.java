@@ -16,5 +16,6 @@ public class ButtonTransparent extends JButton{
 		this.setContentAreaFilled(false);
 		this.setBorderPainted(false);
 		this.addActionListener(listener);
+		this.setName("libero");
 	}
 }

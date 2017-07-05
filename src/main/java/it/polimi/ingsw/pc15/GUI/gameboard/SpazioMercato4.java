@@ -18,7 +18,7 @@ import javax.swing.JPanel;
 
 import it.polimi.ingsw.pc15.GUI.GUI;
 
-public class SpazioMercato4 extends JPanel{
+public class SpazioMercato4 extends SpazioMercato{
 
 	private JLabel labelNorth;
 	private JLabel  labelWest;

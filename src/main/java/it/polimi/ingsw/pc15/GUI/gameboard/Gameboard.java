@@ -43,6 +43,7 @@ public class Gameboard extends JPanel {
 	
 	ArrayList<SpazioTorre> spaziTorreVerde, spaziTorreGiallo, spaziTorreViola, spaziTorreBlu;
 	HashMap<TipoCarta,ArrayList<SpazioTorre>> spaziTorreMap;
+	ArrayList<SpazioMercato> spaziMercato; 
 	
 	public Gameboard(ButtonListener listener, GUI gui) {
 		
@@ -141,22 +142,28 @@ public class Gameboard extends JPanel {
 		
 		JPanel spaziMercatoDadi = new JPanel (new GridBagLayout());
 		
+		this.spaziMercato = new ArrayList<SpazioMercato>();
+		this.spaziMercato.add(new SpazioMercato1(listener, gui));
+		this.spaziMercato.add(new SpazioMercato2(listener, gui));
+		this.spaziMercato.add(new SpazioMercato3(listener, gui));
+		this.spaziMercato.add(new SpazioMercato4(listener, gui));
+		
 		JPanel spazioMercato = new JPanel (new GridBagLayout());
 		gbc.gridx = 0;
 		gbc.gridy = 0;
-		spazioMercato.add(new SpazioMercato1(listener, gui), gbc);
+		spazioMercato.add(spaziMercato.get(0), gbc);
 		
 		gbc.gridx = 1;
 		gbc.gridy = 0;
-		spazioMercato.add(new SpazioMercato2(listener, gui), gbc);
+		spazioMercato.add(spaziMercato.get(1), gbc);
 		
 		gbc.gridx = 2;
 		gbc.gridy = 0;
-		spazioMercato.add(new SpazioMercato3(listener,gui), gbc);
+		spazioMercato.add(spaziMercato.get(2), gbc);
 		
 		gbc.gridx = 3;
 		gbc.gridy = 0;
-		spazioMercato.add(new SpazioMercato4(listener,gui), gbc);
+		spazioMercato.add(spaziMercato.get(3), gbc);
 		
 		gbc.gridx = 0;
 		gbc.gridy = 0;
@@ -371,7 +378,11 @@ public class Gameboard extends JPanel {
 	
 	// Spazio mercato
 	//---------------------------//
-	public SpazioMercato1 getSpazioMercato1() {
+	public SpazioMercato getSpazioMercato(int numero) {
+		return spaziMercato.get(numero);
+	}
+	
+	/*public SpazioMercato1 getSpazioMercato1() {
 		JPanel spazioMercatoDadi = (JPanel) spazioFinale.getComponent(1);
 		JPanel spazioMercato = (JPanel) spazioMercatoDadi.getComponent(0);
 		return (SpazioMercato1) spazioMercato.getComponent(0);
@@ -393,7 +404,7 @@ public class Gameboard extends JPanel {
 		JPanel spazioMercatoDadi = (JPanel) spazioFinale.getComponent(1);
 		JPanel spazioMercato = (JPanel) spazioMercatoDadi.getComponent(0);
 		return (SpazioMercato4) spazioMercato.getComponent(3);
-	}
+	}*/
 	
 	// Spazio dadi
 	//---------------------------//
