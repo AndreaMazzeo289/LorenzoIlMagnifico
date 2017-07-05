@@ -191,6 +191,7 @@ public class ButtonListener implements ActionListener{
 		if(e.getActionCommand().equals("noServitori")) {
 			System.out.println("selezionato no");
 			selezionaNumeroServitori.dispose();
+			gui.writeMessage("0");
 		}
 		
 		if(e.getActionCommand().equals("submitNumeroServitori")) {

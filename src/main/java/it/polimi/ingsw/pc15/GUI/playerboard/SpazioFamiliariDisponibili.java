@@ -68,6 +68,8 @@ public class SpazioFamiliariDisponibili extends JPanel implements Serializable{
 		newImage = image.getScaledInstance(((int)(larghezzaSchermo*larghezzaBackground)/larghezzaTotale),((int)(altezzaSchermo*altezzaBackground)/altezzaTotale),Image.SCALE_DEFAULT);
 		ImageIcon imageBackground = new ImageIcon(newImage);
 		
+		
+		
 		imageIcon = new ImageIcon("img/Punchboard/familiari/pedineFamiliari/blu/nero.png");
 		image = imageIcon.getImage();
 		newImage = image.getScaledInstance(((int)(larghezzaSchermo*larghezzaFamiliare)/larghezzaTotale),((int)(altezzaSchermo*altezzaFamiliare)/altezzaTotale),Image.SCALE_DEFAULT);
