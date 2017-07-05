@@ -31,17 +31,16 @@ public class SocketHandler extends NetworkHandler implements Serializable{
 		this.outObj = new ObjectOutputStream(socket.getOutputStream());
 	}	
 	
-	public boolean connetti() {
+	public void connetti() {
 		
 		out.println(name);  //manda il nome alla Connection
 		System.out.println("Connessione al server riuscita! In attesa di altri giocatori\n");
 		
 		if(in.nextLine().equals("OK")) { //attende finchè riceve l'OK dal server
-			System.out.println("  --- PARTITA INIZIATA! ---");
-			return true;
+			setChanged();
+			notifyObservers();
 		}
 		
-		return false;
 	}
 		
 		public void run() {
@@ -70,7 +69,6 @@ public class SocketHandler extends NetworkHandler implements Serializable{
 	}
 	
 	public void send(Object message) throws IOException{
-		
 		//System.out.println("\nSono il SocketHandler e sto inviando " + (ArrayList<String>) message);
 		outObj.writeObject(message);
 	}

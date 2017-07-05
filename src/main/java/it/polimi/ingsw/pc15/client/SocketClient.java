@@ -19,18 +19,16 @@ public class SocketClient extends Client {
 	public SocketClient(String nome, int tipoView) throws IOException {
 		super();
 		this.networkHandler = new SocketHandler(new Socket(hostName, 12879), clientModel, nome);
+		networkHandler.addObserver(this);
 		if (tipoView==1)
 			this.view = new CLI(this.networkHandler, this.clientModel);
 		else this.view = new GUI(this.networkHandler, this.clientModel);
 
 	}
-	
-	@Override
-	public void connetti() {
-		if (networkHandler.connetti()) {
-			new Thread(view).start();
-			((SocketHandler) networkHandler).run();
-		}
 
+	@Override
+	public void update(Observable o, Object arg) {
+		new Thread(view).start();
+		((SocketHandler) networkHandler).run();
 	}
 }

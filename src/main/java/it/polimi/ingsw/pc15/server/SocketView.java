@@ -48,7 +48,6 @@ public class SocketView extends ServerView implements Serializable {
 			try {
 				ArrayList<String> message;
 				message = (ArrayList<String>) inObj.readObject();
-				//System.out.println("\nSono la connection e ho ricevuto " + message);
 				setChanged();
 				notifyObservers(message);
 				

@@ -198,7 +198,7 @@ public class CLI extends ClientView {
 		    				if (spazioMercato.vuoto())
 		    					System.out.println("  - Spazio del Mercato " + this.clientModel.getStatoPlancia().getSpaziMercato().lastIndexOf(spazioMercato) + ": LIBERO");
 		    				else 
-		    					System.out.print("  - Spazio del Mercato " + this.clientModel.getStatoPlancia().getSpaziMercato().lastIndexOf(spazioMercato) + ": Occupato dal familiare  " + spazioMercato.getFamiliari().get(0).getColore().name() + " di " + spazioMercato.getFamiliari().get(0).getPlayer().getNome());
+		    					System.out.print("  - Spazio del Mercato " + this.clientModel.getStatoPlancia().getSpaziMercato().lastIndexOf(spazioMercato) + ": Occupato dal familiare  " + spazioMercato.getFamiliari().get(0).getColore().name() + " di " + spazioMercato.getFamiliari().get(0).getPlayer().getNome() + "\n");
 						
 		    			if (this.clientModel.getStatoPlancia().getSpazioRaccolta().vuoto())
 							System.out.println("\n  - Spazio raccolta : LIBERO");

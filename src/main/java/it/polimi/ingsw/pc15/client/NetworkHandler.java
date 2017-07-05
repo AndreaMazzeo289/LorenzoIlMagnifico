@@ -17,6 +17,6 @@ public abstract class NetworkHandler extends Observable implements Observer, Ser
 	@Override
 	public abstract void update(Observable arg0, Object arg1);
 	
-	public abstract boolean connetti();
+	public abstract void connetti();
 
 }
