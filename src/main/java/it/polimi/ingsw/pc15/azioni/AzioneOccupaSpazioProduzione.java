@@ -32,7 +32,7 @@ public class AzioneOccupaSpazioProduzione extends AzioneOccupaSpazio {
 	public RisultatoAzione èValida() {
 		
 		if (familiare.disponibile() == false)
-			return new RisultatoAzione(false, player.getNome() + "vuole posizionare il suo familiare " + familiare.getColore().name() + " ma lo ha già posizionato!");
+			return new RisultatoAzione(false, player.getNome() + " vuole posizionare il suo familiare " + familiare.getColore().name() + " ma lo ha già posizionato!");
 		
 		for (Familiare familiare : spazio.getFamiliari())
 			if (familiare.getPlayer().equals(player) && !(familiare.getColore().equals(ColoreFamiliare.NEUTRO) || this.familiare.getColore().equals(ColoreFamiliare.NEUTRO)))
@@ -44,7 +44,7 @@ public class AzioneOccupaSpazioProduzione extends AzioneOccupaSpazio {
 		if(valoreAzione >= spazio.getValoreMin())
 			return new RisultatoAzione(true, player.getNome() + " occupa lo spazio produzione!");
 		else 
-			return new RisultatoAzione(false, player.getNome() + "cerca di posizionare il suo familiare " + familiare.getColore().name() + " nello spazio produzione, ma il suo valore è troppo basso!");
+			return new RisultatoAzione(false, player.getNome() + " cerca di posizionare il suo familiare " + familiare.getColore().name() + " nello spazio produzione, ma il valore del familiare è troppo basso!");
 	}
 
 }

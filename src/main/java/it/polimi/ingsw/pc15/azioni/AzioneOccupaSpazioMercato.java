@@ -29,16 +29,16 @@ public class AzioneOccupaSpazioMercato extends AzioneOccupaSpazio {
 	public RisultatoAzione èValida() {
 		
 		if (familiare.disponibile() == false)
-			return new RisultatoAzione(false, player.getNome() + "vuole posizionare il suo familiare " + familiare.getColore().name() + " ma lo ha già posizionato!");
+			return new RisultatoAzione(false, player.getNome() + " vuole posizionare il suo familiare " + familiare.getColore().name() + " ma lo ha già posizionato!");
 		
 		if (player.getEffettiAttivi().disponibilitàMercato() == false)
-			return new RisultatoAzione(false, player.getNome() + "vuole posizionare un familiare in uno spazio del mercato ma una scomunica glielo impedisce!");
+			return new RisultatoAzione(false, player.getNome() + " vuole posizionare un familiare in uno spazio del mercato ma una scomunica glielo impedisce!");
 		
 		if(this.valoreAzione < this.spazio.getValoreMin() ) 
-			return new RisultatoAzione(false, player.getNome() + "cerca di posizionare il suo familiare " + familiare.getColore().name() + " in uno spazio del mercato, ma il suo valore è troppo basso!");
+			return new RisultatoAzione(false, player.getNome() + " cerca di posizionare il suo familiare " + familiare.getColore().name() + " in uno spazio del mercato, ma il valore del familiare è troppo basso!");
 		
 		if (spazio.vuoto() == false  &&  player.getEffettiAttivi().controllaPermessoSpaziOccupati()==false)
-			return new RisultatoAzione(false, player.getNome() + "vuole posizionare un familiare in uno spazio del mercato, ma lo spazio è già occupato da " + spazio.getFamiliari().get(0).getPlayer().getNome());
+			return new RisultatoAzione(false, player.getNome() + " vuole posizionare un familiare in uno spazio del mercato, ma lo spazio è già occupato da " + spazio.getFamiliari().get(0).getPlayer().getNome());
 		
 		return new RisultatoAzione(true, player.getNome() + " occupa lo spazio del Mercato!");
 	}
