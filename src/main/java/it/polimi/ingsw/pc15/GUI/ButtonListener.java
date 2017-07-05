@@ -305,26 +305,6 @@ public class ButtonListener implements ActionListener{
 				gui.writeMessage(coloreTorre.toLowerCase());
 				gui.writeMessage(Integer.toString(numeroTorreInt));
 				
-				int index = Math.abs(numeroTorreInt-3);
-				
-				TipoCarta tipoCarta=null;
-				
-				switch(coloreTorre.toUpperCase()){
-				case "VERDE":
-					tipoCarta = TipoCarta.TERRITORIO;
-					break;
-				case "GIALLA":
-					tipoCarta = TipoCarta.EDIFICIO;
-					break;
-				case "BLU":
-					tipoCarta = TipoCarta.PERSONAGGIO;
-					break;
-				case "VIOLA":
-					tipoCarta = TipoCarta.IMPRESA;
-					break;
-				}
-				
-				gameboard.getSpazioTorre(tipoCarta,index).inserisciFamiliare(selezionaFamiliarePopup.readPath(coloreFamiliareScelto));
 				{
 					playerBoard.getButtonPosizionaFamiliare().sbloccaButton();
 					playerBoard.getButtonAttivaEffettoLeader().sbloccaButton();

@@ -76,8 +76,6 @@ public class PlayerBoard extends JPanel{
 		cartePlayerMap.put(TipoCarta.EDIFICIO,cartePlayerGialle);
 		cartePlayerMap.put(TipoCarta.IMPRESA,cartePlayerViola);
 		
-		
-		
 		// Panel carte
 		//-----------------------//
 		gbc.gridx=0;

@@ -20,6 +20,7 @@ import it.polimi.ingsw.pc15.client.ClientModel;
 import it.polimi.ingsw.pc15.client.ClientView;
 import it.polimi.ingsw.pc15.client.NetworkHandler;
 import it.polimi.ingsw.pc15.plancia.SpazioMercato;
+import it.polimi.ingsw.pc15.plancia.SpazioTorre;
 import it.polimi.ingsw.pc15.player.ColoreFamiliare;
 import it.polimi.ingsw.pc15.player.ColorePlayer;
 import it.polimi.ingsw.pc15.player.Player;
@@ -158,8 +159,15 @@ public class GUI extends ClientView{
 		for(SpazioMercato spazio : this.clientModel.getStatoPlancia().getSpaziMercato())
 			if(!spazio.vuoto())
 				gameboard.getSpazioMercato(this.clientModel.getStatoPlancia().getSpaziMercato().lastIndexOf(spazio)).inserisciFamiliare(this.mappaGiocatori.get(spazio.getFamiliari().get(0).getPlayer().getColore()).get(spazio.getFamiliari().get(0).getColore()));
-			
 		
+		for(TipoCarta tipo : TipoCarta.values())
+			if(tipo.equals(TipoCarta.ALL));
+			else
+				for(SpazioTorre spazio : this.clientModel.getStatoPlancia().getTorre(tipo).getSpaziTorre())
+					if(!spazio.vuoto()){
+						int index = Math.abs(this.clientModel.getStatoPlancia().getTorre(tipo).getSpaziTorre().lastIndexOf(spazio)-3);
+						gameboard.getSpazioTorre(tipo, index).inserisciFamiliare(this.mappaGiocatori.get(spazio.getFamiliari().get(0).getPlayer().getColore()).get(spazio.getFamiliari().get(0).getColore()));
+					}
 		
 		//----------------------------------------------------------//
 		// AGGIORNAMENTO PLAYERBOARD IN FUNZIONE DEL MODEL
