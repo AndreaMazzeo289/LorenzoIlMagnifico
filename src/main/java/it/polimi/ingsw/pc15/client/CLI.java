@@ -29,17 +29,19 @@ import it.polimi.ingsw.pc15.risorse.TipoRisorsa;
 public class CLI extends ClientView {
 	
 	private Scanner input;
+	private ArrayList<String> message;
 	
 	public CLI(NetworkHandler networkHandler, ClientModel clientModel){
 		super(networkHandler, clientModel);
 		this.input = new Scanner(System.in);
+		this.message = new ArrayList<String>();
 	}
 	
 	public void run(){
 		
 	    while (true) {
 			
-			ArrayList<String> message = new ArrayList<String>();
+			message.clear();
 			
 			try {
 		    	switch (input.next()) {
@@ -109,6 +111,8 @@ public class CLI extends ClientView {
 									if (spazio.vuoto())
 									System.out.println("  " + (this.clientModel.getStatoPlancia().getSpaziMercato().lastIndexOf(spazio)+1) + ") " + spazio.getEffetto().toString());
 								int scelta = input.nextInt();
+								if (scelta>this.clientModel.getStatoPlancia().getSpaziMercato().size())
+									throw new InputMismatchException();
 								message.add(String.valueOf(scelta-1));
 								break;
 							case 2: message.add("consiglio");
@@ -118,27 +122,67 @@ public class CLI extends ClientView {
 							case 4: message.add("produzione");
 								break;
 							case 5: message.add("torre");
-									System.out.println("\nQuale torre vuoi occupare?\n  1. Verde\n  2. Blu\n  3. Gialla\n  4. Viola\n\n  0. (ANNULLA)");
+									System.out.println("\nQuale torre vuoi occupare?\n  1. Verde\n  2. Blu\n  3. Gialla\n  4. Viola");
 									int sceltaSpazio;
 									switch(input.nextInt()) {
 									case 1: message.add("verde");
 											System.out.println("Quale spazio della torre?");
+											for(SpazioTorre spazio : this.clientModel.getStatoPlancia().getTorre(TipoCarta.TERRITORIO).getSpaziTorre())
+							    				if (spazio.vuoto())
+							    					System.out.println("  - Spazio " + (this.clientModel.getStatoPlancia().getTorre(TipoCarta.TERRITORIO).getSpaziTorre().lastIndexOf(spazio)+1) + ": LIBERO - Carta " + TipoCarta.TERRITORIO.name() + " presente: " + spazio.getCarta().toString());
+							    				else {
+							    					System.out.print("  - Spazio " + (this.clientModel.getStatoPlancia().getTorre(TipoCarta.TERRITORIO).getSpaziTorre().lastIndexOf(spazio)+1) + ": occupato dal familiare ");
+								    				for (Familiare familiare : spazio.getFamiliari())
+								    					System.out.println(familiare.getColore().name() + " di " + familiare.getPlayer().getNome() + " ");
+							    				}
 											sceltaSpazio = input.nextInt();
+											if (sceltaSpazio>this.clientModel.getStatoPlancia().getTorre(TipoCarta.TERRITORIO).getSpaziTorre().size())
+												throw new InputMismatchException();
 											message.add(String.valueOf(sceltaSpazio-1));
 											break;
 									case 2: message.add("blu");
 											System.out.println("Quale spazio della torre?");
 											sceltaSpazio = input.nextInt();
+											for(SpazioTorre spazio : this.clientModel.getStatoPlancia().getTorre(TipoCarta.PERSONAGGIO).getSpaziTorre())
+							    				if (spazio.vuoto())
+							    					System.out.println("  - Spazio " + (this.clientModel.getStatoPlancia().getTorre(TipoCarta.PERSONAGGIO).getSpaziTorre().lastIndexOf(spazio)+1) + ": LIBERO - Carta " + TipoCarta.PERSONAGGIO.name() + " presente: " + spazio.getCarta().toString());
+							    				else {
+							    					System.out.print("  - Spazio " + (this.clientModel.getStatoPlancia().getTorre(TipoCarta.PERSONAGGIO).getSpaziTorre().lastIndexOf(spazio)+1) + ": occupato dal familiare ");
+								    				for (Familiare familiare : spazio.getFamiliari())
+								    					System.out.println(familiare.getColore().name() + " di " + familiare.getPlayer().getNome() + " ");
+							    				}
+											if (sceltaSpazio>this.clientModel.getStatoPlancia().getTorre(TipoCarta.PERSONAGGIO).getSpaziTorre().size())
+												throw new InputMismatchException();
 											message.add(String.valueOf(sceltaSpazio-1));
 											break;
 									case 3: message.add("gialla");
 											System.out.println("Quale spazio della torre?");
+											for(SpazioTorre spazio : this.clientModel.getStatoPlancia().getTorre(TipoCarta.EDIFICIO).getSpaziTorre())
+							    				if (spazio.vuoto())
+							    					System.out.println("  - Spazio " + (this.clientModel.getStatoPlancia().getTorre(TipoCarta.EDIFICIO).getSpaziTorre().lastIndexOf(spazio)+1) + ": LIBERO - Carta " + TipoCarta.EDIFICIO.name() + " presente: " + spazio.getCarta().toString());
+							    				else {
+							    					System.out.print("  - Spazio " + (this.clientModel.getStatoPlancia().getTorre(TipoCarta.EDIFICIO).getSpaziTorre().lastIndexOf(spazio)+1) + ": occupato dal familiare ");
+								    				for (Familiare familiare : spazio.getFamiliari())
+								    					System.out.println(familiare.getColore().name() + " di " + familiare.getPlayer().getNome() + " ");
+							    				}
 											sceltaSpazio = input.nextInt();
+											if (sceltaSpazio>this.clientModel.getStatoPlancia().getTorre(TipoCarta.EDIFICIO).getSpaziTorre().size())
+												throw new InputMismatchException();
 											message.add(String.valueOf(sceltaSpazio-1));
 											break;
 									case 4: message.add("viola");
 											System.out.println("Quale spazio della torre?");
+											for(SpazioTorre spazio : this.clientModel.getStatoPlancia().getTorre(TipoCarta.IMPRESA).getSpaziTorre())
+							    				if (spazio.vuoto())
+							    					System.out.println("  - Spazio " + (this.clientModel.getStatoPlancia().getTorre(TipoCarta.IMPRESA).getSpaziTorre().lastIndexOf(spazio)+1) + ": LIBERO - Carta " + TipoCarta.IMPRESA.name() + " presente: " + spazio.getCarta().toString());
+							    				else {
+							    					System.out.print("  - Spazio " + (this.clientModel.getStatoPlancia().getTorre(TipoCarta.IMPRESA).getSpaziTorre().lastIndexOf(spazio)+1) + ": occupato dal familiare ");
+								    				for (Familiare familiare : spazio.getFamiliari())
+								    					System.out.println(familiare.getColore().name() + " di " + familiare.getPlayer().getNome() + " ");
+							    				}
 											sceltaSpazio = input.nextInt();
+											if (sceltaSpazio>this.clientModel.getStatoPlancia().getTorre(TipoCarta.IMPRESA).getSpaziTorre().size())
+												throw new InputMismatchException();
 											message.add(String.valueOf(sceltaSpazio-1));
 											if (this.clientModel.getStatoPlancia().getSpazioTorre(TipoCarta.IMPRESA, sceltaSpazio-1).getCarta().getCosto().getRisorse().isEmpty()==false && ((Impresa) this.clientModel.getStatoPlancia().getSpazioTorre(TipoCarta.IMPRESA, sceltaSpazio-1).getCarta()).getRequisitoPuntiMilitari()!=0) {
 												System.out.println("Vuoi pagare il costo in risorse (1) o in punti militari (2) ?");
@@ -323,7 +367,7 @@ public class CLI extends ClientView {
 		    	}	
 		    	
 			} catch (InputMismatchException e) {
-	    		System.out.println("\n--Inserire un comando valido!--");
+	    		System.out.print("\n--ERRORE: Inserire un comando valido!--");
 				update(this, "");
 				
 			}
