@@ -224,6 +224,7 @@ public class CLI extends ClientView {
 		    				System.out.print("\n  - Spazio del Consiglio: Occupato da ");
 		    				for (Familiare familiare : this.clientModel.getStatoPlancia().getSpazioConsiglio().getFamiliari())
 		    					System.out.print("familiare " + familiare.getColore().name() + " di " + familiare.getPlayer().getNome() + " - ");
+		    				System.out.print("\n");
 		    			}
 		    			
 		    			for (TipoCarta tipo: TipoCarta.values()) {

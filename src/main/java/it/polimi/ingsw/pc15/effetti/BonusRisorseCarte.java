@@ -20,7 +20,7 @@ public class BonusRisorseCarte extends Bonus {
 	}
 	
 	public String toString() {
-		return ("Quando ottieni " + risorsa.name() + " per effetto di una carta sviluppo, ne ricevi " + valore + " in più");
+		return ("Quando ottieni " + risorsa.name() + " per effetto di una carta sviluppo, ne ricevi " + valore);
 	}
 
 }

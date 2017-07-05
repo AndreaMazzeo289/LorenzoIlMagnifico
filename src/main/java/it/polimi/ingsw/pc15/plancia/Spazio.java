@@ -12,7 +12,7 @@ public abstract class Spazio implements Serializable {
 	protected ArrayList<Familiare> familiari;
 	
 	public Spazio(int valoreMin) {
-		this.valoreMin=1;
+		this.valoreMin=valoreMin;
 		this.familiari = new ArrayList<Familiare>();
 	}
 
