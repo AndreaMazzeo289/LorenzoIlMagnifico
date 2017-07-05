@@ -43,13 +43,14 @@ public class SocketHandler extends NetworkHandler implements Serializable{
 		
 	}
 		
-		public void run() {
+		
+	public void run() {
 			
-			while (true) {
+		while (true) {
 				
-					try {
-					StatoPartita statoPartita = (StatoPartita) inObj.readObject();
-					clientModel.aggiorna(statoPartita);
+			try {
+				StatoPartita statoPartita = (StatoPartita) inObj.readObject();
+				clientModel.aggiorna(statoPartita);
 				} catch (ClassNotFoundException | IOException e) {
 					e.printStackTrace();}
 			}
@@ -58,7 +59,7 @@ public class SocketHandler extends NetworkHandler implements Serializable{
 	@Override
 	public void update(Observable o, Object input) {
 		
-		System.out.println("\nSono il SocketHandler e ho ricevuto " + (ArrayList<String>) input);
+		//System.out.println("\nSono il SocketHandler e ho ricevuto " + (ArrayList<String>) input);
 		
 		try {
 			send(input);
@@ -69,7 +70,8 @@ public class SocketHandler extends NetworkHandler implements Serializable{
 	}
 	
 	public void send(Object message) throws IOException{
-		//System.out.println("\nSono il SocketHandler e sto inviando " + (ArrayList<String>) message);
+		System.out.println("\nSono il SocketHandler e sto inviando " + (ArrayList<String>) message);
 		outObj.writeObject(message);
+		outObj.reset();
 	}
 }
