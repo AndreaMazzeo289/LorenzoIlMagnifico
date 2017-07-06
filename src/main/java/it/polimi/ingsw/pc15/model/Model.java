@@ -114,16 +114,15 @@ public class Model extends Observable {
 		carteLeader = ParserXML.leggiCartaLeader();
 		Collections.shuffle(carteLeader);	
 		int numeroCarteLeader = ParserXML.leggiValore("numeroCarteLeader");
-		int i=0, j=0;
-		while (j<numeroGiocatori) {
-			giocatori.get(j).getCarteLeader().add(carteLeader.get(i));
-			carteLeader.get(i).setPlayer(giocatori.get(j));
-			i++;
-			if (i==numeroCarteLeader) {
-				i=0;
-				j++;
+		for (Player giocatore : this.giocatori) {
+			for (int i=0; i<numeroCarteLeader; i++) {
+				giocatore.getCarteLeader().add(carteLeader.get(0));
+				carteLeader.get(0).setPlayer(giocatore);
+				carteLeader.remove(0);
+				
 			}
 		}
+	
 	}	
 	
 	public void generaCarteSviluppo() {
@@ -165,12 +164,12 @@ public class Model extends Observable {
 		
 		turno++;
 		
-		if (turno==ParserXML.leggiValore("numeroTurniPerPeriodo")+1) {
+		if (turno>ParserXML.leggiValore("numeroTurniPerPeriodo")) {
 			periodo++;
 			turno=1;
 		}
 		
-		if (periodo==ParserXML.leggiValore("numeroPeriodi")+1)
+		if (periodo>ParserXML.leggiValore("numeroPeriodi"))
 			calcolaPunteggio();
 		
 		else 
@@ -285,28 +284,28 @@ public class Model extends Observable {
 		
 		else {
 					
-					boolean nuovoGiocatore;
-					ArrayList<String> nuovoOrdine = new ArrayList<String>();
-					for (Familiare familiare : this.plancia.getSpazioConsiglio().getFamiliari()) {   //per ogni familiare in spazio consiglio
-						nuovoGiocatore=true;
-						for (String nomeGiocatore : nuovoOrdine)									// controlla i giocatori già aggiunti.
-							if (familiare.getPlayer().getNome().equals(nomeGiocatore))			//se hai già aggiunto il proprietario di quel 
-								nuovoGiocatore = false;											//familiare, metti false
-						if (nuovoGiocatore)
-							nuovoOrdine.add(familiare.getPlayer().getNome());                   //altrimenti aggiungilo
-					}
+			boolean nuovoGiocatore;
+			ArrayList<String> nuovoOrdine = new ArrayList<String>();
+			for (Familiare familiare : this.plancia.getSpazioConsiglio().getFamiliari()) {   //per ogni familiare in spazio consiglio
+				nuovoGiocatore=true;
+				for (String nomeGiocatore : nuovoOrdine)									// controlla i giocatori già aggiunti.
+					if (familiare.getPlayer().getNome().equals(nomeGiocatore))			//se hai già aggiunto il proprietario di quel 
+						nuovoGiocatore = false;											//familiare, metti false
+				if (nuovoGiocatore)
+					nuovoOrdine.add(familiare.getPlayer().getNome());                   //altrimenti aggiungilo
+			}
 					
-					for (String nomeGiocatore1 : this.ordine) {                   //per ogni nomeGiocatore nel vecchio ordine
-						nuovoGiocatore = true;
-						for (String nomeGiocatore2 : nuovoOrdine)                //controlla i giocatori già aggiunti
-							if (nomeGiocatore1.equals(nomeGiocatore2))           //se hai giò aggiunto quel nome metti false
-								nuovoGiocatore=false;
-						if (nuovoGiocatore)
-							nuovoOrdine.add(nomeGiocatore1);                     //altrimenti aggiungilo
-					}	
-					
-					this.ordine = nuovoOrdine;
-				}
+			for (String nomeGiocatore1 : this.ordine) {                   //per ogni nomeGiocatore nel vecchio ordine
+				nuovoGiocatore = true;
+				for (String nomeGiocatore2 : nuovoOrdine)                //controlla i giocatori già aggiunti
+					if (nomeGiocatore1.equals(nomeGiocatore2))           //se hai giò aggiunto quel nome metti false
+						nuovoGiocatore=false;
+				if (nuovoGiocatore)
+					nuovoOrdine.add(nomeGiocatore1);                     //altrimenti aggiungilo
+			}	
+				
+			this.ordine = nuovoOrdine;
+		}
 		
 	}
 	
@@ -320,6 +319,7 @@ public class Model extends Observable {
 	public void tiraIDadi() {
 		
 		Random random = new Random();	
+		/*
 		int valoreDadoNero = random.nextInt(6) + 1;
 		System.out.println("Valore dado NERO: " + valoreDadoNero);
 		int valoreDadoBianco = random.nextInt(6) + 1;
@@ -333,13 +333,14 @@ public class Model extends Observable {
 			player.getFamiliare(ColoreFamiliare.NERO).setValore(valoreDadoNero);
 			player.getFamiliare(ColoreFamiliare.BIANCO).setValore(valoreDadoBianco);
 			player.getFamiliare(ColoreFamiliare.ARANCIONE).setValore(valoreDadoArancione);
-			
-			for (ColoreFamiliare colore : ColoreFamiliare.values())	
-				player.getFamiliare(colore).setDisponibilità(true);
-
-					
-		}
+		*/
 		
+		for (Player player : giocatori)
+			for (ColoreFamiliare coloreFamiliare : ColoreFamiliare.values()) {
+				player.getFamiliare(coloreFamiliare).setValore(random.nextInt(6)+1);
+				player.getFamiliare(coloreFamiliare).setDisponibilità(true);
+			}
+					
 	}
 
 }
