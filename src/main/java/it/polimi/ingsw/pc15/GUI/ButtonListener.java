@@ -92,7 +92,7 @@ public class ButtonListener implements ActionListener{
 		
 		if (e.getActionCommand().equals("posizionaFamiliare")) {
 			if(gui.tuoTurno()) {
-				selezionaFamiliarePopup = new SelezionaFamiliarePopup(this,gui.getPlayerCorrente());
+				selezionaFamiliarePopup = new SelezionaFamiliarePopup(this, gui.getPlayerCorrente());
 				gui.clearMessage(); 
 				gui.writeMessage("posiziona familiare");
 			}
@@ -102,7 +102,7 @@ public class ButtonListener implements ActionListener{
 		// SELEZIONATO FAMILIARE BIANCO
 		//------------------------------------------------------------------------------------//
 		if(e.getActionCommand().equals("selezionatoFamiliareBianco")) {
-			playerBoard.getPanelSpazioFamiliariDisponibili().utilizzaFamiliare(ColoreFamiliare.BIANCO);
+			//playerBoard.getPanelSpazioFamiliariDisponibili().utilizzaFamiliare(ColoreFamiliare.BIANCO);
 			gui.writeMessage("familiare bianco");
 			coloreFamiliareScelto = ColoreFamiliare.BIANCO;
 
@@ -123,7 +123,7 @@ public class ButtonListener implements ActionListener{
 		// SELEZIONATO FAMILIARE ARANCIONE
 		//------------------------------------------------------------------------------------//
 		if(e.getActionCommand().equals("selezionatoFamiliareArancione")) {
-			playerBoard.getPanelSpazioFamiliariDisponibili().utilizzaFamiliare(ColoreFamiliare.ARANCIONE);
+			//playerBoard.getPanelSpazioFamiliariDisponibili().utilizzaFamiliare(ColoreFamiliare.ARANCIONE);
 			gui.writeMessage("familiare arancione");
 			coloreFamiliareScelto = ColoreFamiliare.ARANCIONE;
 			
@@ -144,7 +144,7 @@ public class ButtonListener implements ActionListener{
 		// SELEZIONATO FAMILIARE NERO
 		//------------------------------------------------------------------------------------//
 		if(e.getActionCommand().equals("selezionatoFamiliareNero")) {
-			playerBoard.getPanelSpazioFamiliariDisponibili().utilizzaFamiliare(ColoreFamiliare.NERO);
+			//playerBoard.getPanelSpazioFamiliariDisponibili().utilizzaFamiliare(ColoreFamiliare.NERO);
 			gui.writeMessage("familiare nero");
 			coloreFamiliareScelto = ColoreFamiliare.NERO;
 			
@@ -164,7 +164,7 @@ public class ButtonListener implements ActionListener{
 		// SELEZIONATO FAMILIARE NEUTRO
 		//------------------------------------------------------------------------------------//
 		if(e.getActionCommand().equals("selezionatoFamiliareNeutro")) {
-			playerBoard.getPanelSpazioFamiliariDisponibili().utilizzaFamiliare(ColoreFamiliare.NEUTRO);
+			//playerBoard.getPanelSpazioFamiliariDisponibili().utilizzaFamiliare(ColoreFamiliare.NEUTRO);
 			gui.writeMessage("familiare neutro");
 			coloreFamiliareScelto = ColoreFamiliare.NEUTRO;
 			
@@ -190,8 +190,8 @@ public class ButtonListener implements ActionListener{
 		
 		if(e.getActionCommand().equals("noServitori")) {
 			System.out.println("selezionato no");
-			selezionaNumeroServitori.dispose();
 			gui.writeMessage("0");
+			selezionaNumeroServitori.dispose();
 		}
 		
 		if(e.getActionCommand().equals("submitNumeroServitori")) {
@@ -325,10 +325,7 @@ public class ButtonListener implements ActionListener{
 			
 				gui.writeMessage("consiglio");
 				String index = e.getActionCommand().substring(24);
-			
-				SpazioConsiglio spazioConsiglio = (SpazioConsiglio)gameboard.getSpazioConsiglio();
-				spazioConsiglio.inserisciFamiliare(selezionaFamiliarePopup.readPath(coloreFamiliareScelto));
-			
+				
 				{
 					playerBoard.getButtonPosizionaFamiliare().sbloccaButton();
 					playerBoard.getButtonAttivaEffettoLeader().sbloccaButton();
@@ -373,9 +370,6 @@ public class ButtonListener implements ActionListener{
 				
 				gui.writeMessage("consiglio");
 				String index = e.getActionCommand().substring(25);
-			
-				SpazioProduzione2 spazioProduzione2 = (SpazioProduzione2)gameboard.getSpazioProduzione2();
-				spazioProduzione2.inserisciFamiliare(selezionaFamiliarePopup.readPath(coloreFamiliareScelto),spazioProduzione2.getButton(Integer.parseInt(index)));
 				
 				{
 					playerBoard.getButtonPosizionaFamiliare().sbloccaButton();
@@ -421,9 +415,6 @@ public class ButtonListener implements ActionListener{
 		
 				gui.writeMessage("raccolta");
 				String index = e.getActionCommand().substring(23);
-			
-				SpazioRaccolto2 spazioRaccolto2 = (SpazioRaccolto2)gameboard.getSpazioRaccolto2();
-				spazioRaccolto2.inserisciFamiliare(selezionaFamiliarePopup.readPath(coloreFamiliareScelto),spazioRaccolto2.getButton(Integer.parseInt(index)));
 				
 				{
 					playerBoard.getButtonPosizionaFamiliare().sbloccaButton();

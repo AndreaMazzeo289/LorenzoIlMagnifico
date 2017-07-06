@@ -13,6 +13,7 @@ import javax.swing.JPanel;
 
 import it.polimi.ingsw.pc15.GUI.GUI;
 import it.polimi.ingsw.pc15.player.ColoreFamiliare;
+import it.polimi.ingsw.pc15.player.Player;
 
 public class SpazioFamiliariDisponibili extends JPanel implements Serializable{
 
@@ -54,8 +55,12 @@ public class SpazioFamiliariDisponibili extends JPanel implements Serializable{
 		altezzaBackground=700;
 		larghezzaBackground=1080;
 		
-		larghezzaFamiliare = 198;
-		altezzaFamiliare= 198;
+		//larghezzaFamiliare = 198;
+		//altezzaFamiliare= 198;
+		
+		larghezzaFamiliare = 207;
+		altezzaFamiliare= 303;
+				
 		
 		background = new JLabel();
 		labelNero = new JLabel();
@@ -68,24 +73,22 @@ public class SpazioFamiliariDisponibili extends JPanel implements Serializable{
 		newImage = image.getScaledInstance(((int)(larghezzaSchermo*larghezzaBackground)/larghezzaTotale),((int)(altezzaSchermo*altezzaBackground)/altezzaTotale),Image.SCALE_DEFAULT);
 		ImageIcon imageBackground = new ImageIcon(newImage);
 		
-		
-		
-		imageIcon = new ImageIcon("img/Punchboard/familiari/pedineFamiliari/blu/nero.png");
+		imageIcon = new ImageIcon("img/Punchboard/familiari/familiariDisponibili/Nero.png");
 		image = imageIcon.getImage();
 		newImage = image.getScaledInstance(((int)(larghezzaSchermo*larghezzaFamiliare)/larghezzaTotale),((int)(altezzaSchermo*altezzaFamiliare)/altezzaTotale),Image.SCALE_DEFAULT);
 		ImageIcon imageFamiliareNero = new ImageIcon(newImage);
 		
-		imageIcon = new ImageIcon("img/Punchboard/familiari/pedineFamiliari/blu/bianco.png");
+		imageIcon = new ImageIcon("img/Punchboard/familiari/familiariDisponibili/Bianco.png");
 		image = imageIcon.getImage();
 		newImage = image.getScaledInstance(((int)(larghezzaSchermo*larghezzaFamiliare)/larghezzaTotale),((int)(altezzaSchermo*altezzaFamiliare)/altezzaTotale),Image.SCALE_DEFAULT);
 		ImageIcon imageFamiliareBianco = new ImageIcon(newImage);
 		
-		imageIcon = new ImageIcon("img/Punchboard/familiari/pedineFamiliari/blu/arancione.png");
+		imageIcon = new ImageIcon("img/Punchboard/familiari/familiariDisponibili/Arancione.png");
 		image = imageIcon.getImage();
 		newImage = image.getScaledInstance(((int)(larghezzaSchermo*larghezzaFamiliare)/larghezzaTotale),((int)(altezzaSchermo*altezzaFamiliare)/altezzaTotale),Image.SCALE_DEFAULT);
 		ImageIcon imageFamiliareArancione = new ImageIcon(newImage);
 		
-		imageIcon = new ImageIcon("img/Punchboard/familiari/pedineFamiliari/blu/neutro.png");
+		imageIcon = new ImageIcon("img/Punchboard/familiari/familiariDisponibili/Neutro.png");
 		image = imageIcon.getImage();
 		newImage = image.getScaledInstance(((int)(larghezzaSchermo*larghezzaFamiliare)/larghezzaTotale),((int)(altezzaSchermo*altezzaFamiliare)/altezzaTotale),Image.SCALE_DEFAULT);
 		ImageIcon imageFamiliareNeutro = new ImageIcon(newImage);
@@ -157,19 +160,19 @@ public class SpazioFamiliariDisponibili extends JPanel implements Serializable{
 		
 		switch(coloreFamiliare){
 		case NERO:
-			imageIcon = new ImageIcon("img\\Punchboard\\familiari\\pedineFamiliari\\blu\\nero.png");
+			imageIcon = new ImageIcon("img\\Punchboard\\familiari\\familiariDisponibili\\nero.png");
 			labelColore = labelNero;
 			break;
 		case BIANCO:		
-			imageIcon = new ImageIcon("img\\Punchboard\\familiari\\pedineFamiliari\\blu\\bianco.png");
+			imageIcon = new ImageIcon("img\\Punchboard\\familiari\\familiariDisponibili\\bianco.png");
 			labelColore = labelBianco;
 			break;
 		case ARANCIONE:
-			imageIcon = new ImageIcon("img\\Punchboard\\familiari\\pedineFamiliari\\blu\\arancione.png");
+			imageIcon = new ImageIcon("img\\Punchboard\\familiari\\familiariDisponibili\\arancione.png");
 			labelColore = labelArancione;
 			break;
 		case NEUTRO:
-			imageIcon = new ImageIcon("img\\Punchboard\\familiari\\pedineFamiliari\\blu\\neutro.png");
+			imageIcon = new ImageIcon("img\\Punchboard\\familiari\\familiariDisponibili\\neutro.png");
 			labelColore = labelNeutro;
 			break;
 		}
