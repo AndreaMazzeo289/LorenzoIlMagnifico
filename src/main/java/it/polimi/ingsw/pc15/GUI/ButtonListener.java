@@ -24,17 +24,15 @@ import it.polimi.ingsw.pc15.player.Player;
 
 public class ButtonListener implements ActionListener{
 
-	public SelezionaFamiliarePopup selezionaFamiliarePopup;
-	public SelezionaNumeroServitori selezionaNumeroServitori;
-	GiocaLeaderPopup giocaLeaderPopup;
-	ColoreFamiliare coloreFamiliareScelto = null;
-	AttivaLeaderPopup attivaLeaderPopup;
-	ScartaLeaderPopup scartaLeaderPopup;
-	FrameInformazioniPlayer frameInformazioniPlayer;
-	boolean familiareScelto = false;
-	GUI gui;
-	
-	//private ArrayList<String> message;
+	private SelezionaFamiliarePopup selezionaFamiliarePopup;
+	private SelezionaNumeroServitori selezionaNumeroServitori;
+	private GiocaLeaderPopup giocaLeaderPopup;
+	private ColoreFamiliare coloreFamiliareScelto = null;
+	private AttivaLeaderPopup attivaLeaderPopup;
+	private ScartaLeaderPopup scartaLeaderPopup;
+	private FrameInformazioniPlayer frameInformazioniPlayer;
+	private boolean familiareScelto = false;
+	private GUI gui;
 	
 	public ButtonListener(GUI gui) {
 		this.gui = gui;
@@ -42,8 +40,6 @@ public class ButtonListener implements ActionListener{
 
 	@Override
 	public void actionPerformed(ActionEvent e) {
-		
-		//message = new ArrayList();
 		
 		PlayerBoard playerBoard = (PlayerBoard) gui.mainFrame.getContentPane().getComponent(1);
 		Gameboard gameboard = (Gameboard) gui.mainFrame.getContentPane().getComponent(0);
@@ -68,18 +64,25 @@ public class ButtonListener implements ActionListener{
 		}
 		
 		if(e.getActionCommand().equals("attivaCartaLeader")) {
-			if(gui.tuoTurno())
+			if(gui.tuoTurno()) {
 				giocaLeaderPopup = new GiocaLeaderPopup(this, gui);
+				gui.writeMessage("gioca Leader");
+			}
 		}
 		
 		if (e.getActionCommand().equals("attivaEffettoLeader")) {
-			if(gui.tuoTurno())
+			if(gui.tuoTurno()) {
 				attivaLeaderPopup = new AttivaLeaderPopup(this, gui);
+				gui.writeMessage("attiva effetto Leader");
+			}
+				
 		}
 		
 		if (e.getActionCommand().equals("scartaCartaLeader")) {
-			if(gui.tuoTurno())
+			if(gui.tuoTurno()) {
 				scartaLeaderPopup = new ScartaLeaderPopup(this, gui);
+				gui.writeMessage("scarta Leader");
+			}
 		}
 		
 		if (e.getActionCommand().equals("buttonScomuniche")) {
@@ -200,74 +203,7 @@ public class ButtonListener implements ActionListener{
 			selezionaNumeroServitori.getPopupNumeroServitori().dispose();
 		}
 		
-		if(tipo.equals("leader1Gioca")){
-			
-			playerBoard.getCartaLeader1().scriviLabel("GIOCATO");
-			giocaLeaderPopup.dispose();
-		}
-		
-		if(tipo.equals("leader2Gioca")){
-					
-			playerBoard.getCartaLeader2().scriviLabel("GIOCATO");
-			giocaLeaderPopup.dispose();
-		}
-		
-		if(tipo.equals("leader3Gioca")){
-			
-			playerBoard.getCartaLeader3().scriviLabel("GIOCATO");
-			giocaLeaderPopup.dispose();
-		}
-		
-		if(tipo.equals("leader4Gioca")){
-			
-			playerBoard.getCartaLeader4().scriviLabel("GIOCATO");
-			giocaLeaderPopup.dispose();
-		}
-		
-		if(tipo.equals("leader1Attiva")){
-			attivaLeaderPopup.dispose();
-			System.out.println("leader 1 attivato");
-		}
-		
-		if(tipo.equals("leader2Attiva")){
-			attivaLeaderPopup.dispose();
-			System.out.println("leader 2 attivato");
-		}
-		
-		if(tipo.equals("leader3Attiva")){
-			attivaLeaderPopup.dispose();
-			System.out.println("leader 3 attivato");
-		}
-		
-		if(tipo.equals("leader4Attiva")){
-			attivaLeaderPopup.dispose();
-			System.out.println("leader 4 attivato");
-		}
-		
-		if(tipo.equals("leader1Scarta")){
-			scartaLeaderPopup.dispose();
-			System.out.println("leader 1 scartato");
-			playerBoard.getCartaLeader1().scriviLabel("SCARTATO");
-		}
-		
-		if(tipo.equals("leader2Scarta")){
-			scartaLeaderPopup.dispose();
-			System.out.println("leader 2 scartato");
-			playerBoard.getCartaLeader2().scriviLabel("SCARTATO");
-		}
-		
-		if(tipo.equals("leader3Scarta")){
-			scartaLeaderPopup.dispose();
-			System.out.println("leader 3 scartato");
-			playerBoard.getCartaLeader3().scriviLabel("SCARTATO");
-		}
-		
-		if(tipo.equals("leader4Scarta")){
-			scartaLeaderPopup.dispose();
-			System.out.println("leader 4 scartato");
-			
-			playerBoard.getCartaLeader4().scriviLabel("SCARTATO");
-		}
+	
 		
 		if(e.getActionCommand().startsWith("carteTerritorioPlayer")) {
 			String index = e.getActionCommand().substring(21);
@@ -506,6 +442,95 @@ public class ButtonListener implements ActionListener{
 				coloreFamiliareScelto=null;
 				gui.inviaMessaggio();
 			}
+		}
+		
+		//------------------------------------------------------------------------------------//
+		// GESTIONE LEADER
+		//------------------------------------------------------------------------------------//
+		
+		if(tipo.equals("leader1Gioca")){
+			
+			playerBoard.getCartaLeader1().scriviLabel("GIOCATO");
+			gui.writeMessage("1");
+			giocaLeaderPopup.dispose();
+			gui.inviaMessaggio();
+		}
+		
+		if(tipo.equals("leader2Gioca")){
+					
+			playerBoard.getCartaLeader2().scriviLabel("GIOCATO");
+			 
+			gui.writeMessage("2");
+			giocaLeaderPopup.dispose();
+			gui.inviaMessaggio();
+		}
+		
+		if(tipo.equals("leader3Gioca")){
+			
+			playerBoard.getCartaLeader3().scriviLabel("GIOCATO");
+			gui.writeMessage("3");
+			giocaLeaderPopup.dispose();
+			gui.inviaMessaggio();
+		}
+		
+		if(tipo.equals("leader4Gioca")){
+			
+			playerBoard.getCartaLeader4().scriviLabel("GIOCATO");
+			gui.writeMessage("4");
+			giocaLeaderPopup.dispose();
+			gui.inviaMessaggio();
+		}
+		
+		if(tipo.equals("leader1Attiva")){
+			attivaLeaderPopup.dispose();
+			gui.writeMessage("1");
+			gui.inviaMessaggio();
+		}
+		
+		if(tipo.equals("leader2Attiva")){
+			attivaLeaderPopup.dispose();
+			gui.writeMessage("2");
+			gui.inviaMessaggio();
+		}
+		
+		if(tipo.equals("leader3Attiva")){
+			attivaLeaderPopup.dispose();
+			gui.writeMessage("3");
+			gui.inviaMessaggio();
+		}
+		
+		if(tipo.equals("leader4Attiva")){
+			attivaLeaderPopup.dispose();
+			gui.writeMessage("4");
+			gui.inviaMessaggio();
+		}
+		
+		if(tipo.equals("leader1Scarta")){
+			scartaLeaderPopup.dispose();
+			gui.writeMessage("1");
+			playerBoard.getCartaLeader1().scriviLabel("SCARTATO");
+			gui.inviaMessaggio();
+		}
+		
+		if(tipo.equals("leader2Scarta")){
+			scartaLeaderPopup.dispose();
+			gui.writeMessage("2");
+			playerBoard.getCartaLeader2().scriviLabel("SCARTATO");
+			gui.inviaMessaggio();
+		}
+		
+		if(tipo.equals("leader3Scarta")){
+			scartaLeaderPopup.dispose();
+			gui.writeMessage("3");
+			playerBoard.getCartaLeader3().scriviLabel("SCARTATO");
+			gui.inviaMessaggio();
+		}
+		
+		if(tipo.equals("leader4Scarta")){
+			scartaLeaderPopup.dispose();
+			gui.writeMessage("4");
+			playerBoard.getCartaLeader4().scriviLabel("SCARTATO");
+			gui.inviaMessaggio();
 		}
 	}
 }

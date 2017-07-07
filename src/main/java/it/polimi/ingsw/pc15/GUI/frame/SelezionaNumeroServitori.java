@@ -38,7 +38,7 @@ public class SelezionaNumeroServitori extends JFrame{
 	private JFrame frameNumeroServitori;
 	private JTextArea inputNumero;
 	
-	private ButtonListener buttonListenerCall;
+	private transient ButtonListener buttonListenerCall;
 	
 	public SelezionaNumeroServitori(ButtonListener buttonListener) {
 		

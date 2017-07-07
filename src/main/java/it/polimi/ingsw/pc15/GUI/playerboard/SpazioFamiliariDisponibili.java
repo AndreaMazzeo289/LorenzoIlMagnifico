@@ -156,7 +156,7 @@ public class SpazioFamiliariDisponibili extends JPanel implements Serializable{
 	
 	public void liberaFamiliare(ColoreFamiliare coloreFamiliare){
 		
-		JLabel labelColore = null;
+		JLabel labelColore = labelNero;
 		
 		switch(coloreFamiliare){
 		case NERO:

@@ -38,7 +38,7 @@ public class SpazioDadi extends JPanel{
 	private int larghezzaArancione;
 	private int altezzaSouth;
 	private int larghezza;
-	GUI gui;
+	private transient GUI gui;
 	
 	public SpazioDadi(GUI gui) {
 		
@@ -102,7 +102,7 @@ public class SpazioDadi extends JPanel{
 		
 		String path = "img\\Gameboard\\dadi\\";
 		int larghezza=0;
-		JLabel dadoDaModificare = null;
+		JLabel dadoDaModificare = dadoBianco;
 		
 		switch(coloreFamiliare) {
 		case NERO:

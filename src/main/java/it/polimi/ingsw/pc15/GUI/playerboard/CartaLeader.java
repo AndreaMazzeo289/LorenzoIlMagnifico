@@ -3,6 +3,7 @@ package it.polimi.ingsw.pc15.GUI.playerboard;
 import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.Dimension;
+import java.awt.Font;
 import java.awt.Image;
 import java.awt.Toolkit;
 
@@ -10,6 +11,7 @@ import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
+import javax.swing.SwingConstants;
 
 import it.polimi.ingsw.pc15.GUI.ButtonListenerCarte;
 import it.polimi.ingsw.pc15.GUI.GUI;
@@ -59,7 +61,8 @@ public class CartaLeader extends JPanel{
 		int altezzaTotale = 6530;*/
 		
 		carta = new JButton();
-		stato = new JLabel();
+		stato = new JLabel("",SwingConstants.CENTER);
+		stato.setFont((new Font("Courier New", Font.ITALIC, 15)));
 		
 		imageIcon = new ImageIcon(path);
 		image = imageIcon.getImage();
@@ -76,24 +79,19 @@ public class CartaLeader extends JPanel{
 		stato.setMinimumSize(dimensione);
 		stato.setOpaque(true);
 		stato.setBackground(Color.decode("15394527"));
-		stato.setText("       NON GIOCATO");
-		
-		//this.add(carta, BorderLayout.CENTER);
-		
+		stato.setText("NON GIOCATO");
 		
 		this.add(carta,BorderLayout.CENTER);
 		this.add(stato, BorderLayout.SOUTH);
 	}
 	
 	public void scriviLabel(String text) {
-		String testo = "            "+text;
 		Dimension dimensione = new Dimension(((int)(larghezzaSchermo*350)/larghezzaTotale),((int)(altezzaSchermo*100)/altezzaTotale));
 		stato.setMinimumSize(dimensione);
 		stato.setOpaque(true);
 		stato.setBackground(Color.decode("15394527"));
-		stato.setText(testo);
+		stato.setText(text);
 		textLabel = new String(text);
-		System.out.println(textLabel);
 	}
 	
 	public void modificaImmagineCarta(String path) {
@@ -103,6 +101,7 @@ public class CartaLeader extends JPanel{
 		ImageIcon imageAll = new ImageIcon(newImage);
 		carta.setIcon(imageAll);
 		this.path = path;
+		carta.setActionCommand(path);
 	}
 	
 	public String leggiLabel() {
