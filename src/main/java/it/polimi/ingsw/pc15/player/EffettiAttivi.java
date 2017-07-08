@@ -96,7 +96,7 @@ public class EffettiAttivi implements Serializable{
 	 * Aggiunge uno sconto all'acquisto di carte di un detetrminato tipo.
 	 * 
 	 * @param tipo della carta da scontare.
-	 * @param sconto è il set risorse da sottrarre a quello della carta all'acquisto.
+	 * @param sconto è il set risorse da sottrarre al costo della carta all'acquisto.
 	 */
 	
 	public void aggiungiScontoCostoCarte (TipoCarta tipo, SetRisorse sconto) {

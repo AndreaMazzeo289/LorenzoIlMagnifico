@@ -19,7 +19,6 @@ import it.polimi.ingsw.pc15.azioni.AzioneOccupaSpazioRaccolta;
 import it.polimi.ingsw.pc15.azioni.AzioneScartaLeader;
 import it.polimi.ingsw.pc15.azioni.RisultatoAzione;
 import it.polimi.ingsw.pc15.carte.TipoCarta;
-import it.polimi.ingsw.pc15.client.FasePosizionamento;
 import it.polimi.ingsw.pc15.model.Model;
 import it.polimi.ingsw.pc15.plancia.Spazio;
 import it.polimi.ingsw.pc15.plancia.SpazioConsiglio;
@@ -84,7 +83,7 @@ public class Controller extends Observable implements Observer {
 				break;
 			case "consiglio": 
 				spazioAzione = model.getPlancia().getSpazioConsiglio();
-				azioneGiocatore = new AzioneOccupaSpazioConsiglio(giocatore, familiareAzione, (SpazioConsiglio) spazioAzione, Integer.valueOf(input.get(2)));
+				azioneGiocatore = new AzioneOccupaSpazioConsiglio(giocatore, familiareAzione, (SpazioConsiglio) spazioAzione, Integer.valueOf(input.get(2)), Integer.valueOf(input.get(4)));
 				break;
 			case "raccolta": 
 				spazioAzione = model.getPlancia().getSpazioRaccolta();
@@ -128,7 +127,7 @@ public class Controller extends Observable implements Observer {
 		case "gioca Leader": azioneGiocatore = new AzioneGiocaLeader (giocatore, giocatore.getCarteLeader().get(Integer.valueOf(input.get(1))));
 		break;
 			
-		case "scarta Leader": azioneGiocatore = new AzioneScartaLeader (giocatore, giocatore.getCarteLeader().get(Integer.valueOf(input.get(1))));
+		case "scarta Leader": azioneGiocatore = new AzioneScartaLeader (giocatore, giocatore.getCarteLeader().get(Integer.valueOf(input.get(1))), Integer.valueOf(input.get(2)));
 		break;
 			
 		case "attiva effetto Leader": azioneGiocatore = new AzioneAttivaEffettoLeader (giocatore, giocatore.getCarteLeader().get(Integer.valueOf(input.get(1))));;
@@ -144,13 +143,14 @@ public class Controller extends Observable implements Observer {
 			azioneGiocatore.attiva();
 			if (azioneGiocatore instanceof AzioneOccupaSpazio)
 				model.giocatoreSuccessivo();
-			String message = risultatoAzione.getCommento();
-			model.notificaStatoPartita(new FasePosizionamento(), message);	
+			String message = "\n"+risultatoAzione.getCommento();
+			model.notificaStatoPartita(message);	
+
 		}
 		
 		else {
-			String message = risultatoAzione.getCommento();
-			model.notificaStatoPartita(new FasePosizionamento(), message);
+			String message = "\n"+risultatoAzione.getCommento();
+			model.notificaStatoPartita(message);
 		}
 	}
 }

@@ -21,8 +21,6 @@ import it.polimi.ingsw.pc15.carte.Impresa;
 import it.polimi.ingsw.pc15.carte.Personaggio;
 import it.polimi.ingsw.pc15.carte.Territorio;
 import it.polimi.ingsw.pc15.carte.TipoCarta;
-import it.polimi.ingsw.pc15.client.FasePartita;
-import it.polimi.ingsw.pc15.client.FasePosizionamento;
 import it.polimi.ingsw.pc15.effetti.Effetto;
 import it.polimi.ingsw.pc15.plancia.Plancia;
 import it.polimi.ingsw.pc15.player.ColoreFamiliare;
@@ -63,6 +61,8 @@ public class Model extends Observable {
 	private int azione;
 	
 	public Model(ArrayList<String> nomiGiocatori){
+		
+		Collections.shuffle(nomiGiocatori);
 
 		this.numeroGiocatori = nomiGiocatori.size();
 		this.plancia = new Plancia(numeroGiocatori);
@@ -105,7 +105,7 @@ public class Model extends Observable {
 		SetRisorse setRisorseGiocatore = new SetRisorse(risorseGiocatore);
 		
 		for(int i=0; i<numeroGiocatori; i++) {
-			setRisorseGiocatore.getRisorsa(TipoRisorsa.ORO).aggiungi(i);
+			setRisorseGiocatore.aggiungi(new Oro(i));
 			giocatori.get(i).getSetRisorse().aggiungi(setRisorseGiocatore);
 		}
 		
@@ -120,9 +120,11 @@ public class Model extends Observable {
 			for (int i=0; i<numeroCarteLeader; i++) {
 				giocatore.getCarteLeader().add(carteLeader.get(0));
 				carteLeader.get(0).setPlayer(giocatore);
-				carteLeader.remove(0);	
+				carteLeader.remove(0);
+				
 			}
 		}
+	
 	}	
 	
 	public void generaCarteSviluppo() {
@@ -149,7 +151,7 @@ public class Model extends Observable {
 		
 		tiraIDadi();
 
-		notificaStatoPartita(new FasePosizionamento(), "È iniziato un nuovo turno! (Periodo: " + periodo + ", Turno: " + turno + ")");
+		notificaStatoPartita("\nÈ iniziato un nuovo turno! (Periodo: " + periodo + ", Turno: " + turno + ")");
 
 	}
 	
@@ -157,7 +159,7 @@ public class Model extends Observable {
 		
 		System.out.println("PERIODO: " + periodo + " , TURNO : " + turno);
 		
-		//notificaStatoPartita("Fine del turno!");
+		notificaStatoPartita("Fine del turno!");
 		
 		if (turno==ParserXML.leggiValore("numeroTurniPerPeriodo"))
 			rapportoInVaticano(periodo);
@@ -175,14 +177,13 @@ public class Model extends Observable {
 		else 
 			iniziaNuovoTurno();
 	}
-	
 
 	public void rapportoInVaticano(int periodo) {
 		
 		int puntiFedeMinimi = ParserXML.leggiValore("puntiFedePeriodo" + Integer.toString(periodo));
 		for (Player player :giocatori) {
 			if (player.getSetRisorse().getRisorsa(TipoRisorsa.PUNTIFEDE).getQuantità() < puntiFedeMinimi) {
-				//notificaStatoPartita(player.getNome() + " è stato scomunicato!");
+				notificaStatoPartita(player.getNome() + " è stato scomunicato!");
 				this.plancia.getTesseraScomunica(periodo).infliggiScomunica(player);
 			}
 		}
@@ -268,7 +269,7 @@ public class Model extends Observable {
 		for (Player giocatore : giocatori)
 			classificaPV.put(giocatore.getSetRisorse().getRisorsa(TipoRisorsa.PUNTIVITTORIA).getQuantità(), giocatore);
 		
-		//notificaStatoPartita("\n  --- FINE PARTITA! ---\nClassifica dei giocatori:");
+		notificaStatoPartita("\n  --- FINE PARTITA! ---\nClassifica dei giocatori:");
 		int i=1;
 		for(Entry<Integer, Player> giocatore : classificaPV.entrySet())
 			System.out.println("  " + i + ". " + giocatore.getValue().getNome());
@@ -278,10 +279,8 @@ public class Model extends Observable {
 	
 	public void impostaOrdineGiocatori() {
 		
-		if (periodo==1 && turno==1) {	
-			Collections.shuffle(ordine);
+		if (periodo==1 && turno==1)	
 			this.giocatoreCorrente = ordine.get(0);
-		}
 		
 		else {
 					
@@ -310,17 +309,18 @@ public class Model extends Observable {
 		
 	}
 	
-	public void notificaStatoPartita (FasePartita fasePartita, String messaggio) {
+	public void notificaStatoPartita (String messaggio) {
 		
-		StatoPartita statoPartita = new StatoPartita(plancia, periodo, turno, giocatori, giocatoreCorrente, fasePartita, messaggio);
+		StatoPartita statoPartita = new StatoPartita(plancia, periodo, turno, giocatori, giocatoreCorrente, messaggio);
 		setChanged();
 		notifyObservers(statoPartita);	
 	}
 	
+	
 	public void tiraIDadi() {
 		
 		Random random = new Random();	
-
+		
 		int valoreDadoNero = random.nextInt(6) + 1;
 		System.out.println("Valore dado NERO: " + valoreDadoNero);
 		int valoreDadoBianco = random.nextInt(6) + 1;
@@ -328,7 +328,8 @@ public class Model extends Observable {
 		int valoreDadoArancione = random.nextInt(6) + 1;
 		System.out.println("Valore dado ARANCIONE: " + valoreDadoArancione);
 		
-		for(Player player : giocatori) {		
+		for(Player player : giocatori) {
+			
 			player.getFamiliare(ColoreFamiliare.NEUTRO).setValore(0);
 			player.getFamiliare(ColoreFamiliare.NERO).setValore(valoreDadoNero);
 			player.getFamiliare(ColoreFamiliare.BIANCO).setValore(valoreDadoBianco);
@@ -336,8 +337,8 @@ public class Model extends Observable {
 		}
 		
 		for (Player player : giocatori)
-			for (ColoreFamiliare colore : ColoreFamiliare.values())
-				player.getFamiliare(colore).setDisponibilità(true);
+			for (ColoreFamiliare coloreFamiliare : ColoreFamiliare.values())
+				player.getFamiliare(coloreFamiliare).setDisponibilità(true);
 					
 	}
 
