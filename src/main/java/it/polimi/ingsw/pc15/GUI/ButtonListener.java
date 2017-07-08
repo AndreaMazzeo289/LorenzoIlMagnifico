@@ -10,6 +10,7 @@ import it.polimi.ingsw.pc15.GUI.frame.FrameMostraCartePlayer;
 import it.polimi.ingsw.pc15.GUI.frame.GiocaLeaderPopup;
 import it.polimi.ingsw.pc15.GUI.frame.ScartaLeaderPopup;
 import it.polimi.ingsw.pc15.GUI.frame.SelezionaFamiliarePopup;
+import it.polimi.ingsw.pc15.GUI.frame.SelezionaMetodoPagamento;
 import it.polimi.ingsw.pc15.GUI.frame.SelezionaNumeroServitori;
 import it.polimi.ingsw.pc15.GUI.gameboard.Gameboard;
 import it.polimi.ingsw.pc15.GUI.gameboard.SpazioConsiglio;
@@ -31,8 +32,14 @@ public class ButtonListener implements ActionListener{
 	private AttivaLeaderPopup attivaLeaderPopup;
 	private ScartaLeaderPopup scartaLeaderPopup;
 	private FrameInformazioniPlayer frameInformazioniPlayer;
+	private SelezionaMetodoPagamento selezionaMetodoPagamento;
 	private boolean familiareScelto = false;
+	private boolean servitoriInseriti = false;
+	private boolean sceltaViolaFatta = false;
 	private GUI gui;
+	private PlayerBoard playerBoard;
+	private Gameboard gameboard;
+	
 	
 	public ButtonListener(GUI gui) {
 		this.gui = gui;
@@ -41,8 +48,8 @@ public class ButtonListener implements ActionListener{
 	@Override
 	public void actionPerformed(ActionEvent e) {
 		
-		PlayerBoard playerBoard = (PlayerBoard) gui.mainFrame.getContentPane().getComponent(1);
-		Gameboard gameboard = (Gameboard) gui.mainFrame.getContentPane().getComponent(0);
+		playerBoard = (PlayerBoard) gui.mainFrame.getContentPane().getComponent(1);
+		gameboard = (Gameboard) gui.mainFrame.getContentPane().getComponent(0);
 		
 		String path = "";
 		String tipo = "";
@@ -186,15 +193,29 @@ public class ButtonListener implements ActionListener{
 		
 		
 		if(e.getActionCommand().equals("siServitori")) {
-			System.out.println("selezionato si");
+			servitoriInseriti = true;
 			selezionaNumeroServitori.dispose();
 			selezionaNumeroServitori.numeroServitoriPopup();
 		}
 		
 		if(e.getActionCommand().equals("noServitori")) {
-			System.out.println("selezionato no");
+			servitoriInseriti = true;
 			gui.writeMessage("0");
 			selezionaNumeroServitori.dispose();
+		}
+		
+		if(e.getActionCommand().equals("sceltoPagamentoRisorse")) {
+			sceltaViolaFatta = true;
+			gui.writeMessage("1");
+			selezionaMetodoPagamento.dispose();
+			concludiPresaViola();
+		}
+		
+		if(e.getActionCommand().equals("sceltoPagamentoPuntiMilitari")) {
+			sceltaViolaFatta = true;
+			gui.writeMessage("2");
+			selezionaMetodoPagamento.dispose();
+			concludiPresaViola();
 		}
 		
 		if(e.getActionCommand().equals("submitNumeroServitori")) {
@@ -202,9 +223,7 @@ public class ButtonListener implements ActionListener{
 			gui.writeMessage(Integer.toString(selezionaNumeroServitori.getInputNumero()));
 			selezionaNumeroServitori.getPopupNumeroServitori().dispose();
 		}
-		
 	
-		
 		if(e.getActionCommand().startsWith("carteTerritorioPlayer")) {
 			String index = e.getActionCommand().substring(21);
 			Player player = gui.getarrayListAvversari().get(Integer.parseInt(index));
@@ -234,22 +253,35 @@ public class ButtonListener implements ActionListener{
 		//------------------------------------------------------------------------------------------//
 		if(e.getActionCommand().startsWith("spazioTorre")){
 			
-			if(coloreFamiliareScelto!=null) {
-				gui.writeMessage("torre");
+			if(coloreFamiliareScelto!=null && servitoriInseriti) {
+				
 				String coloreTorre = e.getActionCommand().substring(11, e.getActionCommand().length()-1);
 				String numeroTorre = e.getActionCommand().substring(coloreTorre.length()+11);
+				
+				gui.writeMessage("torre");
 				int numeroTorreInt = Integer.parseInt(numeroTorre)-1;
 				gui.writeMessage(coloreTorre.toLowerCase());
 				gui.writeMessage(Integer.toString(numeroTorreInt));
 				
-				{
+				Boolean byPass = false;
+				int scelta = gui.sceltaRichiesta(numeroTorreInt);
+				
+				if(/*coloreTorre.toUpperCase().equals("VIOLA") &&*/ scelta==0) 
+					selezionaMetodoPagamento = new SelezionaMetodoPagamento(this);
+				else {
+					
+					gui.writeMessage(Integer.toString(scelta));
+				
 					playerBoard.getButtonPosizionaFamiliare().sbloccaButton();
 					playerBoard.getButtonAttivaEffettoLeader().sbloccaButton();
 					playerBoard.getButtonGiocaLeader().sbloccaButton();
 					playerBoard.getButtonScartaLeader().sbloccaButton();
+					
+					coloreFamiliareScelto=null;
+					servitoriInseriti = false;
+					gui.inviaMessaggio();	
 				}
-				coloreFamiliareScelto=null;
-				gui.inviaMessaggio();	
+				
 			}
 		}
 		
@@ -257,7 +289,7 @@ public class ButtonListener implements ActionListener{
 		// SPAZIO CONSIGLIO
 		//------------------------------------------------------------------------------------------//
 		if(e.getActionCommand().startsWith("SpazioConsiglioPosizione")){
-			if(coloreFamiliareScelto!=null) {
+			if(coloreFamiliareScelto!=null && servitoriInseriti) {
 			
 				gui.writeMessage("consiglio");
 				String index = e.getActionCommand().substring(24);
@@ -270,6 +302,7 @@ public class ButtonListener implements ActionListener{
 				}
 				
 				coloreFamiliareScelto=null;
+				servitoriInseriti = false;
 				gui.inviaMessaggio();
 			}
 		}
@@ -279,7 +312,7 @@ public class ButtonListener implements ActionListener{
 		//------------------------------------------------------------------------------------------//
 		if(e.getActionCommand().equals("spazioProduzione1")){
 			
-			if(coloreFamiliareScelto!=null) {
+			if(coloreFamiliareScelto!=null && servitoriInseriti) {
 				
 				gui.writeMessage("produzione");
 			
@@ -294,6 +327,7 @@ public class ButtonListener implements ActionListener{
 				}
 				
 				coloreFamiliareScelto=null;
+				servitoriInseriti = false;
 				gui.inviaMessaggio();
 			}
 		}
@@ -302,7 +336,7 @@ public class ButtonListener implements ActionListener{
 		// SPAZIO PRODUZIONE 2 LISTENER
 		//------------------------------------------------------------------------------------------//
 		if(e.getActionCommand().startsWith("SpazioProduzionePosizione")){
-			if(coloreFamiliareScelto!=null) {
+			if(coloreFamiliareScelto!=null && servitoriInseriti) {
 				
 				gui.writeMessage("consiglio");
 				String index = e.getActionCommand().substring(25);
@@ -315,6 +349,7 @@ public class ButtonListener implements ActionListener{
 				}
 				
 				coloreFamiliareScelto=null;
+				servitoriInseriti = false;
 				gui.inviaMessaggio();
 			}
 		}
@@ -324,7 +359,7 @@ public class ButtonListener implements ActionListener{
 		//------------------------------------------------------------------------------------------//
 		if(e.getActionCommand().equals("spazioRaccolto1")){
 			
-			if(coloreFamiliareScelto!=null) {
+			if(coloreFamiliareScelto!=null && servitoriInseriti) {
 				
 				gui.writeMessage("raccolta");
 				
@@ -339,6 +374,7 @@ public class ButtonListener implements ActionListener{
 				}
 				
 				coloreFamiliareScelto=null;
+				servitoriInseriti = false;
 				gui.inviaMessaggio();
 			}
 		}
@@ -347,7 +383,7 @@ public class ButtonListener implements ActionListener{
 		// SPAZIO RACCOLTO 2 LISTENER
 		//------------------------------------------------------------------------------------------//
 		if(e.getActionCommand().startsWith("SpazioRaccoltoPosizione")){
-			if(coloreFamiliareScelto!=null) {
+			if(coloreFamiliareScelto!=null && servitoriInseriti) {
 		
 				gui.writeMessage("raccolta");
 				String index = e.getActionCommand().substring(23);
@@ -360,6 +396,7 @@ public class ButtonListener implements ActionListener{
 				}
 				
 				coloreFamiliareScelto=null;
+				servitoriInseriti = false;
 				gui.inviaMessaggio();
 			}
 		}
@@ -369,7 +406,7 @@ public class ButtonListener implements ActionListener{
 		//------------------------------------------------------------------------------------------//
 		if(e.getActionCommand().equals("spazioMercato1")) {
 			
-			if(coloreFamiliareScelto!=null) {	
+			if(coloreFamiliareScelto!=null && servitoriInseriti) {	
 				
 				gui.writeMessage("mercato");
 				gui.writeMessage("1");	
@@ -382,6 +419,7 @@ public class ButtonListener implements ActionListener{
 				}
 				
 				coloreFamiliareScelto=null;
+				servitoriInseriti = false;
 				gui.inviaMessaggio();
 				
 			}
@@ -389,7 +427,7 @@ public class ButtonListener implements ActionListener{
 		
 		if(e.getActionCommand().equals("spazioMercato2")) {
 			
-			if(coloreFamiliareScelto!=null) {	
+			if(coloreFamiliareScelto!=null && servitoriInseriti) {	
 				
 				gui.writeMessage("mercato");
 				gui.writeMessage("2");	
@@ -402,13 +440,14 @@ public class ButtonListener implements ActionListener{
 				}
 				
 				coloreFamiliareScelto=null;
+				servitoriInseriti = false;
 				gui.inviaMessaggio();
 			}
 		}
 		
 		if(e.getActionCommand().equals("spazioMercato3")) {
 			
-			if(coloreFamiliareScelto!=null) {	
+			if(coloreFamiliareScelto!=null && servitoriInseriti) {	
 				
 				gui.writeMessage("mercato");
 				gui.writeMessage("3");	
@@ -421,13 +460,14 @@ public class ButtonListener implements ActionListener{
 				}
 				
 				coloreFamiliareScelto=null;
+				servitoriInseriti = false;
 				gui.inviaMessaggio();
 			}
 		}
 		
 		if(e.getActionCommand().equals("spazioMercato4")) {
 			
-			if(coloreFamiliareScelto!=null) {	
+			if(coloreFamiliareScelto!=null && servitoriInseriti) {	
 				
 				gui.writeMessage("mercato");
 				gui.writeMessage("4");	
@@ -440,6 +480,7 @@ public class ButtonListener implements ActionListener{
 				}
 				
 				coloreFamiliareScelto=null;
+				servitoriInseriti = false;	
 				gui.inviaMessaggio();
 			}
 		}
@@ -532,5 +573,17 @@ public class ButtonListener implements ActionListener{
 			playerBoard.getCartaLeader4().scriviLabel("SCARTATO");
 			gui.inviaMessaggio();
 		}
+	}
+	
+	public void concludiPresaViola() {
+		
+		playerBoard.getButtonPosizionaFamiliare().sbloccaButton();
+		playerBoard.getButtonAttivaEffettoLeader().sbloccaButton();
+		playerBoard.getButtonGiocaLeader().sbloccaButton();
+		playerBoard.getButtonScartaLeader().sbloccaButton();
+		
+		coloreFamiliareScelto=null;
+		servitoriInseriti = false;
+		gui.inviaMessaggio();	
 	}
 }

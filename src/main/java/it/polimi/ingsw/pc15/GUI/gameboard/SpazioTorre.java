@@ -12,6 +12,7 @@ import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
+import javax.swing.SwingConstants;
 
 import it.polimi.ingsw.pc15.GUI.ButtonListener;
 import it.polimi.ingsw.pc15.GUI.ButtonListenerCarte;
@@ -114,6 +115,10 @@ public class SpazioTorre extends JPanel{
 		
 		buttonFamiliare = new ButtonTransparent(actionCommandFamiliare,160,160,listener);
 		
+		String èViola = actionCommandFamiliare.substring(11);
+		if(èViola.startsWith("Viola"))
+			labelEast.setHorizontalAlignment(SwingConstants.LEFT);
+		
 		labelEast.add(buttonFamiliare,gbc);
 		
 		this.add(labelNorth, BorderLayout.NORTH);
@@ -128,7 +133,7 @@ public class SpazioTorre extends JPanel{
 		image = imageIcon.getImage();
 		newImage = image.getScaledInstance(((int)(larghezzaSchermo*160)/larghezzaTotale),((int)(altezzaSchermo*160)/altezzaTotale),Image.SCALE_DEFAULT);
 		ImageIcon imageButton = new ImageIcon(newImage);
-		
+		buttonFamiliare.setOpaque(false);
 		buttonFamiliare.setIcon(imageButton);
 		buttonFamiliare.setBorder(null);
 	}
@@ -144,5 +149,6 @@ public class SpazioTorre extends JPanel{
 	
 	public void rimuoviFamiliare() {
 		buttonFamiliare.setIcon(null);
+		
 	}
 }
