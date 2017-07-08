@@ -162,11 +162,11 @@ public class Player implements Serializable {
 	}
 	
 	public SetRisorse getTesseraBonusProduzione() {
-		return this.risorseBonusProduzione;
+		return this.tesseraBonusProduzione;
 	}
 	
 	public SetRisorse getTesseraBonusRaccolta() {
-		return this.risorseBonusRaccolta;
+		return this.tesseraBonusRaccolta;
 	}
 
 }
