@@ -8,6 +8,10 @@ import it.polimi.ingsw.pc15.risorse.Risorsa;
 import it.polimi.ingsw.pc15.risorse.SetRisorse;
 import it.polimi.ingsw.pc15.risorse.TipoRisorsa;
 
+/**
+ * Classe effetto che consente di aggiunger risorse al player.
+ */
+
 public class AggiuntaRisorse extends Effetto implements Incrementabile  {
 
 	private SetRisorse setRisorse;
@@ -17,6 +21,12 @@ public class AggiuntaRisorse extends Effetto implements Incrementabile  {
 		this.setRisorse = setRisorse;
 	}
 	
+	/**
+	 * Attiva l'effetto dell'oggetto in questione per un player.
+	 * 
+	 * @param player per cui deve essere attivato l'effetto.
+	 */
+	
 	@Override
 	public void attiva(Player player){
 		
@@ -24,6 +34,13 @@ public class AggiuntaRisorse extends Effetto implements Incrementabile  {
 	}
 
 
+	/**
+	 * Classe attiva da spazio per i gli effetti cha hanno necessità di
+	 * differenziare l'origine dell'attivazione.
+	 * 
+	 * @param player per cui deve essere attivato l'effetto.
+	 */
+	
 	@Override
 	public void attivaDaSpazio(Player player) {
 		
@@ -41,6 +58,13 @@ public class AggiuntaRisorse extends Effetto implements Incrementabile  {
 		}
 
 	}
+	
+	/**
+	 * Classe attiva da carta per i gli effetti cha hanno necessità di
+	 * differenziare l'origine dell'attivazione.
+	 * 
+	 * @param player per cui deve essere attivato l'effetto.
+	 */
 
 	@Override
 	public void attivaDaCarta(Player player) {

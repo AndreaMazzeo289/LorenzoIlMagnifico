@@ -10,6 +10,13 @@ public class MoltiplicaRisorseCarte extends Effetto {
 		this.moltiplicatore = moltiplicatore;
 	}
 
+	/**
+	 * Metodo che permette l'attivazione dell'effetto.
+	 * 
+	 * @param player u cui deve essere attivato l'effetto.
+	 */
+	
+	
 	@Override
 	public void attiva(Player player) {
 		player.getEffettiAttivi().setMoltiplicatoreRisorseCarte(moltiplicatore);

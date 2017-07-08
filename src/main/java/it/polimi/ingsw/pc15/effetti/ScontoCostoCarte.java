@@ -14,6 +14,13 @@ public class ScontoCostoCarte extends Effetto {
 		this.tipoCarta=tipoCarta;
 	}
 
+	/**
+	 * Metodo che permette l'attivazione dell'effetto.
+	 * 
+	 * @param player u cui deve essere attivato l'effetto.
+	 */
+	
+	
 	@Override
 	public void attiva(Player player) {
 		player.getEffettiAttivi().aggiungiScontoCostoCarte(tipoCarta, sconto);

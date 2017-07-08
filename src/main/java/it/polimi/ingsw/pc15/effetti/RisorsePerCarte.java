@@ -15,6 +15,13 @@ public class RisorsePerCarte extends Moltiplicazione {
 		this.tipoCarta = tipoCarta;
 	}
 
+	/**
+	 * Metodo che permette l'attivazione dell'effetto.
+	 * 
+	 * @param player u cui deve essere attivato l'effetto.
+	 */
+	
+	
 	@Override
 	public void attiva(Player player) {
 		for (int i=0; i<player.getCarte(tipoCarta).size()/quantità; i++)
