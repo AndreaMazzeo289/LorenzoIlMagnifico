@@ -9,6 +9,11 @@ import it.polimi.ingsw.pc15.risorse.Risorsa;
 import it.polimi.ingsw.pc15.risorse.SetRisorse;
 import it.polimi.ingsw.pc15.risorse.TipoRisorsa;
 
+/**
+ * Classe contenente tutti i bonus associabili al player durante la partita
+ * per effetti di carte, scomuniche e leader. 
+ */
+
 public class EffettiAttivi implements Serializable{
 	
 	private HashMap<TipoCarta, Integer> bonusDadoCarte;
@@ -73,10 +78,26 @@ public class EffettiAttivi implements Serializable{
 	//          METODI SET                                                                                       //
 	//-----------------------------------------------------------------------------------------------------------//
 	
+	
+	/**
+	 * Incrementa il valore del familiare per posizionarsi su una torre
+	 *  di un determinato colore.
+	 * 
+	 * @param colore della carta.
+	 * @param valore dell'incremento.
+	 */
+	
 	public void incrementaBonusDadoCarte (TipoCarta colore, int valore) {
 		int valoreAggiornato = bonusDadoCarte.get(colore).intValue() + valore;
 		bonusDadoCarte.put(colore, valoreAggiornato);	
 	}
+	
+	/**
+	 * Aggiunge uno sconto all'acquisto di carte di un detetrminato tipo.
+	 * 
+	 * @param tipo della carta da scontare.
+	 * @param sconto è il set risorse da sottrarre a quello della carta all'acquisto.
+	 */
 	
 	public void aggiungiScontoCostoCarte (TipoCarta tipo, SetRisorse sconto) {
 		SetRisorse scontoAggiornato = this.scontoCostoCarte.get(tipo);
@@ -84,33 +105,79 @@ public class EffettiAttivi implements Serializable{
 		this.scontoCostoCarte.put(tipo, scontoAggiornato);
 	}
 	
+	
+	/**
+	 * Annulla a fine partita il bonus in punti vittoria ottenibile dal collezionamento di un
+	 * determinato numero di carte dello stesso colore.
+	 * 
+	 * @param colore del bonus carte da annullare  a fine partita.
+	 */
+	
 	public void annullaBonusPuntiVittoriaFinale (TipoCarta colore) {
 		bonusPuntiVittoriaFinale.put(colore, false);
 	}
+	
+	/**
+	 * Aggiunge un incremento al valore del familiare utilizzato per una 
+	 * azione di raccolta.
+	 * 
+	 * @param incremento del valore del familiare.
+	 */
 	
 	public void incrementaBonusRaccolta(int incremento){
 		this.bonusRaccolta += incremento;
 	}
 	
+	/**
+	 * Aggiunge un incremento al valore del familiare utilizzato per una 
+	 * azione di produzione.
+	 * 
+	 * @param incremento del valore del familiare.
+	 */
+	
 	public void incrementaBonusProduzione(int incremento){
 		this.bonusProduzione += incremento;
 	}
+	
+	
+	/**
+	 * Nega al player la possibilità di accedere al mercato.
+	 */
 	
 	public void annullaDisponibilitàMercato(){
 		this.disponibilitàMercato = false;
 	}
 	
+	/**
+	 * Nega al player la possibilità di ricevere bonus istantanei in risorse
+	 * dal posizionamento del familiare nei due piani più alti delle torri.
+	 */
+	
 	public void annullaBonusSpazioTorre(){
 		this.bonusSpazioTorri = false;
 	}
+	
+	/**
+	 * Annulla il requisito in punti militari necessario per 
+	 * collezionare un determinato numero di carte territorio.
+	 */
 	
 	public void annullaRequisitoTerritori() {
 		this.requisitoTerritori = false;
 	}
 	
+	/**
+	 * Posso posizionare il familare in spazi già occupati.
+	 */
+	
 	public void concediPermessoSpaziOccupati() {
 		this.permessoSpaziOccupati = true;
 	}
+	
+	/*
+	 * Aggiunge un sovrapprezzo al scrificio di servitori 
+	 * per aumentare il valore di un familiare.
+	 */
 	
 	public void setSovrapprezzoServitori() {
 		this.sovrapprezzoServitori = true;
@@ -120,18 +187,47 @@ public class EffettiAttivi implements Serializable{
 		this.sovrapprezzoTorri = false;
 	}
 	
+	
+	/**
+	 * Aggiunge un moltiplicatore che va a modificare le risorse guadagnate
+	 * tramite carte.
+	 * 
+	 * @param moltiplicatore delle risorse carte.
+	 */
+	
 	public void setMoltiplicatoreRisorseCarte(int moltiplicatore) {
 		this.moltiplicatoreRisorseCarte = moltiplicatore;
 	}
+	
+	/**
+	 * Aggiunge un moltiplicatore che va a modificare le risorse guadagnate
+	 * tramite spazi.
+	 * 
+	 * @param moltiplicatore delle risorse spazi.
+	 */
 	
 	public void setMoltiplicatoreRisorseSpazi(int moltiplicatore) {
 		this.moltiplicatoreRisorseSpazi = moltiplicatore;
 	}
 	
+	/**
+	 * Incrementa le risorse ottenute da carte di un valore specificato dall'effetto in particolare.
+	 * 
+	 * @param tipoRisorsa per cui settare il bonus.
+	 * @param i che definisce la quantità corrispondente al bonus.
+	 */
+	
 	public void incrementaRisorseBonusCarte(TipoRisorsa tipoRisorsa, int i) {
 		int valoreAggiornato = risorseBonusCarte.get(tipoRisorsa).intValue() + i;
 		risorseBonusCarte.put(tipoRisorsa, valoreAggiornato);
 	}
+	
+	/**
+	 * Incrementa le risorse ottenute da spazi di un valore specificato dall'effetto in particolare.
+	 * 
+	 * @param tipoRisorsa per cui settare il bonus.
+	 * @param i che definisce la quantità corrispondente al bonus.
+	 */
 	
 	public void incrementaRisorseBonusSpazi(TipoRisorsa tipoRisorsa, int i) {
 		int valoreAggiornato = risorseBonusCarte.get(tipoRisorsa).intValue() + i;

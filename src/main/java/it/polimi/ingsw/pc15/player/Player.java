@@ -2,13 +2,11 @@
 package it.polimi.ingsw.pc15.player;
 
 import java.io.Serializable;
+
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.HashSet;
-import java.util.Iterator;
-import java.util.Map;
 import java.util.Set;
-
 import it.polimi.ingsw.pc15.ParserXML;
 import it.polimi.ingsw.pc15.carte.Carta;
 import it.polimi.ingsw.pc15.carte.TipoCarta;
@@ -16,19 +14,14 @@ import it.polimi.ingsw.pc15.carte.Edificio;
 import it.polimi.ingsw.pc15.carte.Impresa;
 import it.polimi.ingsw.pc15.carte.Personaggio;
 import it.polimi.ingsw.pc15.carte.Territorio;
-import it.polimi.ingsw.pc15.effetti.Effetto;
-import it.polimi.ingsw.pc15.plancia.Spazio;
-import it.polimi.ingsw.pc15.risorse.Legna;
-import it.polimi.ingsw.pc15.risorse.Oro;
-import it.polimi.ingsw.pc15.risorse.Pietra;
-import it.polimi.ingsw.pc15.risorse.Privilegi;
-import it.polimi.ingsw.pc15.risorse.PuntiFede;
-import it.polimi.ingsw.pc15.risorse.PuntiMilitari;
-import it.polimi.ingsw.pc15.risorse.PuntiVittoria;
 import it.polimi.ingsw.pc15.risorse.Risorsa;
-import it.polimi.ingsw.pc15.risorse.Servitori;
 import it.polimi.ingsw.pc15.risorse.SetRisorse;
-import it.polimi.ingsw.pc15.risorse.TipoRisorsa;
+
+/**
+ * Classe che inizializza il player con un suo set risorse, i suoi familiari,
+ * i suoi effetti attivi e leader.
+ * QUesti vengono definiti non appena la partita viene creata.
+ */
 
 public class Player implements Serializable {
 	
@@ -80,13 +73,29 @@ public class Player implements Serializable {
 	//          METODI GET                                                                                       //
 	//-----------------------------------------------------------------------------------------------------------//
 
+	/**
+	 * @return restituisce il nome del player
+	 */
+	
 	public String getNome() {
 		return this.nome;
 	}
 	
+	/**
+	 * @return restituisce il set risorse del player.
+	 */
+	
 	public SetRisorse getSetRisorse() {
 		return this.setRisorse;
 	}
+	
+	/**
+	 * Restituisce la lista della totalità delle carte di un determinato tipo
+	 * in possesso del player.
+	 * 
+	 * @param tipo delle carte da restituire.
+	 * @return lista di carte appartenente al player.
+	 */
 	
 	public ArrayList<Carta> getCarte (TipoCarta tipo) {
 		
@@ -106,21 +115,42 @@ public class Player implements Serializable {
 		return this.carteSviluppo.get(tipo);
 	}
 	
+	/**
+	 * @return l'oggetto <em>EffettiAttivi</em> corrispondente al player in questione.
+	 */
+	
 	public EffettiAttivi getEffettiAttivi(){
 		return effettiAttivi;
 	}
+	
+	/**
+	 * @param coloreFamiliare da restituire.
+	 * @return un familiare del player.
+	 */
 	
 	public Familiare getFamiliare(ColoreFamiliare coloreFamiliare){
 		return this.familiari.get(coloreFamiliare);
 	}
 	
+	/**
+	 * @return la lista delle carte leader in possesso del player.
+	 */
+	
 	public ArrayList<Leader> getCarteLeader () {
 		return this.carteLeader;
 	}
 	
+	/**
+	 * @return il set di avversari in partita contro il player.
+	 */
+	
 	public Set<Player> getAvversari() {
 		return this.avversari;
 	}
+	
+	/**
+	 * @return il colore associato al player a inizio partita.
+	 */
 	
 	public ColorePlayer getColore() {
 		return this.colore;

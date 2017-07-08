@@ -41,13 +41,28 @@ public class Leader implements Serializable{
 		
 	}
 	
+	/**
+	 * Assegna il leader al player ricevuto in ingresso.
+	 * 
+	 * @param player a cui assegnare il leader.
+	 */
 	public void setPlayer(Player player) {
 		this.player = player;
 	}
 	
+	/**
+	 * Determina se l'effetto del leader è stato attivato o meno.
+	 * 
+	 * @param valore che corrisponde a true in attivazione dell'effetto leader altrimenti a false.
+	 */
+	
 	public void setEffettoAttivato (boolean valore) {
 		this.effettoAttivato = valore;
 	}
+	
+	/**
+	 *Setta lo stato del leader a <em>giocato</em>. 
+	 */
 	
 	public void setGiocato() {
 		this.giocato = true;
