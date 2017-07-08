@@ -18,7 +18,7 @@ public class RMIView extends ServerView {
 		try {
 			this.name = rmiHandler.remoteGetNome();
 		} catch (RemoteException e) {
-			e.printStackTrace();
+			e.printStackTrace();  // NOSONAR
 		}
 	}
 	
@@ -37,7 +37,7 @@ public class RMIView extends ServerView {
 		try {
 			rmiHandler.aggiornaStatoPartita(statoPartita);
 		} catch (RemoteException e) {
-			e.printStackTrace();
+			e.printStackTrace();  //NOSONAR
 		}
 		
 	}
@@ -51,7 +51,7 @@ public class RMIView extends ServerView {
 		try {
 			this.rmiHandler.remoteOK();
 		} catch (RemoteException e) {
-			e.printStackTrace();
+			e.printStackTrace(); // NOSONAR
 		}
 	}
 

@@ -9,7 +9,7 @@ import java.io.Serializable;
 
 
 
-public class Legna extends Risorsa implements Cloneable {
+public class Legna extends Risorsa{ 
 
 	public Legna(int quantità) {
 		super(quantità);

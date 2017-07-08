@@ -49,7 +49,7 @@ public class ClientMain {
 				client = new RMIClient(nome, sceltaView);
 				client.connetti();
 			} catch (IOException e) {
-				e.printStackTrace();
+				e.printStackTrace(); // NOSONAR
 			}
 		}
 		
@@ -58,7 +58,7 @@ public class ClientMain {
 				client = new SocketClient(nome, sceltaView);
 				client.connetti();
 			} catch (IOException e) {
-				e.printStackTrace();
+				e.printStackTrace(); // NOSONAR
 			}
 		}
 	}

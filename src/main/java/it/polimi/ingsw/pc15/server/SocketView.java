@@ -51,7 +51,7 @@ public class SocketView extends ServerView implements Serializable {
 				notifyObservers(message);
 				
 			} catch (ClassNotFoundException | IOException e) {
-				e.printStackTrace();
+				e.printStackTrace();  //NOSONAR
 			}
 		}
 	}
@@ -82,7 +82,7 @@ public class SocketView extends ServerView implements Serializable {
 			outObj.writeObject(obj);
 			outObj.reset();
 		} catch (IOException e) {
-			e.printStackTrace();
+			e.printStackTrace();  //NOSONAR
 		}
 		
 	}

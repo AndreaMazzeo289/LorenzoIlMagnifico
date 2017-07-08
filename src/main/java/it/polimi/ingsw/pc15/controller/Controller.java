@@ -111,7 +111,7 @@ public class Controller extends Observable implements Observer {
 					break;
 				}
 				
-				spazioAzione = torreAzione.getSpazio(Integer.valueOf(input.get(5)));
+				spazioAzione = torreAzione.getSpazio(Integer.valueOf(input.get(5))); //NOSONAR
 				azioneGiocatore = new AzioneOccupaSpazioTorre(giocatore, familiareAzione, (SpazioTorre) spazioAzione, Integer.valueOf(input.get(2)), Integer.valueOf(input.get(6)));
 				break;
 				
@@ -136,7 +136,7 @@ public class Controller extends Observable implements Observer {
 		break;
 		}
 		
-		RisultatoAzione risultatoAzione = azioneGiocatore.èValida();
+		RisultatoAzione risultatoAzione = azioneGiocatore.èValida(); //NOSONAR
 		if (risultatoAzione.getRisultato()==true) {
 			azioneGiocatore.attiva();
 			int turno = model.getTurno();

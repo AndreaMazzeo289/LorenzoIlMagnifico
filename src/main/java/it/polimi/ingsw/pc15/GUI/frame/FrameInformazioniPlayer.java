@@ -185,5 +185,5 @@ public class FrameInformazioniPlayer extends JFrame{
 				}
 			}
 		}
-	}
+}
 }

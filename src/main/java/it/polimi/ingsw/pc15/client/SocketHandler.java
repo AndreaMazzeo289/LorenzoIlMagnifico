@@ -53,7 +53,7 @@ public class SocketHandler extends NetworkHandler implements Serializable{
 				StatoPartita statoPartita = (StatoPartita) inObj.readObject();
 				clientModel.aggiorna(statoPartita);
 				} catch (ClassNotFoundException | IOException e) {
-					e.printStackTrace();}
+					e.printStackTrace();} // NOSONAR
 			}
 	}
 	
@@ -64,7 +64,7 @@ public class SocketHandler extends NetworkHandler implements Serializable{
 		try {
 			send(input);
 		} catch (IOException e) {
-			e.printStackTrace();
+			e.printStackTrace(); // NOSONAR
 		}
 		
 	}

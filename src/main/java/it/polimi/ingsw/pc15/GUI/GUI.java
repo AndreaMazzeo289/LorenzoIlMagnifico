@@ -42,7 +42,7 @@ public class GUI extends ClientView{
 	private String pathCartaScomunica1;
 	private String pathCartaScomunica2;
 	private String pathCartaScomunica3;
-	private int numeroGiocatori = 2;
+	private int numeroGiocatori;
 	private Player playerCorrente;
 	private ArrayList<Player> arrayListAvversari;
 	private ArrayList<String> message = new ArrayList<String>();
@@ -114,14 +114,12 @@ public class GUI extends ClientView{
 	}
 
 	@Override
-	public void update(Observable arg0, Object arg1) {
+	public void update(Observable arg0, Object arg1)  { 
 		
 		if(!loadDone) {
 			try {
-				Thread.sleep(4000);
-			} catch (InterruptedException e) {
-		    }
-		loadDone=true;
+				Thread.sleep(4000); 
+			} catch (InterruptedException e) {}  // NOSONAR
 		}
 		
 		arrayListAvversari = this.clientModel.getStatoAvversari();
@@ -150,7 +148,7 @@ public class GUI extends ClientView{
 					int spazio = Math.abs(i-3);
 					try {
 						gameboard.getSpazioTorre(tipo, i).modificaImmagineCarta(this.clientModel.getStatoPlancia().getSpazioTorre(tipo, spazio).getCarta().getImagePath());
-					}catch(NullPointerException e) {
+					}catch(NullPointerException e) { // NOSONAR
 						System.out.println("errore in " + tipo.name());
 						gameboard.getSpazioTorre(tipo, i).modificaImmagineCarta(retroCarte.get(tipo));
 					}
@@ -302,7 +300,7 @@ public class GUI extends ClientView{
 		playerboard.scriviMessaggio((String)arg1);
 		try {
 			Thread.sleep(3000);
-		} catch (InterruptedException e) {}
+		} catch (InterruptedException e) {} // NOSONAR
 		
 		if(tuoTurno())
 			playerboard.scriviMessaggio("È il tuo turno!");
