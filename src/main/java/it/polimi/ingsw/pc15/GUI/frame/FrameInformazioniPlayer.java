@@ -186,7 +186,7 @@ public class FrameInformazioniPlayer extends JFrame{
 					break;
 				}
 				
-				label.setText(Integer.toString(value));
+				label.setText(Integer.toString(value)); // NOSONAR
 			}
 		}
 	}

@@ -39,7 +39,7 @@ public class SetRisorse implements Serializable {
 			try {
 				risorse.put(risorsa.getTipoRisorsa(), risorsa.copia());
 			} catch (CloneNotSupportedException e) {
-				e.printStackTrace();
+				e.printStackTrace();  //NOSONAR
 			}
 	}
 	
@@ -58,7 +58,7 @@ public class SetRisorse implements Serializable {
 				try {
 					risorse.put(risorsa.getKey(), risorsa.getValue().copia());
 				} catch (CloneNotSupportedException e) {
-					e.printStackTrace();
+					e.printStackTrace();  //NOSONAR
 				}
 			}
 	

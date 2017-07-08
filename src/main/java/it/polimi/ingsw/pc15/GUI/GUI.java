@@ -114,13 +114,16 @@ public class GUI extends ClientView{
 	}
 
 	@Override
-	public void update(Observable arg0, Object arg1) {
+	public void update(Observable arg0, Object arg1)  { 
 		
-		if(!loadDone) {
-			try {
-				Thread.sleep(4000);
-			} catch (InterruptedException e) {
-		    }
+		if(!loadDone) { 
+			
+				try {
+					Thread.sleep(4000);
+				} catch (InterruptedException e) {//NOSONAR
+					e.printStackTrace();// NOSONAR
+				}
+			
 		loadDone=true;
 		}
 		
@@ -150,7 +153,7 @@ public class GUI extends ClientView{
 					int spazio = Math.abs(i-3);
 					try {
 						gameboard.getSpazioTorre(tipo, i).modificaImmagineCarta(this.clientModel.getStatoPlancia().getSpazioTorre(tipo, spazio).getCarta().getImagePath());
-					}catch(NullPointerException e) {
+					}catch(NullPointerException e) { // NOSONAR
 						System.out.println("errore in " + tipo.name());
 						gameboard.getSpazioTorre(tipo, i).modificaImmagineCarta(retroCarte.get(tipo));
 					}
@@ -302,7 +305,7 @@ public class GUI extends ClientView{
 		playerboard.scriviMessaggio((String)arg1);
 		try {
 			Thread.sleep(3000);
-		} catch (InterruptedException e) {}
+		} catch (InterruptedException e) {} //NOSONAR
 		
 		if(tuoTurno())
 			playerboard.scriviMessaggio("È il tuo turno!");
