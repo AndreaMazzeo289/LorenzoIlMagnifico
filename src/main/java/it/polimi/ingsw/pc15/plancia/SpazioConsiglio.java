@@ -11,6 +11,12 @@ import it.polimi.ingsw.pc15.effetti.Effetto;
 import it.polimi.ingsw.pc15.player.Familiare;
 import it.polimi.ingsw.pc15.risorse.SetRisorse;
 
+/**
+ * Classe spazio del consiglio sottoclasse di spazio che riceve in ingresso
+ * il valore minimo di posizionamento e il set risorse con cui istanziare
+ * il relativo effetto.
+ */
+
 public class SpazioConsiglio extends Spazio {
 	
 	private Effetto effetto;
@@ -20,6 +26,10 @@ public class SpazioConsiglio extends Spazio {
 		super(valoreMin);
 		this.effetto = new AggiuntaRisorse (setRisorse);
 	}
+	
+	/** 
+	 * @return ritorna l'effetto legato allo spazio del consiglio(in questo caso aggiunta risorse).
+	 */
 	
 	public Effetto getEffetto() {
 		return this.effetto;

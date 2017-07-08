@@ -4,7 +4,7 @@ import java.io.Serializable;
 
 
 /**
- * Classe <em>Legna</em> sottoclasse di <strong>Risorsa</strong>
+ * Classe Legna sottoclasse di Risorsa.
  */
 
 

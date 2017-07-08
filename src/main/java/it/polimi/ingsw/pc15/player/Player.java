@@ -116,7 +116,7 @@ public class Player implements Serializable {
 	}
 	
 	/**
-	 * @return l'oggetto <em>EffettiAttivi</em> corrispondente al player in questione.
+	 * @return l'oggetto EffettiAttivi corrispondente al player in questione.
 	 */
 	
 	public EffettiAttivi getEffettiAttivi(){

@@ -20,6 +20,10 @@ import it.polimi.ingsw.pc15.risorse.Risorsa;
 import it.polimi.ingsw.pc15.risorse.SetRisorse;
 import it.polimi.ingsw.pc15.risorse.TipoRisorsa;
 
+/**
+ * Classe che inizializza la plancia di gioco con i relativi spazi, e le tessere scomunica della partita.
+ */
+
 public class Plancia implements Serializable {
 	
 	private HashMap<TipoCarta, Torre> torri;
@@ -104,6 +108,20 @@ public class Plancia implements Serializable {
 			
 	}
 
+	/**
+	 * Setta le carte negli spazi torre della plancia di gioco tramite
+	 * liste di carte per ogni tipologia ricevute dal model.
+	 * Ogni volta che la funzione set carte viene chiamata le carte nuove vengono piazzate
+	 * negli spazi torre corrispondenti rimpiazzando quelle vecchie; così facendo non
+	 * vi è la necessità di ripulire il campo.
+	 * 
+	 * @param periodo attuale nello stato del gioco.
+	 * @param carteTerritorio : lista delle carte territorio da posizionare nella torre verde.
+	 * @param cartePersonaggio : lista delle carte personaggio da posizionare nella torre blu.
+	 * @param carteEdificio : lista delle carte edificio da posizionare nella torre gialla.
+	 * @param carteImpresa : lista delle carte impresa da posizionare nella torre viola.
+	 */
+	
 	public void setCarte (int periodo, ArrayList<Carta> carteTerritorio, ArrayList<Carta> cartePersonaggio, ArrayList<Carta> carteEdificio, ArrayList<Carta> carteImpresa){
 
 		ArrayList arrayTerritori = new ArrayList<Territorio>();             
@@ -160,6 +178,10 @@ public class Plancia implements Serializable {
  		torri.get(TipoCarta.IMPRESA).setTorre(arrayImprese);
 		
 	}
+	
+	/**
+	 *Libera tutti gli spazi della plancia dai familiari ivi posizionati. 
+	 */
 	
 	public void libera() {
 		

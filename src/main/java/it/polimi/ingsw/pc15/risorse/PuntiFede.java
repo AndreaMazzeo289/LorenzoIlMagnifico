@@ -4,7 +4,7 @@ import java.io.Serializable;
 
 
 /**
- * Classe <em>PuntiFede</em> sottoclasse di <strong>Risorsa</strong>
+ * Classe PuntiFede sottoclasse di Risorsa.
  */
 
 

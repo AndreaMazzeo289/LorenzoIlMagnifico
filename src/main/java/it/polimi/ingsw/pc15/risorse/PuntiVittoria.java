@@ -3,7 +3,7 @@ package it.polimi.ingsw.pc15.risorse;
 import java.io.Serializable;
 
 /**
- * Classe <em>PuntiVittoria</em> sottoclasse di <strong>Risorsa</strong>
+ * Classe PuntiVittoria sottoclasse di Risorsa.
  */
 
 public class PuntiVittoria extends Risorsa  {

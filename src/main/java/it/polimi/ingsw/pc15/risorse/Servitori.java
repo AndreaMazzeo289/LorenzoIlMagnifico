@@ -3,7 +3,7 @@ package it.polimi.ingsw.pc15.risorse;
 import java.io.Serializable;
 
 /**
- * Classe <em>Servitori</em> sottoclasse di <strong>Risorsa</strong>
+ * Classe Servitori sottoclasse di Risorsa.
  */
 
 public class Servitori extends Risorsa  {

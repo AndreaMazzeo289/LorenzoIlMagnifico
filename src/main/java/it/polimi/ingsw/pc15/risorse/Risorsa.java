@@ -4,8 +4,6 @@ import java.io.Serializable;
 
 /**
  * Superclasse generale di ogni risorsa del giocatore.
- * 
- * @author Andrea
  */
 
 public abstract class Risorsa implements Serializable, Cloneable {

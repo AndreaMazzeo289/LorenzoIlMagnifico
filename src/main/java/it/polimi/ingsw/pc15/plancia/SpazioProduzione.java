@@ -9,6 +9,11 @@ import it.polimi.ingsw.pc15.azioni.AzioneOccupaSpazioProduzione;
 import it.polimi.ingsw.pc15.effetti.Effetto;
 import it.polimi.ingsw.pc15.player.Familiare;
 
+/**
+ * Sottoclasse di spazio che definisce lo spazio produzione instanzione l'oggetto
+ * con il relativo valore minimo di posizionamento.
+ */
+
 public class SpazioProduzione extends Spazio {
 	
 	public SpazioProduzione(int valoreMin) {

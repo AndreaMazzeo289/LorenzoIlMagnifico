@@ -7,8 +7,8 @@ import java.util.Iterator;
 import java.util.Map;
 
 /**
- * Classe <em>SetRisorse</em> inizializza i set risorse a partire da un <strong>HashSet<Risorsa></strong>
- * composto dai vari oggetti sottoclasse di <strong>Risorsa</strong>
+ * Classe etRisorse inizializza i set risorse a partire da un HashSet(Risorsa)
+ * composto dai vari oggetti sottoclasse di Risorsa.
  * 
  */
 
@@ -87,7 +87,7 @@ public class SetRisorse implements Serializable {
 	 * Paragono due set Risorse.
 	 * 
 	 * @param setRisorse da paragonare.
-	 * @return <em>true</em> se il primo è >= del secondo, altrimenti <em>false</em>.
+	 * @return true se il primo è >= del secondo, altrimenti false.
 	 */
 
 	public boolean paragona (SetRisorse setRisorse) { 

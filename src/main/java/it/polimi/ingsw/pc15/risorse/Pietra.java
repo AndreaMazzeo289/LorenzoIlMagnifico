@@ -3,7 +3,7 @@ package it.polimi.ingsw.pc15.risorse;
 import java.io.Serializable;
 
 /**
- * Classe <em>Pietra</em> sottoclasse di <strong>Risorsa</strong>
+ * Classe Pietra sottoclasse di Risorsa.
  */
 
 public class Pietra extends Risorsa  {

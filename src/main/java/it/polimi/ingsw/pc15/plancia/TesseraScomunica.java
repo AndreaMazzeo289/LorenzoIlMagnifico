@@ -6,6 +6,11 @@ import java.util.Set;
 import it.polimi.ingsw.pc15.effetti.Effetto;
 import it.polimi.ingsw.pc15.player.Player;
 
+/**
+ *Classe che definisce la tessera scomunica tramite id, periodo,
+ *effetti a lei legati e path dell'immagine corrispettiva.
+ */
+
 public class TesseraScomunica implements Serializable {
 	
 	private final int id;
@@ -20,10 +25,20 @@ public class TesseraScomunica implements Serializable {
 		this.pathImg = pathImg;
 	}
 	
+	/**
+	 * Infligge al player gli effetti corrispondenti alla tessera scomunica.
+	 * 
+	 * @param player target della scomunica.
+	 */
+	
 	public void infliggiScomunica(Player player) {
 		for (Effetto scomunica : this.scomunica)
 			scomunica.attiva(player);
 	}
+	
+	/**
+	 * @return il periodo corrispondente alla tessera.
+	 */
 	
 	public int getPeriodo() {
 		return this.periodo;

@@ -8,6 +8,11 @@ import java.util.Set;
 import it.polimi.ingsw.pc15.carte.Carta;
 import it.polimi.ingsw.pc15.risorse.SetRisorse;
 
+/**
+ * Classe che definisce un oggetto torre della plancia.
+ * Nel suo costruttore la torre inizializza anche i relativi spazi torre.
+ */
+
 public class Torre implements Serializable {
 	
 	private ArrayList<SpazioTorre> spaziTorre;
@@ -21,18 +26,41 @@ public class Torre implements Serializable {
 		}
 	}
 		
+	
+	/**
+	 * @return true se la torre è occupata, false altrimenti.
+	 */
+	
 	public boolean occupata() {
 		return occupata;
 	}
+	
+	/**
+	 * Setta il valore di occupata della torre.
+	 * 
+	 * @param par booleano utilizzato per settare la torre.
+	 */
 	
 	public void setOccupata(boolean par) {
 		this.occupata=par;
 	}
 	
+	/**
+	 * Setta le carte ricevute dalla plancia nei relativi spazi torre.
+	 * L'ordine di posizionamento è legato all'ordine con cui sono 
+	 * state estratte nel parseXML.
+	 * 
+	 * @param ArrayList di carte da settare negli spazi torre.
+	 */
+	
 	public void setTorre(ArrayList<Carta> carte) {
 		for (int i=0; i<carte.size(); i++)
 			(spaziTorre.get(i)).setCarta(carte.get(i));  //mette la carta i nello spazio i
 	}
+	
+	/**
+	 * Libera tutti gli spazi della torre dai familiari posizionati.
+	 */
 	
 	public void libera() {
 		for (SpazioTorre spazio: this.spaziTorre)
@@ -41,9 +69,18 @@ public class Torre implements Serializable {
 		this.occupata = false;
 	}
 	
+	/**
+	 * @return L'ArrayList contenente gli oggetti spazio torre.
+	 */
+	
 	public ArrayList<SpazioTorre> getSpaziTorre() {
 		return this.spaziTorre;
 	}
+	
+	/**
+	 * @param num dello spazio torre da ritornare.
+	 * @return uno specifico spazio torre.
+	 */
 	
 	public SpazioTorre getSpazio(int num) {
 		return this.spaziTorre.get(num);

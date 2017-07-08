@@ -11,6 +11,10 @@ import it.polimi.ingsw.pc15.risorse.Risorsa;
 import it.polimi.ingsw.pc15.risorse.SetRisorse;
 import it.polimi.ingsw.pc15.risorse.TipoRisorsa;
 
+/**
+ * Classe che definisce il Leader con relativo identificativo ed effetti corrispondenti.
+ */
+
 public class Leader implements Serializable{
 	
 	public String nome;
