@@ -168,25 +168,21 @@ public class FrameInformazioniPlayer extends JFrame{
 	
 	public void aggiornaRisorse(String player, String tipoRisorsa, int value) {
 		
-		JLabel label=null;
-		
 		for (String key : listaPanelPlayer.keySet()) {
 			
 			if(key.equals(player)) {
 				
 				switch(tipoRisorsa) {
 				case "puntiVittoria":
-					label = (JLabel) listaPanelPlayer.get(key).getComponent(3);
+					((JLabel)listaPanelPlayer.get(key).getComponent(3)).setText(Integer.toString(value));
 					break;
 				case "puntiMilitari":
-					label = (JLabel) listaPanelPlayer.get(key).getComponent(1);
+					((JLabel)listaPanelPlayer.get(key).getComponent(1)).setText(Integer.toString(value));
 					break;
 				case "puntiFede":
-					label = (JLabel) listaPanelPlayer.get(key).getComponent(2);
+					((JLabel)listaPanelPlayer.get(key).getComponent(2)).setText(Integer.toString(value));
 					break;
 				}
-				
-				label.setText(Integer.toString(value));
 			}
 		}
 	}
