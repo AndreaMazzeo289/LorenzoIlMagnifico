@@ -91,9 +91,6 @@
         <risorsa tipo="oro">
             <quantita>2</quantita>
         </risorsa>
-        <risorsa tipo="privilegi">
-            <quantita>1</quantita>
-        </risorsa>
     </tipoSpazio>
     
     <!--***************************************************************************

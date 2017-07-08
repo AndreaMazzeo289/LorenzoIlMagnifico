@@ -3,7 +3,6 @@ package it.polimi.ingsw.pc15.model;
 import java.io.Serializable;
 import java.util.ArrayList;
 
-import it.polimi.ingsw.pc15.client.FasePartita;
 import it.polimi.ingsw.pc15.plancia.Plancia;
 import it.polimi.ingsw.pc15.player.Player;
 
@@ -16,16 +15,14 @@ public class StatoPartita implements Serializable {
 	private Player statoGiocatore;
 	private String giocatoreCorrente;
 	private String messaggio;
-	private FasePartita fasePartita;
 	
-	public StatoPartita (Plancia statoPlancia, int periodo, int turno, ArrayList<Player> statoGiocatori, String giocatoreCorrente, FasePartita fasePartita, String messaggio) {
+	public StatoPartita (Plancia statoPlancia, int periodo, int turno, ArrayList<Player> statoGiocatori, String giocatoreCorrente, String messaggio) {
 		this.statoPlancia = statoPlancia;
 		this.periodo = periodo;
 		this.turno = turno;
 		this.statoGiocatori = statoGiocatori;
 		this.giocatoreCorrente = giocatoreCorrente;
 		this.messaggio = messaggio;
-		this.fasePartita = fasePartita;
 	}
 	
 	public Plancia getStatoPlancia() {
@@ -50,10 +47,6 @@ public class StatoPartita implements Serializable {
 	
 	public Player getStatoGiocatore() {
 		return this.statoGiocatore;
-	}
-	
-	public FasePartita getFasePartita() {
-		return this.fasePartita;
 	}
 	
 	public String getMessaggio() {

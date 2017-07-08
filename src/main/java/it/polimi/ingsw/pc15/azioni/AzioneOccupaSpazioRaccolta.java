@@ -32,11 +32,11 @@ public class AzioneOccupaSpazioRaccolta extends AzioneOccupaSpazio {
 	public RisultatoAzione èValida() {
 		
 		if (familiare.disponibile() == false)
-			return new RisultatoAzione(false, player.getNome() + "vuole posizionare il suo familiare " + familiare.getColore().name() + " ma lo ha già posizionato!");
+			return new RisultatoAzione(false, player.getNome() + " vuole posizionare il suo familiare " + familiare.getColore().name() + " ma lo ha già posizionato!");
 		
 		for (Familiare familiare : spazio.getFamiliari())
 			if (familiare.getPlayer().equals(player) && !(familiare.getColore().equals(ColoreFamiliare.NEUTRO) || this.familiare.getColore().equals(ColoreFamiliare.NEUTRO)))
-				return new RisultatoAzione(false, "non puoi posizionare altri familiari in questo spazio");
+				return new RisultatoAzione(false, " non puoi posizionare altri familiari in questo spazio");
 		
 		if (spazio.vuoto()==false && player.getEffettiAttivi().controllaPermessoSpaziOccupati()==false)
 			valoreAzione -= 3;
@@ -44,7 +44,7 @@ public class AzioneOccupaSpazioRaccolta extends AzioneOccupaSpazio {
 		if(valoreAzione >= spazio.getValoreMin())
 			return new RisultatoAzione(true, player.getNome() + " occupa lo spazio raccolta!");
 		else
-			return new RisultatoAzione(false, player.getNome() + "cerca di posizionare il suo familiare " + familiare.getColore().name() + " nello spazio raccolta, ma il suo valore è troppo basso!");
+			return new RisultatoAzione(false, player.getNome() + " cerca di posizionare il suo familiare " + familiare.getColore().name() + " nello spazio raccolta, ma il suo valore è troppo basso!");
 	}
 
 }

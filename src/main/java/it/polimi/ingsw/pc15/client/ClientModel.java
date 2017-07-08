@@ -30,7 +30,7 @@ public class ClientModel extends Observable {
 		this.statoGiocatore = stato.getStatoGiocatore();
 		
 		setChanged();
-		notifyObservers(new ArrayList(Arrays.asList(stato.getMessaggio(), stato.getFasePartita())));
+		notifyObservers(stato.getMessaggio());
 		
 	}
 	

@@ -9,7 +9,6 @@ import java.util.concurrent.BlockingQueue;
 public abstract class ClientView extends Observable implements Observer, Runnable {
 	
 	protected ClientModel clientModel;
-	protected BlockingQueue<FasePartita> fasi;
 	protected ArrayList<String> message;
 	
 	public ClientView(NetworkHandler networkHandler, ClientModel clientModel)
@@ -17,7 +16,6 @@ public abstract class ClientView extends Observable implements Observer, Runnabl
 		this.clientModel = clientModel;
 		clientModel.addObserver(this);
 		this.addObserver(networkHandler);
-		this.fasi = new ArrayBlockingQueue<FasePartita>(10);
 		this.message = new ArrayList<String>();
 	
 	}
