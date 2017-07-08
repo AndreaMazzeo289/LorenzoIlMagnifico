@@ -84,6 +84,8 @@ public class Model extends Observable {
 		generaCarteSviluppo();
 		
 		distribuisciCarteLeader();
+
+		distribuisciTessereBonus();
 		
 		distribuisciRisorse();
 		
@@ -91,6 +93,27 @@ public class Model extends Observable {
 		
 	}
 	
+	private void distribuisciTessereBonus() {
+		
+		ArrayList<SetRisorse> tessereBonusRaccolta = ParserXML.leggiTessereBonusRaccolta();
+		ArrayList<SetRisorse> tessereBonusProduzione = ParserXML.leggiTessereBonusProduzione();
+		
+		Collections.shuffle(tessereBonusRaccolta);
+		Collections.shuffle(tessereBonusProduzione);
+		
+		for (int i=0; i<numeroGiocatori; i++) {
+			giocatori.get(i).getTesseraBonusRaccolta().aggiungi(tessereBonusRaccolta.get(i));
+			giocatori.get(i).getTesseraBonusProduzione().aggiungi(tessereBonusProduzione.get(i));
+		}
+		
+		
+		
+		
+		
+		
+		
+	}
+
 	public void distribuisciRisorse() {
 		
 		HashSet<Risorsa> risorseGiocatore = new HashSet<Risorsa>();
