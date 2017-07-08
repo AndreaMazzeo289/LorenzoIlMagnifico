@@ -20,16 +20,15 @@ public class Produzione extends Effetto {
 	@Override
 	public void attiva(Player player){
 		
+		new AggiuntaRisorse(player.getTesseraBonusProduzione()).attiva(player);
+		
 		for (Carta edificio : player.getCarte(TipoCarta.EDIFICIO)) {
 			if (valore + player.getEffettiAttivi().getBonusProduzione()>= ((Edificio) edificio).getRequisitoProduzione() ) {
-				System.out.println("Attivo produzione in " + edificio.getNome());
 				for (Effetto effetto : edificio.getEffettoPermanente())
 					if (effetto instanceof Incrementabile){
 						((Incrementabile) effetto).attivaDaCarta(player);}
 					else effetto.attiva(player);
 			}
-			
-			else System.out.println("Il valore del familiare non è sufficiente per attivare la produzione in " + edificio.getNome());
 		}
 	}
 	

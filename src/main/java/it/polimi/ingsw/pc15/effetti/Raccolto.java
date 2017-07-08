@@ -19,17 +19,16 @@ public class Raccolto extends Effetto {
 	@Override
 	public void attiva(Player player){
 		
+		new AggiuntaRisorse(player.getTesseraBonusRaccolta()).attiva(player);
+		
 		for (Carta territorio : player.getCarte(TipoCarta.TERRITORIO)) {
 			if (valore + player.getEffettiAttivi().getBonusRaccolta()>= ((Territorio) territorio).getRequisitoRaccolta() ) {
-				System.out.println("Attivo raccolto in " + territorio.getNome());
 				for (Effetto effetto : territorio.getEffettoPermanente()) {
 					if (effetto instanceof Incrementabile)
 						((Incrementabile) effetto).attivaDaCarta(player);
 					else effetto.attiva(player);
 				}
 			}
-			
-			else System.out.println("Il valore del familiare non è sufficiente per attivare la raccolta in " + territorio.getNome());
 		}
 	}
 	
