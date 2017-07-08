@@ -1,8 +1,10 @@
 package it.polimi.ingsw.pc15.player;
 
+import java.io.Serializable;
+
 import it.polimi.ingsw.pc15.risorse.SetRisorse;
 
-public class TesseraBonus {
+public class TesseraBonus implements Serializable {
 	
 	private SetRisorse risorseBonusRaccolta;
 	private SetRisorse risorseBonusProduzione;
