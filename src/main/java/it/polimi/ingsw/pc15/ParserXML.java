@@ -12,7 +12,6 @@ import javax.xml.parsers.DocumentBuilderFactory;
 
 import org.w3c.dom.Document;
 import org.w3c.dom.Element;
-import org.w3c.dom.Node;
 import org.w3c.dom.NodeList;
 
 import it.polimi.ingsw.pc15.carte.Carta;
@@ -42,7 +41,6 @@ import it.polimi.ingsw.pc15.effetti.Effetto;
 import it.polimi.ingsw.pc15.effetti.FissaValoreFamiliare;
 import it.polimi.ingsw.pc15.effetti.FissaValoreFamiliareAScelta;
 import it.polimi.ingsw.pc15.effetti.MoltiplicaRisorseCarte;
-import it.polimi.ingsw.pc15.effetti.Moltiplicazione;
 import it.polimi.ingsw.pc15.effetti.NegaBonusSpazioTorri;
 import it.polimi.ingsw.pc15.effetti.NegaMercato;
 import it.polimi.ingsw.pc15.effetti.OccupaSpaziOccupati;
@@ -54,7 +52,6 @@ import it.polimi.ingsw.pc15.effetti.ScontoCostoCarte;
 import it.polimi.ingsw.pc15.plancia.TesseraScomunica;
 import it.polimi.ingsw.pc15.player.ColoreFamiliare;
 import it.polimi.ingsw.pc15.player.Leader;
-import it.polimi.ingsw.pc15.player.Player;
 import it.polimi.ingsw.pc15.risorse.Legna;
 import it.polimi.ingsw.pc15.risorse.Oro;
 import it.polimi.ingsw.pc15.risorse.Pietra;
@@ -82,7 +79,7 @@ public class ParserXML {
 		
 		//getCarteXML(TipoCarta.TERRITORIO);
 		//leggiCartaLeader();
-		
+		//leggiTessereBonusRaccolta();
 		//leggiSetRisorseSpazio("verde1");
 	}
 	
@@ -150,8 +147,7 @@ public class ParserXML {
 	                try{
 	                    valoreDado = Integer.parseInt(carta.getElementsByTagName("dado").item(0).getFirstChild().getNodeValue());
 	                    /*System.out.println("valore dado: " +valoreDado);*/
-	                }catch (NullPointerException e){
-	                }
+	                }catch (NullPointerException e){}
 	                
 	                //------------------------------------------------------//
 	                //	FASE 3: CICLIO DI ACQUISIZIONE DEGLI EFFETTI PERMANENTI
@@ -281,7 +277,7 @@ public class ParserXML {
 	            }
 	        }
 	    }catch(Exception e) {
-	        e.printStackTrace();
+	         
 	    }	
 			
 	    return arrayCarte;
@@ -412,7 +408,7 @@ public class ParserXML {
 			}
 		
 		}catch(Exception e){
-			e.printStackTrace();
+			 
 		}
 		return effettoLetto;
 	}
@@ -1439,7 +1435,7 @@ public class ParserXML {
 		        listaLeader.add(leaderEstratto);
 			}
 		}catch(Exception e){
-			e.printStackTrace();
+			 
 		}	
 		
 		return listaLeader;
@@ -1495,7 +1491,7 @@ public class ParserXML {
 					
 			}
 		}catch(Exception e){
-			e.printStackTrace();
+			 
 		}	
 		
 		Collections.shuffle(scomuniche);
@@ -1577,7 +1573,7 @@ public class ParserXML {
 				}
 			}
 		}catch(Exception e){
-			e.printStackTrace();
+			 
 		}	
 		
 		return setRisorse;
@@ -1611,8 +1607,160 @@ public class ParserXML {
 					valore = Integer.parseInt(valoreElemento.getElementsByTagName("valore").item(0).getFirstChild().getNodeValue());
 			}
 		}catch(Exception e){
-			e.printStackTrace();
+			 
 		}	
 		return valore;
 	}
+	
+	//--------------------------------------------------------------------------------------------------------------//
+	// LEGGI PERSONAL BONUS
+	//--------------------------------------------------------------------------------------------------------------//
+	public static ArrayList<SetRisorse> leggiTessereBonusProduzione() {
+		
+		ArrayList<SetRisorse> setBonusProduzione = new ArrayList<SetRisorse>();
+		try{
+			DocumentBuilderFactory documentFactory = DocumentBuilderFactory.newInstance();
+			
+			DocumentBuilder builder = documentFactory.newDocumentBuilder();
+			Document document = builder.parse(new File("XML/PersonalBonusProduzione.xml"));
+			
+			NodeList bonus = document.getElementsByTagName("bonus");
+			
+			for(int i=0; i<bonus.getLength(); i++){
+				
+				Element bonusItem = (Element) bonus.item(i);
+				
+				HashSet<Risorsa> risorseMap = new HashSet<>();
+				SetRisorse risorseBonus=null;
+				String imgPath = bonusItem.getElementsByTagName("img").item(0).getFirstChild().getNodeValue();
+					
+				NodeList risorse = bonusItem.getElementsByTagName("risorsa");
+            	int contRisorse = risorse.getLength();
+            	
+            	for(int j=0; j<contRisorse; j++) {
+            		
+            		 Element risorsa = (Element) risorse.item(j);
+            		 int quantita = Integer.parseInt(risorsa.getElementsByTagName("quantita").item(0).getFirstChild().getNodeValue());
+            		 
+            		 switch(risorsa.getAttribute("tipo").toUpperCase()) {
+            		 	case "LEGNA":
+            		 		Legna legna = new Legna(quantita);
+            		 		risorseMap.add(legna);
+            		 		break;
+            		 	case "PIETRA":
+            		 		Pietra pietra = new Pietra(quantita);
+            		 		risorseMap.add(pietra);
+            		 		break;
+            		 	case "ORO":
+            		 		Oro oro = new Oro(quantita);
+            		 		risorseMap.add(oro);
+            		 		break;
+            		 	case "SERVITORI":
+            		 		Servitori servitori = new Servitori(quantita);
+            		 		risorseMap.add(servitori);
+            		 		break;
+            		 	case "PUNTIMILITARI":
+            		 		PuntiMilitari puntiMilitari = new PuntiMilitari(quantita);
+            		 		risorseMap.add(puntiMilitari);
+            		 		break;
+            		 	case "PUNTIFEDE":
+            		 		PuntiFede puntiFede = new PuntiFede(quantita);
+            		 		risorseMap.add(puntiFede);
+            		 		break;
+            		 	case "PUNTIVITTORIA":
+            		 		PuntiVittoria puntiVittoria = new PuntiVittoria(quantita);
+            		 		risorseMap.add(puntiVittoria);
+            		 		break;
+            		 	case "PRIVILEGI":
+            		 		Privilegi privilegi = new Privilegi(quantita);
+            		 		risorseMap.add(privilegi);
+            		 		break;
+            		 }
+            	}
+            	risorseBonus = new SetRisorse (risorseMap);
+				setBonusProduzione.add(risorseBonus);
+				System.out.println("");
+			}
+		}catch(Exception e){
+			 
+		}	
+		return setBonusProduzione;
+	}
+	
+	//--------------------------------------------------------------------------------------------------------------//
+	// LEGGI PERSONAL BONUS
+	//--------------------------------------------------------------------------------------------------------------//
+	public static ArrayList<SetRisorse> leggiTessereBonusRaccolta() {
+		
+		ArrayList<SetRisorse> setBonusRaccolta = new ArrayList<SetRisorse>();
+		try{
+			DocumentBuilderFactory documentFactory = DocumentBuilderFactory.newInstance();
+			
+			DocumentBuilder builder = documentFactory.newDocumentBuilder();
+			Document document = builder.parse(new File("XML/PersonalBonusRaccolta.xml"));
+			
+			NodeList bonus = document.getElementsByTagName("bonus");
+			
+			for(int i=0; i<bonus.getLength(); i++){
+				
+				Element bonusItem = (Element) bonus.item(i);
+				
+				HashSet<Risorsa> risorseMap = new HashSet<>();
+				SetRisorse risorseBonus=null;
+				String imgPath = bonusItem.getElementsByTagName("img").item(0).getFirstChild().getNodeValue();
+					
+				NodeList risorse = bonusItem.getElementsByTagName("risorsa");
+            	int contRisorse = risorse.getLength();
+            	
+            	for(int j=0; j<contRisorse; j++) {
+            		
+            		 Element risorsa = (Element) risorse.item(j);
+            		 int quantita = Integer.parseInt(risorsa.getElementsByTagName("quantita").item(0).getFirstChild().getNodeValue());
+            		 
+            		 switch(risorsa.getAttribute("tipo").toUpperCase()) {
+            		 	case "LEGNA":
+            		 		Legna legna = new Legna(quantita);
+            		 		risorseMap.add(legna);
+            		 		break;
+            		 	case "PIETRA":
+            		 		Pietra pietra = new Pietra(quantita);
+            		 		risorseMap.add(pietra);
+            		 		break;
+            		 	case "ORO":
+            		 		Oro oro = new Oro(quantita);
+            		 		risorseMap.add(oro);
+            		 		break;
+            		 	case "SERVITORI":
+            		 		Servitori servitori = new Servitori(quantita);
+            		 		risorseMap.add(servitori);
+            		 		break;
+            		 	case "PUNTIMILITARI":
+            		 		PuntiMilitari puntiMilitari = new PuntiMilitari(quantita);
+            		 		risorseMap.add(puntiMilitari);
+            		 		break;
+            		 	case "PUNTIFEDE":
+            		 		PuntiFede puntiFede = new PuntiFede(quantita);
+            		 		risorseMap.add(puntiFede);
+            		 		break;
+            		 	case "PUNTIVITTORIA":
+            		 		PuntiVittoria puntiVittoria = new PuntiVittoria(quantita);
+            		 		risorseMap.add(puntiVittoria);
+            		 		break;
+            		 	case "PRIVILEGI":
+            		 		Privilegi privilegi = new Privilegi(quantita);
+            		 		risorseMap.add(privilegi);
+            		 		break;
+            		 }
+            	}
+            	risorseBonus = new SetRisorse (risorseMap);
+            	setBonusRaccolta.add(risorseBonus);
+				System.out.println("");
+			}
+		}catch(Exception e){
+			 
+		}	
+		return setBonusRaccolta;
+	}
+	
+	
 }

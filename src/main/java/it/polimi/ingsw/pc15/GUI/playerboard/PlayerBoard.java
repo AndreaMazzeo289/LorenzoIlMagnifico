@@ -1,6 +1,5 @@
 package it.polimi.ingsw.pc15.GUI.playerboard;
 
-import java.awt.Color;
 import java.awt.Font;
 import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;
@@ -8,13 +7,11 @@ import java.awt.GridLayout;
 import java.util.ArrayList;
 import java.util.HashMap;
 
-import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.SwingConstants;
 
 import it.polimi.ingsw.pc15.GUI.ButtonListener;
-import it.polimi.ingsw.pc15.GUI.ButtonListenerCarte;
 import it.polimi.ingsw.pc15.GUI.GUI;
 import it.polimi.ingsw.pc15.carte.TipoCarta;
 

@@ -13,7 +13,6 @@ import javax.swing.JPanel;
 
 import it.polimi.ingsw.pc15.GUI.GUI;
 import it.polimi.ingsw.pc15.player.ColoreFamiliare;
-import it.polimi.ingsw.pc15.player.Player;
 
 public class SpazioFamiliariDisponibili extends JPanel implements Serializable{
 

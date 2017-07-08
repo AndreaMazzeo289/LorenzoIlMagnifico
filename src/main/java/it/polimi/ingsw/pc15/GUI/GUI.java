@@ -12,7 +12,6 @@ import java.util.Observable;
 import javax.swing.JFrame;
 
 import it.polimi.ingsw.pc15.GUI.gameboard.Gameboard;
-import it.polimi.ingsw.pc15.GUI.playerboard.CarteGioco;
 import it.polimi.ingsw.pc15.GUI.playerboard.PlayerBoard;
 import it.polimi.ingsw.pc15.carte.Carta;
 import it.polimi.ingsw.pc15.carte.Impresa;
@@ -21,7 +20,6 @@ import it.polimi.ingsw.pc15.client.ClientModel;
 import it.polimi.ingsw.pc15.client.ClientView;
 import it.polimi.ingsw.pc15.client.NetworkHandler;
 import it.polimi.ingsw.pc15.plancia.Spazio;
-import it.polimi.ingsw.pc15.plancia.SpazioConsiglio;
 import it.polimi.ingsw.pc15.plancia.SpazioMercato;
 import it.polimi.ingsw.pc15.plancia.SpazioTorre;
 import it.polimi.ingsw.pc15.player.ColoreFamiliare;
@@ -122,9 +120,7 @@ public class GUI extends ClientView{
 			try {
 				Thread.sleep(4000);
 			} catch (InterruptedException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			}
+		    }
 		loadDone=true;
 		}
 		
@@ -306,9 +302,8 @@ public class GUI extends ClientView{
 		playerboard.scriviMessaggio((String)arg1);
 		try {
 			Thread.sleep(3000);
-		} catch (InterruptedException e) {
-			e.printStackTrace();
-		}
+		} catch (InterruptedException e) {}
+		
 		if(tuoTurno())
 			playerboard.scriviMessaggio("È il tuo turno!");
 		else

@@ -6,7 +6,6 @@ import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;
 import java.awt.Image;
 import java.awt.Toolkit;
-import java.beans.Transient;
 
 import javax.swing.ImageIcon;
 import javax.swing.JButton;

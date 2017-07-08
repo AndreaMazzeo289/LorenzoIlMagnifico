@@ -2,7 +2,6 @@ package it.polimi.ingsw.pc15.GUI.gameboard;
 
 import java.awt.BorderLayout;
 import java.awt.Dimension;
-import java.awt.GridBagLayout;
 import java.awt.Image;
 import java.awt.Toolkit;
 

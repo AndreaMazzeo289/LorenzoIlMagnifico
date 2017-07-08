@@ -1,0 +1,47 @@
+<personalBonus>
+    <bonus numero="1">
+        <risorsa tipo="puntiMilitari">
+            <quantita>1</quantita>
+        </risorsa>
+        <risorsa tipo="oro">
+            <quantita>2</quantita>
+        </risorsa>
+        <img>img/Punchboard/personalBonus/bonus1.png</img>
+    </bonus>
+    <bonus numero="2">
+        <risorsa tipo="servitori">
+            <quantita>2</quantita>
+        </risorsa>
+        <risorsa tipo="oro">
+            <quantita>1</quantita>
+        </risorsa>
+        <img>img/Punchboard/personalBonus/bonus2.png</img>
+    </bonus>
+    <bonus numero="3">
+        <risorsa tipo="puntiMilitari">
+            <quantita>2</quantita>
+        </risorsa>
+        <risorsa tipo="oro">
+            <quantita>1</quantita>
+        </risorsa>
+        <img>img/Punchboard/personalBonus/bonus3.png</img>
+    </bonus>
+    <bonus numero="4">
+        <risorsa tipo="servitori">
+            <quantita>1</quantita>
+        </risorsa>
+        <risorsa tipo="oro">
+            <quantita>2</quantita>
+        </risorsa>
+        <img>img/Punchboard/personalBonus/bonus4.png</img>
+    </bonus>
+    <bonus numero="5">
+        <risorsa tipo="servitori">
+            <quantita>1</quantita>
+        </risorsa>
+        <risorsa tipo="puntiMilitari">
+            <quantita>2</quantita>
+        </risorsa>
+        <img>img/Punchboard/personalBonus/bonus5.png</img>
+    </bonus>
+</personalBonus>
