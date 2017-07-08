@@ -6,6 +6,12 @@ import java.util.HashSet;
 import java.util.Iterator;
 import java.util.Map;
 
+/**
+ * Classe <em>SetRisorse</em> inizializza i set risorse a partire da un <strong>HashSet<Risorsa></strong>
+ * composto dai vari oggetti sottoclasse di <strong>Risorsa</strong>
+ * 
+ */
+
 public class SetRisorse implements Serializable {  
 
 	private HashMap<TipoRisorsa, Risorsa> risorse;
@@ -18,6 +24,14 @@ public class SetRisorse implements Serializable {
 			this.risorse.put(risorsa.getTipoRisorsa(), risorsa);
 	}
 	
+	/**
+	 * Aggiunge la singola risorsa al set designato.
+	 * Se la risorsa non esiste nell'HashSet, crea una copia di quella in ingresso
+	 * e la aggiunge al set risorse.
+	 * 
+	 * @param risorsa da aggiungere all' HashSet.
+	 */
+	
 	public void aggiungi (Risorsa risorsa){
 		if (this.risorse.containsKey(risorsa.getTipoRisorsa()))
 			this.risorse.get(risorsa.getTipoRisorsa()).aggiungi(risorsa.getQuantità());
@@ -28,6 +42,14 @@ public class SetRisorse implements Serializable {
 				e.printStackTrace();
 			}
 	}
+	
+	/**
+	 * Aggiunge le quantità del set in ingresso a quello designato.
+	 * Se il set in ingresso ha una risorsa non contenuta in quello a cui sto aggiungendo 
+	 * creo una copia di quella risorsa e la aggiungo. 
+	 * 
+	 * @param setRisorse da aggiungere
+	 */
 	
 	public void aggiungi (SetRisorse setRisorse) {  
 		
@@ -43,6 +65,13 @@ public class SetRisorse implements Serializable {
 			else this.risorse.get(risorsa.getKey()).aggiungi(risorsa.getValue().getQuantità());
 	}
 	
+	
+	/**
+	 * Ricevo in ingresso un set risorse e sottraggo le quantità alle risorse di quello designato.
+	 * 
+	 * @param setRisorse da sottrarre
+	 */
+	
 	public void sottrai (SetRisorse setRisorse) {
 		
 		for (Map.Entry<TipoRisorsa, Risorsa> risorsa : setRisorse.getRisorse().entrySet()) {
@@ -53,6 +82,13 @@ public class SetRisorse implements Serializable {
 			}
 		}
 	}
+	
+	/**
+	 * Paragono due set Risorse.
+	 * 
+	 * @param setRisorse da paragonare.
+	 * @return <em>true</em> se il primo è >= del secondo, altrimenti <em>false</em>.
+	 */
 
 	public boolean paragona (SetRisorse setRisorse) { 
 		
@@ -62,6 +98,13 @@ public class SetRisorse implements Serializable {
 	
 		return true;
 	}
+	
+	/**
+	 * Prende una risorsa dal set risorse
+	 * 
+	 * @param tipoRisorsa della risorsa da prelevare.
+	 * @return una risorsa dal set risorse.
+	 */
 	
 	public Risorsa getRisorsa(TipoRisorsa tipoRisorsa){
 		
