@@ -11,6 +11,7 @@ import java.util.Observable;
 import java.util.Observer;
 import java.util.Scanner;
 
+import it.polimi.ingsw.pc15.ParserXML;
 import it.polimi.ingsw.pc15.carte.Carta;
 import it.polimi.ingsw.pc15.carte.TipoCarta;
 import it.polimi.ingsw.pc15.carte.Impresa;
@@ -306,6 +307,7 @@ public class CLI extends ClientView {
 		    			for (Leader leader : this.clientModel.getStatoGiocatore().getCarteLeader())
 		    				if (leader!=null)
 		    					System.out.println("  - " + leader.toString());
+		    			System.out.println(this.clientModel.getStatoGiocatore().getTesseraBonus().getRisorseBonusProduzione());
 						update(this, "");
 		    	break;
 		    	
@@ -380,7 +382,15 @@ public class CLI extends ClientView {
 				update(this, "");
 				
 			}
-	    	
+			
+			if (this.clientModel.getTurno()==ParserXML.leggiValore("numeroTurniPerPeriodo") && this.clientModel.getAzione()==1 && hasChanged()) {
+				if (this.clientModel.getStatoGiocatore().getSetRisorse().getRisorsa(TipoRisorsa.PUNTIFEDE).getQuantità() <= ParserXML.leggiValore("puntiFedePeriodo" + String.valueOf(this.clientModel.getPeriodo()))) {
+					System.out.println("\n  --- SOSTEGNO ALLA CHIESA ---\nVuoi pagare " + ParserXML.leggiValore("puntiFedePeriodo" + String.valueOf(this.clientModel.getPeriodo())) + " punti fede (1) o subire la scomunica della Chiesa? (2)");
+					message.add(String.valueOf(input.nextInt()));
+				}
+				else message.add("2");
+			}
+			
 	    	notifyObservers(message);
 	  
 	    }			

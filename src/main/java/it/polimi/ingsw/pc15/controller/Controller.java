@@ -54,7 +54,7 @@ public class Controller extends Observable implements Observer {
 		Azione azioneGiocatore;
 		Player giocatore = model.getPlayer(nomeGiocatore);	
 		
-		System.out.println("\nSono il controller e ho ricevuto " + input + " da " + giocatore.getNome());
+		//System.out.println("\nSono il controller e ho ricevuto " + input + " da " + giocatore.getNome());
 		
 		switch(input.get(0)) {
 		
@@ -139,9 +139,14 @@ public class Controller extends Observable implements Observer {
 		RisultatoAzione risultatoAzione = azioneGiocatore.èValida();
 		if (risultatoAzione.getRisultato()==true) {
 			azioneGiocatore.attiva();
+			int turno = model.getTurno();
+			if (turno==2 && model.getAzione()==1)
+				model.getRapportoInVaticano().registraSceltaGiocatore(model.getPlayer(nomeGiocatore), Integer.valueOf(input.get(input.size()-1)));
 			if (azioneGiocatore instanceof AzioneOccupaSpazio)
 				model.giocatoreSuccessivo();
 			String message = "\n"+risultatoAzione.getCommento();
+			if (turno != model.getTurno())
+				message += "\n\nÈ iniziato un nuovo turno! (Periodo: " + model.getPeriodo() + ", Turno: " + model.getTurno()  + ")";
 			model.notificaStatoPartita(message);	
 
 		}

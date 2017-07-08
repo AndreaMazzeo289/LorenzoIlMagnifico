@@ -70,7 +70,7 @@ public class SocketHandler extends NetworkHandler implements Serializable{
 	}
 	
 	public void send(Object message) throws IOException{
-		System.out.println("\nSono il SocketHandler e sto inviando " + (ArrayList<String>) message);
+		//System.out.println("\nSono il SocketHandler e sto inviando " + (ArrayList<String>) message);
 		outObj.writeObject(message);
 		outObj.reset();
 	}
