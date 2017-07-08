@@ -384,7 +384,4 @@ public class GUI extends ClientView{
 			else
 				return 1;
 	}
-	public void printaMessaggio() {
-		System.out.println("DAJEE:"+this.message);
-	}
 }

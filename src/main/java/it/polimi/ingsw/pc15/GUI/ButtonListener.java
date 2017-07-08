@@ -262,11 +262,9 @@ public class ButtonListener implements ActionListener{
 				int numeroTorreInt = Integer.parseInt(numeroTorre)-1;
 				gui.writeMessage(coloreTorre.toLowerCase());
 				gui.writeMessage(Integer.toString(numeroTorreInt));
-				
-				Boolean byPass = false;
 				int scelta = gui.sceltaRichiesta(numeroTorreInt);
 				
-				if(/*coloreTorre.toUpperCase().equals("VIOLA") &&*/ scelta==0) 
+				if(scelta==0) 
 					selezionaMetodoPagamento = new SelezionaMetodoPagamento(this);
 				else {
 					
