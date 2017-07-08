@@ -118,11 +118,9 @@ public class Model extends Observable {
 			for (int i=0; i<numeroCarteLeader; i++) {
 				giocatore.getCarteLeader().add(carteLeader.get(0));
 				carteLeader.get(0).setPlayer(giocatore);
-				carteLeader.remove(0);
-				
+				carteLeader.remove(0);	
 			}
 		}
-	
 	}	
 	
 	public void generaCarteSviluppo() {
@@ -149,7 +147,7 @@ public class Model extends Observable {
 		
 		tiraIDadi();
 
-		notificaStatoPartita("\nÈ iniziato un nuovo turno! (Periodo: " + periodo + ", Turno: " + turno + ")");
+		notificaStatoPartita("È iniziato un nuovo turno! (Periodo: " + periodo + ", Turno: " + turno + ")");
 
 	}
 	
@@ -175,6 +173,7 @@ public class Model extends Observable {
 		else 
 			iniziaNuovoTurno();
 	}
+	
 
 	public void rapportoInVaticano(int periodo) {
 		
@@ -319,7 +318,7 @@ public class Model extends Observable {
 	public void tiraIDadi() {
 		
 		Random random = new Random();	
-		/*
+
 		int valoreDadoNero = random.nextInt(6) + 1;
 		System.out.println("Valore dado NERO: " + valoreDadoNero);
 		int valoreDadoBianco = random.nextInt(6) + 1;
@@ -327,19 +326,16 @@ public class Model extends Observable {
 		int valoreDadoArancione = random.nextInt(6) + 1;
 		System.out.println("Valore dado ARANCIONE: " + valoreDadoArancione);
 		
-		for(Player player : giocatori) {
-			
+		for(Player player : giocatori) {		
 			player.getFamiliare(ColoreFamiliare.NEUTRO).setValore(0);
 			player.getFamiliare(ColoreFamiliare.NERO).setValore(valoreDadoNero);
 			player.getFamiliare(ColoreFamiliare.BIANCO).setValore(valoreDadoBianco);
 			player.getFamiliare(ColoreFamiliare.ARANCIONE).setValore(valoreDadoArancione);
-		*/
+		}
 		
 		for (Player player : giocatori)
-			for (ColoreFamiliare coloreFamiliare : ColoreFamiliare.values()) {
-				player.getFamiliare(coloreFamiliare).setValore(random.nextInt(6)+1);
-				player.getFamiliare(coloreFamiliare).setDisponibilità(true);
-			}
+			for (ColoreFamiliare colore : ColoreFamiliare.values())
+				player.getFamiliare(colore).setDisponibilità(true);
 					
 	}
 

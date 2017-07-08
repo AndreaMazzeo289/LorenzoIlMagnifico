@@ -1,6 +1,8 @@
 package it.polimi.ingsw.pc15.client;
 
+import java.lang.reflect.Array;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Observable;
 
 import it.polimi.ingsw.pc15.model.StatoPartita;
@@ -28,7 +30,7 @@ public class ClientModel extends Observable {
 		this.statoGiocatore = stato.getStatoGiocatore();
 		
 		setChanged();
-		notifyObservers(stato.getMessaggio());
+		notifyObservers(new ArrayList(Arrays.asList(stato.getMessaggio(), stato.getFasePartita())));
 		
 	}
 	
