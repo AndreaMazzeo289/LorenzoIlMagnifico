@@ -10,6 +10,13 @@ public class BonusRaccolta extends Bonus {
 		super(valore);
 	}
 	
+	/**
+	 * Metodo che permette l'attivazione dell'effetto.
+	 * 
+	 * @param player u cui deve essere attivato l'effetto.
+	 */
+	
+	
 	@Override
 	public void attiva(Player player){
 		

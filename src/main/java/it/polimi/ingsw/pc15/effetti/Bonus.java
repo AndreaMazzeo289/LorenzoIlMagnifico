@@ -11,7 +11,14 @@ public abstract class Bonus extends Effetto {
 	public Bonus (int valore) {
 		this.valore = valore;
 	}
-
+	
+	/**
+	 * Metodo che permette l'attivazione dell'effetto.
+	 * 
+	 * @param player u cui deve essere attivato l'effetto.
+	 */
+	
+	
 	@Override
 	public abstract void attiva(Player player);
 }

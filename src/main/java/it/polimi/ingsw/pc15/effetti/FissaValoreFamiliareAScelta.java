@@ -14,6 +14,13 @@ public class FissaValoreFamiliareAScelta extends FissaValoreFamiliare{
 		super(null, valore);
 	}
 	
+	/**
+	 * Metodo che permette l'attivazione dell'effetto.
+	 * 
+	 * @param player u cui deve essere attivato l'effetto.
+	 */
+	
+	
 	@Override
 	public void attiva(Player player) {
 		

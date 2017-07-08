@@ -24,6 +24,13 @@ public class Scambio extends Effetto implements Incrementabile {
 		this.guadagno2 = guadagno2;
 	}
 
+	/**
+	 * Metodo che permette l'attivazione dell'effetto.
+	 * 
+	 * @param player u cui deve essere attivato l'effetto.
+	 */
+	
+	
 	@Override
 	public void attiva(Player player) {
 		

@@ -14,6 +14,13 @@ public class BonusRisorseSpazi extends Bonus {
 		this.risorsa = risorsa;
 	}
 
+	/**
+	 * Metodo che permette l'attivazione dell'effetto.
+	 * 
+	 * @param player u cui deve essere attivato l'effetto.
+	 */
+	
+	
 	@Override
 	public void attiva(Player player) {
 		
