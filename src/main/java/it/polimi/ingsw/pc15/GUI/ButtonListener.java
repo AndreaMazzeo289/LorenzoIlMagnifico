@@ -33,9 +33,7 @@ public class ButtonListener implements ActionListener{
 	private ScartaLeaderPopup scartaLeaderPopup;
 	private FrameInformazioniPlayer frameInformazioniPlayer;
 	private SelezionaMetodoPagamento selezionaMetodoPagamento;
-	private boolean familiareScelto = false;
 	private boolean servitoriInseriti = false;
-	private boolean sceltaViolaFatta = false;
 	private GUI gui;
 	private PlayerBoard playerBoard;
 	private Gameboard gameboard;
@@ -205,14 +203,12 @@ public class ButtonListener implements ActionListener{
 		}
 		
 		if(e.getActionCommand().equals("sceltoPagamentoRisorse")) {
-			sceltaViolaFatta = true;
 			gui.writeMessage("1");
 			selezionaMetodoPagamento.dispose();
 			concludiPresaViola();
 		}
 		
 		if(e.getActionCommand().equals("sceltoPagamentoPuntiMilitari")) {
-			sceltaViolaFatta = true;
 			gui.writeMessage("2");
 			selezionaMetodoPagamento.dispose();
 			concludiPresaViola();
