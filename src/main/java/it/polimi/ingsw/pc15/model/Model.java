@@ -28,6 +28,7 @@ import it.polimi.ingsw.pc15.player.ColorePlayer;
 import it.polimi.ingsw.pc15.player.Familiare;
 import it.polimi.ingsw.pc15.player.Leader;
 import it.polimi.ingsw.pc15.player.Player;
+import it.polimi.ingsw.pc15.player.TesseraBonus;
 import it.polimi.ingsw.pc15.risorse.Legna;
 import it.polimi.ingsw.pc15.risorse.Oro;
 import it.polimi.ingsw.pc15.risorse.Pietra;
@@ -95,23 +96,12 @@ public class Model extends Observable {
 	
 	private void distribuisciTessereBonus() {
 		
-		ArrayList<SetRisorse> tessereBonusRaccolta = ParserXML.leggiTessereBonusRaccolta();
-		ArrayList<SetRisorse> tessereBonusProduzione = ParserXML.leggiTessereBonusProduzione();
+		ArrayList<TesseraBonus> tessereBonus = ParserXML.leggiTessereBonus();
 		
-		Collections.shuffle(tessereBonusRaccolta);
-		Collections.shuffle(tessereBonusProduzione);
+		Collections.shuffle(tessereBonus);
 		
-		for (int i=0; i<numeroGiocatori; i++) {
-			giocatori.get(i).getTesseraBonusRaccolta().aggiungi(tessereBonusRaccolta.get(i));
-			giocatori.get(i).getTesseraBonusProduzione().aggiungi(tessereBonusProduzione.get(i));
-		}
-		
-		
-		
-		
-		
-		
-		
+		for (int i=0; i<numeroGiocatori; i++)
+			giocatori.get(i).setTesseraBonus(tessereBonus.get(i));
 	}
 
 	public void distribuisciRisorse() {
@@ -149,6 +139,8 @@ public class Model extends Observable {
 		}
 	
 	}	
+	
+	
 	
 	public void generaCarteSviluppo() {
 

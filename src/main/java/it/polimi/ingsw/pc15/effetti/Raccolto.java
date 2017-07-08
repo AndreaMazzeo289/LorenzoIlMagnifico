@@ -19,7 +19,7 @@ public class Raccolto extends Effetto {
 	@Override
 	public void attiva(Player player){
 		
-		new AggiuntaRisorse(player.getTesseraBonusRaccolta()).attiva(player);
+		new AggiuntaRisorse(player.getTesseraBonus().getRisorseBonusRaccolta()).attiva(player);
 		
 		for (Carta territorio : player.getCarte(TipoCarta.TERRITORIO)) {
 			if (valore + player.getEffettiAttivi().getBonusRaccolta()>= ((Territorio) territorio).getRequisitoRaccolta() ) {

@@ -33,9 +33,7 @@ public class Player implements Serializable {
 	private EffettiAttivi effettiAttivi;
 	private ArrayList<Leader> carteLeader;
 	private Set<Player> avversari;
-	private SetRisorse tesseraBonusProduzione;
-	private SetRisorse tesseraBonusRaccolta;
-	
+	private TesseraBonus tesseraBonus;
 	
 	public Player (String nome, ColorePlayer colore) {
 		
@@ -51,9 +49,7 @@ public class Player implements Serializable {
 			familiari.put(coloreFamiliare, new Familiare(coloreFamiliare, this));
 		
 		this.setRisorse = new SetRisorse(new HashSet<Risorsa>());
-		this.tesseraBonusRaccolta = new SetRisorse(new HashSet<Risorsa>());
-		this.tesseraBonusProduzione = new SetRisorse(new HashSet<Risorsa>());
-
+		
 			
 		//-----------------------------------------------------------------------------------------------------------//
 		//          CARTE                                                                                            //
@@ -161,12 +157,12 @@ public class Player implements Serializable {
 		return this.colore;
 	}
 	
-	public SetRisorse getTesseraBonusProduzione() {
-		return this.tesseraBonusProduzione;
+	public TesseraBonus getTesseraBonus() {
+		return this.tesseraBonus;
 	}
 	
-	public SetRisorse getTesseraBonusRaccolta() {
-		return this.tesseraBonusRaccolta;
+	public void setTesseraBonus(TesseraBonus tesseraBonus) {
+		this.tesseraBonus = tesseraBonus;
 	}
 
 }
