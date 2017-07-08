@@ -17,7 +17,7 @@ public class ServerTimer implements Runnable {
 		for (int i=ParserXML.leggiValore("durataTimerServer"); i>0; i--) {
 			try {
 				Thread.sleep(1000);
-			} catch (InterruptedException e) {
+			} catch (InterruptedException e) { // NOSONAR
 			}
 			
 			System.out.println(i + " secondi all'inizio della partita");

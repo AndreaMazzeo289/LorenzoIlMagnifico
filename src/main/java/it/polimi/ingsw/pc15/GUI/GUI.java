@@ -114,14 +114,13 @@ public class GUI extends ClientView{
 	}
 
 	@Override
-	public void update(Observable arg0, Object arg1) {
+	public void update(Observable arg0, Object arg1)  { 
 		
 		if(!loadDone) {
 			try {
 				Thread.sleep(4000); 
 			} catch (InterruptedException e) {}  // NOSONAR
-		loadDone=true;
-		}
+
 		
 		arrayListAvversari = this.clientModel.getStatoAvversari();
 		playerCorrente = this.clientModel.getStatoGiocatore();
@@ -149,7 +148,7 @@ public class GUI extends ClientView{
 					int spazio = Math.abs(i-3);
 					try {
 						gameboard.getSpazioTorre(tipo, i).modificaImmagineCarta(this.clientModel.getStatoPlancia().getSpazioTorre(tipo, spazio).getCarta().getImagePath());
-					}catch(NullPointerException e) {
+					}catch(NullPointerException e) { // NOSONAR
 						System.out.println("errore in " + tipo.name());
 						gameboard.getSpazioTorre(tipo, i).modificaImmagineCarta(retroCarte.get(tipo));
 					}

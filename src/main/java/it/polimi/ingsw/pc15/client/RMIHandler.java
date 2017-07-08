@@ -35,7 +35,7 @@ public class RMIHandler extends NetworkHandler implements RMIHandlerInterface {
 			this.numeroConnessione = server.remoteConnetti(remoteRef);
 
 		} catch (MalformedURLException | RemoteException | NotBoundException e) {
-			e.printStackTrace();
+			e.printStackTrace();  // NOSONAR
 		}		
 
 	}
@@ -46,7 +46,7 @@ public class RMIHandler extends NetworkHandler implements RMIHandlerInterface {
 		try {
 			this.server.remoteNotify(input, numeroConnessione);
 		} catch (RemoteException e) {
-			e.printStackTrace();
+			e.printStackTrace(); // NOSONAR
 		}
 	}
 
