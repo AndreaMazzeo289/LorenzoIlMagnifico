@@ -52,6 +52,7 @@ import it.polimi.ingsw.pc15.effetti.ScontoCostoCarte;
 import it.polimi.ingsw.pc15.plancia.TesseraScomunica;
 import it.polimi.ingsw.pc15.player.ColoreFamiliare;
 import it.polimi.ingsw.pc15.player.Leader;
+import it.polimi.ingsw.pc15.player.TesseraBonus;
 import it.polimi.ingsw.pc15.risorse.Legna;
 import it.polimi.ingsw.pc15.risorse.Oro;
 import it.polimi.ingsw.pc15.risorse.Pietra;
@@ -1678,8 +1679,7 @@ public class ParserXML {
             		 }
             	}
             	risorseBonus = new SetRisorse (risorseMap);
-				setBonusProduzione.add(risorseBonus);
-				System.out.println("");
+            	setBonusProduzione.add(risorseBonus);
 			}
 		}catch(Exception e){
 			 
@@ -1754,7 +1754,6 @@ public class ParserXML {
             	}
             	risorseBonus = new SetRisorse (risorseMap);
             	setBonusRaccolta.add(risorseBonus);
-				System.out.println("");
 			}
 		}catch(Exception e){
 			 
@@ -1762,5 +1761,33 @@ public class ParserXML {
 		return setBonusRaccolta;
 	}
 	
-	
+	public static ArrayList<TesseraBonus> leggiTessereBonus() {
+		
+		ArrayList<TesseraBonus> tessereBonus = new ArrayList<TesseraBonus>();
+		
+		ArrayList<SetRisorse> bonusProduzione = leggiTessereBonusRaccolta();
+		ArrayList<SetRisorse> bonusRaccolta = leggiTessereBonusProduzione();
+		
+		try{
+			DocumentBuilderFactory documentFactory = DocumentBuilderFactory.newInstance();
+			
+			DocumentBuilder builder = documentFactory.newDocumentBuilder();
+			Document document = builder.parse(new File("XML/PersonalBonusRaccolta.xml"));
+			
+			NodeList bonus = document.getElementsByTagName("bonus");
+			
+			for(int i=0; i<bonus.getLength(); i++){
+				
+				Element bonusItem = (Element) bonus.item(i);
+				
+				String imgPath = bonusItem.getElementsByTagName("img").item(0).getFirstChild().getNodeValue();
+				
+				tessereBonus.add(new TesseraBonus(bonusRaccolta.get(i),bonusProduzione.get(i),imgPath));
+				
+			}
+		}catch(Exception e){
+			 
+		}	
+		return tessereBonus;
+	}
 }

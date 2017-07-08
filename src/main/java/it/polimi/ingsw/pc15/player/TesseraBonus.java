@@ -6,10 +6,12 @@ public class TesseraBonus {
 	
 	private SetRisorse risorseBonusRaccolta;
 	private SetRisorse risorseBonusProduzione;
+	private String imgPath;
 	
-	public TesseraBonus (SetRisorse risorseBonusRaccolta, SetRisorse risorseBonusProduzione) {
+	public TesseraBonus (SetRisorse risorseBonusRaccolta, SetRisorse risorseBonusProduzione, String imgPath) {
 		this.risorseBonusRaccolta = risorseBonusRaccolta;
 		this.risorseBonusProduzione = risorseBonusProduzione;
+		this.imgPath = imgPath;
 	}
 	
 	public SetRisorse getRisorseBonusRaccolta() {
@@ -18,6 +20,10 @@ public class TesseraBonus {
 	
 	public SetRisorse getRisorseBonusProduzione() {
 		return this.risorseBonusProduzione;
+	}
+	
+	public String getImgPath() {
+		return this.imgPath;
 	}
 
 }
