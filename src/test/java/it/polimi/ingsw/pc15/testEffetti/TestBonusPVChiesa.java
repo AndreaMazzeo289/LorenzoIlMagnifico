@@ -6,6 +6,7 @@ import static org.junit.Assert.*;
 import org.junit.*;
 
 import it.polimi.ingsw.pc15.effetti.BonusPVChiesa;
+import it.polimi.ingsw.pc15.player.ColorePlayer;
 import it.polimi.ingsw.pc15.player.Player;
 
 public class TestBonusPVChiesa {
@@ -17,7 +18,7 @@ public class TestBonusPVChiesa {
 	public void setUp(){
 		
 		bonusPVChiesa = new BonusPVChiesa(2);
-		player = new Player("test");
+		player = new Player("test", ColorePlayer.BLU);
 	}
 	
 	/*

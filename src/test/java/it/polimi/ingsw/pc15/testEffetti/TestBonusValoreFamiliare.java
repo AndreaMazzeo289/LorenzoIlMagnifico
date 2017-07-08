@@ -4,6 +4,7 @@ import org.junit.*;
 
 import it.polimi.ingsw.pc15.effetti.BonusValoreFamiliare;
 import it.polimi.ingsw.pc15.player.ColoreFamiliare;
+import it.polimi.ingsw.pc15.player.ColorePlayer;
 import it.polimi.ingsw.pc15.player.Player;
 
 import static org.junit.Assert.*;
@@ -17,7 +18,7 @@ public class TestBonusValoreFamiliare {
 	public void setUp(){
 		
 		bonusValoreFamiliare = new BonusValoreFamiliare(ColoreFamiliare.NERO, 2);
-		player = new Player("test");
+		player = new Player("test",ColorePlayer.BLU);
 	}
 	
 	@Test

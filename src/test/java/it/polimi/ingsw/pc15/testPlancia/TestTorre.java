@@ -29,6 +29,7 @@ import it.polimi.ingsw.pc15.risorse.SetRisorse;
 import org.junit.*;
 
 import it.polimi.ingsw.pc15.player.ColoreFamiliare;
+import it.polimi.ingsw.pc15.player.ColorePlayer;
 import it.polimi.ingsw.pc15.player.Familiare;
 import it.polimi.ingsw.pc15.player.Player;
 
@@ -158,7 +159,7 @@ public class TestTorre {
 		arrayListCarteImpresa.add(cartaImpresa);
 		arrayListCarteImpresa.add(cartaImpresa);
 		
-		player = new Player("test");
+		player = new Player("test", ColorePlayer.BLU);
 		familiare = new Familiare(ColoreFamiliare.ARANCIONE, player);
 		plancia = new Plancia(4);
 	}

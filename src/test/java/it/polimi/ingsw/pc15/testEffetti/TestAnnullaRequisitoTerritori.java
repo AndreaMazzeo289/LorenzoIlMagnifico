@@ -6,6 +6,7 @@ import static org.junit.Assert.*;
 import org.junit.*;
 
 import it.polimi.ingsw.pc15.effetti.AnnullaRequisitoTerritori;
+import it.polimi.ingsw.pc15.player.ColorePlayer;
 import it.polimi.ingsw.pc15.player.Player;
 
 public class TestAnnullaRequisitoTerritori {
@@ -16,7 +17,7 @@ public class TestAnnullaRequisitoTerritori {
 	@Before
 	public void setUp(){
 		
-		player = new Player("test");
+		player = new Player("test",ColorePlayer.BLU);
 		annullaRequisitoTerritori = new AnnullaRequisitoTerritori();
 	}
 	

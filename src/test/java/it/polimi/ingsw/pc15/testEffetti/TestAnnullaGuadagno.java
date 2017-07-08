@@ -8,6 +8,7 @@ import org.junit.*;
 
 import it.polimi.ingsw.pc15.carte.TipoCarta;
 import it.polimi.ingsw.pc15.effetti.AnnullaGuadagno;
+import it.polimi.ingsw.pc15.player.ColorePlayer;
 import it.polimi.ingsw.pc15.player.Player;
 
 public class TestAnnullaGuadagno {
@@ -19,7 +20,7 @@ public class TestAnnullaGuadagno {
 	@Before
 	public void setUp(){
 		
-		player = new Player("test");
+		player = new Player("test",ColorePlayer.BLU);
 		annullaGuadagno = new AnnullaGuadagno(TipoCarta.PERSONAGGIO);
 		bonusPuntiVittoria = new HashMap<TipoCarta, Boolean>();
 	}

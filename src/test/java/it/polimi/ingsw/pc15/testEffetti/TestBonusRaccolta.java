@@ -7,6 +7,7 @@ import static org.junit.Assert.*;
 import org.junit.*;
 
 import it.polimi.ingsw.pc15.effetti.BonusRaccolta;
+import it.polimi.ingsw.pc15.player.ColorePlayer;
 import it.polimi.ingsw.pc15.player.Player;
 
 public class TestBonusRaccolta {
@@ -18,7 +19,7 @@ public class TestBonusRaccolta {
 	public void setUp(){
 
 		bonusRaccolta = new BonusRaccolta(2);
-		player = new Player("test");
+		player = new Player("test", ColorePlayer.BLU);
 	}
 	@Test
 	public void testAttiva(){

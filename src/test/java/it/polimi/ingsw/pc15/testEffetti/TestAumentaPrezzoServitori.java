@@ -7,6 +7,7 @@ import static org.junit.Assert.*;
 import org.junit.*;
 
 import it.polimi.ingsw.pc15.effetti.AumentaPrezzoServitori;
+import it.polimi.ingsw.pc15.player.ColorePlayer;
 import it.polimi.ingsw.pc15.player.Player;
 
 
@@ -18,7 +19,7 @@ public class TestAumentaPrezzoServitori {
 	@Before
 	public void setUp(){
 		
-		player = new Player("test");
+		player = new Player("test", ColorePlayer.BLU);
 		aumentaPrezzoServitori = new AumentaPrezzoServitori();
 	}
 	

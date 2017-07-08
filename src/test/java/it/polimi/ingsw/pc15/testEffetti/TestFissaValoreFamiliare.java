@@ -4,6 +4,7 @@ import org.junit.*;
 
 import it.polimi.ingsw.pc15.effetti.FissaValoreFamiliare;
 import it.polimi.ingsw.pc15.player.ColoreFamiliare;
+import it.polimi.ingsw.pc15.player.ColorePlayer;
 import it.polimi.ingsw.pc15.player.Player;
 import static org.junit.Assert.*;
 
@@ -14,7 +15,7 @@ public class TestFissaValoreFamiliare {
 
 	@Before
 	public void setUp(){
-		player = new Player("test");
+		player = new Player("test", ColorePlayer.BLU);
 		fissaValoreFamiliare = new FissaValoreFamiliare(ColoreFamiliare.NERO, 4);
 	}
 	
