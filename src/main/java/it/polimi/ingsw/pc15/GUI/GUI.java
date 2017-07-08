@@ -120,7 +120,7 @@ public class GUI extends ClientView{
 			try {
 				Thread.sleep(4000); 
 			} catch (InterruptedException e) {}  // NOSONAR
-
+		}
 		
 		arrayListAvversari = this.clientModel.getStatoAvversari();
 		playerCorrente = this.clientModel.getStatoGiocatore();
