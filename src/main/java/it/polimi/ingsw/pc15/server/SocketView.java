@@ -19,13 +19,12 @@ import it.polimi.ingsw.pc15.risorse.TipoRisorsa;
 
 public class SocketView extends ServerView implements Serializable {
 
-	private Socket socket;
+	private transient Socket socket;
 	private Server server;
-	private ObjectInputStream inObj;
-	private ObjectOutputStream outObj;
-	private Scanner in;
-	private PrintStream out;
-	private ArrayList<String> input;
+	private transient ObjectInputStream inObj;
+	private transient ObjectOutputStream outObj;
+	private transient Scanner in;
+	private transient  PrintStream out;
 	
 	public SocketView(Socket socket, Server server) throws IOException{
 		
@@ -67,6 +66,8 @@ public class SocketView extends ServerView implements Serializable {
 		
 	}
 	
+	
+	@Override
 	public synchronized void sendLine(String messaggio) {	
 		out.println(messaggio);
 	}

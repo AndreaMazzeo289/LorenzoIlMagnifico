@@ -25,12 +25,12 @@ import it.polimi.ingsw.pc15.player.Player;
 public class Server extends UnicastRemoteObject implements ServerInterface {
 
 	private final static int PORT = 12879;
-	private ServerSocket serverSocket;
+	private transient ServerSocket serverSocket;
 	private ArrayList<RMIView> rmiViews;
 	private HashMap<String, ServerView> views;
 	private int numeroGiocatori;
 	private ArrayList<Partita> partite;
-	private Thread timerThread;
+	private transient Thread timerThread;
 	
 	public Server() throws IOException {
 		this.serverSocket = new ServerSocket(PORT);
@@ -87,7 +87,7 @@ public class Server extends UnicastRemoteObject implements ServerInterface {
 		System.out.println("Giocatore connnesso: " + name);
 		numeroGiocatori++;
 		if (numeroGiocatori==ParserXML.leggiValore("numeroMinGiocatori")) {
-			ServerTimer timer = new ServerTimer(views, this);
+			ServerTimer timer = new ServerTimer(this);
 			timerThread = new Thread(timer);
 			timerThread.start();
 		}

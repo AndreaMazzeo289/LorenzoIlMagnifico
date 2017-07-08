@@ -16,10 +16,10 @@ import it.polimi.ingsw.pc15.risorse.TipoRisorsa;
 
 public class SocketHandler extends NetworkHandler implements Serializable{
 	
-	private Scanner in;
-	private PrintStream out;
-	private ObjectInputStream inObj;
-	private ObjectOutputStream outObj;
+	private transient Scanner in;
+	private transient PrintStream out;
+	private transient ObjectInputStream inObj;
+	private transient ObjectOutputStream outObj;
 
 	public SocketHandler (Socket socket, ClientModel clientModel, String name) throws IOException  {
 		
@@ -31,6 +31,7 @@ public class SocketHandler extends NetworkHandler implements Serializable{
 		this.outObj = new ObjectOutputStream(socket.getOutputStream());
 	}	
 	
+	@Override
 	public void connetti() {
 		
 		out.println(name);  //manda il nome alla Connection
@@ -59,7 +60,6 @@ public class SocketHandler extends NetworkHandler implements Serializable{
 	@Override
 	public void update(Observable o, Object input) {
 		
-		//System.out.println("\nSono il SocketHandler e ho ricevuto " + (ArrayList<String>) input);
 		
 		try {
 			send(input);

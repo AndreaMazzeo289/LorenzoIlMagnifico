@@ -17,8 +17,8 @@ public abstract class Carta implements Serializable {
 	protected final int id;
 	protected final int periodo;
 	protected final SetRisorse costo;
-	protected final Set<Effetto> effettoIstantaneo;
-	protected final Set<Effetto> effettoPermanente;
+	protected transient final Set<Effetto> effettoIstantaneo;
+	protected transient final Set<Effetto> effettoPermanente;
 	protected final String imgPath;
 	protected Player player;
 	protected SpazioTorre spazio;
@@ -44,7 +44,6 @@ public abstract class Carta implements Serializable {
 		this.player = player;
 	}      
 	
-	//public abstract AzionePrendiCarta azionePrendiCarta (Player player);
 	
 	
 	//-----------------------------------------------------------------------------------------------------------//
@@ -87,6 +86,7 @@ public abstract class Carta implements Serializable {
 		return this.effettoIstantaneo;
 	}
 	
+	@Override
 	public String toString() {
 		String stringa = nome + " (COSTO: " + costo.toString() + " -  EFFETTO ISTANTANEO: ";
 		if (effettoIstantaneo.isEmpty())

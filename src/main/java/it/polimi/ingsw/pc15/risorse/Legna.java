@@ -8,6 +8,7 @@ import java.io.Serializable;
  */
 
 
+
 public class Legna extends Risorsa implements Cloneable {
 
 	public Legna(int quantità) {

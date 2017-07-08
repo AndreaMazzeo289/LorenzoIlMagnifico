@@ -17,8 +17,8 @@ import it.polimi.ingsw.pc15.server.ServerInterface;
 public class RMIHandler extends NetworkHandler implements RMIHandlerInterface {
 	
 	private int numeroConnessione;
-	private ServerInterface server;
-	private Scanner scan = new Scanner(System.in);
+	private transient ServerInterface server;
+	
 	
 	public RMIHandler (ClientModel clientModel, String name) {	
 		super(name, clientModel);
@@ -60,6 +60,7 @@ public class RMIHandler extends NetworkHandler implements RMIHandlerInterface {
 		return this.name;
 	}
 	
+	@Override
 	public void remoteOK() throws RemoteException {
 		setChanged();
 		notifyObservers();

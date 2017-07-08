@@ -6,11 +6,9 @@ import it.polimi.ingsw.pc15.ParserXML;
 
 public class ServerTimer implements Runnable {
 	
-	private HashMap<String, ServerView> giocatori;
 	private Server server;
 	
-	public ServerTimer (HashMap<String, ServerView> giocatori, Server server) {
-		this.giocatori = giocatori;
+	public ServerTimer (Server server) {
 		this.server = server;
 	}
 
