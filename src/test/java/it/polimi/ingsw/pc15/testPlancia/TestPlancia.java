@@ -14,6 +14,7 @@ import it.polimi.ingsw.pc15.effetti.Effetto;
 import it.polimi.ingsw.pc15.plancia.Plancia;
 import it.polimi.ingsw.pc15.plancia.Torre;
 import it.polimi.ingsw.pc15.player.ColoreFamiliare;
+import it.polimi.ingsw.pc15.player.ColorePlayer;
 import it.polimi.ingsw.pc15.player.Familiare;
 import it.polimi.ingsw.pc15.player.Player;
 import it.polimi.ingsw.pc15.risorse.Legna;
@@ -151,7 +152,7 @@ public class TestPlancia {
 		//          TEST LIBERA                                                                                      //
 		//-----------------------------------------------------------------------------------------------------------//
 		
-		player = new Player("pippo");
+		player = new Player("test",ColorePlayer.BLU);
 		
 		arrayRisorse = new ArrayList<SetRisorse>();
 		arrayRisorse.add(setRisorsePlayer);

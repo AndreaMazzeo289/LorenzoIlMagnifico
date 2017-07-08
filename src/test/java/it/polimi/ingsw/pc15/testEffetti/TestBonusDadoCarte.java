@@ -8,6 +8,7 @@ import org.junit.*;
 
 import it.polimi.ingsw.pc15.carte.TipoCarta;
 import it.polimi.ingsw.pc15.effetti.BonusDadoCarte;
+import it.polimi.ingsw.pc15.player.ColorePlayer;
 import it.polimi.ingsw.pc15.player.Player;
 
 
@@ -20,7 +21,7 @@ public class TestBonusDadoCarte {
 	public void setUp(){
 		
 		bonusDadoCarte = new BonusDadoCarte(TipoCarta.TERRITORIO, 2);
-		player = new Player("test");
+		player = new Player("test", ColorePlayer.BLU);
 	}
 	
 	@Test

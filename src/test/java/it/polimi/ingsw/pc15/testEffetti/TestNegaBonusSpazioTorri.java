@@ -3,6 +3,7 @@ package it.polimi.ingsw.pc15.testEffetti;
 import org.junit.*;
 
 import it.polimi.ingsw.pc15.effetti.NegaBonusSpazioTorri;
+import it.polimi.ingsw.pc15.player.ColorePlayer;
 import it.polimi.ingsw.pc15.player.Player;
 
 import static org.junit.Assert.*;
@@ -15,7 +16,7 @@ public class TestNegaBonusSpazioTorri {
 	@Before
 	public void setUp(){
 		
-		player = new Player("test");
+		player = new Player("test", ColorePlayer.BLU);
 		negaBonusSpazioTorri = new NegaBonusSpazioTorri();
 		
 	}

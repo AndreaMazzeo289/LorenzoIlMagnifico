@@ -6,6 +6,7 @@ import static org.junit.Assert.*;
 import org.junit.*;
 
 import it.polimi.ingsw.pc15.effetti.AnnullaSovrapprezzoTorri;
+import it.polimi.ingsw.pc15.player.ColorePlayer;
 import it.polimi.ingsw.pc15.player.Player;
 
 public class TestAnnullaSovrapprezzoTorri {
@@ -16,7 +17,7 @@ public class TestAnnullaSovrapprezzoTorri {
 	@Before
 	public void setUp(){
 		
-		player = new Player("test");
+		player = new Player("test",ColorePlayer.BLU);
 		annullaSovrapprezzoTorri = new AnnullaSovrapprezzoTorri();
 	}
 	

@@ -15,6 +15,7 @@ import it.polimi.ingsw.pc15.GUI.gameboard.Gameboard;
 import it.polimi.ingsw.pc15.GUI.playerboard.CarteGioco;
 import it.polimi.ingsw.pc15.GUI.playerboard.PlayerBoard;
 import it.polimi.ingsw.pc15.carte.Carta;
+import it.polimi.ingsw.pc15.carte.Impresa;
 import it.polimi.ingsw.pc15.carte.TipoCarta;
 import it.polimi.ingsw.pc15.client.ClientModel;
 import it.polimi.ingsw.pc15.client.ClientView;
@@ -373,5 +374,14 @@ public class GUI extends ClientView{
 	}
 	public void clearMessage() {
 		this.message.clear();
+	}
+	public int sceltaRichiesta(int numeroSpazio) {
+		if (this.clientModel.getStatoPlancia().getSpazioTorre(TipoCarta.IMPRESA, numeroSpazio).getCarta().getCosto().getRisorse().isEmpty()==false && ((Impresa) this.clientModel.getStatoPlancia().getSpazioTorre(TipoCarta.IMPRESA, numeroSpazio).getCarta()).getRequisitoPuntiMilitari()!=0)
+			return 0;
+		else
+			if (this.clientModel.getStatoPlancia().getSpazioTorre(TipoCarta.IMPRESA, numeroSpazio).getCarta().getCosto().getRisorse().isEmpty())
+				return 2;
+			else
+				return 1;
 	}
 }

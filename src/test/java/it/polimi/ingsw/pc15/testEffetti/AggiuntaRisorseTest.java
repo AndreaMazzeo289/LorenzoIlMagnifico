@@ -7,6 +7,7 @@ import java.util.HashSet;
 import org.junit.*;
 
 import it.polimi.ingsw.pc15.effetti.AggiuntaRisorse;
+import it.polimi.ingsw.pc15.player.ColorePlayer;
 import it.polimi.ingsw.pc15.player.Player;
 import it.polimi.ingsw.pc15.risorse.Legna;
 import it.polimi.ingsw.pc15.risorse.Oro;
@@ -60,7 +61,7 @@ public class AggiuntaRisorseTest {
 		setRisorse.add(servitori);
 		setRisorseTest = new SetRisorse(setRisorse);
 		aggiuntaRisorse = new AggiuntaRisorse(setRisorseTest);
-		player = new Player("test");
+		player = new Player("test", ColorePlayer.BLU);
 	}
 	
 	@Test

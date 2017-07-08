@@ -4,6 +4,7 @@ import static org.junit.Assert.*;
 import org.junit.*;
 
 import it.polimi.ingsw.pc15.effetti.BonusRisorseCarte;
+import it.polimi.ingsw.pc15.player.ColorePlayer;
 import it.polimi.ingsw.pc15.player.Player;
 import it.polimi.ingsw.pc15.risorse.TipoRisorsa;
 
@@ -16,7 +17,7 @@ public class TestBonusRisorseCarte {
 	public void setUp(){
 		
 		bonusRisorseCarte = new BonusRisorseCarte(2, TipoRisorsa.LEGNA);
-		player = new Player("test");
+		player = new Player("test",ColorePlayer.BLU);
 	}
 	
 	/*

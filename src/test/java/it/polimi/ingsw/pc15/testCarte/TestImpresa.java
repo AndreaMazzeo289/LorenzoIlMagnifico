@@ -71,7 +71,7 @@ public class TestImpresa {
 		effettoPermanente = new HashSet<Effetto>();
 		effettoIstantaneo = new HashSet<Effetto>();
 		
-		annullaGuadagno = new AnnullaGuadagno(TipoCarta.EDIFICIO);
+		annullaGuadagno = new AnnullaGuadagno(TipoCarta.IMPRESA);
 		effettoPermanente.add(annullaGuadagno);
 		effettoIstantaneo.add(annullaGuadagno);
 		

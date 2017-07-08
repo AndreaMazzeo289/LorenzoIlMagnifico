@@ -70,7 +70,7 @@ public class TestTerritorio {
 		effettoPermanente = new HashSet<Effetto>();
 		effettoIstantaneo = new HashSet<Effetto>();
 		
-		annullaGuadagno = new AnnullaGuadagno(TipoCarta.EDIFICIO);
+		annullaGuadagno = new AnnullaGuadagno(TipoCarta.TERRITORIO);
 		effettoPermanente.add(annullaGuadagno);
 		effettoIstantaneo.add(annullaGuadagno);
 		

@@ -12,6 +12,7 @@ import it.polimi.ingsw.pc15.effetti.Effetto;
 import it.polimi.ingsw.pc15.plancia.SpazioTorre;
 import it.polimi.ingsw.pc15.plancia.Torre;
 import it.polimi.ingsw.pc15.player.ColoreFamiliare;
+import it.polimi.ingsw.pc15.player.ColorePlayer;
 import it.polimi.ingsw.pc15.player.EffettiAttivi;
 import it.polimi.ingsw.pc15.player.Familiare;
 import it.polimi.ingsw.pc15.player.Player;
@@ -79,7 +80,7 @@ public class TestPlayer {
 		//-----------------------------------------------------------------------------------------------------------//
 		
 		
-		player = new Player("pippo");	
+		player = new Player("Test", ColorePlayer.BLU);	
 		
 		
 		//-----------------------------------------------------------------------------------------------------------//
@@ -144,7 +145,7 @@ public class TestPlayer {
 	
 	@Test
 	public void testGetNome(){
-		assertEquals("Errore get nome", "pippo", player.getNome());	
+		assertEquals("Errore get nome", "Test", player.getNome());	
 	}
 	
 	@Test

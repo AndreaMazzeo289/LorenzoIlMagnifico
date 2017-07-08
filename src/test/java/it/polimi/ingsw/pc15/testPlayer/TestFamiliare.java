@@ -4,6 +4,7 @@ import static org.junit.Assert.*;
 import org.junit.*;
 
 import it.polimi.ingsw.pc15.player.ColoreFamiliare;
+import it.polimi.ingsw.pc15.player.ColorePlayer;
 import it.polimi.ingsw.pc15.player.Familiare;
 import it.polimi.ingsw.pc15.player.Player;
 
@@ -17,7 +18,7 @@ public class TestFamiliare {
 	@Before
 	public void setUp() throws Exception{
 		
-		player = new Player("TonyEffe");
+		player = new Player("Test", ColorePlayer.BLU);
 		familiare = new Familiare(ColoreFamiliare.ARANCIONE, player);
 		valore = 0;
 		valoreBonus = 0;
@@ -59,7 +60,7 @@ public class TestFamiliare {
 	
 	@Test
 	public void testGetPlayer(){
-		assertEquals("Errore get player", "TonyEffe", player.getNome());
+		assertEquals("Errore get player", "Test", player.getNome());
 	}
 	
 	@Test 

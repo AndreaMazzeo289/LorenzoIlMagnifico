@@ -15,6 +15,7 @@ import it.polimi.ingsw.pc15.effetti.Effetto;
 import it.polimi.ingsw.pc15.effetti.Produzione;
 import it.polimi.ingsw.pc15.plancia.Plancia;
 import it.polimi.ingsw.pc15.player.ColoreFamiliare;
+import it.polimi.ingsw.pc15.player.ColorePlayer;
 import it.polimi.ingsw.pc15.player.Player;
 import it.polimi.ingsw.pc15.risorse.Legna;
 import it.polimi.ingsw.pc15.risorse.Oro;
@@ -94,7 +95,7 @@ public class TestProduzione {
 	@Before
 	public void setUp(){
 		
-		player = new Player("test");
+		player = new Player("test",ColorePlayer.BLU);
 		
 		
 		player.getSetRisorse().aggiungi(new Legna(0));

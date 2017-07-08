@@ -7,6 +7,7 @@ import org.junit.*;
 
 import it.polimi.ingsw.pc15.carte.TipoCarta;
 import it.polimi.ingsw.pc15.effetti.AzionePrendiCartaAggiuntiva;
+import it.polimi.ingsw.pc15.player.ColorePlayer;
 import it.polimi.ingsw.pc15.player.Player;
 
 public class TestAzionePrendiCartaAggiuntiva {
@@ -18,7 +19,7 @@ public class TestAzionePrendiCartaAggiuntiva {
 	@Before
 	public void setUp(){
 		
-		player = new Player("test");
+		player = new Player("test", ColorePlayer.BLU);
 		azionePrendiCartaAggiuntiva = new AzionePrendiCartaAggiuntiva(TipoCarta.ALL, 5);
 		
 	}
