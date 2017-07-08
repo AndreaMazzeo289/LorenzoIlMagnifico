@@ -35,6 +35,7 @@ public class CLI extends ClientView {
 		this.input = new Scanner(System.in);
 	}
 	
+	@Override
 	public void run(){
 		
 	    while (true) {
