@@ -24,17 +24,15 @@ import it.polimi.ingsw.pc15.player.Player;
 
 public class ButtonListener implements ActionListener{
 
-	public SelezionaFamiliarePopup selezionaFamiliarePopup;
-	public SelezionaNumeroServitori selezionaNumeroServitori;
-	GiocaLeaderPopup giocaLeaderPopup;
-	ColoreFamiliare coloreFamiliareScelto = null;
-	AttivaLeaderPopup attivaLeaderPopup;
-	ScartaLeaderPopup scartaLeaderPopup;
-	FrameInformazioniPlayer frameInformazioniPlayer;
-	boolean familiareScelto = false;
-	GUI gui;
-	
-	//private ArrayList<String> message;
+	private SelezionaFamiliarePopup selezionaFamiliarePopup;
+	private SelezionaNumeroServitori selezionaNumeroServitori;
+	private GiocaLeaderPopup giocaLeaderPopup;
+	private ColoreFamiliare coloreFamiliareScelto = null;
+	private AttivaLeaderPopup attivaLeaderPopup;
+	private ScartaLeaderPopup scartaLeaderPopup;
+	private FrameInformazioniPlayer frameInformazioniPlayer;
+	private boolean familiareScelto = false;
+	private GUI gui;
 	
 	public ButtonListener(GUI gui) {
 		this.gui = gui;
@@ -42,8 +40,6 @@ public class ButtonListener implements ActionListener{
 
 	@Override
 	public void actionPerformed(ActionEvent e) {
-		
-		//message = new ArrayList();
 		
 		PlayerBoard playerBoard = (PlayerBoard) gui.mainFrame.getContentPane().getComponent(1);
 		Gameboard gameboard = (Gameboard) gui.mainFrame.getContentPane().getComponent(0);
@@ -68,18 +64,25 @@ public class ButtonListener implements ActionListener{
 		}
 		
 		if(e.getActionCommand().equals("attivaCartaLeader")) {
-			if(gui.tuoTurno())
+			if(gui.tuoTurno()) {
 				giocaLeaderPopup = new GiocaLeaderPopup(this, gui);
+				gui.writeMessage("gioca Leader");
+			}
 		}
 		
 		if (e.getActionCommand().equals("attivaEffettoLeader")) {
-			if(gui.tuoTurno())
+			if(gui.tuoTurno()) {
 				attivaLeaderPopup = new AttivaLeaderPopup(this, gui);
+				gui.writeMessage("attiva effetto Leader");
+			}
+				
 		}
 		
 		if (e.getActionCommand().equals("scartaCartaLeader")) {
-			if(gui.tuoTurno())
+			if(gui.tuoTurno()) {
 				scartaLeaderPopup = new ScartaLeaderPopup(this, gui);
+				gui.writeMessage("scarta Leader");
+			}
 		}
 		
 		if (e.getActionCommand().equals("buttonScomuniche")) {
@@ -92,7 +95,7 @@ public class ButtonListener implements ActionListener{
 		
 		if (e.getActionCommand().equals("posizionaFamiliare")) {
 			if(gui.tuoTurno()) {
-				selezionaFamiliarePopup = new SelezionaFamiliarePopup(this,gui.getPlayerCorrente());
+				selezionaFamiliarePopup = new SelezionaFamiliarePopup(this, gui.getPlayerCorrente());
 				gui.clearMessage(); 
 				gui.writeMessage("posiziona familiare");
 			}
@@ -102,7 +105,7 @@ public class ButtonListener implements ActionListener{
 		// SELEZIONATO FAMILIARE BIANCO
 		//------------------------------------------------------------------------------------//
 		if(e.getActionCommand().equals("selezionatoFamiliareBianco")) {
-			playerBoard.getPanelSpazioFamiliariDisponibili().utilizzaFamiliare(ColoreFamiliare.BIANCO);
+			//playerBoard.getPanelSpazioFamiliariDisponibili().utilizzaFamiliare(ColoreFamiliare.BIANCO);
 			gui.writeMessage("familiare bianco");
 			coloreFamiliareScelto = ColoreFamiliare.BIANCO;
 
@@ -123,7 +126,7 @@ public class ButtonListener implements ActionListener{
 		// SELEZIONATO FAMILIARE ARANCIONE
 		//------------------------------------------------------------------------------------//
 		if(e.getActionCommand().equals("selezionatoFamiliareArancione")) {
-			playerBoard.getPanelSpazioFamiliariDisponibili().utilizzaFamiliare(ColoreFamiliare.ARANCIONE);
+			//playerBoard.getPanelSpazioFamiliariDisponibili().utilizzaFamiliare(ColoreFamiliare.ARANCIONE);
 			gui.writeMessage("familiare arancione");
 			coloreFamiliareScelto = ColoreFamiliare.ARANCIONE;
 			
@@ -144,7 +147,7 @@ public class ButtonListener implements ActionListener{
 		// SELEZIONATO FAMILIARE NERO
 		//------------------------------------------------------------------------------------//
 		if(e.getActionCommand().equals("selezionatoFamiliareNero")) {
-			playerBoard.getPanelSpazioFamiliariDisponibili().utilizzaFamiliare(ColoreFamiliare.NERO);
+			//playerBoard.getPanelSpazioFamiliariDisponibili().utilizzaFamiliare(ColoreFamiliare.NERO);
 			gui.writeMessage("familiare nero");
 			coloreFamiliareScelto = ColoreFamiliare.NERO;
 			
@@ -164,7 +167,7 @@ public class ButtonListener implements ActionListener{
 		// SELEZIONATO FAMILIARE NEUTRO
 		//------------------------------------------------------------------------------------//
 		if(e.getActionCommand().equals("selezionatoFamiliareNeutro")) {
-			playerBoard.getPanelSpazioFamiliariDisponibili().utilizzaFamiliare(ColoreFamiliare.NEUTRO);
+			//playerBoard.getPanelSpazioFamiliariDisponibili().utilizzaFamiliare(ColoreFamiliare.NEUTRO);
 			gui.writeMessage("familiare neutro");
 			coloreFamiliareScelto = ColoreFamiliare.NEUTRO;
 			
@@ -190,8 +193,8 @@ public class ButtonListener implements ActionListener{
 		
 		if(e.getActionCommand().equals("noServitori")) {
 			System.out.println("selezionato no");
-			selezionaNumeroServitori.dispose();
 			gui.writeMessage("0");
+			selezionaNumeroServitori.dispose();
 		}
 		
 		if(e.getActionCommand().equals("submitNumeroServitori")) {
@@ -200,74 +203,7 @@ public class ButtonListener implements ActionListener{
 			selezionaNumeroServitori.getPopupNumeroServitori().dispose();
 		}
 		
-		if(tipo.equals("leader1Gioca")){
-			
-			playerBoard.getCartaLeader1().scriviLabel("GIOCATO");
-			giocaLeaderPopup.dispose();
-		}
-		
-		if(tipo.equals("leader2Gioca")){
-					
-			playerBoard.getCartaLeader2().scriviLabel("GIOCATO");
-			giocaLeaderPopup.dispose();
-		}
-		
-		if(tipo.equals("leader3Gioca")){
-			
-			playerBoard.getCartaLeader3().scriviLabel("GIOCATO");
-			giocaLeaderPopup.dispose();
-		}
-		
-		if(tipo.equals("leader4Gioca")){
-			
-			playerBoard.getCartaLeader4().scriviLabel("GIOCATO");
-			giocaLeaderPopup.dispose();
-		}
-		
-		if(tipo.equals("leader1Attiva")){
-			attivaLeaderPopup.dispose();
-			System.out.println("leader 1 attivato");
-		}
-		
-		if(tipo.equals("leader2Attiva")){
-			attivaLeaderPopup.dispose();
-			System.out.println("leader 2 attivato");
-		}
-		
-		if(tipo.equals("leader3Attiva")){
-			attivaLeaderPopup.dispose();
-			System.out.println("leader 3 attivato");
-		}
-		
-		if(tipo.equals("leader4Attiva")){
-			attivaLeaderPopup.dispose();
-			System.out.println("leader 4 attivato");
-		}
-		
-		if(tipo.equals("leader1Scarta")){
-			scartaLeaderPopup.dispose();
-			System.out.println("leader 1 scartato");
-			playerBoard.getCartaLeader1().scriviLabel("SCARTATO");
-		}
-		
-		if(tipo.equals("leader2Scarta")){
-			scartaLeaderPopup.dispose();
-			System.out.println("leader 2 scartato");
-			playerBoard.getCartaLeader2().scriviLabel("SCARTATO");
-		}
-		
-		if(tipo.equals("leader3Scarta")){
-			scartaLeaderPopup.dispose();
-			System.out.println("leader 3 scartato");
-			playerBoard.getCartaLeader3().scriviLabel("SCARTATO");
-		}
-		
-		if(tipo.equals("leader4Scarta")){
-			scartaLeaderPopup.dispose();
-			System.out.println("leader 4 scartato");
-			
-			playerBoard.getCartaLeader4().scriviLabel("SCARTATO");
-		}
+	
 		
 		if(e.getActionCommand().startsWith("carteTerritorioPlayer")) {
 			String index = e.getActionCommand().substring(21);
@@ -325,10 +261,7 @@ public class ButtonListener implements ActionListener{
 			
 				gui.writeMessage("consiglio");
 				String index = e.getActionCommand().substring(24);
-			
-				SpazioConsiglio spazioConsiglio = (SpazioConsiglio)gameboard.getSpazioConsiglio();
-				spazioConsiglio.inserisciFamiliare(selezionaFamiliarePopup.readPath(coloreFamiliareScelto));
-			
+				
 				{
 					playerBoard.getButtonPosizionaFamiliare().sbloccaButton();
 					playerBoard.getButtonAttivaEffettoLeader().sbloccaButton();
@@ -373,9 +306,6 @@ public class ButtonListener implements ActionListener{
 				
 				gui.writeMessage("consiglio");
 				String index = e.getActionCommand().substring(25);
-			
-				SpazioProduzione2 spazioProduzione2 = (SpazioProduzione2)gameboard.getSpazioProduzione2();
-				spazioProduzione2.inserisciFamiliare(selezionaFamiliarePopup.readPath(coloreFamiliareScelto),spazioProduzione2.getButton(Integer.parseInt(index)));
 				
 				{
 					playerBoard.getButtonPosizionaFamiliare().sbloccaButton();
@@ -421,9 +351,6 @@ public class ButtonListener implements ActionListener{
 		
 				gui.writeMessage("raccolta");
 				String index = e.getActionCommand().substring(23);
-			
-				SpazioRaccolto2 spazioRaccolto2 = (SpazioRaccolto2)gameboard.getSpazioRaccolto2();
-				spazioRaccolto2.inserisciFamiliare(selezionaFamiliarePopup.readPath(coloreFamiliareScelto),spazioRaccolto2.getButton(Integer.parseInt(index)));
 				
 				{
 					playerBoard.getButtonPosizionaFamiliare().sbloccaButton();
@@ -515,6 +442,95 @@ public class ButtonListener implements ActionListener{
 				coloreFamiliareScelto=null;
 				gui.inviaMessaggio();
 			}
+		}
+		
+		//------------------------------------------------------------------------------------//
+		// GESTIONE LEADER
+		//------------------------------------------------------------------------------------//
+		
+		if(tipo.equals("leader1Gioca")){
+			
+			playerBoard.getCartaLeader1().scriviLabel("GIOCATO");
+			gui.writeMessage("1");
+			giocaLeaderPopup.dispose();
+			gui.inviaMessaggio();
+		}
+		
+		if(tipo.equals("leader2Gioca")){
+					
+			playerBoard.getCartaLeader2().scriviLabel("GIOCATO");
+			 
+			gui.writeMessage("2");
+			giocaLeaderPopup.dispose();
+			gui.inviaMessaggio();
+		}
+		
+		if(tipo.equals("leader3Gioca")){
+			
+			playerBoard.getCartaLeader3().scriviLabel("GIOCATO");
+			gui.writeMessage("3");
+			giocaLeaderPopup.dispose();
+			gui.inviaMessaggio();
+		}
+		
+		if(tipo.equals("leader4Gioca")){
+			
+			playerBoard.getCartaLeader4().scriviLabel("GIOCATO");
+			gui.writeMessage("4");
+			giocaLeaderPopup.dispose();
+			gui.inviaMessaggio();
+		}
+		
+		if(tipo.equals("leader1Attiva")){
+			attivaLeaderPopup.dispose();
+			gui.writeMessage("1");
+			gui.inviaMessaggio();
+		}
+		
+		if(tipo.equals("leader2Attiva")){
+			attivaLeaderPopup.dispose();
+			gui.writeMessage("2");
+			gui.inviaMessaggio();
+		}
+		
+		if(tipo.equals("leader3Attiva")){
+			attivaLeaderPopup.dispose();
+			gui.writeMessage("3");
+			gui.inviaMessaggio();
+		}
+		
+		if(tipo.equals("leader4Attiva")){
+			attivaLeaderPopup.dispose();
+			gui.writeMessage("4");
+			gui.inviaMessaggio();
+		}
+		
+		if(tipo.equals("leader1Scarta")){
+			scartaLeaderPopup.dispose();
+			gui.writeMessage("1");
+			playerBoard.getCartaLeader1().scriviLabel("SCARTATO");
+			gui.inviaMessaggio();
+		}
+		
+		if(tipo.equals("leader2Scarta")){
+			scartaLeaderPopup.dispose();
+			gui.writeMessage("2");
+			playerBoard.getCartaLeader2().scriviLabel("SCARTATO");
+			gui.inviaMessaggio();
+		}
+		
+		if(tipo.equals("leader3Scarta")){
+			scartaLeaderPopup.dispose();
+			gui.writeMessage("3");
+			playerBoard.getCartaLeader3().scriviLabel("SCARTATO");
+			gui.inviaMessaggio();
+		}
+		
+		if(tipo.equals("leader4Scarta")){
+			scartaLeaderPopup.dispose();
+			gui.writeMessage("4");
+			playerBoard.getCartaLeader4().scriviLabel("SCARTATO");
+			gui.inviaMessaggio();
 		}
 	}
 }

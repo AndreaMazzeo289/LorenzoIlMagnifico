@@ -130,14 +130,26 @@ public class SpazioProduzione2 extends JPanel{
 		this.add(labelCenter, BorderLayout.CENTER);
 	}
 	
-	public void inserisciFamiliare(String path, ButtonTransparent button) {
+	public void inserisciFamiliare(String path) {
 		imageIcon = new ImageIcon(path);
 		image = imageIcon.getImage();
 		newImage = image.getScaledInstance(((int)(larghezzaSchermo*102)/larghezzaTotale),((int)(altezzaSchermo*85)/altezzaTotale),Image.SCALE_DEFAULT);
 		ImageIcon imageButton = new ImageIcon(newImage);
 		
-		button.setIcon(imageButton);
-		button.setBorder(null);
+		int i=0;
+		while(i<16 && button.get(i).getName().equals("occupato"))
+			i++;
+		button.get(i).setIcon(imageButton);
+		button.get(i).setBorder(null);
+		button.get(i).setName("occupato");
+	}
+	
+	public void rimuoviFamliari() {
+		for(int i=0;i<16;i++) {
+			if(button.get(i).getName().equals("occupato")) {
+				button.get(i).setIcon(null);
+			}
+		}
 	}
 	
 	public ButtonTransparent getButton(int posizione) {

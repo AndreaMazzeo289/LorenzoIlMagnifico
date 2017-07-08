@@ -145,7 +145,15 @@ public class SpazioConsiglio extends JPanel{
 		button.get(i).setName("occupato");
 	}
 	
-	public ButtonTransparent getButton(int Posizione){
-		return button.get(Posizione);
+	public void rimuoviFamliari() {
+		for(int i=0;i<16;i++) {
+			if(button.get(i).getName().equals("occupato")) {
+				button.get(i).setIcon(null);
+			}
+		}
+	}
+	
+	public ButtonTransparent getButton(int posizione){
+		return button.get(posizione);
 	}
 }

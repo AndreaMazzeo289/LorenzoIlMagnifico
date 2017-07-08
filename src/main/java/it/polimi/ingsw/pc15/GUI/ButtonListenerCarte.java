@@ -61,7 +61,7 @@ public class ButtonListenerCarte implements ActionListener{
 		zoomCard.setVisible(true);
 		zoomCard.setAlwaysOnTop(true);
 
-		if(tipo.equals("leader1")){
+		/*if(tipo.equals("leader1")){
 			PlayerBoard playerBoard = (PlayerBoard)gui.mainFrame.getContentPane().getComponent(1);
 			playerBoard.getCartaLeader1().scriviLabel("GIOCATO");
 		}
@@ -81,6 +81,6 @@ public class ButtonListenerCarte implements ActionListener{
 		if(tipo.equals("leader1Gioca")){
 			PlayerBoard playerBoard = (PlayerBoard)gui.mainFrame.getContentPane().getComponent(1);
 			playerBoard.getCartaLeader1().scriviLabel("GIOCATO");
-		}
+		}*/
 	}
 }

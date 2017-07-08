@@ -151,7 +151,7 @@ public class PlayerBoard extends JPanel{
 		risorsePlayer.add(new PanelRisorse("img\\Punchboard\\Risorse\\northVittoria.png", 0,gui), gbc);
 		gbc.gridx=7;
 		risorsePlayer.add(new SpazioFamiliariDisponibili(gui), gbc);
-		
+		System.out.println(gui.getPlayerCorrente());
 		labelTesto = new JLabel("",SwingConstants.CENTER);
 		labelTesto.setFont((new Font("Courier New", Font.ITALIC, 22)));
 		

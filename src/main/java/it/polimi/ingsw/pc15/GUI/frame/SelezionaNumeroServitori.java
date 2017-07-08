@@ -2,6 +2,9 @@ package it.polimi.ingsw.pc15.GUI.frame;
 
 import java.awt.BorderLayout;
 import java.awt.Color;
+import java.awt.Component;
+import java.awt.FlowLayout;
+import java.awt.Font;
 import java.awt.GridLayout;
 import java.awt.Image;
 import java.awt.LayoutManager;
@@ -11,7 +14,9 @@ import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
+import javax.swing.JTextArea;
 import javax.swing.JTextField;
+import javax.swing.SwingConstants;
 
 import it.polimi.ingsw.pc15.GUI.ButtonListener;
 
@@ -31,9 +36,9 @@ public class SelezionaNumeroServitori extends JFrame{
 	private int larghezzaButton;
 	
 	private JFrame frameNumeroServitori;
-	private JTextField inputNumero;
+	private JTextArea inputNumero;
 	
-	private ButtonListener buttonListenerCall;
+	private transient ButtonListener buttonListenerCall;
 	
 	public SelezionaNumeroServitori(ButtonListener buttonListener) {
 		
@@ -50,7 +55,7 @@ public class SelezionaNumeroServitori extends JFrame{
 		buttonNo = new JButton();
 		buttonSi = new JButton();
 		
-		/*imageIcon = new ImageIcon("img/Punchboard/Popup/SiButton.png");
+		imageIcon = new ImageIcon("img/Punchboard/Popup/SiButton.png");
 		image = imageIcon.getImage();
 		newImage = image.getScaledInstance(larghezzaButton,altezzaButton,Image.SCALE_DEFAULT);
 		ImageIcon imageButtonSi = new ImageIcon(newImage);
@@ -64,10 +69,10 @@ public class SelezionaNumeroServitori extends JFrame{
 		buttonNo.setIcon(imageButtonNo);
 		
 		buttonSi.setBorder(null);
-		buttonNo.setBorder(null);*/
+		buttonNo.setBorder(null);
 		
-		buttonSi.setText("SI");
-		buttonNo.setText("NO");
+		//buttonSi.setText("SI");
+		//buttonNo.setText("NO");
 		
 		buttonSi.addActionListener(buttonListenerCall);
 		buttonNo.addActionListener(buttonListenerCall);
@@ -78,8 +83,9 @@ public class SelezionaNumeroServitori extends JFrame{
 		panelButton.add(buttonSi);
 		panelButton.add(buttonNo);
 		
-		testo = new JLabel();
+		testo = new JLabel("",SwingConstants.CENTER);
 		testo.setText("VUOI USARE SERVITORI AGGIUNTIVI?");
+		testo.setFont((new Font("Courier New", Font.ITALIC, 15)));
 		
 		this.add(testo, BorderLayout.NORTH);
 		this.add(panelButton, BorderLayout.CENTER);
@@ -97,10 +103,13 @@ public class SelezionaNumeroServitori extends JFrame{
 		submit.setActionCommand("submitNumeroServitori");
 		submit.addActionListener(buttonListenerCall);
 		
+		inputNumero = new JTextArea();
+		inputNumero.setLayout(new GridLayout(1,1));
 		
-		inputNumero = new JTextField("Inserire il numero...");
+		inputNumero.setFont((new Font("Courier New", Font.ITALIC, 50)));
 		
-		JLabel labelTitolo = new JLabel();
+		JLabel labelTitolo = new JLabel("",SwingConstants.CENTER);
+		labelTitolo.setFont((new Font("Courier New", Font.ITALIC, 15)));
 		
 		labelTitolo.setText("INSERISCI IL NUMERO DI SERVITORI AGGIUNTIVI:");
 		

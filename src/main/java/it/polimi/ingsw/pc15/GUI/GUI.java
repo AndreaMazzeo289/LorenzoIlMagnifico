@@ -19,6 +19,8 @@ import it.polimi.ingsw.pc15.carte.TipoCarta;
 import it.polimi.ingsw.pc15.client.ClientModel;
 import it.polimi.ingsw.pc15.client.ClientView;
 import it.polimi.ingsw.pc15.client.NetworkHandler;
+import it.polimi.ingsw.pc15.plancia.Spazio;
+import it.polimi.ingsw.pc15.plancia.SpazioConsiglio;
 import it.polimi.ingsw.pc15.plancia.SpazioMercato;
 import it.polimi.ingsw.pc15.plancia.SpazioTorre;
 import it.polimi.ingsw.pc15.player.ColoreFamiliare;
@@ -52,8 +54,13 @@ public class GUI extends ClientView{
 	private HashMap<ColoreFamiliare,String> mappaFamiliareGiocatoreBlu;
 	private HashMap<ColoreFamiliare,String> mappaFamiliareGiocatoreRosso;
 	private HashMap<ColoreFamiliare,String> mappaFamiliareGiocatoreGiallo;
+	private HashMap<ColorePlayer, String> mappaBonusPersonali;
+	
 	
 	private HashMap<ColorePlayer, HashMap<ColoreFamiliare,String>> mappaGiocatori;
+	
+	private boolean moreFamProd;
+	private boolean moreFamRacc;
 	
 	public GUI(NetworkHandler networkHandler, ClientModel clientModel) {
 		super(networkHandler, clientModel);
@@ -96,6 +103,15 @@ public class GUI extends ClientView{
 		this.mappaGiocatori.put(ColorePlayer.BLU, mappaFamiliareGiocatoreBlu);
 		this.mappaGiocatori.put(ColorePlayer.GIALLO, mappaFamiliareGiocatoreGiallo);
 		this.mappaGiocatori.put(ColorePlayer.ROSSO, mappaFamiliareGiocatoreGiallo);
+		
+		this.mappaBonusPersonali = new HashMap<ColorePlayer, String>();
+		this.mappaBonusPersonali.put(ColorePlayer.VERDE, "img/Punchboard/personalBonus/bonus1.png");
+		this.mappaBonusPersonali.put(ColorePlayer.GIALLO, "img/Punchboard/personalBonus/bonus2.png");
+		this.mappaBonusPersonali.put(ColorePlayer.BLU, "img/Punchboard/personalBonus/bonus3.png");
+		this.mappaBonusPersonali.put(ColorePlayer.ROSSO, "img/Punchboard/personalBonus/bonus4.png");
+		
+		moreFamProd = false;
+		moreFamRacc = false;
 	}
 
 	@Override
@@ -177,6 +193,44 @@ public class GUI extends ClientView{
 						gameboard.getSpazioTorre(tipo, index).rimuoviFamiliare();
 					}
 						
+		Spazio spazio;
+		
+		spazio = this.clientModel.getStatoPlancia().getSpazioConsiglio();
+		if(!spazio.vuoto())
+			//PROBLEMA LOAD STESSO FAMILIARE
+			gameboard.getSpazioConsiglio().inserisciFamiliare(this.mappaGiocatori.get(spazio.getFamiliari().get(0).getPlayer().getColore()).get(spazio.getFamiliari().get(0).getColore()));
+		else
+			gameboard.getSpazioConsiglio().rimuoviFamliari();
+		
+		spazio = this.clientModel.getStatoPlancia().getSpazioProduzione();
+		if(!spazio.vuoto() && !moreFamProd) {
+			moreFamProd=true;
+			gameboard.getSpazioProduzione1().inserisciFamiliare(this.mappaGiocatori.get(spazio.getFamiliari().get(0).getPlayer().getColore()).get(spazio.getFamiliari().get(0).getColore()));
+		}
+		else {
+			if(moreFamProd)
+				//PROBLEMA LOAD STESSO FAMILIARE
+				gameboard.getSpazioProduzione2().inserisciFamiliare(this.mappaGiocatori.get(spazio.getFamiliari().get(0).getPlayer().getColore()).get(spazio.getFamiliari().get(0).getColore()));		
+			else {
+				gameboard.getSpazioProduzione1().rimuoviFamiliare();
+				gameboard.getSpazioProduzione2().rimuoviFamliari();
+			}
+		}
+		
+		spazio = this.clientModel.getStatoPlancia().getSpazioRaccolta();
+		if(!spazio.vuoto() && !moreFamRacc) {
+			moreFamRacc=true;
+			gameboard.getSpazioRaccolto1().inserisciFamiliare(this.mappaGiocatori.get(spazio.getFamiliari().get(0).getPlayer().getColore()).get(spazio.getFamiliari().get(0).getColore()));
+		}
+		else {
+			if(moreFamRacc)
+				//PROBLEMA LOAD STESSO FAMILIARE
+				gameboard.getSpazioRaccolto2().inserisciFamiliare(this.mappaGiocatori.get(spazio.getFamiliari().get(0).getPlayer().getColore()).get(spazio.getFamiliari().get(0).getColore()));		
+			else {
+				gameboard.getSpazioRaccolto1().rimuoviFamiliare();
+				gameboard.getSpazioRaccolto2().rimuoviFamliari();
+			}
+		}
 		
 		//----------------------------------------------------------//
 		// AGGIORNAMENTO PLAYERBOARD IN FUNZIONE DEL MODEL
@@ -240,6 +294,13 @@ public class GUI extends ClientView{
 		quantitaRisorsa = this.clientModel.getStatoGiocatore().getSetRisorse().getRisorsa(TipoRisorsa.PUNTIVITTORIA).getQuantità();
 		playerboard.getPanelRisorsePuntiVittoria().writeIntoLabel(quantitaRisorsa);
 		
+		// Familiare disponibili
+		//---------------------------//
+		for(ColoreFamiliare colore : ColoreFamiliare.values())
+			if(this.clientModel.getStatoGiocatore().getFamiliare(colore).disponibile())
+				playerboard.getPanelSpazioFamiliariDisponibili().liberaFamiliare(colore);
+			else
+				playerboard.getPanelSpazioFamiliariDisponibili().utilizzaFamiliare(colore);
 		
 		playerboard.scriviMessaggio((String)arg1);
 		try {
