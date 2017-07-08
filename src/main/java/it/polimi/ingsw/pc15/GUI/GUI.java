@@ -42,7 +42,7 @@ public class GUI extends ClientView{
 	private String pathCartaScomunica1;
 	private String pathCartaScomunica2;
 	private String pathCartaScomunica3;
-	private int numeroGiocatori = 2;
+	private int numeroGiocatori;
 	private Player playerCorrente;
 	private ArrayList<Player> arrayListAvversari;
 	private ArrayList<String> message = new ArrayList<String>();
@@ -118,9 +118,8 @@ public class GUI extends ClientView{
 		
 		if(!loadDone) {
 			try {
-				Thread.sleep(4000);
-			} catch (InterruptedException e) {
-		    }
+				Thread.sleep(4000); 
+			} catch (InterruptedException e) {}  // NOSONAR
 		loadDone=true;
 		}
 		
@@ -302,7 +301,7 @@ public class GUI extends ClientView{
 		playerboard.scriviMessaggio((String)arg1);
 		try {
 			Thread.sleep(3000);
-		} catch (InterruptedException e) {}
+		} catch (InterruptedException e) {} // NOSONAR
 		
 		if(tuoTurno())
 			playerboard.scriviMessaggio("È il tuo turno!");
