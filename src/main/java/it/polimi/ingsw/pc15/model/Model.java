@@ -21,6 +21,8 @@ import it.polimi.ingsw.pc15.carte.Impresa;
 import it.polimi.ingsw.pc15.carte.Personaggio;
 import it.polimi.ingsw.pc15.carte.Territorio;
 import it.polimi.ingsw.pc15.carte.TipoCarta;
+import it.polimi.ingsw.pc15.client.FasePartita;
+import it.polimi.ingsw.pc15.client.FasePosizionamento;
 import it.polimi.ingsw.pc15.effetti.Effetto;
 import it.polimi.ingsw.pc15.plancia.Plancia;
 import it.polimi.ingsw.pc15.player.ColoreFamiliare;
@@ -147,7 +149,7 @@ public class Model extends Observable {
 		
 		tiraIDadi();
 
-		notificaStatoPartita("È iniziato un nuovo turno! (Periodo: " + periodo + ", Turno: " + turno + ")");
+		notificaStatoPartita(new FasePosizionamento(), "È iniziato un nuovo turno! (Periodo: " + periodo + ", Turno: " + turno + ")");
 
 	}
 	
@@ -155,7 +157,7 @@ public class Model extends Observable {
 		
 		System.out.println("PERIODO: " + periodo + " , TURNO : " + turno);
 		
-		notificaStatoPartita("Fine del turno!");
+		//notificaStatoPartita("Fine del turno!");
 		
 		if (turno==ParserXML.leggiValore("numeroTurniPerPeriodo"))
 			rapportoInVaticano(periodo);
@@ -180,7 +182,7 @@ public class Model extends Observable {
 		int puntiFedeMinimi = ParserXML.leggiValore("puntiFedePeriodo" + Integer.toString(periodo));
 		for (Player player :giocatori) {
 			if (player.getSetRisorse().getRisorsa(TipoRisorsa.PUNTIFEDE).getQuantità() < puntiFedeMinimi) {
-				notificaStatoPartita(player.getNome() + " è stato scomunicato!");
+				//notificaStatoPartita(player.getNome() + " è stato scomunicato!");
 				this.plancia.getTesseraScomunica(periodo).infliggiScomunica(player);
 			}
 		}
@@ -266,7 +268,7 @@ public class Model extends Observable {
 		for (Player giocatore : giocatori)
 			classificaPV.put(giocatore.getSetRisorse().getRisorsa(TipoRisorsa.PUNTIVITTORIA).getQuantità(), giocatore);
 		
-		notificaStatoPartita("\n  --- FINE PARTITA! ---\nClassifica dei giocatori:");
+		//notificaStatoPartita("\n  --- FINE PARTITA! ---\nClassifica dei giocatori:");
 		int i=1;
 		for(Entry<Integer, Player> giocatore : classificaPV.entrySet())
 			System.out.println("  " + i + ". " + giocatore.getValue().getNome());
@@ -308,9 +310,9 @@ public class Model extends Observable {
 		
 	}
 	
-	public void notificaStatoPartita (String messaggio) {
+	public void notificaStatoPartita (FasePartita fasePartita, String messaggio) {
 		
-		StatoPartita statoPartita = new StatoPartita(plancia, periodo, turno, giocatori, giocatoreCorrente, messaggio);
+		StatoPartita statoPartita = new StatoPartita(plancia, periodo, turno, giocatori, giocatoreCorrente, fasePartita, messaggio);
 		setChanged();
 		notifyObservers(statoPartita);	
 	}

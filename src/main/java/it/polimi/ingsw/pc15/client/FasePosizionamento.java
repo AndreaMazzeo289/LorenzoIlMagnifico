@@ -38,7 +38,6 @@ public class FasePosizionamento implements FasePartita{
     
     	
     	Scanner input = new Scanner(System.in);
-		message.clear();
 		
 		try {
 	    	switch (input.next()) {
