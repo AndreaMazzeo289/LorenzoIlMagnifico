@@ -19,6 +19,7 @@ import it.polimi.ingsw.pc15.azioni.AzioneOccupaSpazioRaccolta;
 import it.polimi.ingsw.pc15.azioni.AzioneScartaLeader;
 import it.polimi.ingsw.pc15.azioni.RisultatoAzione;
 import it.polimi.ingsw.pc15.carte.TipoCarta;
+import it.polimi.ingsw.pc15.client.FasePosizionamento;
 import it.polimi.ingsw.pc15.model.Model;
 import it.polimi.ingsw.pc15.plancia.Spazio;
 import it.polimi.ingsw.pc15.plancia.SpazioConsiglio;
@@ -143,13 +144,13 @@ public class Controller extends Observable implements Observer {
 			azioneGiocatore.attiva();
 			if (azioneGiocatore instanceof AzioneOccupaSpazio)
 				model.giocatoreSuccessivo();
-			String message = "\n" + risultatoAzione.getCommento();
-			model.notificaStatoPartita(message);	
+			String message = risultatoAzione.getCommento();
+			model.notificaStatoPartita(new FasePosizionamento(), message);	
 		}
 		
 		else {
-			String message = "\n" + risultatoAzione.getCommento();
-			model.notificaStatoPartita(message);
+			String message = risultatoAzione.getCommento();
+			model.notificaStatoPartita(new FasePosizionamento(), message);
 		}
 	}
 }

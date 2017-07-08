@@ -48,7 +48,7 @@ public class CLI extends ClientView {
 
 	@Override
 	public void update(Observable arg0, Object arg1) {
-		System.out.println("("+(String)((ArrayList) arg1).get(0)+")");
+		System.out.println("\n("+(String)((ArrayList) arg1).get(0)+")");
 		this.fasi.add(new FasePosizionamento());
 	}
 
