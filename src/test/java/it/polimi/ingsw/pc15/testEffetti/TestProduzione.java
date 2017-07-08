@@ -27,6 +27,7 @@ import it.polimi.ingsw.pc15.risorse.PuntiVittoria;
 import it.polimi.ingsw.pc15.risorse.Risorsa;
 import it.polimi.ingsw.pc15.risorse.Servitori;
 import it.polimi.ingsw.pc15.risorse.SetRisorse;
+import it.polimi.ingsw.pc15.player.TesseraBonus;
 
 import static org.junit.Assert.*;
 
@@ -38,6 +39,8 @@ public class TestProduzione {
 	Produzione produzione;
 	Player player;
 	Plancia plancia;
+	
+	TesseraBonus tesseraBonus;
 	
 	Legna legna1;
 	Oro oro1;
@@ -98,6 +101,7 @@ public class TestProduzione {
 		player = new Player("test",ColorePlayer.BLU);
 		
 		
+		
 		player.getSetRisorse().aggiungi(new Legna(0));
 		player.getSetRisorse().aggiungi(new Oro(0));
 		player.getSetRisorse().aggiungi(new Pietra(0));
@@ -133,6 +137,10 @@ public class TestProduzione {
 		risorse1.add(servitori1);
 		
 		setRisorseTest1 = new SetRisorse(risorse1);
+		
+		tesseraBonus = new TesseraBonus(setRisorseTest1, setRisorseTest1, "test");
+		
+		player.setTesseraBonus(tesseraBonus);
 		
 		legna2 = new Legna(2);
 		oro2 = new Oro(2);
@@ -234,8 +242,7 @@ public class TestProduzione {
 		
 		
 		this.risultatoAzione = azioneOccupaSpazioTorre.èValida();
-		System.out.println(risultatoAzione.getCommento());
-		
+
 		
 		
 		

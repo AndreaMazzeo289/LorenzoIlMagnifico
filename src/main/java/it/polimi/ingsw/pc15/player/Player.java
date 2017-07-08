@@ -17,6 +17,7 @@ import it.polimi.ingsw.pc15.carte.Territorio;
 import it.polimi.ingsw.pc15.risorse.Risorsa;
 import it.polimi.ingsw.pc15.risorse.SetRisorse;
 
+
 /**
  * Classe che inizializza il player con un suo set risorse, i suoi familiari,
  * i suoi effetti attivi e leader.
