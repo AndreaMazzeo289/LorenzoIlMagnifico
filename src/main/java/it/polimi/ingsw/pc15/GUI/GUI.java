@@ -231,32 +231,26 @@ public class GUI extends ClientView{
 		}
 		
 		spazio = this.clientModel.getStatoPlancia().getSpazioProduzione();
-		if(!spazio.vuoto() && !moreFamProd) {
-			moreFamProd=true;
-			gameboard.getSpazioProduzione1().inserisciFamiliare(this.mappaGiocatori.get(spazio.getFamiliari().get(0).getPlayer().getColore()).get(spazio.getFamiliari().get(0).getColore()));
-		}
-		else {
-			if(moreFamProd)
-				//PROBLEMA LOAD STESSO FAMILIARE
-				gameboard.getSpazioProduzione2().inserisciFamiliare(this.mappaGiocatori.get(spazio.getFamiliari().get(0).getPlayer().getColore()).get(spazio.getFamiliari().get(0).getColore()));		
+		gameboard.getSpazioProduzione1().rimuoviFamiliare();
+		gameboard.getSpazioProduzione2().rimuoviFamliari();
+		for(Familiare familiare : this.clientModel.getStatoPlancia().getSpazioProduzione().getFamiliari()) {
+			if(this.clientModel.getStatoPlancia().getSpazioProduzione().getFamiliari().lastIndexOf(familiare)==0) {
+				gameboard.getSpazioProduzione1().inserisciFamiliare(this.mappaGiocatori.get(spazio.getFamiliari().get(0).getPlayer().getColore()).get(spazio.getFamiliari().get(0).getColore()));
+			}
 			else {
-				gameboard.getSpazioProduzione1().rimuoviFamiliare();
-				gameboard.getSpazioProduzione2().rimuoviFamliari();
+				gameboard.getSpazioProduzione2().inserisciFamiliare(this.mappaGiocatori.get(familiare.getPlayer().getColore()).get(familiare.getColore()));
 			}
 		}
 		
 		spazio = this.clientModel.getStatoPlancia().getSpazioRaccolta();
-		if(!spazio.vuoto() && !moreFamRacc) {
-			moreFamRacc=true;
-			gameboard.getSpazioRaccolto1().inserisciFamiliare(this.mappaGiocatori.get(spazio.getFamiliari().get(0).getPlayer().getColore()).get(spazio.getFamiliari().get(0).getColore()));
-		}
-		else {
-			if(moreFamRacc)
-				//PROBLEMA LOAD STESSO FAMILIARE
-				gameboard.getSpazioRaccolto2().inserisciFamiliare(this.mappaGiocatori.get(spazio.getFamiliari().get(0).getPlayer().getColore()).get(spazio.getFamiliari().get(0).getColore()));		
+		gameboard.getSpazioRaccolto1().rimuoviFamiliare();
+		gameboard.getSpazioRaccolto2().rimuoviFamliari();
+		for(Familiare familiare : this.clientModel.getStatoPlancia().getSpazioRaccolta().getFamiliari()) {
+			if(this.clientModel.getStatoPlancia().getSpazioRaccolta().getFamiliari().lastIndexOf(familiare)==0) {
+				gameboard.getSpazioRaccolto1().inserisciFamiliare(this.mappaGiocatori.get(spazio.getFamiliari().get(0).getPlayer().getColore()).get(spazio.getFamiliari().get(0).getColore()));
+			}
 			else {
-				gameboard.getSpazioRaccolto1().rimuoviFamiliare();
-				gameboard.getSpazioRaccolto2().rimuoviFamliari();
+				gameboard.getSpazioRaccolto2().inserisciFamiliare(this.mappaGiocatori.get(familiare.getPlayer().getColore()).get(familiare.getColore()));
 			}
 		}
 		

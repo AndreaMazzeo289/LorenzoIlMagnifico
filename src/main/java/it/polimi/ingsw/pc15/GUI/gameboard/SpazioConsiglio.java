@@ -168,8 +168,4 @@ public class SpazioConsiglio extends JPanel{
 			}
 		}
 	}
-	
-	public ArrayList<ButtonTransparent> getArrayButton() {
-		return button;
-	}
 }
