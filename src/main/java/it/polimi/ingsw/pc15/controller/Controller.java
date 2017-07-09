@@ -6,6 +6,7 @@ import java.util.Map;
 import java.util.Observable;
 import java.util.Observer;
 
+import it.polimi.ingsw.pc15.ParserXML;
 import it.polimi.ingsw.pc15.azioni.Azione;
 import it.polimi.ingsw.pc15.azioni.AzioneAttivaEffettoLeader;
 import it.polimi.ingsw.pc15.azioni.AzioneGiocaLeader;
@@ -53,6 +54,7 @@ public class Controller extends Observable implements Observer {
 		
 		Azione azioneGiocatore;
 		Player giocatore = model.getPlayer(nomeGiocatore);	
+		boolean connessioneChiusa = false;
 		
 		//System.out.println("\nSono il controller e ho ricevuto " + input + " da " + giocatore.getNome());
 		
@@ -130,30 +132,41 @@ public class Controller extends Observable implements Observer {
 			
 		case "attiva effetto Leader": azioneGiocatore = new AzioneAttivaEffettoLeader (giocatore, giocatore.getCarteLeader().get(Integer.valueOf(input.get(1))));;
 		break;
+		
+		case "CONNESSIONE CHIUSA": connessioneChiusa = true;
+			System.out.println("ERRORE");
+			azioneGiocatore = null;
+		break;
 			
 		default: System.out.println("ERRORE");
 			azioneGiocatore = null;
 		break;
 		}
 		
-		RisultatoAzione risultatoAzione = azioneGiocatore.èValida(); //NOSONAR
-		if (risultatoAzione.getRisultato()==true) {
-			azioneGiocatore.attiva();
-			int turno = model.getTurno();
-			if (turno==2 && model.getAzione()==1)
-				model.getRapportoInVaticano().registraSceltaGiocatore(model.getPlayer(nomeGiocatore), Integer.valueOf(input.get(input.size()-1)));
-			if (azioneGiocatore instanceof AzioneOccupaSpazio)
-				model.giocatoreSuccessivo();
-			String message = "\n"+risultatoAzione.getCommento();
-			if (turno != model.getTurno())
-				message += "\n\nÈ iniziato un nuovo turno! (Periodo: " + model.getPeriodo() + ", Turno: " + model.getTurno()  + ")";
-			model.notificaStatoPartita(message);	
-
-		}
-		
-		else {
-			String message = "\n"+risultatoAzione.getCommento();
-			model.notificaStatoPartita(message);
+		if (!connessioneChiusa) {
+			RisultatoAzione risultatoAzione = azioneGiocatore.èValida(); //NOSONAR
+			if (risultatoAzione.getRisultato()==true) {
+				azioneGiocatore.attiva();
+				int turno = model.getTurno();
+				if (turno==ParserXML.leggiValore("numeroTurniPerPeriodo") && model.getAzione()==1)
+					model.getRapportoInVaticano().registraSceltaGiocatore(model.getPlayer(nomeGiocatore), Integer.valueOf(input.get(input.size()-1)));
+				if (azioneGiocatore instanceof AzioneOccupaSpazio)
+					model.giocatoreSuccessivo();
+				String message = "\n"+risultatoAzione.getCommento();
+				model.notificaStatoPartita(message);
+	
+			}
+			
+			else {
+				String message = "\n"+risultatoAzione.getCommento();
+				model.notificaStatoPartita(message);
+			}
+		} else {
+			model.rimuoviGiocatore(nomeGiocatore);
+			if (model.getGiocatoreCorrente().equals(nomeGiocatore)) {
+					model.giocatoreSuccessivo();
+					model.notificaStatoPartita("");
+			}
 		}
 	}
 }

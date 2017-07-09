@@ -54,9 +54,6 @@ public class RMIHandler extends NetworkHandler implements RMIHandlerInterface {
 	@Override
 	public void aggiornaStatoPartita(StatoPartita statoPartita) throws RemoteException {
 		
-		for (SpazioTorre spazio : statoPartita.getStatoPlancia().getTorre(TipoCarta.TERRITORIO).getSpaziTorre())
-			System.out.println(spazio.getCarta().toString());
-		
 		this.clientModel.aggiorna(statoPartita);	
 	}
 

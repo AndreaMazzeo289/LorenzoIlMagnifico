@@ -9,6 +9,7 @@ import java.io.Serializable;
 import java.net.Socket;
 import java.nio.channels.NotYetBoundException;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Observable;
 import java.util.Observer;
 import java.util.Scanner;
@@ -38,23 +39,29 @@ public class SocketView extends ServerView implements Serializable {
 		this.out = new PrintStream(this.socket.getOutputStream());
 	}
 	
-	@Override
+	
 	public void run() {
 
 		name = in.nextLine();		
 		server.connetti(this, name);
 		
-		while(true) {
+		 try {
 			
-			try {
+			 while(true) {
 				ArrayList<String> message;
 				message = (ArrayList<String>) inObj.readObject();
 				setChanged();
 				notifyObservers(message);
-				
-			} catch (ClassNotFoundException | IOException e) {
-				e.printStackTrace();  //NOSONAR
-			}
+			} 
+			 
+		} catch (ClassNotFoundException | IOException e) {
+				try {
+					this.socket.close();
+					setChanged();
+					notifyObservers(new ArrayList<String>(Arrays.asList("CONNESSIONE CHIUSA")));
+				} catch (IOException e1) {
+					e1.printStackTrace();
+				}
 		}
 	}
 
@@ -64,16 +71,11 @@ public class SocketView extends ServerView implements Serializable {
 		StatoPartita statoPartita = (StatoPartita)arg;
 		//System.out.println("\nSono la SocketView di " + name + " e ho ricevuto " + (statoPartita.getMessaggio()));
 		statoPartita.setStatoGiocatore(name);
-		
-		for (SpazioTorre spazio : statoPartita.getStatoPlancia().getTorre(TipoCarta.PERSONAGGIO).getSpaziTorre())
-			System.out.println(spazio.getCarta().toString());
-		
+
 		sendObj(statoPartita);
 		
 	}
 	
-	
-	@Override
 	public synchronized void sendLine(String messaggio) {	
 		out.println(messaggio);
 	}
@@ -88,8 +90,8 @@ public class SocketView extends ServerView implements Serializable {
 			outObj.writeObject(obj);
 			outObj.reset();
 		} catch (IOException e) {
-			e.printStackTrace();  //NOSONAR
 		}
+
 		
 	}
 }

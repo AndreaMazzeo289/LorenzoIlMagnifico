@@ -53,8 +53,6 @@ public class SocketHandler extends NetworkHandler implements Serializable{
 				
 			try {
 				StatoPartita statoPartita = (StatoPartita) inObj.readObject();
-				for (SpazioTorre spazio : statoPartita.getStatoPlancia().getTorre(TipoCarta.PERSONAGGIO).getSpaziTorre())
-					System.out.println(spazio.getCarta().toString());
 				clientModel.aggiorna(statoPartita);
 				} catch (ClassNotFoundException | IOException e) {
 					e.printStackTrace();} // NOSONAR
@@ -63,8 +61,7 @@ public class SocketHandler extends NetworkHandler implements Serializable{
 	
 	@Override
 	public void update(Observable o, Object input) {
-		
-		
+			
 		try {
 			send(input);
 		} catch (IOException e) {

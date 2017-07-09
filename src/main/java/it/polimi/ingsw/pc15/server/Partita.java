@@ -34,7 +34,7 @@ public class Partita {
 		for(Map.Entry<String, ServerView> giocatoreConnesso : giocatori.entrySet()) {
 			giocatoreConnesso.getValue().addObserver(controller);  //il Controller viene reso Observer di ogni View
 			if (giocatoreConnesso.getValue() instanceof SocketView)
-				giocatoreConnesso.getValue().sendLine("OK"); //notifica ai giocatori l'inizio partita
+				((SocketView) giocatoreConnesso.getValue()).sendLine("OK"); //notifica ai giocatori l'inizio partita
 			else if (giocatoreConnesso.getValue() instanceof RMIView)
 				((RMIView) giocatoreConnesso.getValue()).sendOK();
 		}

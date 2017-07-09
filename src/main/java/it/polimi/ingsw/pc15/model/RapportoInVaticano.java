@@ -6,6 +6,7 @@ import java.util.Map.Entry;
 import it.polimi.ingsw.pc15.ParserXML;
 import it.polimi.ingsw.pc15.plancia.TesseraScomunica;
 import it.polimi.ingsw.pc15.player.Player;
+import it.polimi.ingsw.pc15.risorse.PuntiFede;
 import it.polimi.ingsw.pc15.risorse.PuntiVittoria;
 import it.polimi.ingsw.pc15.risorse.TipoRisorsa;
 
@@ -13,10 +14,12 @@ public class RapportoInVaticano {
 	
 	private HashMap<Player, Boolean> giocatoriScomunicati;
 	private TesseraScomunica scomunica;
+	private String risultato;
 	
 	public RapportoInVaticano (TesseraScomunica scomunica) {
 		this.giocatoriScomunicati = new HashMap<Player, Boolean>();
 		this.scomunica = scomunica;
+		this.risultato = new String("");
 	}
 	
 	public void registraSceltaGiocatore(Player player, int scelta) {
@@ -29,14 +32,21 @@ public class RapportoInVaticano {
 		for (Entry<Player, Boolean> giocatore : this.giocatoriScomunicati.entrySet()) {
 			if (giocatore.getValue()==true) {
 				this.scomunica.infliggiScomunica(giocatore.getKey());
-				System.out.println(giocatore.getKey().getNome() + " è stato scomunicato");
+				this.risultato += "\n  - " + giocatore.getKey().getNome() + " è stato scomunicato!";
 			}
 			else {
 				giocatore.getKey().getSetRisorse().aggiungi(new PuntiVittoria(ParserXML.leggiValore("puntiVittoria" + giocatore.getKey().getSetRisorse().getRisorsa(TipoRisorsa.PUNTIFEDE).getQuantità() + "PuntiFede")));
-				System.out.println(giocatore.getKey().getNome() + " paga la chiesa");
+				this.risultato += "\n  - " + giocatore.getKey().getNome() + " paga " + giocatore.getKey().getSetRisorse().getRisorsa(TipoRisorsa.PUNTIFEDE).getQuantità() + " Punti Fede e guadagna " + ParserXML.leggiValore("puntiVittoria" + giocatore.getKey().getSetRisorse().getRisorsa(TipoRisorsa.PUNTIFEDE).getQuantità() + "PuntiFede") + " Punti Vittoria!" ;
+				giocatore.getKey().getSetRisorse().aggiungi(new PuntiFede(- giocatore.getKey().getSetRisorse().getRisorsa(TipoRisorsa.PUNTIFEDE).getQuantità()));
 			}
 				
 		}
+		
+		System.out.println(risultato);
+	}
+	
+	public String getRisultato() {
+		return this.risultato;
 	}
 	
 	

@@ -47,6 +47,105 @@
     <nomeValore nome="requisitoMilitareTerritorio6">
         <valore>18</valore>
     </nomeValore>
+    <nomeValore nome="puntiVittoria0CarteTerritorio">
+    	<valore>0</valore>
+    </nomeValore>
+    <nomeValore nome="puntiVittoria1CarteTerritorio">
+    	<valore>0</valore>
+    </nomeValore>
+    <nomeValore nome="puntiVittoria2CarteTerritorio">
+    	<valore>0</valore>
+    </nomeValore>
+    <nomeValore nome="puntiVittoria3CarteTerritorio">
+   		<valore>1</valore>
+    </nomeValore>
+    <nomeValore nome="puntiVittoria4CarteTerritorio">
+   		<valore>4</valore>
+    </nomeValore>
+    <nomeValore nome="puntiVittoria5CarteTerritorio">
+    	<valore>10</valore>
+    </nomeValore>
+    <nomeValore nome="puntiVittoria6CarteTerritorio">
+    	<valore>20</valore>
+    </nomeValore>  
+    <nomeValore nome="puntiVittoria0CartePersonaggio">
+    	<valore>0</valore>
+    </nomeValore>
+    <nomeValore nome="puntiVittoria1CartePersonaggio">
+    	<valore>1</valore>
+    </nomeValore>
+    <nomeValore nome="puntiVittoria2CartePersonaggio">
+    	<valore>3</valore>
+    </nomeValore>
+    <nomeValore nome="puntiVittoria3CartePersonaggio">
+   		<valore>6</valore>
+    </nomeValore>
+    <nomeValore nome="puntiVittoria4CartePersonaggio">
+   		<valore>10</valore>
+    </nomeValore>
+    <nomeValore nome="puntiVittoria5CartePersonaggio">
+    	<valore>15</valore>
+    </nomeValore>
+    <nomeValore nome="puntiVittoria6CartePersonaggio">
+    	<valore>21</valore>
+    </nomeValore>
+    <nomeValore nome="puntiVittoria0PuntiFede">
+    	<valore>0</valore>
+    </nomeValore>
+    <nomeValore nome="puntiVittoria1PuntiFede">
+    	<valore>1</valore>
+    </nomeValore>
+    <nomeValore nome="puntiVittoria2PuntiFede">
+    	<valore>2</valore>
+    </nomeValore>
+    <nomeValore nome="puntiVittoria3PuntiFede">
+    	<valore>3</valore>
+    </nomeValore>
+    <nomeValore nome="puntiVittoria4PuntiFede">
+   		<valore>4</valore>
+    </nomeValore>
+    <nomeValore nome="puntiVittoria5PuntiFede">
+    	<valore>5</valore>
+    </nomeValore>
+    <nomeValore nome="puntiVittoria6PuntiFede">
+    	<valore>7</valore>
+    </nomeValore>
+    <nomeValore nome="puntiVittoria7PuntiFede">
+    	<valore>9</valore>
+    </nomeValore>
+    <nomeValore nome="puntiVittoria8PuntiFede">
+    	<valore>11</valore>
+    </nomeValore>
+    <nomeValore nome="puntiVittoria9PuntiFede">
+    	<valore>13</valore>
+    </nomeValore>
+    <nomeValore nome="puntiVittoria10PuntiFede">
+    	<valore>15</valore>
+    </nomeValore>
+    <nomeValore nome="puntiVittoria11PuntiFede">
+    	<valore>17</valore>
+    </nomeValore>
+    <nomeValore nome="puntiVittoria12PuntiFede">
+    	<valore>19</valore>
+    </nomeValore>
+    <nomeValore nome="puntiVittoria13PuntiFede">
+    	<valore>22</valore>
+    </nomeValore>
+    <nomeValore nome="puntiVittoria14PuntiFede">
+    	<valore>25</valore>
+    </nomeValore>
+    <nomeValore nome="puntiVittoria15PuntiFede">
+    	<valore>30</valore>
+    </nomeValore>
+    <nomeValore nome="puntiVittoria16PuntiFede">
+    	<valore>30</valore>
+    </nomeValore>
+    <nomeValore nome="puntiVittoria17PuntiFede">
+    	<valore>30</valore>
+    </nomeValore>
+    <nomeValore nome="puntiVittoria18PuntiFede">
+    	<valore>30</valore>
+    </nomeValore>
     <nomeValore nome="numeroPeriodi">
     	<valore>3</valore>
     </nomeValore>
@@ -66,7 +165,7 @@
         <valore>2</valore>
     </nomeValore>
     <nomeValore nome="numeroPeriodi">
-        <valore>3</valore>
+        <valore>1</valore>
     </nomeValore>
     <nomeValore nome="numeroMinGiocatori">
         <valore>2</valore>

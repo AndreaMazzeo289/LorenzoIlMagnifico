@@ -39,7 +39,7 @@ public class CLI extends ClientView {
 	@Override
 	public void run(){
 		
-	    while (true) {
+	    while (this.clientModel.getPeriodo() <= ParserXML.leggiValore("numeroPeriodi")) {
 			
 			message.clear();
 			
@@ -227,8 +227,7 @@ public class CLI extends ClientView {
 						System.out.println("  - Punti Fede: " + this.clientModel.getStatoGiocatore().getSetRisorse().getRisorsa(TipoRisorsa.PUNTIFEDE).getQuantità());
 						update(this, "");
 				break;
-						
-						
+
 						
 		    	case "2": System.out.println("\nI tuoi familiari disponibili sono i seguenti: ");
 		    			if (this.clientModel.getStatoGiocatore().getFamiliare(ColoreFamiliare.NERO).disponibile())
@@ -385,7 +384,7 @@ public class CLI extends ClientView {
 			
 			if (this.clientModel.getTurno()==ParserXML.leggiValore("numeroTurniPerPeriodo") && this.clientModel.getAzione()==1 && hasChanged()) {
 				if (this.clientModel.getStatoGiocatore().getSetRisorse().getRisorsa(TipoRisorsa.PUNTIFEDE).getQuantità() <= ParserXML.leggiValore("puntiFedePeriodo" + String.valueOf(this.clientModel.getPeriodo()))) {
-					System.out.println("\n  --- SOSTEGNO ALLA CHIESA ---\nVuoi pagare " + ParserXML.leggiValore("puntiFedePeriodo" + String.valueOf(this.clientModel.getPeriodo())) + " punti fede (1) o subire la scomunica della Chiesa? (2)");
+					System.out.println("\n  --- SOSTEGNO ALLA CHIESA ---\nVuoi pagare i tuoi Punti Fede (1) o subire la scomunica della Chiesa? (2)");
 					message.add(String.valueOf(input.nextInt()));
 				}
 				else message.add("2");
@@ -400,19 +399,24 @@ public class CLI extends ClientView {
 	public void update(Observable arg0, Object arg1) {
 		
 		System.out.println((String)arg1);
-    	if (tuoTurno())
-    		System.out.println("\n(È il tuo turno!)");
-    	else 
-    		System.out.println("\n(È il turno di " + this.clientModel.getGiocatoreCorrente()+"!)");
 		
-    	ArrayList<String> message = new ArrayList<String>();
-		
-    	System.out.println("\n" + clientModel.getStatoGiocatore().getNome() + ", cosa vuoi fare?");
-    	if (tuoTurno())
-    		System.out.println("  0. Posiziona un familiare");
-    	System.out.println("  1. Visualizza risorse\n  2. Visualizza familiari disponibili\n  3. Visualizza plancia\n  4. Visualizza carte Leader in tuo possesso\n  5. Visualizza carte Sviluppo in tuo possesso");
-    	if (tuoTurno())
-    		System.out.println("  6. Gioca una carta Leader\n  7. Scarta una carta Leader\n  8. Attiva l'effetto di una carta Leader");
+		if (this.clientModel.getPeriodo() <= ParserXML.leggiValore("numeroPeriodi")) {
+			
+	    	if (tuoTurno())
+	    		System.out.println("\n(È il tuo turno!)");
+	    	else 
+	    		System.out.println("\n(È il turno di " + this.clientModel.getGiocatoreCorrente()+"!)");
+			
+	    	ArrayList<String> message = new ArrayList<String>();
+			
+	    	System.out.println("\n" + clientModel.getStatoGiocatore().getNome() + ", cosa vuoi fare?");
+	    	if (tuoTurno())
+	    		System.out.println("  0. Posiziona un familiare");
+	    	System.out.println("  1. Visualizza risorse\n  2. Visualizza familiari disponibili\n  3. Visualizza plancia\n  4. Visualizza carte Leader in tuo possesso\n  5. Visualizza carte Sviluppo in tuo possesso");
+	    	if (tuoTurno())
+	    		System.out.println("  6. Gioca una carta Leader\n  7. Scarta una carta Leader\n  8. Attiva l'effetto di una carta Leader");
     	}
+		
+	}
 
 }

@@ -59,6 +59,7 @@ public class Model extends Observable {
 	private ArrayList<Leader> carteLeader;
 	
 	private RapportoInVaticano rapportoInVaticano;
+	private String messaggio;
 	
 	private int periodo;
 	private int turno;
@@ -77,6 +78,8 @@ public class Model extends Observable {
 			giocatori.add(new Player(nomiGiocatori.get(i), ColorePlayer.values()[i]));
 		
 		this.ordine = nomiGiocatori;
+		
+		this.messaggio = "";
 		
 		this.periodo = 1;
 		this.turno = 1;
@@ -159,6 +162,8 @@ public class Model extends Observable {
 
 	public void iniziaNuovoTurno() {
 		
+		this.messaggio += "\nE' iniziato un nuovo turno! (Periodo: " + this.periodo + "  Turno: " + this.turno + ")";
+		
 		impostaOrdineGiocatori();
 		
 		System.out.println("Ordine giocatori: " + ordine);
@@ -175,8 +180,10 @@ public class Model extends Observable {
 		if (turno==1 && periodo==1)
 			this.rapportoInVaticano = new RapportoInVaticano(this.plancia.getTesseraScomunica(periodo));
 				
-		if (turno==ParserXML.leggiValore("numeroTurniPerPeriodo"))
+		if (turno==ParserXML.leggiValore("numeroTurniPerPeriodo")) {
 			rapportoInVaticano.avvia();
+			this.messaggio += rapportoInVaticano.getRisultato() + "\n";
+		}
 		
 		turno++;
 		
@@ -193,7 +200,6 @@ public class Model extends Observable {
 			iniziaNuovoTurno();
 	}
 	
-
 
 	public void giocatoreSuccessivo() {
 		
@@ -217,24 +223,10 @@ public class Model extends Observable {
 		for (Player giocatore : giocatori) {
 			
 			if (giocatore.getEffettiAttivi().bonusPuntiVittoriaFinale(TipoCarta.TERRITORIO))
-				switch (giocatore.getCarte(TipoCarta.TERRITORIO).size()) {
-				case 3: giocatore.getSetRisorse().getRisorsa(TipoRisorsa.PUNTIVITTORIA).aggiungi(1); break;
-				case 4: giocatore.getSetRisorse().getRisorsa(TipoRisorsa.PUNTIVITTORIA).aggiungi(4); break;
-				case 5: giocatore.getSetRisorse().getRisorsa(TipoRisorsa.PUNTIVITTORIA).aggiungi(10); break;
-				case 6: giocatore.getSetRisorse().getRisorsa(TipoRisorsa.PUNTIVITTORIA).aggiungi(20); break;
-				default: break;
-				}
+				giocatore.getSetRisorse().aggiungi(new PuntiVittoria(ParserXML.leggiValore("PuntiVittoria" + giocatore.getCarte(TipoCarta.TERRITORIO).size() + "CarteTerritorio")));
 			
 			if (giocatore.getEffettiAttivi().bonusPuntiVittoriaFinale(TipoCarta.PERSONAGGIO))
-				switch (giocatore.getCarte(TipoCarta.PERSONAGGIO).size()) {
-				case 1: giocatore.getSetRisorse().getRisorsa(TipoRisorsa.PUNTIVITTORIA).aggiungi(1); break;
-				case 2: giocatore.getSetRisorse().getRisorsa(TipoRisorsa.PUNTIVITTORIA).aggiungi(3); break;
-				case 3: giocatore.getSetRisorse().getRisorsa(TipoRisorsa.PUNTIVITTORIA).aggiungi(6); break;
-				case 4: giocatore.getSetRisorse().getRisorsa(TipoRisorsa.PUNTIVITTORIA).aggiungi(10); break;
-				case 5: giocatore.getSetRisorse().getRisorsa(TipoRisorsa.PUNTIVITTORIA).aggiungi(15); break;
-				case 6: giocatore.getSetRisorse().getRisorsa(TipoRisorsa.PUNTIVITTORIA).aggiungi(21); break;
-				default: break;
-				}
+				giocatore.getSetRisorse().aggiungi(new PuntiVittoria(ParserXML.leggiValore("PuntiVittoria" + giocatore.getCarte(TipoCarta.TERRITORIO).size() + "CartePersonaggio")));
 			
 			if (giocatore.getEffettiAttivi().bonusPuntiVittoriaFinale(TipoCarta.IMPRESA))
 				for (Carta impresa : giocatore.getCarte(TipoCarta.IMPRESA))
@@ -245,24 +237,33 @@ public class Model extends Observable {
 								giocatore.getSetRisorse().getRisorsa(TipoRisorsa.LEGNA).getQuantità() +
 								giocatore.getSetRisorse().getRisorsa(TipoRisorsa.ORO).getQuantità() +
 								giocatore.getSetRisorse().getRisorsa(TipoRisorsa.SERVITORI).getQuantità();
-			giocatore.getSetRisorse().getRisorsa(TipoRisorsa.PUNTIVITTORIA).aggiungi(sommaRisorse/5);
+			giocatore.getSetRisorse().aggiungi(new PuntiVittoria(sommaRisorse/5));
 			
-			classificaPM.put(giocatore.getSetRisorse().getRisorsa(TipoRisorsa.PUNTIMILITARI).getQuantità(), giocatore);
+			//classificaPM.put(giocatore.getSetRisorse().getRisorsa(TipoRisorsa.PUNTIMILITARI).getQuantità(), giocatore);
 		}
 		
-		classificaPM.get(classificaPM.firstKey()).getSetRisorse().getRisorsa(TipoRisorsa.PUNTIVITTORIA).aggiungi(5);
+		/*classificaPM.get(classificaPM.firstKey()).getSetRisorse().aggiungi(new PuntiVittoria(5));
 		classificaPM.remove(classificaPM.firstKey());
 		classificaPM.get(classificaPM.firstKey()).getSetRisorse().getRisorsa(TipoRisorsa.PUNTIVITTORIA).aggiungi(2);
+		*/
 		
 		for (Player giocatore : giocatori)
 			classificaPV.put(giocatore.getSetRisorse().getRisorsa(TipoRisorsa.PUNTIVITTORIA).getQuantità(), giocatore);
 		
-		notificaStatoPartita("\n  --- FINE PARTITA! ---\nClassifica dei giocatori:");
+		messaggio += ("\n  --- FINE PARTITA! ---\n  Classifica dei giocatori:\n");
+		
 		int i=1;
-		for(Entry<Integer, Player> giocatore : classificaPV.entrySet())
-			System.out.println("  " + i + ". " + giocatore.getValue().getNome());
+		for(Entry<Integer, Player> giocatore : classificaPV.descendingMap().entrySet()) {
+				messaggio += ("\n  " + i + ". " + giocatore.getValue().getNome()) + "(Punti Vittoria: " + giocatore.getKey() + ")";
+			i++;
+		}
 		
-		
+	}
+	
+	public void rimuoviGiocatore(String name) {
+		this.giocatori.remove(getPlayer(name));
+		this.ordine.remove(name);
+		messaggio += "\n(" + name + " ha abbandonato la partita!)";
 	}
 	
 	public void impostaOrdineGiocatori() {
@@ -288,7 +289,8 @@ public class Model extends Observable {
 	
 	public void notificaStatoPartita (String messaggio) {
 		
-		StatoPartita statoPartita = new StatoPartita(plancia, periodo, turno, azione, giocatori, giocatoreCorrente, messaggio);
+		StatoPartita statoPartita = new StatoPartita(plancia, periodo, turno, azione, giocatori, giocatoreCorrente, messaggio + "\n" + this.messaggio);
+		this.messaggio = "";
 		setChanged();
 		notifyObservers(statoPartita);	
 	}
@@ -353,6 +355,10 @@ public class Model extends Observable {
 	
 	public int getAzione() {
 		return this.azione;
+	}
+	
+	public String getGiocatoreCorrente() {
+		return this.giocatoreCorrente;
 	}
 
 }

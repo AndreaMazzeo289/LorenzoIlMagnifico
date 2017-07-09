@@ -3,9 +3,7 @@ package it.polimi.ingsw.pc15.model;
 import java.io.Serializable;
 import java.util.ArrayList;
 
-import it.polimi.ingsw.pc15.carte.TipoCarta;
 import it.polimi.ingsw.pc15.plancia.Plancia;
-import it.polimi.ingsw.pc15.plancia.SpazioTorre;
 import it.polimi.ingsw.pc15.player.Player;
 
 public class StatoPartita implements Serializable {
@@ -61,10 +59,18 @@ public class StatoPartita implements Serializable {
 		return this.messaggio;
 	}
 	
+	public void setGiocatoreCorrente(String name) {
+		this.giocatoreCorrente = name;
+	}
+	
 	public void setStatoGiocatore(String nome) {
+		
+		System.out.println("Nome: " + nome);
 		for (Player giocatore : statoGiocatori)
 			if (giocatore.getNome().equals(nome))
-				statoGiocatore = giocatore;
+				this.statoGiocatore = giocatore;
+		
+		System.out.println("Giocatore: " + this.statoGiocatore.getNome());
 	}
 
 }

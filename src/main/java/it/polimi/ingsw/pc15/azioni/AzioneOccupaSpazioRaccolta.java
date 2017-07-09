@@ -1,6 +1,7 @@
 package it.polimi.ingsw.pc15.azioni;
 
 import it.polimi.ingsw.pc15.effetti.Raccolto;
+import it.polimi.ingsw.pc15.effetti.AggiuntaRisorse;
 import it.polimi.ingsw.pc15.effetti.Effetto;
 import it.polimi.ingsw.pc15.plancia.Spazio;
 import it.polimi.ingsw.pc15.plancia.SpazioRaccolta;
