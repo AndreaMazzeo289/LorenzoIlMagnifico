@@ -31,9 +31,6 @@ public class CartaLeaderView extends JButton{
 		
 	public CartaLeaderView(String path, String name, String tipoView, ButtonListener listener) {
 		
-		this.path = path;
-		this.name = name;
-		
 		altezza = 500;
 		larghezza = 350;
 		

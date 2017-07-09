@@ -99,12 +99,12 @@
 
     ****************************************************************************-->
     <tipoSpazio tipo="mercato1">
-        <risorsa tipo="servitori">
+        <risorsa tipo="oro">
             <quantita>5</quantita>
         </risorsa>
     </tipoSpazio>
     <tipoSpazio tipo="mercato2">
-       <risorsa tipo="oro">
+       <risorsa tipo="servitori">
             <quantita>5</quantita>
         </risorsa>
     </tipoSpazio>
