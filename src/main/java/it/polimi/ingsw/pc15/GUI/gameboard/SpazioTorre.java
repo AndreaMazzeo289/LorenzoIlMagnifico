@@ -6,6 +6,7 @@ import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;
 import java.awt.Image;
 import java.awt.Toolkit;
+import java.awt.image.BufferedImage;
 
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
@@ -49,6 +50,7 @@ public class SpazioTorre extends JPanel{
 	private int larghezzaCenter;
 	private int larghezzaEast;
 	private int larghezzaWest;
+	private BufferedImage invisibleIcon;
 
 	private float rapporto;
 	
@@ -130,7 +132,9 @@ public class SpazioTorre extends JPanel{
 		this.add(labelWest, BorderLayout.WEST);
 		this.add(labelSouth, BorderLayout.SOUTH);
 		this.add(buttonCenter, BorderLayout.CENTER);
-		this.add(labelEast, BorderLayout.EAST);	
+		this.add(labelEast, BorderLayout.EAST);
+		
+		invisibleIcon = new BufferedImage(160, 160, BufferedImage.TYPE_INT_ARGB);
 	}
 	
 	/**
@@ -164,7 +168,7 @@ public class SpazioTorre extends JPanel{
 	 * metodo che permette di rimuovere il familiare dallo spazio
 	 */
 	public void rimuoviFamiliare() {
-		buttonFamiliare.setIcon(null);
-		
+		ImageIcon image = new ImageIcon(invisibleIcon);
+		buttonFamiliare.setIcon(image);		
 	}
 }
