@@ -11,6 +11,8 @@ import java.util.Observable;
 
 import javax.swing.JFrame;
 
+import it.polimi.ingsw.pc15.ParserXML;
+import it.polimi.ingsw.pc15.GUI.frame.FrameRapportoVaticano;
 import it.polimi.ingsw.pc15.GUI.gameboard.Gameboard;
 import it.polimi.ingsw.pc15.GUI.playerboard.PlayerBoard;
 import it.polimi.ingsw.pc15.carte.Carta;
@@ -62,6 +64,7 @@ public class GUI extends ClientView{
 	private HashMap<ColoreFamiliare,String> mappaFamiliareGiocatoreGiallo;
 	private HashMap<ColorePlayer, String> mappaBonusPersonali;
 	
+	private FrameRapportoVaticano frameRapportoVaticano;
 	
 	private HashMap<ColorePlayer, HashMap<ColoreFamiliare,String>> mappaGiocatori;
 	
@@ -385,9 +388,24 @@ public class GUI extends ClientView{
 	public ArrayList<String> getMessage() {
 		return this.message;
 	}
+	public FrameRapportoVaticano getFrameRapportoVaticano() {
+		return frameRapportoVaticano;
+	}
 	public void inviaMessaggio() {
+		if (this.clientModel.getTurno()==ParserXML.leggiValore("numeroTurniPerPeriodo") && this.clientModel.getAzione()==1 && hasChanged())
+			if (this.clientModel.getStatoGiocatore().getSetRisorse().getRisorsa(TipoRisorsa.PUNTIFEDE).getQuantità() <= ParserXML.leggiValore("puntiFedePeriodo" + String.valueOf(this.clientModel.getPeriodo())))
+				 frameRapportoVaticano = new FrameRapportoVaticano(listener);
+			else {
+				message.add("2");
+				inviaSenzaControllo();
+			}
+		else {
+			this.setChanged();
+			this.notifyObservers(this.message);
+		}
+	}
+	public void inviaSenzaControllo(){
 		this.setChanged();
-		System.out.println("Sono la gui e sto mandando:"+this.message);
 		this.notifyObservers(this.message);
 	}
 	public void clearMessage() {
