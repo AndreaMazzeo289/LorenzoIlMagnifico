@@ -5,8 +5,10 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Observable;
 
+import it.polimi.ingsw.pc15.carte.TipoCarta;
 import it.polimi.ingsw.pc15.model.StatoPartita;
 import it.polimi.ingsw.pc15.plancia.Plancia;
+import it.polimi.ingsw.pc15.plancia.SpazioTorre;
 import it.polimi.ingsw.pc15.player.Player;
 import it.polimi.ingsw.pc15.risorse.TipoRisorsa;
 

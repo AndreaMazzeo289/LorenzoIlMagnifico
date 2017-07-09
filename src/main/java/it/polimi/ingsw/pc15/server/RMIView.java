@@ -5,9 +5,11 @@ import java.rmi.server.UnicastRemoteObject;
 import java.util.ArrayList;
 import java.util.Observable;
 
+import it.polimi.ingsw.pc15.carte.TipoCarta;
 import it.polimi.ingsw.pc15.client.RMIHandler;
 import it.polimi.ingsw.pc15.client.RMIHandlerInterface;
 import it.polimi.ingsw.pc15.model.StatoPartita;
+import it.polimi.ingsw.pc15.plancia.SpazioTorre;
 
 public class RMIView extends ServerView {
 	
@@ -33,6 +35,9 @@ public class RMIView extends ServerView {
 		StatoPartita statoPartita = (StatoPartita)arg;
 		//System.out.println("\nSono la RMIView di " + name + " e ho ricevuto " + statoPartita.getMessaggio());
 		statoPartita.setStatoGiocatore(name);
+		
+		for (SpazioTorre spazio : statoPartita.getStatoPlancia().getTorre(TipoCarta.TERRITORIO).getSpaziTorre())
+			System.out.println(spazio.getCarta().toString());
 		
 		try {
 			rmiHandler.aggiornaStatoPartita(statoPartita);

@@ -11,7 +11,9 @@ import java.util.Observable;
 import java.util.Observer;
 import java.util.Scanner;
 
+import it.polimi.ingsw.pc15.carte.TipoCarta;
 import it.polimi.ingsw.pc15.model.StatoPartita;
+import it.polimi.ingsw.pc15.plancia.SpazioTorre;
 import it.polimi.ingsw.pc15.risorse.TipoRisorsa;
 
 public class SocketHandler extends NetworkHandler implements Serializable{
@@ -51,6 +53,8 @@ public class SocketHandler extends NetworkHandler implements Serializable{
 				
 			try {
 				StatoPartita statoPartita = (StatoPartita) inObj.readObject();
+				for (SpazioTorre spazio : statoPartita.getStatoPlancia().getTorre(TipoCarta.PERSONAGGIO).getSpaziTorre())
+					System.out.println(spazio.getCarta().toString());
 				clientModel.aggiorna(statoPartita);
 				} catch (ClassNotFoundException | IOException e) {
 					e.printStackTrace();} // NOSONAR

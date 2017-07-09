@@ -112,8 +112,7 @@ public class Plancia implements Serializable {
 	 * Setta le carte negli spazi torre della plancia di gioco tramite
 	 * liste di carte per ogni tipologia ricevute dal model.
 	 * Ogni volta che la funzione set carte viene chiamata le carte nuove vengono piazzate
-	 * negli spazi torre corrispondenti rimpiazzando quelle vecchie; così facendo non
-	 * vi è la necessità di ripulire il campo.
+	 * negli spazi torre corrispondenti rimpiazzando quelle vecchie
 	 * 
 	 * @param periodo attuale nello stato del gioco.
 	 * @param carteTerritorio : lista delle carte territorio da posizionare nella torre verde.

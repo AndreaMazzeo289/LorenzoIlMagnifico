@@ -3,7 +3,9 @@ package it.polimi.ingsw.pc15.model;
 import java.io.Serializable;
 import java.util.ArrayList;
 
+import it.polimi.ingsw.pc15.carte.TipoCarta;
 import it.polimi.ingsw.pc15.plancia.Plancia;
+import it.polimi.ingsw.pc15.plancia.SpazioTorre;
 import it.polimi.ingsw.pc15.player.Player;
 
 public class StatoPartita implements Serializable {
