@@ -392,7 +392,7 @@ public class GUI extends ClientView{
 		return frameRapportoVaticano;
 	}
 	public void inviaMessaggio() {
-		if (this.clientModel.getTurno()==ParserXML.leggiValore("numeroTurniPerPeriodo") && this.clientModel.getAzione()==1 && hasChanged())
+		if (this.clientModel.getTurno()==ParserXML.leggiValore("numeroTurniPerPeriodo") && this.clientModel.getAzione()==1)
 			if (this.clientModel.getStatoGiocatore().getSetRisorse().getRisorsa(TipoRisorsa.PUNTIFEDE).getQuantità() <= ParserXML.leggiValore("puntiFedePeriodo" + String.valueOf(this.clientModel.getPeriodo())))
 				 frameRapportoVaticano = new FrameRapportoVaticano(listener);
 			else {
