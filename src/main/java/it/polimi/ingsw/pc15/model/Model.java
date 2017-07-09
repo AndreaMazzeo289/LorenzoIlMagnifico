@@ -162,7 +162,7 @@ public class Model extends Observable {
 
 	public void iniziaNuovoTurno() {
 		
-		this.messaggio += "\nE' iniziato un nuovo turno! (Periodo: " + this.periodo + "  Turno: " + this.turno + ")";
+		this.messaggio += "\n  - E' iniziato un nuovo turno! (Periodo: " + this.periodo + "  Turno: " + this.turno + ")";
 		
 		impostaOrdineGiocatori();
 		
@@ -205,7 +205,7 @@ public class Model extends Observable {
 		
 		if (ordine.lastIndexOf(giocatoreCorrente)==ordine.size()-1) {
 			azione++;
-			if (azione==2)  {
+			if (azione==4)  {
 				azione=1;
 				finisciTurno();	
 			}
