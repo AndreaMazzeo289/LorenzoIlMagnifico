@@ -16,7 +16,7 @@ import javax.swing.SwingConstants;
 import it.polimi.ingsw.pc15.GUI.ButtonListener;
 
 /**
- * Classe che permette l'apparizione di un frame che richiede quale metodo di pagamento si vuole scegliere
+ * Classe che permette l'apparizione di un frame che richiede cosa si intende fare con il rapporto con il vaticano
  * @author AndreaMazzeo289
  *
  */

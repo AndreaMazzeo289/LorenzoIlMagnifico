@@ -341,13 +341,17 @@ public class GUI extends ClientView{
 		// Leader
 		//---------------------------//
 		for (int j=0; i<4; i++) 
-			try {
-				if (this.clientModel.getStatoGiocatore().getCarteLeader().get(j).giocato())
-					playerboard.getCartaLeader(j).scriviLabel("GIOCATO");
-				else playerboard.getCartaLeader(j).scriviLabel("NON GIOCATO");
-			} catch (IndexOutOfBoundsException e) {
-				playerboard.getCartaLeader(j).scriviLabel("SCARTATO");
+		{
+			if (this.clientModel.getStatoGiocatore().getCarteLeader().get(j).giocato())
+				playerboard.getCartaLeader(j).scriviLabel("GIOCATO");
+			else playerboard.getCartaLeader(j).scriviLabel("NON GIOCATO");
+			
+			if(this.clientModel.getStatoGiocatore().getCarteLeader().size()<4) {
+				playerboard.getCartaLeader(this.clientModel.getStatoGiocatore().getCarteLeader().size()).scriviLabel("SCARTATO");
+				playerboard.getCartaLeader(this.clientModel.getStatoGiocatore().getCarteLeader().size()).modificaImmagineCarta("img/Leaders/leaders_b_c_00.jpg");
 			}
+				
+		}
 	}
 
 	@Override

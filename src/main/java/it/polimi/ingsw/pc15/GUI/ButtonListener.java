@@ -5,6 +5,7 @@ import java.awt.event.ActionListener;
 
 import it.polimi.ingsw.pc15.GUI.frame.AttivaLeaderPopup;
 import it.polimi.ingsw.pc15.GUI.frame.CarteScomunica;
+import it.polimi.ingsw.pc15.GUI.frame.ConvertiPrivilegio;
 import it.polimi.ingsw.pc15.GUI.frame.FrameInformazioniPlayer;
 import it.polimi.ingsw.pc15.GUI.frame.FrameMostraCartePlayer;
 import it.polimi.ingsw.pc15.GUI.frame.GiocaLeaderPopup;
@@ -29,7 +30,9 @@ public class ButtonListener implements ActionListener{
 	private AttivaLeaderPopup attivaLeaderPopup;
 	private ScartaLeaderPopup scartaLeaderPopup;
 	private FrameInformazioniPlayer frameInformazioniPlayer;
+	private ConvertiPrivilegio convertiPrivilegio;
 	private SelezionaMetodoPagamento selezionaMetodoPagamento;
+	private boolean fromConsiglio = false;
 	private boolean servitoriInseriti = false;
 	private GUI gui;
 	private PlayerBoard playerBoard;
@@ -289,16 +292,10 @@ public class ButtonListener implements ActionListener{
 				String index = e.getActionCommand().substring(24);
 				gui.writeMessage(index);
 				
-				{
-					playerBoard.getButtonPosizionaFamiliare().sbloccaButton();
-					playerBoard.getButtonAttivaEffettoLeader().sbloccaButton();
-					playerBoard.getButtonGiocaLeader().sbloccaButton();
-					playerBoard.getButtonScartaLeader().sbloccaButton();
-				}
 				
-				coloreFamiliareScelto=null;
-				servitoriInseriti = false;
-				gui.inviaMessaggio();
+				fromConsiglio = true;
+				convertiPrivilegio = new ConvertiPrivilegio(this);
+				
 			}
 		}
 		
@@ -333,7 +330,7 @@ public class ButtonListener implements ActionListener{
 		if(e.getActionCommand().startsWith("SpazioProduzionePosizione")){
 			if(coloreFamiliareScelto!=null && servitoriInseriti) {
 				
-				gui.writeMessage("consiglio");
+				gui.writeMessage("produzione");
 				String index = e.getActionCommand().substring(25);
 				gui.writeMessage(index);
 				
@@ -346,7 +343,6 @@ public class ButtonListener implements ActionListener{
 				
 				coloreFamiliareScelto=null;
 				servitoriInseriti = false;
-				gui.inviaMessaggio();
 			}
 		}
 		
@@ -491,17 +487,46 @@ public class ButtonListener implements ActionListener{
 			
 			if(azione.equals("Gioca")){
 				giocaLeaderPopup.dispose();
+				gui.writeMessage(numeroLeader);
+				gui.inviaMessaggio();
 			}
 			if(azione.equals("Attiva")){
 				attivaLeaderPopup.dispose();
+				gui.writeMessage(numeroLeader);
+				gui.inviaMessaggio();
 			}
 			if(azione.equals("Scarta")){
 				scartaLeaderPopup.dispose();
+				gui.writeMessage(numeroLeader);
+				convertiPrivilegio = new ConvertiPrivilegio(this);
+			}
+		}
+		
+		//------------------------------------------------------------------------------------//
+		// PRIVILEGI
+		//------------------------------------------------------------------------------------//
+		if(e.getActionCommand().startsWith("privilegioIn")){
+			convertiPrivilegio.dispose();
+			String risorsa = e.getActionCommand().substring(12);
+			switch(risorsa.toUpperCase()) {
+			case "PIETRALEGNA": gui.writeMessage("1");
+				break;
+			case "SERVITORI": gui.writeMessage("2");
+				break;
+			case "ORO": gui.writeMessage("3");
+				break;
+			case "MILITARI": gui.writeMessage("4");
+				break;
+			case "FEDE": gui.writeMessage("5");
+				break;
 			}
 			
-			gui.writeMessage(numeroLeader);
-			gui.inviaMessaggio();
+			if(!fromConsiglio)
+				gui.inviaMessaggio();
+			else
+				concludiPresaConsiglio();
 		}
+		
 	}
 	
 	public void concludiPresaViola() {
@@ -514,5 +539,20 @@ public class ButtonListener implements ActionListener{
 		coloreFamiliareScelto=null;
 		servitoriInseriti = false;
 		gui.inviaMessaggio();	
+	}
+	
+	public void concludiPresaConsiglio() {
+		
+		{
+			playerBoard.getButtonPosizionaFamiliare().sbloccaButton();
+			playerBoard.getButtonAttivaEffettoLeader().sbloccaButton();
+			playerBoard.getButtonGiocaLeader().sbloccaButton();
+			playerBoard.getButtonScartaLeader().sbloccaButton();
+		}
+		
+		coloreFamiliareScelto=null;
+		servitoriInseriti = false;
+		fromConsiglio=false;
+		gui.inviaMessaggio();
 	}
 }

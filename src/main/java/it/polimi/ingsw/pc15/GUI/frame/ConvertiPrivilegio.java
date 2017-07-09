@@ -107,6 +107,12 @@ public class ConvertiPrivilegio extends JFrame{
 		buttonServitori.setActionCommand("privilegioInServitori");
 		buttonMilitari.setActionCommand("privilegioInMilitari");
 		
+		buttonPietraLegna.setBackground(Color.decode("15394527"));
+		buttonOro.setBackground(Color.decode("15394527"));
+		buttonFede.setBackground(Color.decode("15394527"));
+		buttonServitori.setBackground(Color.decode("15394527"));
+		buttonMilitari.setBackground(Color.decode("15394527"));
+		
 		panelButton.add(buttonPietraLegna);
 		panelButton.add(buttonOro);
 		panelButton.add(buttonServitori);
@@ -114,7 +120,7 @@ public class ConvertiPrivilegio extends JFrame{
 		panelButton.add(buttonMilitari);
 		
 		testo = new JLabel("",SwingConstants.CENTER);
-		testo.setText("COME VUOI CONVERTIRE IL PRIVILEGIO?");
+		testo.setText("CHE RISORSA VUOI OTTENERE?");
 		testo.setFont((new Font("Courier New", Font.ITALIC, 25)));
 		
 		this.add(testo, BorderLayout.NORTH);
