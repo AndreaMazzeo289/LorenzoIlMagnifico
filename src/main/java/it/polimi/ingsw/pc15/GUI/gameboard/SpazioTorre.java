@@ -50,7 +50,7 @@ public class SpazioTorre extends JPanel{
 	private int larghezzaCenter;
 	private int larghezzaEast;
 	private int larghezzaWest;
-	private BufferedImage invisibleIcon;
+	private transient BufferedImage invisibleIcon;
 
 	private float rapporto;
 	

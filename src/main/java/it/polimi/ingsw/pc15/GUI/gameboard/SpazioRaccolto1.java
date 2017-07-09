@@ -50,7 +50,7 @@ public class SpazioRaccolto1 extends JPanel{
 	private int larghezzaCenter;
 	private int larghezzaEast;
 	private int larghezzaWest;
-	private BufferedImage invisibleIcon;
+	private transient BufferedImage invisibleIcon;
 	
 	public SpazioRaccolto1(ActionListener listener, GUI gui) {
 		

@@ -48,7 +48,7 @@ public class SpazioMercato4 extends SpazioMercato{
 	private int larghezzaCenter;
 	private int larghezzaEast;
 	private int larghezzaWest;
-	private BufferedImage invisibleIcon;
+	private transient BufferedImage invisibleIcon;
 	
 	public SpazioMercato4(ActionListener listener, GUI gui) {
 		

@@ -49,7 +49,7 @@ public class SpazioProduzione1 extends JPanel{
 	private int larghezzaCenter;
 	private int larghezzaEast;
 	private int larghezzaWest;
-	private BufferedImage invisibleIcon;
+	private transient BufferedImage invisibleIcon;
 	
 	public SpazioProduzione1(ActionListener listener, GUI gui) {
 		

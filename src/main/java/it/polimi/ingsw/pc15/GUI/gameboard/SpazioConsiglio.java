@@ -50,7 +50,7 @@ public class SpazioConsiglio extends JPanel{
 	private int larghezzaEast;
 	private int larghezzaWest;
 	
-	private BufferedImage invisibleIcon;
+	private transient BufferedImage invisibleIcon;
 	
 	public SpazioConsiglio(ActionListener listener, GUI gui) {
 		
