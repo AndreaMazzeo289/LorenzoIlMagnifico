@@ -51,6 +51,7 @@ public class TestAzioneOccupaSpazioProduzione {
 		
 	}
 	
+	
 	@Test
 	public void testAttiva(){
 		
