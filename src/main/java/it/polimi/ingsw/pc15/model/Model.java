@@ -283,7 +283,9 @@ public class Model extends Observable {
 					nuovoOrdine.add(nome);
 			
 			this.ordine = nuovoOrdine;
+			try {
 			this.giocatoreCorrente = nuovoOrdine.get(0);
+			} catch (IndexOutOfBoundsException e) {}
 		}	
 	}
 	

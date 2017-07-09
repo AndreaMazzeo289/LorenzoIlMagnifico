@@ -340,23 +340,19 @@ public class GUI extends ClientView{
 		
 		// Leader
 		//---------------------------//
-		for(Leader leader : this.clientModel.getStatoGiocatore().getCarteLeader()) {
+		for (int j=0; i<4; i++) 
 			try {
-				if(leader.giocato())
-					playerboard.getCartaLeader(this.clientModel.getStatoGiocatore().getCarteLeader().lastIndexOf(leader)).scriviLabel("GIOCATO");
-				else
-					playerboard.getCartaLeader(this.clientModel.getStatoGiocatore().getCarteLeader().lastIndexOf(leader)).scriviLabel("NON GIOCATO");
+				if (this.clientModel.getStatoGiocatore().getCarteLeader().get(j).giocato())
+					playerboard.getCartaLeader(j).scriviLabel("GIOCATO");
+				else playerboard.getCartaLeader(j).scriviLabel("NON GIOCATO");
+			} catch (IndexOutOfBoundsException e) {
+				playerboard.getCartaLeader(j).scriviLabel("SCARTATO");
 			}
-			catch (NullPointerException e) {
-				playerboard.getCartaLeader(this.clientModel.getStatoGiocatore().getCarteLeader().lastIndexOf(leader)).scriviLabel("SCARTATO");
-			}
-		}	
 	}
 
 	@Override
 	public void run() {
 		
-		System.out.println("RUN");
 		
 		
 	}
