@@ -301,7 +301,6 @@ public class ButtonListener implements ActionListener{
 			
 				gui.writeMessage("consiglio");
 				String index = e.getActionCommand().substring(24);
-				gui.writeMessage(index);
 				
 				
 				fromConsiglio = true;
@@ -343,7 +342,6 @@ public class ButtonListener implements ActionListener{
 				
 				gui.writeMessage("produzione");
 				String index = e.getActionCommand().substring(25);
-				gui.writeMessage(index);
 				
 				{
 					playerBoard.getButtonPosizionaFamiliare().sbloccaButton();
@@ -391,7 +389,6 @@ public class ButtonListener implements ActionListener{
 		
 				gui.writeMessage("raccolta");
 				String index = e.getActionCommand().substring(23);
-				gui.writeMessage(index);
 				
 				{
 					playerBoard.getButtonPosizionaFamiliare().sbloccaButton();
