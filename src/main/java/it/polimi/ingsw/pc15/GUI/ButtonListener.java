@@ -250,7 +250,7 @@ public class ButtonListener implements ActionListener{
 		//------------------------------------------------------------------------------------------//
 		// SPAZI TORRE
 		//------------------------------------------------------------------------------------------//
-		if(e.getActionCommand().startsWith("spazioTorre")){
+		if(e.getActionCommand().startsWith("spazioTorre")) {
 			
 			if(coloreFamiliareScelto!=null && servitoriInseriti) {
 				
@@ -263,11 +263,22 @@ public class ButtonListener implements ActionListener{
 				gui.writeMessage(Integer.toString(numeroTorreInt));
 				int scelta = gui.sceltaRichiesta(numeroTorreInt);
 				
-				if(scelta==0) 
-					selezionaMetodoPagamento = new SelezionaMetodoPagamento(this);
+				if(coloreTorre.toUpperCase().equals("VIOLA")) {
+					if(scelta==0)
+						selezionaMetodoPagamento = new SelezionaMetodoPagamento(this);
+					else
+						if(scelta==1) {
+							gui.writeMessage("1");
+							concludiPresaViola();
+						}
+						else {
+							gui.writeMessage("2");
+							concludiPresaViola();
+						}
+				}
 				else {
 					
-					gui.writeMessage(Integer.toString(scelta));
+					gui.writeMessage("0");
 				
 					playerBoard.getButtonPosizionaFamiliare().sbloccaButton();
 					playerBoard.getButtonAttivaEffettoLeader().sbloccaButton();
@@ -278,7 +289,6 @@ public class ButtonListener implements ActionListener{
 					servitoriInseriti = false;
 					gui.inviaMessaggio();	
 				}
-				
 			}
 		}
 		
