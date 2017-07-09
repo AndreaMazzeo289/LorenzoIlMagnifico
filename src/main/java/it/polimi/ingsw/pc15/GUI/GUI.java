@@ -230,13 +230,6 @@ public class GUI extends ClientView{
 			gameboard.getSpazioConsiglio().inserisciFamiliare(this.mappaGiocatori.get(familiare.getPlayer().getColore()).get(familiare.getColore()));
 		}
 		
-		spazio = this.clientModel.getStatoPlancia().getSpazioConsiglio();
-		if(!spazio.vuoto())
-			//PROBLEMA LOAD STESSO FAMILIARE
-			gameboard.getSpazioConsiglio().inserisciFamiliare(this.mappaGiocatori.get(spazio.getFamiliari().get(0).getPlayer().getColore()).get(spazio.getFamiliari().get(0).getColore()));
-		else
-			gameboard.getSpazioConsiglio().rimuoviFamliari();
-		
 		spazio = this.clientModel.getStatoPlancia().getSpazioProduzione();
 		if(!spazio.vuoto() && !moreFamProd) {
 			moreFamProd=true;
