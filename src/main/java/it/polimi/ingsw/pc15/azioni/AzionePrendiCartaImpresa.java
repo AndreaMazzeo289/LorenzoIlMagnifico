@@ -31,14 +31,13 @@ public class AzionePrendiCartaImpresa extends AzionePrendiCarta {
 	public RisultatoAzione èValida() {
 		
 		if (scelta == 1 && risorseSufficienti()==false)
-				return new RisultatoAzione(false, "FRASE");
+			return new RisultatoAzione(false, player.getNome() + " cerca di prendere " + carta.getNome() + " ma non ha abbastanza risorse!");
 		
 		if (scelta == 2  && puntiMilitariSufficienti()==false)
-				return new RisultatoAzione(false, "FRASE");
+			return new RisultatoAzione(false, player.getNome() + " cerca di prendere " + carta.getNome() + " ma non ha abbastanza punti Militari!");
 
 		if (player.getCarte(TipoCarta.EDIFICIO).size() == ParserXML.leggiValore("numeroMaxCarte")) {  
-			System.out.println("Hai raggiunto il limite massimo di carte Impresa!");
-			return new RisultatoAzione(false, "FRASE");
+			return new RisultatoAzione(false, player.getNome() + " cerca di prendere " + carta.getNome() + " ma ha raggiunto il limite di carte IMPRESA!");
 		}
 		
 		return new RisultatoAzione(true, player.getNome() + " prende la carta Impresa " + carta.getNome()+"!");

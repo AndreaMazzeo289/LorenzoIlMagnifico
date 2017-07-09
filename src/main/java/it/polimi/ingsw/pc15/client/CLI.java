@@ -4,6 +4,7 @@ import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Collections;
 import java.util.InputMismatchException;
 import java.util.Map.Entry;
@@ -42,6 +43,9 @@ public class CLI extends ClientView {
 	    while (this.clientModel.getPeriodo() <= ParserXML.leggiValore("numeroPeriodi")) {
 			
 			message.clear();
+			//Thread thread = new Thread(new ClientTimer(this));
+			//thread.start();
+			
 			
 			try {
 		    	switch (input.next()) {
@@ -390,6 +394,8 @@ public class CLI extends ClientView {
 				else message.add("2");
 			}
 			
+			//thread.interrupt();
+			
 	    	notifyObservers(message);
 	  
 	    }			
@@ -417,6 +423,12 @@ public class CLI extends ClientView {
 	    		System.out.println("  6. Gioca una carta Leader\n  7. Scarta una carta Leader\n  8. Attiva l'effetto di una carta Leader");
     	}
 		
+	}
+	
+	public void close() {
+		setChanged();
+		notifyObservers(new ArrayList<String>(Arrays.asList("CONNESSIONE CHIUSA")));
+		return;
 	}
 
 }

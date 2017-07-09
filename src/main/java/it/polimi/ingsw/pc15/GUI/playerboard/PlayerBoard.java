@@ -162,7 +162,7 @@ public class PlayerBoard extends JPanel{
 		risorsePlayer.add(new SpazioFamiliariDisponibili(gui), gbc);
 		System.out.println(gui.getPlayerCorrente());
 		labelTesto = new JLabel("",SwingConstants.CENTER);
-		labelTesto.setFont((new Font("Courier New", Font.ITALIC, 22)));
+		labelTesto.setFont((new Font("Courier New", Font.ITALIC, 17)));
 		
 		gbc.gridx=0;
 		gbc.gridy=1;

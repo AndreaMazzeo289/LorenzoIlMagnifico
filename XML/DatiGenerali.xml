@@ -176,4 +176,7 @@
     <nomeValore nome="durataTimerServer">
         <valore>10</valore>
     </nomeValore>
+    <nomeValore nome="durataTimerClient">
+        <valore>10</valore>
+    </nomeValore>
 </datiGenerali>

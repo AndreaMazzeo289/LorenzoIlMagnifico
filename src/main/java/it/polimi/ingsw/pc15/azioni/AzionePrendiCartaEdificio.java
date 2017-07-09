@@ -15,10 +15,10 @@ public class AzionePrendiCartaEdificio extends AzionePrendiCarta {
 	public RisultatoAzione èValida() {
 		
 		if (player.getCarte(TipoCarta.EDIFICIO).size() == ParserXML.leggiValore("numeroMaxCarte"))
-			return new RisultatoAzione(false, "FRASE");
+			return new RisultatoAzione(false, player.getNome() + " cerca di prendere " + carta.getNome() + " ma ha raggiunto il limite di carte EDIFICIO!");
 		
 		if (!risorseSufficienti())
-			return new RisultatoAzione(false, "FRASE");
+			return new RisultatoAzione(false, player.getNome() + " cerca di prendere " + carta.getNome() + " ma non ha abbastanza risorse!");
 		
 		return new RisultatoAzione(true, player.getNome() + " prende la carta Edificio " + carta.getNome()+"!");
 	}

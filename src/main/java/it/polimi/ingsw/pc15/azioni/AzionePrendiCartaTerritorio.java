@@ -19,14 +19,14 @@ public class AzionePrendiCartaTerritorio extends AzionePrendiCarta {
 		int numeroMaxCarte = ParserXML.leggiValore("numeroMaxCarte");
 		
 		if (player.getCarte(TipoCarta.TERRITORIO).size() == numeroMaxCarte)
-			return new RisultatoAzione(false, "FRASE");
+			return new RisultatoAzione(false, player.getNome() + " cerca di prendere " + carta.getNome() + " ma ha raggiunto il limite di carte TERRITORIO!");
 		
 		if (player.getEffettiAttivi().requisitoTerritoriAttivo())
 			if (!player.getSetRisorse().getRisorsa(TipoRisorsa.PUNTIMILITARI).paragona(ParserXML.leggiValore("RequisitoMilitareTerritorio" + Integer.toString(player.getCarte(TipoCarta.TERRITORIO).size()+1))))
-				return new RisultatoAzione(false, "FRASE");
+				return new RisultatoAzione(false, player.getNome() + " cerca di prendere " + carta.getNome() + " ma non ha abbastanza Punti Militari!");
 		
 		if (!risorseSufficienti())
-			return new RisultatoAzione(false, "FRASE");
+			return new RisultatoAzione(false, player.getNome() + " cerca di prendere " + carta.getNome() + " ma non ha abbastanza risorse!");
 		
 		return new RisultatoAzione(true, player.getNome() + " prende la carta Territorio " + carta.getNome());
 	}

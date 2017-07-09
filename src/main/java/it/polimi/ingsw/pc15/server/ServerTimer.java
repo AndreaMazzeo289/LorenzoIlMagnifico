@@ -24,7 +24,9 @@ public class ServerTimer implements Runnable {
 			
 		}
 		
-		server.avviaPartita();
+		try {
+			server.avviaPartita();
+		} catch (IndexOutOfBoundsException e ) {}
 		
 	}
 

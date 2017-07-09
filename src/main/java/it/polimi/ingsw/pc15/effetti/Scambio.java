@@ -34,6 +34,11 @@ public class Scambio extends Effetto implements Incrementabile {
 	@Override
 	public void attiva(Player player) {
 		
+		if (player.getSetRisorse().paragona(pagamento1)) {
+			player.getSetRisorse().sottrai(pagamento1);
+			player.getSetRisorse().aggiungi(guadagno1);
+		}
+		
 	}
 	
 	
