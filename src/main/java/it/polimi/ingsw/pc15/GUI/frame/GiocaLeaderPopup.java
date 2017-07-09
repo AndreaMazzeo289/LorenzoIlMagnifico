@@ -17,42 +17,41 @@ import it.polimi.ingsw.pc15.GUI.playerboard.PlayerBoard;
  * @author AndreaMazzeo289
  *
  */
-public class GiocaLeaderPopup extends JFrame{
+public class GiocaLeaderPopup extends JFrame{ // NOSONAR
 
-	private ArrayList<CartaLeader> leaders;
 	
 	private int altezza, larghezza;
 	
 	transient ImageIcon imageIcon;
 	transient Image image, newImage;
 	
-	public GiocaLeaderPopup(ButtonListener listener, GUI gui) {
+	public GiocaLeaderPopup(ButtonListener listener, GUI gui) { // NOSONAR
 		
 		altezza = 500;
 		larghezza= 0;
 		
 		this.setLayout(new GridLayout(1,4));
 		
-		leaders = new ArrayList<CartaLeader>();
+		
 		
 		PlayerBoard playerBoard = (PlayerBoard)gui.mainFrame.getContentPane().getComponent(1);
 		
-		if((playerBoard.getCartaLeader(0).leggiLabel().equals("NON GIOCATO"))){
+		if((playerBoard.getCartaLeader(0).leggiLabel().equals("NON GIOCATO"))){ // NOSONAR
 			CartaLeaderView cartaLeader = new CartaLeaderView(playerBoard.getCartaLeader(0).getPath(), playerBoard.getCartaLeader(0).getName(), "Gioca", listener);
 			this.add(cartaLeader);
 			larghezza+=350;
 		}
-		if((playerBoard.getCartaLeader(1).leggiLabel().equals("NON GIOCATO"))){
+		if((playerBoard.getCartaLeader(1).leggiLabel().equals("NON GIOCATO"))){ // NOSONAR
 			CartaLeaderView cartaLeader = new CartaLeaderView(playerBoard.getCartaLeader(1).getPath(), playerBoard.getCartaLeader(1).getName(), "Gioca", listener);
 			this.add(cartaLeader);
 			larghezza+=350;
 		}
-		if((playerBoard.getCartaLeader(2).leggiLabel().equals("NON GIOCATO"))){
+		if((playerBoard.getCartaLeader(2).leggiLabel().equals("NON GIOCATO"))){ // NOSONAR
 			CartaLeaderView cartaLeader = new CartaLeaderView(playerBoard.getCartaLeader(2).getPath(), playerBoard.getCartaLeader(2).getName(), "Gioca", listener);
 			this.add(cartaLeader);
 			larghezza+=350;
 		}
-		if((playerBoard.getCartaLeader(3).leggiLabel().equals("NON GIOCATO"))){
+		if((playerBoard.getCartaLeader(3).leggiLabel().equals("NON GIOCATO"))){ // NOSONAR
 			CartaLeaderView cartaLeader = new CartaLeaderView(playerBoard.getCartaLeader(3).getPath(), playerBoard.getCartaLeader(3).getName(), "Gioca", listener);
 			this.add(cartaLeader);
 			larghezza+=350;

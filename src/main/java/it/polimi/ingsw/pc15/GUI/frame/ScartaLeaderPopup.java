@@ -17,7 +17,7 @@ import it.polimi.ingsw.pc15.GUI.playerboard.PlayerBoard;
  * @author AndreaMazzeo289
  *
  */
-public class ScartaLeaderPopup extends JFrame{
+public class ScartaLeaderPopup extends JFrame{ // NOSONAR
 
 	ArrayList<CartaLeader> leaders;
 	
@@ -33,27 +33,27 @@ public class ScartaLeaderPopup extends JFrame{
 		
 		this.setLayout(new GridLayout(1,4));
 		
-		leaders = new ArrayList<CartaLeader>();
+		leaders = new ArrayList<CartaLeader>(); // NOSONAR
 		
 		PlayerBoard playerBoard = (PlayerBoard)gui.mainFrame.getContentPane().getComponent(1);
 		
 		
-		if(!(playerBoard.getCartaLeader(0).leggiLabel().equals("GIOCATO")) && !(playerBoard.getCartaLeader(0).leggiLabel().equals("SCARTATO"))){
+		if(!(playerBoard.getCartaLeader(0).leggiLabel().equals("GIOCATO")) && !(playerBoard.getCartaLeader(0).leggiLabel().equals("SCARTATO"))){ // NOSONAR
 			CartaLeaderView cartaLeader = new CartaLeaderView(playerBoard.getCartaLeader(0).getPath(), playerBoard.getCartaLeader(0).getName(), "Scarta", listener);
 			this.add(cartaLeader);
 			larghezza+=350;
 		}
-		if(!(playerBoard.getCartaLeader(1).leggiLabel().equals("GIOCATO")) && !(playerBoard.getCartaLeader(1).leggiLabel().equals("SCARTATO"))){
+		if(!(playerBoard.getCartaLeader(1).leggiLabel().equals("GIOCATO")) && !(playerBoard.getCartaLeader(1).leggiLabel().equals("SCARTATO"))){ // NOSONAR
 			CartaLeaderView cartaLeader = new CartaLeaderView(playerBoard.getCartaLeader(1).getPath(), playerBoard.getCartaLeader(1).getName(), "Scarta", listener);
 			this.add(cartaLeader);
 			larghezza+=350;
 		}
-		if(!(playerBoard.getCartaLeader(2).leggiLabel().equals("GIOCATO")) && !(playerBoard.getCartaLeader(2).leggiLabel().equals("SCARTATO"))){
+		if(!(playerBoard.getCartaLeader(2).leggiLabel().equals("GIOCATO")) && !(playerBoard.getCartaLeader(2).leggiLabel().equals("SCARTATO"))){ // NOSONAR
 			CartaLeaderView cartaLeader = new CartaLeaderView(playerBoard.getCartaLeader(2).getPath(), playerBoard.getCartaLeader(2).getName(), "Scarta", listener);
 			this.add(cartaLeader);
 			larghezza+=350;
 		}
-		if(!(playerBoard.getCartaLeader(3).leggiLabel().equals("GIOCATO")) && !(playerBoard.getCartaLeader(3).leggiLabel().equals("SCARTATO"))){
+		if(!(playerBoard.getCartaLeader(3).leggiLabel().equals("GIOCATO")) && !(playerBoard.getCartaLeader(3).leggiLabel().equals("SCARTATO"))){ // NOSONAR
 			CartaLeaderView cartaLeader = new CartaLeaderView(playerBoard.getCartaLeader(3).getPath(), playerBoard.getCartaLeader(3).getName(), "Scarta", listener);
 			this.add(cartaLeader);
 			larghezza+=350;
