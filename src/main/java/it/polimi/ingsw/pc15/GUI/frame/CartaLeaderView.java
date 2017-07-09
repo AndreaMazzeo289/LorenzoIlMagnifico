@@ -16,12 +16,8 @@ import it.polimi.ingsw.pc15.GUI.ButtonListener;
  * @author AndreaMazzeo
  *
  */
-public class CartaLeaderView extends JButton{
+public class CartaLeaderView extends JButton{ // NOSONAR
 
-	private Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
-		
-	private String path;
-	private String name;
 	
 	transient ImageIcon imageIcon;
 	transient Image image, newImage;
@@ -30,9 +26,6 @@ public class CartaLeaderView extends JButton{
 	private int larghezza;
 		
 	public CartaLeaderView(String path, String name, String tipoView, ButtonListener listener) {
-		
-		this.path = path;
-		this.name = name;
 		
 		altezza = 500;
 		larghezza = 350;
