@@ -193,40 +193,7 @@ public class Model extends Observable {
 			iniziaNuovoTurno();
 	}
 	
-	public Player getPlayer(String nome) {
-		
-		for (Player player : this.giocatori) {
-			if (player.getNome().equals(nome))
-				return player;
-		}
-		
-		System.out.println("ERRORE: il giocatore cercato non esiste!");
-		return null;
-	}
 
-	public ArrayList<Player> getPlayers() {
-		return this.giocatori;
-	}
-	
-	public Plancia getPlancia() {
-		return this.plancia;
-	}
-	
-	public RapportoInVaticano getRapportoInVaticano() {
-		return this.rapportoInVaticano;
-	}
-	
-	public int getTurno() {
-		return this.turno;
-	}
-	
-	public int getPeriodo() {
-		return this.periodo;
-	}
-	
-	public int getAzione() {
-		return this.azione;
-	}
 
 	public void giocatoreSuccessivo() {
 		
@@ -240,6 +207,7 @@ public class Model extends Observable {
 		}
 		else giocatoreCorrente = ordine.get(ordine.lastIndexOf(giocatoreCorrente)+1);
 	}
+	
 	
 	public void calcolaPunteggio() {
 		
@@ -316,9 +284,6 @@ public class Model extends Observable {
 			this.ordine = nuovoOrdine;
 			this.giocatoreCorrente = nuovoOrdine.get(0);
 		}	
-				
-			
-		
 	}
 	
 	public void notificaStatoPartita (String messaggio) {
@@ -349,6 +314,45 @@ public class Model extends Observable {
 			for (ColoreFamiliare coloreFamiliare : ColoreFamiliare.values())
 				player.getFamiliare(coloreFamiliare).setDisponibilità(true);
 					
+	}
+	
+	//-----------------------------------------------------------------------------------------------------------//
+	//                    METODI GET                                                                             //
+	//-----------------------------------------------------------------------------------------------------------//
+	
+	public Player getPlayer(String nome) {
+		
+		for (Player player : this.giocatori) {
+			if (player.getNome().equals(nome))
+				return player;
+		}
+		
+		System.out.println("ERRORE: il giocatore cercato non esiste!");
+		return null;
+	}
+
+	public ArrayList<Player> getPlayers() {
+		return this.giocatori;
+	}
+	
+	public Plancia getPlancia() {
+		return this.plancia;
+	}
+	
+	public RapportoInVaticano getRapportoInVaticano() {
+		return this.rapportoInVaticano;
+	}
+	
+	public int getTurno() {
+		return this.turno;
+	}
+	
+	public int getPeriodo() {
+		return this.periodo;
+	}
+	
+	public int getAzione() {
+		return this.azione;
 	}
 
 }

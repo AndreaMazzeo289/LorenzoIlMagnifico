@@ -11,14 +11,15 @@ import java.util.Observable;
 import java.util.Observer;
 import java.util.Scanner;
 
+import it.polimi.ingsw.pc15.carte.TipoCarta;
 import it.polimi.ingsw.pc15.model.StatoPartita;
+import it.polimi.ingsw.pc15.plancia.SpazioTorre;
 import it.polimi.ingsw.pc15.server.ServerInterface;
 
 public class RMIHandler extends NetworkHandler implements RMIHandlerInterface {
 	
 	private int numeroConnessione;
 	private transient ServerInterface server;
-	
 	
 	public RMIHandler (ClientModel clientModel, String name) {	
 		super(name, clientModel);
@@ -52,6 +53,10 @@ public class RMIHandler extends NetworkHandler implements RMIHandlerInterface {
 
 	@Override
 	public void aggiornaStatoPartita(StatoPartita statoPartita) throws RemoteException {
+		
+		for (SpazioTorre spazio : statoPartita.getStatoPlancia().getTorre(TipoCarta.TERRITORIO).getSpaziTorre())
+			System.out.println(spazio.getCarta().toString());
+		
 		this.clientModel.aggiorna(statoPartita);	
 	}
 

@@ -14,7 +14,6 @@ public abstract class NetworkHandler extends Observable implements Observer, Ser
 		this.name = name;
 	}
 
-	
 	public abstract void connetti();
 
 }

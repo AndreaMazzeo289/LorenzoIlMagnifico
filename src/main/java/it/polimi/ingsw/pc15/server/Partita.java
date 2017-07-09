@@ -41,6 +41,8 @@ public class Partita {
 		
 		model.iniziaPartita();
 		
+		System.out.println("Nuova partita avviata! Giocatori: " + nomiGiocatori);
+		
 	}
 
 }

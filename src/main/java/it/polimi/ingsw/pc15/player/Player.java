@@ -34,7 +34,7 @@ public class Player implements Serializable {
 	private EffettiAttivi effettiAttivi;
 	private ArrayList<Leader> carteLeader;
 	private Set<Player> avversari;
-	private transient TesseraBonus tesseraBonus;
+	private TesseraBonus tesseraBonus;
 	
 	public Player (String nome, ColorePlayer colore) {
 		
