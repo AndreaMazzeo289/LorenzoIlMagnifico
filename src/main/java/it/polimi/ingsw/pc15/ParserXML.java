@@ -1785,7 +1785,7 @@ public class ParserXML {
 				
 				String imgPath = bonusItem.getElementsByTagName("img").item(0).getFirstChild().getNodeValue();
 				
-				tessereBonus.add(new TesseraBonus(bonusRaccolta.get(i),bonusProduzione.get(i),imgPath));
+				tessereBonus.add(new TesseraBonus(bonusProduzione.get(i),bonusRaccolta.get(i),imgPath));
 				
 			}
 		}catch(Exception e){
