@@ -354,6 +354,7 @@ public class ButtonListener implements ActionListener{
 				
 				coloreFamiliareScelto=null;
 				servitoriInseriti = false;
+				gui.inviaMessaggio();
 			}
 		}
 		

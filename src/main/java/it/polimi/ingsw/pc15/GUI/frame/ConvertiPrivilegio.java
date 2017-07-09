@@ -114,10 +114,10 @@ public class ConvertiPrivilegio extends JFrame{
 		buttonMilitari.setBackground(Color.decode("15394527"));
 		
 		panelButton.add(buttonPietraLegna);
-		panelButton.add(buttonOro);
 		panelButton.add(buttonServitori);
-		panelButton.add(buttonFede);
+		panelButton.add(buttonOro);
 		panelButton.add(buttonMilitari);
+		panelButton.add(buttonFede);
 		
 		testo = new JLabel("",SwingConstants.CENTER);
 		testo.setText("CHE RISORSA VUOI OTTENERE?");
