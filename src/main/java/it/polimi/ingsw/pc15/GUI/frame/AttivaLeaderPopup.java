@@ -17,7 +17,7 @@ import it.polimi.ingsw.pc15.GUI.playerboard.PlayerBoard;
  * @author AndreaMazzeo289
  *
  */
-public class AttivaLeaderPopup extends JFrame{
+public class AttivaLeaderPopup extends JFrame{ //NOSONAR
 
 	private ArrayList<CartaLeader> leaders; //NOSONAR
 	
