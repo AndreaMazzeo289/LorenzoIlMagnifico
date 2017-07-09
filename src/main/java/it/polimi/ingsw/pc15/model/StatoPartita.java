@@ -1,5 +1,10 @@
 package it.polimi.ingsw.pc15.model;
 
+import java.io.ByteArrayInputStream;
+import java.io.ByteArrayOutputStream;
+import java.io.IOException;
+import java.io.ObjectInputStream;
+import java.io.ObjectOutputStream;
 import java.io.Serializable;
 import java.util.ArrayList;
 
@@ -16,6 +21,7 @@ public class StatoPartita implements Serializable {
 	private Player statoGiocatore;
 	private String giocatoreCorrente;
 	private String messaggio;
+	private String a;
 	
 	public StatoPartita (Plancia statoPlancia, int periodo, int turno, int azione, ArrayList<Player> statoGiocatori, String giocatoreCorrente, String messaggio) {
 		this.statoPlancia = statoPlancia;
@@ -65,12 +71,26 @@ public class StatoPartita implements Serializable {
 	
 	public void setStatoGiocatore(String nome) {
 		
-		System.out.println("Nome: " + nome);
 		for (Player giocatore : statoGiocatori)
 			if (giocatore.getNome().equals(nome))
 				this.statoGiocatore = giocatore;
 		
-		System.out.println("Giocatore: " + this.statoGiocatore.getNome());
 	}
+	
+	public StatoPartita clone() {
+		try {
+			ByteArrayOutputStream baos = new ByteArrayOutputStream();
+			ObjectOutputStream oos = new ObjectOutputStream(baos);
+			oos.writeObject(this);
+			
+			ByteArrayInputStream bais = new ByteArrayInputStream(baos.toByteArray());
+			ObjectInputStream ois = new ObjectInputStream(bais);
+			return (StatoPartita) ois.readObject();
+		} catch (IOException | ClassNotFoundException e) {
+			return null;
+		}
+		
+	}
+	
 
 }

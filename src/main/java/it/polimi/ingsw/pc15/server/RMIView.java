@@ -6,6 +6,7 @@ import java.util.Arrays;
 import java.util.Observable;
 import java.util.concurrent.ArrayBlockingQueue;
 import java.util.concurrent.BlockingQueue;
+import java.util.concurrent.LinkedBlockingQueue;
 
 import it.polimi.ingsw.pc15.client.RMIHandlerInterface;
 import it.polimi.ingsw.pc15.model.StatoPartita;
@@ -17,7 +18,7 @@ public class RMIView extends ServerView {
 	
 	public RMIView (RMIHandlerInterface rmiHandler) {
 		this.rmiHandler = rmiHandler;
-		this.aggiornamenti = new ArrayBlockingQueue<StatoPartita>(5);
+		this.aggiornamenti = new LinkedBlockingQueue<StatoPartita>(5);
 		
 		try {
 			this.name = rmiHandler.remoteGetNome();
@@ -36,8 +37,6 @@ public class RMIView extends ServerView {
 			
 			try {
 				statoPartita = aggiornamenti.take();
-				statoPartita.setStatoGiocatore(this.name);
-				System.out.println(statoPartita.getStatoGiocatore().getNome());
 			} catch (InterruptedException e) {
 				e.printStackTrace();
 			}
@@ -55,8 +54,10 @@ public class RMIView extends ServerView {
 	public void update(Observable arg0, Object arg) {
 
 		StatoPartita statoPartita = (StatoPartita)arg;
+		statoPartita.setStatoGiocatore(this.name);
+		
 		//System.out.println("\nSono la RMIView di " + name + " e ho ricevuto " + statoPartita.getMessaggio())
-		aggiornamenti.add(statoPartita);
+		aggiornamenti.add(statoPartita.clone());
 		
 	}
 	

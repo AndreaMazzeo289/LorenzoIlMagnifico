@@ -12,6 +12,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Observer;
+import java.util.concurrent.ArrayBlockingQueue;
 
 import it.polimi.ingsw.pc15.ParserXML;
 import it.polimi.ingsw.pc15.client.RMIHandler;
@@ -19,6 +20,7 @@ import it.polimi.ingsw.pc15.client.RMIHandlerInterface;
 import it.polimi.ingsw.pc15.client.SocketHandler;
 import it.polimi.ingsw.pc15.controller.Controller;
 import it.polimi.ingsw.pc15.model.Model;
+import it.polimi.ingsw.pc15.model.StatoPartita;
 import it.polimi.ingsw.pc15.player.Player;
 
 
