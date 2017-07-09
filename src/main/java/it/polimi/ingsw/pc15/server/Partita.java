@@ -39,9 +39,12 @@ public class Partita {
 				((RMIView) giocatoreConnesso.getValue()).sendOK();
 		}
 		
-		model.iniziaPartita();
+		try {
+			model.iniziaPartita();
+			System.out.println("Nuova partita avviata! Giocatori: " + nomiGiocatori);
+		} catch (IndexOutOfBoundsException e) {};
 		
-		System.out.println("Nuova partita avviata! Giocatori: " + nomiGiocatori);
+		
 		
 	}
 
