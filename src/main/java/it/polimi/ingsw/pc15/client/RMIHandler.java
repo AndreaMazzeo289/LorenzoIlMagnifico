@@ -42,7 +42,7 @@ public class RMIHandler extends NetworkHandler implements RMIHandlerInterface {
 
 	@Override
 	public void update(Observable o, Object input) {
-		System.out.println("\nSono il RMIHandler e ho ricevuto " + (ArrayList<String>) input);
+		//System.out.println("\nSono il RMIHandler e ho ricevuto " + (ArrayList<String>) input);
 		try {
 			this.server.remoteNotify(input, numeroConnessione);
 		} catch (RemoteException e) {

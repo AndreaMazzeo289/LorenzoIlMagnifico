@@ -15,6 +15,7 @@ public class ClientModel extends Observable {
 	private Plancia statoPlancia;
 	private int periodo;
 	private int turno;
+	private int azione;
 	private ArrayList<Player> statoAvversari;
 	private Player statoGiocatore;
 	private String giocatoreCorrente;
@@ -25,6 +26,7 @@ public class ClientModel extends Observable {
 		this.statoPlancia = stato.getStatoPlancia();
 		this.periodo = stato.getPeriodo();
 		this.turno = stato.getTurno();
+		this.azione = stato.getAzione();
 		this.statoAvversari = stato.getStatoGiocatori();
 		this.giocatoreCorrente = stato.getGiocatoreCorrente();	
 		this.statoGiocatore = stato.getStatoGiocatore();
@@ -44,6 +46,10 @@ public class ClientModel extends Observable {
 	
 	public synchronized int getTurno() {
 		return this.turno;
+	}
+	
+	public synchronized int getAzione() {
+		return this.azione;
 	}
 	
 	public synchronized Player getStatoGiocatore() {

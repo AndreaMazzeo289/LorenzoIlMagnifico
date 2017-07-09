@@ -60,7 +60,7 @@ public class SocketView extends ServerView implements Serializable {
 	public void update(Observable o, Object arg) {
 		
 		StatoPartita statoPartita = (StatoPartita)arg;
-		System.out.println("\nSono la SocketView di " + name + " e ho ricevuto " + (statoPartita.getMessaggio()));
+		//System.out.println("\nSono la SocketView di " + name + " e ho ricevuto " + (statoPartita.getMessaggio()));
 		statoPartita.setStatoGiocatore(name);
 		sendObj(statoPartita);
 		

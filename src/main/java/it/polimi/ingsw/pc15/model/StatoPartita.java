@@ -11,15 +11,17 @@ public class StatoPartita implements Serializable {
 	private Plancia statoPlancia;
 	private int periodo;
 	private int turno;
+	private int azione;
 	private ArrayList<Player> statoGiocatori;
 	private Player statoGiocatore;
 	private String giocatoreCorrente;
 	private String messaggio;
 	
-	public StatoPartita (Plancia statoPlancia, int periodo, int turno, ArrayList<Player> statoGiocatori, String giocatoreCorrente, String messaggio) {
+	public StatoPartita (Plancia statoPlancia, int periodo, int turno, int azione, ArrayList<Player> statoGiocatori, String giocatoreCorrente, String messaggio) {
 		this.statoPlancia = statoPlancia;
 		this.periodo = periodo;
 		this.turno = turno;
+		this.azione = azione;
 		this.statoGiocatori = statoGiocatori;
 		this.giocatoreCorrente = giocatoreCorrente;
 		this.messaggio = messaggio;
@@ -35,6 +37,10 @@ public class StatoPartita implements Serializable {
 	
 	public int getTurno() {
 		return this.turno;
+	}
+	
+	public int getAzione() {
+		return this.azione;
 	}
 	
 	public ArrayList<Player> getStatoGiocatori() {

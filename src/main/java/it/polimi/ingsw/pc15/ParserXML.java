@@ -157,7 +157,7 @@ public class ParserXML {
 	                for (int j = 0; j < listaEffettiPermanenti.getLength(); ++j) {
 	                    Element effetto = (Element) listaEffettiPermanenti.item(j);
 	                    String tipologiaEffetto = effetto.getFirstChild().getNodeValue();
-	                    /*System.out.println("Effetto permanente "+j+":"+tipologiaEffetto);*/
+	                    //System.out.println("Effetto permanente "+j+":"+tipologiaEffetto);
 	                    Effetto effettoLetto = getEffettoXML(tipologiaEffetto);
 	                    effettiPermanentiSet.add(effettoLetto);
 	                }
@@ -169,7 +169,7 @@ public class ParserXML {
 	                for (int j = 0; j < listaEffettiImmediati.getLength(); ++j) {
 	                    Element effetto = (Element) listaEffettiImmediati.item(j);
 	                    String tipologiaEffetto = effetto.getFirstChild().getNodeValue();
-	                    /*System.out.println("Effetto immediato "+j+":"+tipologiaEffetto);*/
+	                    //System.out.println("Effetto immediato "+j+":"+tipologiaEffetto);
 	                    Effetto effettoLetto = getEffettoXML(tipologiaEffetto);
 	                    effettiImmediatiSet.add(effettoLetto);
 	                }

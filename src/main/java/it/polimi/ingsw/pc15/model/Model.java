@@ -3,6 +3,7 @@
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Collections;
+import java.util.HashMap;
 import java.util.HashSet;
 import java.util.Iterator;
 import java.util.Map.Entry;
@@ -57,9 +58,12 @@ public class Model extends Observable {
 	
 	private ArrayList<Leader> carteLeader;
 	
+	private RapportoInVaticano rapportoInVaticano;
+	
 	private int periodo;
 	private int turno;
 	private int azione;
+	
 	
 	public Model(ArrayList<String> nomiGiocatori){
 		
@@ -92,12 +96,13 @@ public class Model extends Observable {
 		
 		iniziaNuovoTurno();
 		
+		notificaStatoPartita("\n  --- PARTITA INIZIATA! ---");
+		
 	}
 	
 	private void distribuisciTessereBonus() {
 		
 		ArrayList<TesseraBonus> tessereBonus = ParserXML.leggiTessereBonus();
-		
 		Collections.shuffle(tessereBonus);
 		
 		for (int i=0; i<numeroGiocatori; i++)
@@ -134,13 +139,9 @@ public class Model extends Observable {
 				giocatore.getCarteLeader().add(carteLeader.get(0));
 				carteLeader.get(0).setPlayer(giocatore);
 				carteLeader.remove(0);
-				
 			}
 		}
-	
 	}	
-	
-	
 	
 	public void generaCarteSviluppo() {
 
@@ -160,30 +161,29 @@ public class Model extends Observable {
 		
 		impostaOrdineGiocatori();
 		
+		System.out.println("Ordine giocatori: " + ordine);
+		
 		plancia.libera();
 		
 		plancia.setCarte(periodo, carteTerritorio, cartePersonaggio, carteEdificio, carteImpresa);
 		
 		tiraIDadi();
-
-		notificaStatoPartita("\nÈ iniziato un nuovo turno! (Periodo: " + periodo + ", Turno: " + turno + ")");
-
 	}
 	
 	private void finisciTurno() {
 		
-		System.out.println("PERIODO: " + periodo + " , TURNO : " + turno);
-		
-		notificaStatoPartita("Fine del turno!");
-		
+		if (turno==1 && periodo==1)
+			this.rapportoInVaticano = new RapportoInVaticano(this.plancia.getTesseraScomunica(periodo));
+				
 		if (turno==ParserXML.leggiValore("numeroTurniPerPeriodo"))
-			rapportoInVaticano(periodo);
+			rapportoInVaticano.avvia();
 		
 		turno++;
 		
 		if (turno>ParserXML.leggiValore("numeroTurniPerPeriodo")) {
 			periodo++;
 			turno=1;
+			this.rapportoInVaticano = new RapportoInVaticano(this.plancia.getTesseraScomunica(periodo));
 		}
 		
 		if (periodo>ParserXML.leggiValore("numeroPeriodi"))
@@ -191,17 +191,6 @@ public class Model extends Observable {
 		
 		else 
 			iniziaNuovoTurno();
-	}
-
-	public void rapportoInVaticano(int periodo) {
-		
-		int puntiFedeMinimi = ParserXML.leggiValore("puntiFedePeriodo" + Integer.toString(periodo));
-		for (Player player :giocatori) {
-			if (player.getSetRisorse().getRisorsa(TipoRisorsa.PUNTIFEDE).getQuantità() < puntiFedeMinimi) {
-				notificaStatoPartita(player.getNome() + " è stato scomunicato!");
-				this.plancia.getTesseraScomunica(periodo).infliggiScomunica(player);
-			}
-		}
 	}
 	
 	public Player getPlayer(String nome) {
@@ -222,12 +211,28 @@ public class Model extends Observable {
 	public Plancia getPlancia() {
 		return this.plancia;
 	}
+	
+	public RapportoInVaticano getRapportoInVaticano() {
+		return this.rapportoInVaticano;
+	}
+	
+	public int getTurno() {
+		return this.turno;
+	}
+	
+	public int getPeriodo() {
+		return this.periodo;
+	}
+	
+	public int getAzione() {
+		return this.azione;
+	}
 
 	public void giocatoreSuccessivo() {
 		
 		if (ordine.lastIndexOf(giocatoreCorrente)==ordine.size()-1) {
 			azione++;
-			if (azione==3)  {
+			if (azione==2)  {
 				azione=1;
 				finisciTurno();	
 			}
@@ -298,35 +303,27 @@ public class Model extends Observable {
 			this.giocatoreCorrente = ordine.get(0);
 		
 		else {
-					
-			boolean nuovoGiocatore;
+			
 			ArrayList<String> nuovoOrdine = new ArrayList<String>();
-			for (Familiare familiare : this.plancia.getSpazioConsiglio().getFamiliari()) {   //per ogni familiare in spazio consiglio
-				nuovoGiocatore=true;
-				for (String nomeGiocatore : nuovoOrdine)									// controlla i giocatori già aggiunti.
-					if (familiare.getPlayer().getNome().equals(nomeGiocatore))			//se hai già aggiunto il proprietario di quel 
-						nuovoGiocatore = false;											//familiare, metti false
-				if (nuovoGiocatore)
-					nuovoOrdine.add(familiare.getPlayer().getNome());                   //altrimenti aggiungilo
-			}
-					
-			for (String nomeGiocatore1 : this.ordine) {                   //per ogni nomeGiocatore nel vecchio ordine
-				nuovoGiocatore = true;
-				for (String nomeGiocatore2 : nuovoOrdine)                //controlla i giocatori già aggiunti
-					if (nomeGiocatore1.equals(nomeGiocatore2))           //se hai giò aggiunto quel nome metti false
-						nuovoGiocatore=false;
-				if (nuovoGiocatore)
-					nuovoOrdine.add(nomeGiocatore1);                     //altrimenti aggiungilo
-			}	
-				
+			for (Familiare familiare : this.plancia.getSpazioConsiglio().getFamiliari())
+				if (!nuovoOrdine.contains(familiare.getPlayer().getNome()))
+					nuovoOrdine.add(familiare.getPlayer().getNome());
+			
+			for (String nome : this.ordine)
+				if (!nuovoOrdine.contains(nome))
+					nuovoOrdine.add(nome);
+			
 			this.ordine = nuovoOrdine;
-		}
+			this.giocatoreCorrente = nuovoOrdine.get(0);
+		}	
+				
+			
 		
 	}
 	
 	public void notificaStatoPartita (String messaggio) {
 		
-		StatoPartita statoPartita = new StatoPartita(plancia, periodo, turno, giocatori, giocatoreCorrente, messaggio);
+		StatoPartita statoPartita = new StatoPartita(plancia, periodo, turno, azione, giocatori, giocatoreCorrente, messaggio);
 		setChanged();
 		notifyObservers(statoPartita);	
 	}
@@ -337,11 +334,8 @@ public class Model extends Observable {
 		Random random = new Random();	
 		
 		int valoreDadoNero = random.nextInt(6) + 1;
-		System.out.println("Valore dado NERO: " + valoreDadoNero);
 		int valoreDadoBianco = random.nextInt(6) + 1;
-		System.out.println("Valore dado BIANCO: " + valoreDadoBianco);
 		int valoreDadoArancione = random.nextInt(6) + 1;
-		System.out.println("Valore dado ARANCIONE: " + valoreDadoArancione);
 		
 		for(Player player : giocatori) {
 			
