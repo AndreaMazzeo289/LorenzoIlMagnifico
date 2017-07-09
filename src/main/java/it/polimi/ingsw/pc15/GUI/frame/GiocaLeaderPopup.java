@@ -19,6 +19,7 @@ import it.polimi.ingsw.pc15.GUI.playerboard.PlayerBoard;
  */
 public class GiocaLeaderPopup extends JFrame{ // NOSONAR
 
+	private ArrayList<CartaLeader> leaders; //NOSONAR
 	
 	private int altezza, larghezza;
 	
@@ -33,6 +34,7 @@ public class GiocaLeaderPopup extends JFrame{ // NOSONAR
 		this.setLayout(new GridLayout(1,4));
 		
 		
+		leaders = new ArrayList<CartaLeader>();//NOSONAR
 		
 		PlayerBoard playerBoard = (PlayerBoard)gui.mainFrame.getContentPane().getComponent(1);
 		
