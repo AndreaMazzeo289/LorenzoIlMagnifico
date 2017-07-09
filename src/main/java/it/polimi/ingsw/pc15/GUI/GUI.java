@@ -13,6 +13,7 @@ import javax.swing.JFrame;
 
 import it.polimi.ingsw.pc15.ParserXML;
 import it.polimi.ingsw.pc15.GUI.frame.FrameRapportoVaticano;
+import it.polimi.ingsw.pc15.GUI.gameboard.ButtonTransparent;
 import it.polimi.ingsw.pc15.GUI.gameboard.Gameboard;
 import it.polimi.ingsw.pc15.GUI.playerboard.PlayerBoard;
 import it.polimi.ingsw.pc15.carte.Carta;
@@ -26,6 +27,7 @@ import it.polimi.ingsw.pc15.plancia.SpazioMercato;
 import it.polimi.ingsw.pc15.plancia.SpazioTorre;
 import it.polimi.ingsw.pc15.player.ColoreFamiliare;
 import it.polimi.ingsw.pc15.player.ColorePlayer;
+import it.polimi.ingsw.pc15.player.Familiare;
 import it.polimi.ingsw.pc15.player.Leader;
 import it.polimi.ingsw.pc15.player.Player;
 import it.polimi.ingsw.pc15.risorse.TipoRisorsa;
@@ -184,7 +186,6 @@ public class GUI extends ClientView{
 					try {
 						gameboard.getSpazioTorre(tipo, i).modificaImmagineCarta(this.clientModel.getStatoPlancia().getSpazioTorre(tipo, spazio).getCarta().getImagePath());
 					}catch(NullPointerException e) { // NOSONAR
-						System.out.println("errore in " + tipo.name());
 						gameboard.getSpazioTorre(tipo, i).modificaImmagineCarta(retroCarte.get(tipo));
 					}
 				}
@@ -224,6 +225,10 @@ public class GUI extends ClientView{
 					}
 						
 		Spazio spazio;
+		gameboard.getSpazioConsiglio().rimuoviFamliari();
+		for(Familiare familiare : this.clientModel.getStatoPlancia().getSpazioConsiglio().getFamiliari()) {
+			gameboard.getSpazioConsiglio().inserisciFamiliare(this.mappaGiocatori.get(familiare.getPlayer().getColore()).get(familiare.getColore()));
+		}
 		
 		spazio = this.clientModel.getStatoPlancia().getSpazioConsiglio();
 		if(!spazio.vuoto())
@@ -308,7 +313,6 @@ public class GUI extends ClientView{
 		int quantitaRisorsa;
 		
 		quantitaRisorsa = this.clientModel.getStatoGiocatore().getSetRisorse().getRisorsa(TipoRisorsa.ORO).getQuantità();
-		System.out.println(quantitaRisorsa);
 		playerboard.getPanelRisorseOro().writeIntoLabel(quantitaRisorsa);
 		quantitaRisorsa = this.clientModel.getStatoGiocatore().getSetRisorse().getRisorsa(TipoRisorsa.LEGNA).getQuantità();
 		playerboard.getPanelRisorseLegna().writeIntoLabel(quantitaRisorsa);
