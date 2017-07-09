@@ -168,7 +168,7 @@ public class GUI extends ClientView{
 		pathCartaScomunica1 = this.clientModel.getStatoPlancia().getTesseraScomunica(1).getPathImg();
 		pathCartaScomunica2 = this.clientModel.getStatoPlancia().getTesseraScomunica(2).getPathImg();
 		pathCartaScomunica3 = this.clientModel.getStatoPlancia().getTesseraScomunica(3).getPathImg();
-		
+			
 		//------------------------------------//
 		// CARTE TORRI
 		//------------------------------------//
@@ -262,6 +262,10 @@ public class GUI extends ClientView{
 		//----------------------------------------------------------//
 		// AGGIORNAMENTO PLAYERBOARD IN FUNZIONE DEL MODEL
 		//----------------------------------------------------------//
+		
+		// Playerboard
+		//---------------------------//
+		playerboard.getPersonalBonus().modificaBonus(this.clientModel.getStatoGiocatore().getTesseraBonus().getImgPath());	
 		
 		//------------------------------------//
 		// LEADER

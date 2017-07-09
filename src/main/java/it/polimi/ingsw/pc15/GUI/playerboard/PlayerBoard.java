@@ -130,10 +130,10 @@ public class PlayerBoard extends JPanel{
 		contentPanel.add(panelPersonalBonus,gbc);
 		
 		carteLeader = new ArrayList<CartaLeader>();
+		carteLeader.add(new CartaLeader("img/Leaders/leaders_b_c_00.jpg","leader0",gui));
 		carteLeader.add(new CartaLeader("img/Leaders/leaders_b_c_00.jpg","leader1",gui));
 		carteLeader.add(new CartaLeader("img/Leaders/leaders_b_c_00.jpg","leader2",gui));
 		carteLeader.add(new CartaLeader("img/Leaders/leaders_b_c_00.jpg","leader3",gui));
-		carteLeader.add(new CartaLeader("img/Leaders/leaders_b_c_00.jpg","leader4",gui));
 		
 		for(int i=0; i<4; i++) {
 			panelCarteLeader.add(carteLeader.get(i));
@@ -296,6 +296,17 @@ public class PlayerBoard extends JPanel{
 	public CartaLeader getCartaLeader(int numero) {
 		return carteLeader.get(numero);
 	}
+	
+	// Carte leader
+	//---------------------------//
+	/**
+	 * metodo di acquisizione dello spazio relativo alla carta leade
+	 * @param numero della carte leader
+	 * @return istanza dell'oggetto
+	 */
+	public PersonalBonus getPersonalBonus() {
+		return personalBonus;
+	}	
 
 	// Carte gioco
 	//---------------------------//

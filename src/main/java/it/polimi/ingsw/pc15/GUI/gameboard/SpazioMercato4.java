@@ -7,6 +7,7 @@ import java.awt.GridBagLayout;
 import java.awt.Image;
 import java.awt.Toolkit;
 import java.awt.event.ActionListener;
+import java.awt.image.BufferedImage;
 
 import javax.swing.ImageIcon;
 import javax.swing.JLabel;
@@ -47,6 +48,7 @@ public class SpazioMercato4 extends SpazioMercato{
 	private int larghezzaCenter;
 	private int larghezzaEast;
 	private int larghezzaWest;
+	private BufferedImage invisibleIcon;
 	
 	public SpazioMercato4(ActionListener listener, GUI gui) {
 		
@@ -121,6 +123,8 @@ public class SpazioMercato4 extends SpazioMercato{
 			labelCenter.setIcon(imageCenter);
 			this.add(labelCenter, BorderLayout.CENTER);	
 		}
+		
+		invisibleIcon = new BufferedImage(160, 160, BufferedImage.TYPE_INT_ARGB);
 	}
 	
 	/**
@@ -143,6 +147,7 @@ public class SpazioMercato4 extends SpazioMercato{
 	 */
 	@Override
 	public void rimuoviFamiliare() {
-		buttonFamiliare.setIcon(null);
+		ImageIcon image = new ImageIcon(invisibleIcon);
+		buttonFamiliare.setIcon(image);
 	}
 }

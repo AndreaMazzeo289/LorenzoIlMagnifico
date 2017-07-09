@@ -6,6 +6,7 @@ import java.awt.GridLayout;
 import java.awt.Image;
 import java.awt.Toolkit;
 import java.awt.event.ActionListener;
+import java.awt.image.BufferedImage;
 import java.util.ArrayList;
 
 import javax.swing.ImageIcon;
@@ -49,6 +50,7 @@ public class SpazioRaccolto2 extends JPanel{
 	private int larghezzaCenter;
 	private int larghezzaEast;
 	private int larghezzaWest;
+	private BufferedImage invisibleIcon;
 	
 	public SpazioRaccolto2(ActionListener listener, GUI gui) {
 		
@@ -131,6 +133,8 @@ public class SpazioRaccolto2 extends JPanel{
 		this.add(labelWest, BorderLayout.WEST);
 		this.add(labelSouth, BorderLayout.SOUTH);
 		this.add(labelCenter, BorderLayout.CENTER);
+		
+		invisibleIcon = new BufferedImage(160, 160, BufferedImage.TYPE_INT_ARGB);
 	}
 	
 	/**
@@ -156,9 +160,11 @@ public class SpazioRaccolto2 extends JPanel{
 	 * questo metodo consente di rimuovere tutti i familiari presenti nello spazio
 	 */
 	public void rimuoviFamliari() {
+		ImageIcon image = new ImageIcon(invisibleIcon);
 		for(int i=0;i<16;i++) {
 			if(button.get(i).getName().equals("occupato")) {
-				button.get(i).setIcon(null);
+				button.get(i).setName("libero");
+				button.get(i).setIcon(image);
 			}
 		}
 	}
