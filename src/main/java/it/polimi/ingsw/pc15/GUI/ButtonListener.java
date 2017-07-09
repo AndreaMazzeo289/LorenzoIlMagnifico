@@ -527,6 +527,19 @@ public class ButtonListener implements ActionListener{
 				concludiPresaConsiglio();
 		}
 		
+		//------------------------------------------------------------------------------------//
+		// RAPPORTO VATICANO
+		//------------------------------------------------------------------------------------//
+		if(e.getActionCommand().equals("sceltoPagarePuntiFede")) {
+			gui.getFrameRapportoVaticano().dispose();
+			gui.writeMessage("1");
+			gui.inviaSenzaControllo();
+		}
+		if(e.getActionCommand().equals("sceltoSubireScomunica")) {
+			gui.getFrameRapportoVaticano().dispose();
+			gui.writeMessage("2");
+			gui.inviaSenzaControllo();
+		}
 	}
 	
 	public void concludiPresaViola() {
