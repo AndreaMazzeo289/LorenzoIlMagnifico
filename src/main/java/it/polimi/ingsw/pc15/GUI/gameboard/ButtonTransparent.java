@@ -6,6 +6,12 @@ import java.awt.event.ActionListener;
 import javax.swing.AbstractButton;
 import javax.swing.JButton;
 
+/**
+ * Classe che permette di creare dei button con determinate caratteristiche che vengono usati
+ * per occupare i vari spazi della gameboard
+ * @author AndreaMazzeo289
+ *
+ */
 public class ButtonTransparent extends JButton{ // NOSONAR
 	
 	public ButtonTransparent(String nome, int larghezza, int altezza, ActionListener listener) {

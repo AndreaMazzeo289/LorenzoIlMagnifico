@@ -24,6 +24,11 @@ import it.polimi.ingsw.pc15.player.Player;
 import it.polimi.ingsw.pc15.risorse.Risorsa;
 import it.polimi.ingsw.pc15.risorse.TipoRisorsa;
 
+/**
+ * Classe che permette la creazione di una classifica con tutti i dati dei player in gioco
+ * @author AndreaMazzeo289
+ *
+ */
 public class FrameInformazioniPlayer extends JFrame{
 
 	private int larghezza;
@@ -166,6 +171,13 @@ public class FrameInformazioniPlayer extends JFrame{
 		this.setAlwaysOnTop(true);
 	}
 	
+	/**
+	 * metodo che permette di aggiornare in tempo reale la classifica
+	 * in particolare i punti vittoria, militari e fede di ogni player in gioco
+	 * @param player in gioco
+	 * @param tipoRisorsa che si vuole aggiornare
+	 * @param value aggiornato
+	 */
 	public void aggiornaRisorse(String player, String tipoRisorsa, int value) {
 		
 		for (String key : listaPanelPlayer.keySet()) {

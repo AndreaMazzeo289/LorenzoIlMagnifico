@@ -13,6 +13,11 @@ import javax.swing.JPanel;
 import it.polimi.ingsw.pc15.carte.TipoCarta;
 import it.polimi.ingsw.pc15.player.Player;
 
+/**
+ * Classe che permette di far comparire un frame che contiene le carte possedute dal player desiderato
+ * @author AndreaMazzeo289
+ *
+ */
 public class FrameMostraCartePlayer extends JFrame{
 
 	private String path;

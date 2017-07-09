@@ -17,6 +17,12 @@ import it.polimi.ingsw.pc15.GUI.ButtonListener;
 import it.polimi.ingsw.pc15.GUI.ButtonListenerCarte;
 import it.polimi.ingsw.pc15.GUI.GUI;
 
+/**
+ * Classe che gestisce la visualizzazione sulla gameboard degli spazi torre
+ * [TERRITORIO - PERSONAGGIO - EDIFICIO - IMPRESA]
+ * @author AndreaMazzeo289
+ *
+ */
 public class SpazioTorre extends JPanel{
 	
 	private JLabel labelNorth;
@@ -127,6 +133,10 @@ public class SpazioTorre extends JPanel{
 		this.add(labelEast, BorderLayout.EAST);	
 	}
 	
+	/**
+	 * metodo che ci consente di inserire il familiare nello spazio predisposto accanto alla torre
+	 * @param path del familiare da inserire
+	 */
 	public void inserisciFamiliare(String path) {
 		imageIcon = new ImageIcon(path);
 		image = imageIcon.getImage();
@@ -137,6 +147,10 @@ public class SpazioTorre extends JPanel{
 		buttonFamiliare.setBorder(null);
 	}
 	
+	/**
+	 * metodo che permette la modifica della carta visualizzata all'interno dello spazio torre
+	 * @param path della carta da caricare
+	 */
 	public void modificaImmagineCarta (String path) {
 		imageIcon = new ImageIcon(path);
 		image = imageIcon.getImage();
@@ -146,6 +160,9 @@ public class SpazioTorre extends JPanel{
 		buttonCenter.setActionCommand(path);
 	}
 	
+	/**
+	 * metodo che permette di rimuovere il familiare dallo spazio
+	 */
 	public void rimuoviFamiliare() {
 		buttonFamiliare.setIcon(null);
 		

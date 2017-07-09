@@ -10,6 +10,12 @@ import javax.swing.JButton;
 
 import it.polimi.ingsw.pc15.GUI.ButtonListener;
 
+/**
+ * Classe che crea un oggetto CartaLeaderView che rappresenta la carta leader che verrà usata
+ * per la visualizzazione di tale carta nei frame AttivaLeaderPopup, GiocaLeaderPopup, ScartaLeaderPopup
+ * @author AndreaMazzeo
+ *
+ */
 public class CartaLeaderView extends JButton{
 
 	private Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();

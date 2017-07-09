@@ -14,6 +14,11 @@ import javax.swing.JPanel;
 
 import it.polimi.ingsw.pc15.GUI.GUI;
 
+/**
+ * Classe che gestisce la visualizzazione dello spazio produzione nella gameboard
+ * @author AndreaMazzeo289
+ *
+ */
 public class SpazioProduzione1 extends JPanel{
 
 	private JLabel labelEast;
@@ -117,6 +122,10 @@ public class SpazioProduzione1 extends JPanel{
 		this.add(labelCenter, BorderLayout.CENTER);	
 	}
 	
+	/**
+	 * metodo che consente di inserire il familiare all'interno dello spazio
+	 * @param path del familiare da inserire
+	 */
 	public void inserisciFamiliare(String path) {
 		imageIcon = new ImageIcon(path);
 		image = imageIcon.getImage();
@@ -127,6 +136,9 @@ public class SpazioProduzione1 extends JPanel{
 		buttonFamiliare.setBorder(null);
 	}
 	
+	/**
+	 * metodo che consente di rimuovere il familiare presente nello spazio
+	 */
 	public void rimuoviFamiliare() {
 		buttonFamiliare.setIcon(null);
 	}

@@ -16,6 +16,12 @@ import javax.swing.SwingConstants;
 
 import it.polimi.ingsw.pc15.GUI.ButtonListener;
 
+/**
+ * Classe che gestisce l'apparizione di un frame in cui viene richiesto se si vuole usare
+ * servitori per occupare un determinato spazio, e se si quanti se ne vuole usare
+ * @author AndreaMazzeo289
+ *
+ */
 public class SelezionaNumeroServitori extends JFrame{
 
 	private JPanel panelButton;
@@ -67,9 +73,6 @@ public class SelezionaNumeroServitori extends JFrame{
 		buttonSi.setBorder(null);
 		buttonNo.setBorder(null);
 		
-		//buttonSi.setText("SI");
-		//buttonNo.setText("NO");
-		
 		buttonSi.addActionListener(buttonListenerCall);
 		buttonNo.addActionListener(buttonListenerCall);
 		
@@ -91,6 +94,9 @@ public class SelezionaNumeroServitori extends JFrame{
 		this.setAlwaysOnTop(true);
 	}
 	
+	/**
+	 * metodo che apre un ulteriore frame che richiede quanti servitori si vogliono usare
+	 */
 	public void numeroServitoriPopup() {
 		
 		frameNumeroServitori = new JFrame();
@@ -119,10 +125,18 @@ public class SelezionaNumeroServitori extends JFrame{
 		frameNumeroServitori.setAlwaysOnTop(true);
 	}
 	
+	/**
+	 * metodo di acquisizione del frame
+	 * @return istanza dell'oggetto
+	 */
 	public JFrame getPopupNumeroServitori() {
 		return frameNumeroServitori;
 	}
 	
+	/**
+	 * metodo che permette di leggere quanti servitori si vogliono usare
+	 * @return numero dei servitori selezionati
+	 */
 	public int getInputNumero() {
 		return Integer.parseInt(inputNumero.getText());
 	}

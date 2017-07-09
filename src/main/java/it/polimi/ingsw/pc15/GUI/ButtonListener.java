@@ -400,7 +400,7 @@ public class ButtonListener implements ActionListener{
 			if(coloreFamiliareScelto!=null && servitoriInseriti) {	
 				
 				gui.writeMessage("mercato");
-				gui.writeMessage("1");	
+				gui.writeMessage("0");	
 				
 				{
 					playerBoard.getButtonPosizionaFamiliare().sbloccaButton();
@@ -421,7 +421,7 @@ public class ButtonListener implements ActionListener{
 			if(coloreFamiliareScelto!=null && servitoriInseriti) {	
 				
 				gui.writeMessage("mercato");
-				gui.writeMessage("2");	
+				gui.writeMessage("1");	
 				
 				{
 					playerBoard.getButtonPosizionaFamiliare().sbloccaButton();
@@ -441,7 +441,7 @@ public class ButtonListener implements ActionListener{
 			if(coloreFamiliareScelto!=null && servitoriInseriti) {	
 				
 				gui.writeMessage("mercato");
-				gui.writeMessage("3");	
+				gui.writeMessage("2");	
 				
 				{
 					playerBoard.getButtonPosizionaFamiliare().sbloccaButton();
@@ -461,7 +461,7 @@ public class ButtonListener implements ActionListener{
 			if(coloreFamiliareScelto!=null && servitoriInseriti) {	
 				
 				gui.writeMessage("mercato");
-				gui.writeMessage("4");	
+				gui.writeMessage("3");	
 				
 				{
 					playerBoard.getButtonPosizionaFamiliare().sbloccaButton();

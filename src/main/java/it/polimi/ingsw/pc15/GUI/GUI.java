@@ -27,6 +27,12 @@ import it.polimi.ingsw.pc15.player.ColorePlayer;
 import it.polimi.ingsw.pc15.player.Player;
 import it.polimi.ingsw.pc15.risorse.TipoRisorsa;
 
+/**
+ * Classe che estende la classe ClientView e gestisce l'intera evoluzione della GUI
+ * tramite continui aggiornamenti
+ * @author AndreaMazzeo289
+ *
+ */
 public class GUI extends ClientView{
 
 	public JFrame mainFrame;
@@ -117,9 +123,34 @@ public class GUI extends ClientView{
 	public void update(Observable arg0, Object arg1)  { 
 		
 		if(!loadDone) {
+			
+			mainFrame = new JFrame();
+			
+			Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
+			int width = (int)screenSize.getWidth();
+			int height = (int)screenSize.getHeight();
+			mainFrame.setSize(width, height);
+			mainFrame.getContentPane().setBackground(Color.decode("15394527"));
+			numeroGiocatori = this.clientModel.getStatoAvversari().size();
+			mainFrame.getContentPane().setLayout(new GridBagLayout());
+			gameboard = new Gameboard(listener,this);
+			playerboard = new PlayerBoard(listener,this);
+			
+	    	GridBagConstraints gbc = new GridBagConstraints();
+		    gbc.gridy=0;
+		    gbc.gridx=0;
+		    mainFrame.getContentPane().add(gameboard, gbc);
+		    gbc.gridx=1;
+		    mainFrame.getContentPane().add(playerboard, gbc);
+		    
+		    mainFrame.setVisible(true);
+		    mainFrame.setAlwaysOnTop(true);
+		    loadDone=true;
+			
 			try {
 				Thread.sleep(4000); 
 			} catch (InterruptedException e) {}  // NOSONAR
+			
 		}
 		
 		arrayListAvversari = this.clientModel.getStatoAvversari();
@@ -313,27 +344,7 @@ public class GUI extends ClientView{
 		
 		System.out.println("RUN");
 		
-		mainFrame = new JFrame();
 		
-		Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
-		int width = (int)screenSize.getWidth();
-		int height = (int)screenSize.getHeight();
-		mainFrame.setSize(width, height);
-		mainFrame.getContentPane().setBackground(Color.decode("15394527"));
-	   
-		mainFrame.getContentPane().setLayout(new GridBagLayout());
-		gameboard = new Gameboard(listener,this);
-		playerboard = new PlayerBoard(listener,this);
-		
-    	GridBagConstraints gbc = new GridBagConstraints();
-	    gbc.gridy=0;
-	    gbc.gridx=0;
-	    mainFrame.getContentPane().add(gameboard, gbc);
-	    gbc.gridx=1;
-	    mainFrame.getContentPane().add(playerboard, gbc);
-	    
-	    mainFrame.setVisible(true);
-	    mainFrame.setAlwaysOnTop(true);
 	}
 
 	public ArrayList<Player> getarrayListAvversari() {

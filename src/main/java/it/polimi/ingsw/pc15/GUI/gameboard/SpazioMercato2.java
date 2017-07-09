@@ -13,6 +13,11 @@ import javax.swing.JLabel;
 
 import it.polimi.ingsw.pc15.GUI.GUI;
 
+/**
+ * Classe che gestisce la visualizzazione del secondo spazio mercato nella gameboard
+ * @author AndreaMazzeo289
+ *
+ */
 public class SpazioMercato2 extends SpazioMercato{
 
 	private JLabel labelNorth;
@@ -115,6 +120,10 @@ public class SpazioMercato2 extends SpazioMercato{
 		this.add(labelCenter, BorderLayout.CENTER);	
 	}
 	
+	/**
+	 * metodo che permette di inserire il familiare nello spazio apposito
+	 * @param path del familiare da inserire
+	 */
 	@Override
 	public void inserisciFamiliare(String path) {
 		imageIcon = new ImageIcon(path);
@@ -126,6 +135,9 @@ public class SpazioMercato2 extends SpazioMercato{
 		buttonFamiliare.setBorder(null);
 	}
 	
+	/**
+	 * metodo che consente di rimuovere il familiare che occupa lo spazio
+	 */
 	@Override
 	public void rimuoviFamiliare() {
 		buttonFamiliare.setIcon(null);

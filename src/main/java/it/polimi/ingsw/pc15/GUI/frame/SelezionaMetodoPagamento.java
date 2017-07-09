@@ -15,6 +15,11 @@ import javax.swing.SwingConstants;
 
 import it.polimi.ingsw.pc15.GUI.ButtonListener;
 
+/**
+ * Classe che permette l'apparizione di un frame che richiede quale metodo di pagamento si vuole scegliere
+ * @author AndreaMazzeo289
+ *
+ */
 public class SelezionaMetodoPagamento extends JFrame{
 
 	private JPanel panelButton;

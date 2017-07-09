@@ -12,6 +12,12 @@ import it.polimi.ingsw.pc15.GUI.ButtonListenerCarte;
 import it.polimi.ingsw.pc15.GUI.GUI;
 import it.polimi.ingsw.pc15.carte.TipoCarta;
 
+/**
+ * Classe che permette la visualizzazione di tutte le carte possedute dal player nella playerboard
+ * @author AndreaMazzeo289
+ *
+ */
+
 public class CarteGioco extends JButton{
 
 	private JButton carta;
@@ -49,9 +55,6 @@ public class CarteGioco extends JButton{
 		altezza = 1100;
 		larghezza = 370;
 		
-		/*int larghezzaTotale = 4076;
-		int altezzaTotale = 6530;*/
-		
 		altezzaSchermo = (int)screenSize.getHeight();
 		larghezzaSchermo = (int)(((float)screenSize.getWidth())*rapporto);
 		larghezzaRescale = ((int)(larghezzaSchermo*larghezza)/larghezzaTotale);
@@ -66,20 +69,16 @@ public class CarteGioco extends JButton{
 		
 		carta.setIcon(imageCard);
 		
-		//this.add(carta, BorderLayout.CENTER);
 		this.setIcon(imageCard);
 		this.setPreferredSize(new Dimension(larghezza,altezza));
 		this.setBackground(Color.decode("15394527"));
 	}
 	
-	public int getAltezzaRescale() {
-		return altezzaRescale;
-	}
-	
-	public int getLarghezzaRescale() {
-		return larghezzaRescale;
-	}
-	
+	/**
+	 * metodo che permette di modificare l'immagine che viene visualizzata nell'apposito spazio
+	 * per esempio quando un player acquisisce una carte questa viene inserita nella playerboard
+	 * @param path dell'immagine da inserire
+	 */
 	public void modificaImmagineCarta(String path) {
 		imageIcon = new ImageIcon(path);
 		image = imageIcon.getImage();

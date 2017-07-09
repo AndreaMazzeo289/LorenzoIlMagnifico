@@ -78,7 +78,7 @@ public class ParserXML {
 		//leggiScomunica(2);
 		//leggiScomunica(3);
 		
-		//getCarteXML(TipoCarta.TERRITORIO);
+		getCarteXML(TipoCarta.PERSONAGGIO);
 		//leggiCartaLeader();
 		//leggiTessereBonusRaccolta();
 		//leggiSetRisorseSpazio("verde1");

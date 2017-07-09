@@ -12,6 +12,11 @@ import it.polimi.ingsw.pc15.GUI.GUI;
 import it.polimi.ingsw.pc15.GUI.playerboard.CartaLeader;
 import it.polimi.ingsw.pc15.GUI.playerboard.PlayerBoard;
 
+/**
+ * Classe che gestisce l'apparizione del frame per scartare le carte leader
+ * @author AndreaMazzeo289
+ *
+ */
 public class ScartaLeaderPopup extends JFrame{
 
 	ArrayList<CartaLeader> leaders;

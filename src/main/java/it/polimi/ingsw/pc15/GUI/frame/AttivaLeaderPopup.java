@@ -12,6 +12,11 @@ import it.polimi.ingsw.pc15.GUI.GUI;
 import it.polimi.ingsw.pc15.GUI.playerboard.CartaLeader;
 import it.polimi.ingsw.pc15.GUI.playerboard.PlayerBoard;
 
+/**
+ * Classe che gestisce l'apparizione del frame per l'attivazione degli effetti delle carte leader giocate
+ * @author AndreaMazzeo289
+ *
+ */
 public class AttivaLeaderPopup extends JFrame{
 
 	private ArrayList<CartaLeader> leaders;

@@ -11,6 +11,11 @@ import javax.swing.JPanel;
 
 import it.polimi.ingsw.pc15.GUI.GUI;
 
+/**
+ * Classe che gestisce la visualizzazione del pannello dei bonus personali relativi al player
+ * @author AndreaMazzeo289
+ *
+ */
 public class PersonalBonus extends JPanel{
 
 	private JLabel carta;

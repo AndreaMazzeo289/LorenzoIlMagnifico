@@ -15,6 +15,12 @@ import it.polimi.ingsw.pc15.GUI.ButtonListener;
 import it.polimi.ingsw.pc15.GUI.GUI;
 import it.polimi.ingsw.pc15.carte.TipoCarta;
 
+/**
+ * Classe che gestisce l'intera visualizzazione della playerboard
+ * ossia la componente della gui che ha come scopo l'interazione con il player
+ * @author AndreaMazzeo289
+ *
+ */
 public class PlayerBoard extends JPanel{
 
 	private CarteGioco carta;
@@ -174,75 +180,134 @@ public class PlayerBoard extends JPanel{
 	
 	// Button
 	//---------------------------//
+	/**
+	 * metodo di acquisizione del button di posizionamento del familiare
+	 * @return istanza del button
+	 */
 	public GraphicButton getButtonPosizionaFamiliare() {
 		return (GraphicButton) cartePlayer.getComponent(0);
 	}
 	
+	/**
+	 * metodo di acquisizione del button di attivazione dell'effetto leader
+	 * @return istanza del button
+	 */
 	public GraphicButton getButtonAttivaEffettoLeader() {
 		return (GraphicButton) cartePlayer.getComponent(7);
 	}
 	
+	/**
+	 * metodo di acquisizione del button di attivazione della carta leader
+	 * @return istanza del button
+	 */
 	public GraphicButton getButtonGiocaLeader() {
 		return (GraphicButton) cartePlayer.getComponent(14);
 	}
 	
+	/**
+	 * metodo di acquisizione del button per scartare una carta leader
+	 * @return istanza del button
+	 */
 	public GraphicButton getButtonScartaLeader() {
 		return (GraphicButton) cartePlayer.getComponent(21);
 	}
 	
 	// Panel risorse
 	//---------------------------//
-	
+	/**
+	 * metodo di acquisizione del pannello della risorsa ORO
+	 * @return istanza del component
+	 */
 	public PanelRisorse getPanelRisorseOro(){
 		return (PanelRisorse)this.risorsePlayer.getComponent(0);
 	}
 	
+	/**
+	 * metodo di acquisizione del pannello della risorsa LEGNA
+	 * @return istanza del component
+	 */
 	public PanelRisorse getPanelRisorseLegna(){
 		return (PanelRisorse)this.risorsePlayer.getComponent(1);
 	}
 	
+	/**
+	 * metodo di acquisizione del pannello della risorsa PIETRA
+	 * @return istanza del component
+	 */
 	public PanelRisorse getPanelRisorsePietra(){
 		return (PanelRisorse)this.risorsePlayer.getComponent(2);
 	}
 	
+	/**
+	 * metodo di acquisizione del pannello della risorsa SERVITORI
+	 * @return istanza del component
+	 */
 	public PanelRisorse getPanelRisorseServitori(){
 		return (PanelRisorse)this.risorsePlayer.getComponent(3);
 	}
 	
+	/**
+	 * metodo di acquisizione del pannello della risorsa PUNTI_MILITARI
+	 * @return istanza del component
+	 */
 	public PanelRisorse getPanelRisorsePuntiMilitari(){
 		return (PanelRisorse)this.risorsePlayer.getComponent(4);
 	}
 	
+	/**
+	 * metodo di acquisizione del pannello della risorsa PUNTI_FEDE
+	 * @return istanza del component
+	 */
 	public PanelRisorse getPanelRisorsePuntiFede(){
 		return (PanelRisorse)this.risorsePlayer.getComponent(5);
 	}
 	
+	/**
+	 * metodo di acquisizione del pannello della risorsa PUNTI_VITTORIA
+	 * @return istanza del component
+	 */
 	public PanelRisorse getPanelRisorsePuntiVittoria(){
 		return (PanelRisorse)this.risorsePlayer.getComponent(6);
 	}
 	
 	// Panel familiari disponibili
 	//---------------------------//
+	/**
+	 * metodo di acquisizione del pannello che contiene i familiari disponbili del player
+	 * @return istanza dell'oggetto
+	 */
 	public SpazioFamiliariDisponibili getPanelSpazioFamiliariDisponibili(){
 		return (SpazioFamiliariDisponibili)this.risorsePlayer.getComponent(7);
 	}
 	
 	// Carte leader
 	//---------------------------//
+	/**
+	 * metodo di acquisizione dello spazio in cui è contenuta la carta leader numero 1
+	 * @return istanza del panel che contiene la carta leader
+	 */
 	public CartaLeader getCartaLeader1() {
-		//return (CartaLeader) cartePlayer.getComponent(7);
 		return (CartaLeader) panelCarteLeader.getComponent(0);
 	}
+	/**
+	 * metodo di acquisizione dello spazio in cui è contenuta la carta leader numero 2
+	 * @return istanza del panel che contiene la carta leader
+	 */
 	public CartaLeader getCartaLeader2() {
-		//return (CartaLeader) cartePlayer.getComponent(15);
 		return (CartaLeader) panelCarteLeader.getComponent(1);
 	}
+	/**
+	 * metodo di acquisizione dello spazio in cui è contenuta la carta leader numero 3
+	 * @return istanza del panel che contiene la carta leader
+	 */
 	public CartaLeader getCartaLeader3() {
-		//return (CartaLeader) cartePlayer.getComponent(23);
 		return (CartaLeader) panelCarteLeader.getComponent(2);
 	}
+	/**
+	 * metodo di acquisizione dello spazio in cui è contenuta la carta leader numero 4
+	 * @return istanza del panel che contiene la carta leader
+	 */
 	public CartaLeader getCartaLeader4() {
-		//return (CartaLeader) cartePlayer.getComponent(31);
 		return (CartaLeader) panelCarteLeader.getComponent(3);
 	}
 	

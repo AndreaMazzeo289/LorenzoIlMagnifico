@@ -15,6 +15,12 @@ import it.polimi.ingsw.pc15.GUI.ButtonListener;
 import it.polimi.ingsw.pc15.player.ColoreFamiliare;
 import it.polimi.ingsw.pc15.player.Player;
 
+/**
+ * Classe che gestisce l'apparizione di un frame con i familiari disponbili dal player
+ * per poterlo selezionare
+ * @author AndreaMazzeo289
+ *
+ */
 public class SelezionaFamiliarePopup extends JFrame{
 	
 	private JLabel north;
@@ -142,6 +148,11 @@ public class SelezionaFamiliarePopup extends JFrame{
 		this.setAlwaysOnTop(true);
 	}
 	
+	/**
+	 * metodo che permette di leggere il path dell'immagine da caricare
+	 * @param colore del familiare
+	 * @return path dell'immagine del familiare
+	 */
 	public String readPath(ColoreFamiliare colore) {
 		
 		String path=null;

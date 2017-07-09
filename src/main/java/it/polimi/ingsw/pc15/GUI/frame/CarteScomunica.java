@@ -7,6 +7,12 @@ import javax.swing.ImageIcon;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 
+/**
+ * Classe che permette la visualizzazione delle tre tessere scomunica pescate dal gioco
+ * viene aperto un frame una volta premuto il button specifico
+ * @author AndreaMazzeo289
+ *
+ */
 public class CarteScomunica extends JFrame {
 
 	JLabel carta1,carta2,carta3;

@@ -12,6 +12,11 @@ import javax.swing.JPanel;
 import it.polimi.ingsw.pc15.GUI.GUI;
 import it.polimi.ingsw.pc15.player.ColoreFamiliare;
 
+/**
+ * Classe che gestisce la visualizzazione dello spazio riservato ai dadi nella gameboard
+ * @author AndreaMazzeo289
+ *
+ */
 public class SpazioDadi extends JPanel{
 
 	private JLabel dadoNero;
@@ -97,6 +102,13 @@ public class SpazioDadi extends JPanel{
 		this.add(labelSouth, BorderLayout.SOUTH);
 	}
 	
+	/**
+	 * metodo che permette di modificare le immagini riguardanti i dadi
+	 * verrà chiamato ogni cambio di turno in occasione del rilancio dei dadi
+	 * @param coloreFamiliare per indicare quale dado si vuole modificare
+	 * @param valoreDado per indicare quale è il nuovo valore del dado
+	 * in funzione di questi due parametri il metodo caricherà l'immagine corretta
+	 */
 	public void modificaImmagineDadi(ColoreFamiliare coloreFamiliare, int valoreDado) {
 		
 		String path = "img\\Gameboard\\dadi\\";

@@ -14,6 +14,11 @@ import javax.swing.JPanel;
 import it.polimi.ingsw.pc15.GUI.GUI;
 import it.polimi.ingsw.pc15.player.ColoreFamiliare;
 
+/**
+ * Classe che gestisce la visualizzazione del pannello dei familiare disponbili del player
+ * @author AndreaMazzeo289
+ *
+ */
 public class SpazioFamiliariDisponibili extends JPanel implements Serializable{
 
 	private JLabel background;
@@ -114,22 +119,42 @@ public class SpazioFamiliariDisponibili extends JPanel implements Serializable{
 		this.add(background, BorderLayout.CENTER);
 	}
 	
+	/**
+	 * metodo di lettura del familiare bianco
+	 * @return istanza della label familiare bianco
+	 */
 	public JLabel getLabelFamiliareBianco() {
 		return (JLabel)this.panelCentrale.getComponent(0);
 	}
 	
+	/**
+	 * metodo di lettura del familiare arancione
+	 * @return istanza della label familiare arancione
+	 */
 	public JLabel getLabelFamiliareArancione() {
 		return (JLabel)this.panelCentrale.getComponent(1);
 	}
 	
+	/**
+	 * metodo di lettura del familiare nero
+	 * @return istanza della label familiare nero
+	 */
 	public JLabel getLabelFamiliareNero() {
 		return (JLabel)this.panelCentrale.getComponent(2);
 	}
 	
+	/**
+	 * metodo di lettura del familiare neutro
+	 * @return istanza della label familiare neutro
+	 */
 	public JLabel getLabelFamiliareNeutro() {
 		return (JLabel)this.panelCentrale.getComponent(3);
 	}
 	
+	/**
+	 * metodo che ci consente di occupare un familiare e di farlo scomparire nel pannello dei disponibili
+	 * @param coloreFamiliare che si vuole occupare
+	 */
 	public void utilizzaFamiliare(ColoreFamiliare coloreFamiliare){
 		
 		imageIcon = new ImageIcon("img\\Punchboard\\familiari\\pedineFamiliari\\familiareOccupato.png");
@@ -153,6 +178,10 @@ public class SpazioFamiliariDisponibili extends JPanel implements Serializable{
 		}
 	}
 	
+	/**
+	 * metodo che ci consente di liberare un familiare e di farlo comparire nel pannello dei disponibili
+	 * @param coloreFamiliare che si vuole liberare
+	 */
 	public void liberaFamiliare(ColoreFamiliare coloreFamiliare){
 		
 		JLabel labelColore = labelNero;

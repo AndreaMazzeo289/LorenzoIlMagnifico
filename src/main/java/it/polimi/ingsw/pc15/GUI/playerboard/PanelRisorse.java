@@ -14,6 +14,11 @@ import javax.swing.SwingConstants;
 
 import it.polimi.ingsw.pc15.GUI.GUI;
 
+/**
+ * Classe che gestisce la visualizzazione del pannello delle risorse disponibili nella playerboard
+ * @author AndreaMazzeo289
+ *
+ */
 public class PanelRisorse extends JPanel{
 
 	private Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
@@ -82,6 +87,10 @@ public class PanelRisorse extends JPanel{
 		
 	}
 	
+	/**
+	 * metodo che consente di modificare il numero che indica l'ammontare delle risorse
+	 * @param numero da scrivere
+	 */
 	public void writeIntoLabel (int numero) {
 		labelCenter.setText(Integer.toString(numero));
 	}

@@ -13,6 +13,11 @@ import javax.swing.JLabel;
 import it.polimi.ingsw.pc15.GUI.ButtonListener;
 import it.polimi.ingsw.pc15.GUI.GUI;
 
+/**
+ * Classe che permette di gestire i button della GUI
+ * @author AndreaMazzeo289
+ *
+ */
 public class GraphicButton extends JButton{
 
 	private JLabel imageButton;
@@ -56,10 +61,16 @@ public class GraphicButton extends JButton{
 		this.addActionListener(listener);
 	}
 	
+	/**
+	 * metodo che blocca il button nei momenti in cui non può essere premuto
+	 */
 	public void bloccaButton() {
 		this.setEnabled(false);
 	}
 	
+	/**
+	 * metodo complementare al precedente che sblocca il button
+	 */
 	public void sbloccaButton() {
 		this.setEnabled(true);
 	}

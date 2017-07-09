@@ -14,6 +14,12 @@ import javax.swing.JPanel;
 
 import it.polimi.ingsw.pc15.GUI.GUI;
 
+/**
+ * Classe che gestisce la visualizzazione dello spazio raccolto sulla gameboard
+ * questo è lo spazio raccolto che può essere utilizzato da più player
+ * @author AndreaMazzeo289
+ *
+ */
 public class SpazioRaccolto2 extends JPanel{
 
 	private JLabel labelEast;
@@ -127,6 +133,11 @@ public class SpazioRaccolto2 extends JPanel{
 		this.add(labelCenter, BorderLayout.CENTER);
 	}
 	
+	/**
+	 * metodo che permette di inserire il familiare all'interno dello spazio
+	 * i familiari che possono essere inseriti sono multipli, e verranno inseriti in modo ordinato
+	 * @param path del familiare da inserire
+	 */
 	public void inserisciFamiliare(String path) {
 		imageIcon = new ImageIcon(path);
 		image = imageIcon.getImage();
@@ -141,15 +152,14 @@ public class SpazioRaccolto2 extends JPanel{
 		button.get(i).setName("occupato");
 	}
 	
+	/**
+	 * questo metodo consente di rimuovere tutti i familiari presenti nello spazio
+	 */
 	public void rimuoviFamliari() {
 		for(int i=0;i<16;i++) {
 			if(button.get(i).getName().equals("occupato")) {
 				button.get(i).setIcon(null);
 			}
 		}
-	}
-	
-	public ButtonTransparent getButton(int posizione) {
-		return button.get(posizione);
 	}
 }

@@ -14,6 +14,11 @@ import it.polimi.ingsw.pc15.GUI.ButtonListener;
 import it.polimi.ingsw.pc15.GUI.GUI;
 import it.polimi.ingsw.pc15.carte.TipoCarta;
 
+/**
+ * Classe che gestisce l'intera gameboard, ossia il tabellone del gioco
+ * @author AndreMazzeo289
+ *
+ */
 public class Gameboard extends JPanel {
 	
 	JPanel spaziTorre = new JPanel (new GridBagLayout());
@@ -244,94 +249,31 @@ public class Gameboard extends JPanel {
 	// METODI GET
 	//-------------------------------------------------------------------//
 	
-	// Torre verde
-	//---------------------------//
-	/*public SpazioTorreVerde1 getSpazioTorreVerde1() {
-		return (SpazioTorreVerde1) spaziTorre.getComponent(0);
-	}*/
-
+	/**
+	 * metodo di acquisizione dello spazio torre indicato tramite i parametri
+	 * @param tipoCarta che indica quale torre vogliamo selezionare
+	 * @param numero che indica quale spazio vogliamo selezionare
+	 * @return istanza dello spazio torre desiderato
+	 */
 	public SpazioTorre getSpazioTorre (TipoCarta tipoCarta, int numero) {
 		return this.spaziTorreMap.get(tipoCarta).get(numero);
 	}
 	
-	/*public SpazioTorre getSpazioTorreVerde1() {
-		return (SpazioTorre) spaziTorre.getComponent(0);
-	}
-	
-	
-	public SpazioTorre getSpazioTorreVerde2() {
-		return (SpazioTorre) spaziTorre.getComponent(4);
-	}
-	
-	public SpazioTorre getSpazioTorreVerde3() {
-		return (SpazioTorre) spaziTorre.getComponent(8);
-	}
-	
-	public SpazioTorre getSpazioTorreVerde4() {
-		return (SpazioTorre) spaziTorre.getComponent(12);
-	}
-	
-	// Torre blu
-	//---------------------------//
-	public SpazioTorre getSpazioTorreBlu1() {
-		return (SpazioTorre) spaziTorre.getComponent(1);
-	}
-	
-	public SpazioTorre getSpazioTorreBlu2() {
-		return (SpazioTorre) spaziTorre.getComponent(5);
-	}
-	
-	public SpazioTorre getSpazioTorreBlu3() {
-		return (SpazioTorre) spaziTorre.getComponent(9);
-	}
-	
-	public SpazioTorre getSpazioTorreBlu4() {
-		return (SpazioTorre) spaziTorre.getComponent(13);
-	}
-	
-	// Torre gialla
-	//---------------------------//
-	public SpazioTorre getSpazioTorreGialla1() {
-		return (SpazioTorre) spaziTorre.getComponent(2);
-	}
-	
-	public SpazioTorre getSpazioTorreGialla2() {
-		return (SpazioTorre) spaziTorre.getComponent(6);
-	}
-	
-	public SpazioTorre getSpazioTorreGialla3() {
-		return (SpazioTorre) spaziTorre.getComponent(10);
-	}
-	
-	public SpazioTorre getSpazioTorreGialla4() {
-		return (SpazioTorre) spaziTorre.getComponent(14);
-	}
-		
-	// Torre viola
-	//---------------------------//
-	public SpazioTorre getSpazioTorreViola1() {
-		return (SpazioTorre) spaziTorre.getComponent(3);
-	}
-	
-	public SpazioTorre getSpazioTorreViola2() {
-		return (SpazioTorre) spaziTorre.getComponent(7);
-	}
-	
-	public SpazioTorre getSpazioTorreViola3() {
-		return (SpazioTorre) spaziTorre.getComponent(11);
-	}
-	
-	public SpazioTorre getSpazioTorreViola4() {
-		return (SpazioTorre) spaziTorre.getComponent(15);
-	}*/
-	
 	// Spazio produzione
 	//---------------------------//
+	/**
+	 * metodo di acquisizione dello spazio produzione singolo
+	 * @return istanza dello spazio in questione
+	 */
 	public SpazioProduzione1 getSpazioProduzione1() {
 		JPanel spazioProd = (JPanel) spazioFinale.getComponent(0);
 		return (SpazioProduzione1) spazioProd.getComponent(0);
 	}
 	
+	/**
+	 * metodo di acquisizione dello spazio produzione multiplo
+	 * @return istanza dello spazio in questione
+	 */
 	public SpazioProduzione2 getSpazioProduzione2() {
 		JPanel spazioProd = (JPanel) spazioFinale.getComponent(0);
 		return (SpazioProduzione2) spazioProd.getComponent(1);
@@ -339,11 +281,19 @@ public class Gameboard extends JPanel {
 	
 	// Spazio raccolto
 	//---------------------------//
+	/**
+	 * metodo di acquisizione dello spazio raccolta singolo
+	 * @return istanza dello spazio in questione
+	 */
 	public SpazioRaccolto1 getSpazioRaccolto1() {
 		JPanel spazioProd = (JPanel) spazioFinale.getComponent(0);
 		return (SpazioRaccolto1) spazioProd.getComponent(2);
 	}
 	
+	/**
+	 * metodo di acquisizione dello spazio raccolta multiplo
+	 * @return istanza dello spazio in questione
+	 */
 	public SpazioRaccolto2 getSpazioRaccolto2() {
 		JPanel spazioProd = (JPanel) spazioFinale.getComponent(0);
 		return (SpazioRaccolto2) spazioProd.getComponent(3);
@@ -351,42 +301,31 @@ public class Gameboard extends JPanel {
 	
 	// Spazio consiglio
 	//---------------------------//
+	/**
+	 * metodo di acquisizione dello spazio del consiglio
+	 * @return istanza dello spazio in questione
+	 */
 	public SpazioConsiglio getSpazioConsiglio() {
 		return spazioConsiglio;
 	}
 	
 	// Spazio mercato
 	//---------------------------//
+	/**
+	 * metodo di acquisizione dello spazio del mercato selezionato
+	 * @param numero dello spazio mercato desiderato
+	 * @return istanza dello spazio in questione
+	 */
 	public SpazioMercato getSpazioMercato(int numero) {
 		return spaziMercato.get(numero);
 	}
 	
-	/*public SpazioMercato1 getSpazioMercato1() {
-		JPanel spazioMercatoDadi = (JPanel) spazioFinale.getComponent(1);
-		JPanel spazioMercato = (JPanel) spazioMercatoDadi.getComponent(0);
-		return (SpazioMercato1) spazioMercato.getComponent(0);
-	}
-	
-	public SpazioMercato2 getSpazioMercato2() {
-		JPanel spazioMercatoDadi = (JPanel) spazioFinale.getComponent(1);
-		JPanel spazioMercato = (JPanel) spazioMercatoDadi.getComponent(0);
-		return (SpazioMercato2) spazioMercato.getComponent(1);
-	}
-	
-	public SpazioMercato3 getSpazioMercato3() {
-		JPanel spazioMercatoDadi = (JPanel) spazioFinale.getComponent(1);
-		JPanel spazioMercato = (JPanel) spazioMercatoDadi.getComponent(0);
-		return (SpazioMercato3) spazioMercato.getComponent(2);
-	}
-	
-	public SpazioMercato4 getSpazioMercato4() {
-		JPanel spazioMercatoDadi = (JPanel) spazioFinale.getComponent(1);
-		JPanel spazioMercato = (JPanel) spazioMercatoDadi.getComponent(0);
-		return (SpazioMercato4) spazioMercato.getComponent(3);
-	}*/
-	
 	// Spazio dadi
 	//---------------------------//
+	/**
+	 * metodo di acquisizione dello spazio dei dadi
+	 * @return istanza dello spazio in questione
+	 */
 	public SpazioDadi getSpazioDadi() {
 		JPanel spazioMercatoDadi = (JPanel) spazioFinale.getComponent(1);
 		return (SpazioDadi) spazioMercatoDadi.getComponent(1);
