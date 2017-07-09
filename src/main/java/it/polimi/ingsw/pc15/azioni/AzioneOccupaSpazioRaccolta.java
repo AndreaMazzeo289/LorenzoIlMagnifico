@@ -14,7 +14,7 @@ public class AzioneOccupaSpazioRaccolta extends AzioneOccupaSpazio {
 
 	public AzioneOccupaSpazioRaccolta(Player player, Familiare familiare, SpazioRaccolta spazio, int servitoriAggiuntivi) {
 		super(player, familiare, spazio, servitoriAggiuntivi);
-		this.valoreAzione = familiare.getValore() + servitoriAggiuntivi + player.getEffettiAttivi().getBonusProduzione();
+		this.valoreAzione = familiare.getValore() + servitoriAggiuntivi + player.getEffettiAttivi().getBonusRaccolta();
 	}
 
 	@Override
