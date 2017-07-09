@@ -38,23 +38,23 @@ public class ScartaLeaderPopup extends JFrame{
 		PlayerBoard playerBoard = (PlayerBoard)gui.mainFrame.getContentPane().getComponent(1);
 		
 		
-		if(!(playerBoard.getCartaLeader1().leggiLabel().equals("GIOCATO")) && !(playerBoard.getCartaLeader1().leggiLabel().equals("SCARTATO"))){
-			CartaLeaderView cartaLeader = new CartaLeaderView(playerBoard.getCartaLeader1().getPath(), playerBoard.getCartaLeader1().getName(), "Scarta", listener);
+		if(!(playerBoard.getCartaLeader(0).leggiLabel().equals("GIOCATO")) && !(playerBoard.getCartaLeader(0).leggiLabel().equals("SCARTATO"))){
+			CartaLeaderView cartaLeader = new CartaLeaderView(playerBoard.getCartaLeader(0).getPath(), playerBoard.getCartaLeader(0).getName(), "Scarta", listener);
 			this.add(cartaLeader);
 			larghezza+=350;
 		}
-		if(!(playerBoard.getCartaLeader2().leggiLabel().equals("GIOCATO")) && !(playerBoard.getCartaLeader2().leggiLabel().equals("SCARTATO"))){
-			CartaLeaderView cartaLeader = new CartaLeaderView(playerBoard.getCartaLeader2().getPath(), playerBoard.getCartaLeader2().getName(), "Scarta", listener);
+		if(!(playerBoard.getCartaLeader(1).leggiLabel().equals("GIOCATO")) && !(playerBoard.getCartaLeader(1).leggiLabel().equals("SCARTATO"))){
+			CartaLeaderView cartaLeader = new CartaLeaderView(playerBoard.getCartaLeader(1).getPath(), playerBoard.getCartaLeader(1).getName(), "Scarta", listener);
 			this.add(cartaLeader);
 			larghezza+=350;
 		}
-		if(!(playerBoard.getCartaLeader3().leggiLabel().equals("GIOCATO")) && !(playerBoard.getCartaLeader3().leggiLabel().equals("SCARTATO"))){
-			CartaLeaderView cartaLeader = new CartaLeaderView(playerBoard.getCartaLeader3().getPath(), playerBoard.getCartaLeader3().getName(), "Scarta", listener);
+		if(!(playerBoard.getCartaLeader(2).leggiLabel().equals("GIOCATO")) && !(playerBoard.getCartaLeader(2).leggiLabel().equals("SCARTATO"))){
+			CartaLeaderView cartaLeader = new CartaLeaderView(playerBoard.getCartaLeader(2).getPath(), playerBoard.getCartaLeader(2).getName(), "Scarta", listener);
 			this.add(cartaLeader);
 			larghezza+=350;
 		}
-		if(!(playerBoard.getCartaLeader4().leggiLabel().equals("GIOCATO")) && !(playerBoard.getCartaLeader4().leggiLabel().equals("SCARTATO"))){
-			CartaLeaderView cartaLeader = new CartaLeaderView(playerBoard.getCartaLeader4().getPath(), playerBoard.getCartaLeader4().getName(), "Scarta", listener);
+		if(!(playerBoard.getCartaLeader(3).leggiLabel().equals("GIOCATO")) && !(playerBoard.getCartaLeader(3).leggiLabel().equals("SCARTATO"))){
+			CartaLeaderView cartaLeader = new CartaLeaderView(playerBoard.getCartaLeader(3).getPath(), playerBoard.getCartaLeader(3).getName(), "Scarta", listener);
 			this.add(cartaLeader);
 			larghezza+=350;
 		}

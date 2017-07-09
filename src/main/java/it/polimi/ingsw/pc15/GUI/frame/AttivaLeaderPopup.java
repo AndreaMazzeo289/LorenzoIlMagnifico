@@ -38,23 +38,23 @@ public class AttivaLeaderPopup extends JFrame{
 		
 		PlayerBoard playerBoard = (PlayerBoard)gui.mainFrame.getContentPane().getComponent(1);
 		
-		if(playerBoard.getCartaLeader1().leggiLabel().equals("GIOCATO")){
-			CartaLeaderView cartaLeader = new CartaLeaderView(playerBoard.getCartaLeader1().getPath(), playerBoard.getCartaLeader1().getName(), "Attiva", listener);
+		if(playerBoard.getCartaLeader(0).leggiLabel().equals("GIOCATO")){
+			CartaLeaderView cartaLeader = new CartaLeaderView(playerBoard.getCartaLeader(0).getPath(), playerBoard.getCartaLeader(0).getName(), "Attiva", listener);
 			this.add(cartaLeader);
 			larghezza+=350;
 		}
-		if(playerBoard.getCartaLeader2().leggiLabel().equals("GIOCATO")){
-			CartaLeaderView cartaLeader = new CartaLeaderView(playerBoard.getCartaLeader2().getPath(), playerBoard.getCartaLeader2().getName(), "Attiva", listener);
+		if(playerBoard.getCartaLeader(1).leggiLabel().equals("GIOCATO")){
+			CartaLeaderView cartaLeader = new CartaLeaderView(playerBoard.getCartaLeader(1).getPath(), playerBoard.getCartaLeader(1).getName(), "Attiva", listener);
 			this.add(cartaLeader);
 			larghezza+=350;
 		}
-		if(playerBoard.getCartaLeader3().leggiLabel().equals("GIOCATO")){
-			CartaLeaderView cartaLeader = new CartaLeaderView(playerBoard.getCartaLeader3().getPath(), playerBoard.getCartaLeader3().getName(), "Attiva", listener);
+		if(playerBoard.getCartaLeader(2).leggiLabel().equals("GIOCATO")){
+			CartaLeaderView cartaLeader = new CartaLeaderView(playerBoard.getCartaLeader(2).getPath(), playerBoard.getCartaLeader(2).getName(), "Attiva", listener);
 			this.add(cartaLeader);
 			larghezza+=350;
 		}
-		if(playerBoard.getCartaLeader4().leggiLabel().equals("GIOCATO")){
-			CartaLeaderView cartaLeader = new CartaLeaderView(playerBoard.getCartaLeader4().getPath(), playerBoard.getCartaLeader4().getName(), "Attiva", listener);
+		if(playerBoard.getCartaLeader(3).leggiLabel().equals("GIOCATO")){
+			CartaLeaderView cartaLeader = new CartaLeaderView(playerBoard.getCartaLeader(3).getPath(), playerBoard.getCartaLeader(3).getName(), "Attiva", listener);
 			this.add(cartaLeader);
 			larghezza+=350;
 		}

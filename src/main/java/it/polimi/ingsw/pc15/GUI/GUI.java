@@ -24,6 +24,7 @@ import it.polimi.ingsw.pc15.plancia.SpazioMercato;
 import it.polimi.ingsw.pc15.plancia.SpazioTorre;
 import it.polimi.ingsw.pc15.player.ColoreFamiliare;
 import it.polimi.ingsw.pc15.player.ColorePlayer;
+import it.polimi.ingsw.pc15.player.Leader;
 import it.polimi.ingsw.pc15.player.Player;
 import it.polimi.ingsw.pc15.risorse.TipoRisorsa;
 
@@ -265,14 +266,9 @@ public class GUI extends ClientView{
 		//------------------------------------//
 		// LEADER
 		//------------------------------------//
-		immagineCartaModel = this.clientModel.getStatoGiocatore().getCarteLeader().get(0).getPathImg(); 
-		playerboard.getCartaLeader1().modificaImmagineCarta(immagineCartaModel);
-		immagineCartaModel = this.clientModel.getStatoGiocatore().getCarteLeader().get(1).getPathImg(); 
-		playerboard.getCartaLeader2().modificaImmagineCarta(immagineCartaModel);
-		immagineCartaModel = this.clientModel.getStatoGiocatore().getCarteLeader().get(2).getPathImg(); 
-		playerboard.getCartaLeader3().modificaImmagineCarta(immagineCartaModel);
-		immagineCartaModel = this.clientModel.getStatoGiocatore().getCarteLeader().get(3).getPathImg(); 
-		playerboard.getCartaLeader4().modificaImmagineCarta(immagineCartaModel);
+		for(Leader leader : this.clientModel.getStatoGiocatore().getCarteLeader()) {
+			playerboard.getCartaLeader(this.clientModel.getStatoGiocatore().getCarteLeader().lastIndexOf(leader)).modificaImmagineCarta(this.clientModel.getStatoGiocatore().getCarteLeader().get(this.clientModel.getStatoGiocatore().getCarteLeader().lastIndexOf(leader)).getPathImg());
+		}
 		
 		// Carte player
 		//---------------------------//
@@ -337,6 +333,20 @@ public class GUI extends ClientView{
 			playerboard.scriviMessaggio("È il tuo turno!");
 		else
 			playerboard.scriviMessaggio("È il turno di "+this.clientModel.getGiocatoreCorrente()+"!");
+		
+		// Leader
+		//---------------------------//
+		for(Leader leader : this.clientModel.getStatoGiocatore().getCarteLeader()) {
+			try {
+				if(leader.giocato())
+					playerboard.getCartaLeader(this.clientModel.getStatoGiocatore().getCarteLeader().lastIndexOf(leader)).scriviLabel("GIOCATO");
+				else
+					playerboard.getCartaLeader(this.clientModel.getStatoGiocatore().getCarteLeader().lastIndexOf(leader)).scriviLabel("NON GIOCATO");
+			}
+			catch (NullPointerException e) {
+				playerboard.getCartaLeader(this.clientModel.getStatoGiocatore().getCarteLeader().lastIndexOf(leader)).scriviLabel("SCARTATO");
+			}
+		}	
 	}
 
 	@Override

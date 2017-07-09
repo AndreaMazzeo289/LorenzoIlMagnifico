@@ -34,6 +34,7 @@ public class PlayerBoard extends JPanel{
 	private JPanel panelPersonalBonus;
 	private JLabel labelTesto;
 	
+	private ArrayList<CartaLeader> carteLeader;
 	private ArrayList<CarteGioco> cartePlayerVerdi;
 	private ArrayList<CarteGioco> cartePlayerBlu;
 	private ArrayList<CarteGioco> cartePlayerGialle;
@@ -128,9 +129,14 @@ public class PlayerBoard extends JPanel{
 		gbc.gridx=1;
 		contentPanel.add(panelPersonalBonus,gbc);
 		
-		for(int i=1; i<=4; i++) {
-			cartaLeader = new CartaLeader("img/Leaders/leaders_b_c_00.jpg","leader"+i,gui);
-			panelCarteLeader.add(cartaLeader);
+		carteLeader = new ArrayList<CartaLeader>();
+		carteLeader.add(new CartaLeader("img/Leaders/leaders_b_c_00.jpg","leader1",gui));
+		carteLeader.add(new CartaLeader("img/Leaders/leaders_b_c_00.jpg","leader2",gui));
+		carteLeader.add(new CartaLeader("img/Leaders/leaders_b_c_00.jpg","leader3",gui));
+		carteLeader.add(new CartaLeader("img/Leaders/leaders_b_c_00.jpg","leader4",gui));
+		
+		for(int i=0; i<4; i++) {
+			panelCarteLeader.add(carteLeader.get(i));
 		}
 		gbc.gridx=2;
 		contentPanel.add(panelCarteLeader,gbc);
@@ -283,40 +289,30 @@ public class PlayerBoard extends JPanel{
 	// Carte leader
 	//---------------------------//
 	/**
-	 * metodo di acquisizione dello spazio in cui è contenuta la carta leader numero 1
-	 * @return istanza del panel che contiene la carta leader
+	 * metodo di acquisizione dello spazio relativo alla carta leade
+	 * @param numero della carte leader
+	 * @return istanza dell'oggetto
 	 */
-	public CartaLeader getCartaLeader1() {
-		return (CartaLeader) panelCarteLeader.getComponent(0);
+	public CartaLeader getCartaLeader(int numero) {
+		return carteLeader.get(numero);
 	}
-	/**
-	 * metodo di acquisizione dello spazio in cui è contenuta la carta leader numero 2
-	 * @return istanza del panel che contiene la carta leader
-	 */
-	public CartaLeader getCartaLeader2() {
-		return (CartaLeader) panelCarteLeader.getComponent(1);
-	}
-	/**
-	 * metodo di acquisizione dello spazio in cui è contenuta la carta leader numero 3
-	 * @return istanza del panel che contiene la carta leader
-	 */
-	public CartaLeader getCartaLeader3() {
-		return (CartaLeader) panelCarteLeader.getComponent(2);
-	}
-	/**
-	 * metodo di acquisizione dello spazio in cui è contenuta la carta leader numero 4
-	 * @return istanza del panel che contiene la carta leader
-	 */
-	public CartaLeader getCartaLeader4() {
-		return (CartaLeader) panelCarteLeader.getComponent(3);
-	}
-	
+
 	// Carte gioco
 	//---------------------------//
+	/**
+	 * metodo di acquisizione dello spazio che contiene una carta gioco posseduta dal player
+	 * @param tipoCarta che si vuole acquisire
+	 * @param numero della carta
+	 * @return istanza della cartaGioco
+	 */
 	public CarteGioco getCartaGioco(TipoCarta tipoCarta, int numero) {
 		return this.cartePlayerMap.get(tipoCarta).get(numero);
 	}
 	
+	/**
+	 * metodo che permette di aggiornare il messaggio presente nella playerboard
+	 * @param testo da scrivere nell'apposita label
+	 */
 	public void scriviMessaggio(String text) {
 		labelTesto.setText(text);
 	}
