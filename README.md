@@ -38,5 +38,5 @@
 ---
 
 ## UML del progetto:
-![Alt text](/UML/LorenzoIlMagnifico.png?raw=true "Optional Title")
+![Alt text](/UML/LorenzoIlMagnificoUML.png?raw=true "Optional Title")
 
