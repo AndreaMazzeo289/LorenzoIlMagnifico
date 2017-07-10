@@ -20,7 +20,7 @@ public class Produzione extends Effetto {
 	@Override
 	public void attiva(Player player){
 		
-		new AggiuntaRisorse(player.getTesseraBonus().getRisorseBonusProduzione()).attiva(player);
+		new AggiuntaRisorse(player.getTesseraBonus().getRisorseBonusProduzione()).attivaDaSpazio(player);
 		
 		for (Carta edificio : player.getCarte(TipoCarta.EDIFICIO)) {
 			if (valore >= ((Edificio) edificio).getRequisitoProduzione() ) {

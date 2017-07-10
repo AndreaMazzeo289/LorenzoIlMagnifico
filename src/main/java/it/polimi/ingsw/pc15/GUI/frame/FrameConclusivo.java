@@ -33,11 +33,11 @@ public class FrameConclusivo extends JFrame{
 		
 		testo = new JLabel("",SwingConstants.CENTER);
 		testo.setText(text);
-		testo.setFont((new Font("Courier New", Font.ITALIC, 30)));
+		testo.setFont((new Font("Courier New", Font.ITALIC, 10)));
 		
 		this.add(testo, BorderLayout.CENTER);
 		
-		this.setSize(800, 350);
+		this.setSize(1900, 200);
 		this.setVisible(true);
 		this.setAlwaysOnTop(true);
 	}

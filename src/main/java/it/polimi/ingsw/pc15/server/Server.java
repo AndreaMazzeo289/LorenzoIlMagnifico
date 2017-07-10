@@ -126,7 +126,6 @@ public class Server extends UnicastRemoteObject implements ServerInterface {
 	@Override
 	public void remoteNotify(Object o, int i) throws RemoteException {
 		ArrayList<String> message = (ArrayList<String>)o;
-		System.out.println("Sono il server e ho ricevuto " + message);
 		this.rmiViews.get(i).notificaOsservatori(message);
 		
 	}

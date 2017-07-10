@@ -31,7 +31,13 @@ public class SocketHandler extends NetworkHandler implements Serializable{
 		this.out = new PrintStream(socket.getOutputStream());	
 		this.inObj = new ObjectInputStream(socket.getInputStream());
 		this.outObj = new ObjectOutputStream(socket.getOutputStream());
-	}	
+	}
+	
+	
+	/**
+	 * Invia il proprio nome nell'outputStream della Socket. Quando riceve la risposta OK
+	 * nell'inputStream, notifica il proprio Client.
+	 */
 	
 	@Override
 	public void connetti() {
@@ -46,7 +52,12 @@ public class SocketHandler extends NetworkHandler implements Serializable{
 		
 	}
 		
-		
+	
+	/**
+	 * Manda il SocketHandler in attesa finchè riceve un oggetto StatoPartita nell'inputStream della Socket.
+	 * A quel punto, aggiorna il clientModel con i valori ricevuti.
+	 */
+	
 	public void run() {
 			
 		while (true) { //NOSONAR

@@ -25,7 +25,7 @@ public class AzioneOccupaSpazioConsiglio extends AzioneOccupaSpazio {
 		spazio.aggiungiFamiliare(familiare);
 		familiare.setDisponibilità(false);
 		
-		((SpazioConsiglio) spazio).getEffetto().attiva(player);
+		(((SpazioConsiglio) spazio).getEffetto()).attiva(player);
 		new AggiuntaPrivilegio(sceltaRisorse).attiva(player);
 	}
 

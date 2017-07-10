@@ -1,5 +1,7 @@
 package it.polimi.ingsw.pc15.azioni;
 
+import it.polimi.ingsw.pc15.effetti.Effetto;
+import it.polimi.ingsw.pc15.effetti.Incrementabile;
 import it.polimi.ingsw.pc15.plancia.Spazio;
 import it.polimi.ingsw.pc15.plancia.SpazioMercato;
 import it.polimi.ingsw.pc15.player.Familiare;
@@ -21,7 +23,10 @@ public class AzioneOccupaSpazioMercato extends AzioneOccupaSpazio {
 		spazio.aggiungiFamiliare(familiare);
 		familiare.setDisponibilità(false);
 		
-		(((SpazioMercato) spazio).getEffetto()).attiva(player);
+		Effetto effetto = (((SpazioMercato) spazio).getEffetto());
+		if (effetto instanceof Incrementabile)
+			((Incrementabile) effetto).attivaDaSpazio(player);
+		else effetto.attiva(player);
 		
 	}
 

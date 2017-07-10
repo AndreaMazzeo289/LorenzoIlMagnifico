@@ -22,6 +22,11 @@ public abstract class ClientView extends Observable implements Observer, Runnabl
 	
 	public abstract void run();
 	
+	/**
+	 * restituisce true se il clientModel segnala il turno del giocatore corrente,
+	 * false altrimenti
+	 */
+	
 	public boolean tuoTurno() {
     	if (this.clientModel.getGiocatoreCorrente().equals(this.clientModel.getStatoGiocatore().getNome()))
     		return true;

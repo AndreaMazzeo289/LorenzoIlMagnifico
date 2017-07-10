@@ -25,6 +25,12 @@ public class RMIHandler extends NetworkHandler implements RMIHandlerInterface {
 		super(name, clientModel);
 	}
 	
+	
+	/**
+	 * Effettua il lookup del server e ne invoca il corrispondente metodo remoto remoteConnetti. 
+	 * Setta l'attributo numeroConnessione in base al valore di ritorno della chiamata
+	 */
+	
 	@Override
 	public void connetti() {
 		
@@ -39,6 +45,12 @@ public class RMIHandler extends NetworkHandler implements RMIHandlerInterface {
 		}		
 
 	}
+	
+	
+	/**
+	 * invoca il metodo remoto del server remoteNotify, passando il proprio numero di connessione. 
+	 * remoteNotify notificherà la view corrispondente al numero con l'oggetto passato come input.
+	 */
 
 	@Override
 	public void update(Observable o, Object input) {
@@ -48,6 +60,12 @@ public class RMIHandler extends NetworkHandler implements RMIHandlerInterface {
 			e.printStackTrace(); // NOSONAR
 		}
 	}
+	
+	/**
+	 * Chiama il metodo aggiorna del clientModel per aggiornarne i valori
+	 * 
+	 * @param StatoPartita con valori aggiornati
+	 */
 
 	@Override
 	public void aggiornaStatoPartita(StatoPartita statoPartita) throws RemoteException {
@@ -60,6 +78,11 @@ public class RMIHandler extends NetworkHandler implements RMIHandlerInterface {
 		return this.name;
 	}
 	
+	
+	/**
+	 * Metodo remoto invocato dalla RMIView corrispondente. Informa il client che la
+	 * connessione è riuscita con successo.
+	 */
 	@Override
 	public void remoteOK() throws RemoteException {
 		setChanged();

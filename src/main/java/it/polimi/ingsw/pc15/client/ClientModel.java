@@ -22,6 +22,14 @@ public class ClientModel extends Observable {
 	private Player statoGiocatore;
 	private String giocatoreCorrente;
 	
+	
+	/**
+	 * Aggiorna gli attributi del ClientModel con quelli dell'oggetto
+	 * StatoPartita passato
+	 * 
+	 * 
+	 * @param StatoPartita con valori aggiornati
+	 */
 
 	public void aggiorna(StatoPartita stato) {
 				

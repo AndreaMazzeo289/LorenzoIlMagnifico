@@ -12,13 +12,16 @@ public class ServerTimer implements Runnable {
 
 	@Override
 	public void run() {
-		for (int i=ParserXML.leggiValore("durataTimerServer"); i>0; i--) {
+		for (int i=ParserXML.leggiValore("durataTimerServer")/10; i>0; i--) {
+			
+			System.out.println(i*10 + " secondi all'inizio della partita");
+			
 			try {
-				Thread.sleep(1000);
+				Thread.sleep(10000);
 			} catch (InterruptedException e) { // NOSONAR
 			}
 			
-			System.out.println(i + " secondi all'inizio della partita");
+
 			
 		}
 		

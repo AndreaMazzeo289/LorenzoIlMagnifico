@@ -39,10 +39,7 @@ public class RapportoInVaticano {
 				this.risultato += "\n  - " + giocatore.getKey().getNome() + " paga " + giocatore.getKey().getSetRisorse().getRisorsa(TipoRisorsa.PUNTIFEDE).getQuantità() + " Punti Fede e guadagna " + ParserXML.leggiValore("puntiVittoria" + giocatore.getKey().getSetRisorse().getRisorsa(TipoRisorsa.PUNTIFEDE).getQuantità() + "PuntiFede") + " Punti Vittoria!" ;
 				giocatore.getKey().getSetRisorse().aggiungi(new PuntiFede(- giocatore.getKey().getSetRisorse().getRisorsa(TipoRisorsa.PUNTIFEDE).getQuantità()));
 			}
-				
 		}
-		
-		System.out.println(risultato);
 	}
 	
 	public String getRisultato() {

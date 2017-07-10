@@ -162,7 +162,7 @@
         <valore>4</valore>
     </nomeValore>
     <nomeValore nome="numeroAzioniPerTurno">
-        <valore>4</valore>
+        <valore>1</valore>
     </nomeValore>
     <nomeValore nome="numeroTurniPerPeriodo">
         <valore>2</valore>
