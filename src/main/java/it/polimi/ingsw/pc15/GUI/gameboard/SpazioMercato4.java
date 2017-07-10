@@ -76,17 +76,17 @@ public class SpazioMercato4 extends SpazioMercato{
 			labelNorth = new JLabel();
 			labelEast = new JLabel();
 			
-			imageIcon = new ImageIcon("img\\Gameboard\\SpaziMercato\\4\\north.png");
+			imageIcon = new ImageIcon("img/Gameboard/SpaziMercato/4/north.png");
 			image = imageIcon.getImage();
 			newImage = image.getScaledInstance(((int)(larghezzaSchermo*larghezza)/larghezzaTotale),((int)(altezzaSchermo*altezzaNorth)/altezzaTotale),Image.SCALE_DEFAULT);
 			ImageIcon imageNorth = new ImageIcon(newImage);
 			
-			imageIcon = new ImageIcon("img\\Gameboard\\SpaziMercato\\4\\east.png");
+			imageIcon = new ImageIcon("img/Gameboard/SpaziMercato/4/east.png");
 			image = imageIcon.getImage();
 			newImage = image.getScaledInstance(((int)(larghezzaSchermo*larghezzaEast)/larghezzaTotale),((int)(altezzaSchermo*altezzaCenter)/altezzaTotale),Image.SCALE_DEFAULT);
 			ImageIcon imageEast = new ImageIcon(newImage);
 			
-			imageIcon = new ImageIcon("img\\Gameboard\\SpaziMercato\\4\\center.png");
+			imageIcon = new ImageIcon("img/Gameboard/SpaziMercato/4/center.png");
 			image = imageIcon.getImage();
 			newImage = image.getScaledInstance(((int)(larghezzaSchermo*larghezzaCenter)/larghezzaTotale),((int)(altezzaSchermo*altezzaCenter)/altezzaTotale),Image.SCALE_DEFAULT);
 			ImageIcon imageCenter = new ImageIcon(newImage);
@@ -112,9 +112,9 @@ public class SpazioMercato4 extends SpazioMercato{
 		{
 			String path;
 			if(gui.getNumeroGiocatori()==3)
-				path = "img\\Gameboard\\SpaziMercato\\4\\noMercato4.png";
+				path = "img/Gameboard/SpaziMercato/4/noMercato4.png";
 			else
-				path = "img\\Gameboard\\SpaziMercato\\4\\noMercato4no3.png";
+				path = "img/Gameboard/SpaziMercato/4/noMercato4no3.png";
 			
 			int altezzaBlocco = altezzaCenter+altezzaNorth-5;
 			

@@ -82,27 +82,27 @@ public class SpazioConsiglio extends JPanel{
 		ImageIcon imageIcon;
 		Image image, newImage;
 		
-		imageIcon = new ImageIcon("img\\Gameboard\\SpazioConsiglio\\north.png");
+		imageIcon = new ImageIcon("img/Gameboard/SpazioConsiglio/north.png");
 		image = imageIcon.getImage();
 		newImage = image.getScaledInstance(((int)(larghezzaSchermo*larghezza)/larghezzaTotale),((int)(altezzaSchermo*altezzaNorth)/altezzaTotale),Image.SCALE_DEFAULT);
 		ImageIcon imageNorth = new ImageIcon(newImage);
 		
-		imageIcon = new ImageIcon("img\\Gameboard\\SpazioConsiglio\\east.png");
+		imageIcon = new ImageIcon("img/Gameboard/SpazioConsiglio/east.png");
 		image = imageIcon.getImage();
 		newImage = image.getScaledInstance(((int)(larghezzaSchermo*larghezzaEast)/larghezzaTotale),((int)(altezzaSchermo*altezzaCenter)/altezzaTotale),Image.SCALE_DEFAULT);
 		ImageIcon imageEast = new ImageIcon(newImage);
 		
-		imageIcon = new ImageIcon("img\\Gameboard\\SpazioConsiglio\\west.png");
+		imageIcon = new ImageIcon("img/Gameboard/SpazioConsiglio/west.png");
 		image = imageIcon.getImage();
 		newImage = image.getScaledInstance(((int)(larghezzaSchermo*larghezzaWest)/larghezzaTotale),((int)(altezzaSchermo*altezzaCenter)/altezzaTotale),Image.SCALE_DEFAULT);
 		ImageIcon imageWest = new ImageIcon(newImage);
 		
-		imageIcon = new ImageIcon("img\\Gameboard\\SpazioConsiglio\\center.png");
+		imageIcon = new ImageIcon("img/Gameboard/SpazioConsiglio/center.png");
 		image = imageIcon.getImage();
 		newImage = image.getScaledInstance(((int)(larghezzaSchermo*larghezzaCenter)/larghezzaTotale),((int)(altezzaSchermo*altezzaCenter)/altezzaTotale),Image.SCALE_DEFAULT);
 		ImageIcon imageCenter = new ImageIcon(newImage);
 		
-		imageIcon = new ImageIcon("img\\Gameboard\\SpazioConsiglio\\south.png");
+		imageIcon = new ImageIcon("img/Gameboard/SpazioConsiglio/south.png");
 		image = imageIcon.getImage();
 		newImage = image.getScaledInstance(((int)(larghezzaSchermo*larghezza)/larghezzaTotale),((int)(altezzaSchermo*altezzaSouth)/altezzaTotale),Image.SCALE_DEFAULT);
 		ImageIcon imageSouth = new ImageIcon(newImage);

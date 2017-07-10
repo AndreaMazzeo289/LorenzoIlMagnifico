@@ -77,7 +77,7 @@ public class SpazioMercato3 extends SpazioMercato{
 		{
 			int altezzaBlocco = altezzaCenter+altezzaNorth+altezzaSouth-5;
 			
-			imageIcon = new ImageIcon("img\\Gameboard\\SpaziMercato\\3\\noMercato3.png");
+			imageIcon = new ImageIcon("img/Gameboard/SpaziMercato/3/noMercato3.png");
 			image = imageIcon.getImage();
 			newImage = image.getScaledInstance(((int)(larghezzaSchermo*larghezza)/larghezzaTotale),((int)(altezzaSchermo*altezzaBlocco)/altezzaTotale),Image.SCALE_DEFAULT);
 			ImageIcon imageCenter = new ImageIcon(newImage);
@@ -86,31 +86,31 @@ public class SpazioMercato3 extends SpazioMercato{
 		}
 		else
 		{
-			String path = "img\\Gameboard\\SpaziMercato\\3\\south.png";
+			String path = "img/Gameboard/SpaziMercato/3/south.png";
 			if(gui.getNumeroGiocatori()==2)
-				path = "img\\Gameboard\\SpaziMercato\\3\\southNo4.png";
+				path = "img/Gameboard/SpaziMercato/3/southNo4.png";
 			
 			labelNorth = new JLabel();
 			labelEast = new JLabel();
 			labelWest = new JLabel();
 			labelSouth = new JLabel();
 			
-			imageIcon = new ImageIcon("img\\Gameboard\\SpaziMercato\\3\\north.png");
+			imageIcon = new ImageIcon("img/Gameboard/SpaziMercato/3/north.png");
 			image = imageIcon.getImage();
 			newImage = image.getScaledInstance(((int)(larghezzaSchermo*larghezza)/larghezzaTotale),((int)(altezzaSchermo*altezzaNorth)/altezzaTotale),Image.SCALE_DEFAULT);
 			ImageIcon imageNorth = new ImageIcon(newImage);
 			
-			imageIcon = new ImageIcon("img\\Gameboard\\SpaziMercato\\3\\east.png");
+			imageIcon = new ImageIcon("img/Gameboard/SpaziMercato/3/east.png");
 			image = imageIcon.getImage();
 			newImage = image.getScaledInstance(((int)(larghezzaSchermo*larghezzaEast)/larghezzaTotale),((int)(altezzaSchermo*altezzaCenter)/altezzaTotale),Image.SCALE_DEFAULT);
 			ImageIcon imageEast = new ImageIcon(newImage);
 			
-			imageIcon = new ImageIcon("img\\Gameboard\\SpaziMercato\\3\\west.png");
+			imageIcon = new ImageIcon("img/Gameboard/SpaziMercato/3/west.png");
 			image = imageIcon.getImage();
 			newImage = image.getScaledInstance(((int)(larghezzaSchermo*larghezzaWest)/larghezzaTotale),((int)(altezzaSchermo*altezzaCenter)/altezzaTotale),Image.SCALE_DEFAULT);
 			ImageIcon imageWest = new ImageIcon(newImage);
 			
-			imageIcon = new ImageIcon("img\\Gameboard\\SpaziMercato\\3\\center.png");
+			imageIcon = new ImageIcon("img/Gameboard/SpaziMercato/3/center.png");
 			image = imageIcon.getImage();
 			newImage = image.getScaledInstance(((int)(larghezzaSchermo*larghezzaCenter)/larghezzaTotale),((int)(altezzaSchermo*altezzaCenter)/altezzaTotale),Image.SCALE_DEFAULT);
 			ImageIcon imageCenter = new ImageIcon(newImage);

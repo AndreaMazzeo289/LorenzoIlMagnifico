@@ -75,7 +75,7 @@ public class PanelRisorse extends JPanel{
 		labelCenter.setOpaque(true);
 		labelCenter.setBackground(Color.decode("15394527"));
 		
-		imageIcon = new ImageIcon("img\\Punchboard\\Risorse\\south.png");
+		imageIcon = new ImageIcon("img/Punchboard/Risorse/south.png");
 		image = imageIcon.getImage();
 		newImage = image.getScaledInstance(((int)(larghezzaSchermo*larghezzaBlocco)/larghezzaTotale),((int)(altezzaSchermo*altezzaSouth)/altezzaTotale),Image.SCALE_DEFAULT);
 		ImageIcon imageSouth = new ImageIcon(newImage);

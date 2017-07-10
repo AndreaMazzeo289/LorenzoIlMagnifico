@@ -61,9 +61,6 @@ public class SpazioFamiliariDisponibili extends JPanel implements Serializable{
 		altezzaBackground=700;
 		larghezzaBackground=1080;
 		
-		//larghezzaFamiliare = 198;
-		//altezzaFamiliare= 198;
-		
 		larghezzaFamiliare = 207;
 		altezzaFamiliare= 303;
 				
@@ -159,7 +156,7 @@ public class SpazioFamiliariDisponibili extends JPanel implements Serializable{
 	 */
 	public void utilizzaFamiliare(ColoreFamiliare coloreFamiliare){
 		
-		imageIcon = new ImageIcon("img\\Punchboard\\familiari\\pedineFamiliari\\familiareOccupato.png");
+		imageIcon = new ImageIcon("img/Punchboard/familiari/pedineFamiliari/familiareOccupato.png");
 		image = imageIcon.getImage();
 		newImage = image.getScaledInstance(((int)(larghezzaSchermo*larghezzaFamiliare)/larghezzaTotale),((int)(altezzaSchermo*altezzaFamiliare)/altezzaTotale),Image.SCALE_DEFAULT);
 		ImageIcon imageFamiliareOccupato = new ImageIcon(newImage);
@@ -190,19 +187,19 @@ public class SpazioFamiliariDisponibili extends JPanel implements Serializable{
 		
 		switch(coloreFamiliare){
 		case NERO:
-			imageIcon = new ImageIcon("img\\Punchboard\\familiari\\familiariDisponibili\\nero.png");
+			imageIcon = new ImageIcon("img/Punchboard/familiari/familiariDisponibili/nero.png");
 			labelColore = labelNero;
 			break;
 		case BIANCO:		
-			imageIcon = new ImageIcon("img\\Punchboard\\familiari\\familiariDisponibili\\bianco.png");
+			imageIcon = new ImageIcon("img/Punchboard/familiari/familiariDisponibili/bianco.png");
 			labelColore = labelBianco;
 			break;
 		case ARANCIONE:
-			imageIcon = new ImageIcon("img\\Punchboard\\familiari\\familiariDisponibili\\arancione.png");
+			imageIcon = new ImageIcon("img/Punchboard/familiari/familiariDisponibili/arancione.png");
 			labelColore = labelArancione;
 			break;
 		case NEUTRO:
-			imageIcon = new ImageIcon("img\\Punchboard\\familiari\\familiariDisponibili\\neutro.png");
+			imageIcon = new ImageIcon("img/Punchboard/familiari/familiariDisponibili/neutro.png");
 			labelColore = labelNeutro;
 			break;
 		}

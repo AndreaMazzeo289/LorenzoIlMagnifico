@@ -79,27 +79,27 @@ public class SpazioProduzione1 extends JPanel{
 		labelSouth = new JLabel();
 		labelCenter = new JLabel();
 		
-		imageIcon = new ImageIcon("img\\Gameboard\\SpaziProduzione\\1\\north.png");
+		imageIcon = new ImageIcon("img/Gameboard/SpaziProduzione/1/north.png");
 		image = imageIcon.getImage();
 		newImage = image.getScaledInstance(((int)(larghezzaSchermo*larghezza)/larghezzaTotale),((int)(altezzaSchermo*altezzaNorth)/altezzaTotale),Image.SCALE_DEFAULT);
 		ImageIcon imageNorth = new ImageIcon(newImage);
 		
-		imageIcon = new ImageIcon("img\\Gameboard\\SpaziProduzione\\1\\east.png");
+		imageIcon = new ImageIcon("img/Gameboard/SpaziProduzione/1/east.png");
 		image = imageIcon.getImage();
 		newImage = image.getScaledInstance(((int)(larghezzaSchermo*larghezzaEast)/larghezzaTotale),((int)(altezzaSchermo*altezzaCenter)/altezzaTotale),Image.SCALE_DEFAULT);
 		ImageIcon imageEast = new ImageIcon(newImage);
 		
-		imageIcon = new ImageIcon("img\\Gameboard\\SpaziProduzione\\1\\west.png");
+		imageIcon = new ImageIcon("img/Gameboard/SpaziProduzione/1/west.png");
 		image = imageIcon.getImage();
 		newImage = image.getScaledInstance(((int)(larghezzaSchermo*larghezzaWest)/larghezzaTotale),((int)(altezzaSchermo*altezzaCenter)/altezzaTotale),Image.SCALE_DEFAULT);
 		ImageIcon imageWest = new ImageIcon(newImage);
 		
-		imageIcon = new ImageIcon("img\\Gameboard\\SpaziProduzione\\1\\center.png");
+		imageIcon = new ImageIcon("img/Gameboard/SpaziProduzione/1/center.png");
 		image = imageIcon.getImage();
 		newImage = image.getScaledInstance(((int)(larghezzaSchermo*larghezzaCenter)/larghezzaTotale),((int)(altezzaSchermo*altezzaCenter)/altezzaTotale),Image.SCALE_DEFAULT);
 		ImageIcon imageCenter = new ImageIcon(newImage);
 		
-		imageIcon = new ImageIcon("img\\Gameboard\\SpaziProduzione\\1\\south.png");
+		imageIcon = new ImageIcon("img/Gameboard/SpaziProduzione/1/south.png");
 		image = imageIcon.getImage();
 		newImage = image.getScaledInstance(((int)(larghezzaSchermo*larghezza)/larghezzaTotale),((int)(altezzaSchermo*altezzaSouth)/altezzaTotale),Image.SCALE_DEFAULT);
 		ImageIcon imageSouth = new ImageIcon(newImage);
