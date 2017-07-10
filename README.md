@@ -23,11 +23,20 @@
  
 ---
 
-### Funzionalità del progetto implementate:
+### Lista dei requisiti sviluppati:
 - Regole semplificate;
 - Regole complete;
 - Command Line Interface;
 - Graphical User Interface;
 - Socket;
 - Remote Method Invocation.
+
+### Istruzioni per lanciare l'applicazione:
+- Avviare il server
+- Avviare i ClientMain
+
+---
+
+## UML del progetto:
+![Alt text](/UML/LorenzoIlMagnifico.png?raw=true "Optional Title")
 
