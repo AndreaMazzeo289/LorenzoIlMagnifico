@@ -15,7 +15,9 @@ import it.polimi.ingsw.pc15.GUI.playerboard.PlayerBoard;
 /**
  * Classe che gestisce l'apparizione del frame per l'attivazione delle carte leader
  * @author AndreaMazzeo289
- *
+ * @author AndreaMaffe
+ * @author FrancescoGuzzo
+ * 
  */
 public class GiocaLeaderPopup extends JFrame{ // NOSONAR
 

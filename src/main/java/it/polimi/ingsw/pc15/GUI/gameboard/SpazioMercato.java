@@ -5,7 +5,9 @@ import javax.swing.JPanel;
 /**
  * Classe astratta che verrà estesa da tutti gli spazi mercato
  * @author AndreaMazzeo289
- *
+ * @author AndreaMaffe
+ * @author FrancescoGuzzo
+ * 
  */
 public abstract class SpazioMercato extends JPanel{
 	

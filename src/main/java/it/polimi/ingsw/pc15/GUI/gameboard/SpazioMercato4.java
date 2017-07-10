@@ -17,7 +17,9 @@ import it.polimi.ingsw.pc15.GUI.GUI;
 /**
  * Classe che gestisce la visualizzazione del quarto spazio mercato nella gameboard
  * @author AndreaMazzeo289
- *
+ * @author AndreaMaffe
+ * @author FrancescoGuzzo
+ * 
  */
 public class SpazioMercato4 extends SpazioMercato{
 

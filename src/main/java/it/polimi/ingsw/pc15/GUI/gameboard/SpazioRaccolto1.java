@@ -19,7 +19,9 @@ import it.polimi.ingsw.pc15.GUI.GUI;
  * Classe che gestisce la visualizzazione dello spazio produzione nella gameboard
  * questo spazio produzione è quello riservato al singolo player
  * @author AndreaMazzeo289
- *
+ * @author AndreaMaffe
+ * @author FrancescoGuzzo
+ * 
  */
 public class SpazioRaccolto1 extends JPanel{
 

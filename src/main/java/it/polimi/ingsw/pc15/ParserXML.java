@@ -66,9 +66,18 @@ import it.polimi.ingsw.pc15.risorse.SetRisorse;
 import it.polimi.ingsw.pc15.risorse.TipoRisorsa;
 
 /**
- * Classe che permette la lettura da xml
+ * Classe che permette la lettura da xml di tutte le informazioni necessarie per il funzionamento del gioco
+ *  - Carte
+ *  - Effetti
+ *  - Carte Leader
+ *  - Tessere Scomunica
+ *  - Tessere Bonus personali
+ *  - Set risorse spazi torre
+ *  - Dati generali del gioco
+ *  
  * @author AndreaMazzeo289
- * 
+ * @author AndreaMaffe
+ * @author FrancescoGuzzo
  */
 
 public class ParserXML {
@@ -77,28 +86,22 @@ public class ParserXML {
 		//leggiScomunica(1);
 		//leggiScomunica(2);
 		//leggiScomunica(3);
-		
-		getCarteXML(TipoCarta.TERRITORIO);
-		getCarteXML(TipoCarta.PERSONAGGIO);
-		getCarteXML(TipoCarta.EDIFICIO);
-		getCarteXML(TipoCarta.IMPRESA);
+		//getCarteXML(TipoCarta.TERRITORIO);
+		//getCarteXML(TipoCarta.PERSONAGGIO);
+		//getCarteXML(TipoCarta.EDIFICIO);
+		//getCarteXML(TipoCarta.IMPRESA);
 		//leggiCartaLeader();
 		//leggiTessereBonusRaccolta();
 		//leggiSetRisorseSpazio("verde1");
 	}
-	
-	
-	/*public static void main (String args[]){
-		leggiCartaLeader();
-	}*/
 	
 	//--------------------------------------------------------------------------------------------------------------//
 	// GET CARTA XML
 	//--------------------------------------------------------------------------------------------------------------//
 	/**
 	 * metodo che gestisce l'estrazione delle carte dal relativo file XML chiamando opportuni metodi per ogni tipologia di carta
-	 * @param colore della carta che si vuole estrarre (enumerazione ColoreCarta)
-	 * @return ArrayList di tutte le carte del colore desiderato
+	 * @param tipo della carta che si vuole estrarre (enumerazione TipoCarta)
+	 * @return ArrayList di tutte le carte del tipo desiderato
 	 */
 	public static ArrayList<Carta> getCarteXML (TipoCarta tipoCarta){
 		
@@ -132,16 +135,6 @@ public class ParserXML {
 	                int periodo = Integer.parseInt(carta.getElementsByTagName("periodo").item(0).getFirstChild().getNodeValue());
 	                String pathImg = "img/DevCardsFront/devcards_f_en_c_"+id+".png";
 	                
-	               /**********************************************************
-	                System.out.println("------------------------------------------------");
-	                System.out.println(pathImg);
-	                System.out.println("ID carta: " +id);
-	                System.out.println("Nome carta: " +nome);
-	                System.out.println("Tipo carta: " +tipo);
-	                System.out.println("Periodo carta: " +periodo);
-	               **********************************************************/
-	                
-	                
 	                Set<Effetto> effettiImmediatiSet = new HashSet<Effetto>();
 	                Set<Effetto> effettiPermanentiSet = new HashSet<Effetto>();
 	                
@@ -150,7 +143,6 @@ public class ParserXML {
 	                //------------------------------------------------------//
 	                try{
 	                    valoreDado = Integer.parseInt(carta.getElementsByTagName("dado").item(0).getFirstChild().getNodeValue());
-	                    /*System.out.println("valore dado: " +valoreDado);*/
 	                }catch (NullPointerException e){}
 	                
 	                //------------------------------------------------------//
@@ -160,7 +152,6 @@ public class ParserXML {
 	                for (int j = 0; j < listaEffettiPermanenti.getLength(); ++j) {
 	                    Element effetto = (Element) listaEffettiPermanenti.item(j);
 	                    String tipologiaEffetto = effetto.getFirstChild().getNodeValue();
-	                    //System.out.println("Effetto permanente "+j+":"+tipologiaEffetto);
 	                    Effetto effettoLetto = getEffettoXML(tipologiaEffetto);
 	                    effettiPermanentiSet.add(effettoLetto);
 	                }
@@ -172,7 +163,6 @@ public class ParserXML {
 	                for (int j = 0; j < listaEffettiImmediati.getLength(); ++j) {
 	                    Element effetto = (Element) listaEffettiImmediati.item(j);
 	                    String tipologiaEffetto = effetto.getFirstChild().getNodeValue();
-	                    //System.out.println("Effetto immediato "+j+":"+tipologiaEffetto);
 	                    Effetto effettoLetto = getEffettoXML(tipologiaEffetto);
 	                    effettiImmediatiSet.add(effettoLetto);
 	                }
@@ -190,42 +180,34 @@ public class ParserXML {
 	                		 
 	                		 switch(risorsa.getAttribute("tipo").toUpperCase()) {
 	                		 	case "LEGNA":
-	                		 		/*System.out.println("Legna richiesta: "+quantita);*/
 	                		 		Legna legna = new Legna(quantita);
 	                		 		risorseMap.add(legna);
 	                		 		break;
 	                		 	case "PIETRA":
-	                		 		/*System.out.println("Pietra richiesta: "+quantita);*/
 	                		 		Pietra pietra = new Pietra(quantita);
 	                		 		risorseMap.add(pietra);
 	                		 		break;
 	                		 	case "ORO":
-	                		 		/*System.out.println("Oro richiesto: "+quantita);*/
 	                		 		Oro oro = new Oro(quantita);
 	                		 		risorseMap.add(oro);
 	                		 		break;
 	                		 	case "SERVITORI":
-	                		 		/*System.out.println("Servitori richiesti: "+quantita);*/
 	                		 		Servitori servitori = new Servitori(quantita);
 	                		 		risorseMap.add(servitori);
 	                		 		break;
 	                		 	case "PUNTIMILITARI":
-	                		 		/*System.out.println("Punti militari richiesti: "+quantita);*/
 	                		 		PuntiMilitari puntiMilitari = new PuntiMilitari(quantita);
 	                		 		risorseMap.add(puntiMilitari);
 	                		 		break;
 	                		 	case "PUNTIFEDE":
-	                		 		/*System.out.println("Punti fede richiesti: "+quantita);*/
 	                		 		PuntiFede puntiFede = new PuntiFede(quantita);
 	                		 		risorseMap.add(puntiFede);
 	                		 		break;
 	                		 	case "PUNTIVITTORIA":
-	                		 		/*System.out.println("Punti vittoria richiesti: "+quantita);*/
 	                		 		PuntiVittoria puntiVittoria = new PuntiVittoria(quantita);
 	                		 		risorseMap.add(puntiVittoria);
 	                		 		break;
 	                		 	case "PRIVILEGI":
-	                		 		/*System.out.println("Privilegi richiesti: "+quantita);*/
 	                		 		Privilegi privilegi = new Privilegi(quantita);
 	                		 		risorseMap.add(privilegi);
 	                		 		break;
@@ -248,10 +230,6 @@ public class ParserXML {
 	                try{
 	                    costoPt = Integer.parseInt(carta.getElementsByTagName("costoPt").item(0).getFirstChild().getNodeValue());
 	                    requisito = Integer.parseInt(carta.getElementsByTagName("requisito").item(0).getFirstChild().getNodeValue());
-	                    /*System.out.println("Presente un pagamento con punti militari:");
-	                    System.out.println("Punti da pagare :"+costoPt);
-	                    System.out.println("Ma devi averne minimo: "+requisito);*/
-	                    
 	                }catch(NullPointerException e){
 	                    costoPt = 0;
 	                    requisito = 0;
@@ -282,8 +260,7 @@ public class ParserXML {
 	        }
 	    }catch(Exception e) {
 	         
-	    }	
-			
+	    }			
 	    return arrayCarte;
 	}
 
@@ -417,7 +394,6 @@ public class ParserXML {
 		return effettoLetto;
 	}
 
-
 	//--------------------------------------------------------------------------------------------------------------//
 	// LEGGI EFFETTO ADD RISORSA
 	//--------------------------------------------------------------------------------------------------------------//
@@ -513,7 +489,6 @@ public class ParserXML {
 	 * @param elemento dell'effetto specifico da estrarre (Classe Element)
 	 * @return istanza dell'effetto estratto (Classe AzioneCarta)
 	 */
-	
 	public static AzionePrendiCartaAggiuntiva leggiEffettoAzionePrendiCartaAggiuntiva (Element effetto) {
 		
 		int valoreDadoCarta = Integer.parseInt(effetto.getElementsByTagName("valoreDado").item(0).getFirstChild().getNodeValue());
@@ -542,12 +517,12 @@ public class ParserXML {
 	}
 	
 	//--------------------------------------------------------------------------------------------------------------//
-	// LEGGI EFFETTO AZIONE CARTA CON SCONTO
+	// LEGGI EFFETTO AZIONE CARTA AGGIUNTIVA CON SCONTO
 	//--------------------------------------------------------------------------------------------------------------//
 	/**
-	 * metodo che permette di estrarre gli effetti di tipo azione carta dal file XML
+	 * metodo che permette di estrarre gli effetti di tipo azione carta aggiuntiva con sconto dal file XML
 	 * @param elemento dell'effetto specifico da estrarre (Classe Element)
-	 * @return istanza dell'effetto estratto (Classe AzioneCarta)
+	 * @return istanza dell'effetto estratto (Classe AzionePrendiCartaAggiuntivaConSconto)
 	 */
 	
 	public static AzionePrendiCartaAggiuntivaConSconto leggiEffettoAzionePrendiCartaAggiuntivaConSconto (Element effetto) {
@@ -631,12 +606,12 @@ public class ParserXML {
 	}
 	
 	//--------------------------------------------------------------------------------------------------------------//
-	// LEGGI EFFETTO MOLTIPLICAZIONE
+	// LEGGI EFFETTO MOLTIPLICAZIONE DI TIPO RISORSE PER RISORSE
 	//--------------------------------------------------------------------------------------------------------------//
 	/**
-	 * metodo che permette di estrarre gli effetti di tipo moltiplicazione dal file XML
+	 * metodo che permette di estrarre gli effetti di tipo moltiplicazione risorse per risorse dal file XML
 	 * @param elemento dell'effetto specifico da estrarre (Classe Element)
-	 * @return istanza dell'effetto estratto (Classe Moltiplicazione)
+	 * @return istanza dell'effetto estratto (Classe RisorsePerRisorse)
 	 */
 	public static RisorsePerRisorse leggiEffettorRisorsePerRisorse(Element effetto) {
 		
@@ -704,8 +679,6 @@ public class ParserXML {
 	    		break;
 	        case "PUNTIVITTORIA": tipoRisorsaEnum = TipoRisorsa.PUNTIVITTORIA;
 	    		break;
-	        /*case "PRIVILEGI": tipoRisorsaEnum = TipoRisorsa.PRIVILEGI;
-	    		break;*/
         }
         
         RisorsePerRisorse moltiplicazione = new RisorsePerRisorse(setRisorse, quantitaRisorsa, tipoRisorsaEnum);
@@ -714,12 +687,12 @@ public class ParserXML {
 	}
 	
 	//--------------------------------------------------------------------------------------------------------------//
-	// LEGGI EFFETTO MOLTIPLICAZIONE
+	// LEGGI EFFETTO MOLTIPLICAZIONE RISORSE PER CARTE
 	//--------------------------------------------------------------------------------------------------------------//
 	/**
-	 * metodo che permette di estrarre gli effetti di tipo moltiplicazione dal file XML
+	 * metodo che permette di estrarre gli effetti di tipo moltiplicazione risorse per carte dal file XML
 	 * @param elemento dell'effetto specifico da estrarre (Classe Element)
-	 * @return istanza dell'effetto estratto (Classe Moltiplicazione)
+	 * @return istanza dell'effetto estratto (Classe RisorsePerCarte)
 	 */
 	public static RisorsePerCarte leggiEffettoRisorsePerCarte(Element effetto) {
 		
@@ -873,12 +846,12 @@ public class ParserXML {
 	}
 	
 	//--------------------------------------------------------------------------------------------------------------//
-	// LEGGI EFFETTO SCONTO
+	// LEGGI EFFETTO SCONTO COSTO CARTE
 	//--------------------------------------------------------------------------------------------------------------//
 	/**
-	 * metodo che permette di estrarre gli effetti di tipo scambio dal file XML
+	 * metodo che permette di estrarre gli effetti di tipo sconto dal file XML
 	 * @param elemento dell'effetto specifico da estrarre (Classe Element)
-	 * @return istanza dell'effetto estratto (Classe Scambio)
+	 * @return istanza dell'effetto estratto (Classe ScontoCostoCarte)
 	 */
 	public static ScontoCostoCarte leggiEffettoScontoCostoCarte(Element effetto) {
 		
@@ -961,8 +934,13 @@ public class ParserXML {
 	}
 	
 	//--------------------------------------------------------------------------------------------------------------//
-	// LEGGI EFFETTO RIDUCI GUADAGNO CARTE
+	// LEGGI EFFETTO BONUS RISORSE CARTE
 	//--------------------------------------------------------------------------------------------------------------//
+	/**
+	 * metodo che permette di estrarre gli effetti di tipo bonus risorse carte dal file XML
+	 * @param elemento dell'effetto specifico da estrarre (Classe Element)
+	 * @return istanza dell'effetto estratto (Classe BonusRisorseCarte)
+	 */
 	public static BonusRisorseCarte leggiEffettoRiduciGuadagnoCarte (Element effetto) {
 		
 		String risorsa = effetto.getElementsByTagName("risorsa").item(0).getFirstChild().getNodeValue();
@@ -1002,6 +980,11 @@ public class ParserXML {
 	//--------------------------------------------------------------------------------------------------------------//
 	// LEGGI EFFETTO RIDUCI GUADAGNO SPAZI
 	//--------------------------------------------------------------------------------------------------------------//
+	/**
+	 * metodo che permette di estrarre gli effetti di tipo riduci guadagno spazi dal file XML
+	 * @param elemento dell'effetto specifico da estrarre (Classe Element)
+	 * @return istanza dell'effetto estratto (Classe BonusRisorseSpazi)
+	 */
 	public static BonusRisorseSpazi leggiEffettoRiduciGuadagnoSpazi (Element effetto) {
 		
 		String risorsa = effetto.getElementsByTagName("risorsa").item(0).getFirstChild().getNodeValue();
@@ -1034,8 +1017,7 @@ public class ParserXML {
 	 		break;
 		}
 		
-		return new BonusRisorseSpazi(-1, tipoRisorsa);
-		
+		return new BonusRisorseSpazi(-1, tipoRisorsa);	
 	}
 	
 	//--------------------------------------------------------------------------------------------------------------//
@@ -1142,9 +1124,9 @@ public class ParserXML {
 	// LEGGI EFFETTO FISSA VALORE FAMILIARE
 	//--------------------------------------------------------------------------------------------------------------//
 	/**
-	 * metodo che permette di estrarre gli effetti di tipo bonus valore familiare dal file XML
+	 * metodo che permette di estrarre gli effetti di tipo fissa valore familiare dal file XML
 	 * @param elemento dell'effetto specifico da estrarre (Classe Element)
-	 * @return istanza dell'effetto estratto (Classe BonusValoreFamiliare)
+	 * @return istanza dell'effetto estratto (Classe FissaValoreFamiliare)
 	 */
 	public static FissaValoreFamiliare leggiEffettoFissaValoreFamiliare (Element effetto)
 	{
@@ -1181,6 +1163,10 @@ public class ParserXML {
 	//--------------------------------------------------------------------------------------------------------------//
 	// LEGGI EFFETTO NO BONUS SPAZIO TORRI
 	//--------------------------------------------------------------------------------------------------------------//
+	/**
+	 * metodo che permette di estrarre gli effetti di tipo nega bonus spazio torri dal file XML
+	 * @return istanza dell'effetto estratto (Classe NegaBonusSpazioTorri)
+	 */
 	public static NegaBonusSpazioTorri leggiEffettoNegaBonusSpazioTorri () {
 		NegaBonusSpazioTorri negaBonusSpaziTorre = new NegaBonusSpazioTorri ();
 		return negaBonusSpaziTorre;
@@ -1189,6 +1175,10 @@ public class ParserXML {
 	//--------------------------------------------------------------------------------------------------------------//
 	// LEGGI EFFETTO NEGAZIONE MERCATO
 	//--------------------------------------------------------------------------------------------------------------//
+	/**
+	 * metodo che permette di estrarre gli effetti di tipo nega mercato dal file XML
+	 * @return istanza dell'effetto estratto (Classe NegaMercato)
+	 */
 	public static NegaMercato leggiEffettoNegaMercato () {
 		NegaMercato negaMercato = new NegaMercato ();
 		return negaMercato;
@@ -1197,6 +1187,10 @@ public class ParserXML {
 	//--------------------------------------------------------------------------------------------------------------//
 	// LEGGI EFFETTO SALTA PRIMO TURNO
 	//--------------------------------------------------------------------------------------------------------------//
+	/**
+	 * metodo che permette di estrarre gli effetti di tipo salta primo turno dal file XML
+	 * @return istanza dell'effetto estratto (Classe SaltaPrimoTurno)
+	 */
 	public static SaltaPrimoTurno leggiEffettoSaltaPrimoTurno () {
 		SaltaPrimoTurno saltaPrimoTurno = new SaltaPrimoTurno ();
 		return saltaPrimoTurno;
@@ -1205,6 +1199,10 @@ public class ParserXML {
 	//--------------------------------------------------------------------------------------------------------------//
 	// LEGGI EFFETTO AUMENTA PREZZO SERVITORI
 	//--------------------------------------------------------------------------------------------------------------//
+	/**
+	 * metodo che permette di estrarre gli effetti di tipo aumenta prezzo servitori dal file XML
+	 * @return istanza dell'effetto estratto (Classe AumentaPrezzoServitori)
+	 */
 	public static AumentaPrezzoServitori leggiEffettoAumentaPrezzoServitori () {
 		AumentaPrezzoServitori aumentaPrezzoServitori = new AumentaPrezzoServitori ();
 		return aumentaPrezzoServitori;
@@ -1213,6 +1211,10 @@ public class ParserXML {
 	//--------------------------------------------------------------------------------------------------------------//
 	// LEGGI EFFETTO ANNULLA SOVRAPPREZZO TORRI
 	//--------------------------------------------------------------------------------------------------------------//
+	/**
+	 * metodo che permette di estrarre gli effetti di tipo annulla sovrapprezzo torri dal file XML
+	 * @return istanza dell'effetto estratto (Classe AnnullaSovrapprezzoTorri)
+	 */
 	public static AnnullaSovrapprezzoTorri leggiEffettoAnnullaSovrapprezzoTorri () {
 		AnnullaSovrapprezzoTorri annullaSovrapprezzoTorri = new AnnullaSovrapprezzoTorri ();
 		return annullaSovrapprezzoTorri;
@@ -1221,6 +1223,10 @@ public class ParserXML {
 	//--------------------------------------------------------------------------------------------------------------//
 	// LEGGI EFFETTO ANNULLA REQUISITO TERRITORI
 	//--------------------------------------------------------------------------------------------------------------//
+	/**
+	 * metodo che permette di estrarre gli effetti di tipo annulla requisito territori dal file XML
+	 * @return istanza dell'effetto estratto (Classe AnnullaRequisitoTerritori)
+	 */
 	public static AnnullaRequisitoTerritori leggiEffettoAnnullaRequisitoTerritori () {
 		AnnullaRequisitoTerritori annullaRequisitoTerritori = new AnnullaRequisitoTerritori ();
 		return annullaRequisitoTerritori;
@@ -1229,6 +1235,10 @@ public class ParserXML {
 	//--------------------------------------------------------------------------------------------------------------//
 	// LEGGI EFFETTO OCCUPA SPAZI OCCUPATI
 	//--------------------------------------------------------------------------------------------------------------//
+	/**
+	 * metodo che permette di estrarre gli effetti di tipo occupa spazi occupati dal file XML
+	 * @return istanza dell'effetto estratto (Classe OccupaSpaziOccupati)
+	 */
 	public static OccupaSpaziOccupati leggiEffettoOccupaSpaziOccupati () {
 		OccupaSpaziOccupati occupaSpaziOccupati = new OccupaSpaziOccupati ();
 		return occupaSpaziOccupati;
@@ -1237,6 +1247,10 @@ public class ParserXML {
 	//--------------------------------------------------------------------------------------------------------------//
 	// LEGGI EFFETTO COPIA EFFETTO LEADER
 	//--------------------------------------------------------------------------------------------------------------//
+	/**
+	 * metodo che permette di estrarre gli effetti di tipo copia effetto leader dal file XML
+	 * @return istanza dell'effetto estratto (Classe CopiaEffettoLeader)
+	 */
 	public static CopiaEffettoLeader leggiEffettoCopiaEffettoLeader () {
 		CopiaEffettoLeader copiaEffettoLeader = new CopiaEffettoLeader ();
 		return copiaEffettoLeader;
@@ -1245,6 +1259,10 @@ public class ParserXML {
 	//--------------------------------------------------------------------------------------------------------------//
 	// LEGGI EFFETTO BONUS PV CHIESTA
 	//--------------------------------------------------------------------------------------------------------------//
+	/**
+	 * metodo che permette di estrarre gli effetti di tipo leggi effetto bonus punti vittoria chiesa dal file XML
+	 * @return istanza dell'effetto estratto (Classe leggiEffettoBonusPVChiesa)
+	 */
 	public static BonusPVChiesa leggiEffettoBonusPVChiesa (Element effetto) {
 		int valore = Integer.parseInt(effetto.getElementsByTagName("valore").item(0).getFirstChild().getNodeValue());
 		BonusPVChiesa bonusPVChiesa = new BonusPVChiesa(valore);
@@ -1254,6 +1272,11 @@ public class ParserXML {
 	//--------------------------------------------------------------------------------------------------------------//
 	// LEGGI EFFETTO BONUS PV CHIESTA
 	//--------------------------------------------------------------------------------------------------------------//
+	/**
+	 * metodo che permette di estrarre gli effetti di tipo leggi effetto bonus punti vittoria chiesa dal file XML
+	 * @param elemento dell'effetto specifico da estrarre (Classe Element)
+	 * @return istanza dell'effetto estratto (Classe leggiEffettoBonusPVChiesa)
+	 */
 	public static MoltiplicaRisorseCarte leggiEffettoMoltiplicaRisorseCarte() {
 		MoltiplicaRisorseCarte effetto = new MoltiplicaRisorseCarte(2);
 		return effetto;
@@ -1263,6 +1286,11 @@ public class ParserXML {
 	//--------------------------------------------------------------------------------------------------------------//
 	// LEGGI EFFETTO ANNULLA GUADAGNO
 	//--------------------------------------------------------------------------------------------------------------//
+	/**
+	 * metodo che permette di estrarre gli effetti di tipo leggi effetto bonus punti vittoria chiesa dal file XML
+	 * @param elemento dell'effetto specifico da estrarre (Classe Element)
+	 * @return istanza dell'effetto estratto (Classe leggiEffettoBonusPVChiesa)
+	 */
 	public static AnnullaGuadagno leggiEffettoAnnullaGuadagno (Element effetto)
 	{
 		String tipoCarta = effetto.getElementsByTagName("tipoCarta").item(0).getFirstChild().getNodeValue();
@@ -1291,8 +1319,7 @@ public class ParserXML {
 	//--------------------------------------------------------------------------------------------------------------//
 	/**
 	 * metodo che permette di estrarre le carte leader dal file XML
-	 * @param nome della carta leader che si vuole estrarre (String)
-	 * @return istanza della carta leader desiderata
+	 * @return arrayList contenente tutte le carte leader
 	 */
 	public static ArrayList<Leader> leggiCartaLeader (){
 		
@@ -1319,10 +1346,6 @@ public class ParserXML {
 				String id = leader.getAttribute("id");
 				String pathImg = "img/Leaders/leaders_f_c_"+id+".jpg";
 				
-				//System.out.println(pathImg);
-				/*System.out.println("-------------------------------------------");
-				System.out.println("Nome leader: "+nomeLeader);*/
-				
 				try{
 					NodeList carte = leader.getElementsByTagName("carta");
 					int fine = carte.getLength();
@@ -1332,7 +1355,6 @@ public class ParserXML {
 							
 							String tipoCarta = carta.getElementsByTagName("tipo").item(0).getFirstChild().getNodeValue();
 							int quantita = Integer.parseInt(carta.getElementsByTagName("quantita").item(0).getFirstChild().getNodeValue());
-							//System.out.println("Devi avere "+quantita+" carte"+ tipoCarta);
 							TipoCarta tipoCartaEnum = null;
 							switch(tipoCarta.toUpperCase()) {
 								case "EDIFICIO" : tipoCartaEnum = TipoCarta.EDIFICIO;
@@ -1346,9 +1368,6 @@ public class ParserXML {
 								case "ALL": tipoCartaEnum = TipoCarta.ALL;
 									break;
 							}
-							
-							
-							
 							requisitoCarte.put(tipoCartaEnum, quantita);
 						}
 					}
@@ -1371,42 +1390,34 @@ public class ParserXML {
                 		 
                 		 switch(risorsa.getAttribute("tipo").toUpperCase()) {
                 		 	case "LEGNA":
-                		 		/*System.out.println("Legna richiesta: "+quantita);*/
                 		 		Legna legna = new Legna(quantita);
                 		 		risorseMap.add(legna);
                 		 		break;
                 		 	case "PIETRA":
-                		 		/*System.out.println("Pietra richiesta: "+quantita);*/
                 		 		Pietra pietra = new Pietra(quantita);
                 		 		risorseMap.add(pietra);
                 		 		break;
                 		 	case "ORO":
-                		 		/*System.out.println("Oro richiesto: "+quantita);*/
                 		 		Oro oro = new Oro(quantita);
                 		 		risorseMap.add(oro);
                 		 		break;
                 		 	case "SERVITORI":
-                		 		/*System.out.println("Servitori richiesti: "+quantita);*/
                 		 		Servitori servitori = new Servitori(quantita);
                 		 		risorseMap.add(servitori);
                 		 		break;
                 		 	case "PUNTIMILITARI":
-                		 		/*System.out.println("Punti militari richiesti: "+quantita);*/
                 		 		PuntiMilitari puntiMilitari = new PuntiMilitari(quantita);
                 		 		risorseMap.add(puntiMilitari);
                 		 		break;
                 		 	case "PUNTIFEDE":
-                		 		/*System.out.println("Punti fede richiesti: "+quantita);*/
                 		 		PuntiFede puntiFede = new PuntiFede(quantita);
                 		 		risorseMap.add(puntiFede);
                 		 		break;
                 		 	case "PUNTIVITTORIA":
-                		 		/*System.out.println("Punti vittoria richiesti: "+quantita);*/
                 		 		PuntiVittoria puntiVittoria = new PuntiVittoria(quantita);
                 		 		risorseMap.add(puntiVittoria);
                 		 		break;
                 		 	case "PRIVILEGI":
-                		 		/*System.out.println("Privilegi richiesti: "+quantita);*/
                 		 		Privilegi privilegi = new Privilegi(quantita);
                 		 		risorseMap.add(privilegi);
                 		 		break;
@@ -1420,13 +1431,11 @@ public class ParserXML {
 				}
 				
 				String tipologia = ((Element)(leader.getElementsByTagName("effetti")).item(0)).getAttribute("tipo");
-				/*System.out.println("questo leader ha un effetto di tipo "+tipologia);*/
 				
 				NodeList listaEffetti = leader.getElementsByTagName("effetto");
 		        for (int j = 0; j < listaEffetti.getLength(); ++j) {
 		            Element effetto = (Element) listaEffetti.item(j);
 		            String effettoTipo = effetto.getFirstChild().getNodeValue();
-		            /*System.out.println("effetto "+j+" "+effettoTipo);*/
 		            Effetto effettoExt = getEffettoXML(effettoTipo);
 		            effetti.add(effettoExt);
 		        }
@@ -1475,8 +1484,6 @@ public class ParserXML {
 					
 					String id =scomunica.getAttribute("id");
 					String pathImg = "img/Scomuniche/excomm_"+id.charAt(0)+"_"+id.charAt(1)+".png";
-					
-					//System.out.println(pathImg);
 					
 					Set<Effetto> effetti = new HashSet<Effetto>();
 					
@@ -1617,8 +1624,12 @@ public class ParserXML {
 	}
 	
 	//--------------------------------------------------------------------------------------------------------------//
-	// LEGGI PERSONAL BONUS
+	// LEGGI SET RISORSE PRODUZIONE
 	//--------------------------------------------------------------------------------------------------------------//
+	/**
+	 * metodo che permette di leggere i set di risorse produzione delle tessere bonus estratte da XML
+	 * @return arrayList di tutti i set risorse produzione di tutte le tessere
+	 */
 	public static ArrayList<SetRisorse> leggiTessereBonusProduzione() {
 		
 		ArrayList<SetRisorse> setBonusProduzione = new ArrayList<SetRisorse>();
@@ -1691,8 +1702,12 @@ public class ParserXML {
 	}
 	
 	//--------------------------------------------------------------------------------------------------------------//
-	// LEGGI PERSONAL BONUS
+	// LEGGI SET RISORSE RACCOLTA
 	//--------------------------------------------------------------------------------------------------------------//
+	/**
+	 * metodo che permette di leggere i set di risorse raccolta delle tessere bonus estratte da XML
+	 * @return arrayList di tutti i set risorse raccolta di tutte le tessere
+	 */
 	public static ArrayList<SetRisorse> leggiTessereBonusRaccolta() {
 		
 		ArrayList<SetRisorse> setBonusRaccolta = new ArrayList<SetRisorse>();
@@ -1764,6 +1779,13 @@ public class ParserXML {
 		return setBonusRaccolta;
 	}
 	
+	//--------------------------------------------------------------------------------------------------------------//
+	// LEGGI TESSERE BONUS
+	//--------------------------------------------------------------------------------------------------------------//
+	/**
+	 * metodo che permette di leggere le tessere bonus da XML
+	 * @return arrayList contenente tutte le tessere bonus
+	 */
 	public static ArrayList<TesseraBonus> leggiTessereBonus() {
 		
 		ArrayList<TesseraBonus> tessereBonus = new ArrayList<TesseraBonus>();

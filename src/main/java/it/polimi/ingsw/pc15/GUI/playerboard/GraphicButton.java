@@ -16,7 +16,9 @@ import it.polimi.ingsw.pc15.GUI.GUI;
 /**
  * Classe che permette di gestire i button della GUI
  * @author AndreaMazzeo289
- *
+ * @author AndreaMaffe
+ * @author FrancescoGuzzo
+ * 
  */
 public class GraphicButton extends JButton{
 

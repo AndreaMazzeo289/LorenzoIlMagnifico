@@ -17,7 +17,9 @@ import it.polimi.ingsw.pc15.player.ColoreFamiliare;
 /**
  * Classe che gestisce la visualizzazione del pannello dei familiare disponbili del player
  * @author AndreaMazzeo289
- *
+ * @author AndreaMaffe
+ * @author FrancescoGuzzo
+ * 
  */
 public class SpazioFamiliariDisponibili extends JPanel implements Serializable{
 

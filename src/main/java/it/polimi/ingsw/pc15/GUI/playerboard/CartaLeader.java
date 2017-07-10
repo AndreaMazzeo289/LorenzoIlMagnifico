@@ -19,7 +19,9 @@ import it.polimi.ingsw.pc15.GUI.GUI;
 /**
  * Classe che gestisce la visualizzazione delle carte leader nella playerboard
  * @author AndreaMazzeo289
- *
+ * @author AndreaMaffe
+ * @author FrancescoGuzzo
+ * 
  */
 public class CartaLeader extends JPanel{
 

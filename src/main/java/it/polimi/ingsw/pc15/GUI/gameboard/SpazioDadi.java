@@ -15,7 +15,9 @@ import it.polimi.ingsw.pc15.player.ColoreFamiliare;
 /**
  * Classe che gestisce la visualizzazione dello spazio riservato ai dadi nella gameboard
  * @author AndreaMazzeo289
- *
+ * @author AndreaMaffe
+ * @author FrancescoGuzzo
+ * 
  */
 public class SpazioDadi extends JPanel{
 

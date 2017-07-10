@@ -10,7 +10,8 @@ import javax.swing.JButton;
  * Classe che permette di creare dei button con determinate caratteristiche che vengono usati
  * per occupare i vari spazi della gameboard
  * @author AndreaMazzeo289
- *
+ * @author AndreaMaffe
+ * @author FrancescoGuzzo
  */
 public class ButtonTransparent extends JButton{ // NOSONAR
 	

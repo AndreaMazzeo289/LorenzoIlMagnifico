@@ -15,7 +15,9 @@ import it.polimi.ingsw.pc15.carte.TipoCarta;
 /**
  * Classe che permette la visualizzazione di tutte le carte possedute dal player nella playerboard
  * @author AndreaMazzeo289
- *
+ * @author AndreaMaffe
+ * @author FrancescoGuzzo
+ * 
  */
 
 public class CarteGioco extends JButton{

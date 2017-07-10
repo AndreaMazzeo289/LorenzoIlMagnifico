@@ -18,7 +18,9 @@ import it.polimi.ingsw.pc15.GUI.GUI;
 /**
  * Classe che gestisce la visualizzazione dello spazio del consiglio sulla gameboard
  * @author AndreaMazzeo289
- *
+ * @author AndreaMaffe
+ * @author FrancescoGuzzo
+ * 
  */
 public class SpazioConsiglio extends JPanel{
 
@@ -159,7 +161,7 @@ public class SpazioConsiglio extends JPanel{
 	/**
 	 * questo metodo consente di rimuovere tutti i familiari presenti nello spazio
 	 */
-	public void rimuoviFamliari() {
+	public void rimuoviFamiliari() {
 		ImageIcon image = new ImageIcon(invisibleIcon);
 		for(int i=0;i<16;i++) {
 			if(button.get(i).getName().equals("occupato")) {

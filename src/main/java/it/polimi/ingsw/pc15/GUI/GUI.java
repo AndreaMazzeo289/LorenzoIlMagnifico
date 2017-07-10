@@ -13,7 +13,6 @@ import javax.swing.JFrame;
 
 import it.polimi.ingsw.pc15.ParserXML;
 import it.polimi.ingsw.pc15.GUI.frame.FrameRapportoVaticano;
-import it.polimi.ingsw.pc15.GUI.gameboard.ButtonTransparent;
 import it.polimi.ingsw.pc15.GUI.gameboard.Gameboard;
 import it.polimi.ingsw.pc15.GUI.playerboard.PlayerBoard;
 import it.polimi.ingsw.pc15.carte.Carta;
@@ -36,15 +35,17 @@ import it.polimi.ingsw.pc15.risorse.TipoRisorsa;
  * Classe che estende la classe ClientView e gestisce l'intera evoluzione della GUI
  * tramite continui aggiornamenti
  * @author AndreaMazzeo289
+ * @author AndreaMaffe
+ * @author FrancescoGuzzo
  *
  */
 public class GUI extends ClientView{
 
 	public JFrame mainFrame;
-	public int altezzaTotale = 6650; //6530
+	public int altezzaTotale = 6650;
 	public int larghezzaTotale = 4076;
 	public float rapporto = (float) 4/11;
-	public float rapportoPlayerBoard = (float)19/31;//13/21
+	public float rapportoPlayerBoard = (float)19/31;
 	ButtonListener listener;
 	
 	private PlayerBoard playerboard;
@@ -69,9 +70,6 @@ public class GUI extends ClientView{
 	private FrameRapportoVaticano frameRapportoVaticano;
 	
 	private HashMap<ColorePlayer, HashMap<ColoreFamiliare,String>> mappaGiocatori;
-	
-	private boolean moreFamProd;
-	private boolean moreFamRacc;
 	
 	public GUI(NetworkHandler networkHandler, ClientModel clientModel) {
 		super(networkHandler, clientModel);
@@ -120,14 +118,15 @@ public class GUI extends ClientView{
 		this.mappaBonusPersonali.put(ColorePlayer.GIALLO, "img/Punchboard/personalBonus/bonus2.png");
 		this.mappaBonusPersonali.put(ColorePlayer.BLU, "img/Punchboard/personalBonus/bonus3.png");
 		this.mappaBonusPersonali.put(ColorePlayer.ROSSO, "img/Punchboard/personalBonus/bonus4.png");
-		
-		moreFamProd = false;
-		moreFamRacc = false;
 	}
 
 	@Override
 	public void update(Observable arg0, Object arg1)  { 
 		
+		//----------------------------------------------------------//
+		// La prima volta che viene avviato il metodo update
+		// viene creata la gui
+		//----------------------------------------------------------//
 		if(!loadDone) {
 			
 			mainFrame = new JFrame();
@@ -162,8 +161,6 @@ public class GUI extends ClientView{
 		arrayListAvversari = this.clientModel.getStatoAvversari();
 		playerCorrente = this.clientModel.getStatoGiocatore();
 		
-		
-		
 		//----------------------------------------------------------//
 		// AGGIORNAMENTO GAMEBOARD IN FUNZIONE DEL MODEL
 		//----------------------------------------------------------//
@@ -177,7 +174,6 @@ public class GUI extends ClientView{
 		//------------------------------------//
 		// CARTE TORRI
 		//------------------------------------//
-		String immagineCartaModel;
 		for(TipoCarta tipo : TipoCarta.values()) {
 			if(tipo.equals(TipoCarta.ALL));
 			else
@@ -205,12 +201,16 @@ public class GUI extends ClientView{
 		//------------------------------------//
 		// FAMILIARI SPAZI
 		//------------------------------------//
+		// Spazio mercato
+		//-------------------//
 		for(SpazioMercato spazio : this.clientModel.getStatoPlancia().getSpaziMercato())
 			if(!spazio.vuoto())
 				gameboard.getSpazioMercato(this.clientModel.getStatoPlancia().getSpaziMercato().lastIndexOf(spazio)).inserisciFamiliare(this.mappaGiocatori.get(spazio.getFamiliari().get(0).getPlayer().getColore()).get(spazio.getFamiliari().get(0).getColore()));
 			else
 				gameboard.getSpazioMercato(this.clientModel.getStatoPlancia().getSpaziMercato().lastIndexOf(spazio)).rimuoviFamiliare();
 		
+		// Spazio torri
+		//-------------------//
 		for(TipoCarta tipo : TipoCarta.values())
 			if(tipo.equals(TipoCarta.ALL));
 			else
@@ -223,16 +223,20 @@ public class GUI extends ClientView{
 						int index = Math.abs(this.clientModel.getStatoPlancia().getTorre(tipo).getSpaziTorre().lastIndexOf(spazio)-3);
 						gameboard.getSpazioTorre(tipo, index).rimuoviFamiliare();
 					}
-						
+		
+		// Spazio consiglio
+		//-------------------//
 		Spazio spazio;
-		gameboard.getSpazioConsiglio().rimuoviFamliari();
+		gameboard.getSpazioConsiglio().rimuoviFamiliari();
 		for(Familiare familiare : this.clientModel.getStatoPlancia().getSpazioConsiglio().getFamiliari()) {
 			gameboard.getSpazioConsiglio().inserisciFamiliare(this.mappaGiocatori.get(familiare.getPlayer().getColore()).get(familiare.getColore()));
 		}
 		
+		// Spazio produzione
+		//-------------------//
 		spazio = this.clientModel.getStatoPlancia().getSpazioProduzione();
 		gameboard.getSpazioProduzione1().rimuoviFamiliare();
-		gameboard.getSpazioProduzione2().rimuoviFamliari();
+		gameboard.getSpazioProduzione2().rimuoviFamiliari();
 		for(Familiare familiare : this.clientModel.getStatoPlancia().getSpazioProduzione().getFamiliari()) {
 			if(this.clientModel.getStatoPlancia().getSpazioProduzione().getFamiliari().lastIndexOf(familiare)==0) {
 				gameboard.getSpazioProduzione1().inserisciFamiliare(this.mappaGiocatori.get(spazio.getFamiliari().get(0).getPlayer().getColore()).get(spazio.getFamiliari().get(0).getColore()));
@@ -242,9 +246,11 @@ public class GUI extends ClientView{
 			}
 		}
 		
+		// Spazio raccolta
+		//-------------------//
 		spazio = this.clientModel.getStatoPlancia().getSpazioRaccolta();
 		gameboard.getSpazioRaccolto1().rimuoviFamiliare();
-		gameboard.getSpazioRaccolto2().rimuoviFamliari();
+		gameboard.getSpazioRaccolto2().rimuoviFamiliari();
 		for(Familiare familiare : this.clientModel.getStatoPlancia().getSpazioRaccolta().getFamiliari()) {
 			if(this.clientModel.getStatoPlancia().getSpazioRaccolta().getFamiliari().lastIndexOf(familiare)==0) {
 				gameboard.getSpazioRaccolto1().inserisciFamiliare(this.mappaGiocatori.get(spazio.getFamiliari().get(0).getPlayer().getColore()).get(spazio.getFamiliari().get(0).getColore()));
@@ -262,9 +268,8 @@ public class GUI extends ClientView{
 		//---------------------------//
 		playerboard.getPersonalBonus().modificaBonus(this.clientModel.getStatoGiocatore().getTesseraBonus().getImgPath());	
 		
-		//------------------------------------//
-		// LEADER
-		//------------------------------------//
+		// Leader
+		//---------------------------//
 		for(Leader leader : this.clientModel.getStatoGiocatore().getCarteLeader()) {
 			playerboard.getCartaLeader(this.clientModel.getStatoGiocatore().getCarteLeader().lastIndexOf(leader)).modificaImmagineCarta(this.clientModel.getStatoGiocatore().getCarteLeader().get(this.clientModel.getStatoGiocatore().getCarteLeader().lastIndexOf(leader)).getPathImg());
 		}
@@ -295,6 +300,7 @@ public class GUI extends ClientView{
 			playerboard.getCartaGioco(TipoCarta.IMPRESA, i).modificaImmagineCarta(carta.getImagePath());
 			i++;
 		}
+		
 		// Panel risorse
 		//---------------------------//
 		int quantitaRisorsa;
@@ -314,7 +320,7 @@ public class GUI extends ClientView{
 		quantitaRisorsa = this.clientModel.getStatoGiocatore().getSetRisorse().getRisorsa(TipoRisorsa.PUNTIVITTORIA).getQuantità();
 		playerboard.getPanelRisorsePuntiVittoria().writeIntoLabel(quantitaRisorsa);
 		
-		// Familiare disponibili
+		// Familiari disponibili
 		//---------------------------//
 		for(ColoreFamiliare colore : ColoreFamiliare.values())
 			if(this.clientModel.getStatoGiocatore().getFamiliare(colore).disponibile())
@@ -350,11 +356,15 @@ public class GUI extends ClientView{
 
 	@Override
 	public void run() {
-		
-		
-		
 	}
 
+	//-------------------------------------------------------//
+	// METODI GET
+	//-------------------------------------------------------//
+	/**
+	 * Insieme di metodi che permette di ottenere informazioni contenute nel ClientModel
+	 * anche nelle altre classi
+	 */
 	public ArrayList<Player> getarrayListAvversari() {
 		return this.arrayListAvversari;
 	}
@@ -373,15 +383,27 @@ public class GUI extends ClientView{
 	public Player getPlayerCorrente() {
 		return this.playerCorrente;
 	}
-	public void writeMessage(String text) {
-		this.message.add(text);
-	}
 	public ArrayList<String> getMessage() {
 		return this.message;
 	}
 	public FrameRapportoVaticano getFrameRapportoVaticano() {
 		return frameRapportoVaticano;
 	}
+	
+	/**
+	 * metodo che permette alla classe ButtonListener di comporre il messaggio da mandare
+	 * al controller
+	 * @param text 
+	 */
+	public void writeMessage(String text) {
+		this.message.add(text);
+	}
+	
+	/**
+	 * metodo che permette di inviare il messaggio composto
+	 * ogni volta prima di mandare tale messaggio viene effettutato il controllo dei turni per 
+	 * verificare il rapporto con il vaticano 
+	 */
 	public void inviaMessaggio() {
 		if (this.clientModel.getTurno()==ParserXML.leggiValore("numeroTurniPerPeriodo") && this.clientModel.getAzione()==1)
 			if (this.clientModel.getStatoGiocatore().getSetRisorse().getRisorsa(TipoRisorsa.PUNTIFEDE).getQuantità() <= ParserXML.leggiValore("puntiFedePeriodo" + String.valueOf(this.clientModel.getPeriodo())))
@@ -395,13 +417,30 @@ public class GUI extends ClientView{
 			this.notifyObservers(this.message);
 		}
 	}
+	
+	/**
+	 * metodo che permette di inviare il messaggio senza fare il controllo del rapporto con il vaticano
+	 */
 	public void inviaSenzaControllo(){
 		this.setChanged();
 		this.notifyObservers(this.message);
 	}
+	
+	/**
+	 * metodo che permette di svuotare l'arrayList messaggio
+	 */
 	public void clearMessage() {
 		this.message.clear();
 	}
+	
+	/**
+	 * metodo che viene chiamato quando si cerca di prendere una carta viola per verificare se è
+	 * è possibile acquisire tale carta con risorse o punti militari o entrambe
+	 * @param numeroSpazio
+	 * @return flag che vale: [0] se è possibile pagare in entrambi i modi
+	 * 						  [1] se è possibile pagare solo con le risorse
+	 * 						  [2] se è possibile pagare solo con i punti militai
+	 */
 	public int sceltaRichiesta(int numeroSpazio) {
 		if (this.clientModel.getStatoPlancia().getSpazioTorre(TipoCarta.IMPRESA, numeroSpazio).getCarta().getCosto().getRisorse().isEmpty()==false && ((Impresa) this.clientModel.getStatoPlancia().getSpazioTorre(TipoCarta.IMPRESA, numeroSpazio).getCarta()).getRequisitoPuntiMilitari()!=0)
 			return 0;

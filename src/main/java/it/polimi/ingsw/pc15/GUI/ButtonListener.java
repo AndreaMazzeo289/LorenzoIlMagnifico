@@ -21,6 +21,13 @@ import it.polimi.ingsw.pc15.carte.TipoCarta;
 import it.polimi.ingsw.pc15.player.ColoreFamiliare;
 import it.polimi.ingsw.pc15.player.Player;
 
+/**
+ * Classe che permette di registrare tutti gli eventi legati ai button
+ * @author AndreaMazzeo289
+ * @author AndreaMaffe
+ * @author FrancescoGuzzo
+ *
+ */
 public class ButtonListener implements ActionListener{
 
 	private SelezionaFamiliarePopup selezionaFamiliarePopup;
@@ -68,6 +75,9 @@ public class ButtonListener implements ActionListener{
 			    write=true;
 		}
 		
+		//------------------------------------------------------------------------------------------//
+		// BUTTON PLAYERBOARD
+		//------------------------------------------------------------------------------------------//
 		if(e.getActionCommand().equals("attivaCartaLeader")) {
 			if(gui.tuoTurno()) {
 				giocaLeaderPopup = new GiocaLeaderPopup(this, gui);
@@ -110,33 +120,25 @@ public class ButtonListener implements ActionListener{
 		}
 		
 		//------------------------------------------------------------------------------------//
-		// SELEZIONATO FAMILIARE BIANCO
+		// SELEZIONATO FAMILIARE
 		//------------------------------------------------------------------------------------//
-		if(e.getActionCommand().equals("selezionatoFamiliareBianco")) {
-			//playerBoard.getPanelSpazioFamiliariDisponibili().utilizzaFamiliare(ColoreFamiliare.BIANCO);
-			gui.writeMessage("familiare bianco");
-			coloreFamiliareScelto = ColoreFamiliare.BIANCO;
-
-			{
-				playerBoard.getButtonPosizionaFamiliare().bloccaButton();
-				playerBoard.getButtonAttivaEffettoLeader().bloccaButton();
-				playerBoard.getButtonGiocaLeader().bloccaButton();
-				playerBoard.getButtonScartaLeader().bloccaButton();
-			}
+		if(e.getActionCommand().startsWith("selezionatoFamiliare")) {
 			
-			//System.out.println("bravo hai selezionato");
-			// INSERIRE CHE OCCUPIAMO IL FAMILIARE //
-			selezionaFamiliarePopup.dispose();
-			selezionaNumeroServitori = new SelezionaNumeroServitori(this);
-		}
-		
-		//------------------------------------------------------------------------------------//
-		// SELEZIONATO FAMILIARE ARANCIONE
-		//------------------------------------------------------------------------------------//
-		if(e.getActionCommand().equals("selezionatoFamiliareArancione")) {
-			//playerBoard.getPanelSpazioFamiliariDisponibili().utilizzaFamiliare(ColoreFamiliare.ARANCIONE);
-			gui.writeMessage("familiare arancione");
-			coloreFamiliareScelto = ColoreFamiliare.ARANCIONE;
+			String coloreFamiliare = e.getActionCommand().substring(20).toLowerCase();
+			
+			gui.writeMessage("familiare "+coloreFamiliare);
+			System.out.println(coloreFamiliare);
+			
+			switch(coloreFamiliare) {
+				case "bianco": coloreFamiliareScelto = ColoreFamiliare.BIANCO;
+					break;
+				case "arancione": coloreFamiliareScelto = ColoreFamiliare.ARANCIONE;
+					break;
+				case "nero": coloreFamiliareScelto = ColoreFamiliare.NERO;
+					break;
+				case "neutro": coloreFamiliareScelto = ColoreFamiliare.NEUTRO;
+					break;
+			}
 			
 			{
 				playerBoard.getButtonPosizionaFamiliare().bloccaButton();
@@ -144,55 +146,13 @@ public class ButtonListener implements ActionListener{
 				playerBoard.getButtonGiocaLeader().bloccaButton();
 				playerBoard.getButtonScartaLeader().bloccaButton();
 			}
-			
-			// INSERIRE CHE OCCUPIAMO IL FAMILIARE //
-			selezionaFamiliarePopup.dispose();
-			selezionaNumeroServitori = new SelezionaNumeroServitori(this);
-			
-		}
-		
-		//------------------------------------------------------------------------------------//
-		// SELEZIONATO FAMILIARE NERO
-		//------------------------------------------------------------------------------------//
-		if(e.getActionCommand().equals("selezionatoFamiliareNero")) {
-			//playerBoard.getPanelSpazioFamiliariDisponibili().utilizzaFamiliare(ColoreFamiliare.NERO);
-			gui.writeMessage("familiare nero");
-			coloreFamiliareScelto = ColoreFamiliare.NERO;
-			
-			{
-				playerBoard.getButtonPosizionaFamiliare().bloccaButton();
-				playerBoard.getButtonAttivaEffettoLeader().bloccaButton();
-				playerBoard.getButtonGiocaLeader().bloccaButton();
-				playerBoard.getButtonScartaLeader().bloccaButton();
-			}
-			
-			// INSERIRE CHE OCCUPIAMO IL FAMILIARE //
 			selezionaFamiliarePopup.dispose();
 			selezionaNumeroServitori = new SelezionaNumeroServitori(this);
 		}
 		
-		//------------------------------------------------------------------------------------//
-		// SELEZIONATO FAMILIARE NEUTRO
-		//------------------------------------------------------------------------------------//
-		if(e.getActionCommand().equals("selezionatoFamiliareNeutro")) {
-			//playerBoard.getPanelSpazioFamiliariDisponibili().utilizzaFamiliare(ColoreFamiliare.NEUTRO);
-			gui.writeMessage("familiare neutro");
-			coloreFamiliareScelto = ColoreFamiliare.NEUTRO;
-			
-			{
-				playerBoard.getButtonPosizionaFamiliare().bloccaButton();
-				playerBoard.getButtonAttivaEffettoLeader().bloccaButton();
-				playerBoard.getButtonGiocaLeader().bloccaButton();
-				playerBoard.getButtonScartaLeader().bloccaButton();
-			}
-			
-			// INSERIRE CHE OCCUPIAMO IL FAMILIARE //
-			selezionaFamiliarePopup.dispose();
-			selezionaNumeroServitori = new SelezionaNumeroServitori(this);
-		}
-		
-		
-		
+		//------------------------------------------------------------------------------------------//
+		// BUTTON POPUP
+		//------------------------------------------------------------------------------------------//
 		if(e.getActionCommand().equals("siServitori")) {
 			servitoriInseriti = true;
 			selezionaNumeroServitori.dispose();
@@ -223,6 +183,9 @@ public class ButtonListener implements ActionListener{
 			selezionaNumeroServitori.getPopupNumeroServitori().dispose();
 		}
 	
+		//------------------------------------------------------------------------------------------//
+		// CLASSIFICA PLAYER
+		//------------------------------------------------------------------------------------------//
 		if(e.getActionCommand().startsWith("carteTerritorioPlayer")) {
 			String index = e.getActionCommand().substring(21);
 			Player player = gui.getarrayListAvversari().get(Integer.parseInt(index));
@@ -551,6 +514,10 @@ public class ButtonListener implements ActionListener{
 		}
 	}
 	
+	/**
+	 * metodo che permette di chiudere l'operazione di ottenere una carta viola dopo
+	 * il relativo controllo su punti miliatari e risorse
+	 */
 	public void concludiPresaViola() {
 		
 		playerBoard.getButtonPosizionaFamiliare().sbloccaButton();
@@ -563,6 +530,10 @@ public class ButtonListener implements ActionListener{
 		gui.inviaMessaggio();	
 	}
 	
+	/**
+	 * metodo che permette di concludere il posizionamento del familiare sullo spazio consiglio
+	 * dopo aver scelto che materie ottenere grazie al privilegio del consiglio
+	 */
 	public void concludiPresaConsiglio() {
 		
 		{

@@ -18,7 +18,9 @@ import it.polimi.ingsw.pc15.GUI.ButtonListener;
 /**
  * Classe che permette l'apparizione di un frame per la conversione del privilegio in risorse
  * @author AndreaMazzeo289
- *
+ * @author AndreaMaffe
+ * @author FrancescoGuzzo
+ * 
  */
 public class ConvertiPrivilegio extends JFrame{
 
