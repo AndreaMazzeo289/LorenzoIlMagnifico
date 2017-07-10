@@ -49,7 +49,8 @@ public class SocketHandler extends NetworkHandler implements Serializable{
 		
 	public void run() {
 			
-		while (true) {
+		boolean endLoop = false;
+		while (!endLoop) {
 				
 			try {
 				StatoPartita statoPartita = (StatoPartita) inObj.readObject();

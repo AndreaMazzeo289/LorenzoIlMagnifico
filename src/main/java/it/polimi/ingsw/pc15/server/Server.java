@@ -66,7 +66,8 @@ public class Server extends UnicastRemoteObject implements ServerInterface {
 		
 		///////////////////////SOCKET/////////////////////////////////////
 
-		while (true) {
+		boolean endLoop = false;
+		while (!endLoop) {
 		try {
 				Socket newSocket = serverSocket.accept();
 				SocketView view = new SocketView(newSocket, this);	

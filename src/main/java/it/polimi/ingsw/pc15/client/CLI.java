@@ -43,8 +43,8 @@ public class CLI extends ClientView {
 	    while (this.clientModel.getPeriodo() <= ParserXML.leggiValore("numeroPeriodi")) {
 			
 			message.clear();
-			//Thread thread = new Thread(new ClientTimer(this));
-			//thread.start();
+			//Thread timer = new Thread(new ClientTimer(this));
+			//timer.start();
 			
 			
 			try {
@@ -380,21 +380,26 @@ public class CLI extends ClientView {
 					
 		    	}	
 		    	
+		    	
+				if (this.clientModel.getTurno()==ParserXML.leggiValore("numeroTurniPerPeriodo") && this.clientModel.getAzione()== ParserXML.leggiValore("numeroAzioniPerTurno") && hasChanged()) {
+					if (this.clientModel.getStatoGiocatore().getSetRisorse().getRisorsa(TipoRisorsa.PUNTIFEDE).getQuantità() >= ParserXML.leggiValore("puntiFedePeriodo" + String.valueOf(this.clientModel.getPeriodo()))) {
+						System.out.println("\n  --- SOSTEGNO ALLA CHIESA ---\nVuoi pagare i tuoi Punti Fede (1) o subire la scomunica della Chiesa? (2)");
+						String scelta = String.valueOf(input.nextInt());
+						if (scelta!="1" || scelta!="2")
+							throw new InputMismatchException();
+					}
+					else message.add("2");
+				}
+		    	
 			} catch (InputMismatchException e) {
 	    		System.out.print("\n--ERRORE: Inserire un comando valido!--");
 				update(this, "");
 				
 			}
 			
-			if (this.clientModel.getTurno()==ParserXML.leggiValore("numeroTurniPerPeriodo") && this.clientModel.getAzione()== ParserXML.leggiValore("numeroAzioniPerTurno") && hasChanged()) {
-				if (this.clientModel.getStatoGiocatore().getSetRisorse().getRisorsa(TipoRisorsa.PUNTIFEDE).getQuantità() <= ParserXML.leggiValore("puntiFedePeriodo" + String.valueOf(this.clientModel.getPeriodo()))) {
-					System.out.println("\n  --- SOSTEGNO ALLA CHIESA ---\nVuoi pagare i tuoi Punti Fede (1) o subire la scomunica della Chiesa? (2)");
-					message.add(String.valueOf(input.nextInt()));
-				}
-				else message.add("2");
-			}
+
 			
-			//thread.interrupt();
+			//timer.interrupt();
 			
 	    	notifyObservers(message);
 	  

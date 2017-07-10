@@ -407,7 +407,7 @@ public class GUI extends ClientView{
 	 */
 	public void inviaMessaggio() {
 		if (this.clientModel.getTurno()==ParserXML.leggiValore("numeroTurniPerPeriodo") && this.clientModel.getAzione()==ParserXML.leggiValore("numeroAzioniPerTurno"))
-			if (this.clientModel.getStatoGiocatore().getSetRisorse().getRisorsa(TipoRisorsa.PUNTIFEDE).getQuantità() <= ParserXML.leggiValore("puntiFedePeriodo" + String.valueOf(this.clientModel.getPeriodo())))
+			if (this.clientModel.getStatoGiocatore().getSetRisorse().getRisorsa(TipoRisorsa.PUNTIFEDE).getQuantità() >= ParserXML.leggiValore("puntiFedePeriodo" + String.valueOf(this.clientModel.getPeriodo())))
 				 frameRapportoVaticano = new FrameRapportoVaticano(listener);
 			else {
 				message.add("2");
