@@ -171,10 +171,10 @@
         <valore>3</valore>
     </nomeValore>
     <nomeValore nome="numeroMinGiocatori">
-        <valore>4</valore>
+        <valore>2</valore>
     </nomeValore>
     <nomeValore nome="numeroMaxGiocatori">
-        <valore>5</valore>
+        <valore>4</valore>
     </nomeValore>
     <nomeValore nome="durataTimerServer">
         <valore>3</valore>
