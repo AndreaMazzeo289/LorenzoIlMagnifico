@@ -191,19 +191,19 @@ public class ButtonListener implements ActionListener{
 			FrameMostraCartePlayer frame = new FrameMostraCartePlayer(TipoCarta.TERRITORIO, player);
 		}
 		
-		if(e.getActionCommand().equals("carteEdificioPlayer")) {
+		if(e.getActionCommand().startsWith("carteEdificioPlayer")) {
 			String index = e.getActionCommand().substring(19);
 			Player player = gui.getarrayListAvversari().get(Integer.parseInt(index));
 			FrameMostraCartePlayer frame = new FrameMostraCartePlayer(TipoCarta.EDIFICIO, player);
 		}
 		
-		if(e.getActionCommand().equals("cartePersonaggioPlayer")) {
+		if(e.getActionCommand().startsWith("cartePersonaggioPlayer")) {
 			String index = e.getActionCommand().substring(22);
 			Player player = gui.getarrayListAvversari().get(Integer.parseInt(index));
 			FrameMostraCartePlayer frame = new FrameMostraCartePlayer(TipoCarta.PERSONAGGIO, player);
 		}
 		
-		if(e.getActionCommand().equals("carteImpresaPlayer")) {
+		if(e.getActionCommand().startsWith("carteImpresaPlayer")) {
 			String index = e.getActionCommand().substring(18);
 			Player player = gui.getarrayListAvversari().get(Integer.parseInt(index));
 			FrameMostraCartePlayer frame = new FrameMostraCartePlayer(TipoCarta.IMPRESA, player);

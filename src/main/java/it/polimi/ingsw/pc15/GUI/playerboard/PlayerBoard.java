@@ -25,9 +25,7 @@ import it.polimi.ingsw.pc15.carte.TipoCarta;
  */
 public class PlayerBoard extends JPanel{
 
-	private CarteGioco carta;
 	private PersonalBonus personalBonus;
-	private CartaLeader cartaLeader;
 	private JPanel panelCarteLeader;
 	private JPanel risorsePlayer;
 	private JPanel cartePlayer;
@@ -69,9 +67,9 @@ public class PlayerBoard extends JPanel{
 		//-----------------------//
 		gbc.gridx=0;
 		gbc.gridy=0;
-		presentationPanel.add(new GraphicButton(2500, 400,"img\\Punchboard\\statoGioco.png", "buttonStatoGioco", listener,true,gui),gbc);
+		presentationPanel.add(new GraphicButton(2500, 400,"img/Punchboard/statoGioco.png", "buttonStatoGioco", listener,true,gui),gbc);
 		gbc.gridx=1;
-		presentationPanel.add(new GraphicButton(1500, 400,"img\\Punchboard\\scomunicheButton.png", "buttonScomuniche", listener,true,gui),gbc);
+		presentationPanel.add(new GraphicButton(1500, 400,"img/Punchboard/scomunicheButton.png", "buttonScomuniche", listener,true,gui),gbc);
 		
 		for(int i=0; i<6; i++) 
 			cartePlayerVerdi.add(new CarteGioco("img/DevCardsBack/devcards_b_c_g_1.jdevcards_b_c_pdevcards_b_c_g.jdevcards_b_c_pg.jpg", TipoCarta.TERRITORIO,gui));
@@ -91,34 +89,30 @@ public class PlayerBoard extends JPanel{
 		//-----------------------//
 		gbc.gridx=0;
 		gbc.gridy=0;
-		cartePlayer.add(new GraphicButton(400,1100,"img\\Punchboard\\Button\\buttonPosizionaFamiliare.png","posizionaFamiliare", listener, false,gui),gbc);
+		cartePlayer.add(new GraphicButton(400,1100,"img/Punchboard/Button/buttonPosizionaFamiliare.png","posizionaFamiliare", listener, false,gui),gbc);
 		for(int i=0; i<6; i++) {
 			gbc.gridx=i+1;
-			//cartePlayer.add(new CarteGioco("img/DevCardsBack/devcards_b_c_g_1.jdevcards_b_c_pdevcards_b_c_g.jdevcards_b_c_pg.jpg", TipoCarta.TERRITORIO,gui),gbc);
 			cartePlayer.add(cartePlayerVerdi.get(i),gbc);
 		}
 		gbc.gridx=0;
 		gbc.gridy=1;
-		cartePlayer.add(new GraphicButton(400,1100,"img\\Punchboard\\Button\\buttonEffettoLeader.png","attivaEffettoLeader", listener, false,gui),gbc);
+		cartePlayer.add(new GraphicButton(400,1100,"img/Punchboard/Button/buttonEffettoLeader.png","attivaEffettoLeader", listener, false,gui),gbc);
 		for(int i=0; i<6; i++) {
 			gbc.gridx=i+1;
-			//cartePlayer.add(new CarteGioco("img/DevCardsBack/devcards_b_c_g_1.jdevcards_b_c_pdevcards_b_c_g.jdevcards_b_c_pg.jpg", TipoCarta.EDIFICIO,gui),gbc);
 			cartePlayer.add(cartePlayerBlu.get(i),gbc);
 		}
 		gbc.gridx=0;
 		gbc.gridy=2;
-		cartePlayer.add(new GraphicButton(400,1100,"img\\Punchboard\\Button\\buttonAttivaLeader.png","attivaCartaLeader",listener, false,gui),gbc);
+		cartePlayer.add(new GraphicButton(400,1100,"img/Punchboard/Button/buttonAttivaLeader.png","attivaCartaLeader",listener, false,gui),gbc);
 		for(int i=0; i<6; i++) {
 			gbc.gridx=i+1;
-			//cartePlayer.add(new CarteGioco("img/DevCardsBack/devcards_b_c_g_1.jdevcards_b_c_pdevcards_b_c_g.jdevcards_b_c_pg.jpg", TipoCarta.PERSONAGGIO,gui),gbc);
 			cartePlayer.add(cartePlayerGialle.get(i),gbc);
 		}
 		gbc.gridx=0;
 		gbc.gridy=3;
-		cartePlayer.add(new GraphicButton(400,1100,"img\\Punchboard\\Button\\buttonScartaLeader.png","scartaCartaLeader", listener, false,gui),gbc);
+		cartePlayer.add(new GraphicButton(400,1100,"img/Punchboard/Button/buttonScartaLeader.png","scartaCartaLeader", listener, false,gui),gbc);
 		for(int i=0; i<6; i++) {
 			gbc.gridx=i+1;
-			//cartePlayer.add(new CarteGioco("img/DevCardsBack/devcards_b_c_g_1.jdevcards_b_c_pdevcards_b_c_g.jdevcards_b_c_pg.jpg", TipoCarta.IMPRESA,gui),gbc);
 			cartePlayer.add(cartePlayerViola.get(i),gbc);
 		}
 		
@@ -147,19 +141,19 @@ public class PlayerBoard extends JPanel{
 		//-----------------------//
 		gbc.gridx=0;
 		gbc.gridy=0;
-		risorsePlayer.add(new PanelRisorse("img\\Punchboard\\Risorse\\northOro.png", 0,gui), gbc);
+		risorsePlayer.add(new PanelRisorse("img/Punchboard/Risorse/northOro.png", 0,gui), gbc);
 		gbc.gridx=1;
-		risorsePlayer.add(new PanelRisorse("img\\Punchboard\\Risorse\\northLegna.png", 0,gui), gbc);
+		risorsePlayer.add(new PanelRisorse("img/Punchboard/Risorse/northLegna.png", 0,gui), gbc);
 		gbc.gridx=2;
-		risorsePlayer.add(new PanelRisorse("img\\Punchboard\\Risorse\\northPietra.png", 0,gui), gbc);
+		risorsePlayer.add(new PanelRisorse("img/Punchboard/RisorsenorthPietra.png", 0,gui), gbc);
 		gbc.gridx=3;
-		risorsePlayer.add(new PanelRisorse("img\\Punchboard\\Risorse\\northServitori.png", 0,gui), gbc);
+		risorsePlayer.add(new PanelRisorse("img/Punchboard/Risorse/northServitori.png", 0,gui), gbc);
 		gbc.gridx=4;
-		risorsePlayer.add(new PanelRisorse("img\\Punchboard\\Risorse\\northMilitari.png", 0,gui), gbc);
+		risorsePlayer.add(new PanelRisorse("img/Punchboard/Risorse/northMilitari.png", 0,gui), gbc);
 		gbc.gridx=5;
-		risorsePlayer.add(new PanelRisorse("img\\Punchboard\\Risorse\\northFede.png", 0,gui), gbc);
+		risorsePlayer.add(new PanelRisorse("img/Punchboard/Risorse/northFede.png", 0,gui), gbc);
 		gbc.gridx=6;
-		risorsePlayer.add(new PanelRisorse("img\\Punchboard\\Risorse\\northVittoria.png", 0,gui), gbc);
+		risorsePlayer.add(new PanelRisorse("img/Punchboard/Risorse/northVittoria.png", 0,gui), gbc);
 		gbc.gridx=7;
 		risorsePlayer.add(new SpazioFamiliariDisponibili(gui), gbc);
 		labelTesto = new JLabel("",SwingConstants.CENTER);
