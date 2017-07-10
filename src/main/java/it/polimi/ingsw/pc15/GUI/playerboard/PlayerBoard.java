@@ -145,7 +145,7 @@ public class PlayerBoard extends JPanel{
 		gbc.gridx=1;
 		risorsePlayer.add(new PanelRisorse("img/Punchboard/Risorse/northLegna.png", 0,gui), gbc);
 		gbc.gridx=2;
-		risorsePlayer.add(new PanelRisorse("img/Punchboard/RisorsenorthPietra.png", 0,gui), gbc);
+		risorsePlayer.add(new PanelRisorse("img/Punchboard/Risorse/northPietra.png", 0,gui), gbc);
 		gbc.gridx=3;
 		risorsePlayer.add(new PanelRisorse("img/Punchboard/Risorse/northServitori.png", 0,gui), gbc);
 		gbc.gridx=4;

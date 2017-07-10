@@ -13,13 +13,13 @@
   * __Matricola__: 831880
   * __Codice persona__: 10507883
   * __Username GitHub__: AndreaMaffe
-  * __Email__: 
+  * __Email__: andrea1.mafessoni@mail.polimi.it
  
 - __Francesco Guzzo__:
   * __Matricola__: 829558
   * __Codice persona__: 10490720
   * __Username GitHub__: FrancescoGuzzo
-  * __Email__: 
+  * __Email__: francesco.guzzo@mail.polimi.it
  
 ---
 
