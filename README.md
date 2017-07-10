@@ -5,22 +5,22 @@
 
 ### Membri del gruppo:
 - __Andrea Mazzeo__:
-  * Matricola: 829244
-  * Codice persona: 10498766
-  * Username GitHub: AndreaMazzeo289
-  * Email: andrea4.mazzeo@mail.polimi.it
+  * __Matricola__: 829244
+  * __Codice persona__: 10498766
+  * __Username GitHub__: AndreaMazzeo289
+  * __Email__: andrea4.mazzeo@mail.polimi.it
  
 - __Andrea Mafessoni__:
-  * Matricola: 831880
-  * Codice persona: 10507883
-  * Username GitHub: AndreaMaffe
-  * Email: 
+  * __Matricola__: 831880
+  * __Codice persona__: 10507883
+  * __Username GitHub__: AndreaMaffe
+  * __Email__: 
  
 - __Francesco Guzzo__:
-  * Matricola: 829558
-  * Codice persona: 10490720
-  * Username GitHub: FrancescoGuzzo
-  * Email: 
+  * __Matricola__: 829558
+  * __Codice persona__: 10490720
+  * __Username GitHub__: FrancescoGuzzo
+  * __Email__: 
  
 ### Funzionalità del progetto implementate:
 - Regole semplificate;
