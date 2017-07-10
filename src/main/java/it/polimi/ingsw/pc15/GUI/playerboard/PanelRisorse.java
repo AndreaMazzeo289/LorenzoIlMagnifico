@@ -17,7 +17,9 @@ import it.polimi.ingsw.pc15.GUI.GUI;
 /**
  * Classe che gestisce la visualizzazione del pannello delle risorse disponibili nella playerboard
  * @author AndreaMazzeo289
- *
+ * @author AndreaMaffe
+ * @author FrancescoGuzzo
+ * 
  */
 public class PanelRisorse extends JPanel{
 

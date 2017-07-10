@@ -14,6 +14,8 @@ import it.polimi.ingsw.pc15.GUI.ButtonListener;
  * Classe che crea un oggetto CartaLeaderView che rappresenta la carta leader che verrà usata
  * per la visualizzazione di tale carta nei frame AttivaLeaderPopup, GiocaLeaderPopup, ScartaLeaderPopup
  * @author AndreaMazzeo
+ * @author AndreaMaffe
+ * @author FrancescoGuzzo
  *
  */
 public class CartaLeaderView extends JButton{ // NOSONAR

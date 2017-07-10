@@ -19,7 +19,9 @@ import it.polimi.ingsw.pc15.carte.TipoCarta;
  * Classe che gestisce l'intera visualizzazione della playerboard
  * ossia la componente della gui che ha come scopo l'interazione con il player
  * @author AndreaMazzeo289
- *
+ * @author AndreaMaffe
+ * @author FrancescoGuzzo
+ * 
  */
 public class PlayerBoard extends JPanel{
 

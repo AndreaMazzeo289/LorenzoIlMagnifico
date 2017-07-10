@@ -27,7 +27,9 @@ import it.polimi.ingsw.pc15.risorse.TipoRisorsa;
 /**
  * Classe che permette la creazione di una classifica con tutti i dati dei player in gioco
  * @author AndreaMazzeo289
- *
+ * @author AndreaMaffe
+ * @author FrancescoGuzzo
+ * 
  */
 public class FrameInformazioniPlayer extends JFrame{
 

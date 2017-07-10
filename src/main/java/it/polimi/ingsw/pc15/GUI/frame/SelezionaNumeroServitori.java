@@ -20,7 +20,9 @@ import it.polimi.ingsw.pc15.GUI.ButtonListener;
  * Classe che gestisce l'apparizione di un frame in cui viene richiesto se si vuole usare
  * servitori per occupare un determinato spazio, e se si quanti se ne vuole usare
  * @author AndreaMazzeo289
- *
+ * @author AndreaMaffe
+ * @author FrancescoGuzzo
+ * 
  */
 public class SelezionaNumeroServitori extends JFrame{
 

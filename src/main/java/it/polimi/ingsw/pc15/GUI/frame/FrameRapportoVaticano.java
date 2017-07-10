@@ -18,7 +18,9 @@ import it.polimi.ingsw.pc15.GUI.ButtonListener;
 /**
  * Classe che permette l'apparizione di un frame che richiede quale metodo di pagamento si vuole scegliere
  * @author AndreaMazzeo289
- *
+ * @author AndreaMaffe
+ * @author FrancescoGuzzo
+ * 
  */
 public class FrameRapportoVaticano extends JFrame{
 

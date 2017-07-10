@@ -18,7 +18,9 @@ import it.polimi.ingsw.pc15.GUI.GUI;
 /**
  * Classe che gestisce la visualizzazione dello spazio produzione nella gameboard
  * @author AndreaMazzeo289
- *
+ * @author AndreaMaffe
+ * @author FrancescoGuzzo
+ * 
  */
 public class SpazioProduzione1 extends JPanel{
 

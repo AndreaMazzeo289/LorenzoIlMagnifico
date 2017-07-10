@@ -22,7 +22,9 @@ import it.polimi.ingsw.pc15.GUI.GUI;
  * Classe che gestisce la visualizzazione sulla gameboard degli spazi torre
  * [TERRITORIO - PERSONAGGIO - EDIFICIO - IMPRESA]
  * @author AndreaMazzeo289
- *
+ * @author AndreaMaffe
+ * @author FrancescoGuzzo
+ * 
  */
 public class SpazioTorre extends JPanel{
 	

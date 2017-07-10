@@ -17,7 +17,8 @@ import it.polimi.ingsw.pc15.carte.TipoCarta;
 /**
  * Classe che gestisce l'intera gameboard, ossia il tabellone del gioco
  * @author AndreMazzeo289
- *
+ * @author AndreaMaffe
+ * @author FrancescoGuzzo
  */
 public class Gameboard extends JPanel {
 	

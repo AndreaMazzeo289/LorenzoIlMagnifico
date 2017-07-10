@@ -19,7 +19,9 @@ import it.polimi.ingsw.pc15.player.Player;
  * Classe che gestisce l'apparizione di un frame con i familiari disponbili dal player
  * per poterlo selezionare
  * @author AndreaMazzeo289
- *
+ * @author AndreaMaffe
+ * @author FrancescoGuzzo
+ * 
  */
 public class SelezionaFamiliarePopup extends JFrame{
 	

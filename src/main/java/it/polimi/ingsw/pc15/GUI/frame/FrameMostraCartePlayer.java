@@ -16,7 +16,9 @@ import it.polimi.ingsw.pc15.player.Player;
 /**
  * Classe che permette di far comparire un frame che contiene le carte possedute dal player desiderato
  * @author AndreaMazzeo289
- *
+ * @author AndreaMaffe
+ * @author FrancescoGuzzo
+ * 
  */
 public class FrameMostraCartePlayer extends JFrame{
 

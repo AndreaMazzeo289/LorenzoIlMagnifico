@@ -14,7 +14,9 @@ import it.polimi.ingsw.pc15.GUI.GUI;
 /**
  * Classe che gestisce la visualizzazione del pannello dei bonus personali relativi al player
  * @author AndreaMazzeo289
- *
+ * @author AndreaMaffe
+ * @author FrancescoGuzzo
+ * 
  */
 public class PersonalBonus extends JPanel{
 

@@ -10,6 +10,13 @@ import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 
+/**
+ * Classe che permette di creare un frame di zoom della carta selezionata
+ * @author AndreaMazzeo289
+ * @author AndreaMaffe
+ * @author FrancescoGuzzo
+ *
+ */
 public class ButtonListenerCarte implements ActionListener{
 
 	private int larghezza = 500;
@@ -22,8 +29,6 @@ public class ButtonListenerCarte implements ActionListener{
 
 	@Override
 	public void actionPerformed(ActionEvent e) {
-		// TODO Auto-generated method stub
-	
 		String path = "";
 		String tipo = "";
 		boolean write=false;
@@ -57,27 +62,5 @@ public class ButtonListenerCarte implements ActionListener{
 		zoomCard.setSize(600, 900);
 		zoomCard.setVisible(true);
 		zoomCard.setAlwaysOnTop(true);
-
-		/*if(tipo.equals("leader1")){
-			PlayerBoard playerBoard = (PlayerBoard)gui.mainFrame.getContentPane().getComponent(1);
-			playerBoard.getCartaLeader1().scriviLabel("GIOCATO");
-		}
-		if(tipo.equals("leader2")){
-			PlayerBoard playerBoard = (PlayerBoard)gui.mainFrame.getContentPane().getComponent(1);
-			playerBoard.getCartaLeader2().scriviLabel("GIOCATO");
-		}
-		if(tipo.equals("leader3")){
-			PlayerBoard playerBoard = (PlayerBoard)gui.mainFrame.getContentPane().getComponent(1);
-			playerBoard.getCartaLeader3().scriviLabel("GIOCATO");
-		}
-		if(tipo.equals("leader4")){
-			PlayerBoard playerBoard = (PlayerBoard)gui.mainFrame.getContentPane().getComponent(1);
-			playerBoard.getCartaLeader4().scriviLabel("GIOCATO");
-		}
-		
-		if(tipo.equals("leader1Gioca")){
-			PlayerBoard playerBoard = (PlayerBoard)gui.mainFrame.getContentPane().getComponent(1);
-			playerBoard.getCartaLeader1().scriviLabel("GIOCATO");
-		}*/
 	}
 }
