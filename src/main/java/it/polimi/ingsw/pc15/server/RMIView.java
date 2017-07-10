@@ -36,7 +36,7 @@ public class RMIView extends ServerView {
 			try {
 				statoPartita = aggiornamenti.take();
 			} catch (InterruptedException e) {  //NOSONAR
-				e.printStackTrace();
+				e.printStackTrace();  //NOSONAR
 			}
 			
 			try {
