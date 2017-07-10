@@ -1,8 +1,6 @@
 package it.polimi.ingsw.pc15.controller;
 
 import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.Map;
 import java.util.Observable;
 import java.util.Observer;
 
@@ -16,7 +14,6 @@ import it.polimi.ingsw.pc15.azioni.AzioneOccupaSpazioMercato;
 import it.polimi.ingsw.pc15.azioni.AzioneOccupaSpazioProduzione;
 import it.polimi.ingsw.pc15.azioni.AzioneOccupaSpazioRaccolta;
 import it.polimi.ingsw.pc15.azioni.AzioneOccupaSpazioTorre;
-import it.polimi.ingsw.pc15.azioni.AzioneOccupaSpazioRaccolta;
 import it.polimi.ingsw.pc15.azioni.AzioneScartaLeader;
 import it.polimi.ingsw.pc15.azioni.RisultatoAzione;
 import it.polimi.ingsw.pc15.carte.TipoCarta;
@@ -30,9 +27,7 @@ import it.polimi.ingsw.pc15.plancia.SpazioTorre;
 import it.polimi.ingsw.pc15.plancia.Torre;
 import it.polimi.ingsw.pc15.player.ColoreFamiliare;
 import it.polimi.ingsw.pc15.player.Familiare;
-import it.polimi.ingsw.pc15.player.Leader;
 import it.polimi.ingsw.pc15.player.Player;
-import it.polimi.ingsw.pc15.risorse.TipoRisorsa;
 import it.polimi.ingsw.pc15.server.ServerView;;
 
 public class Controller extends Observable implements Observer {
@@ -56,7 +51,6 @@ public class Controller extends Observable implements Observer {
 		Player giocatore = model.getPlayer(nomeGiocatore);	
 		boolean connessioneChiusa = false;
 		
-		//System.out.println("\nSono il controller e ho ricevuto " + input + " da " + giocatore.getNome());
 		
 		switch(input.get(0)) {
 		

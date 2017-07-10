@@ -51,23 +51,13 @@ public class Player implements Serializable {
 		
 		this.setRisorse = new SetRisorse(new HashSet<Risorsa>());
 		
-			
-		//-----------------------------------------------------------------------------------------------------------//
-		//          CARTE                                                                                            //
-		//-----------------------------------------------------------------------------------------------------------//
-		
 		int numeroMaxCarte = ParserXML.leggiValore("numeroMaxCarte");
 		
-		ArrayList<Territorio> territori = new ArrayList<Territorio>(numeroMaxCarte);
-		ArrayList<Personaggio> personaggi = new ArrayList<Personaggio>(numeroMaxCarte);
-		ArrayList<Edificio> edifici = new ArrayList<Edificio>(numeroMaxCarte);
-		ArrayList<Impresa> imprese = new ArrayList<Impresa>(numeroMaxCarte);
-		
 		this.carteSviluppo = new HashMap<TipoCarta, ArrayList>();
-		this.carteSviluppo.put(TipoCarta.TERRITORIO, territori);
-		this.carteSviluppo.put(TipoCarta.PERSONAGGIO, personaggi);
-		this.carteSviluppo.put(TipoCarta.EDIFICIO, edifici);
-		this.carteSviluppo.put(TipoCarta.IMPRESA, imprese);
+		this.carteSviluppo.put(TipoCarta.TERRITORIO, new ArrayList<Territorio>(numeroMaxCarte));
+		this.carteSviluppo.put(TipoCarta.PERSONAGGIO, new ArrayList<Personaggio>(numeroMaxCarte));
+		this.carteSviluppo.put(TipoCarta.EDIFICIO, new ArrayList<Edificio>(numeroMaxCarte));
+		this.carteSviluppo.put(TipoCarta.IMPRESA, new ArrayList<Impresa>(numeroMaxCarte));
 
 	}
 	

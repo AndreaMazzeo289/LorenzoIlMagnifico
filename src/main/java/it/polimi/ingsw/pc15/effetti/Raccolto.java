@@ -22,7 +22,7 @@ public class Raccolto extends Effetto {
 		new AggiuntaRisorse(player.getTesseraBonus().getRisorseBonusRaccolta()).attiva(player);
 		
 		for (Carta territorio : player.getCarte(TipoCarta.TERRITORIO)) {
-			if (valore + player.getEffettiAttivi().getBonusRaccolta()>= ((Territorio) territorio).getRequisitoRaccolta() ) {
+			if (valore >= ((Territorio) territorio).getRequisitoRaccolta() ) {
 				for (Effetto effetto : territorio.getEffettoPermanente()) {
 					if (effetto instanceof Incrementabile)
 						((Incrementabile) effetto).attivaDaCarta(player);

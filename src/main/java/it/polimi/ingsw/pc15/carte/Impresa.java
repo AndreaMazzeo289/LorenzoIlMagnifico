@@ -39,14 +39,14 @@ public class Impresa extends Carta {
 			stringa += " nessuno";
 		else stringa += costoPuntiMilitari;
 		stringa +=  " - EFFETTO ISTANTANEO: ";
-		if (effettoIstantaneo.isEmpty())
+		if (getEffettoIstantaneo().isEmpty())
 			stringa += "nessuno  -";
-		else for (Effetto effetto : effettoIstantaneo)
+		else for (Effetto effetto : getEffettoIstantaneo())
 			stringa += effetto.toString() + " - ";
 		stringa += " - EFFETTO PERMANENTE: ";
-		if (effettoPermanente.isEmpty())
+		if (getEffettoPermanente().isEmpty())
 			stringa += "nessuno";
-		else for (Effetto effetto : effettoPermanente)
+		else for (Effetto effetto : getEffettoPermanente())
 			stringa += effetto.toString() + " - ";
 		stringa += " )";
 		return stringa;

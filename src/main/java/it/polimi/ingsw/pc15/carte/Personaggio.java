@@ -16,11 +16,4 @@ public class Personaggio extends Carta {
 		super(nome, id, periodo, costo, effettoIstantaneo, effettoPermanente, imgPath);
 		this.tipo = TipoCarta.PERSONAGGIO;
 		}
-
-	/*@Override
-	public AzionePrendiCarta azionePrendiCarta(Player player) {
-		
-		AzionePrendiCarta azionePrendiCarta = new AzionePrendiCartaPersonaggio(player, this);
-		return azionePrendiCarta;
-	}*/
 }

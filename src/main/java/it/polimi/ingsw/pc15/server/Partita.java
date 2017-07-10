@@ -10,7 +10,7 @@ import it.polimi.ingsw.pc15.model.Model;
 public class Partita {
 	
 	private HashMap<String, ServerView> giocatori;
-	private Model partita;
+	private Model model;
 	private Controller controller;
 	
 	public Partita(HashMap<String, ServerView> giocatori) {
@@ -24,12 +24,12 @@ public class Partita {
 		for(Map.Entry<String, ServerView> giocatoriConnessi : giocatori.entrySet())
 			nomiGiocatori.add(giocatoriConnessi.getKey());
 		
-		Model model = new Model(nomiGiocatori);
+		this.model = new Model(nomiGiocatori);
 		
 		for(Map.Entry<String, ServerView> view : giocatori.entrySet()) 
 			model.addObserver(view.getValue());
 			
-		Controller controller = new Controller(model);
+		this.controller = new Controller(model);
 		
 		for(Map.Entry<String, ServerView> giocatoreConnesso : giocatori.entrySet()) {
 			giocatoreConnesso.getValue().addObserver(controller);  //il Controller viene reso Observer di ogni View

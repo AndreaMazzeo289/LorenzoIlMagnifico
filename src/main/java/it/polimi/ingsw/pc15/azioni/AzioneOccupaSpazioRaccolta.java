@@ -25,7 +25,7 @@ public class AzioneOccupaSpazioRaccolta extends AzioneOccupaSpazio {
 		spazio.aggiungiFamiliare(familiare);
 		familiare.setDisponibilità(false);
 		
-		Effetto effetto = new Raccolto (familiare.getValore() + player.getEffettiAttivi().getBonusProduzione());
+		Effetto effetto = new Raccolto (valoreAzione);
 		effetto.attiva(familiare.getPlayer());
 	}
 

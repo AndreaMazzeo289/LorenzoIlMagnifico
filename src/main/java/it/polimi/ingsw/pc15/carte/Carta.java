@@ -17,8 +17,8 @@ public abstract class Carta implements Serializable {
 	protected final int id;
 	protected final int periodo;
 	protected final SetRisorse costo;
-	protected final Set<Effetto> effettoIstantaneo;
-	protected final Set<Effetto> effettoPermanente;
+	private final Set<Effetto> effettoIstantaneo;
+	private final Set<Effetto> effettoPermanente;
 	protected final String imgPath;
 	protected Player player;
 	protected SpazioTorre spazio;

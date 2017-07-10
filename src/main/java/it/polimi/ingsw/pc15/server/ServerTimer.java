@@ -1,7 +1,5 @@
 package it.polimi.ingsw.pc15.server;
 
-import java.util.HashMap;
-
 import it.polimi.ingsw.pc15.ParserXML;
 
 public class ServerTimer implements Runnable {

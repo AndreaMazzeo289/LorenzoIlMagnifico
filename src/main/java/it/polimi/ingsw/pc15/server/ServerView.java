@@ -7,7 +7,6 @@ public abstract class ServerView extends Observable implements Observer, Runnabl
 	
 	protected String name;
 
-
 	@Override
 	public abstract void update(Observable arg0, Object arg1);
 	

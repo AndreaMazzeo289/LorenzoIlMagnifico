@@ -162,7 +162,7 @@
         <valore>4</valore>
     </nomeValore>
     <nomeValore nome="numeroAzioniPerTurno">
-        <valore>2</valore>
+        <valore>4</valore>
     </nomeValore>
     <nomeValore nome="numeroTurniPerPeriodo">
         <valore>2</valore>
@@ -177,7 +177,7 @@
         <valore>4</valore>
     </nomeValore>
     <nomeValore nome="durataTimerServer">
-        <valore>3</valore>
+        <valore>30</valore>
     </nomeValore>
     <nomeValore nome="durataTimerClient">
         <valore>10</valore>

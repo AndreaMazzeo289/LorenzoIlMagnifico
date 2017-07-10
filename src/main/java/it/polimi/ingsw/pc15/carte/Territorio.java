@@ -22,11 +22,4 @@ public class Territorio extends Carta {
 		return this.requisitoRaccolta;
 	}
 
-	/*@Override
-	public AzionePrendiCarta azionePrendiCarta(Player player) {
-		
-		AzionePrendiCarta azionePrendiCarta = new AzionePrendiCartaTerritorio (player, this);
-		return azionePrendiCarta;
-	}*/
-
 }

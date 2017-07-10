@@ -23,7 +23,6 @@ import it.polimi.ingsw.pc15.model.Model;
 import it.polimi.ingsw.pc15.model.StatoPartita;
 import it.polimi.ingsw.pc15.player.Player;
 
-
 public class Server extends UnicastRemoteObject implements ServerInterface {
 
 	private final static int PORT = 12879;

@@ -3,22 +3,16 @@ package it.polimi.ingsw.pc15.server;
 import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
-import java.io.OutputStreamWriter;
 import java.io.PrintStream;
 import java.io.Serializable;
 import java.net.Socket;
-import java.nio.channels.NotYetBoundException;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Observable;
-import java.util.Observer;
 import java.util.Scanner;
 
-import it.polimi.ingsw.pc15.carte.TipoCarta;
 import it.polimi.ingsw.pc15.model.StatoPartita;
-import it.polimi.ingsw.pc15.plancia.SpazioTorre;
-import it.polimi.ingsw.pc15.player.Player;
-import it.polimi.ingsw.pc15.risorse.TipoRisorsa;
+
 
 public class SocketView extends ServerView implements Serializable {
 
@@ -60,7 +54,7 @@ public class SocketView extends ServerView implements Serializable {
 					setChanged();
 					notifyObservers(new ArrayList<String>(Arrays.asList("CONNESSIONE CHIUSA")));
 				} catch (IOException e1) {
-					e1.printStackTrace();
+					e1.printStackTrace();  //NOSONAR
 				}
 		}
 	}
