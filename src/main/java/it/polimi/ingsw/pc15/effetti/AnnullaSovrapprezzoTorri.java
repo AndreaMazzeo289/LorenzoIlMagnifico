@@ -7,9 +7,10 @@ import it.polimi.ingsw.pc15.player.Player;
 public class AnnullaSovrapprezzoTorri extends Effetto {
 
 	/**
-	 * Metodo che permette l'attivazione dell'effetto.
+	 * Metodo che nnulla il sovrapprezzo di 3 monete d'oro 
+	 * per acquistare carte in torri occupate
 	 * 
-	 * @param player u cui deve essere attivato l'effetto.
+	 * @param player su cui deve essere attivato l'effetto.
 	 */
 	
 	

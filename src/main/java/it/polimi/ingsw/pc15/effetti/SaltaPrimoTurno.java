@@ -7,9 +7,9 @@ import it.polimi.ingsw.pc15.player.Player;
 public class SaltaPrimoTurno extends Effetto {
 
 	/**
-	 * Metodo che permette l'attivazione dell'effetto.
+	 * Metodo che costringe il giocatore a saltare il proprio turno
 	 * 
-	 * @param player u cui deve essere attivato l'effetto.
+	 * @param player su cui deve essere attivato l'effetto.
 	 */
 	
 	

@@ -7,9 +7,9 @@ import it.polimi.ingsw.pc15.player.Player;
 public class NegaBonusSpazioTorri extends Effetto {
 
 	/**
-	 * Metodo che permette l'attivazione dell'effetto.
+	 * Metodo che nega l'accesso ai guadagno bonus dati dagli spazi torre.
 	 * 
-	 * @param player u cui deve essere attivato l'effetto.
+	 * @param player su cui deve essere attivato l'effetto.
 	 */
 	
 	

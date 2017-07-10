@@ -15,9 +15,10 @@ public class BonusRisorseCarte extends Bonus {
 	}
 
 	/**
-	 * Metodo che permette l'attivazione dell'effetto.
+	 * Metodo che permette di aggiungere tramite effetti delle carte
+	 * una quantità di risorse maggiore rispetto a quella stabilita.
 	 * 
-	 * @param player u cui deve essere attivato l'effetto.
+	 * @param player su cui deve essere attivato l'effetto.
 	 */
 	
 	

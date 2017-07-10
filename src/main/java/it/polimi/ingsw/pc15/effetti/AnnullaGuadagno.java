@@ -6,9 +6,6 @@ import java.io.Serializable;
 import it.polimi.ingsw.pc15.carte.TipoCarta;
 import it.polimi.ingsw.pc15.player.Player;
 
-/**
- * Classe effetto che annulla i guadagni in bonus punti vittoria finale del player.
- */
 
 public class AnnullaGuadagno extends Effetto {
 	
@@ -20,9 +17,10 @@ public class AnnullaGuadagno extends Effetto {
 	}
 
 	/**
-	 * Metodo che permette l'attivazione dell'effetto.
+	 * Metodo che annulla i guadagni in punti vittoria del player a fine partita
+	 * legati ad un determinato tipo di carta.
 	 * 
-	 * @param player u cui deve essere attivato l'effetto.
+	 * @param player su cui deve essere attivato l'effetto.
 	 */
 	
 	@Override

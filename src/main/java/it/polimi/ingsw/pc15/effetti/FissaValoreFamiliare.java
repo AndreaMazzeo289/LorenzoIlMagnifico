@@ -17,9 +17,10 @@ public class FissaValoreFamiliare extends Effetto {
 	}
 
 	/**
-	 * Metodo che permette l'attivazione dell'effetto.
+	 * Metodo che assegna un valore al familiare in modo permanente 
+	 * non permettendo ulteriori modifica legate a valore dei dadi e bonus aggiuntivi.
 	 * 
-	 * @param player u cui deve essere attivato l'effetto.
+	 * @param player su cui deve essere attivato l'effetto.
 	 */
 	
 	

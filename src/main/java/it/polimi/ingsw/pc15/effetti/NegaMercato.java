@@ -7,9 +7,9 @@ import it.polimi.ingsw.pc15.player.Player;
 public class NegaMercato extends Effetto {
 
 	/**
-	 * Metodo che permette l'attivazione dell'effetto.
+	 * Metodo che nega al player l'accesso al mercato.
 	 * 
-	 * @param player u cui deve essere attivato l'effetto.
+	 * @param player su cui deve essere attivato l'effetto.
 	 */
 	
 	

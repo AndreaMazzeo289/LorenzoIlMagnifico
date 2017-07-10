@@ -11,9 +11,10 @@ public class BonusRaccolta extends Bonus {
 	}
 	
 	/**
-	 * Metodo che permette l'attivazione dell'effetto.
+	 * Metodo che aggiunge il bonus al valore del familiare per effettuare
+	 * una azione di produzione.
 	 * 
-	 * @param player u cui deve essere attivato l'effetto.
+	 * @param player su cui deve essere attivato l'effetto.
 	 */
 	
 	

@@ -25,7 +25,7 @@ public class Scambio extends Effetto implements Incrementabile {
 	}
 
 	/**
-	 * Metodo che permette l'attivazione dell'effetto.
+	 * Metodo che permette di effettuare uno scambio tra risorse al player.
 	 * 
 	 * @param player u cui deve essere attivato l'effetto.
 	 */

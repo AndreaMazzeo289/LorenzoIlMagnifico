@@ -15,9 +15,9 @@ public class ScontoCostoCarte extends Effetto {
 	}
 
 	/**
-	 * Metodo che permette l'attivazione dell'effetto.
+	 * Metodo che fornisce uno sconto all'acquisto della carta
 	 * 
-	 * @param player u cui deve essere attivato l'effetto.
+	 * @param player su cui deve essere attivato l'effetto.
 	 */
 	
 	

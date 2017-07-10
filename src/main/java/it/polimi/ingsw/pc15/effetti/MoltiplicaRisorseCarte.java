@@ -11,9 +11,10 @@ public class MoltiplicaRisorseCarte extends Effetto {
 	}
 
 	/**
-	 * Metodo che permette l'attivazione dell'effetto.
+	 * Metodo che aggiunge un moltiplicatore al guadagno delle risorse 
+	 * da carta.
 	 * 
-	 * @param player u cui deve essere attivato l'effetto.
+	 * @param player su cui deve essere attivato l'effetto.
 	 */
 	
 	
