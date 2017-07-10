@@ -112,6 +112,12 @@ public class Server extends UnicastRemoteObject implements ServerInterface {
 		}	
 
 	}
+	
+	/**
+	 * avvia una nuova RMIView, registrandola nell'array del server e passandole
+	 * l'RMIHandler come parametro
+	 * Ritorna l'indice della view nell'array
+	 */
 
 	@Override
 	public int remoteConnetti(RMIHandlerInterface rmiHandler) throws RemoteException {
@@ -122,6 +128,13 @@ public class Server extends UnicastRemoteObject implements ServerInterface {
 		return rmiViews.lastIndexOf(rmiView);
 	}
 
+	
+	/**
+	 * Invoca il metodo notifyObservers della RMIVIew di indice i
+	 * 
+	 * @param o oggetto da notificare tramite il notifyObservers()
+	 * @param i indice della RMIView nell'array del server
+	 */
 
 	@Override
 	public void remoteNotify(Object o, int i) throws RemoteException {
@@ -129,6 +142,11 @@ public class Server extends UnicastRemoteObject implements ServerInterface {
 		this.rmiViews.get(i).notificaOsservatori(message);
 		
 	}
+	
+	/**
+	 * Crea un nuovo oggetto di tipo Partita, lo aggiunge
+	 * all'array di partite del server e ne chiama il metodo avvia()
+	 */
 	
 	public void avviaPartita() {
 		Partita partita = new Partita(this.views);

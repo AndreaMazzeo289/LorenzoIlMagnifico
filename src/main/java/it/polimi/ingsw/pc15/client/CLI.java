@@ -37,6 +37,13 @@ public class CLI extends ClientView {
 		this.input = new Scanner(System.in);
 	}
 	
+	
+	/**
+	 * Avvia la cli, che in un ciclo continuo registrerà le scelte del giocatore 
+	 * per poi notificarle al proprio networkHandler. Il ciclo si interrompe automaticamente
+	 * raggiunto il turno finale
+	 */
+	
 	@Override
 	public void run(){
 		

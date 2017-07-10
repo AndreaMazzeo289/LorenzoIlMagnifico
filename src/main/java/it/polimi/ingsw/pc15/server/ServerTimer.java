@@ -10,6 +10,12 @@ public class ServerTimer implements Runnable {
 		this.server = server;
 	}
 
+	
+	/**
+	 * Avvia il timer, che attenderà un intervallo di tempo letto da file
+	 * e poi avvierà la partita (se non già avviata prima)
+	 */
+	
 	@Override
 	public void run() {
 		for (int i=ParserXML.leggiValore("durataTimerServer")/10; i>0; i--) {

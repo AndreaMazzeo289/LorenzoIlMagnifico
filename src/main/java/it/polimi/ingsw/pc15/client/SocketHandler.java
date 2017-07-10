@@ -81,6 +81,12 @@ public class SocketHandler extends NetworkHandler implements Serializable{
 		
 	}
 	
+	/**
+	 * Invia un oggetto nel flusso di output della Socket
+	 * 
+	 * @param message messaggio da inviare
+	 */
+	
 	public void send(Object message) throws IOException{
 		outObj.writeObject(message);
 		outObj.reset();

@@ -60,10 +60,21 @@ public class RMIView extends ServerView {
 		
 	}
 	
+	/**
+	 * metodo remoto per notificare un messaggio agli Osservatori della RMIView
+	 * 
+	 * @param message messaggio da notificare
+	 */
+	
 	public void notificaOsservatori(ArrayList<String> message) {
 		setChanged();
 		notifyObservers(message);
 	}
+	
+	/**
+	 * Invoca il metodo remoto remoteOK dell'RMIHandler, in modo 
+	 * da notificare l'avvenuta connessione
+	 */
 	
 	public void sendOK() {
 		try {
