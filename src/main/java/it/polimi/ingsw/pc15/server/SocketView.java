@@ -41,8 +41,7 @@ public class SocketView extends ServerView implements Serializable {
 		
 		 try {
 			 
-			 boolean endLoop = false;
-			 while(!endLoop) {
+			 while(true) {
 				ArrayList<String> message;
 				message = (ArrayList<String>) inObj.readObject();
 				setChanged();

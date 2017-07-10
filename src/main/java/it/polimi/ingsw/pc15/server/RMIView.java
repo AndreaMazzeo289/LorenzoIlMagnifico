@@ -32,9 +32,8 @@ public class RMIView extends ServerView {
 	public void run() {
 		
 		StatoPartita statoPartita = null;
-		boolean endLoop = false;
 		
-		while(!endLoop) {
+		while(true) {
 			
 			try {
 				statoPartita = aggiornamenti.take();
