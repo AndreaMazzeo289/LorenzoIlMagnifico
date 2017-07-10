@@ -342,9 +342,11 @@ public class GUI extends ClientView{
 		//---------------------------//
 		for (int j=0; j<4; j++) 
 		{
-			if (this.clientModel.getStatoGiocatore().getCarteLeader().get(j).giocato())
-				playerboard.getCartaLeader(j).scriviLabel("GIOCATO");
-			else playerboard.getCartaLeader(j).scriviLabel("NON GIOCATO");
+			try{
+				if (this.clientModel.getStatoGiocatore().getCarteLeader().get(j).giocato())
+					playerboard.getCartaLeader(j).scriviLabel("GIOCATO");
+				else playerboard.getCartaLeader(j).scriviLabel("NON GIOCATO");
+			}catch(IndexOutOfBoundsException e){}
 			
 			if(this.clientModel.getStatoGiocatore().getCarteLeader().size()<4) {
 				playerboard.getCartaLeader(this.clientModel.getStatoGiocatore().getCarteLeader().size()).scriviLabel("SCARTATO");
