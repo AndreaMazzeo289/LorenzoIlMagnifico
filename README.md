@@ -1,4 +1,4 @@
-# Lorenzo il magnifico -- Prova Finale (Ingegneria del Software)
+# Prova Finale (Ingegneria del Software)
 
 ## Gruppo pc15
 
