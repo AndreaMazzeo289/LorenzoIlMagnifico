@@ -4,7 +4,6 @@ import java.rmi.RemoteException;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Observable;
-import java.util.concurrent.ArrayBlockingQueue;
 import java.util.concurrent.BlockingQueue;
 import java.util.concurrent.LinkedBlockingQueue;
 
@@ -28,7 +27,6 @@ public class RMIView extends ServerView {
 		}
 	}
 
-	@Override
 	public void run() {
 		
 		StatoPartita statoPartita = null;

@@ -24,7 +24,7 @@ public class AzioneOccupaSpazioProduzione extends AzioneOccupaSpazio {
 		spazio.aggiungiFamiliare(familiare);
 		familiare.setDisponibilità(false);
 		
-		Effetto effetto = new Produzione(familiare.getValore() + player.getEffettiAttivi().getBonusProduzione());
+		Effetto effetto = new Produzione(valoreAzione);
 		effetto.attiva(familiare.getPlayer());
 	}
 

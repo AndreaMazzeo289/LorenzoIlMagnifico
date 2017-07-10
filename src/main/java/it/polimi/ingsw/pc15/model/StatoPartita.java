@@ -21,7 +21,6 @@ public class StatoPartita implements Serializable {
 	private Player statoGiocatore;
 	private String giocatoreCorrente;
 	private String messaggio;
-	private String a;
 	
 	public StatoPartita (Plancia statoPlancia, int periodo, int turno, int azione, ArrayList<Player> statoGiocatori, String giocatoreCorrente, String messaggio) {
 		this.statoPlancia = statoPlancia;

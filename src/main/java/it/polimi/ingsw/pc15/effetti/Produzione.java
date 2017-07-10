@@ -23,7 +23,7 @@ public class Produzione extends Effetto {
 		new AggiuntaRisorse(player.getTesseraBonus().getRisorseBonusProduzione()).attiva(player);
 		
 		for (Carta edificio : player.getCarte(TipoCarta.EDIFICIO)) {
-			if (valore + player.getEffettiAttivi().getBonusProduzione()>= ((Edificio) edificio).getRequisitoProduzione() ) {
+			if (valore >= ((Edificio) edificio).getRequisitoProduzione() ) {
 				for (Effetto effetto : edificio.getEffettoPermanente())
 					if (effetto instanceof Incrementabile){
 						((Incrementabile) effetto).attivaDaCarta(player);}
