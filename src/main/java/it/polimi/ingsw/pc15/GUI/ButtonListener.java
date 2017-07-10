@@ -127,7 +127,6 @@ public class ButtonListener implements ActionListener{
 			String coloreFamiliare = e.getActionCommand().substring(20).toLowerCase();
 			
 			gui.writeMessage("familiare "+coloreFamiliare);
-			System.out.println(coloreFamiliare);
 			
 			switch(coloreFamiliare) {
 				case "bianco": coloreFamiliareScelto = ColoreFamiliare.BIANCO;
