@@ -1,26 +1,15 @@
  package it.polimi.ingsw.pc15.model;
 
-import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Collections;
-import java.util.HashMap;
 import java.util.HashSet;
-import java.util.Iterator;
 import java.util.Map.Entry;
 import java.util.Observable;
-import java.util.Observer;
 import java.util.Random;
-import java.util.Set;
 import java.util.TreeMap;
-
-import com.sun.javafx.collections.MappingChange.Map;
 
 import it.polimi.ingsw.pc15.ParserXML;
 import it.polimi.ingsw.pc15.carte.Carta;
-import it.polimi.ingsw.pc15.carte.Edificio;
-import it.polimi.ingsw.pc15.carte.Impresa;
-import it.polimi.ingsw.pc15.carte.Personaggio;
-import it.polimi.ingsw.pc15.carte.Territorio;
 import it.polimi.ingsw.pc15.carte.TipoCarta;
 import it.polimi.ingsw.pc15.effetti.Effetto;
 import it.polimi.ingsw.pc15.plancia.Plancia;

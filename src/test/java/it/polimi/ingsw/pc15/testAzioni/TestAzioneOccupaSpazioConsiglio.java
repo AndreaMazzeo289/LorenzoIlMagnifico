@@ -53,6 +53,8 @@ public class TestAzioneOccupaSpazioConsiglio {
 	@Test
 	public void testAttiva(){
 		
+		Boolean test;
+		
 		player.getSetRisorse().aggiungi(new Servitori(0));
 		
 		azioneOccupaSpazioConsiglio.attiva();
@@ -60,9 +62,14 @@ public class TestAzioneOccupaSpazioConsiglio {
 		setRisorse.aggiungi(new Legna(1));
 		setRisorse.aggiungi(new Pietra(1));
 		setRisorse.aggiungi(new Servitori(0));
+		
+		if(player.getSetRisorse().toString().equals(setRisorse.toString()))
+			test = true;
+		else test = false;
+		
 		assertFalse("errore attiva azione occupa spazio consiglio", spazioConsiglio.vuoto());
 		assertFalse("errore attiva azione occupa spazio consiglio", familiare.disponibile());
-		assertEquals("errore attiva azione occupa spazio consiglio", player.getSetRisorse().toString(),setRisorse.toString());
+		assertTrue("errore attiva azione occupa spazio consiglio", test);
 		
 	}
 }

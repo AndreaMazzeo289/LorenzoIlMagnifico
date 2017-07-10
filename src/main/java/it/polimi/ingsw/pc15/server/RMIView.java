@@ -7,6 +7,8 @@ import java.util.Observable;
 import java.util.concurrent.BlockingQueue;
 import java.util.concurrent.LinkedBlockingQueue;
 
+import com.sun.javafx.scene.control.skin.NestedTableColumnHeader;
+
 import it.polimi.ingsw.pc15.client.RMIHandlerInterface;
 import it.polimi.ingsw.pc15.model.StatoPartita;
 
@@ -31,7 +33,7 @@ public class RMIView extends ServerView {
 		
 		StatoPartita statoPartita = null;
 		
-		while(true) {
+		while(true) { //NOSONAR
 			
 			try {
 				statoPartita = aggiornamenti.take();
@@ -54,7 +56,6 @@ public class RMIView extends ServerView {
 		StatoPartita statoPartita = (StatoPartita)arg;
 		statoPartita.setStatoGiocatore(this.name);
 		
-		//System.out.println("\nSono la RMIView di " + name + " e ho ricevuto " + statoPartita.getMessaggio())
 		aggiornamenti.add(statoPartita.clone());
 		
 	}

@@ -40,8 +40,8 @@ public class SocketView extends ServerView implements Serializable {
 		server.connetti(this, name);
 		
 		 try {
-			
-			 while(true) {
+			 
+			 while(true) {  //NOSONAR
 				ArrayList<String> message;
 				message = (ArrayList<String>) inObj.readObject();
 				setChanged();
@@ -63,7 +63,6 @@ public class SocketView extends ServerView implements Serializable {
 	public void update(Observable o, Object arg) {
 		
 		StatoPartita statoPartita = (StatoPartita)arg;
-		//System.out.println("\nSono la SocketView di " + name + " e ho ricevuto " + (statoPartita.getMessaggio()));
 		statoPartita.setStatoGiocatore(name);
 
 		sendObj(statoPartita);
