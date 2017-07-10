@@ -12,6 +12,7 @@ import java.util.Observable;
 import javax.swing.JFrame;
 
 import it.polimi.ingsw.pc15.ParserXML;
+import it.polimi.ingsw.pc15.GUI.frame.FrameConclusivo;
 import it.polimi.ingsw.pc15.GUI.frame.FrameRapportoVaticano;
 import it.polimi.ingsw.pc15.GUI.gameboard.Gameboard;
 import it.polimi.ingsw.pc15.GUI.playerboard.PlayerBoard;
@@ -356,12 +357,14 @@ public class GUI extends ClientView{
 			}
 		}
 		else {
-			playerboard.scriviMessaggio((String)arg1);
+
+			FrameConclusivo frameConclusivo = new FrameConclusivo((String)arg1);
 			
 			try {
-				Thread.sleep(5000);
+				Thread.sleep(10000);
 			} catch (InterruptedException e) {} // NOSONAR
 			
+			frameConclusivo.dispose();
 			mainFrame.dispose();
 			return;
 		}
