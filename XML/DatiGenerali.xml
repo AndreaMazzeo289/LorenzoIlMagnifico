@@ -165,16 +165,16 @@
         <valore>2</valore>
     </nomeValore>
     <nomeValore nome="numeroPeriodi">
-        <valore>3</valore>
+        <valore>1</valore>
     </nomeValore>
     <nomeValore nome="numeroMinGiocatori">
-        <valore>2</valore>
-    </nomeValore>
-    <nomeValore nome="numeroMaxGiocatori">
         <valore>3</valore>
     </nomeValore>
+    <nomeValore nome="numeroMaxGiocatori">
+        <valore>4</valore>
+    </nomeValore>
     <nomeValore nome="durataTimerServer">
-        <valore>10</valore>
+        <valore>3</valore>
     </nomeValore>
     <nomeValore nome="durataTimerClient">
         <valore>10</valore>

@@ -47,6 +47,9 @@ public class AzioneOccupaSpazioTorre extends AzioneOccupaSpazio {
 	@Override
 	public RisultatoAzione èValida() {
 		
+		if (servitoriAggiuntivi>player.getSetRisorse().getRisorsa(TipoRisorsa.SERVITORI).getQuantità())
+			return new RisultatoAzione(false, player.getNome() + " vuole pagare " + servitoriAggiuntivi + " servitori, ma non ne ha abbastanza");
+		
 		if (familiare.disponibile() == false)
 			return new RisultatoAzione(false, player.getNome() + "cerca di posizionare il suo familiare " + familiare.getColore().name() + " ma lo ha già posizionato!");
 		

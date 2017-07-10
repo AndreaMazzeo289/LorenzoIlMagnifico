@@ -27,16 +27,16 @@ public class AzioneGiocaLeader extends AzioneLeader {
 	public RisultatoAzione èValida() {
 		
 		if (leader.giocato())
-			return new RisultatoAzione(false, " vuole giocare la carta Leader " + leader.getNome() + " ma lo ha già giocato!");
+			return new RisultatoAzione(false, player.getNome() + " vuole giocare la carta Leader " + leader.getNome() + " ma lo ha già giocato!");
 
 		if (leader.getRequisitoRisorse() != null)
 			if (player.getSetRisorse().paragona(leader.getRequisitoRisorse()) == false)
-				return new RisultatoAzione(false, " vuole giocare la carta Leader " + leader.getNome() + " ma non soddisfa il requisito di risorse richiesto!");
+				return new RisultatoAzione(false, player.getNome() + " vuole giocare la carta Leader " + leader.getNome() + " ma non soddisfa il requisito di risorse richiesto!");
 		
 		if (leader.getRequisitoCarte() != null)
 			for(Map.Entry<TipoCarta, Integer> requisito : leader.getRequisitoCarte().entrySet())
 				if (player.getCarte(requisito.getKey()).size() < requisito.getValue())
-					return new RisultatoAzione(false, " vuole giocare la carta Leader " + leader.getNome() + " ma non soddisfa il requisito di carte richiesto!");
+					return new RisultatoAzione(false, player.getNome() + " vuole giocare la carta Leader " + leader.getNome() + " ma non soddisfa il requisito di carte richiesto!");
 
 		return new RisultatoAzione(true, player.getNome() + " gioca la carta Leader " + leader.getNome());
 	}

@@ -12,9 +12,7 @@ public class AzioneAttivaEffettoLeader extends AzioneLeader {
 
 	@Override
 	public void attiva() {
-		
-		System.out.println("Attivi l'effetto di " + leader.getNome());
-		
+				
 		for (Effetto effetto : leader.getEffettoPerTurno() )
 			effetto.attiva(player);
 		leader.setEffettoAttivato(true);	

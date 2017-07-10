@@ -205,7 +205,7 @@ public class Model extends Observable {
 		
 		if (ordine.lastIndexOf(giocatoreCorrente)==ordine.size()-1) {
 			azione++;
-			if (azione==4)  {
+			if (azione==2)  {
 				azione=1;
 				finisciTurno();	
 			}
@@ -239,13 +239,10 @@ public class Model extends Observable {
 								giocatore.getSetRisorse().getRisorsa(TipoRisorsa.SERVITORI).getQuantità();
 			giocatore.getSetRisorse().aggiungi(new PuntiVittoria(sommaRisorse/5));
 			
-			//classificaPM.put(giocatore.getSetRisorse().getRisorsa(TipoRisorsa.PUNTIMILITARI).getQuantità(), giocatore);
+			classificaPM.put(giocatore.getSetRisorse().getRisorsa(TipoRisorsa.PUNTIMILITARI).getQuantità(), giocatore);
 		}
 		
-		/*classificaPM.get(classificaPM.firstKey()).getSetRisorse().aggiungi(new PuntiVittoria(5));
-		classificaPM.remove(classificaPM.firstKey());
-		classificaPM.get(classificaPM.firstKey()).getSetRisorse().getRisorsa(TipoRisorsa.PUNTIVITTORIA).aggiungi(2);
-		*/
+		classificaPM.descendingMap().get(classificaPM.firstKey()).getSetRisorse().aggiungi(new PuntiVittoria(5));
 		
 		for (Player giocatore : giocatori)
 			classificaPV.put(giocatore.getSetRisorse().getRisorsa(TipoRisorsa.PUNTIVITTORIA).getQuantità(), giocatore);
