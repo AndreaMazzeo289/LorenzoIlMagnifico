@@ -12,6 +12,12 @@ public class AzionePrendiCartaPersonaggio extends AzionePrendiCarta {
 		super(player, carta);
 	}
 
+	/**
+	 * Verifica la validità dell' azione prendi carta personaggio.
+	 * 
+	 * @return il risultato dell'azione.
+	 */
+	
 	@Override
 	public RisultatoAzione èValida() {
 		
@@ -24,6 +30,13 @@ public class AzionePrendiCartaPersonaggio extends AzionePrendiCarta {
 		return new RisultatoAzione(true, player.getNome() + " prende la carta Personaggio " + carta.getNome());
 	}
 
+	/**
+	 * 
+	 * Pagando il prezzo della carta il metodo permette al player 
+	 * di prenderla ed usufruire immediatamente degli effetti istantanei.
+	 * 
+	 */
+	
 	@Override
 	public void attiva() {
 		
@@ -33,6 +46,11 @@ public class AzionePrendiCartaPersonaggio extends AzionePrendiCarta {
 		attivaEffettoPermanente();
 		
 	}
+	
+	/**
+	 * Metodo che consente di attivare l'effetto permanente legato alla carta
+	 * personaggio acquistata.
+	 */
 	
 	public void attivaEffettoPermanente() {
 		for (Effetto effetto : carta.getEffettoPermanente())

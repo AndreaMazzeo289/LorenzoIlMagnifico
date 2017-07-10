@@ -19,6 +19,10 @@ public class Edificio extends Carta {
 		this.tipo = TipoCarta.EDIFICIO;
 	}
 
+	/**
+	 * @return restituisce il requisito produzione della carta edificio.
+	 */
+	
 	public int getRequisitoProduzione() {
 		return this.requisitoProduzione;
 	}

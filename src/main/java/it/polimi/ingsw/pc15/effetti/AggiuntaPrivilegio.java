@@ -16,6 +16,14 @@ public class AggiuntaPrivilegio extends Effetto{
 	
 	private int scelta;
 
+	
+	/**
+	 * Effetto che serve per definire in base alla scelta del player 
+	 * il tipo di risorse da prendere con un privilegio.
+	 *
+	 * @param player su cui attivare l'effetto
+	 */
+	
 	@Override
 	public void attiva(Player player) {
 		switch(scelta) {

@@ -10,6 +10,12 @@ public class AzioneAttivaEffettoLeader extends AzioneLeader {
 		super(player, leader);
 	}
 
+	
+	/**
+	 * Metodo che permette l'attivazione dell'effetto 
+	 * periodico basato sul turno di un leader.
+	 */
+	
 	@Override
 	public void attiva() {
 				
@@ -18,6 +24,13 @@ public class AzioneAttivaEffettoLeader extends AzioneLeader {
 		leader.setEffettoAttivato(true);	
 	}
 
+	/**
+	 * Metodo che verifica la validità dell'attivazione 
+	 * dell'effetto leader.
+	 * 
+	 * @return Il risultato della validità dell'azione con Risultato azione.
+	 */
+	
 	@Override
 	public RisultatoAzione èValida() {
 		

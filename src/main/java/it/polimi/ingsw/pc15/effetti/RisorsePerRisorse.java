@@ -16,7 +16,8 @@ public class RisorsePerRisorse extends Moltiplicazione {
 	}
 
 	/**
-	 * Metodo che permette l'attivazione dell'effetto.
+	 * Metodo che aggiunge risorse in base alla quantità di un
+	 * tipo di risorsa posseduta.
 	 * 
 	 * @param player u cui deve essere attivato l'effetto.
 	 */

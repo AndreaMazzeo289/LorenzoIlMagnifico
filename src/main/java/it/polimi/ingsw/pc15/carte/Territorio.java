@@ -18,6 +18,11 @@ public class Territorio extends Carta {
 		this.tipo = TipoCarta.TERRITORIO;
 	}
 	
+	/**
+	 * @return restituisce il requisito raccolta della carta edificio.
+	 */
+	
+	
 	public int getRequisitoRaccolta() {
 		return this.requisitoRaccolta;
 	}

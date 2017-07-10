@@ -11,9 +11,9 @@ public class BonusPVChiesa extends Bonus {
 	}
 
 	/**
-	 * Metodo che permette l'attivazione dell'effetto.
+	 * Metodo che permette di guadagnare punti vittoria in base ai punti fede.
 	 * 
-	 * @param player u cui deve essere attivato l'effetto.
+	 * @param player su cui deve essere attivato l'effetto.
 	 */
 	
 	

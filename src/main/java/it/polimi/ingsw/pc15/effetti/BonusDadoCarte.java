@@ -5,6 +5,13 @@ import java.io.Serializable;
 import it.polimi.ingsw.pc15.carte.TipoCarta;
 import it.polimi.ingsw.pc15.player.Player;
 
+
+/**
+ * 
+ * 
+ *
+ */
+
 public class BonusDadoCarte extends Bonus {
 	
 	private TipoCarta tipoCarta;
@@ -15,9 +22,9 @@ public class BonusDadoCarte extends Bonus {
 	}
 	
 	/**
-	 * Metodo che permette l'attivazione dell'effetto.
+	 * Metodo che aggiunge il bonus al valore del familiare per prendere determitate carte.
 	 * 
-	 * @param player u cui deve essere attivato l'effetto.
+	 * @param player su cui deve essere attivato l'effetto.
 	 */
 	
 	

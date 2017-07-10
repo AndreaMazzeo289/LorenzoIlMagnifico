@@ -17,6 +17,13 @@ public class AzioneOccupaSpazioConsiglio extends AzioneOccupaSpazio {
 		this.sceltaRisorse = sceltaRisorse;
 	}
 
+	
+	/**
+	 * Permette l'occupazione dello spazio consiglio attivandone il relattivo effetto
+	 * consegnando al player 2 oro e un privilegio.
+	 * 
+	 */
+	
 	@Override
 	public void attiva() {
 		
@@ -29,6 +36,14 @@ public class AzioneOccupaSpazioConsiglio extends AzioneOccupaSpazio {
 		new AggiuntaPrivilegio(sceltaRisorse).attiva(player);
 	}
 
+	
+	/**
+	 * 
+	 * Metodo che verifica la validità dell'azione occupa spazio consiglio.
+	 * 
+	 * @return Il risultato della validità dell'azione con Risultato azione.
+	 */
+	
 	@Override
 	public RisultatoAzione èValida() {
 		

@@ -13,6 +13,13 @@ public class AzionePrendiCartaTerritorio extends AzionePrendiCarta {
 		super(player, carta);
 	}
 	
+	/**
+	 * Verifica la validità dell' azione prendi carta territorio.
+	 * 
+	 * @return il risultato dell'azione.
+	 */
+	
+	
 	@Override
 	public RisultatoAzione èValida() {
 		

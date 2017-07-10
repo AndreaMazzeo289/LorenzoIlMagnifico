@@ -18,9 +18,10 @@ public class AzionePrendiCartaAggiuntiva extends Effetto {
 	}
 
 	/**
-	 * Metodo che permette l'attivazione dell'effetto.
+	 * Metodo che permette di prendere un'altra carta sul tabellone 
+	 * rispetto ad un valore specificato.
 	 * 
-	 * @param player u cui deve essere attivato l'effetto.
+	 * @param player su cui deve essere attivato l'effetto.
 	 */
 	
 	

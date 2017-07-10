@@ -24,6 +24,14 @@ public abstract class AzionePrendiCarta extends Azione{
 	
 	public abstract RisultatoAzione èValida();
 	
+	
+	/**
+	 * 
+	 * Pagando il prezzo della carta il metodo permette al player 
+	 * di prenderla ed usufruire immediatamente degli effetti istantanei.
+	 * 
+	 */
+	
 	public void attiva() {	
 		
 		pagaCosto(costoFinale);
@@ -31,6 +39,13 @@ public abstract class AzionePrendiCarta extends Azione{
 		attivaEffettoIstantaneo();
 	}
 
+	/**
+	 * Verifica considerando anche tutti i bonus degli effetti attivi del player
+	 * se questo possiede abbastanza risorse per prendere la carta.
+	 * 
+	 * @return true o false in base alla posibilità del player di prendere la carta.
+	 */
+	
 	public boolean risorseSufficienti () {
 			                                          
 
@@ -44,9 +59,23 @@ public abstract class AzionePrendiCarta extends Azione{
 		
 	}    
 
+	/**
+	 *Metodo che permette al player di pagare il prezzo della carta.
+	 * 
+	 * @param costo della carta.
+	 */
+	
+	
 	public void pagaCosto(SetRisorse costo) {
 		player.getSetRisorse().sottrai(costo);
 	}
+	
+	/**
+	 * 
+	 * Metodo che assegna la carta al player che la ha 
+	 * acquistata
+	 */
+	
 	
 	public void daiCarta() {
 		
@@ -57,6 +86,14 @@ public abstract class AzionePrendiCarta extends Azione{
 		player.getCarte(carta.getTipo()).add(carta);
 		
 	}
+	
+	/**
+	 * 
+	 * Metodo che attiva a favore del player che la ha acquistata 
+	 * l'effetto istantaneo della carta.
+	 * 
+	 */
+	
 	
 	public void attivaEffettoIstantaneo() {
 		for (Effetto effetto : carta.getEffettoIstantaneo()) {

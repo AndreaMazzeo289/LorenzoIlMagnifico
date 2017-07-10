@@ -17,6 +17,14 @@ public class Produzione extends Effetto {
 		this.valore = valore;
 	}
 	
+	/**
+	 * 
+	 * Permette al player di effettuare una azione produzione con
+	 * conseguente aggiunta di risorse in base agli effetti delle carte edificio possedute.
+	 * 
+	 * @param player su cui deve essere attivato l'effetto.
+	 */
+	
 	@Override
 	public void attiva(Player player){
 		

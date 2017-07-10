@@ -13,6 +13,13 @@ public class AzioneGiocaLeader extends AzioneLeader {
 		super(player, leader);
 	}
 
+	
+	/**
+	 * 
+	 * Metodo che permette al player di giocare una carta leader ed 
+	 * attivarne il relativo effetto permanente.
+	 */
+	
 	@Override
 	public void attiva() {
 		
@@ -23,6 +30,14 @@ public class AzioneGiocaLeader extends AzioneLeader {
 				effetto.attiva(player);
 	}
 
+	/**
+	 * 
+	 * Metodo che verifica la validità di attivazione dell'effetto
+	 * permanente del leader.
+	 * 
+	 * @return Il risultato della validità dell'azione con Risultato azione.
+	 */
+	
 	@Override
 	public RisultatoAzione èValida() {
 		

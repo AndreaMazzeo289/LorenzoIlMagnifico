@@ -20,9 +20,19 @@ public class Impresa extends Carta {
 		this.tipo = TipoCarta.IMPRESA;
 	}
 	
+	/**
+	 * @return restituisce il requisito in punti militari della carta edificio.
+	 */
+	
 	public int getRequisitoPuntiMilitari() {
 		return this.requisitoPuntiMilitari;
 	}
+	
+	
+	/**
+	 * @return restituisce il costo in punti militari della carta edificio.
+	 */
+	
 	
 	public int getCostoPuntiMilitari() {
 		return this.costoPuntiMilitari;

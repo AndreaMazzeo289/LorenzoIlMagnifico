@@ -8,9 +8,9 @@ public class OccupaSpaziOccupati extends Effetto {
 
 
 	/**
-	 * Metodo che permette l'attivazione dell'effetto.
+	 * Metodo che permette di posizionare il familiare in spazi azione già occupati.
 	 * 
-	 * @param player u cui deve essere attivato l'effetto.
+	 * @param player su cui deve essere attivato l'effetto.
 	 */
 	
 	

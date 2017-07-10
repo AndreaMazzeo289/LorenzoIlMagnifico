@@ -14,6 +14,13 @@ public class AzioneScartaLeader extends AzioneLeader {
 		this.sceltaRisorsa = sceltaRisorsa;
 	}
 
+	
+	/**
+	 * 
+	 * Permette al player di scartare una delle sue carte leader
+	 * guadagnando un privilegio da riscattare.
+	 */
+	
 	@Override
 	public void attiva() {	
 		new AggiuntaPrivilegio(sceltaRisorsa).attiva(player);

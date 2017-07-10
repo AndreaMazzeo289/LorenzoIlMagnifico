@@ -19,6 +19,13 @@ public abstract class AzioneOccupaSpazio extends Azione {
 		this.servitoriAggiuntivi = servitoriAggiuntivi;
 	}
 	
+	
+	/**
+	 * Metodo che nell'occupazione dello spazio modifica il valore del familiare
+	 * in base alla volontà del player di scartare o meno servitori.
+	 * 
+	 */
+	
 	public void pagaServitori() {
 		if (player.getEffettiAttivi().sovrapprezzoServitori())
 			player.getSetRisorse().getRisorsa(TipoRisorsa.SERVITORI).aggiungi(-2*servitoriAggiuntivi);

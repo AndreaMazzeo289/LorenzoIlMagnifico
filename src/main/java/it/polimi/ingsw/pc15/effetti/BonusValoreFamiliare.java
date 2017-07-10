@@ -16,9 +16,9 @@ public class BonusValoreFamiliare extends Bonus {
 	}
 		
 	/**
-	 * Metodo che permette l'attivazione dell'effetto.
+	 * Metodo che modifica il valore del familiare tramite bonus.
 	 * 
-	 * @param player u cui deve essere attivato l'effetto.
+	 * @param player su cui deve essere attivato l'effetto.
 	 */
 	
 	

@@ -6,9 +6,10 @@ public class AumentaPrezzoServitori extends Effetto {
 
 
 	/**
-	 * Metodo che permette l'attivazione dell'effetto.
+	 * Metodo che aumenta a due il numero di servitori da spendere 
+	 * per aumentare il valore di un familiare
 	 * 
-	 * @param player u cui deve essere attivato l'effetto.
+	 * @param player su cui deve essere attivato l'effetto.
 	 */
 	
 	

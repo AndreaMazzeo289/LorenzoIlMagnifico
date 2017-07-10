@@ -7,6 +7,16 @@ public class AzionePrendiCartaAggiuntivaConSconto extends AzionePrendiCartaAggiu
 	
 	private SetRisorse sconto;
 
+	
+	/**
+	 * Metodo che permette di prendere un'altra carta sul tabellone 
+	 * rispetto ad un valore specificato aggiungendo anche uno sconto al prezzo
+	 * della carta.
+	 * 
+	 * @param player su cui deve essere attivato l'effetto.
+	 */
+	
+	
 	public AzionePrendiCartaAggiuntivaConSconto(TipoCarta tipoCarta, int valore, SetRisorse sconto) {
 		super(tipoCarta, valore);
 		this.sconto = sconto;

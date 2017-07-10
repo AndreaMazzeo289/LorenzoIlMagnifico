@@ -11,9 +11,9 @@ import it.polimi.ingsw.pc15.player.Player;
 public class CopiaEffettoLeader extends Effetto /*implements EffettoAScelta*/ {
 
 	/**
-	 * Metodo che permette l'attivazione dell'effetto.
+	 * Metodo che permette di copiare l'effetto di un altro leader.
 	 * 
-	 * @param player u cui deve essere attivato l'effetto.
+	 * @param player su cui deve essere attivato l'effetto.
 	 */
 	
 	

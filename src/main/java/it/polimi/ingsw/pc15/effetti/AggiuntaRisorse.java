@@ -22,9 +22,10 @@ public class AggiuntaRisorse extends Effetto implements Incrementabile  {
 	}
 	
 	/**
-	 * Attiva l'effetto dell'oggetto in questione per un player.
+	 * Effetto che preso il set di risorse con cui l'oggetto è stato 
+	 * istanziato lo assegna al player
 	 * 
-	 * @param player per cui deve essere attivato l'effetto.
+	 * @param player su cui deve essere attivato l'effetto.
 	 */
 	
 	@Override

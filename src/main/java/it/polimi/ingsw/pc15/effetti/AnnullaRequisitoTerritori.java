@@ -7,9 +7,10 @@ import it.polimi.ingsw.pc15.player.Player;
 public class AnnullaRequisitoTerritori extends Effetto {
 
 	/**
-	 * Metodo che permette l'attivazione dell'effetto.
+	 * Metodo che annulla il guadagno del player in punti vittoria
+	 * dovuto alle carte territotrio.
 	 * 
-	 * @param player u cui deve essere attivato l'effetto.
+	 * @param player su cui deve essere attivato l'effetto.
 	 */
 	
 	

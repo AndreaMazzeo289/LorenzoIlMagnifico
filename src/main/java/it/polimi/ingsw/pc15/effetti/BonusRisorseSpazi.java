@@ -15,9 +15,10 @@ public class BonusRisorseSpazi extends Bonus {
 	}
 
 	/**
-	 * Metodo che permette l'attivazione dell'effetto.
+	 * Metodo che permette di aggiungere tramite effetti degli spazi
+	 * una quantità di risorse maggiore rispetto a quella stabilita.
 	 * 
-	 * @param player u cui deve essere attivato l'effetto.
+	 * @param playersu cui deve essere attivato l'effetto.
 	 */
 	
 	

@@ -15,6 +15,12 @@ public class AzioneOccupaSpazioMercato extends AzioneOccupaSpazio {
 		this.valoreAzione = familiare.getValore() + servitoriAggiuntivi;
 	}
 
+	/**
+	 * 
+	 * Metodo che permette al player di occupare lo spazio mercato ì per
+	 * usufruire dei conseguenti benefici in risorse.
+	 */
+	
 	@Override
 	public void attiva() {
 		
@@ -30,6 +36,13 @@ public class AzioneOccupaSpazioMercato extends AzioneOccupaSpazio {
 		
 	}
 
+	/**
+	 * 
+	 * Metodo che verifica la validità dell'azione occupa spazio mercato.
+	 * 
+	 * @return Il risultato della validità dell'azione con Risultato azione.
+	 */
+	
 	@Override
 	public RisultatoAzione èValida() {
 		
