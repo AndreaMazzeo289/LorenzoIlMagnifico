@@ -41,7 +41,7 @@ public class SocketView extends ServerView implements Serializable {
 		
 		 try {
 			 
-			 while(true) {
+			 while(true) {  //NOSONAR
 				ArrayList<String> message;
 				message = (ArrayList<String>) inObj.readObject();
 				setChanged();

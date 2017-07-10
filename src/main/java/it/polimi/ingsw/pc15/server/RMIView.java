@@ -33,7 +33,7 @@ public class RMIView extends ServerView {
 		
 		StatoPartita statoPartita = null;
 		
-		while(true) {
+		while(true) { //NOSONAR
 			
 			try {
 				statoPartita = aggiornamenti.take();
