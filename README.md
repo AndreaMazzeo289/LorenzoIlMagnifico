@@ -1,7 +1,6 @@
 # Lorenzo il magnifico -- Prova Finale (Ingegneria del Software)
----
+
 ## Gruppo pc15
----
 
 ### Membri del gruppo:
 - __Andrea Mazzeo__:
@@ -22,6 +21,8 @@
   * __Username GitHub__: FrancescoGuzzo
   * __Email__: 
  
+---
+
 ### Funzionalità del progetto implementate:
 - Regole semplificate;
 - Regole complete;
@@ -29,3 +30,4 @@
 - Graphical User Interface;
 - Socket;
 - Remote Method Invocation.
+
