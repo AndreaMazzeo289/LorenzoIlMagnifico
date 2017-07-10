@@ -27,6 +27,14 @@ public class AzionePrendiCartaImpresa extends AzionePrendiCarta {
 		this.costoPuntiMilitari.aggiungi(new PuntiMilitari(((Impresa) carta).getCostoPuntiMilitari()));
 	}
 
+	
+	/**
+	 * Verifica la validità dell' azione prendi carta impresa.
+	 * 
+	 * @return il risultato dell'azione.
+	 */
+	
+	
 	@Override
 	public RisultatoAzione èValida() {
 		
@@ -43,6 +51,15 @@ public class AzionePrendiCartaImpresa extends AzionePrendiCarta {
 		return new RisultatoAzione(true, player.getNome() + " prende la carta Impresa " + carta.getNome()+"!");
 	}
 
+	
+	/**
+	 * 
+	 * Metodo che attiva l'azione prendi carta impresa chiamando la funzione paga costo
+	 * scelto uno tra i due tipi di pagamento effettuabili.
+	 * 
+	 */
+	
+	
 	@Override
 	public void attiva() {
 		
@@ -55,6 +72,13 @@ public class AzionePrendiCartaImpresa extends AzionePrendiCarta {
 		attivaEffettoIstantaneo();
 		
 	}
+	
+	/**
+	 * Verifica se il player abbia una quantità sufficiente di punti militari 
+	 * per acquistare la carta.
+	 * 
+	 * @return true o false in base alla disponibilità in punti militari del player.
+	 */
 	
 	public boolean puntiMilitariSufficienti() {
 		

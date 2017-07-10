@@ -11,6 +11,12 @@ public class AzionePrendiCartaEdificio extends AzionePrendiCarta {
 		super(player, carta);
 	}
 	
+	/**
+	 * Verifica la validità dell' azione prendi carta edificio.
+	 * 
+	 * @return il risultato dell'azione.
+	 */
+	
 	@Override
 	public RisultatoAzione èValida() {
 		

@@ -16,6 +16,12 @@ public class AzioneOccupaSpazioProduzione extends AzioneOccupaSpazio {
 		this.valoreAzione = familiare.getValore() + servitoriAggiuntivi + player.getEffettiAttivi().getBonusProduzione();
 	}
 
+	/**
+	 * 
+	 * Metodo che permette al player di occupare lo spazio produzione
+	 * ed iniziare l'attività  in base al valore del familiare posizionato.
+	 */
+	
 	@Override
 	public void attiva() {
 		
@@ -28,6 +34,13 @@ public class AzioneOccupaSpazioProduzione extends AzioneOccupaSpazio {
 		effetto.attiva(familiare.getPlayer());
 	}
 
+	/**
+	 * 
+	 * Metodo che verifica la validità dell'azione occupa spazio produzione.
+	 * 
+	 * @return Il risultato della validità dell'azione con Risultato azione.
+	 */
+	
 	@Override
 	public RisultatoAzione èValida() {
 		

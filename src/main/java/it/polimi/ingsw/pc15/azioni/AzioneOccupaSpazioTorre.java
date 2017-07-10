@@ -28,6 +28,12 @@ public class AzioneOccupaSpazioTorre extends AzioneOccupaSpazio {
 		}
 	}
 
+	
+	/**
+	 * 
+	 * Metodo che permette al player di posizionare il familiare in uno spazio di una determinata torre.
+	 */
+	
 	@Override
 	public void attiva() {
 		
@@ -44,6 +50,14 @@ public class AzioneOccupaSpazioTorre extends AzioneOccupaSpazio {
 		((SpazioTorre) spazio).getTorre().setOccupata(true);
 	}
 
+	/**
+	 * 
+	 * Metodo che verifica le condizioni di contorno all'azione occupa spazio torre 
+	 * per verificarne la sua validità.
+	 * 
+	 * @return Il risultato della validità dell'azione con Risultato azione.
+	 */
+	
 	@Override
 	public RisultatoAzione èValida() {
 		
@@ -65,6 +79,13 @@ public class AzioneOccupaSpazioTorre extends AzioneOccupaSpazio {
 		return this.azionePrendiCarta.èValida();
 	}
 	
+	
+	/**
+	 * Metodo atto a controllare se negli spazi della torre in cui si sta posizionando
+	 * vi sono altri familiari.
+	 * 
+	 * @return un booleano true o false dipendentemente dalla presenza di familiari nella torre.
+	 */
 	public boolean controlloFamiliariTorre() {
 		
 		for (SpazioTorre spazioTorre : ((SpazioTorre) spazio).getTorre().getSpaziTorre())
