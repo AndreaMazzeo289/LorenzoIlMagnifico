@@ -55,7 +55,7 @@ public class SocketView extends ServerView implements Serializable {
 					setChanged();
 					notifyObservers(new ArrayList<String>(Arrays.asList("CONNESSIONE CHIUSA")));
 				} catch (IOException e1) {
-					e1.printStackTrace();
+					e1.printStackTrace();  //NOSONAR
 				}
 		}
 	}
