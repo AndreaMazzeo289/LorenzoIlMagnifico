@@ -32,11 +32,13 @@
 - Remote Method Invocation.
 
 ### Istruzioni per lanciare l'applicazione:
-- Avviare il server
-- Avviare i ClientMain
+- Avviare per prima cosa Server.java contenuto nella cartella Server;
+- Avviare per ogni giocatore ClientMain.java contenuto in Client;
+- Dopo i primi due giocatori entrati in partita si avvierà un timer di 30s;
+- Se si collegano quattro giocatori la partita comincerà immediatamente.
 
 ---
 
 ## UML del progetto:
-![Alt text](/UML/LorenzoIlMagnificoUML.png?raw=true "Optional Title")
+![Alt text](/UML/LorenzoIlMagnificoUML.png?raw=true "UML diagram")
 
