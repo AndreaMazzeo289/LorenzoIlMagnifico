@@ -404,7 +404,7 @@ public class GUI extends ClientView{
 	 * verificare il rapporto con il vaticano 
 	 */
 	public void inviaMessaggio() {
-		if (this.clientModel.getTurno()==ParserXML.leggiValore("numeroTurniPerPeriodo") && this.clientModel.getAzione()==1)
+		if (this.clientModel.getTurno()==ParserXML.leggiValore("numeroTurniPerPeriodo") && this.clientModel.getAzione()==ParserXML.leggiValore("numeroAzioniPerTurno"))
 			if (this.clientModel.getStatoGiocatore().getSetRisorse().getRisorsa(TipoRisorsa.PUNTIFEDE).getQuantità() <= ParserXML.leggiValore("puntiFedePeriodo" + String.valueOf(this.clientModel.getPeriodo())))
 				 frameRapportoVaticano = new FrameRapportoVaticano(listener);
 			else {

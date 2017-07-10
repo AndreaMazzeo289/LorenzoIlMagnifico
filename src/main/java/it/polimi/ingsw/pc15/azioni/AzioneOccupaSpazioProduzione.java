@@ -39,7 +39,7 @@ public class AzioneOccupaSpazioProduzione extends AzioneOccupaSpazio {
 		
 		for (Familiare familiare : spazio.getFamiliari())
 			if (familiare.getPlayer().equals(player) && !(familiare.getColore().equals(ColoreFamiliare.NEUTRO) || this.familiare.getColore().equals(ColoreFamiliare.NEUTRO)))
-				return new RisultatoAzione(false, "FRASE");
+				return new RisultatoAzione(false, player.getNome() + " vuole posizionare un familiare nello spazio Produzione, ma non ne può aggiungere altri");
 		
 		if (spazio.vuoto()==false && player.getEffettiAttivi().controllaPermessoSpaziOccupati()==false)
 			valoreAzione -= 3;

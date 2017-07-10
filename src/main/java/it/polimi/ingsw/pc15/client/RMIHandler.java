@@ -28,12 +28,11 @@ public class RMIHandler extends NetworkHandler implements RMIHandlerInterface {
 	@Override
 	public void connetti() {
 		
-		System.out.println("RMIHandler: tentativo di connessione...");
-		
 		try {
 			this.server = (ServerInterface) Naming.lookup("//localhost/Server");
 			RMIHandlerInterface remoteRef = (RMIHandlerInterface) UnicastRemoteObject.exportObject(this, 0);
 			this.numeroConnessione = server.remoteConnetti(remoteRef);
+			System.out.println("Connessione al server riuscita! In attesa di altri giocatori\n");
 
 		} catch (MalformedURLException | RemoteException | NotBoundException e) {
 			e.printStackTrace();  // NOSONAR
@@ -43,7 +42,6 @@ public class RMIHandler extends NetworkHandler implements RMIHandlerInterface {
 
 	@Override
 	public void update(Observable o, Object input) {
-		//System.out.println("\nSono il RMIHandler e ho ricevuto " + (ArrayList<String>) input);
 		try {
 			this.server.remoteNotify(input, numeroConnessione);
 		} catch (RemoteException e) {

@@ -22,13 +22,13 @@ public class AzioneAttivaEffettoLeader extends AzioneLeader {
 	public RisultatoAzione èValida() {
 		
 		if (leader.giocato() == false) {
-			return new RisultatoAzione(false, " vuole attivare l'effetto di " + leader.getNome() + " ma deve prima giocare tale carta!");
+			return new RisultatoAzione(false, player.getNome() + " vuole attivare l'effetto di " + leader.getNome() + " ma deve prima giocare tale carta!");
 		}
 		
 		if (leader.effettoGiàAttivato()) {
-			return new RisultatoAzione(false, " vuole attivare l'effetto di " + leader.getNome() + " ma lo ha già attivato questo turno!");		}
+			return new RisultatoAzione(false, player.getNome() + " vuole attivare l'effetto di " + leader.getNome() + " ma lo ha già attivato questo turno!");		}
 		
-		return new RisultatoAzione(true, " attiva l'effetto di " + leader.getNome() + "!");
+		return new RisultatoAzione(true, player.getNome() + " attiva l'effetto di " + leader.getNome() + "!");
 	}
 
 }

@@ -386,7 +386,7 @@ public class CLI extends ClientView {
 				
 			}
 			
-			if (this.clientModel.getTurno()==ParserXML.leggiValore("numeroTurniPerPeriodo") && this.clientModel.getAzione()==1 && hasChanged()) {
+			if (this.clientModel.getTurno()==ParserXML.leggiValore("numeroTurniPerPeriodo") && this.clientModel.getAzione()== ParserXML.leggiValore("numeroAzioniPerTurno") && hasChanged()) {
 				if (this.clientModel.getStatoGiocatore().getSetRisorse().getRisorsa(TipoRisorsa.PUNTIFEDE).getQuantità() <= ParserXML.leggiValore("puntiFedePeriodo" + String.valueOf(this.clientModel.getPeriodo()))) {
 					System.out.println("\n  --- SOSTEGNO ALLA CHIESA ---\nVuoi pagare i tuoi Punti Fede (1) o subire la scomunica della Chiesa? (2)");
 					message.add(String.valueOf(input.nextInt()));

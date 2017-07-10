@@ -161,6 +161,9 @@
     <nomeValore nome="numeroCarteLeader">
         <valore>4</valore>
     </nomeValore>
+    <nomeValore nome="numeroAzioniPerTurno">
+        <valore>2</valore>
+    </nomeValore>
     <nomeValore nome="numeroTurniPerPeriodo">
         <valore>2</valore>
     </nomeValore>
@@ -168,10 +171,10 @@
         <valore>3</valore>
     </nomeValore>
     <nomeValore nome="numeroMinGiocatori">
-        <valore>2</valore>
+        <valore>4</valore>
     </nomeValore>
     <nomeValore nome="numeroMaxGiocatori">
-        <valore>3</valore>
+        <valore>5</valore>
     </nomeValore>
     <nomeValore nome="durataTimerServer">
         <valore>3</valore>

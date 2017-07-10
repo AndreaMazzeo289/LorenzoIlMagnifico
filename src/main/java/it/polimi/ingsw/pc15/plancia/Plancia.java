@@ -82,16 +82,19 @@ public class Plancia implements Serializable {
 		
 		switch (numeroGiocatori) {
 			
-		case 1:
-		case 4: SpazioMercato spazioMercato4 = new SpazioMercato(valoreMinMercato, ParserXML.leggiSetRisorseSpazio("mercato4"));
-				spaziMercato.add(spazioMercato4);
-		case 3: SpazioMercato spazioMercato3 = new SpazioMercato(valoreMinMercato, ParserXML.leggiSetRisorseSpazio("mercato3"));
-				spaziMercato.add(spazioMercato3);
-		case 2: SpazioMercato spazioMercato2 = new SpazioMercato(valoreMinMercato, ParserXML.leggiSetRisorseSpazio("mercato2"));
-				SpazioMercato spazioMercato1 = new SpazioMercato(valoreMinMercato, ParserXML.leggiSetRisorseSpazio("mercato1"));
-				spaziMercato.add(spazioMercato2);
-				spaziMercato.add(spazioMercato1);
+		case 2: spaziMercato.add(new SpazioMercato(valoreMinMercato, ParserXML.leggiSetRisorseSpazio("mercato1")));
+				spaziMercato.add(new SpazioMercato(valoreMinMercato, ParserXML.leggiSetRisorseSpazio("mercato2")));
 				break;
+		case 3: spaziMercato.add(new SpazioMercato(valoreMinMercato, ParserXML.leggiSetRisorseSpazio("mercato1")));
+				spaziMercato.add(new SpazioMercato(valoreMinMercato, ParserXML.leggiSetRisorseSpazio("mercato2")));
+				spaziMercato.add(new SpazioMercato(valoreMinMercato, ParserXML.leggiSetRisorseSpazio("mercato3")));
+				break;
+		case 4: spaziMercato.add(new SpazioMercato(valoreMinMercato, ParserXML.leggiSetRisorseSpazio("mercato1")));
+				spaziMercato.add(new SpazioMercato(valoreMinMercato, ParserXML.leggiSetRisorseSpazio("mercato2")));
+				spaziMercato.add(new SpazioMercato(valoreMinMercato, ParserXML.leggiSetRisorseSpazio("mercato3")));
+				spaziMercato.add(new SpazioMercato(valoreMinMercato, ParserXML.leggiSetRisorseSpazio("mercato4")));
+				break;
+			
 		}
 		
 		

@@ -162,12 +162,10 @@ public class Model extends Observable {
 
 	public void iniziaNuovoTurno() {
 		
-		this.messaggio += "\n  - E' iniziato un nuovo turno! (Periodo: " + this.periodo + "  Turno: " + this.turno + ")";
+		messaggio += "\n  - E' iniziato un nuovo turno! (Periodo: " + this.periodo + "  Turno: " + this.turno + ")";
 		
 		impostaOrdineGiocatori();
-		
-		System.out.println("Ordine giocatori: " + ordine);
-		
+				
 		plancia.libera();
 		
 		plancia.setCarte(periodo, carteTerritorio, cartePersonaggio, carteEdificio, carteImpresa);
@@ -205,7 +203,7 @@ public class Model extends Observable {
 		
 		if (ordine.lastIndexOf(giocatoreCorrente)==ordine.size()-1) {
 			azione++;
-			if (azione==2)  {
+			if (azione==(ParserXML.leggiValore("numeroAzioniPerTurno")+1))  {
 				azione=1;
 				finisciTurno();	
 			}

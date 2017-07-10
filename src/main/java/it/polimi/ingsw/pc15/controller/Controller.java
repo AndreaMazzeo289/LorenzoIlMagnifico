@@ -148,7 +148,7 @@ public class Controller extends Observable implements Observer {
 			if (risultatoAzione.getRisultato()==true) {
 				azioneGiocatore.attiva();
 				int turno = model.getTurno();
-				if (turno==ParserXML.leggiValore("numeroTurniPerPeriodo") && model.getAzione()==1)
+				if (turno==ParserXML.leggiValore("numeroTurniPerPeriodo") && model.getAzione()== ParserXML.leggiValore("numeroAzioniPerTurno"))
 					model.getRapportoInVaticano().registraSceltaGiocatore(model.getPlayer(nomeGiocatore), Integer.valueOf(input.get(input.size()-1)));
 				if (azioneGiocatore instanceof AzioneOccupaSpazio)
 					model.giocatoreSuccessivo();

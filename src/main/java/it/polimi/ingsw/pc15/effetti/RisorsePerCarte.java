@@ -21,7 +21,6 @@ public class RisorsePerCarte extends Moltiplicazione {
 	 * @param player u cui deve essere attivato l'effetto.
 	 */
 	
-	
 	@Override
 	public void attiva(Player player) {
 		for (int i=0; i<player.getCarte(tipoCarta).size()/quantità; i++)

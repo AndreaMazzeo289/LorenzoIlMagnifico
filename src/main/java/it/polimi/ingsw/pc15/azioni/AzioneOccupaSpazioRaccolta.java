@@ -40,7 +40,7 @@ public class AzioneOccupaSpazioRaccolta extends AzioneOccupaSpazio {
 		
 		for (Familiare familiare : spazio.getFamiliari())
 			if (familiare.getPlayer().equals(player) && !(familiare.getColore().equals(ColoreFamiliare.NEUTRO) || this.familiare.getColore().equals(ColoreFamiliare.NEUTRO)))
-				return new RisultatoAzione(false, " non puoi posizionare altri familiari in questo spazio");
+				return new RisultatoAzione(false, player.getNome() + " vuole posizionare un familiare nello spazio Raccolta, ma non ne può aggiungere altri");
 		
 		if (spazio.vuoto()==false && player.getEffettiAttivi().controllaPermessoSpaziOccupati()==false)
 			valoreAzione -= 3;
