@@ -340,7 +340,7 @@ public class GUI extends ClientView{
 		
 		// Leader
 		//---------------------------//
-		for (int j=0; i<4; i++) 
+		for (int j=0; j<4; j++) 
 		{
 			if (this.clientModel.getStatoGiocatore().getCarteLeader().get(j).giocato())
 				playerboard.getCartaLeader(j).scriviLabel("GIOCATO");
@@ -350,7 +350,6 @@ public class GUI extends ClientView{
 				playerboard.getCartaLeader(this.clientModel.getStatoGiocatore().getCarteLeader().size()).scriviLabel("SCARTATO");
 				playerboard.getCartaLeader(this.clientModel.getStatoGiocatore().getCarteLeader().size()).modificaImmagineCarta("img/Leaders/leaders_b_c_00.jpg");
 			}
-				
 		}
 	}
 
