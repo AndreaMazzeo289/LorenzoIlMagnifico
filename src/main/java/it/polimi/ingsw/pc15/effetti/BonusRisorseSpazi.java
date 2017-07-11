@@ -4,7 +4,14 @@ import java.io.Serializable;
 
 import it.polimi.ingsw.pc15.player.Player;
 import it.polimi.ingsw.pc15.risorse.TipoRisorsa;
-
+/**
+ * descr
+ * 
+ * @author AndreaMazzeo289
+ * @author AndreaMaffe
+ * @author FrancescoGuzzo
+ *
+ */
 public class BonusRisorseSpazi extends Bonus {
 	
 	private TipoRisorsa risorsa;

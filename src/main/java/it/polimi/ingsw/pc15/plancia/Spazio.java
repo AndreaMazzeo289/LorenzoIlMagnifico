@@ -7,8 +7,14 @@ import java.util.Queue;
 import it.polimi.ingsw.pc15.player.Familiare;
 
 /**
- * Superclasse astratta di tutti gli spazi presenti nella plancia 
+ * Spazio astratto superclasse degli spazi nel gioco.
+ * 
+ * @author AndreaMazzeo289
+ * @author AndreaMaffe
+ * @author FrancescoGuzzo
+ *
  */
+
 
 public abstract class Spazio implements Serializable {
 	

@@ -4,7 +4,12 @@ import java.io.Serializable;
 
 
 /**
- * Classe Legna sottoclasse di Risorsa.
+ * Sottoclasse di risorsa definisce l'oggetto legna.
+ * 
+ * @author AndreaMazzeo289
+ * @author AndreaMaffe
+ * @author FrancescoGuzzo
+ *
  */
 
 

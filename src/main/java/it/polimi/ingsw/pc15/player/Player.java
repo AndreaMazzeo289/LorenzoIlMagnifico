@@ -21,7 +21,12 @@ import it.polimi.ingsw.pc15.risorse.SetRisorse;
 /**
  * Classe che inizializza il player con un suo set risorse, i suoi familiari,
  * i suoi effetti attivi e leader.
- * QUesti vengono definiti non appena la partita viene creata.
+ * Questi vengono definiti non appena la partita viene creata.
+ * 
+ * @author AndreaMazzeo289
+ * @author AndreaMaffe
+ * @author FrancescoGuzzo
+ *
  */
 
 public class Player implements Serializable {

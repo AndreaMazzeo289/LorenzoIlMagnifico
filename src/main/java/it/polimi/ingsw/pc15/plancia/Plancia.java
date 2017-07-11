@@ -21,8 +21,15 @@ import it.polimi.ingsw.pc15.risorse.SetRisorse;
 import it.polimi.ingsw.pc15.risorse.TipoRisorsa;
 
 /**
- * Classe che inizializza la plancia di gioco con i relativi spazi, e le tessere scomunica della partita.
+ * Plancia di gioco che su chiamata del model setta le carte negli spazi torre 
+ * ogni volta che è necessario e libera il terreno dai familiari a fine turno.
+ * 
+ * @author AndreaMazzeo289
+ * @author AndreaMaffe
+ * @author FrancescoGuzzo
+ *
  */
+
 
 public class Plancia implements Serializable {
 	

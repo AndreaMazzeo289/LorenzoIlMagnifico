@@ -1,7 +1,14 @@
 package it.polimi.ingsw.pc15.effetti;
 
 import it.polimi.ingsw.pc15.player.Player;
-
+/**
+ * descr
+ * 
+ * @author AndreaMazzeo289
+ * @author AndreaMaffe
+ * @author FrancescoGuzzo
+ *
+ */
 public class AumentaPrezzoServitori extends Effetto {
 
 

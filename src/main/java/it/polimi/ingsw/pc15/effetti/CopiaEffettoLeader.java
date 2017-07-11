@@ -7,7 +7,14 @@ import java.util.Scanner;
 import it.polimi.ingsw.pc15.player.Leader;
 import it.polimi.ingsw.pc15.player.Player;
 
-
+/**
+ * descr
+ * 
+ * @author AndreaMazzeo289
+ * @author AndreaMaffe
+ * @author FrancescoGuzzo
+ *
+ */
 public class CopiaEffettoLeader extends Effetto /*implements EffettoAScelta*/ {
 
 	/**

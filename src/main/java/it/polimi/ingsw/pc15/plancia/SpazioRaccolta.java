@@ -2,9 +2,14 @@ package it.polimi.ingsw.pc15.plancia;
 
 
 /**
- * Sottoclasse di spazio che definisce lo spazio raccolta instanzione l'oggetto
- * con il relativo valore minimo di posizionamento.
+ * Definisce lo spazio raccolta sottoclasse di spazio.
+ * 
+ * @author AndreaMazzeo289
+ * @author AndreaMaffe
+ * @author FrancescoGuzzo
+ *
  */
+
 
 
 public class SpazioRaccolta extends Spazio {

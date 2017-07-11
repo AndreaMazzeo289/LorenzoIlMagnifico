@@ -2,7 +2,14 @@ package it.polimi.ingsw.pc15.effetti;
 
 import it.polimi.ingsw.pc15.carte.TipoCarta;
 import it.polimi.ingsw.pc15.risorse.SetRisorse;
-
+/**
+ * descr
+ * 
+ * @author AndreaMazzeo289
+ * @author AndreaMaffe
+ * @author FrancescoGuzzo
+ *
+ */
 public class AzionePrendiCartaAggiuntivaConSconto extends AzionePrendiCartaAggiuntiva {
 	
 	private SetRisorse sconto;

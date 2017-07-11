@@ -5,7 +5,14 @@ import java.io.Serializable;
 import it.polimi.ingsw.pc15.carte.TipoCarta;
 import it.polimi.ingsw.pc15.player.Player;
 import it.polimi.ingsw.pc15.risorse.SetRisorse;
-
+/**
+ * descr
+ * 
+ * @author AndreaMazzeo289
+ * @author AndreaMaffe
+ * @author FrancescoGuzzo
+ *
+ */
 public class AzionePrendiCartaAggiuntiva extends Effetto {
 	
 	protected TipoCarta tipoCarta;

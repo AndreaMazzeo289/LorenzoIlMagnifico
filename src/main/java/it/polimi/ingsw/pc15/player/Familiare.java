@@ -4,8 +4,14 @@ import java.io.Serializable;
 
 import it.polimi.ingsw.pc15.risorse.TipoRisorsa;
 
+
 /**
  * Classe che definisce il familiare.
+ * 
+ * @author AndreaMazzeo289
+ * @author AndreaMaffe
+ * @author FrancescoGuzzo
+ *
  */
 
 public class Familiare implements Serializable{

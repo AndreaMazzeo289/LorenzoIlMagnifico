@@ -5,7 +5,15 @@ import java.io.Serializable;
 import it.polimi.ingsw.pc15.player.Player;
 import it.polimi.ingsw.pc15.risorse.SetRisorse;
 import it.polimi.ingsw.pc15.risorse.TipoRisorsa;
-
+/**
+ * Sottoclasse di effetto che aggiunge un tipo di risorsa in base alla quantità
+ * di un tipo risorsa posseduta.
+ * 
+ * @author AndreaMazzeo289
+ * @author AndreaMaffe
+ * @author FrancescoGuzzo
+ *
+ */
 public class RisorsePerRisorse extends Moltiplicazione {
 	
 	private TipoRisorsa tipoRisorsa;

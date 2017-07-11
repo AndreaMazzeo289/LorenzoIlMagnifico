@@ -9,9 +9,14 @@ import it.polimi.ingsw.pc15.carte.Carta;
 import it.polimi.ingsw.pc15.risorse.SetRisorse;
 
 /**
- * Classe che definisce un oggetto torre della plancia.
- * Nel suo costruttore la torre inizializza anche i relativi spazi torre.
+ * Torre della plancia che inizialiazza nel costruttore i relativi spazi.
+ * 
+ * @author AndreaMazzeo289
+ * @author AndreaMaffe
+ * @author FrancescoGuzzo
+ *
  */
+
 
 public class Torre implements Serializable {
 	

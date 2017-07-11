@@ -6,10 +6,15 @@ import java.util.HashSet;
 import java.util.Iterator;
 import java.util.Map;
 
+
 /**
  * Classe etRisorse inizializza i set risorse a partire da un HashSet(Risorsa)
  * composto dai vari oggetti sottoclasse di Risorsa.
  * 
+ * @author AndreaMazzeo289
+ * @author AndreaMaffe
+ * @author FrancescoGuzzo
+ *
  */
 
 public class SetRisorse implements Serializable {  

@@ -3,7 +3,12 @@ package it.polimi.ingsw.pc15.risorse;
 import java.io.Serializable;
 
 /**
- * Classe Pietra sottoclasse di Risorsa.
+ * Sottoclasse di risorsa definisce l'oggetto pietra.
+ * 
+ * @author AndreaMazzeo289
+ * @author AndreaMaffe
+ * @author FrancescoGuzzo
+ *
  */
 
 public class Pietra extends Risorsa  {

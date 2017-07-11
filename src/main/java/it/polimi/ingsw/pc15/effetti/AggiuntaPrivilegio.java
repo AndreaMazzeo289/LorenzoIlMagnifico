@@ -8,6 +8,16 @@ import it.polimi.ingsw.pc15.risorse.PuntiFede;
 import it.polimi.ingsw.pc15.risorse.PuntiMilitari;
 import it.polimi.ingsw.pc15.risorse.Servitori;
 
+
+/**
+ * descr
+ * 
+ * @author AndreaMazzeo289
+ * @author AndreaMaffe
+ * @author FrancescoGuzzo
+ *
+ */
+
 public class AggiuntaPrivilegio extends Effetto{
 	
 	public AggiuntaPrivilegio(int scelta) {

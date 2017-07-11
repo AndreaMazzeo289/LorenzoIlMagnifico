@@ -4,6 +4,16 @@ import java.io.Serializable;
 
 import it.polimi.ingsw.pc15.risorse.SetRisorse;
 
+/**
+ * CLasse tessera bonus del player che definisce le risorse da guadagnare
+ * occupando uno spazio produzione o raccolta.
+ * 
+ * @author AndreaMazzeo289
+ * @author AndreaMaffe
+ * @author FrancescoGuzzo
+ *
+ */
+
 public class TesseraBonus implements Serializable {
 	
 	private SetRisorse risorseBonusRaccolta;

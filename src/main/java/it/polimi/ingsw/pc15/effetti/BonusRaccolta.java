@@ -3,7 +3,14 @@ package it.polimi.ingsw.pc15.effetti;
 import java.io.Serializable;
 
 import it.polimi.ingsw.pc15.player.Player;
-
+/**
+ * descr
+ * 
+ * @author AndreaMazzeo289
+ * @author AndreaMaffe
+ * @author FrancescoGuzzo
+ *
+ */
 public class BonusRaccolta extends Bonus {
 	
 	public BonusRaccolta(int valore){

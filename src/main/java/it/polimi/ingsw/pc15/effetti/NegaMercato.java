@@ -3,7 +3,15 @@ package it.polimi.ingsw.pc15.effetti;
 import java.io.Serializable;
 
 import it.polimi.ingsw.pc15.player.Player;
-
+/**
+ * Sottoclasse di effetto che nega al player la possibilità
+ * di accedere al mercato.
+ * 
+ * @author AndreaMazzeo289
+ * @author AndreaMaffe
+ * @author FrancescoGuzzo
+ *
+ */
 public class NegaMercato extends Effetto {
 
 	/**

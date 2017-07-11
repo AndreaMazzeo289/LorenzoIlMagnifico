@@ -12,6 +12,11 @@ import it.polimi.ingsw.pc15.risorse.TipoRisorsa;
 /**
  * Classe contenente tutti i bonus associabili al player durante la partita
  * per effetti di carte, scomuniche e leader. 
+ * 
+ * @author AndreaMazzeo289
+ * @author AndreaMaffe
+ * @author FrancescoGuzzo
+ *
  */
 
 public class EffettiAttivi implements Serializable{
