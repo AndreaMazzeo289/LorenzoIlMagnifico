@@ -4,7 +4,8 @@ import java.io.Serializable;
 
 import it.polimi.ingsw.pc15.player.Player;
 /**
- * descr
+ * Sottoclasse di effetto che permette al player di non 
+ * pagare il sovrapprezzo di 3 oro per posizionare il familiare in una torre già occupata.
  * 
  * @author AndreaMazzeo289
  * @author AndreaMaffe

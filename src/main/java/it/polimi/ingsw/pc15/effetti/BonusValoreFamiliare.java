@@ -5,7 +5,7 @@ import java.io.Serializable;
 import it.polimi.ingsw.pc15.player.ColoreFamiliare;
 import it.polimi.ingsw.pc15.player.Player;
 /**
- * descr
+ * Sottoclasse di effetto che modifica il valore del familiare.
  * 
  * @author AndreaMazzeo289
  * @author AndreaMaffe

@@ -4,7 +4,8 @@ import java.io.Serializable;
 
 import it.polimi.ingsw.pc15.player.Player;
 /**
- * descr
+ * Sottoclasse di effetto permette di guadagnare punti vittoria 
+ * rinunciando ai propri punti fede.
  * 
  * @author AndreaMazzeo289
  * @author AndreaMaffe

@@ -4,7 +4,8 @@ import java.io.Serializable;
 
 import it.polimi.ingsw.pc15.player.Player;
 /**
- * descr
+ * Sottoclasse di effetto che aggiunge un valore bonus 
+ * al familiare per effettuare azione produzione.
  * 
  * @author AndreaMazzeo289
  * @author AndreaMaffe

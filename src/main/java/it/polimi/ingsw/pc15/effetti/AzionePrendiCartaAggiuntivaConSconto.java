@@ -3,7 +3,8 @@ package it.polimi.ingsw.pc15.effetti;
 import it.polimi.ingsw.pc15.carte.TipoCarta;
 import it.polimi.ingsw.pc15.risorse.SetRisorse;
 /**
- * descr
+ * Sottoclasse di effetto che permette di prendere una carta aggiuntiva 
+ * con sconto applicato sulla plancia.
  * 
  * @author AndreaMazzeo289
  * @author AndreaMaffe

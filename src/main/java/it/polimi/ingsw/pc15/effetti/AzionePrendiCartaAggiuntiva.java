@@ -6,7 +6,7 @@ import it.polimi.ingsw.pc15.carte.TipoCarta;
 import it.polimi.ingsw.pc15.player.Player;
 import it.polimi.ingsw.pc15.risorse.SetRisorse;
 /**
- * descr
+ * Sottoclasse di effetto che permette di prendere una carta aggiuntiva sulla plancia.
  * 
  * @author AndreaMazzeo289
  * @author AndreaMaffe

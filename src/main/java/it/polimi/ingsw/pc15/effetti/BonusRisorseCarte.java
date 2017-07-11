@@ -5,7 +5,8 @@ import java.io.Serializable;
 import it.polimi.ingsw.pc15.player.Player;
 import it.polimi.ingsw.pc15.risorse.TipoRisorsa;
 /**
- * descr
+ * Sottoclasse di effetto che permette di aggiungere tramite effetti delle carte
+ * una quantità di risorse maggiore rispetto a quella stabilita.
  * 
  * @author AndreaMazzeo289
  * @author AndreaMaffe
