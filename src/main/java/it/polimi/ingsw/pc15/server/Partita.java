@@ -7,6 +7,16 @@ import java.util.Map;
 import it.polimi.ingsw.pc15.controller.Controller;
 import it.polimi.ingsw.pc15.model.Model;
 
+
+/**
+ * Classe usata dal server per tenere traccia di ogni singola partita. Contiene un model, un controller
+ * e le view dei relativi giocatori
+ * @author AndreaMazzeo289
+ * @author AndreaMaffe
+ * @author FrancescoGuzzo
+ *
+ */
+
 public class Partita {
 	
 	private HashMap<String, ServerView> giocatori;

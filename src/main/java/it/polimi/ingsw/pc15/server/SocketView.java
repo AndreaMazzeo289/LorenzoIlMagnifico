@@ -13,6 +13,16 @@ import java.util.Scanner;
 
 import it.polimi.ingsw.pc15.model.StatoPartita;
 
+/**
+ *Sottoclasse di ServerView, specifica per la connessione tramite Socket. E' collegata
+ *tramite lo stream della Socket al SocketHandler del giocatore corrispondente
+ *
+ * @author AndreaMazzeo289
+ * @author AndreaMaffe
+ * @author FrancescoGuzzo
+ *
+ */
+
 
 public class SocketView extends ServerView implements Serializable {
 
@@ -33,6 +43,12 @@ public class SocketView extends ServerView implements Serializable {
 		this.out = new PrintStream(this.socket.getOutputStream());
 	}
 	
+	
+	/**
+	 * metodo per avviare la connessione. Riceve il nome scelto dal giocatore nell'input del
+	 * SocketStream e lo usa per connettersi al server tramite connetti(). Quindi, rimane in attesa
+	 * per messaggi ricevuti dal SocketHandler e, quando li riceve, li notifica al controller
+	 */
 	
 	public void run() {
 
@@ -73,9 +89,9 @@ public class SocketView extends ServerView implements Serializable {
 		out.println(messaggio);
 	}
 	
-	public String getName() {
-		return this.name;
-	}
+	/**
+	 * invia un oggetto nelo stram di output della Socket
+	 */
 	
 	public synchronized void sendObj(Object obj) {	
 		
@@ -84,7 +100,9 @@ public class SocketView extends ServerView implements Serializable {
 			outObj.reset();
 		} catch (IOException e) {
 		}
-
-		
+	}
+	
+	public String getName() {
+		return this.name;
 	}
 }

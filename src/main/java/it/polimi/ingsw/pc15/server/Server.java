@@ -23,6 +23,17 @@ import it.polimi.ingsw.pc15.model.Model;
 import it.polimi.ingsw.pc15.model.StatoPartita;
 import it.polimi.ingsw.pc15.player.Player;
 
+
+/**
+ * Classe del server, contiene i metodi remoti per la connessione tramite RMI
+ * e i metodi per la connessione tramite Socket. Mantiene il riferimento a tutte 
+ * le partite avviate
+ * @author AndreaMazzeo289
+ * @author AndreaMaffe
+ * @author FrancescoGuzzo
+ *
+ */
+
 public class Server extends UnicastRemoteObject implements ServerInterface {
 
 	private final static int PORT = 12879;
@@ -41,6 +52,13 @@ public class Server extends UnicastRemoteObject implements ServerInterface {
 		this.partite = new ArrayList<Partita>();
 	}
 
+	
+	/**
+	 * inizializza il registry per l'RMI, quindi rimane in ascolto
+	 * per eventuali connessioni tramite socket. Per ogni client che si 
+	 * connette tramite Socket, crea una SocketView e la registra tramite
+	 * connetti()
+	 */
 
 	public void run() throws InterruptedException {
 		
@@ -81,6 +99,17 @@ public class Server extends UnicastRemoteObject implements ServerInterface {
 		//////////////////////////////////////////////////////////////////
 			
 	}
+	
+	
+	/**
+	 * aggiunge la view passata come parametro all'HashMap di views. Se registra
+	 * che il totale di giocatore connessi è pari al numero minimo di giocatori, 
+	 * avvia il timer. Se il numero di giocatore raggiunto è il massimo, avvia 
+	 * una nuova partita
+	 * 
+	 * @param view view del giocatore da registrare
+	 * @parma name nome scelto dal giocatore
+	 */
 	
 	public synchronized void connetti(ServerView view, String name){
 		

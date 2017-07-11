@@ -27,6 +27,15 @@ import it.polimi.ingsw.pc15.player.Leader;
 import it.polimi.ingsw.pc15.player.Player;
 import it.polimi.ingsw.pc15.risorse.TipoRisorsa;
 
+/**
+ *Sottoclasse di ClientView, contiene il metodo run() che raccoglie le scelte del giocatore e le 
+ *notifica al NetworkHandler
+ *
+ * @author AndreaMazzeo289
+ * @author AndreaMaffe
+ * @author FrancescoGuzzo
+ *
+ */
 
 public class CLI extends ClientView {
 	
@@ -40,7 +49,7 @@ public class CLI extends ClientView {
 	
 	/**
 	 * Avvia la cli, che in un ciclo continuo registrerà le scelte del giocatore 
-	 * per poi notificarle al proprio networkHandler. Il ciclo si interrompe automaticamente
+	 * per poi notificarle al proprio NetworkHandler. Il ciclo si interrompe automaticamente
 	 * raggiunto il turno finale
 	 */
 	

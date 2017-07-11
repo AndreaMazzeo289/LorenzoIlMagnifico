@@ -12,6 +12,15 @@ import com.sun.javafx.scene.control.skin.NestedTableColumnHeader;
 import it.polimi.ingsw.pc15.client.RMIHandlerInterface;
 import it.polimi.ingsw.pc15.model.StatoPartita;
 
+/**
+ *Sottoclasse di ServerView, specifica per l'implementazione di RMI, contiene il riferimento
+ *allo specifico RMIHandler del giocatore, di cui invoca i metodi remoti
+ * @author AndreaMazzeo289
+ * @author AndreaMaffe
+ * @author FrancescoGuzzo
+ *
+ */
+
 public class RMIView extends ServerView {
 	
 	private RMIHandlerInterface rmiHandler;
