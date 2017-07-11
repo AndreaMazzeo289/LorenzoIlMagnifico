@@ -11,6 +11,15 @@ import it.polimi.ingsw.pc15.plancia.SpazioTorre;
 import it.polimi.ingsw.pc15.player.Player;
 import it.polimi.ingsw.pc15.risorse.SetRisorse;
 
+/** 
+ * Superclasse che definisce tutte le carte del gioco.
+ * 
+ * @author AndreaMazzeo289
+ * @author AndreaMaffe
+ * @author FrancescoGuzzo
+ *
+ */
+
 public abstract class Carta implements Serializable {
 	
 	protected final String nome;

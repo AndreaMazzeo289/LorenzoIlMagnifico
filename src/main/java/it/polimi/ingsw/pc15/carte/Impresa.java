@@ -8,6 +8,15 @@ import it.polimi.ingsw.pc15.effetti.Effetto;
 import it.polimi.ingsw.pc15.player.Player;
 import it.polimi.ingsw.pc15.risorse.SetRisorse;
 
+/**
+ * Sottoclasse di carta che definisce impresa.
+ * 
+ * @author AndreaMazzeo289
+ * @author AndreaMaffe
+ * @author FrancescoGuzzo
+ *
+ */
+
 public class Impresa extends Carta {
 	
 	private int requisitoPuntiMilitari;

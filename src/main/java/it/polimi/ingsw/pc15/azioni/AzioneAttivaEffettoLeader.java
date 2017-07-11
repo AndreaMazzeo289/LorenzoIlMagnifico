@@ -4,6 +4,15 @@ import it.polimi.ingsw.pc15.effetti.Effetto;
 import it.polimi.ingsw.pc15.player.Leader;
 import it.polimi.ingsw.pc15.player.Player;
 
+/** 
+ * Sotto classe di azione leader che permette di attivare l'effetto di leader.
+ * 
+ * @author AndreaMazzeo289
+ * @author AndreaMaffe
+ * @author FrancescoGuzzo
+ *
+ */
+
 public class AzioneAttivaEffettoLeader extends AzioneLeader {
 
 	public AzioneAttivaEffettoLeader(Player player, Leader leader) {
@@ -15,6 +24,7 @@ public class AzioneAttivaEffettoLeader extends AzioneLeader {
 	 * Metodo che permette l'attivazione dell'effetto 
 	 * periodico basato sul turno di un leader.
 	 */
+	
 	
 	@Override
 	public void attiva() {
