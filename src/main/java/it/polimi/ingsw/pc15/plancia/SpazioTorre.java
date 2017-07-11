@@ -14,8 +14,14 @@ import it.polimi.ingsw.pc15.player.Familiare;
 import it.polimi.ingsw.pc15.risorse.SetRisorse;
 
 /**
- * Sottoclasse di spazio che definisce i singoli spazi torre presente in planci.
+ * Definisce gli spazi di tutte le torri presenti in plancia sottoclasse di spazio.
+ * 
+ * @author AndreaMazzeo289
+ * @author AndreaMaffe
+ * @author FrancescoGuzzo
+ *
  */
+
 
 public class SpazioTorre extends Spazio {
 

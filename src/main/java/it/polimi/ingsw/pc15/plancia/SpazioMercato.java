@@ -6,10 +6,14 @@ import it.polimi.ingsw.pc15.effetti.Effetto;
 import it.polimi.ingsw.pc15.risorse.SetRisorse;
 
 /**
- * Classe spazio mercato sottoclasse di spazio che riceve in ingresso
- * il valore minimo di posizionamento e il set risorse con cui istanziare
- * il relativo effetto.
+ * Definisce gli spazi mercato sottoclasse di spazio.
+ * 
+ * @author AndreaMazzeo289
+ * @author AndreaMaffe
+ * @author FrancescoGuzzo
+ *
  */
+
 
 public class SpazioMercato extends Spazio  {
 	

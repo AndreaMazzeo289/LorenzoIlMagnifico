@@ -6,7 +6,15 @@ import java.util.Scanner;
 import it.polimi.ingsw.pc15.player.ColoreFamiliare;
 import it.polimi.ingsw.pc15.player.Familiare;
 import it.polimi.ingsw.pc15.player.Player;
-
+/**
+ *Sottoclasse di effetto che fissa permanentemente il valore di un familiare
+ *a scelta del player.
+ * 
+ * @author AndreaMazzeo289
+ * @author AndreaMaffe
+ * @author FrancescoGuzzo
+ *
+ */
 
 public class FissaValoreFamiliareAScelta extends FissaValoreFamiliare{
 

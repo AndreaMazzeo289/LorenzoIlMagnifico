@@ -31,6 +31,14 @@ import it.polimi.ingsw.pc15.risorse.Servitori;
 import it.polimi.ingsw.pc15.risorse.SetRisorse;
 import it.polimi.ingsw.pc15.risorse.TipoRisorsa;
 
+/**
+ * Classe generale di riferimento che contiene gli oggetti della partita.
+ *
+ * @author AndreaMazzeo289
+ * @author AndreaMaffe
+ * @author FrancescoGuzzo
+ */
+
 public class Model extends Observable {
 	
 	private int numeroGiocatori;
@@ -76,6 +84,15 @@ public class Model extends Observable {
 
 	}
 
+	
+	/**
+	 * 
+	 * Inizializza la partita generando tutte le carte, settando i turni,
+	 * distrubuendo risorse ai player in funzione dell'ordine di inizio, 
+	 * carte leader e tessere bonus.
+	 * 
+	 */
+	
 	public void iniziaPartita() {
 		
 		generaCarteSviluppo();
@@ -92,6 +109,13 @@ public class Model extends Observable {
 		
 	}
 	
+	/**
+	 *
+	 * Distibuisce le tessere bonus legate alle risorse che il player ottiene 
+	 * attivando gli spazi raccolta e produzione.
+	 * 
+	 */
+	
 	private void distribuisciTessereBonus() {
 		
 		ArrayList<TesseraBonus> tessereBonus = ParserXML.leggiTessereBonus();
@@ -101,6 +125,14 @@ public class Model extends Observable {
 			giocatori.get(i).setTesseraBonus(tessereBonus.get(i));
 	}
 
+	
+	/**
+	 * 
+	 * Distribuisce un set di risorse base al player modificandolo in base al
+	 * modo in cui sono stati settati i turni.
+	 * 
+	 */
+	
 	public void distribuisciRisorse() {
 		
 		HashSet<Risorsa> risorseGiocatore = new HashSet<Risorsa>();
@@ -121,6 +153,13 @@ public class Model extends Observable {
 		
 	}
 	
+	
+	/**
+	 * 
+	 *Distribuisce le 4 carte leader per ogni giocatore in partita. 
+	 * 
+	 */
+	
 	public void distribuisciCarteLeader() {
 		
 		carteLeader = ParserXML.leggiCartaLeader();
@@ -134,6 +173,12 @@ public class Model extends Observable {
 			}
 		}
 	}	
+	
+	/**
+	 * 
+	 * Geneta 4 collection contenenti tutte le carte sviluppo del gioco.
+	 * 
+	 */
 	
 	public void generaCarteSviluppo() {
 
@@ -149,6 +194,14 @@ public class Model extends Observable {
 		
 	}
 
+	/**
+	 * 
+	 * Inizia un nuovo turno specificando anche il periodo,
+	 * liberando plancia dai familiari, risettando le carte, 
+	 * lanciando i dadi e reimpostando l'ordine di gioco.
+	 * 
+	 */
+	
 	public void iniziaNuovoTurno() {
 		
 		messaggio += "\n  - E' iniziato un nuovo turno! (Periodo: " + this.periodo + "  Turno: " + this.turno + ")";
@@ -187,7 +240,12 @@ public class Model extends Observable {
 			iniziaNuovoTurno();
 	}
 	
-
+	/**
+	 * 
+	 * Dipendentemente dall'ordine di gioco definisce il giocatore successivo.
+	 * 
+	 */
+	
 	public void giocatoreSuccessivo() {
 		
 		if (ordine.lastIndexOf(giocatoreCorrente)==ordine.size()-1) {
@@ -201,6 +259,12 @@ public class Model extends Observable {
 		else giocatoreCorrente = ordine.get(ordine.lastIndexOf(giocatoreCorrente)+1);
 	}
 	
+	
+	/**
+	 * 
+	 *Calcola il punteggio finale della partita per ogni giocatore. 
+	 * 
+	 */
 	
 	public void calcolaPunteggio() {
 		
@@ -244,11 +308,24 @@ public class Model extends Observable {
 		
 	}
 	
+	/**
+	 * Rimuove un giocatore in base al nome dalla lista dei partecipanti alla partita.
+	 * 
+	 * @param nome del giocatore da eliminare.
+	 */
+	
 	public void rimuoviGiocatore(String name) {
 		this.giocatori.remove(getPlayer(name));
 		this.ordine.remove(name);
 		messaggio += "\n(" + name + " ha abbandonato la partita!)";
 	}
+	
+	/**
+	 * 
+	 * Metodo che imposta l'ordine dei giocatori successivamente al primo turno
+	 * del primo periodo dove l'ordine è dettato dagli indici della lista.
+	 * 
+	 */
 	
 	public void impostaOrdineGiocatori() {
 		
@@ -273,6 +350,13 @@ public class Model extends Observable {
 		}	
 	}
 	
+	/**
+	 * notifica lo stato della partita  inizializzando l'oggetto stato partita da passare
+	 * tramite una stringa che prende in ingresso e altri oggetti richiesti dal costruttore di stato partita.
+	 * 
+	 * @param messaggio con cui inizializzare l'oggetto stato del gioco.
+	 */
+	
 	public void notificaStatoPartita (String messaggio) {
 		
 		StatoPartita statoPartita = new StatoPartita(plancia, periodo, turno, azione, giocatori, giocatoreCorrente, messaggio + "\n" + this.messaggio);
@@ -280,6 +364,12 @@ public class Model extends Observable {
 		setChanged();
 		notifyObservers(statoPartita);	
 	}
+	
+	/**
+	 * 
+	 * Metodo adibito al tiro dei dadi per ogni nuovo turno.
+	 * 
+	 */
 	
 	
 	public void tiraIDadi() {

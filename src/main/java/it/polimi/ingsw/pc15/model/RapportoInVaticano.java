@@ -10,6 +10,15 @@ import it.polimi.ingsw.pc15.risorse.PuntiFede;
 import it.polimi.ingsw.pc15.risorse.PuntiVittoria;
 import it.polimi.ingsw.pc15.risorse.TipoRisorsa;
 
+/**
+ * 
+ * Classe che gestisce la fase di rapporto con il vaticano.
+ *
+ * @author AndreaMazzeo289
+ * @author AndreaMaffe
+ * @author FrancescoGuzzo
+ */
+
 public class RapportoInVaticano {
 	
 	private HashMap<Player, Boolean> giocatoriScomunicati;
@@ -22,11 +31,27 @@ public class RapportoInVaticano {
 		this.risultato = new String("");
 	}
 	
+	
+	/**
+	 * Metodo che registra la scelta del player di ricevere o meno la scomunica.
+	 * 
+	 * @param player a cui chiedere se accettare o meno la scomunica.
+	 * @param scelta del player.
+	 */
+	
 	public void registraSceltaGiocatore(Player player, int scelta) {
 		if (scelta==1) 
 			giocatoriScomunicati.put(player, false);
 		else giocatoriScomunicati.put(player, true);
 	}
+	
+	
+	/**
+	 * 
+	 * Metodo che infligge o meno la scomunica al player 
+	 * dipendentemente dalla scelta fatta a fine periodo.
+	 * 
+	 */
 	
 	public void avvia() {
 		for (Entry<Player, Boolean> giocatore : this.giocatoriScomunicati.entrySet()) {
@@ -41,6 +66,10 @@ public class RapportoInVaticano {
 			}
 		}
 	}
+	
+	/**
+	 * @return i risultati dell'azione di assegnamento scomuniche.
+	 */
 	
 	public String getRisultato() {
 		return this.risultato;

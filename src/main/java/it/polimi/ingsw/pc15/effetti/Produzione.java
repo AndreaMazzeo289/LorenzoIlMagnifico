@@ -8,7 +8,14 @@ import it.polimi.ingsw.pc15.carte.TipoCarta;
 import it.polimi.ingsw.pc15.carte.Edificio;
 import it.polimi.ingsw.pc15.carte.Territorio;
 import it.polimi.ingsw.pc15.player.Player;
-
+/**
+ * Sottoclasse di effetto che permette l'attivazione dell'effetto produzione.
+ * 
+ * @author AndreaMazzeo289
+ * @author AndreaMaffe
+ * @author FrancescoGuzzo
+ *
+ */
 public class Produzione extends Effetto {
 	
 	private int valore;

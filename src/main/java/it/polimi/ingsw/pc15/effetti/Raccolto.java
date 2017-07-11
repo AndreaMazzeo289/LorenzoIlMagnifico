@@ -7,7 +7,14 @@ import it.polimi.ingsw.pc15.carte.Carta;
 import it.polimi.ingsw.pc15.carte.TipoCarta;
 import it.polimi.ingsw.pc15.carte.Territorio;
 import it.polimi.ingsw.pc15.player.Player;
-
+/**
+ * Sottoclasse di effetto che permette l'attivazione dell'effetto raccolta.
+ * 
+ * @author AndreaMazzeo289
+ * @author AndreaMaffe
+ * @author FrancescoGuzzo
+ *
+ */
 public class Raccolto extends Effetto {
 	
 	private int valore;

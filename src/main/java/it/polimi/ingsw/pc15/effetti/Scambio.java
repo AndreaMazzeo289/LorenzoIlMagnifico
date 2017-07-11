@@ -9,6 +9,15 @@ import it.polimi.ingsw.pc15.risorse.Risorsa;
 import it.polimi.ingsw.pc15.risorse.SetRisorse;
 import it.polimi.ingsw.pc15.risorse.TipoRisorsa;
 
+/**
+ * Sottoclasse di effetto permette di effettuare uno scambio di risorse.
+ * 
+ * @author AndreaMazzeo289
+ * @author AndreaMaffe
+ * @author FrancescoGuzzo
+ *
+ */
+
 public class Scambio extends Effetto implements Incrementabile {
 	
 	private SetRisorse pagamento1;

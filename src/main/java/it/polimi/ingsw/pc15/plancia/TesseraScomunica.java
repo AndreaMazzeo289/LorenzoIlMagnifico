@@ -7,9 +7,16 @@ import it.polimi.ingsw.pc15.effetti.Effetto;
 import it.polimi.ingsw.pc15.player.Player;
 
 /**
- *Classe che definisce la tessera scomunica tramite id, periodo,
- *effetti a lei legati e path dell'immagine corrispettiva.
+ * Tessera scomunicache contiene periodo di attivazione e relativo
+ * effetto da infliggere al player nel momento in cui non siano state 
+ * soddisfatte alcune condizioni di gioco.
+ * 
+ * @author AndreaMazzeo289
+ * @author AndreaMaffe
+ * @author FrancescoGuzzo
+ *
  */
+
 
 public class TesseraScomunica implements Serializable {
 	

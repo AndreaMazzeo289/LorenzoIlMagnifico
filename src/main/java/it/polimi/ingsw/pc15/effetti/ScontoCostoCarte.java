@@ -4,6 +4,15 @@ import it.polimi.ingsw.pc15.carte.TipoCarta;
 import it.polimi.ingsw.pc15.player.Player;
 import it.polimi.ingsw.pc15.risorse.SetRisorse;
 
+/**
+ * Sottoclasse di effetto applica uno sconto all'acquisto della carta.
+ * 
+ * @author AndreaMazzeo289
+ * @author AndreaMaffe
+ * @author FrancescoGuzzo
+ *
+ */
+
 public class ScontoCostoCarte extends Effetto {
 	
 	private SetRisorse sconto;

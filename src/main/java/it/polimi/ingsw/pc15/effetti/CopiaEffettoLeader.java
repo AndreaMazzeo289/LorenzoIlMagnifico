@@ -7,7 +7,15 @@ import java.util.Scanner;
 import it.polimi.ingsw.pc15.player.Leader;
 import it.polimi.ingsw.pc15.player.Player;
 
-
+/**
+ * Sottoclasse di effetto che permette di copiare l'effetto di un leader
+ * in gioco.
+ * 
+ * @author AndreaMazzeo289
+ * @author AndreaMaffe
+ * @author FrancescoGuzzo
+ *
+ */
 public class CopiaEffettoLeader extends Effetto /*implements EffettoAScelta*/ {
 
 	/**

@@ -4,7 +4,12 @@ import java.io.Serializable;
 
 
 /**
- * Classe PuntiFede sottoclasse di Risorsa.
+ * Sottoclasse di risorsa definisce l'oggetto punti fede.
+ * 
+ * @author AndreaMazzeo289
+ * @author AndreaMaffe
+ * @author FrancescoGuzzo
+ *
  */
 
 

@@ -3,7 +3,12 @@ package it.polimi.ingsw.pc15.risorse;
 import java.io.Serializable;
 
 /**
- * Classe Servitori sottoclasse di Risorsa.
+ * Sottoclasse di risorsa definisce l'oggetto servitori.
+ * 
+ * @author AndreaMazzeo289
+ * @author AndreaMaffe
+ * @author FrancescoGuzzo
+ *
  */
 
 public class Servitori extends Risorsa  {

@@ -9,7 +9,12 @@ import it.polimi.ingsw.pc15.risorse.SetRisorse;
 import it.polimi.ingsw.pc15.risorse.TipoRisorsa;
 
 /**
- * Classe effetto che consente di aggiunger risorse al player.
+ * descr
+ * 
+ * @author AndreaMazzeo289
+ * @author AndreaMaffe
+ * @author FrancescoGuzzo
+ *
  */
 
 public class AggiuntaRisorse extends Effetto implements Incrementabile  {

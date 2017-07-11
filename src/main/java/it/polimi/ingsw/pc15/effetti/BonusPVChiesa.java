@@ -3,7 +3,15 @@ package it.polimi.ingsw.pc15.effetti;
 import java.io.Serializable;
 
 import it.polimi.ingsw.pc15.player.Player;
-
+/**
+ * Sottoclasse di effetto permette di guadagnare punti vittoria 
+ * rinunciando ai propri punti fede.
+ * 
+ * @author AndreaMazzeo289
+ * @author AndreaMaffe
+ * @author FrancescoGuzzo
+ *
+ */
 public class BonusPVChiesa extends Bonus {
 
 	public BonusPVChiesa(int valore) {

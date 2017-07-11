@@ -11,6 +11,15 @@ import java.util.ArrayList;
 import it.polimi.ingsw.pc15.plancia.Plancia;
 import it.polimi.ingsw.pc15.player.Player;
 
+/**
+ * Oggetto da passare al client da cui trarre tutte le informazioni neccessarie
+ * per aggiornare lo stato corrente del gioco.
+ * 
+ * @author AndreaMazzeo289
+ * @author AndreaMaffe
+ * @author FrancescoGuzzo
+ */
+
 public class StatoPartita implements Serializable {
 	
 	private Plancia statoPlancia;
@@ -75,6 +84,12 @@ public class StatoPartita implements Serializable {
 				this.statoGiocatore = giocatore;
 		
 	}
+	
+	/**
+	 * 
+	 * Clona l'oggetto stato partita.
+	 * 
+	 */
 	
 	public StatoPartita clone() {
 		try {

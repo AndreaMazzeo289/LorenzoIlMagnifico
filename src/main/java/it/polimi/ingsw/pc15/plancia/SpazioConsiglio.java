@@ -12,10 +12,14 @@ import it.polimi.ingsw.pc15.player.Familiare;
 import it.polimi.ingsw.pc15.risorse.SetRisorse;
 
 /**
- * Classe spazio del consiglio sottoclasse di spazio che riceve in ingresso
- * il valore minimo di posizionamento e il set risorse con cui istanziare
- * il relativo effetto.
+ * Definisce lo spazio consiglio sottoclasse di spazio.
+ * 
+ * @author AndreaMazzeo289
+ * @author AndreaMaffe
+ * @author FrancescoGuzzo
+ *
  */
+
 
 public class SpazioConsiglio extends Spazio {
 	

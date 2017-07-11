@@ -10,9 +10,14 @@ import it.polimi.ingsw.pc15.effetti.Effetto;
 import it.polimi.ingsw.pc15.player.Familiare;
 
 /**
- * Sottoclasse di spazio che definisce lo spazio produzione instanzione l'oggetto
- * con il relativo valore minimo di posizionamento.
+ * Definisce lo spazio produzione sottoclasse di spazio.
+ * 
+ * @author AndreaMazzeo289
+ * @author AndreaMaffe
+ * @author FrancescoGuzzo
+ *
  */
+
 
 public class SpazioProduzione extends Spazio {
 	

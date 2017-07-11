@@ -3,7 +3,15 @@ package it.polimi.ingsw.pc15.effetti;
 import java.io.Serializable;
 
 import it.polimi.ingsw.pc15.player.Player;
-
+/**
+ * Sottoclasse di effetto che aggiunge un valore bonus 
+ * al familiare per effettuare azione produzione.
+ * 
+ * @author AndreaMazzeo289
+ * @author AndreaMaffe
+ * @author FrancescoGuzzo
+ *
+ */
 public class BonusProduzione extends Bonus {
 	
 	public BonusProduzione(int valore){

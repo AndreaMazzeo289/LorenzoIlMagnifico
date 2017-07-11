@@ -5,10 +5,12 @@ import java.io.Serializable;
 import it.polimi.ingsw.pc15.carte.TipoCarta;
 import it.polimi.ingsw.pc15.player.Player;
 
-
 /**
+ * Sottoclasse di effetto che aggiunge il bonus al valore del familiare per prendere determitate carte.
  * 
- * 
+ * @author AndreaMazzeo289
+ * @author AndreaMaffe
+ * @author FrancescoGuzzo
  *
  */
 

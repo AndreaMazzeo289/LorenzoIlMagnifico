@@ -1,7 +1,15 @@
 package it.polimi.ingsw.pc15.effetti;
 
 import it.polimi.ingsw.pc15.player.Player;
-
+/**
+ * Sottoclasse di effetto che aumenta il numero di sevitori necessari 
+ * per aumentare di uno il valore del familiare.
+ * 
+ * @author AndreaMazzeo289
+ * @author AndreaMaffe
+ * @author FrancescoGuzzo
+ *
+ */
 public class AumentaPrezzoServitori extends Effetto {
 
 

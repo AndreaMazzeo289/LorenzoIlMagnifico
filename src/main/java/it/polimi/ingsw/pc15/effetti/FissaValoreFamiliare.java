@@ -5,7 +5,15 @@ import java.io.Serializable;
 import it.polimi.ingsw.pc15.player.ColoreFamiliare;
 import it.polimi.ingsw.pc15.player.Familiare;
 import it.polimi.ingsw.pc15.player.Player;
-
+/**
+ *Sottoclasse di effetto che fissa permanentemente il valore di un familiare
+ *del player.
+ * 
+ * @author AndreaMazzeo289
+ * @author AndreaMaffe
+ * @author FrancescoGuzzo
+ *
+ */
 public class FissaValoreFamiliare extends Effetto { 
 	
 	protected ColoreFamiliare colore;

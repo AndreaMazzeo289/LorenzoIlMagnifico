@@ -5,7 +5,15 @@ import java.io.Serializable;
 import it.polimi.ingsw.pc15.carte.TipoCarta;
 import it.polimi.ingsw.pc15.player.Player;
 import it.polimi.ingsw.pc15.risorse.SetRisorse;
-
+/**
+  * Sottoclasse di effetto che aggiunge un tipo di risorsa in base alla quantità
+ * di un tipo di carta posseduta.
+ * 
+ * @author AndreaMazzeo289
+ * @author AndreaMaffe
+ * @author FrancescoGuzzo
+ *
+ */
 public class RisorsePerCarte extends Moltiplicazione {
 	
 	private TipoCarta tipoCarta;

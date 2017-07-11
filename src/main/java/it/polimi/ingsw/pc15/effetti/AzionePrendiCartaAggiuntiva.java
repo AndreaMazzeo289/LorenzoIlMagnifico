@@ -5,7 +5,14 @@ import java.io.Serializable;
 import it.polimi.ingsw.pc15.carte.TipoCarta;
 import it.polimi.ingsw.pc15.player.Player;
 import it.polimi.ingsw.pc15.risorse.SetRisorse;
-
+/**
+ * Sottoclasse di effetto che permette di prendere una carta aggiuntiva sulla plancia.
+ * 
+ * @author AndreaMazzeo289
+ * @author AndreaMaffe
+ * @author FrancescoGuzzo
+ *
+ */
 public class AzionePrendiCartaAggiuntiva extends Effetto {
 	
 	protected TipoCarta tipoCarta;

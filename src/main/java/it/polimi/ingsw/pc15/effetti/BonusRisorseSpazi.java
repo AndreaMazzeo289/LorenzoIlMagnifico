@@ -4,7 +4,15 @@ import java.io.Serializable;
 
 import it.polimi.ingsw.pc15.player.Player;
 import it.polimi.ingsw.pc15.risorse.TipoRisorsa;
-
+/**
+ * Sottoclasse di effetto che permette di aggiungere tramite effetti degli spazi
+ * una quantità di risorse maggiore rispetto a quella stabilita.
+ * 
+ * @author AndreaMazzeo289
+ * @author AndreaMaffe
+ * @author FrancescoGuzzo
+ *
+ */
 public class BonusRisorseSpazi extends Bonus {
 	
 	private TipoRisorsa risorsa;
