@@ -5,6 +5,16 @@ import it.polimi.ingsw.pc15.carte.Carta;
 import it.polimi.ingsw.pc15.carte.TipoCarta;
 import it.polimi.ingsw.pc15.player.Player;
 
+/** 
+ * Sotto classe di azione prendi carta che permette di 
+ * prendere una carta edificio se rispettate le condizioni di acquisto.
+ * 
+ * @author AndreaMazzeo289
+ * @author AndreaMaffe
+ * @author FrancescoGuzzo
+ *
+ */
+
 public class AzionePrendiCartaEdificio extends AzionePrendiCarta {
 
 	public AzionePrendiCartaEdificio(Player player, Carta carta) {

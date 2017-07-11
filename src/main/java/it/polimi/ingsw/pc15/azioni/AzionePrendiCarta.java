@@ -11,6 +11,16 @@ import it.polimi.ingsw.pc15.risorse.Oro;
 import it.polimi.ingsw.pc15.risorse.SetRisorse;
 import it.polimi.ingsw.pc15.risorse.TipoRisorsa;
 
+/** 
+ * Superclasse delle azioni definite per prendere le carte
+ * sulla plancia sottoclasse di azione.
+ * 
+ * @author AndreaMazzeo289
+ * @author AndreaMaffe
+ * @author FrancescoGuzzo
+ *
+ */
+
 public abstract class AzionePrendiCarta extends Azione{
 	
 	protected final Carta carta;

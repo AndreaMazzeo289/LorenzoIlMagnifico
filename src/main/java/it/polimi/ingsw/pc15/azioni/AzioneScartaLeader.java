@@ -5,6 +5,16 @@ import it.polimi.ingsw.pc15.player.Leader;
 import it.polimi.ingsw.pc15.player.Player;
 import it.polimi.ingsw.pc15.risorse.TipoRisorsa;
 
+/** 
+ * Sotto classe di azione leader che permette di scartare un
+ * leader guadagnando un privilegio.
+ * 
+ * @author AndreaMazzeo289
+ * @author AndreaMaffe
+ * @author FrancescoGuzzo
+ *
+ */
+
 public class AzioneScartaLeader extends AzioneLeader {
 	
 	private int sceltaRisorsa;

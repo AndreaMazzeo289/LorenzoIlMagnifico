@@ -15,6 +15,16 @@ import it.polimi.ingsw.pc15.risorse.Risorsa;
 import it.polimi.ingsw.pc15.risorse.SetRisorse;
 import it.polimi.ingsw.pc15.risorse.TipoRisorsa;
 
+/** 
+ * Sotto classe di azione prendi carta che permette di 
+ * prendere una carta impresa se rispettate le condizioni di acquisto.
+ * 
+ * @author AndreaMazzeo289
+ * @author AndreaMaffe
+ * @author FrancescoGuzzo
+ *
+ */
+
 public class AzionePrendiCartaImpresa extends AzionePrendiCarta {
 	
 		int scelta;

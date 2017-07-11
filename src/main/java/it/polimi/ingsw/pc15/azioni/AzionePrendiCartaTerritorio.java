@@ -7,6 +7,17 @@ import it.polimi.ingsw.pc15.carte.TipoCarta;
 import it.polimi.ingsw.pc15.player.Player;
 import it.polimi.ingsw.pc15.risorse.TipoRisorsa;
 
+
+/** 
+ * Sotto classe di azione prendi carta che permette di 
+ * prendere una carta territorio se rispettate le condizioni di acquisto.
+ * 
+ * @author AndreaMazzeo289
+ * @author AndreaMaffe
+ * @author FrancescoGuzzo
+ *
+ */
+
 public class AzionePrendiCartaTerritorio extends AzionePrendiCarta {
 
 	public AzionePrendiCartaTerritorio(Player player, Carta carta) {

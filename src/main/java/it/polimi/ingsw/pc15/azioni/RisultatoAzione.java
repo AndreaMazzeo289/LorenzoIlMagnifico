@@ -1,9 +1,13 @@
 package it.polimi.ingsw.pc15.azioni;
 
-/**
+/** 
  * Classe adibita a contenere i risultati legati ai controlli di validità 
  * delle differenti azioni.
  * I metodi èValida infatti retituiscono questo oggetto.
+ * 
+ * @author AndreaMazzeo289
+ * @author AndreaMaffe
+ * @author FrancescoGuzzo
  *
  */
 

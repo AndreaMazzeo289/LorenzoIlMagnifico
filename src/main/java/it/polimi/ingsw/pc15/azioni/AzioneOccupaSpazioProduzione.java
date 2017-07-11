@@ -9,6 +9,16 @@ import it.polimi.ingsw.pc15.player.Familiare;
 import it.polimi.ingsw.pc15.player.Player;
 import it.polimi.ingsw.pc15.risorse.TipoRisorsa;
 
+/** 
+ * Sotto classe di azione occupa spazio che permette di 
+ * occupare lo spazio produzione.
+ * 
+ * @author AndreaMazzeo289
+ * @author AndreaMaffe
+ * @author FrancescoGuzzo
+ *
+ */
+
 public class AzioneOccupaSpazioProduzione extends AzioneOccupaSpazio {
 
 	public AzioneOccupaSpazioProduzione(Player player, Familiare familiare, SpazioProduzione spazio, int servitoriAggiuntivi) {

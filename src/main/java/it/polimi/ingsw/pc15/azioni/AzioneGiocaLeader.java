@@ -7,6 +7,15 @@ import it.polimi.ingsw.pc15.effetti.Effetto;
 import it.polimi.ingsw.pc15.player.Leader;
 import it.polimi.ingsw.pc15.player.Player;
 
+/** 
+ * Sotto classe di azione leader che permette di giocare un leader.
+ * 
+ * @author AndreaMazzeo289
+ * @author AndreaMaffe
+ * @author FrancescoGuzzo
+ *
+ */
+
 public class AzioneGiocaLeader extends AzioneLeader {
 
 	public AzioneGiocaLeader(Player player, Leader leader) {

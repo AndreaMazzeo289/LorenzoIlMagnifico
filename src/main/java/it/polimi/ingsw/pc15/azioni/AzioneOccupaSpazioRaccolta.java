@@ -10,6 +10,16 @@ import it.polimi.ingsw.pc15.player.Familiare;
 import it.polimi.ingsw.pc15.player.Player;
 import it.polimi.ingsw.pc15.risorse.TipoRisorsa;
 
+/** 
+ * Sotto classe di azione occupa spazio che permette di 
+ * occupare lo spazio raccolta.
+ * 
+ * @author AndreaMazzeo289
+ * @author AndreaMaffe
+ * @author FrancescoGuzzo
+ *
+ */
+
 public class AzioneOccupaSpazioRaccolta extends AzioneOccupaSpazio {
 
 	public AzioneOccupaSpazioRaccolta(Player player, Familiare familiare, SpazioRaccolta spazio, int servitoriAggiuntivi) {

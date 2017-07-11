@@ -9,6 +9,16 @@ import it.polimi.ingsw.pc15.player.Familiare;
 import it.polimi.ingsw.pc15.player.Player;
 import it.polimi.ingsw.pc15.risorse.TipoRisorsa;
 
+/** 
+ * Sotto classe di azione occupa spazio che permette di 
+ * occupare lo spazio di una torre.
+ * 
+ * @author AndreaMazzeo289
+ * @author AndreaMaffe
+ * @author FrancescoGuzzo
+ *
+ */
+
 public class AzioneOccupaSpazioTorre extends AzioneOccupaSpazio {
 	
 	AzionePrendiCarta azionePrendiCarta;

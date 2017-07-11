@@ -6,6 +6,16 @@ import it.polimi.ingsw.pc15.carte.TipoCarta;
 import it.polimi.ingsw.pc15.effetti.Effetto;
 import it.polimi.ingsw.pc15.player.Player;
 
+/** 
+ * Sotto classe di azione prendi carta che permette di 
+ * prendere una carta personaggio se rispettate le condizioni di acquisto.
+ * 
+ * @author AndreaMazzeo289
+ * @author AndreaMaffe
+ * @author FrancescoGuzzo
+ *
+ */
+
 public class AzionePrendiCartaPersonaggio extends AzionePrendiCarta {
 
 	public AzionePrendiCartaPersonaggio(Player player, Carta carta) {
