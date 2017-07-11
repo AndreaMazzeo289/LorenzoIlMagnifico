@@ -6,6 +6,17 @@ import java.util.Observer;
 import java.util.concurrent.ArrayBlockingQueue;
 import java.util.concurrent.BlockingQueue;
 
+/**
+ *Superclasse astratta di CLI e GUI. Contiene il riferimento al ClientModel del giocatore
+ *per la lettura dei dati della partita. Osserva il ClientModel per essere notificata in caso di aggiornamenti
+ *ed è osservata dal NetworkHandler, a cui notifica i messaggi da inviare al server
+ *
+ * @author AndreaMazzeo289
+ * @author AndreaMaffe
+ * @author FrancescoGuzzo
+ *
+ */
+
 public abstract class ClientView extends Observable implements Observer, Runnable {
 	
 	protected ClientModel clientModel;

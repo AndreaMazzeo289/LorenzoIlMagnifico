@@ -12,6 +12,17 @@ import it.polimi.ingsw.pc15.plancia.SpazioTorre;
 import it.polimi.ingsw.pc15.player.Player;
 import it.polimi.ingsw.pc15.risorse.TipoRisorsa;
 
+/**
+ *Classe usata dalla ClientView del giocatore per leggere i dati della partita in corso.
+ *Viene periodicamente aggiornata dal NetworkHandler. Implementa Observable per notificare
+ *gli aggiornamenti alla ClientView
+ *
+ * @author AndreaMazzeo289
+ * @author AndreaMaffe
+ * @author FrancescoGuzzo
+ *
+ */
+
 public class ClientModel extends Observable {
 	
 	private Plancia statoPlancia;

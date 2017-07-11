@@ -3,6 +3,16 @@ package it.polimi.ingsw.pc15.client;
 import java.io.IOException;
 import java.util.Scanner;
 
+/**
+ *Classe per lanciare un thread Client. In base alle scelte, istanzierà un SocketClient o un
+ *RMIClient, passando in entrambi i casi la scelta per usare una CLI o una GUI.
+ *
+ * @author AndreaMazzeo289
+ * @author AndreaMaffe
+ * @author FrancescoGuzzo
+ *
+ */
+
 public class ClientMain {
 
 	public static void main(String[] args) {

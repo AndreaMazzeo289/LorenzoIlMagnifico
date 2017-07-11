@@ -12,6 +12,16 @@ import java.util.Scanner;
 
 import it.polimi.ingsw.pc15.GUI.GUI;
 
+/**
+ *Sottoclasse di Client che implementa la connessione tramite Socket. Utilizza un SocketHandler
+ *per gestire la connessione di rete.
+ *
+ * @author AndreaMazzeo289
+ * @author AndreaMaffe
+ * @author FrancescoGuzzo
+ *
+ */
+
 public class SocketClient extends Client {
 	
 	private static String hostName;

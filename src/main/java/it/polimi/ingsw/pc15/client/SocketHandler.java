@@ -16,6 +16,17 @@ import it.polimi.ingsw.pc15.model.StatoPartita;
 import it.polimi.ingsw.pc15.plancia.SpazioTorre;
 import it.polimi.ingsw.pc15.risorse.TipoRisorsa;
 
+/**
+ *Sottoclasse di NetworkHandler per la gestione di rete tramite Socket. Contiene gli stream di
+ *input e output usati per ricevere e inviare messaggi al server tramite Socket. Si registra al server
+ *tramite connetti() e si avvia tramite run()
+ *
+ * @author AndreaMazzeo289
+ * @author AndreaMaffe
+ * @author FrancescoGuzzo
+ *
+ */
+
 public class SocketHandler extends NetworkHandler implements Serializable{
 	
 	private transient Scanner in;

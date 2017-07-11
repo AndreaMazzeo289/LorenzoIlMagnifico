@@ -8,6 +8,16 @@ import it.polimi.ingsw.pc15.GUI.GUI;
 
 public class RMIClient extends Client {
 	
+	/**
+	 *Sottoclasse di Client che implementa la connessione tramite Socket. Utilizza un RMIHandler
+	 *per gestire l'invocazione dei metodi in remoto.
+	 *
+	 * @author AndreaMazzeo289
+	 * @author AndreaMaffe
+	 * @author FrancescoGuzzo
+	 *
+	 */
+	
 	public RMIClient(String nome, int tipoView) throws IOException {
 		super();
 		this.networkHandler = new RMIHandler(clientModel, nome);

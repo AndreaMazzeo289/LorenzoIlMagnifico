@@ -16,6 +16,16 @@ import it.polimi.ingsw.pc15.model.StatoPartita;
 import it.polimi.ingsw.pc15.plancia.SpazioTorre;
 import it.polimi.ingsw.pc15.server.ServerInterface;
 
+/**
+ *Sottoclasse di NetworkHandler, per la gestione di rete tramite RMI. Contiene un numeroConnessione
+ *che riceve direttamente dal server
+ *
+ * @author AndreaMazzeo289
+ * @author AndreaMaffe
+ * @author FrancescoGuzzo
+ *
+ */
+
 public class RMIHandler extends NetworkHandler implements RMIHandlerInterface {
 	
 	private int numeroConnessione;
