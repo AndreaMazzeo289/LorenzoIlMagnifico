@@ -4,7 +4,8 @@ import java.io.Serializable;
 
 import it.polimi.ingsw.pc15.player.Player;
 /**
- * descr
+ * Sottoclasse di effetto che annula il guadagno del player in punti vittoria 
+ * dovuto al numero di carte territorio possedute.
  * 
  * @author AndreaMazzeo289
  * @author AndreaMaffe

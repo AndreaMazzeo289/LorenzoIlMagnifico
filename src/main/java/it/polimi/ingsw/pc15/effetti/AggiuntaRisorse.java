@@ -9,7 +9,8 @@ import it.polimi.ingsw.pc15.risorse.SetRisorse;
 import it.polimi.ingsw.pc15.risorse.TipoRisorsa;
 
 /**
- * descr
+ * Sottoclasse di effetto che preso il set di risorse con cui l'oggetto è stato 
+ * istanziato lo assegna al player
  * 
  * @author AndreaMazzeo289
  * @author AndreaMaffe

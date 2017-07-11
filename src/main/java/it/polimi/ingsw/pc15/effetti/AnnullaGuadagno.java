@@ -7,7 +7,8 @@ import it.polimi.ingsw.pc15.carte.TipoCarta;
 import it.polimi.ingsw.pc15.player.Player;
 
 /**
- * descr
+ * Sottoclasse di effetto che annulla i guadagni in punti vittoria del player a fine partita
+ * legati ad un determinato tipo di carta.
  * 
  * @author AndreaMazzeo289
  * @author AndreaMaffe

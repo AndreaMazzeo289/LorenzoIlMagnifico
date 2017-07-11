@@ -10,7 +10,7 @@ import it.polimi.ingsw.pc15.risorse.Servitori;
 
 
 /**
- * descr
+ * Sotto classe di effetto che definisce l'aggiunta del privilegio.
  * 
  * @author AndreaMazzeo289
  * @author AndreaMaffe
